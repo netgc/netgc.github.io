@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          静态路由实例 - netgc | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/Static-Route-Windows_Linux_Cisco_VMware/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header2.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                            
+                              <a class="tag" href="/tags/#Network" title="Network">Network</a>
+                            
+                              <a class="tag" href="/tags/#Route" title="Route">Route</a>
+                            
+                              <a class="tag" href="/tags/#Cisco" title="Cisco">Cisco</a>
+                            
+                        </div>
+                        <h1>静态路由实例</h1>
+                        <h2 class="subheading">Windows、Linux、Cisco和VMware等添加静态路由的方法</h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2020-03-20
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">System Inside</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <h2 id="windows">Windows</h2>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">route add -p <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span> mask <span class="number">255.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.16</span><span class="number">.1</span></span><br><span class="line"></span><br><span class="line">route add -p <span class="number">10.10</span><span class="number">.11</span><span class="number">.0</span> mask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br><span class="line">route add -p <span class="number">10.10</span><span class="number">.13</span><span class="number">.0</span> mask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br><span class="line">route add -p <span class="number">10.10</span><span class="number">.14</span><span class="number">.0</span> mask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="cisco-ios-ios-xe">Cisco IOS、IOS-XE</h2>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">255.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.200</span><span class="number">.2254</span></span><br><span class="line">ip route <span class="number">10.10</span><span class="number">.11</span><span class="number">.0</span> <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="cisco-nx-os">Cisco NX-OS</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">N7K(config)#vrf context management</span><br><span class="line">N7K(config-vrf)# ip route 0.0.0.0/0 &lt;下一跳IP&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="linux通用临时">Linux（通用，临时）</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add -net 10.10.11.0/20 gw 10.10.12.1</span><br></pre></td></tr></table></figure></p>
+<h2 id="centos永久">CentOS（永久）</h2>
+<p>推荐方式：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo '</span><br><span class="line"><span class="number">10.10</span><span class="number">.12</span><span class="number">.0</span>/<span class="number">24</span> via <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line"><span class="number">10.10</span><span class="number">.13</span><span class="number">.0</span>/<span class="number">24</span> via <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line"><span class="number">10.10</span><span class="number">.14</span><span class="number">.0</span>/<span class="number">24</span> via <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line"><span class="number">10.10</span><span class="number">.15</span><span class="number">.0</span>/<span class="number">24</span> via <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line"><span class="number">10.10</span><span class="number">.16</span><span class="number">.0</span>/<span class="number">24</span> via <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">' &gt; /etc/sysconfig/network-scripts/route-eth0</span><br></pre></td></tr></table></figure></p>
+<p>另外一种方法：使用network.service（CentOS7默认，CentOS8需要<code>yum install network-scripts</code>）</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;</span><br><span class="line">any net 10.10.13.0/24 gw 10.10.15.1</span><br><span class="line">any net 10.10.14.0/24 gw 10.10.15.1</span><br><span class="line">any net 10.10.15.0/24 gw 10.10.15.1</span><br><span class="line">any net 10.10.16.0/24 gw 10.10.15.1</span><br><span class="line">&apos; &gt; /etc/sysconfig/static-routes</span><br></pre></td></tr></table></figure></p>
+<p>验证</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route</span><br></pre></td></tr></table></figure></p>
+<h2 id="ubuntu永久">Ubuntu（永久）</h2>
+<p>16.04</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#添加</span><br><span class="line">cat &gt;&gt; /etc/network/interfaces &lt;&lt; EOF</span><br><span class="line"># static routes</span><br><span class="line">up route add -net 10.10.12.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.13.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.14.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.15.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.16.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#重启网络</span><br><span class="line">service networking restart</span><br><span class="line"></span><br><span class="line">#验证</span><br><span class="line">ip route</span><br></pre></td></tr></table></figure></p>
+<h3 id="netplan"><a href="https://netplan.io/examples" target="_blank" rel="noopener">NetPlan</a></h3>
+<p>Ubuntu 18.04、20.04及以上</p>
+<p>18.04: /etc/netplan/50-cloud-init.yaml</p>
+<p>20.04：/etc/netplan/00-installer-config.yaml</p>
+<p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line"><span class="attr">  version:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">  ethernets:</span></span><br><span class="line"><span class="attr">    eth0:</span></span><br><span class="line"><span class="attr">      addresses:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">10.10</span><span class="number">.15</span><span class="number">.5</span><span class="string">/24</span></span><br><span class="line"><span class="attr">      gateway4:</span> <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line"><span class="attr">      nameservers:</span></span><br><span class="line"><span class="attr">        addresses:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">10.10</span><span class="number">.15</span><span class="number">.11</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">10.10</span><span class="number">.15</span><span class="number">.12</span></span><br><span class="line"><span class="attr">        search:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">sysin.org</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注释gateway4</span></span><br><span class="line">sed -i 's/gateway4.*/#&amp;/' /etc/netplan/00-installer-config.yaml</span><br><span class="line"><span class="comment">//追加静态路由</span></span><br><span class="line">cat &gt;&gt; /etc/netplan/<span class="number">00</span>-installer-config.yaml &lt;&lt; EOF</span><br><span class="line">      routes:</span><br><span class="line">        - to: <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">0</span></span><br><span class="line">          via: <span class="number">10.10</span><span class="number">.15</span><span class="number">.254</span></span><br><span class="line">          metric: <span class="number">100</span></span><br><span class="line">        - to: <span class="number">10.10</span><span class="number">.12</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">          via: <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">          metric: <span class="number">100</span></span><br><span class="line">        - to: <span class="number">10.10</span><span class="number">.13</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">          via: <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">          metric: <span class="number">100</span></span><br><span class="line">        - to: <span class="number">10.10</span><span class="number">.14</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">          via: <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">          metric: <span class="number">100</span></span><br><span class="line">        - to: <span class="number">10.10</span><span class="number">.15</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">          via: <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">          metric: <span class="number">100</span></span><br><span class="line">        - to: <span class="number">10.10</span><span class="number">.16</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">          via: <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">          metric: <span class="number">100</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></p>
+<p>metric：为路由指定所需跃点数的整数值（范围是 1 ~ 9999），Metric的值越小，优先级越高。</p>
+<p>完整配置示例（&gt;覆盖）</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /etc/netplan/00-installer-config.yaml &lt;&lt; EOF</span><br><span class="line">network:</span><br><span class="line">  version: 2</span><br><span class="line">  ethernets:</span><br><span class="line">    eth0:</span><br><span class="line">      addresses:</span><br><span class="line">        - 10.10.15.57/24</span><br><span class="line">      #gateway4: 10.10.15.254</span><br><span class="line">      nameservers:</span><br><span class="line">        addresses:</span><br><span class="line">          - 10.10.15.11</span><br><span class="line">          - 10.10.15.12</span><br><span class="line">        search:</span><br><span class="line">          - sysin.org</span><br><span class="line">      routes:</span><br><span class="line">        - to: 0.0.0.0/0</span><br><span class="line">          via: 10.10.15.254</span><br><span class="line">          metric: 100</span><br><span class="line">        - to: 10.10.12.0/24</span><br><span class="line">          via: 10.10.15.1</span><br><span class="line">          metric: 100</span><br><span class="line">        - to: 10.10.13.0/24</span><br><span class="line">          via: 10.10.15.1</span><br><span class="line">          metric: 100</span><br><span class="line">        - to: 10.10.14.0/24</span><br><span class="line">          via: 10.10.15.1</span><br><span class="line">          metric: 100</span><br><span class="line">        - to: 10.10.15.0/24</span><br><span class="line">          via: 10.10.15.1</span><br><span class="line">          metric: 100</span><br><span class="line">        - to: 10.10.16.0/24</span><br><span class="line">          via: 10.10.15.1</span><br><span class="line">          metric: 100</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>多网关</li>
+</ul>
+<p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line"><span class="attr">  version:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">  renderer:</span> <span class="string">networkd</span></span><br><span class="line"><span class="attr">  ethernets:</span></span><br><span class="line"><span class="attr">    eth0:</span></span><br><span class="line"><span class="attr">      addresses:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">9.0</span><span class="number">.0</span><span class="number">.9</span><span class="string">/24</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.10</span><span class="string">/24</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">11.0</span><span class="number">.0</span><span class="number">.11</span><span class="string">/24</span></span><br><span class="line">      <span class="comment">#gateway4:  # unset, since we configure routes below</span></span><br><span class="line"><span class="attr">      routes:</span></span><br><span class="line"><span class="attr">        - to:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">          via:</span> <span class="number">9.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">          metric:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">        - to:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">          via:</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">          metric:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">        - to:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">          via:</span> <span class="number">11.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">          metric:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netplan apply</span><br></pre></td></tr></table></figure></p>
+<p>补充：yaml 基础</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">大小写敏感</span><br><span class="line">使用缩进表示层级关系</span><br><span class="line">缩进时不允许使用Tab键，只允许使用空格</span><br><span class="line">缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</span><br></pre></td></tr></table></figure></p>
+<p>缩进建议使用2个空格，使用短横线“-”表示列表时，”- “后面的条目需要对齐，如果使用超过2个空格缩进，格式将有误。</p>
+<h2 id="vmware-esxi">VMware ESXi</h2>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#查看路由</span><br><span class="line">esxcfg-route -l</span><br><span class="line">#添加</span><br><span class="line">esxcli network ip route ipv4 add --gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> --network <span class="number">10.10</span><span class="number">.12</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">esxcli network ip route ipv4 add --gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> --network <span class="number">10.10</span><span class="number">.13</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">esxcli network ip route ipv4 add --gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> --network <span class="number">10.10</span><span class="number">.14</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">esxcli network ip route ipv4 add --gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> --network <span class="number">10.10</span><span class="number">.15</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">esxcli network ip route ipv4 add --gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> --network <span class="number">10.10</span><span class="number">.16</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">#删除默认路由</span><br><span class="line">esxcli network ip route ipv4 remove -n <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">0</span> -g <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">#恢复默认路由</span><br><span class="line">esxcli network ip route ipv4 add --gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.254</span> --network <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">0</span></span><br><span class="line">#查看路由</span><br><span class="line">esxcfg-route -l</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">esxcfg-route -l</span><br><span class="line"></span><br><span class="line">esxcli network ip route ipv4 add --gateway 10.10.14.1 --network 10.10.12.0/24</span><br><span class="line">esxcli network ip route ipv4 add --gateway 10.10.14.1 --network 10.10.13.0/24</span><br><span class="line">esxcli network ip route ipv4 add --gateway 10.10.14.1 --network 10.10.14.0/24</span><br><span class="line">esxcli network ip route ipv4 add --gateway 10.10.14.1 --network 10.10.15.0/24</span><br><span class="line">esxcli network ip route ipv4 add --gateway 10.10.14.1 --network 10.10.16.0/24</span><br><span class="line"></span><br><span class="line">esxcli network ip route ipv4 remove -n 0.0.0.0/0 -g 10.10.14.1</span><br><span class="line"></span><br><span class="line">esxcli network ip route ipv4 add --gateway 10.10.14.254 --network 0.0.0.0/0</span><br><span class="line"></span><br><span class="line">esxcfg-route -l</span><br></pre></td></tr></table></figure></p>
+<h2 id="nsx-t">NSX-T</h2>
+<p>基于Ubuntu，但不可手动编辑，以下为 nsxcli (使用admin账号登录)</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> route prefix <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">0</span> gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.254</span> interface eth0</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> route prefix <span class="number">10.10</span><span class="number">.12</span><span class="number">.0</span>/<span class="number">24</span> gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> interface eth0</span><br><span class="line"><span class="built_in">set</span> route prefix <span class="number">10.10</span><span class="number">.13</span><span class="number">.0</span>/<span class="number">24</span> gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> interface eth0</span><br><span class="line"><span class="built_in">set</span> route prefix <span class="number">10.10</span><span class="number">.14</span><span class="number">.0</span>/<span class="number">24</span> gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> interface eth0</span><br><span class="line"><span class="built_in">set</span> route prefix <span class="number">10.10</span><span class="number">.15</span><span class="number">.0</span>/<span class="number">24</span> gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> interface eth0</span><br><span class="line"><span class="built_in">set</span> route prefix <span class="number">10.10</span><span class="number">.16</span><span class="number">.0</span>/<span class="number">24</span> gateway <span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span> interface eth0</span><br><span class="line"></span><br><span class="line">get route</span><br></pre></td></tr></table></figure></p>
+<h2 id="vmware-vrealize-network-insight">VMware vRealize Network Insight</h2>
+<p>基于Ubunt 16.04，与Ubuntu相同</p>
+<p>使用support账号登录</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#添加</span><br><span class="line">cat &gt;&gt; /etc/network/interfaces &lt;&lt; EOF</span><br><span class="line"># static routes</span><br><span class="line">up route add -net 10.10.12.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.13.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.14.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.15.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">up route add -net 10.10.16.0/24 gw 10.10.15.1 dev eth0</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">#重启网络</span><br><span class="line">service networking restart</span><br><span class="line"></span><br><span class="line">#验证</span><br><span class="line">ip route</span><br></pre></td></tr></table></figure></p>
+<h2 id="vmware-photon-os">VMware Photon OS</h2>
+<p>vCenter Server 6.x/7.0</p>
+<p>用于vRealize 8.x 系列产品（3.0），vSphere_Replication（2.0），SRM（2.0）</p>
+<p>编辑/etc/systemd/network/10-eth0.network
+添加
+[Route]
+Destination=10.1.0.0/16
+Gateway=10.5.0.1
+GatewayOnlink=true #可选</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; /etc/systemd/network/<span class="number">10</span>-eth0.network &lt;&lt; EOF</span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=<span class="number">10.10</span><span class="number">.12</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">Gateway=<span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">GatewayOnlink=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=<span class="number">10.10</span><span class="number">.13</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">Gateway=<span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">GatewayOnlink=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=<span class="number">10.10</span><span class="number">.14</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">Gateway=<span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">GatewayOnlink=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=<span class="number">10.10</span><span class="number">.15</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">Gateway=<span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">GatewayOnlink=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=<span class="number">10.10</span><span class="number">.16</span><span class="number">.0</span>/<span class="number">24</span></span><br><span class="line">Gateway=<span class="number">10.10</span><span class="number">.15</span><span class="number">.1</span></span><br><span class="line">GatewayOnlink=<span class="literal">true</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></p>
+<p>重启网络</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-networkd</span><br></pre></td></tr></table></figure></p>
+<p>验证</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route</span><br></pre></td></tr></table></figure></p>
+<h3 id="vmware-cloud-director-availability-40">VMware Cloud Director Availability 4.0</h3>
+<p>注意：手动修改网络配置后，WebUI中显示错误无法直接配置。</p>
+<p>基于 Photon OS，但是网卡名称不一样。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; /etc/systemd/network/ens160.network &lt;&lt; EOF</span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=10.10.12.0/24</span><br><span class="line">Gateway=10.10.15.1</span><br><span class="line">GatewayOnlink=true</span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=10.10.13.0/24</span><br><span class="line">Gateway=10.10.15.1</span><br><span class="line">GatewayOnlink=true</span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=10.10.14.0/24</span><br><span class="line">Gateway=10.10.15.1</span><br><span class="line">GatewayOnlink=true</span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=10.10.15.0/24</span><br><span class="line">Gateway=10.10.15.1</span><br><span class="line">GatewayOnlink=true</span><br><span class="line"></span><br><span class="line">[Route]</span><br><span class="line">Destination=10.10.16.0/24</span><br><span class="line">Gateway=10.10.15.1</span><br><span class="line">GatewayOnlink=true</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></p>
+<p>重启网络</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart systemd-networkd</span><br></pre></td></tr></table></figure></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/macOS_ll/" data-toggle="tooltip" data-placement="top" title="给 macOS zsh 添加 ll 命令">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Chrome_不能打开_kubernetes_Dashboard_解决方法/" data-toggle="tooltip" data-placement="top" title="Chrome 不能打开 kubernetes Dashboard 解决方法">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#windows"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#cisco-ios-ios-xe"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Cisco IOS&#x3001;IOS-XE</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#cisco-nx-os"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Cisco NX-OS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#linux通用临时"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Linux&#xFF08;&#x901A;&#x7528;&#xFF0C;&#x4E34;&#x65F6;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#centos永久"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">CentOS&#xFF08;&#x6C38;&#x4E45;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ubuntu永久"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Ubuntu&#xFF08;&#x6C38;&#x4E45;&#xFF09;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#netplan"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text"><a href="https://netplan.io/examples" target="_blank" rel="noopener">NetPlan</a></span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vmware-esxi"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">VMware ESXi</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#nsx-t"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">NSX-T</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vmware-vrealize-network-insight"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">VMware vRealize Network Insight</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vmware-photon-os"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">VMware Photon OS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#vmware-cloud-director-availability-40"><span class="toc-nav-number">10.1.</span> <span class="toc-nav-text">VMware Cloud Director Availability 4.0</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                        
+                          <a class="tag" href="/tags/#Network" title="Network">Network</a>
+                        
+                          <a class="tag" href="/tags/#Route" title="Route">Route</a>
+                        
+                          <a class="tag" href="/tags/#Cisco" title="Cisco">Cisco</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://juejin.im/" target="_blank">掘金</a></li>
+                    
+                        <li><a href="https://www.jianshu.com/" target="_blank">简书</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Theme by <a href="http://beantech.org" target=_blank>BeanTech</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

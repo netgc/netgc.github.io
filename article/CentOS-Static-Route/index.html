@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          CentOS 添加静态路由的几种方法 - netgc | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/CentOS-Static-Route/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                            
+                              <a class="tag" href="/tags/#CentOS" title="CentOS">CentOS</a>
+                            
+                        </div>
+                        <h1>CentOS 添加静态路由的几种方法</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2019-06-15
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">System Inside</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <p>在日常使用中，服务器有两个IP地址，两块网卡的配置，访问不同网段，这种情况很常见。但我们需要创建额外的路由条目，以确定通过正确的网关转发数据包，使interface能够正常通信。</p>
+<p>以下在CentOS 7、8测试通过</p>
+<h2 id="一-使用route命令加入临时路由重启后将失效">一、使用route命令加入临时路由，重启后将失效</h2>
+<p>route 命令
+参数：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">add     增加路由</span><br><span class="line">del     删除路由</span><br><span class="line">-net    设置到某个网段的路由</span><br><span class="line">-host   设置到某台主机的路由</span><br><span class="line">gw      出口网关 IP地址</span><br><span class="line">dev     出口网关 物理设备名</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 加入到主机的路由</span><br><span class="line">route add -host 192.168.1.123 dev eth0</span><br><span class="line">route add -host 192.168.1.123 gw 192.168.1.1</span><br><span class="line"></span><br><span class="line"># 加入到网络的路由</span><br><span class="line">route add -net 192.168.1.123 netmask 255.255.255.0 eth0</span><br><span class="line">route add -net 192.168.1.123 netmask 255.255.255.0 gw 192.168.1.1</span><br><span class="line">route add -net 192.168.1.123 netmask 255.255.255.0 gw 192.168.1.1 eth1</span><br><span class="line">route add -net 192.168.1.0/24 eth1</span><br><span class="line"></span><br><span class="line"># 加入默认网关</span><br><span class="line">route add default gw 192.168.1.1</span><br><span class="line"></span><br><span class="line"># 删除路由</span><br><span class="line">route del -host 192.168.1.11 dev eth0</span><br><span class="line">route del -net 192.168.1.123 netmask 255.255.255.0</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 查看路由信息</span><br><span class="line">ip route</span><br><span class="line">route -n</span><br></pre></td></tr></table></figure></p>
+<h2 id="二-在linux中添加永久路由的方法">二、在Linux中添加永久路由的方法</h2>
+<h3 id="1-默认网关">1. 默认网关</h3>
+<p>（1）写入ifcfg文件（推荐）</p>
+<p>vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<p>在配置ip地址的时候直接将GATEWAY的配置写入ifcfg文件。形式：GATEWAY=gw-ip</p>
+<p>适合加入默认路由</p>
+<p>（2）在/etc/sysconfig/network里加入到文件末尾，格式例如以下：</p>
+<p>GATEWAY=gw-ip 或者 GATEWAY=gw-dev</p>
+<h3 id="2-写入etcrcloacl不推荐">2. 写入/etc/rc.loacl（不推荐）</h3>
+<p>（注意：CentOS 7必须执行“chmod +x /etc/rc.d/rc.local”来确保确保这个脚本在引导时执行。）</p>
+<p>能够将上面提到的命令写入/etc/rc.local文件里，这样在系统启动的时候会自己主动增加相关的路由设置。</p>
+<p>只是这样的方法有一个缺点：假设某个系统服务，比方说是NFS服务，这个服务是在启动network服务之后，在运行rc.local之前，假设你设置的有自己主动挂载的nfs。那么，这里链路的不通畅。会造成挂载的失败。另外一个就是假设你重新启动了网络server，那么路由就失效了，这个时候你不得不又一次载入这个文件，可是假设你是远程操作的呢？所以，这种方法不推荐。</p>
+<p>方法：</p>
+<p>编辑/etc/rc.local，使用route命令语法添加</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">route add -net 192.168.3.0/24 dev eth0</span><br><span class="line">route add -net 192.168.2.0/24 gw 192.168.3.254</span><br><span class="line">route add -net 172.16.0.0 netmask 255.255.0.0 gw 192.168.1.100 dev eth0</span><br></pre></td></tr></table></figure></p>
+<p>修改过的文件：
+/etc/rc.d/rc.local 文件示例</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> This script will be executed *after* all the other init scripts.</span><br><span class="line"><span class="meta">#</span> You can put your own initialization stuff in here if you don't</span><br><span class="line"><span class="meta">#</span> want to do the full Sys V style init stuff.</span><br><span class="line">touch /var/lock/subsys/local</span><br><span class="line">route add -net 192.168.3.0/24 dev eth0</span><br><span class="line">route add -net 192.168.2.0/24 gw 192.168.3.254</span><br><span class="line">route add -net 172.16.0.0 netmask 255.255.0.0 gw 192.168.1.100 dev eth0</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-写入etcsysconfigstatic-routes文件">3. 写入/etc/sysconfig/static-routes文件</h3>
+<p>默认在/etc/sysconifg文件夹中是没有这个文件的，须要我们手工创建。对这个文件的调用在以下：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/init.d/network</span><br><span class="line"></span><br><span class="line">    # Add non interface-specific static-routes.</span><br><span class="line">    if [ -f /etc/sysconfig/static-routes ]; then</span><br><span class="line">        if [ -x /sbin/route ]; then</span><br><span class="line">            grep "^any" /etc/sysconfig/static-routes | while read ignore args ; do</span><br><span class="line">                /sbin/route add -$args</span><br><span class="line">            done</span><br><span class="line">        else</span><br><span class="line">            net_log $"Legacy static-route support not available: /sbin/route not found"</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br></pre></td></tr></table></figure></p>
+<p>添加操作如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/static-routes</span><br><span class="line">any net 192.168.1.0/24 gw 192.168.1.1</span><br><span class="line">any net 192.168.2.0 netmask 255.255.255.0 gw 192.168.2.1</span><br><span class="line">any host 10.19.190.11/32 gw 10.19.177.10</span><br><span class="line">any host 10.19.190.12 gw 10.19.177.10</span><br></pre></td></tr></table></figure></p>
+<p>这样的方式的话，和rc.local相比，比较有用。还比方nfs，这个路由的生效时间是在网络服务network启动的时候生效的，而其它的一些网络相关服务都是在网络服务启动成功之后再启动的，所以可以保证网络链路的通畅。并且，假设我重新启动了网络服务，这个脚本是在网络服务启动里面的脚本调用。因此，也增加了自己主动上设置的相关路线。</p>
+<blockquote>
+<p>该方式在CentOS 8默认安装时无效。</p>
+<p>在CentOS 8中默认使用nmcli管理网络，可以通过 <code>yum install network-scripts</code> 来安装传统的 network.service，恢复用这种方式配置静态路由。</p>
+</blockquote>
+<h3 id="4-创建etcsysconfignetwork-scriptsroute-eth0推荐">4. 创建/etc/sysconfig/network-scripts/route-eth0（推荐）</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 在/etc/sysconfig/network-scripts/目录下创建名为route-eth0的文件</span><br><span class="line">vi /etc/sysconfig/network-scripts/route-eth0</span><br><span class="line"><span class="meta">#</span> 在此文件添加如下格式的内容</span><br><span class="line">192.168.1.0/24 via 192.168.0.1</span><br><span class="line"><span class="meta">#</span> 重启网络验证有效</span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/Node.js-Installation/" data-toggle="tooltip" data-placement="top" title="Node.js 安装配置">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/CentOS-8.0-Install/" data-toggle="tooltip" data-placement="top" title="CentOS 8.0 安装笔记">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一-使用route命令加入临时路由重启后将失效"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4E00;&#x3001;&#x4F7F;&#x7528;route&#x547D;&#x4EE4;&#x52A0;&#x5165;&#x4E34;&#x65F6;&#x8DEF;&#x7531;&#xFF0C;&#x91CD;&#x542F;&#x540E;&#x5C06;&#x5931;&#x6548;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二-在linux中添加永久路由的方法"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E8C;&#x3001;&#x5728;Linux&#x4E2D;&#x6DFB;&#x52A0;&#x6C38;&#x4E45;&#x8DEF;&#x7531;&#x7684;&#x65B9;&#x6CD5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-默认网关"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. &#x9ED8;&#x8BA4;&#x7F51;&#x5173;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-写入etcrcloacl不推荐"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. &#x5199;&#x5165;/etc/rc.loacl&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-写入etcsysconfigstatic-routes文件"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. &#x5199;&#x5165;/etc/sysconfig/static-routes&#x6587;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-创建etcsysconfignetwork-scriptsroute-eth0推荐"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. &#x521B;&#x5EFA;/etc/sysconfig/network-scripts/route-eth0&#xFF08;&#x63A8;&#x8350;&#xFF09;</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                        
+                          <a class="tag" href="/tags/#CentOS" title="CentOS">CentOS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://juejin.im/" target="_blank">掘金</a></li>
+                    
+                        <li><a href="https://www.jianshu.com/" target="_blank">简书</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Theme by <a href="http://beantech.org" target=_blank>BeanTech</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

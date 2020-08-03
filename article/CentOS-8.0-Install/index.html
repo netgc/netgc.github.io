@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          CentOS 8.0 安装笔记 - netgc | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/CentOS-8.0-Install/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                            
+                              <a class="tag" href="/tags/#CentOS" title="CentOS">CentOS</a>
+                            
+                        </div>
+                        <h1>CentOS 8.0 安装笔记</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2019-06-01
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">System Inside</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <p>初始版本：CentOS 8.0.1905</p>
+<p>继 RHEL 8 发布之后，CentOS 社区也发布了让人期待已久的 CentOS 8，并发布了两种模式：</p>
+<ul>
+<li>CentOS stream：滚动发布的 Linux 发行版，适用于需要频繁更新的开发者</li>
+<li>CentOS：类似 RHEL 8 的稳定操作系统，系统管理员可以用其部署或配置服务和应用</li>
+</ul>
+<p>CentOS 8 系列只有64位系统，没有32位。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CentOS-8-x86_64-1905-boot.iso                      16-Aug-2019 05:22    534M</span><br><span class="line">CentOS-8-x86_64-1905-boot.iso.manifest             16-Aug-2019 05:23     626</span><br><span class="line">CentOS-8-x86_64-1905-boot.torrent                  24-Sep-2019 04:51     21K</span><br><span class="line">CentOS-8-x86_64-1905-dvd1.iso                      16-Aug-2019 05:59      7G</span><br><span class="line">CentOS-8-x86_64-1905-dvd1.iso.manifest             16-Aug-2019 05:59    401K</span><br><span class="line">CentOS-8-x86_64-1905-dvd1.torrent                  24-Sep-2019 04:52    266K</span><br></pre></td></tr></table></figure></p>
+<p>这里使用 CentOS-8-x86_64-1905-boot.iso 进行安装，由于没有提供类似于 CentOS7 的 Minimal 版本，安装过程中选择 Minimal 安装，不过需要指定 repo 地址。</p>
+<p>更新：CentOS 8.2.2004 终于增加了 minimal iso。</p>
+<h2 id="centos-8-的新特性">CentOS 8 的新特性</h2>
+<ul>
+<li>
+<p>DNF 成为了默认的软件包管理器，同时 yum 仍然是可用的</p>
+</li>
+<li>
+<p>使用网络管理器（<code>nmcli</code> 和 <code>nmtui</code>）进行网络配置，移除了网络脚本</p>
+</li>
+<li>
+<p>使用 Podman 进行容器管理</p>
+</li>
+<li>
+<p>引入了两个新的包仓库：BaseOS 和 AppStream</p>
+</li>
+<li>
+<p>使用 Cockpit 作为默认的系统管理工具</p>
+</li>
+<li>
+<p>默认使用 Wayland 作为显示服务器</p>
+</li>
+<li>
+<p><code>iptables</code> 将被 <code>nftables</code> 取代</p>
+</li>
+<li>
+<p>使用 Linux 内核 4.18</p>
+</li>
+<li>
+<p>动态编程语言、Web 和数据库服务器</p>
+<ul>
+<li><code>Python 3.6</code>  是默认的 Python 环境，有限支持 Python 2.7</li>
+<li><code>Node.js</code>  是在 RHEL 最新包含的，其他动态语言更新包括: <code>PHP 7.2</code> , <code>Ruby 2.5</code> , <code>Perl 5.26</code> , <code>SWIG 3.0</code></li>
+<li>RHEL 8 提供的数据库服务包括：<code>MariaDB 10.3</code> , <code>MySQL 8.0</code> , <code>PostgreSQL 10</code> , <code>PostgreSQL 9.6</code> , 和 <code>Redis 5</code></li>
+<li>RHEL 8 提供<code>Apache HTTP Server 2.4</code>  以及首次引入的, <code>nginx 1.14</code></li>
+<li><code>Squid</code>  版本升级到 4.4 ，同时也首次提供<code>Varnish Cache 6.0</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="安装要点">安装要点</h2>
+<p>具体参看 CentOS 8 安装截图，这里列出几个注意点</p>
+<ol>
+<li>
+<p>先配置网络，否则 NTP 无法配置，boot.iso 版本需要指定安装源也需要 Internet 访问</p>
+</li>
+<li>
+<p>指定安装源，这里可以使用 163 或者阿里云镜像</p>
+<p>https://mirrors.aliyun.com/CentOS/8/BaseOS/x86_64/os/</p>
+<p>https://mirrors.163.com/CentOS/8/BaseOS/x86_64/os/</p>
+</li>
+</ol>
+<h2 id="系统配置">系统配置</h2>
+<h3 id="1-格式化网卡命名">1. 格式化网卡命名</h3>
+<p>即禁用 consistent interface device naming</p>
+<p><strong>要点：与 CentOS 7 配置上略有不同</strong></p>
+<ul>
+<li>CentOS 7：net.ifnames=0 biosdevname=0</li>
+<li>CentOS 8：net.ifnames=0</li>
+</ul>
+<p>[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-ens160  #注意这里的名称根据硬件有所变动，这里是vm环境，默认ens160，如果你希望继续使用 eth0 这样的传统名称，那么在安装启动时加上参数：net.ifnames=0</p>
+<p>从 CentOS 7 开始，这种变化的原因，是由于systemd 和 udev 引入了一种新的网络设备命名方式 – 一致网络设备命名（CONSISTENT NETWORK DEVICE NAMING）。可以根据固件、拓扑、位置信息来设置固定名字，带来的好处是命名自动化，名字完全可预测，在硬件坏了以后更换也不会影响设备的命名，这样可以让硬件的更换无缝化。带来的不利是新的设备名称比传统的名称难以阅读。比如新的名称是enp5s0.</p>
+<p>1.1 编辑 grub 配置文件</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>如果系统已经安装，希望改成eth0这样的名称，那么需要：</span><br><span class="line"><span class="meta">#</span>修改grub2启动参数</span><br><span class="line">vi /etc/sysconfig/grub</span><br><span class="line"><span class="meta">#</span>增加内容：net.ifnames=0</span><br><span class="line">原内容：</span><br><span class="line">GRUB_CMDLINE_LINUX="crashkernel=auto resume=/dev/mapper/cl-swap rd.lvm.lv=cl/root rd.lvm.lv=cl/swap rhgb quiet"</span><br><span class="line">修改后(位置并没有严格要求)：</span><br><span class="line">GRUB_CMDLINE_LINUX="crashkernel=auto resume=/dev/mapper/cl-swap rd.lvm.lv=cl/root rd.lvm.lv=cl/swap net.ifnames=0 rhgb quiet"</span><br><span class="line"><span class="meta">#</span>保存</span><br><span class="line">:x</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>直接用sed命令替换，经过测试sed修改不生效，未知</span><br><span class="line">sed -i '/^GRUB_CMDLINE_LINUX=.*/c GRUB_CMDLINE_LINUX="crashkernel=auto resume=/dev/mapper/cl-swap rd.lvm.lv=cl/root rd.lvm.lv=cl/swap net.ifnames=0 rhgb quiet"' /etc/sysconfig/grub</span><br></pre></td></tr></table></figure></p>
+<p>1.2 运行如下命令重建 grub.cfg 文件</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br></pre></td></tr></table></figure></p>
+<p>1.3 重命名网卡配置文件</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>重新对文件进行命名：</span><br><span class="line">cd /etc/sysconfig/network-scripts/</span><br><span class="line">mv ifcfg-ens160 ifcfg-eth0</span><br><span class="line">vi ifcfg-eth0</span><br><span class="line">编辑NAME=eth0</span><br><span class="line">编辑DEVICE=eth0</span><br><span class="line">注释HWADDR，如果有</span><br></pre></td></tr></table></figure></p>
+<p>1.4 重启生效</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure></p>
+<p>参考<a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/consistent-network-interface-device-naming_configuring-and-managing-networking" target="_blank" rel="noopener">官方文档</a></p>
+<h3 id="2-配置网络">2. 配置网络</h3>
+<h4 id="21-方法一手工配置-ifcfg使用-nmcli-来生效新的网络配置">2.1 方法一：手工配置 ifcfg，使用 nmcli 来生效新的网络配置</h4>
+<p>安装过程中最好配置好网络，如果需要编辑网络，修改配置文件如下：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="meta"># vi /etc/sysconfig/network-scripts/ifcfg-eth0</span></span><br><span class="line"></span><br><span class="line">TYPE=Ethernet</span><br><span class="line">PROXY_METHOD=none</span><br><span class="line">BROWSER_ONLY=no</span><br><span class="line">BOOTPROTO=none  <span class="comment">//static，使用静态IP配置（CentOS8这里是none也是静态）</span></span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=eth0</span><br><span class="line">UUID=<span class="number">34f</span>808f1<span class="number">-1232</span><span class="number">-4900</span><span class="number">-83</span>db<span class="number">-82</span>d32533f776</span><br><span class="line">DEVICE=eth0</span><br><span class="line">ONBOOT=yes  <span class="comment">//开机自动启用网络连接</span></span><br><span class="line">IPADDR=<span class="number">10.3</span><span class="number">.5</span><span class="number">.5</span>  <span class="comment">//IP地址</span></span><br><span class="line">PREFIX=<span class="number">24</span>  <span class="comment">//掩码</span></span><br><span class="line">GATEWAY=<span class="number">10.3</span><span class="number">.5</span><span class="number">.1</span>  <span class="comment">//默认网关</span></span><br><span class="line">DNS1=<span class="number">10.3</span><span class="number">.5</span><span class="number">.11</span>  <span class="comment">//DNS服务器</span></span><br><span class="line">DNS2=<span class="number">10.3</span><span class="number">.5</span><span class="number">.12</span>  <span class="comment">//备用NDS服务器</span></span><br><span class="line">DOMAIN=sysin.org  <span class="comment">//域名</span></span><br><span class="line">IPV6_PRIVACY=no</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nmcli c reload    #重新加载网络配置</span><br><span class="line"></span><br><span class="line">ping www.baidu.com  #测试网络是否正常</span><br><span class="line"></span><br><span class="line">ip addr  #查看IP地址</span><br></pre></td></tr></table></figure></p>
+<p>重启网络</p>
+<blockquote>
+<p>比如配置了静态路由，使用nmcli c reload无法生效，需要重启网络</p>
+</blockquote>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart NetworkManager.service</span><br><span class="line">nmcli networking off &amp;&amp; nmcli networking on</span><br></pre></td></tr></table></figure></p>
+<p><strong><a href="https://www.cnblogs.com/yunweiweb/p/11588420.html" target="_blank" rel="noopener">CentOS 8 网卡命令(CentOS 7 也可用)</a></strong></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nmcli n #查看nmcli状态</span><br><span class="line">nmcli n on #启动nmcli</span><br><span class="line">nmcli c up eth0 #启动网卡eth0</span><br><span class="line">nmcli c down eth0 #关闭网卡eth0</span><br><span class="line">nmcli d c eth0 #激活网卡</span><br><span class="line">nmcli d show eth0 #查看网卡eth0信息</span><br><span class="line">nmcli r all off #关闭无线</span><br></pre></td></tr></table></figure></p>
+<h4 id="22-方法二rhel8-和-centos8-完全使用-nmcli-来管理网络">2.2 方法二：RHEL8 和 CentOS8 完全使用 nmcli 来管理网络</h4>
+<p><strong>nmcli 命令帮助</strong></p>
+<p>命令不支持自动补全，但是可以通过-h参数逐步获得帮助</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span># 说明nmcli后面的命令关键字都可以用第一个字母简写来标识，例如：</span><br><span class="line"><span class="meta">#</span># nmcli connection = nmcli c</span><br><span class="line"><span class="meta">#</span># nmcli connection show --active = nmcli c s --a</span><br><span class="line">nmcli -h</span><br><span class="line">nmcli connection -h</span><br><span class="line">nmcli connection add -h</span><br><span class="line">nmcli connection modify -h</span><br></pre></td></tr></table></figure></p>
+<p><strong>创建一个完整的配置文件</strong></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">IFACE=`nmcli dev|grep ethernet|awk '&#123;print $1&#125;'`</span><br><span class="line">nmcli con delete $IFACE</span><br><span class="line"><span class="meta">#</span>下面将使用传统的eth0命名方式，前提是已经做了下面格式化网卡名称的配置</span><br><span class="line">nmcli con add con-name eth0 ifname eth0 type ethernet autoconnect yes</span><br><span class="line"></span><br><span class="line">nmcli connection modify eth0 ipv4.method manual \</span><br><span class="line">ipv4.addresses 10.3.5.5/24 \</span><br><span class="line">ipv4.dns "10.3.5.11, 10.3.5.12" \</span><br><span class="line">ipv4.gateway 10.3.5.1 \</span><br><span class="line">ipv4.dns-search sysin.org</span><br><span class="line"></span><br><span class="line">nmcli c up eth0</span><br><span class="line">nmcli c reload</span><br></pre></td></tr></table></figure></p>
+<p>可以配置的参数选项：</p>
+<p>ipv4.[method, dns, dns-search, dns-options, dns-priority, addresses, gateway, routes, route-metric, route-table, ignore-auto-routes, ignore-auto-dns, dhcp-client-id, dhcp-timeout, dhcp-send-hostname, dhcp-hostname, dhcp-fqdn, never-default, may-fail, dad-timeout]</p>
+<p><strong>nmcli示例命令参考</strong></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>查看网卡信息</span><br><span class="line">nmcli connection</span><br><span class="line">NAME    UUID                                  TYPE      DEVICE</span><br><span class="line">eth0    db05ccae-3a48-4300-b3a6-7c56429c4f54  ethernet  eth0</span><br><span class="line"><span class="meta">#</span>显示具体的网络接口信息</span><br><span class="line">nmcli connection show eth0</span><br><span class="line"><span class="meta">#</span>显示所有活动连接</span><br><span class="line">nmcli connection show --active</span><br><span class="line"><span class="meta">#</span>删除一个网卡连接</span><br><span class="line">nmcli connection delete eth0</span><br><span class="line"><span class="meta">#</span>创建一个网卡连接</span><br><span class="line">IFACE=`nmcli dev|grep ethernet|awk '&#123;print $1&#125;'`</span><br><span class="line">nmcli con delete $IFACE</span><br><span class="line">nmcli con add con-name "$IFACE" ifname "$IFACE" type ethernet autoconnect yes</span><br><span class="line"><span class="meta">#</span>给eth0添加一个IP和子网掩码（NETMASK）</span><br><span class="line">nmcli connection modify eth0 ipv4.addresses 10.3.5.5/24</span><br><span class="line"><span class="meta">#</span>给eth0添加两个IP地址和掩码</span><br><span class="line">nmcli connection modify eth0 ipv4.addresses "10.3.5.5/24, 10.3.5.6/24"</span><br><span class="line"><span class="meta">#</span>IP获取方式设置成手动（BOOTPROTO=static/none）</span><br><span class="line">nmcli connection modify eth0 ipv4.method manual</span><br><span class="line"><span class="meta">#</span>添加一个ipv4</span><br><span class="line">nmcli connection modify eth0 +ipv4.addresses 10.3.5.6/24</span><br><span class="line"><span class="meta">#</span>删除一个ipv4</span><br><span class="line">nmcli connection modify eth0 -ipv4.addresses 10.3.5.6/24</span><br><span class="line"><span class="meta">#</span>添加DNS</span><br><span class="line">nmcli connection modify eth0 ipv4.dns 10.3.5.11</span><br><span class="line"><span class="meta">#</span>同时添加两个DNS</span><br><span class="line">nmcli connection modify eth0 ipv4.dns "10.3.5.11, 10.3.5.12"</span><br><span class="line"><span class="meta">#</span>删除DNS</span><br><span class="line">nmcli connection modify eth0 -ipv4.dns 10.3.5.11</span><br><span class="line"><span class="meta">#</span>删除第一个DNS</span><br><span class="line">nmcli connection modify eth0 -ipv4.dns 1</span><br><span class="line"><span class="meta">#</span>添加一个网关（GATEWAY）</span><br><span class="line">nmcli connection modify eth0 ipv4.gateway 10.3.5.1</span><br><span class="line"><span class="meta">#</span>都可以同时写，例如：</span><br><span class="line">nmcli connection modify eth0 ipv4.dns 10.3.5.11 ipv4.gateway 10.3.5.1</span><br><span class="line"><span class="meta">#</span>域名dns-search，对应ifcfg中的DOMAIN</span><br><span class="line">nmcli connection modify eth0 ipv4.dns-search sysin.org</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>使用nmcli重新回载网络配置</span><br><span class="line">nmcli c reload</span><br><span class="line"><span class="meta">#</span>如果之前没有eth0的connection，则上一步reload后就已经自动生效了</span><br><span class="line">nmcli c up eth0</span><br></pre></td></tr></table></figure></p>
+<h4 id="23-方法三手工配置-ifcfg安装-networkservice-服务">2.3 方法三：手工配置 ifcfg，安装 network.service 服务</h4>
+<p>可以通过 <code>yum install network-scripts</code> 来安装传统的 network.service，不过 redhat 说了，在下一个RHEL的大版本里将彻底废除，因此不建议使用 network.service。</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install network-scripts</span><br><span class="line">service network restart   #重启网络服务</span><br><span class="line">systemctl restart network.service   #重启网络服务</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-修改主机名">3. 修改主机名</h3>
+<p>说明：与 CentOS 7 方法相同</p>
+<ul>
+<li>即时生效</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname  www  #设置主机名为www</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>永久生效</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hostname #编辑配置文件</span><br><span class="line">www   #修改localhost.localdomain为www</span><br><span class="line">:x  #保存退出</span><br><span class="line"></span><br><span class="line">或者使用命令：hostnamectl set-hostname www</span><br><span class="line"></span><br><span class="line">同时修改hosts文件：</span><br><span class="line">vi /etc/hosts #编辑配置文件</span><br><span class="line">127.0.0.1   localhost  www   #修改localhost.localdomain为www</span><br><span class="line">:x  #保存退出</span><br></pre></td></tr></table></figure></p>
+<p>通过命令快速修改示例</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname www</span><br><span class="line"><span class="meta">#</span>主机名这里是www，替换实际名称直接执行</span><br><span class="line">NICName=`ip add|egrep global|awk '&#123; print $NF &#125;'|head -n 1`</span><br><span class="line">IP=`ip add|grep global|awk -F'[ /]+' '&#123; print $3 &#125;'|head -n 1`</span><br><span class="line">Hostname=`hostname`</span><br><span class="line">HostnameAll=`hostname --fqdn` #注意这里不是引号``</span><br><span class="line">echo  "网卡名称:$NICName"</span><br><span class="line">echo  "IP地址:  $IP"</span><br><span class="line">echo  "主机名称:  $Hostname $HostnameAll"</span><br><span class="line"></span><br><span class="line">echo "$IP   $Hostname $HostnameAll"&gt;&gt;/etc/hosts</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-激活-cockpit-web-console">4. 激活 cockpit web console</h3>
+<p>CentOS 8 默认集成了 cockpit，登录画面提示激活方法（模板未启用）：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable --now cockpit.socket</span><br></pre></td></tr></table></figure></p>
+<p>然后通过浏览器访问：http://&lt;IP&gt;:9090</p>
+<p><strong>补充说明：</strong></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Cockpit（飞机驾驶舱）使用方法</span><br><span class="line">在 web 浏览器中查看服务器并使用鼠标执行系统任务。很容易管理存储、配置网络和检查日志等操作。</span><br><span class="line"></span><br><span class="line">1) RHEL 8 自动安装了 Cockpit，Cockpit 所需的防火墙端口会自动打开</span><br><span class="line">2) Cockpit 界面可用于将基于策略的解密（PBD）规则应用于受管系统上的磁盘</span><br><span class="line">3) 对于在身份管理（IdM）域中注册的系统，Cockpit 默认使用域的集中管理的 IdM 资源</span><br><span class="line">4) Cockpit 菜单和页面可以在移劢浏览器上导航</span><br><span class="line">5) 可以从 Cockpit Web 界面创建和管理虚拟机</span><br><span class="line">6) 现在可以将“虚拟机”页面添加到 Cockpit 界面，该界面使用户可以创建和管理基于 libvirt 的虚拟机</span><br><span class="line"></span><br><span class="line">安装 cockpit</span><br><span class="line">yum -y install cockpit</span><br><span class="line"></span><br><span class="line">启用 cockpit</span><br><span class="line">systemctl enable --now cockpit.socket</span><br><span class="line"></span><br><span class="line">设置开机自启动同时开启服务一条命令就可以搞定</span><br><span class="line"></span><br><span class="line">使用 Cockpit</span><br><span class="line">Cockpit 监听 9090 端口</span><br><span class="line">使用浏览器访问 http://&lt;IP&gt;:9090</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-关闭-selinux">5. 关闭 SELINUX</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/selinux/config</span><br><span class="line"><span class="meta">#</span> SELINUX=enforcing       #注释掉</span><br><span class="line"><span class="meta">#</span> SELINUXTYPE=targeted    #注释掉</span><br><span class="line">SELINUX=disabled         #增加</span><br><span class="line">:x  #保存，关闭</span><br><span class="line">setenforce 0 #使配置立即生效，或者重启系统</span><br><span class="line">shutdown -r now   #重启系统生效</span><br><span class="line"></span><br><span class="line">sestatus  #查看状态</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 直接使用sed命令修改</span><br><span class="line"><span class="meta">#</span> 修改ELINUX=enforcing为SELINUX=disabled，即替换行</span><br><span class="line">sed '/^SELINUX=.*/c SELINUX=disabled' /etc/selinux/config</span><br><span class="line"><span class="meta">#</span> 或者：sed -i '/^SELINUX=enforcing/c SELINUX=disabled' /etc/selinux/config</span><br><span class="line"><span class="meta">#</span> 注释SELINUXTYPE=targeted</span><br><span class="line">sed -i 's/^SELINUXTYPE=targeted/#&amp;/' /etc/selinux/config</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-配置firewalld">6. 配置firewalld</h3>
+<p><strong>关闭 firewalld</strong>（模板配置）</p>
+<p>CentOS 8 主要改动和 RedHat Enterprise Linux 8 是一致的，基于 Fedora 28 和内核版本 <code>4.18</code>，其中网络方面的主要改动是<strong>用 nftables 框架替代 iptables 框架作为默认的网络包过滤工具。</strong></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service  #停止firewall</span><br><span class="line">systemctl disable firewalld.service  #禁止firewall开机启动</span><br><span class="line">firewall-cmd --state  #查看状态</span><br></pre></td></tr></table></figure></p>
+<p><strong>firewalld 常用命令</strong>（nftables 使用nft 命令，参看其他文档）</p>
+<p>CentOS 8 中 firewalld 已经与 iptables 解绑，后端改用 nftables，需要用 <code>nft</code> 或者 <code>firewall-cmd</code> 开放端口或者服务。</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>查看配置</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line"></span><br><span class="line">firewall-cmd --list-services  #默认开放：ssh dhcpv6-client</span><br><span class="line">firewall-cmd --zone=public --list-services  #指定区域进行查看</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line">firewall-cmd --zone=public --list-ports  #指定区域进行查看</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>配置保存文件</span><br><span class="line">cat /etc/firewalld/zones/public.xml</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>添加一个TCP端口(删除将add关键字修改为remove)</span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent  #--permanent表示永久生效</span><br><span class="line">firewall-cmd --add-port=80/tcp --permanent  #与上面是等价的，默认zone为pulic</span><br><span class="line">firewall-cmd --reload  #重新加载配置生效</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>关于zone</span><br><span class="line">firewall-cmd --get-zones  #查看所有zone的命令，CentOS 7 一共有9个zone</span><br><span class="line">block dmz drop external home internal public trusted work</span><br><span class="line">firewall-cmd --get-zones  ##CentOS 8 有10个zone</span><br><span class="line">block dmz drop external home internal libvirt public trusted work</span><br><span class="line">firewall-cmd --get-default-zone  #查看默认的zone的命令</span><br><span class="line">public</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>添加一个服务</span><br><span class="line">firewall-cmd --add-service=snmp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line">firewall-cmd --get-services  #查看可用的服务</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>限定源地址访问</span><br><span class="line">firewall-cmd --add-rich-rule="rule family="ipv4" source address="192.168.1.0/24" port protocol="tcp" port="3306" accept" --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></p>
+<p><strong>添加几个常用的服务</strong></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-service=snmp --permanent</span><br><span class="line">firewall-cmd --add-service=http --permanent</span><br><span class="line">firewall-cmd --add-service=https --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure></p>
+<p><strong>禁Ping</strong></p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-rich-rule='rule protocol value=icmp drop'  #全部禁ping</span><br><span class="line">firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="192.168.1.0/24" protocol value="icmp" accept'  #指定192.168.1.0/24允许icmp</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-安装-epel-extra-packages-for-enterprise-linux">7. 安装 EPEL (Extra Packages for Enterprise Linux)</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br><span class="line"></span><br><span class="line">或者 (EL8):</span><br><span class="line">rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm</span><br><span class="line">rpm –import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8</span><br></pre></td></tr></table></figure></p>
+<h3 id="8-安装一些必备工具">8. 安装一些必备工具</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 一些基本工具最小化安装可能没有(经测vim和wget没有安装)</span><br><span class="line">yum install vim wget zip unzip man gcc make -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 以下网络工具已经不存在</span><br><span class="line"><span class="meta">#</span> yum install setuptool system-config-network-tui system-config-firewall-tui -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 默认安装没有ifconfig命令，安装net-tools：</span><br><span class="line"><span class="meta">#</span> ifconfig、netstat、route等命令集</span><br><span class="line">yum install net-tools -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 更好的top工具</span><br><span class="line">yum install htop -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> host、dig和nslookup</span><br><span class="line">yum install bind-utils -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 文件传输：sz和rz（样本未安装）</span><br><span class="line">yum install lrzsz -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看日志神器Log file Navigator</span><br><span class="line"><span class="meta">#</span> yum install lnav -y</span><br><span class="line"><span class="meta">#</span> EPEL中没有了，直接在线安装</span><br><span class="line">rpm -ivh https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5-1.x86_64.rpm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> NTP已经废弃，改用chrony</span><br><span class="line"><span class="meta">#</span> yum install ntp -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> nc:</span><br><span class="line">yum install nc -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> lsof:</span><br><span class="line">yum install lsof -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> tree:</span><br><span class="line">yum install tree -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> pstree:</span><br><span class="line">yum install psmisc -y</span><br></pre></td></tr></table></figure></p>
+<p>fd 命令（fd-find，强烈推荐）</p>
+<ul>
+<li>下载（二选一）：</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> gcc 编译版本</span><br><span class="line">wget https://github.com/sharkdp/fd/releases/download/v8.0.0/fd-v8.0.0-x86_64-unknown-linux-gnu.tar.gz</span><br><span class="line"><span class="meta">#</span> musl libc 编译版本</span><br><span class="line">wget https://github.com/sharkdp/fd/releases/download/v8.0.0/fd-v8.0.0-x86_64-unknown-linux-musl.tar.gz</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>安装：</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf fd-v8.0.0-x86_64-unknown-linux-*.tar.gz</span><br><span class="line">cd fd-v8.0.0-x86_64-unknown-linux-gnu</span><br><span class="line"></span><br><span class="line">cp ./fd /usr/local/bin/</span><br><span class="line">cp ./fd.1 /usr/local/share/man/man1/</span><br><span class="line">mandb</span><br></pre></td></tr></table></figure></p>
+<p>rg 命令</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/BurntSushi/ripgrep/releases/download/12.0.0/ripgrep-12.0.0-x86_64-unknown-linux-musl.tar.gz</span><br><span class="line">tar xzvf ripgrep-12.0.0-x86_64-unknown-linux-musl.tar.gz</span><br><span class="line">cp ripgrep-12.0.0-x86_64-unknown-linux-musl/rg  /usr/local/bin/</span><br></pre></td></tr></table></figure></p>
+<h3 id="9-配置-ntp">9. 配置 NTP</h3>
+<p>在 CentOS 8.0 中默认不再支持 ntp 软件包，时间同步将由 chrony 来实现。</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/chrony.conf</span><br><span class="line"><span class="meta">#</span> These servers were defined in the installation:</span><br><span class="line">pool 2.centos.pool.ntp.org iburst</span><br><span class="line">pool 0.pool.ntp.org iburst</span><br><span class="line">pool ntp1.aliyun.com iburst</span><br><span class="line">pool ntp2.aliyun.com iburst</span><br></pre></td></tr></table></figure></p>
+<h3 id="10-安装-snmp">10. 安装 SNMP</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install net-snmp net-snmp-devel net-snmp-libs net-snmp-utils -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 对比 CentOS 7 net-snmp-perl 已经不存在(未知)</span><br><span class="line"><span class="meta">#</span> 因为是模板，这里暂不配置</span><br></pre></td></tr></table></figure></p>
+<h3 id="11-虚机安装-vm-tools">11. 虚机安装 VM-tools</h3>
+<p>在系统安装时候勾选了“Guest Agent”，将自动安装open-vm-tools</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">手动安装open-vm-tools：</span><br><span class="line"><span class="meta">#</span> http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=2073803</span><br><span class="line">yum install open-vm-tools -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 开启服务</span><br><span class="line">chkconfig vmtoolsd on</span><br><span class="line">systemctl enable vmtoolsd.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动服务</span><br><span class="line">service vmtoolsd start</span><br><span class="line">systemctl start vmtoolsd</span><br></pre></td></tr></table></figure></p>
+<h3 id="12-用-yum-排除不需要的更新包">12. 用 yum 排除不需要的更新包</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">修改 yum 的配置文件</span><br><span class="line">vi /etc/yum.conf</span><br><span class="line">在 [main] 的最后添加 exclude=kernel*</span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">[main]</span><br><span class="line">gpgcheck=1</span><br><span class="line">installonly_limit=3</span><br><span class="line">clean_requirements_on_remove=True</span><br><span class="line">best=True</span><br><span class="line">exclude=kernel*</span><br></pre></td></tr></table></figure></p>
+<p>说明：
+通常在用 yum 进行更新时老是会更新内核，这样就造成了两个问题：
+1).内核过多，占用系统的空间
+2).如果是自行编译安装的 nvidia 显卡驱动的话，进入更新的核心时需要再重新安装显卡驱动</p>
+<p>这里介绍好的办法解决这个问题，就是在更新时排除对内核的更新，方法有两个:
+1).修改yum的配置文件 vi /etc/yum.conf，在[main]的最后添加 exclude=kernel*
+2).直接在yum的命令行执行如下的命令： yum --exclude=kernel* update</p>
+<p>以上的办法也适合你要求自行排除的其它更新软件包。</p>
+<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">备注：安装某些软件包需要新版内核支持，需要删除以上配置。</span><br></pre></td></tr></table></figure></p>
+<h3 id="13-更换国内镜像-yum-源">13. 更换国内镜像 yum 源</h3>
+<p>说明：与 CentOS 7 具体不太一样</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d</span><br><span class="line">ls -l</span><br><span class="line"><span class="meta">#</span>repo更多</span><br><span class="line">-rw-r--r--. 1 root root  731 Aug 14 14:42 CentOS-AppStream.repo</span><br><span class="line">-rw-r--r--. 1 root root  712 Aug 14 14:42 CentOS-Base.repo</span><br><span class="line">-rw-r--r--. 1 root root  798 Aug 14 14:42 CentOS-centosplus.repo</span><br><span class="line">-rw-r--r--. 1 root root 1320 Aug 14 14:42 CentOS-CR.repo</span><br><span class="line">-rw-r--r--. 1 root root  668 Aug 14 14:42 CentOS-Debuginfo.repo</span><br><span class="line">-rw-r--r--. 1 root root  756 Aug 14 14:42 CentOS-Extras.repo</span><br><span class="line">-rw-r--r--. 1 root root  338 Aug 14 14:42 CentOS-fasttrack.repo</span><br><span class="line">-rw-r--r--. 1 root root  928 Aug 14 14:42 CentOS-Media.repo</span><br><span class="line">-rw-r--r--. 1 root root  736 Aug 14 14:42 CentOS-PowerTools.repo</span><br><span class="line">-rw-r--r--. 1 root root 1382 Aug 14 14:42 CentOS-Sources.repo</span><br><span class="line">-rw-r--r--. 1 root root   74 Aug 14 14:42 CentOS-Vault.repo</span><br><span class="line">-rw-r--r--. 1 root root 1351 Aug  7 02:17 epel-playground.repo</span><br><span class="line">-rw-r--r--. 1 root root 1206 Aug  7 02:17 epel.repo</span><br><span class="line">-rw-r--r--. 1 root root 1305 Aug  7 02:17 epel-testing.repo</span><br><span class="line"></span><br><span class="line">dnf repolist</span><br><span class="line"><span class="meta">#</span>只需要修改以下4个启用的repo</span><br><span class="line">Last metadata expiration check: 0:00:45 ago on Sat 09 Nov 2019 01:26:02 PM CST.</span><br><span class="line">repo id                 repo name                                                status</span><br><span class="line">AppStream               CentOS-8 - AppStream                                     5,089</span><br><span class="line">BaseOS                  CentOS-8 - Base                                          2,843</span><br><span class="line">epel                    Extra Packages for Enterprise Linux 8 - x86_64           2,911</span><br><span class="line">extras                  CentOS-8 - Extras                                        3</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>备份</span><br><span class="line">cp CentOS-Base.repo CentOS-Base.repo.bak</span><br><span class="line">cp CentOS-AppStream.repo CentOS-AppStream.repo.bak</span><br><span class="line">cp CentOS-Extras.repo CentOS-Extras.repo.bak</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>替换</span><br><span class="line">sed -i 's/mirrorlist=/#mirrorlist=/g' CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line">sed -i 's/#baseurl=/baseurl=/g' CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line">sed -i 's/http:\/\/mirror.centos.org/https:\/\/mirrors.aliyun.com/g' CentOS-Base.repo CentOS-AppStream.repo CentOS-Extras.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>修改epel(url不一样)</span><br><span class="line">cp epel.repo epel.repo.bak</span><br><span class="line"></span><br><span class="line">sed -i 's/metalink=/#metalink=/g' epel.repo</span><br><span class="line">sed -i 's/#baseurl=/baseurl=/g' epel.repo</span><br><span class="line">sed -i 's/https:\/\/download.fedoraproject.org\/pub/https:\/\/mirrors.aliyun.com/g' epel.repo</span><br></pre></td></tr></table></figure></p>
+<p>以下是 CentOS 7 的修改方法，备忘：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 推荐使用163镜像（Base使用163，epel使用ustc）</span><br><span class="line"><span class="meta">#</span> http://mirrors.163.com/.help/centos.html</span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo</span><br><span class="line">cp /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup</span><br><span class="line">cp /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup</span><br><span class="line">sudo sed -e 's!^mirrorlist=!#mirrorlist=!g' \</span><br><span class="line">         -e 's!^#baseurl=!baseurl=!g' \</span><br><span class="line">         -e 's!//download\.fedoraproject\.org/pub!//mirrors.ustc.edu.cn!g' \</span><br><span class="line">         -e 's!http://mirrors\.ustc!https://mirrors.ustc!g' \</span><br><span class="line">         -i /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel-testing.repo</span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 也可以使用阿里云镜像</span><br><span class="line"><span class="meta">#</span> http://mirrors.aliyun.com/repo/</span><br><span class="line">第一步：备份</span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup</span><br><span class="line"></span><br><span class="line">第二步：下载</span><br><span class="line">CentOS 7</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line">wget -O /etc/yum.repos.d/epel-testing.repo http://mirrors.aliyun.com/repo/epel-testing.repo</span><br><span class="line"></span><br><span class="line">第三步：运行yum makecache生成缓存</span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></p>
+<p>禁用 fastestmirror 插件</p>
+<p>模板未配置，下个版本加入</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> sed -i '/^enabled=.*/c enabled=0' /etc/yum/pluginconf.d/fastestmirror.conf</span><br><span class="line">sed -i '/^enabled=1/c enabled=0' /etc/yum/pluginconf.d/fastestmirror.conf</span><br><span class="line"><span class="meta">#</span> 写入文件需要添加 -i 参数</span><br><span class="line"><span class="meta">#</span> ^ 表示一行的开头</span><br><span class="line"><span class="meta">#</span> . 匹配一个非换行符的任意字符</span><br><span class="line"><span class="meta">#</span> * 匹配0个或多个字符</span><br></pre></td></tr></table></figure></p>
+<h3 id="14-系统更新">14. 系统更新</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dnf mackecache  #缓存软件包信息</span><br><span class="line">dnf update  #更新软件包</span><br><span class="line">dnf clean all</span><br><span class="line">rm -rf /var/cache/dnf</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &gt; ~/.bash_history\r</span><br><span class="line">history -c  #清空之前输入的命令记录</span><br><span class="line">rm -rf /tmp/*  #情况临时文件夹</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#比较完整的清空历史记录</span><br><span class="line">rm -f /var/log/audit/audit*\r</span><br><span class="line">echo &gt; /var/log/audit/audit.log\r</span><br><span class="line">rm -f /var/log/secure*\r</span><br><span class="line">echo &gt; /var/log/secure\r</span><br><span class="line">rm -f /var/log/btmp*\r</span><br><span class="line">echo &gt; /var/log/btmp\r</span><br><span class="line">rm -f /var/log/wtmp*\r</span><br><span class="line">echo &gt; /var/log/wtmp\r</span><br><span class="line">echo &gt; /var/log/lastlog\r</span><br><span class="line">echo &gt; ~/.bash_history\r</span><br><span class="line">history -c\r</span><br></pre></td></tr></table></figure></p>
+<h3 id="15-安装图形界面">15. 安装图形界面</h3>
+<p>基于特定场景需要，一般不用安装</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum grouplist  #查看可安装的组件</span><br><span class="line"></span><br><span class="line">yum groupinstall "Server with GUI"  #安装GNOME图形界面(与CentOS 7名称不一样)</span><br><span class="line">yum groupinstall "Graphical Administration Tools"  #将自动安装</span><br><span class="line"></span><br><span class="line">startx  #启动图形界面</span><br></pre></td></tr></table></figure></p>
+<p>实例：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum grouplist</span><br><span class="line">Last metadata expiration check: 1:12:58 ago on Sat 09 Nov 2019 03:59:09 PM CST.</span><br><span class="line">Available Environment Groups:</span><br><span class="line">   Server with GUI</span><br><span class="line">   Server</span><br><span class="line">   Workstation</span><br><span class="line">   KDE Plasma Workspaces</span><br><span class="line">   Virtualization Host</span><br><span class="line">   Custom Operating System</span><br><span class="line">Installed Environment Groups:</span><br><span class="line">   Minimal Install</span><br><span class="line">Installed Groups:</span><br><span class="line">   Development Tools</span><br><span class="line">Available Groups:</span><br><span class="line">   Container Management</span><br><span class="line">   .NET Core Development</span><br><span class="line">   RPM Development Tools</span><br><span class="line">   Smart Card Support</span><br><span class="line">   Graphical Administration Tools</span><br><span class="line">   Headless Management</span><br><span class="line">   Legacy UNIX Compatibility</span><br><span class="line">   Network Servers</span><br><span class="line">   Scientific Support</span><br><span class="line">   Security Tools</span><br><span class="line">   System Tools</span><br><span class="line">   Fedora Packager</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# yum groupinstall &quot;Server with GUI&quot;</span><br><span class="line">Installing Environment Groups:</span><br><span class="line"> Server with GUI</span><br><span class="line">Installing Groups:</span><br><span class="line"> Container Management</span><br><span class="line"> Core</span><br><span class="line"> Fonts</span><br><span class="line"> GNOME</span><br><span class="line"> Guest Desktop Agents</span><br><span class="line"> Hardware Monitoring Utilities</span><br><span class="line"> Hardware Support</span><br><span class="line"> Headless Management</span><br><span class="line"> Internet Browser</span><br><span class="line"> Multimedia</span><br><span class="line"> Common NetworkManager submodules</span><br><span class="line"> Printing Client</span><br><span class="line"> Server product core</span><br><span class="line"> Standard</span><br><span class="line"></span><br><span class="line">Transaction Summary</span><br><span class="line">==============================================================================================================</span><br><span class="line">Install  744 Packages</span><br><span class="line"></span><br><span class="line">Total download size: 696 M</span><br><span class="line">Installed size: 2.1 G</span><br><span class="line">Is this ok [y/N]:</span><br></pre></td></tr></table></figure></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/CentOS-Static-Route/" data-toggle="tooltip" data-placement="top" title="CentOS 添加静态路由的几种方法">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Ubuntu-20.04-Install/" data-toggle="tooltip" data-placement="top" title="Ubuntu 20.04 LTS (Focal Fossa) 安装笔记">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#centos-8-的新特性"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CentOS 8 &#x7684;&#x65B0;&#x7279;&#x6027;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装要点"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5;&#x8981;&#x70B9;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#系统配置"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-格式化网卡命名"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. &#x683C;&#x5F0F;&#x5316;&#x7F51;&#x5361;&#x547D;&#x540D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-配置网络"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. &#x914D;&#x7F6E;&#x7F51;&#x7EDC;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#21-方法一手工配置-ifcfg使用-nmcli-来生效新的网络配置"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text">2.1 &#x65B9;&#x6CD5;&#x4E00;&#xFF1A;&#x624B;&#x5DE5;&#x914D;&#x7F6E; ifcfg&#xFF0C;&#x4F7F;&#x7528; nmcli &#x6765;&#x751F;&#x6548;&#x65B0;&#x7684;&#x7F51;&#x7EDC;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#22-方法二rhel8-和-centos8-完全使用-nmcli-来管理网络"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text">2.2 &#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;RHEL8 &#x548C; CentOS8 &#x5B8C;&#x5168;&#x4F7F;&#x7528; nmcli &#x6765;&#x7BA1;&#x7406;&#x7F51;&#x7EDC;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#23-方法三手工配置-ifcfg安装-networkservice-服务"><span class="toc-nav-number">3.2.3.</span> <span class="toc-nav-text">2.3 &#x65B9;&#x6CD5;&#x4E09;&#xFF1A;&#x624B;&#x5DE5;&#x914D;&#x7F6E; ifcfg&#xFF0C;&#x5B89;&#x88C5; network.service &#x670D;&#x52A1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-修改主机名"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. &#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-激活-cockpit-web-console"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. &#x6FC0;&#x6D3B; cockpit web console</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-关闭-selinux"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">5. &#x5173;&#x95ED; SELINUX</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-配置firewalld"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">6. &#x914D;&#x7F6E;firewalld</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-安装-epel-extra-packages-for-enterprise-linux"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">7. &#x5B89;&#x88C5; EPEL (Extra Packages for Enterprise Linux)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-安装一些必备工具"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">8. &#x5B89;&#x88C5;&#x4E00;&#x4E9B;&#x5FC5;&#x5907;&#x5DE5;&#x5177;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-配置-ntp"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">9. &#x914D;&#x7F6E; NTP</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#10-安装-snmp"><span class="toc-nav-number">3.10.</span> <span class="toc-nav-text">10. &#x5B89;&#x88C5; SNMP</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#11-虚机安装-vm-tools"><span class="toc-nav-number">3.11.</span> <span class="toc-nav-text">11. &#x865A;&#x673A;&#x5B89;&#x88C5; VM-tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#12-用-yum-排除不需要的更新包"><span class="toc-nav-number">3.12.</span> <span class="toc-nav-text">12. &#x7528; yum &#x6392;&#x9664;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x66F4;&#x65B0;&#x5305;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#13-更换国内镜像-yum-源"><span class="toc-nav-number">3.13.</span> <span class="toc-nav-text">13. &#x66F4;&#x6362;&#x56FD;&#x5185;&#x955C;&#x50CF; yum &#x6E90;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#14-系统更新"><span class="toc-nav-number">3.14.</span> <span class="toc-nav-text">14. &#x7CFB;&#x7EDF;&#x66F4;&#x65B0;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#15-安装图形界面"><span class="toc-nav-number">3.15.</span> <span class="toc-nav-text">15. &#x5B89;&#x88C5;&#x56FE;&#x5F62;&#x754C;&#x9762;</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                        
+                          <a class="tag" href="/tags/#CentOS" title="CentOS">CentOS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://juejin.im/" target="_blank">掘金</a></li>
+                    
+                        <li><a href="https://www.jianshu.com/" target="_blank">简书</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Theme by <a href="http://beantech.org" target=_blank>BeanTech</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

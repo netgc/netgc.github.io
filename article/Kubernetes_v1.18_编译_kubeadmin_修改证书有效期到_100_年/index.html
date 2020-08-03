@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Kubernetes v1.18 编译 kubeadmin 修改证书有效期到 100 年 - netgc | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/Kubernetes_v1.18_编译_kubeadmin_修改证书有效期到_100_年/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+                            
+                              <a class="tag" href="/tags/#SSL" title="SSL">SSL</a>
+                            
+                        </div>
+                        <h1>Kubernetes v1.18 编译 kubeadmin 修改证书有效期到 100 年</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2019-08-15
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">System Inside</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <p><strong>kubeadm 默认证书为一年，一年过期后，会导致api service不可用，使用过程中会出现：x509: certificate has expired or is not yet valid.</strong></p>
+<p>Google 建议通过不停更新版本来自动更新证书，太坑^_^</p>
+<p><strong>可以在初始化群集之前重新编译kubeadm，证书有效期自动为100年</strong></p>
+<h2 id="1-获取源码">1. 获取源码</h2>
+<p>访问：https://github.com/kubernetes/kubernetes/releases，下载特定版本源码</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/kubernetes/kubernetes/archive/v1.18.0.tar.gz</span><br><span class="line">tar -zxvf v1.18.0.tar.gz</span><br><span class="line">mv kubernetes-1.18.0 kubernetes</span><br><span class="line">cd kubernetes</span><br></pre></td></tr></table></figure></p>
+<p>或者使用 git 获取</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># yum install git</span><br><span class="line">git clone https://github.com/kubernetes/kubernetes.git</span><br><span class="line">cd kubernetes</span><br><span class="line">git checkout -b remotes/origin/release-1.18 v1.18.0</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-修改证书有效期">2. 修改证书有效期</h2>
+<p>查看网上的资料主要有两个地方需要修改</p>
+<h3 id="修改-ca-有效期为-100-年默认为-10-年">修改 CA 有效期为 100 年（默认为 10 年）</h3>
+<p>vim ./staging/src/k8s.io/client-go/util/cert/cert.go</p>
+<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法里面NotAfter:              now.Add(duration365d * 10).UTC()</span></span><br><span class="line"><span class="comment">// 默认有效期就是10年，改成100年</span></span><br><span class="line"><span class="comment">// 按/NotAfter查找</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewSelfSignedCACert</span><span class="params">(cfg Config, key crypto.Signer)</span> <span class="params">(*x509.Certificate, error)</span></span> &#123;</span><br><span class="line">        now := time.Now()</span><br><span class="line">        tmpl := x509.Certificate&#123;</span><br><span class="line">                SerialNumber: <span class="built_in">new</span>(big.Int).SetInt64(<span class="number">0</span>),</span><br><span class="line">                Subject: pkix.Name&#123;</span><br><span class="line">                        CommonName:   cfg.CommonName,</span><br><span class="line">                        Organization: cfg.Organization,</span><br><span class="line">                &#125;,</span><br><span class="line">                NotBefore:             now.UTC(),</span><br><span class="line">                <span class="comment">// NotAfter:              now.Add(duration365d * 10).UTC(),</span></span><br><span class="line">                NotAfter:              now.Add(duration365d * <span class="number">100</span>).UTC(),</span><br><span class="line">                KeyUsage:              x509.KeyUsageKeyEncipherment | x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign,</span><br><span class="line">                BasicConstraintsValid: <span class="literal">true</span>,</span><br><span class="line">                IsCA:                  <span class="literal">true</span>,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        certDERBytes, err := x509.CreateCertificate(cryptorand.Reader, &amp;tmpl, &amp;tmpl, key.Public(), key)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x509.ParseCertificate(certDERBytes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改证书有效期为-100-年默认为-1-年">修改证书有效期为 100 年（默认为 1 年）</h3>
+<p>vim ./cmd/kubeadm/app/constants/constants.go</p>
+<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 就是这个常量定义CertificateValidity，改成*100年</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">        <span class="comment">// KubernetesDir is the directory Kubernetes owns for storing various configuration files</span></span><br><span class="line">        KubernetesDir = <span class="string">"/etc/kubernetes"</span></span><br><span class="line">        <span class="comment">// ManifestsSubDirName defines directory name to store manifests</span></span><br><span class="line">        ManifestsSubDirName = <span class="string">"manifests"</span></span><br><span class="line">        <span class="comment">// TempDirForKubeadm defines temporary directory for kubeadm</span></span><br><span class="line">        <span class="comment">// should be joined with KubernetesDir.</span></span><br><span class="line">        TempDirForKubeadm = <span class="string">"tmp"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// CertificateValidity defines the validity for all the signed certificates generated by kubeadm</span></span><br><span class="line">        <span class="comment">// CertificateValidity = time.Hour * 24 * 365</span></span><br><span class="line">        CertificateValidity = time.Hour * <span class="number">24</span> * <span class="number">365</span> * <span class="number">100</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// CACertAndKeyBaseName defines certificate authority base name</span></span><br><span class="line">        CACertAndKeyBaseName = <span class="string">"ca"</span></span><br><span class="line">        <span class="comment">// CACertName defines certificate name</span></span><br><span class="line">        CACertName = <span class="string">"ca.crt"</span></span><br><span class="line">        <span class="comment">// CAKeyName defines certificate name</span></span><br><span class="line">        CAKeyName = <span class="string">"ca.key"</span></span><br></pre></td></tr></table></figure></p>
+<p>git验证，修改的内容如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br><span class="line"></span><br><span class="line">diff --git a/cmd/kubeadm/app/constants/constants.go b/cmd/kubeadm/app/constants/constants.go</span><br><span class="line">index 75adf43..54f25fa 100644</span><br><span class="line">--- a/cmd/kubeadm/app/constants/constants.go</span><br><span class="line">+++ b/cmd/kubeadm/app/constants/constants.go</span><br><span class="line">@@ -44,7 +44,7 @@ const (</span><br><span class="line">        TempDirForKubeadm = &quot;tmp&quot;</span><br><span class="line"></span><br><span class="line">        // CertificateValidity defines the validity for all the signed certificates generated by kubeadm</span><br><span class="line">-       CertificateValidity = time.Hour * 24 * 365</span><br><span class="line">+       CertificateValidity = time.Hour * 24 * 365 * 100</span><br><span class="line"></span><br><span class="line">        // CACertAndKeyBaseName defines certificate authority base name</span><br><span class="line">        CACertAndKeyBaseName = &quot;ca&quot;</span><br><span class="line">diff --git a/staging/src/k8s.io/client-go/util/cert/cert.go b/staging/src/k8s.io/client-go/util/cert/cert.go</span><br><span class="line">index 9fd097a..865d6bb 100644</span><br><span class="line">--- a/staging/src/k8s.io/client-go/util/cert/cert.go</span><br><span class="line">+++ b/staging/src/k8s.io/client-go/util/cert/cert.go</span><br><span class="line">@@ -63,7 +63,7 @@ func NewSelfSignedCACert(cfg Config, key crypto.Signer) (*x509.Certificate, erro</span><br><span class="line">                        Organization: cfg.Organization,</span><br><span class="line">                &#125;,</span><br><span class="line">                NotBefore:             now.UTC(),</span><br><span class="line">-               NotAfter:              now.Add(duration365d * 10).UTC(),</span><br><span class="line">+               NotAfter:              now.Add(duration365d * 100).UTC(),</span><br><span class="line">                KeyUsage:              x509.KeyUsageKeyEncipherment | x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign,</span><br><span class="line">                BasicConstraintsValid: true,</span><br><span class="line">                IsCA:                  true,</span><br></pre></td></tr></table></figure></p>
+<p>源代码改好了，接下来就是编译kubeadm了</p>
+<h2 id="3-编译">3. 编译</h2>
+<h3 id="31-docker镜像编译推荐">3.1 Docker镜像编译（推荐）</h3>
+<ul>
+<li>查看 kube-cross 的 TAG 版本号</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cat ./build/build-image/cross/VERSION</span><br><span class="line"></span><br><span class="line">v1.13.8-1</span><br></pre></td></tr></table></figure></p>
+<p>这里我们可以使用官方容器对代码进行编译：k8s.gcr.io/kube-cross:v1.13.6-1（当前只有1.13.6而不是1.13.8，未知）</p>
+<ul>
+<li>拉取镜像</li>
+</ul>
+<p>无法翻墙可以用下面的替代镜像：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gcrcontainer/kube-cross:v1.13.6-1</span><br></pre></td></tr></table></figure></p>
+<p>或者：'docker pull registry.aliyuncs.com/google_containers/kube-cross:v1.13.6-1'</p>
+<ul>
+<li>编译</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> docker run --rm -v &lt;你修改后的代码目录&gt;:/go/src/k8s.io/kubernetes -it gcrcontainer/kube-cross bash</span><br><span class="line">docker run --rm -v /root/kubernetes:/go/src/k8s.io/kubernetes -it gcrcontainer/kube-cross:v1.13.6-1 bash</span><br><span class="line"></span><br><span class="line">cd /go/src/k8s.io/kubernetes</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编译kubeadm, 这里主要编译kubeadm 即可</span><br><span class="line">make all WHAT=cmd/kubeadm GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编译kubelet</span><br><span class="line"><span class="meta">#</span> make all WHAT=cmd/kubelet GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编译kubectl</span><br><span class="line"><span class="meta">#</span> make all WHAT=cmd/kubectl GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 退出容器</span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>编译完产物在 _output/bin/kubeadm 目录下，</span><br><span class="line"><span class="meta">#</span>其中bin是使用了软连接</span><br><span class="line"><span class="meta">#</span>真实路径是_output/local/bin/linux/amd64/kubeadm</span><br><span class="line">mv /usr/bin/kubeadm /usr/bin/kubeadm_backup</span><br><span class="line">cp _output/local/bin/linux/amd64/kubeadm /usr/bin/kubeadm</span><br><span class="line"><span class="meta">#</span>chmod +x /usr/bin/kubeadm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 验证版本</span><br><span class="line">kubeadm version</span><br></pre></td></tr></table></figure></p>
+<h3 id="32-本机编">3.2 本机编</h3>
+<p>环境需求参看<a href="https://github.com/kubernetes/community/blob/master/contributors/devel/development.md" target="_blank" rel="noopener">官方文档</a>。</p>
+<h4 id="321-软件包准备">3.2.1 软件包准备</h4>
+<p>CentOS：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc make -y</span><br><span class="line">yum install rsync jq -y</span><br></pre></td></tr></table></figure></p>
+<p>Ubuntu：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential #(Following command will install essential commands like gcc, make etc.)</span><br><span class="line">sudo apt install rsync jq -y</span><br></pre></td></tr></table></figure></p>
+<h4 id="322-golang-环境">3.2.2 GoLang 环境</h4>
+<p>查看 kube-cross 的 TAG 版本号</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cat ./build/build-image/cross/VERSION</span><br><span class="line"></span><br><span class="line">v1.13.8-1</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>安装Go环境：</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz</span><br><span class="line">tar zxvf go1.13.8.linux-amd64.tar.gz  -C /usr/local</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编辑/etc/profile文件添加如下：</span><br><span class="line"><span class="meta">#</span>go setting</span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/usr/local/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>生效</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>验证：</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br><span class="line">go version go1.13.8 linux/amd64</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>编译：</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 编译kubeadm, 这里主要编译kubeadm 即可</span><br><span class="line">make all WHAT=cmd/kubeadm GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编译kubelet</span><br><span class="line"><span class="meta">#</span> make all WHAT=cmd/kubelet GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编译kubectl</span><br><span class="line"><span class="meta">#</span> make all WHAT=cmd/kubectl GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>编译完产物在 _output/bin/kubeadm 目录下，</span><br><span class="line"><span class="meta">#</span>其中bin是使用了软连接</span><br><span class="line"><span class="meta">#</span>真实路径是_output/local/bin/linux/amd64/kubeadm</span><br><span class="line">mv /usr/bin/kubeadm /usr/bin/kubeadm_backup</span><br><span class="line">cp _output/local/bin/linux/amd64/kubeadm /usr/bin/kubeadm</span><br><span class="line">chmod +x /usr/bin/kubeadm</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-执行命令更新证书">4、执行命令更新证书</h2>
+<p>可以先备份证书，证书在/etc/kubernetes/pki</p>
+<ul>
+<li>检查证书到期时间</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm alpha certs check-expiration</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>续订证书，查看可以使用的参数</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">kubeadm alpha certs renew --help</span><br><span class="line">Available Commands:</span><br><span class="line">  admin.conf               Renew the certificate embedded in the kubeconfig file for the admin to use and for kubeadm itself</span><br><span class="line">  all                      Renew all available certificates</span><br><span class="line">  apiserver                Renew the certificate for serving the Kubernetes API</span><br><span class="line">  apiserver-etcd-client    Renew the certificate the apiserver uses to access etcd</span><br><span class="line">  apiserver-kubelet-client Renew the certificate for the API server to connect to kubelet</span><br><span class="line">  controller-manager.conf  Renew the certificate embedded in the kubeconfig file for the controller manager to use</span><br><span class="line">  etcd-healthcheck-client  Renew the certificate for liveness probes to healthcheck etcd</span><br><span class="line">  etcd-peer                Renew the certificate for etcd nodes to communicate with each other</span><br><span class="line">  etcd-server              Renew the certificate for serving etcd</span><br><span class="line">  front-proxy-client       Renew the certificate for the front proxy client</span><br><span class="line">  scheduler.conf           Renew the certificate embedded in the kubeconfig file for the scheduler manager to use</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>续订全部证书</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm alpha certs renew all</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>
+<p>再次查看证书有效期，全部都100年了</p>
+<p>kubeadm alpha certs check-expiration</p>
+</li>
+</ul>
+<p>参考文章：</p>
+<p>https://blog.csdn.net/fuck487/article/details/102759523</p>
+<p>https://www.cnblogs.com/skymyyang/p/11093686.html</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/Chrome_不能打开_kubernetes_Dashboard_解决方法/" data-toggle="tooltip" data-placement="top" title="Chrome 不能打开 kubernetes Dashboard 解决方法">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Node.js-Installation/" data-toggle="tooltip" data-placement="top" title="Node.js 安装配置">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-获取源码"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. &#x83B7;&#x53D6;&#x6E90;&#x7801;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-修改证书有效期"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. &#x4FEE;&#x6539;&#x8BC1;&#x4E66;&#x6709;&#x6548;&#x671F;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改-ca-有效期为-100-年默认为-10-年"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x4FEE;&#x6539; CA &#x6709;&#x6548;&#x671F;&#x4E3A; 100 &#x5E74;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; 10 &#x5E74;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改证书有效期为-100-年默认为-1-年"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x4FEE;&#x6539;&#x8BC1;&#x4E66;&#x6709;&#x6548;&#x671F;&#x4E3A; 100 &#x5E74;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; 1 &#x5E74;&#xFF09;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-编译"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. &#x7F16;&#x8BD1;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#31-docker镜像编译推荐"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 Docker&#x955C;&#x50CF;&#x7F16;&#x8BD1;&#xFF08;&#x63A8;&#x8350;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#32-本机编"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 &#x672C;&#x673A;&#x7F16;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#321-软件包准备"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text">3.2.1 &#x8F6F;&#x4EF6;&#x5305;&#x51C6;&#x5907;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#322-golang-环境"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text">3.2.2 GoLang &#x73AF;&#x5883;</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-执行命令更新证书"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4&#x3001;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x66F4;&#x65B0;&#x8BC1;&#x4E66;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+                        
+                          <a class="tag" href="/tags/#SSL" title="SSL">SSL</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://juejin.im/" target="_blank">掘金</a></li>
+                    
+                        <li><a href="https://www.jianshu.com/" target="_blank">简书</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Theme by <a href="http://beantech.org" target=_blank>BeanTech</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
