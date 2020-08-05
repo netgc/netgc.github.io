@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="数据中心基础架构、平台和应用交付">
+    <meta name="keyword"  content="Apple,macOS,iOS,Cisco,IOS,IOS-XE,NX-OS,Nexus,ACI,Docker,Kubernetes,F5,BIG-IP,LTM,DNS,ASM,Linux,CentOS,Ubuntu,Microsoft,Windows,Oracle,Palo Alto,PAN-OS,VMware,ESXi,vCenter,NSX,VSAN,FortiGate,FortiOS,Firepower">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Juniper SRX JSRP 配置文档 - netgc | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/Juniper-SRX-JSRP-Config/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<link rel="alternate" href="/atom.xml" title="System Inside" type="application/atom+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#JUNOS" title="JUNOS">JUNOS</a>
+                            
+                              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+                            
+                        </div>
+                        <h1>Juniper SRX JSRP 配置文档</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2013-08-01
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">System Inside</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <h2 id="一-准备篇">一、准备篇</h2>
+<h3 id="1-设备登录">1. 设备登录</h3>
+<p>console 口登录，初始默认用户名 root，密码为空</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root% cli <span class="comment">/***进入操作模式***/</span></span><br><span class="line">root&gt;</span><br><span class="line">root&gt; configure</span><br><span class="line">Entering configuration mode <span class="comment">/***进入配置模式***/</span></span><br><span class="line">[edit]</span><br><span class="line">Root#</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-恢复出厂设置">2. 恢复出厂设置</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root# load factory-default</span><br></pre></td></tr></table></figure></p>
+<p>同时设置密码：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root# set system root-authentication plain-text-password</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>提示输入并确认密码，然后确认并重启</p>
+</blockquote>
+<p>设置远程登录管理用户：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root# set system login user admin class super-user authentication plain-text-password</span><br><span class="line">root# new password :</span><br><span class="line">root# retype new password:</span><br><span class="line">//添加另外一个用户：</span><br><span class="line">set system login user sysadmin class super-user authentication plain-text-password</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>补充：通过 RESET CONFIG 按键恢复出厂设置</p>
+<p>To reset the device to its factory default configuration, press and hold the Reset Config button on the front panel of the SRX Series device for at least 15 seconds, until the Status LED glows amber.</p>
+<p>注意：所有配置和备份都降丢失，按下 RESET CONFIG 按钮，保持15秒以上，直到 Status LED 灯变成琥珀色</p>
+</blockquote>
+<h3 id="3-网线连接">3. 网线连接</h3>
+<p>（1）HA 带外管理端口 MGMT，即 fxp0，线缆接入交换机</p>
+<ul>
+<li>For SRX100 devices, connect the fe-0/0/6 port to the fe-1/0/6 port</li>
+<li>For SRX210 devices, connect the fe-0/0/6 port to the fe-2/0/6 port</li>
+<li>For SRX240 devices, connect the ge-0/0/0 port to the ge-5/0/0 port</li>
+<li>For SRX550 devices, connect the ge-0/0/0 port to the ge-9/0/0 port</li>
+<li>For SRX650 devices, connect the ge-0/0/0 port to the ge-9/0/0 port</li>
+</ul>
+<blockquote>
+<p>2019年更新</p>
+</blockquote>
+<ul>
+<li>SRX300, ge-0/0/0 &lt;—&gt; ge-1/0/0</li>
+<li>SRX320, ge-0/0/0 &lt;—&gt; ge-3/0/0</li>
+<li>SRX340/345, 专有管理口</li>
+<li>SRX550, ge-0/0/0 &lt;—&gt; ge-9/0/0</li>
+<li>SRX1500, 专有管理口</li>
+</ul>
+<blockquote>
+<p>SRX high-end 系列有专有管理端口</p>
+</blockquote>
+<p>（2）HA 控制信号端口 Control Port，即 fxp1，线缆直连</p>
+<p>你必须使用下面设备指定端口来作为 HA 控制信号端口进行互连，即 fxp1</p>
+<ul>
+<li>For SRX100 devices, connect the fe-0/0/7 port to the fe-1/0/7 port</li>
+<li>For SRX210 devices, connect the fe-0/0/7 port to the fe-2/0/7 port</li>
+<li>For SRX240 devices, connect the ge-0/0/1 port to the ge-5/0/1 port</li>
+<li>For SRX550 devices, connect the ge-0/0/1 port to the ge-9/0/1 port</li>
+<li>For SRX650 devices, connect the ge-0/0/1 port to the ge-9/0/1 port</li>
+</ul>
+<blockquote>
+<p>2019年更新</p>
+</blockquote>
+<ul>
+<li>SRX300, ge-0/0/1 &lt;—&gt; ge-1/0/1</li>
+<li>SRX320, ge-0/0/1 &lt;—&gt; ge-3/0/1</li>
+<li>SRX340/345, ge-0/0/1 &lt;—&gt; ge-5/0/1</li>
+<li>SRX550, ge-0/0/1 &lt;—&gt; ge-9/0/1</li>
+<li>SRX1500, 专有控制口</li>
+</ul>
+<p>SRX High-End 系列有专有控制端口</p>
+<blockquote>
+<p>补充说明：</p>
+<p>SRX550标准配置6个千兆以太网口，只能部署单线的HA结构，双线必须增加接口板卡</p>
+<p>SRX650标准配置4个千兆以太网口，如果需要部署HA 结构，则必须增加数据接口板卡&lt;因为HA 控制平面、数据平面和带外管理接口被占用了至少3 个接口&gt;</p>
+</blockquote>
+<p>（3）HA 数据接口即 Fabric Port，可以指定任意物理接口（SRX High-End 相同），线缆直连</p>
+<p>node0 中为 fab0，node1 中为 fab1</p>
+<blockquote>
+<p>备注：SRX4000 系列（4100、4200、4600）有专有 Fab 端口</p>
+</blockquote>
+<p><strong>2019年更新新产品</strong>
+<a href="https://www.juniper.net/documentation/en_US/junos/topics/reference/general/chassis-cluster-srx-series-node-interface-understanding.html" target="_blank" rel="noopener">参看官网文档</a></p>
+<p><strong>网线连接实例：</strong></p>
+<ul>
+<li>
+<p>SRX240 连接网线（SRX550 和 SRX650 相同）</p>
+<ul>
+<li>0/0 带外管理 MGMT</li>
+<li>0/1 直连，Control</li>
+<li>0/2 直连，Fabric（可指定其他任意端口）</li>
+</ul>
+</li>
+<li>
+<p>SRX340/345 连接网线</p>
+<ul>
+<li>MGMT 带外管理 专有口</li>
+<li>0/1 直连，Control</li>
+<li>0/2 直连，Fabric（可指定其他人任意端口）</li>
+</ul>
+</li>
+<li>
+<p>SRX1500 连接网线</p>
+<ul>
+<li>MGMT 带外管理，专有口 MGMT</li>
+<li>HA CONTROL 直连，专有口 Control</li>
+<li>0/0 直连，Fabric（可指定其他人任意端口）</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-在低端设备上禁用交换">4. 在低端设备上禁用交换</h3>
+<blockquote>
+<p>来自官方文档（原文链接失效）：Disabling Switching on SRX100, SRX210, SRX220, and SRX240 Devices Before Enabling Chassis Clustering</p>
+</blockquote>
+<p><strong>实际要删除更多的配置</strong></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">delete system autoinstallation</span><br><span class="line">delete system services dhcp</span><br><span class="line">delete system services web-management http interface vlan.0</span><br><span class="line">delete system services web-management https interface vlan.0</span><br><span class="line">delete interfaces interface-range interfaces-trust</span><br><span class="line">delete interfaces vlan</span><br><span class="line">delete security zones security-zone trust</span><br><span class="line">delete security nat</span><br><span class="line">delete security zones security-zone untrust</span><br><span class="line">delete security policies</span><br><span class="line">delete vlans</span><br><span class="line"></span><br><span class="line">delete interfaces ge-0/0/0</span><br><span class="line">delete interfaces ge-0/0/1</span><br><span class="line">delete interfaces ge-0/0/2</span><br><span class="line">delete interfaces ge-0/0/3</span><br><span class="line">delete interfaces ge-0/0/4</span><br><span class="line">delete interfaces ge-0/0/5</span><br><span class="line">delete interfaces ge-0/0/6</span><br><span class="line">delete interfaces ge-0/0/7</span><br><span class="line">delete interfaces ge-0/0/8</span><br><span class="line">delete interfaces ge-0/0/9</span><br><span class="line">delete interfaces ge-0/0/10</span><br><span class="line">delete interfaces ge-0/0/11</span><br><span class="line">delete interfaces ge-0/0/12</span><br><span class="line">delete interfaces ge-0/0/13</span><br><span class="line">delete interfaces ge-0/0/14</span><br><span class="line">delete interfaces ge-0/0/15</span><br></pre></td></tr></table></figure></p>
+<h2 id="二-配置篇">二、配置篇</h2>
+<p><strong>整个 JSRP 配置过程包括如下 7 个步骤</strong></p>
+<ul>
+<li>配置 Cluster id 和 Node id (对应 ScreenOS NSRP 的 cluster id 并需手工指定设备使用节点 id）</li>
+<li>指定 Control Port 	（指定控制层面使用接口，用于配置同步及心跳）</li>
+<li>指定 Fabric Link Port （指定数据层面使用接口，主要 session 等 RTO 同步）</li>
+<li>配置 Redundancy Group  （类似 NSRP 的 VSD group，优先级与抢占等配置）</li>
+<li>每个机箱的个性化配置	（单机无需同步的个性化配置，如主机名、带外管理口 IP 地址等）</li>
+<li>配置 Redundant Ethernet Interface （类似 NSRP 的 Redundant 冗余接口）</li>
+<li>配置 Interface Monitoring	（类似 NSRP interface monitor，是 RG 数据层面切换依据）</li>
+</ul>
+<blockquote>
+<p>以下 SRX JSRP 配置样例，基于 SRX240 和 SRX3400：</p>
+<p>分别修改两台SRX主机名如下：</p>
+<p>root@<em>SRX</em>#set system host-name SRX-A</p>
+<p>root@<em>SRX</em>#set system host-name SRX-B</p>
+</blockquote>
+<h3 id="1-配置-cluster-id-和-node-id">1. 配置 Cluster id 和 Node id</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SRX-A&gt;<span class="built_in">set</span> chassis cluster cluster-id <span class="number">1</span> node <span class="number">0</span> reboot</span><br><span class="line"><span class="comment">//注意该命令需在 operational 模式下输入</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Cluster ID 取值范围为 1 – 15，当 Cluster ID = 0 时将 unsets the cluster），node-id取值0 - 1</p>
+</blockquote>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SRX-B&gt;set chassis cluster cluster-id 1 node 1 reboot</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：虚IP的MAC地址，是由cluter-id决定的，在同一网段的两组设备可能冲突，注意配置不同的cluter-id
+经过测试，配置后可以更改cluter-id，分别在两个node上执行上述命令即可
+Redundant Ethernet interface的MAC地址是虚拟的，其值根据以下公式可以计算得出：
+0010DB11111111CCCCRRVV1111111
+CCCC: Cluster ID
+RR: Reserved. 00.
+VV: Version, 00 for the first release
+IIIIIIII: Interface id, derived from the reth index.</p>
+</blockquote>
+<h3 id="2-指定-control-port">2. 指定 Control Port</h3>
+<ul>
+<li>SRX Branch 系列，则无需指定，默认规定采用某一个接口作为控制接口，参考上一节</li>
+<li>SRX hign-end 系列有专用 Control 端口</li>
+</ul>
+<h3 id="3-指定-fabric-link-port">3. 指定 Fabric Link Port</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set interfaces fab0 fabric-options member-interfaces ge-0/0/2</span><br><span class="line">set interfaces fab1 fabric-options member-interfaces ge-5/0/2</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：Fabric Link 中的 Fab0 固定用于 node 0，Fab1 固定用于 node 1</p>
+</blockquote>
+<h3 id="4-配置-redundancy-group">4. 配置 Redundancy Group</h3>
+<p>RG0 固定用于主控板 RE 切换，RG1 以后用于 redundant interface 切换，RE 切换独立于接口切换</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> chassis cluster reth-count <span class="number">10</span>  <span class="comment">//（指定整个 Cluster 中 redundant ethernet interface 最多数量）</span></span><br><span class="line"><span class="built_in">set</span> chassis cluster redundancy-group <span class="number">0</span> node <span class="number">0</span> priority <span class="number">200</span>  <span class="comment">//（取值范围1-254，高值优先，与 NSRP 相反）</span></span><br><span class="line"><span class="built_in">set</span> chassis cluster redundancy-group <span class="number">0</span> node <span class="number">1</span> priority <span class="number">100</span></span><br><span class="line"><span class="built_in">set</span> chassis cluster redundancy-group <span class="number">1</span> node <span class="number">0</span> priority <span class="number">200</span>  <span class="comment">//（取值范围1-254，高值优先，与 NSRP 相反）</span></span><br><span class="line"><span class="built_in">set</span> chassis cluster redundancy-group <span class="number">1</span> node <span class="number">1</span> priority <span class="number">100</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="5-每个机箱的个性化配置便于对两台设备的区分与管理">5. 每个机箱的个性化配置，便于对两台设备的区分与管理</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set groups node0 system host-name SRX-A</span><br><span class="line">set groups node0 interfaces fxp0 unit 0 family inet address 10.3.2.251/24  //（带外网管口名称为 fxp0，区别 ScreenOS 的 MGT 口）</span><br><span class="line">set groups node1 system host-name SRX-B</span><br><span class="line">set groups node1 interfaces fxp0 unit 0 family inet address 10.3.2.252/24</span><br><span class="line"></span><br><span class="line">set apply-groups $&#123;node&#125; //（应用上述 groups 配置）</span><br></pre></td></tr></table></figure></p>
+<p>配置带外管理口 backup-router</p>
+<p><strong>The backup-router destination of 0.0.0.0/0 is not recommended, and should be avoided.</strong></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set groups node0 system backup-router 10.3.2.1 destination 10.3.0.0/16</span><br><span class="line">set groups node1 system backup-router 10.3.2.1 destination 10.3.0.0/16</span><br></pre></td></tr></table></figure></p>
+<p>关于带外管理口的 fxp0</p>
+<p>不属于任何安全区域</p>
+<p>需要 ssh 服务开启（set system services ssh）才能访问</p>
+<p>需要配置 backup-router 以便非相同子网的远程管理客户端访问</p>
+<h3 id="6-配置-redundant-ethernet-interface">6. 配置 Redundant Ethernet Interface</h3>
+<p>Redundant Ethernet Interface 类 似 ScreenOS 里 的 redundant interface，只不过 Redundant Ethernet interface 是分布在不同的机箱上 (这一特性又类似 ScreenOS 的 VSI 接口)。</p>
+<p>本例是电信和联通双线网络</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内网口</span></span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-0</span>/<span class="number">0</span>/<span class="number">3</span> gigether-options redundant-parent reth0  <span class="comment">//（node 0 的 ge-0/0/3 接口）</span></span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-5</span>/<span class="number">0</span>/<span class="number">3</span> gigether-options redundant-parent reth0  <span class="comment">//（node 1 的 ge-0/0/3 接口）</span></span><br><span class="line"><span class="built_in">set</span> interface reth0 redundant-ether-options redundancy-group <span class="number">1</span>  <span class="comment">//（reth0 属于 RG1）</span></span><br><span class="line"><span class="built_in">set</span> interface reth0 unit <span class="number">0</span> family inet address <span class="number">10.3</span><span class="number">.1</span><span class="number">.254</span>/<span class="number">24</span></span><br><span class="line"><span class="comment">//电信外部</span></span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-0</span>/<span class="number">0</span>/<span class="number">4</span> gigether-options redundant-parent reth1</span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-5</span>/<span class="number">0</span>/<span class="number">4</span> gigether-options redundant-parent reth1</span><br><span class="line"><span class="built_in">set</span> interface reth1 redundant-ether-options redundancy-group <span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> interface reth1 unit <span class="number">0</span> family inet address <span class="number">122.226</span><span class="number">.95</span><span class="number">.226</span>/<span class="number">28</span></span><br><span class="line"><span class="comment">//电信内部</span></span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-0</span>/<span class="number">0</span>/<span class="number">5</span> gigether-options redundant-parent reth2</span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-5</span>/<span class="number">0</span>/<span class="number">5</span> gigether-options redundant-parent reth2</span><br><span class="line"><span class="built_in">set</span> interface reth2 redundant-ether-options redundancy-group <span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> interface reth2 unit <span class="number">0</span> family inet address <span class="number">122.226</span><span class="number">.95</span><span class="number">.254</span>/<span class="number">28</span></span><br><span class="line"><span class="comment">//联通外部</span></span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-0</span>/<span class="number">0</span>/<span class="number">6</span> gigether-options redundant-parent reth3</span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-5</span>/<span class="number">0</span>/<span class="number">6</span> gigether-options redundant-parent reth3</span><br><span class="line"><span class="built_in">set</span> interface reth3 redundant-ether-options redundancy-group <span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> interface reth3 unit <span class="number">0</span> family inet address <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>/<span class="number">24</span></span><br><span class="line"><span class="comment">//联通内部</span></span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-0</span>/<span class="number">0</span>/<span class="number">7</span> gigether-options redundant-parent reth4</span><br><span class="line"><span class="built_in">set</span> interface ge<span class="number">-5</span>/<span class="number">0</span>/<span class="number">7</span> gigether-options redundant-parent reth4</span><br><span class="line"><span class="built_in">set</span> interface reth4 redundant-ether-options redundancy-group <span class="number">1</span></span><br><span class="line"><span class="built_in">set</span> interface reth4 unit <span class="number">0</span> family inet address <span class="number">192.168</span><span class="number">.100</span><span class="number">.1</span>/<span class="number">24</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="7-配置-interface-monitoring">7. 配置 Interface Monitoring</h3>
+<p>被监控的接口 Down 掉后，RG1 将自动进行主备切换（与 ScreenOS 类似）</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-0/0/3 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-0/0/4 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-0/0/5 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-0/0/6 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-0/0/7 weight 255</span><br><span class="line"></span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-5/0/3 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-5/0/4 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-5/0/5 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-5/0/6 weight 255</span><br><span class="line">set chassis cluster redundancy-group 1 interface-monitor ge-5/0/7 weight 255</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>以上群集配置完成，以下开始网络和策略配置</p>
+</blockquote>
+<h3 id="8-配置安全区域">8. 配置安全区域</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">set security zones security-zone trust interfaces reth0.0</span><br><span class="line">set security zones security-zone trust host-inbound-traffic system-services all</span><br><span class="line">set security zones security-zone trust host-inbound-traffic protocols all</span><br><span class="line"></span><br><span class="line">set security zones security-zone CT-Outside interfaces reth1.0</span><br><span class="line">//set security zones security-zone CT-Outside host-inbound-traffic system-services all  //配置ssh，ping即可</span><br><span class="line">set security zones security-zone CT-Outside host-inbound-traffic system-services ssh</span><br><span class="line">set security zones security-zone CT-Outside host-inbound-traffic system-services ping</span><br><span class="line">set security zones security-zone CT-Outside host-inbound-traffic protocols all</span><br><span class="line"></span><br><span class="line">set security zones security-zone CT-Inside interfaces reth2.0</span><br><span class="line">set security zones security-zone CT-Inside host-inbound-traffic system-services all</span><br><span class="line">set security zones security-zone CT-Inside host-inbound-traffic protocols all</span><br><span class="line"></span><br><span class="line">set security zones security-zone CU-Outside interfaces reth3.0</span><br><span class="line">//set security zones security-zone CU-Outside host-inbound-traffic system-services all  //配置ssh，ping即可</span><br><span class="line">set security zones security-zone CU-Outside host-inbound-traffic system-services ssh</span><br><span class="line">set security zones security-zone CU-Outside host-inbound-traffic system-services ping</span><br><span class="line">set security zones security-zone CU-Outside host-inbound-traffic protocols all</span><br><span class="line"></span><br><span class="line">set security zones security-zone CU-Inside interfaces reth4.0</span><br><span class="line">set security zones security-zone CU-Inside host-inbound-traffic system-services all</span><br><span class="line">set security zones security-zone CU-Inside host-inbound-traffic protocols all</span><br></pre></td></tr></table></figure></p>
+<h3 id="9-配置路由">9. 配置路由</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> routing-options interface-routes rib-group inet inside</span><br><span class="line"><span class="built_in">set</span> routing-options <span class="keyword">static</span> route <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">0</span> next-hop <span class="number">122.226</span><span class="number">.95</span><span class="number">.225</span>  <span class="comment">//默认网关指向电信或者联通默认网关，看来只能默认从一条线路出？</span></span><br><span class="line"><span class="built_in">set</span> routing-options <span class="keyword">static</span> route <span class="number">10.3</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">16</span> next-hop <span class="number">10.3</span><span class="number">.1</span><span class="number">.10</span>  <span class="comment">//内部网络指向核心交换</span></span><br><span class="line"><span class="built_in">set</span> routing-options rib-groups inside <span class="keyword">import</span>-rib inet<span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> routing-options rib-groups inside <span class="keyword">import</span>-rib CT.inet<span class="number">.0</span></span><br><span class="line"><span class="built_in">set</span> routing-options rib-groups inside <span class="keyword">import</span>-rib CU.inet<span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> routing-instances CT instance-type <span class="keyword">virtual</span>-router</span><br><span class="line"><span class="built_in">set</span> routing-instances CT interface reth1<span class="number">.0</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CT interface reth2<span class="number">.0</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CT routing-options interface-routes rib-group inet inside  <span class="comment">//这句可以不用配置，配置后实例路由表包含其他实例的条目</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CT routing-options <span class="keyword">static</span> route <span class="number">122.226</span><span class="number">.95</span><span class="number">.240</span>/<span class="number">28</span> next-hop <span class="number">122.226</span><span class="number">.95</span><span class="number">.253</span>  <span class="comment">//电信内部IP段指向F5，可以不用配置</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CT routing-options <span class="keyword">static</span> route <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">0</span> next-hop <span class="number">122.226</span><span class="number">.95</span><span class="number">.225</span> <span class="comment">//电信外部IP段默认网关</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> routing-instances CU instance-type <span class="keyword">virtual</span>-router</span><br><span class="line"><span class="built_in">set</span> routing-instances CU interface reth3<span class="number">.0</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CU interface reth4<span class="number">.0</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CU routing-options interface-routes rib-group inet inside  <span class="comment">//这句可以不用配置，配置后实例路由表包含其他实例的标目</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CU routing-options <span class="keyword">static</span> route <span class="number">192.168</span><span class="number">.100</span><span class="number">.64</span>/<span class="number">24</span> next-hop <span class="number">192.168</span><span class="number">.100</span><span class="number">.4</span>  <span class="comment">//联通外部IP段指向F5，可以不用配置</span></span><br><span class="line"><span class="built_in">set</span> routing-instances CU routing-options <span class="keyword">static</span> route <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">0</span> next-hop <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>  <span class="comment">//联通外部IP段默认网关</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="10-设置安全策略">10. 设置安全策略</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//电信内部到电信外部，默认允许</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Inside to-zone CT-Outside policy CT-Outbound match source-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Inside to-zone CT-Outside policy CT-Outbound match destination-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Inside to-zone CT-Outside policy CT-Outbound match application any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Inside to-zone CT-Outside policy CT-Outbound then permit</span><br><span class="line"></span><br><span class="line"><span class="comment">//电信外部到电信内部，允许特定协议</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound match source-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound match destination-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound match application junos-http</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound match application junos-https</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound match application junos-icmp-all</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound match application junos-smtp</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound match application TCP<span class="number">-8080</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound then permit</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone CT-Inside policy CT-Inbound then <span class="built_in">log</span> session-close</span><br><span class="line"></span><br><span class="line"><span class="comment">//联通内部到联通外部，默认允许//注意CU和CT差别</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Inside to-zone CU-Outside policy CU-Outbound match source-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Inside to-zone CU-Outside policy CU-Outbound match destination-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Inside to-zone CU-Outside policy CU-Outbound match application any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Inside to-zone CU-Outside policy CU-Outbound then permit</span><br><span class="line"></span><br><span class="line"><span class="comment">//联通外部到联通内部，允许特定协议//注意CU和CT差别</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound match source-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound match destination-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound match application junos-http</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound match application junos-https</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound match application junos-icmp-all</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound match application junos-smtp</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound match application TCP<span class="number">-8080</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound then permit</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CU-Outside to-zone CU-Inside policy CU-Inbound then <span class="built_in">log</span> session-close</span><br><span class="line"></span><br><span class="line"><span class="comment">//内部到外部，默认用电信允许全部</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone trust to-zone CT-Outside policy trust-outbound match source-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone trust to-zone CT-Outside policy trust-outbound match destination-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone trust to-zone CT-Outside policy trust-outbound match application any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone trust to-zone CT-Outside policy trust-outbound then permit</span><br><span class="line"></span><br><span class="line"><span class="comment">//电信外部到内部，指定应用</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone trust policy policy<span class="number">-1</span> match source-address any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone trust policy policy<span class="number">-1</span> match destination-address <span class="number">10.19</span><span class="number">.177</span><span class="number">.231</span>/<span class="number">32</span></span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone trust policy policy<span class="number">-1</span> match application any</span><br><span class="line"><span class="built_in">set</span> security policies from-zone CT-Outside to-zone trust policy policy<span class="number">-1</span> then permit</span><br></pre></td></tr></table></figure></p>
+<p>自定义应用和协议</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set applications application TCP-8080 protocol tcp</span><br><span class="line">set applications application TCP-8080 source-port 1-65535</span><br><span class="line">set applications application TCP-8080 destination-port 8080</span><br></pre></td></tr></table></figure></p>
+<h3 id="11-其他常用配置">11. 其他常用配置</h3>
+<ul>
+<li>自定义应用和协议</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//定义一个TCP 8080端口的应用</span><br><span class="line">set applications application TCP-8080 protocol tcp</span><br><span class="line">set applications application TCP-8080 source-port 1-65535</span><br><span class="line">set applications application TCP-8080 destination-port 8080</span><br><span class="line"></span><br><span class="line">//定义一个UDP 9999端口的应用</span><br><span class="line">&gt;set applications application UDP-9999 protocol udp</span><br><span class="line">&gt;set applications application UDP-9999 source-port 1-65535</span><br><span class="line">&gt;set applications application UDP-9999 destination-port 9999</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>时区</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set system time-zone Asia/Shanghai</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>NTP</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set system ntp server 10.3.5.11 version 3</span><br><span class="line">set system ntp server 10.3.5.12 version 3</span><br><span class="line">set system ntp server 10.3.5.11 prefer</span><br><span class="line">//version 3 为 Windows NTP，或者直接配置</span><br><span class="line">set system ntp server 10.3.5.11</span><br><span class="line">set system ntp server 10.3.5.12</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>远程管理服务</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set system services ssh</span><br><span class="line">set system services telnet  //可以delete</span><br><span class="line">set system services xnm-clear-text  //建议delete</span><br><span class="line">set system services web-management http  //建议delete</span><br><span class="line">set system services web-management https system-generated-certificate  //可以delete</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>端口告警设置</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set chassis alarm ethernet link-down ignore  //设置全部端口不产生告警</span><br><span class="line">//注意：link-down 可以侦测端口的状态，如果设置了端口 link down 的 alarm 告警，则不用的端口最好 disable，以避免频繁告警</span><br><span class="line">//补充：</span><br><span class="line">set chassis alarm ethernet link-down red  //设置全部端口产生告警</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>
+<p>SNMP
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set snmp location Beijing</span><br><span class="line">set snmp contact &quot;xxx@domain.com&quot;</span><br><span class="line">set snmp community &lt;abc&gt; authorization read-only  //将 &lt;abc&gt; 修改为自定义的字符</span><br><span class="line">set security zones security-zone trust host-inbound-traffic system-services snmp  //注意开启 zone 的 snmp 服务，这里是 trust</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>关闭 ALG</p>
+</li>
+</ul>
+<blockquote>
+<p>ALG 应用级网关，也叫做应用层网关（Application Layer Gateway）</p>
+</blockquote>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set security alg [协议名称] disable</span><br><span class="line">set security alg dns disable</span><br><span class="line">set security alg sql disable</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>针对内网口，设置源地址 nat</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set security nat source rule-set trust-to-CT from zone trust</span><br><span class="line">set security nat source rule-set trust-to-CT to zone CT-Outside</span><br><span class="line">set security nat source rule-set trust-to-CT rule 01 match source-address 10.3.0.0/16  //或者直接 0.0.0.0/0</span><br><span class="line">set security nat source rule-set trust-to-CT rule 01 then source-nat interface</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>设置 DNS（系统默认这条是用 OpenDNS）</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set system name-server 208.67.222.222</span><br><span class="line">set system name-server 208.67.220.220</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>
+<p>配置 syslog</p>
+<ul>
+<li>Branch 设备：</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//开启 syslog</span><br><span class="line">root@SRX# set system syslog host &lt;IP address of the remote Syslog server (i.e., Firewall Analyzer)&gt; any any</span><br><span class="line">set system syslog host 10.3.3.103 source-address 10.3.1.254</span><br><span class="line">//策略开启日志</span><br><span class="line">root@SRX# set security policies from-zone trust to-zone untrust policy permit-all then log session-close</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>High-End 设备：</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set security log mode stream</span><br><span class="line">set security log source-address 10.3.1.254</span><br><span class="line">set security log stream trafficlogs host 10.3.1.200</span><br><span class="line">//开启 policy 的日志记录 then log session-close</span><br><span class="line">set security policies from-zone trust to-zone untrust policy permit-all then log session-close</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h3 id="10-jsrp-维护命令">10. JSRP 维护命令</h3>
+<ul>
+<li>(1) 手工切换 JSRP Master，RG1 原 backup 将成为 Master，RG0 同样</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@SRX&gt;</span><br><span class="line">request chassis cluster failover redundancy-group 1 node 1</span><br><span class="line">request chassis cluster failover redundancy-group 0 node 1</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>(2) 手工恢复 JSRP 状态，按照优先级重新确定主备关系（高值优先）</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@SRX&gt;</span><br><span class="line">request chassis cluster failover reset redundancy-group 1</span><br><span class="line">request chassis cluster failover reset redundancy-group 0</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>(3) 查看 cluster interface</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@SRX&gt; show chassis cluster interfaces</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>(4) 查看 cluster 状态、节点状态、主备关系</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@SRX&gt; show chassis cluster status</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>(5) 禁用群集，取消 cluster 配置</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@SRX# set chassis cluster disable reboot</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>(6) 恢复处于 disabled 状态的 node</li>
+</ul>
+<p>当 control port 或 fabric link 出现故障时，为避免出现双 master (split-brain)现象，JSRP 会把出现 故障前状态为 secdonary 的 node 设为 disabled 状态，即除了 RE，其余部件都不工作。想要恢复必须 reboot 该 node。</p>
+<ul>
+<li>(7) 查看群集的相关命令</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@SRX&gt;</span><br><span class="line">show chassis cluster status</span><br><span class="line">show chassis cluster interfaces</span><br><span class="line">show chassis cluster statistics</span><br><span class="line">show chassis cluster control-plane statistics</span><br><span class="line">show chassis cluster data-plane statistics</span><br><span class="line">show chassis cluster status redundancy-group 0</span><br><span class="line">show chassis cluster status redundancy-group 1</span><br></pre></td></tr></table></figure></p>
+<h3 id="12-cluster-升级-in-service-software-upgrade-issu">12. Cluster 升级 In-Service Software Upgrade (ISSU)</h3>
+<p>[SRX] ISSU/ICU upgrade limitations on SRX firewalls
+https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB17946
+Upgrading a SRX Chassis Cluster
+http://blog.marquis.co/upgrading-a-srx-chassis-cluster/</p>
+<h4 id="branch-srx-devices-in-band-cluster-upgrade-icu">branch SRX devices： In-Band Cluster Upgrade (ICU)</h4>
+<pre><code>request system software in-service-upgrade /path/to/package no-sync
+
+{primary:node0}
+root@SRX240-1&gt; request system software in-service-upgrade /var/tmp/junos-srxsme-12.3X48-D50.6-domestic.tgz no-sync
+</code></pre>
+<h4 id="high-end-srx-devices-in-service-software-upgrade-issu">high-end SRX devices： In-Service Software Upgrade (ISSU)</h4>
+<pre><code>request system software in-service-upgrade /path/to/package reboot
+
+{primary:node0}
+root@SRX3400-1&gt; request system software in-service-upgrade /var/tmp/junos-srx1k3k-12.3X48-D50.6-domestic.tgz reboot
+</code></pre>
+<blockquote>
+<p>Important note
+Unlike with the ICU upgrade process, you have to enter the option reboot to confirm that you want a reboot after. If you don’t use the option reboot, the command will fail. This only applies to the High End SRX devices, SRX1400, SRX3400, SRX3600, SRX5600 and SRX5800.</p>
+</blockquote>
+<blockquote>
+<p>SRX 240b（240h） 支持不了新版本，仅仅支持到 12.1x46，并已停产
+ERROR: Unsupported platform srx240b for 12.1X47 and higher</p>
+</blockquote>
+<p>在老旧版本中，已经不适用，升级过程会中断业务。 升级步骤如下：</p>
+<ul>
+<li>
+<p>升级 node 0，注意不要重启系统</p>
+</li>
+<li>
+<p>升级 node 1，注意不要重启系统.</p>
+</li>
+<li>
+<p>同时重启两个系统</p>
+</li>
+</ul>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/CentOS-8.0-Install/" data-toggle="tooltip" data-placement="top" title="CentOS 8.0 安装笔记">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Hello-Hexo/" data-toggle="tooltip" data-placement="top" title="[Hexo] Theme Test">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="/css/share.min.css">
+                    <script src="/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>
+
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一-准备篇"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4E00;&#x3001;&#x51C6;&#x5907;&#x7BC7;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-设备登录"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1. &#x8BBE;&#x5907;&#x767B;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-恢复出厂设置"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2. &#x6062;&#x590D;&#x51FA;&#x5382;&#x8BBE;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-网线连接"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">3. &#x7F51;&#x7EBF;&#x8FDE;&#x63A5;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-在低端设备上禁用交换"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">4. &#x5728;&#x4F4E;&#x7AEF;&#x8BBE;&#x5907;&#x4E0A;&#x7981;&#x7528;&#x4EA4;&#x6362;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二-配置篇"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4E8C;&#x3001;&#x914D;&#x7F6E;&#x7BC7;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-配置-cluster-id-和-node-id"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. &#x914D;&#x7F6E; Cluster id &#x548C; Node id</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-指定-control-port"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. &#x6307;&#x5B9A; Control Port</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-指定-fabric-link-port"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. &#x6307;&#x5B9A; Fabric Link Port</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-配置-redundancy-group"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. &#x914D;&#x7F6E; Redundancy Group</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-每个机箱的个性化配置便于对两台设备的区分与管理"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. &#x6BCF;&#x4E2A;&#x673A;&#x7BB1;&#x7684;&#x4E2A;&#x6027;&#x5316;&#x914D;&#x7F6E;&#xFF0C;&#x4FBF;&#x4E8E;&#x5BF9;&#x4E24;&#x53F0;&#x8BBE;&#x5907;&#x7684;&#x533A;&#x5206;&#x4E0E;&#x7BA1;&#x7406;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-配置-redundant-ethernet-interface"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. &#x914D;&#x7F6E; Redundant Ethernet Interface</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-配置-interface-monitoring"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. &#x914D;&#x7F6E; Interface Monitoring</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-配置安全区域"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">8. &#x914D;&#x7F6E;&#x5B89;&#x5168;&#x533A;&#x57DF;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-配置路由"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">9. &#x914D;&#x7F6E;&#x8DEF;&#x7531;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#10-设置安全策略"><span class="toc-nav-number">2.10.</span> <span class="toc-nav-text">10. &#x8BBE;&#x7F6E;&#x5B89;&#x5168;&#x7B56;&#x7565;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#11-其他常用配置"><span class="toc-nav-number">2.11.</span> <span class="toc-nav-text">11. &#x5176;&#x4ED6;&#x5E38;&#x7528;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#10-jsrp-维护命令"><span class="toc-nav-number">2.12.</span> <span class="toc-nav-text">10. JSRP &#x7EF4;&#x62A4;&#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#12-cluster-升级-in-service-software-upgrade-issu"><span class="toc-nav-number">2.13.</span> <span class="toc-nav-text">12. Cluster &#x5347;&#x7EA7; In-Service Software Upgrade (ISSU)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#branch-srx-devices-in-band-cluster-upgrade-icu"><span class="toc-nav-number">2.13.1.</span> <span class="toc-nav-text">branch SRX devices&#xFF1A; In-Band Cluster Upgrade (ICU)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#high-end-srx-devices-in-service-software-upgrade-issu"><span class="toc-nav-number">2.13.2.</span> <span class="toc-nav-text">high-end SRX devices&#xFF1A; In-Service Software Upgrade (ISSU)</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#JUNOS" title="JUNOS">JUNOS</a>
+                        
+                          <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://juejin.im/" target="_blank">掘金</a></li>
+                    
+                        <li><a href="https://www.jianshu.com/" target="_blank">简书</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Theme by <a href="http://beantech.org" target=_blank>BeanTech</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
