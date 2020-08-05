@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="数据中心基础架构、平台和应用交付">
+    <meta name="keyword"  content="Apple,macOS,iOS,Cisco,IOS,IOS-XE,NX-OS,Nexus,ACI,Docker,Kubernetes,F5,BIG-IP,LTM,DNS,ASM,Linux,CentOS,Ubuntu,Microsoft,Windows,Oracle,Palo Alto,PAN-OS,VMware,ESXi,vCenter,NSX,VSAN,FortiGate,FortiOS,Firepower">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          FortiGate FGCP HA 配置文档 - netgc | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/FortiOS-FGCP-HA-Config/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<link rel="alternate" href="/atom.xml" title="System Inside" type="application/atom+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+                            
+                              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+                            
+                        </div>
+                        <h1>FortiGate FGCP HA 配置文档</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2017-08-01
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">System Inside</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <h2 id="概述">概述</h2>
+<p>FortiOS 提供 6 种冗余解决方案，工业标准的 VRRP 和 5 种专有的解决方案：</p>
+<ul>
+<li>FortiGate Cluster Protocol (FGCP) high availability，</li>
+<li>FortiGate Session Life Support Protocol (FGSP) high availability，</li>
+<li>Session-Aware Load Balancing Clustering (SLBC)，</li>
+<li>Enhanced Load Balanced Clustering (ELBC)，</li>
+<li>Content Clustering.</li>
+</ul>
+<p>FGCP HA 是 ForitOS 最常用的 HA 配置方式，也是本文描述的内容。</p>
+<h3 id="fgcp-ha">FGCP HA</h3>
+<p>FortiGate HA 集群由为 HA 操作配置的两到四个 FortiGate 组成。集群中的每个 FortiGate 称为集群设备。所有集群设备必须是相同的ForitGate 型号，安装相同的 FortiOS 固件版本。所有集群设备还必须具有相同的硬件配置(例如，相同数量的硬盘等等)，并以相同的操作模式(NAT 模式或透明模式)运行。</p>
+<blockquote>
+<p>你可以创建最多由四个 FortiGate 组成的 FGCP 集群。</p>
+</blockquote>
+<p>此外，集群设备必须能够通过心跳接口彼此通信。创建集群并继续运行集群需要这种心跳通信。没有它，集群就像独立 FortiGate 的集合。</p>
+<p>在启动时，使用相同的 HA 配置配置集群设备并连接它们的心跳接口之后，集群设备使用 FortiGate 集群协议(FGCP)査找为 HA 操作配置的其他FortiGate，并协商创建集群。在集群操作期间，FGCP 通过心跳接口链接在集群设备之间共享通信和同步信息。这种通信和同步称为 FGCP 心跳或者 HA 心跳。通常，简称为心跳。</p>
+<p>集群使用 FGCP 选择主设备，并提供设备、链接和会话故障转移。FGCP 还管理两种 HA 模式：主动-被动(故障转移 HA)和主动-主动(负载均衡 HA)。</p>
+<h3 id="同步配置">同步配置</h3>
+<p>FGCP 使用增量同步和周期性同步的组合，以确保所有集群设备的配置与主设备的配置同步。这意味着在大多数情况下，你只需进行—次配置更改，就可以将其同步到所有集群设备。这包括包含额外信息的特殊配置设置(例如，第三方证书、替换消息文本文件和图形等)。</p>
+<p>某些配置设置不同步，以支持 FortiGate 某些特定操作。以下设置在集群设备之间不同步：</p>
+<p>• FortiGate 主机名。允许你识别集群设备。
+• GUI 仪表板配置。故障转移只有，你可能必须重新配置仪表板小部件。
+• HA 覆盖。
+• HA 设备优先级。
+• 虚拟集群 1 和虚拟集群 2 设备优先级。
+• ping 服务器或死网关检测配置的HA优先级(ha-priority)设置。
+• 成为 HA 保留管理接口的 FortiGate 接口的系统接口设置。
+• 保留管理接口的默认路由，使用<code>config system ha</code>命令的<code>ha-mgmt-interface-gateway</code>选项设置。
+• 动态加权负载均衡阈值和高低水印。
+• OSPF summary-addresses 设置。</p>
+<p>此外，许可证是不同步的，因为每个 FortiGate 必须单独许可。这包括 FortiCloud 激活和 FortiClient 许可，如果你购买了超过 10 个虚拟域(VDOM)，则输入一个许可密钥。</p>
+<h3 id="ha-工作模式">HA 工作模式</h3>
+<p><strong>Active-Passive（A-P）模式</strong></p>
+<p>集群中的所有防火墙必须工作在同一个模式下。可以对运行中的HA集群进行模式的修改，但会造成一定的延时，因为集群需要重新协商并选取新的主设备。A-P 模式提供了备机保护。HA 集群中由一台主设备，和一台以上到从设备组成。</p>
+<p>从设备与主设备一样连接到网络，但不处理任何的数据包，从设备处于备用状态。从设备会自动同步主设备的配置，并时刻监视主设备到运行状态。整个失效保护的过程是透明的，一旦主设备失效，从设备会自动接替其工作。如果设备的接口或链路出现故障，集群内会更新链路状态数据库，重新选举新的主设备。</p>
+<p>Active-Active（A-A）模式</p>
+<p>A-A 模式下会对占用资源较多的进程进行在各个设备中进行分担。需要处理协议识别、病毒扫描、ips、网页过滤、邮件过滤、数据防泄露、应用程序控制、voip 内容扫描、协议保护（HTTP，HTTPS，FTP，IMAP，IMAPS，POP3，SMTP，SMTPS，IM，NNTP，SIP，SIMPLE），SCCP 协议控制等。通过对如上内容的负载均担，A-A 模式可以提供更高的 UTM 性能。安全策略中的终端控制，流控，用户认证功能，在 A-A 模式下没有什么提高效果。其他非 UTM功能不会进行负载分担，将由主设备进行处理。除了 UTM功 能外，还可以实现对 TCP 会话进行分担。</p>
+<p>AA模式下，集群中的主设备负责对所有通信会话的处理，然后将部分负载分发到所有从设备上。从设备可以说是活动的，因为要处理 UTM 的相关会话。但从设备只处理由主设备分配的数据，不会响应 arp 等。其他方面 AA 模式和 AP 模式是相同的。</p>
+<p>单机配置同步、单机会话同步模式</p>
+<p>从 5.0 版本开始，全新 NGFW 下一代防火墙支持单机配置同步、会话同步功能，在一些应用场景中它可以代替双机 HA 功能，实现控制异步流量的目的。</p>
+<h3 id="ha-配置要求">HA 配置要求</h3>
+<p>进行 HA 配置， 硬件和软件版本需满足如下要求：</p>
+<ol>
+<li>
+<p>防火墙硬件型号相同；</p>
+</li>
+<li>
+<p>同型号硬件要求硬件版本，内存容量，CPU 型号，硬盘容量等相同；</p>
+</li>
+<li>
+<p>相同的 软件版本；</p>
+</li>
+<li>
+<p>设备的所有接口不能工作在 DHCP，PPPOE 模式下。没有使用的接口IP地址模式也需要选择为&quot;自定义&quot;；</p>
+</li>
+</ol>
+<p>假如 HA 的两台 FGT 存在上述不一致的情况，那么做为备机的 FGT 将会被 Shutdown 主动关闭。</p>
+<p>串口下将会打印 shutdown 并提示原因：</p>
+<p>slave and master have different hdisk status. Cannot work with HA master. Shutdown the box!</p>
+<p>The system is going down NO</p>
+<p>The system is halted.</p>
+<h3 id="ha-配置步骤">HA 配置步骤</h3>
+<p>步骤1、配置设备 1 的 HA</p>
+<p>步骤2、配置设备 2 的 HA</p>
+<p>步骤3、组建 HA</p>
+<p>步骤4、查看 HA 集群</p>
+<h3 id="ha-配置建议">HA 配置建议</h3>
+<p>1)进行HA环境下更换设备前，进行配置备份，防止操作失误而造成的配置丢失。</p>
+<p>2)建议配置两条以上的心跳线缆，防止单心跳故障造成HA机群崩溃，使用独立的心跳接口，尽量避免与业务口混用。</p>
+<p>3)优先使用光纤接口。</p>
+<p>4)开启会话同步：set session-pickup enable(默认关闭)或者在WEB上启用&quot;会话交接&quot;</p>
+<p>5)谨慎使用override功能。开启override后设备选举过程中HA优先级参数高于设备运行时间参数，可能造成期望成为备机的设备被选举为主设备，造成反向同步配置信息。</p>
+<p>6)更改默认的HA组的ID，避免同一个广播域内存在多个HA机群，而造成接口的虚拟MAC冲突</p>
+<p>7)选择正确的监控端口和心跳端口，在开启vdom虚拟cluster时候，每个cluster需要单独配置。</p>
+<p>8)如果开启ping server功能，则需要再HA配置中添加相应的配置命令。</p>
+<p>9)建议将与防火墙相连的交换机接口配置为stp portfast模式，发生接口Up/Down切换时，交换机的接口可立刻进入转发状态，而不需要stp状态进行侦听、学习、转发等延迟步骤后接口才转发数据。</p>
+<h2 id="fgcp-ha-配置实例">FGCP HA 配置实例</h2>
+<h3 id="1-配置任务概述两台设备配置主备模式">1. 配置任务概述：两台设备配置主备模式</h3>
+<p>网口：</p>
+<ul>
+<li>port1用作内网口</li>
+<li>port2用作外网口</li>
+<li>port3和port4用作heartbeat</li>
+</ul>
+<p>连线：</p>
+<ul>
+<li>port1、port2以及MGMT口正常连接网线到交换机</li>
+<li>port3和port4暂不连接网线</li>
+</ul>
+<p>1） 主设备：已经在网络配置运行的机器，或者是新机器可以配置一下管理IP即可</p>
+<p>The FortiGate already on the network will be configured to become the primary unit by:</p>
+<ul>
+<li>Licensing it (if required)</li>
+<li>Enabling HA</li>
+<li>Increasing its device priority</li>
+<li>Enabling override  //全新机器不需要启用override</li>
+</ul>
+<p>2） 备机：如果不是新机器需要恢复出厂设置，创建群集后所有设置将被主设备覆盖</p>
+<p>The new FortiGate will be prepared by:</p>
+<ul>
+<li>Setting it to factory defaults to wipe any configuration changes</li>
+<li>Licensing it (if required)</li>
+<li>Enabling HA without changing the device priority and override</li>
+<li>Connecting it to the FortiGate already on the network.</li>
+</ul>
+<p>The new FortiGate becomes the backup unit and its configuration is overwritten by the primary unit.</p>
+<h3 id="2-配置群集">2. 配置群集</h3>
+<h4 id="1主设备">1）主设备</h4>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">config system global</span><br><span class="line">  <span class="built_in">set</span> hostname FortiGate01</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">200</span></span><br><span class="line"> <span class="built_in">set</span> override enable  <span class="comment">//全新机器不需要启用override</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"><span class="comment">//port3和port4为两个心跳接口</span></span><br></pre></td></tr></table></figure></p>
+<p>清空arp表
+arp -d
+查看MAC地址更新
+get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
+<h4 id="2备机">2）备机</h4>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">execute factoryreset</span><br><span class="line"><span class="comment">//非新机器时执行</span></span><br><span class="line"></span><br><span class="line">config system global</span><br><span class="line"> <span class="built_in">set</span> hostname FortiGate02</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">100</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"><span class="comment">//mode、group-id、group-name、password个心跳端口设置相同，priority优先级低，不配置override</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-连接群集">3. 连接群集</h3>
+<p>将heartbeat端口网线直连，这里是port3和port4，这是主备设备将发现对方并协商创建群集，主设备将配置同步到备机上。</p>
+<h3 id="4-校验群集并禁用orveride">4. 校验群集并禁用orveride</h3>
+<p>登录主机执行如下命令</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diagnose sys ha checksum cluster</span><br></pre></td></tr></table></figure></p>
+<p>可以看到所有群集成员的checksum相同，表示已经同步完成。</p>
+<p>也可以在web界面的HA Status Dashboard查看群集同步状态</p>
+<p>在主设备上执行如下命令禁用override，若不取消这项设置，主设备将始终保持主机状态无法实现故障转移</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config system ha</span><br><span class="line"> set override disable</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>查看最近的HA系统状态时间</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show HA Historical Events</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-测试故障转移">5. 测试故障转移</h3>
+<p>在内网长ping 8.8.8.8</p>
+<p>关闭主设备</p>
+<p>可以观察有丢包产生，网络仍然可以正常访问</p>
+<h3 id="6-相关命令">6. 相关命令</h3>
+<ul>
+<li>
+<p>重启和切换</p>
+<ul>
+<li>软切换：diagnose sys ha reset-uptime</li>
+<li>重启防火墙：exec reboot （只重启主防火墙，将导致主备切换）</li>
+</ul>
+</li>
+<li>
+<p>查看设备系统状态</p>
+<ul>
+<li>查看系统基本信息：get sys status</li>
+<li>查看系统状态信息：get sys performance status</li>
+</ul>
+</li>
+<li>
+<p>查看接口状态</p>
+<ul>
+<li>查看单接口状态：diagnose hardware deviceinfo nic 接口名</li>
+<li>查看聚合接口状态：diagnose netlink aggregate name 聚合接口名</li>
+<li>关闭接口线速转发：diagnose npu np2 fastpath-sniffer enable Port-Number</li>
+</ul>
+<blockquote>
+<p>注：该配置只在工作机有效（diagnose 命令），当设备切换时，原备机没有这个配置</p>
+</blockquote>
+</li>
+<li>
+<p>查看HA状态</p>
+<ul>
+<li>
+<p>登录备墙，需要先用admin登录到主防火墙后执行：exec ha manage 0 或1</p>
+</li>
+<li>
+<p>查看主备机配置是否同步：diag sys ha showcsum</p>
+<blockquote>
+<p>查看主备机输出是否一致，如果一致则表明配置已同步。</p>
+</blockquote>
+</li>
+<li>
+<p>查看HA状态：get sys ha status</p>
+</li>
+</ul>
+</li>
+<li>
+<p>查看会话</p>
+<p>查看会话：diagnose sys session stat 或diagnose sys session full-stat</p>
+</li>
+<li>
+<p>查看系统ARP表项</p>
+<ul>
+<li>查看ARP表：get sys arp</li>
+<li>查看丰富ARP信息：diagnose ip arp list</li>
+</ul>
+</li>
+<li>
+<p>查看当前系统进程</p>
+<ul>
+<li>
+<p>查看系统进程：diagnose sys top 5 99</p>
+</li>
+<li>
+<p>杀进程：diagnose sys kill 11 进程ID 或 dia sys kill 9 进程ID</p>
+<blockquote>
+<p>注意：kill 11 有日志，kill 9 没有日志。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ha-cluster-不中断升级过程">HA-Cluster 不中断升级过程</h2>
+<p>1.在主机 Web 界面上点击升级按钮。</p>
+<p>2.主机把 OS 发给备机，备机准备并开始升级，然后自动重启，此过程需要 5分钟（或更长时间），请耐心等待。</p>
+<p>3.备机升级完成，并切换成主机。</p>
+<p>4.主机观察到备机升级成功并切换为新的主机后，开始准备升级，此过程需要 5 分钟（或更长时间），请耐心等待。</p>
+<p>5.一旦准备完成，主机（此时为备）自动重启加载升级后 OS ，重启约 2 分钟。</p>
+<p>6.主机（此时为备）重启后，形成 HA 。主机从原来的备同步配置（外部配置和内部配置），约 1~3 分钟。</p>
+<p>此时，HA 重新建立，但是主备关系发生了切换，需要在此时的主（最开始的备） 手工执行切换 diagnose sys ha reset uptime 切换原来的主备关系。</p>
+<h2 id="ha-配置命令集参考">HA 配置命令集参考</h2>
+<p>HA 配置命令<code>config system ha</code>，如下是常用的配置命令。</p>
+<ol>
+<li>set group-id 0</li>
+</ol>
+<p>配置HA机群的组ID，一个机群内的成员必须有相同的组ID.该ID会成为生成防火墙接口的的虚拟MAC的一个组成因素，因此当同一个广播域有２组以上的HA机群的时候需要配置不同的组ID，防止MAC地址冲突.</p>
+<ol start="2">
+<li>set group-name &quot;FGT-HA&quot;</li>
+</ol>
+<p>一个机群内的成员必须有相同的组名字</p>
+<ol start="3">
+<li>set mode 　standalone/a-a/a-p</li>
+</ol>
+<p>HA工作模式，常用为a-p模式。AA模式下在HA状态中查看到HA的角色，有主设备及从设备，通常会被认为工作在主被模式下，实际上主主下设备虽然都在工作，仍会有一台作为集群的主设备用来控制和分配流量和会话给集群中的其他设备。AA模式默认情况下仅负载均衡UTM的流量，所以在下不使用UTM功能时建议使用AP模式。</p>
+<ol start="4">
+<li>set password</li>
+</ol>
+<p>一个机群内的成员必须有相同的密码</p>
+<ol start="5">
+<li>set hbdev &quot;port1&quot; 50 &quot;port2&quot; 50</li>
+</ol>
+<p>配置心跳接口。其中50为优先级，优先级高的被优先使用。</p>
+<ol start="6">
+<li>unset session-sync-dev</li>
+</ol>
+<p>可以配置专门的心跳接口用于会话信息同步，默认和控制信息为同一心跳接口。</p>
+<ol start="7">
+<li>set route-ttl 10</li>
+</ol>
+<p>路由转发表的存活时间。HA设备之间只同步转发表，不同步路由表。当一个备机被选举成主机后，其原有转发表的存活时间，单位秒。随后通过静态或动态路由协议生成转发表，继续工作。</p>
+<ol start="8">
+<li>set route-wait 0</li>
+</ol>
+<p>主设备收到新的路由条目后，会等待x秒后，再同步给从设备。</p>
+<ol start="9">
+<li>set route-hold 10</li>
+</ol>
+<p>主设备进行２次路由同步之间的间隔，防止路由震荡而造成反复更新路由。</p>
+<ol start="10">
+<li>set sync-config enable</li>
+</ol>
+<p>配置文件自动同步，需要开启。</p>
+<ol start="11">
+<li>set encryption disable</li>
+</ol>
+<p>是否允许使用AES-128和SHA1对心跳信息进行加密和完整性验证。</p>
+<ol start="12">
+<li>set authentication disable</li>
+</ol>
+<p>是否使用SHA1算法验证心跳信息的完整性。</p>
+<ol start="13">
+<li>set hb-interval 2</li>
+</ol>
+<p>发送心跳数据包的间隔，单位为每100ms.如配置2，则每200ms发送一个心跳信息。</p>
+<ol start="14">
+<li>set hb-lost-threshold 6</li>
+</ol>
+<p>心跳信息连续丢失６个后则认为对方不再存活。</p>
+<ol start="15">
+<li>set helo-holddown 20</li>
+</ol>
+<p>Hello状态时间。设备加入HA机群前等待的时间，防止由于未能发现所有的机群成员而造成Ha的反复协商。</p>
+<ol start="16">
+<li>set arps 5</li>
+</ol>
+<p>设备成为主设备后，要发送免费arp来宣布自己的MAC地址，以便相连的交换机能够及时更新MAC地址表，该参数用于配置其发送的数量。</p>
+<ol start="17">
+<li>set arps-interval 8</li>
+</ol>
+<p>发送免费arp的间隔，单位秒。</p>
+<ol start="18">
+<li>set session-pickup enable/disable</li>
+</ol>
+<p>关闭或者开启会话同步，默认为disable。一般需要开启。</p>
+<ol start="19">
+<li>set session-pickup-delay{enable | disable}</li>
+</ol>
+<p>仅对存活30秒以上的会话进行同步。开启后会对性能有所优化，但小于30秒的会话在HA切换的时候会丢失。默认为关闭，谨慎使用。</p>
+<ol start="20">
+<li>set link-failed-signal disable</li>
+</ol>
+<p>防火墙上发生被监控端口失效触发HA切换的时候，是否将除心跳口外的所有端口shutdown一秒钟的时间，便于与之相连的交换机及时更新MAC表。// 这个命令是一个优化命令，其实是建议配置上去的。</p>
+<ol start="21">
+<li>set uninterruptable-upgrade enable</li>
+</ol>
+<p>是否允许无中断升级ＯＳ。系统自动分别对机群内的设备升级，并自动切换，不会造成业务的中断。</p>
+<ol start="22">
+<li>set ha-uptime-diff-margin 300</li>
+</ol>
+<p>当进行HA选举时，启动时间为一个选举的一个参数，当２台设备启动时间差小于300时则将该部分差异忽略，视为相同。</p>
+<ol start="23">
+<li>set override disable</li>
+</ol>
+<p>默认为disable，ＨＡ选举按如下顺序进行比较：有效接口数量&gt;运行时间&gt;HA优先级&gt;设备序列号。Enable情况下，讯据顺序改变。有效接口数量&gt; HA优先级&gt;运行时间&gt;设备序列号。每次设备加入或者离开机群，都会强制整个机群重新进行主设备的选举。</p>
+<ol start="24">
+<li>set priority 128</li>
+</ol>
+<p>HA优先级，为便于管理，建议主设备200，从设备100.</p>
+<ol start="25">
+<li>set monitor port3 port4</li>
+</ol>
+<p>配置需要被监控的端口，其有效数量多的设备成为主设备。</p>
+<ol start="26">
+<li>unset pingserver-monitor-interface</li>
+</ol>
+<p>是否设置pingserver监控端口。</p>
+<ol start="27">
+<li>set pingserver-failover-threshold 0</li>
+</ol>
+<p>pingserver触发的阀值，0则意味着任何的pingserver失效都会触发HA的切换。</p>
+<ol start="28">
+<li>set pingserver-flip-timeout 60</li>
+</ol>
+<p>两次pingserver失效切换之间的间隔。如A发生失效，切换到B. 切过去之后发现B也是失效的，则需要等待60分钟的时间允许切换回A.</p>
+<ol start="29">
+<li>set ha-mgmt-status  enable HA的带外管理配置命令</li>
+</ol>
+<p>set ha-mgmt-interface port1</p>
+<p>set ha-mgmt-interface-gateway  x.x.x.x</p>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/CentOS-8.0-Install/" data-toggle="tooltip" data-placement="top" title="CentOS 8.0 安装笔记">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Juniper-SRX-JSRP-Config/" data-toggle="tooltip" data-placement="top" title="Juniper SRX JSRP 配置文档">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="/css/share.min.css">
+                    <script src="/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>
+
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概述"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6982;&#x8FF0;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#fgcp-ha"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">FGCP HA</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#同步配置"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">&#x540C;&#x6B65;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-工作模式"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HA &#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置要求"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x8981;&#x6C42;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置步骤"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x6B65;&#x9AA4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置建议"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x5EFA;&#x8BAE;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fgcp-ha-配置实例"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FGCP HA &#x914D;&#x7F6E;&#x5B9E;&#x4F8B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-配置任务概述两台设备配置主备模式"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. &#x914D;&#x7F6E;&#x4EFB;&#x52A1;&#x6982;&#x8FF0;&#xFF1A;&#x4E24;&#x53F0;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x4E3B;&#x5907;&#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-配置群集"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. &#x914D;&#x7F6E;&#x7FA4;&#x96C6;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1主设备"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1&#xFF09;&#x4E3B;&#x8BBE;&#x5907;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2备机"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2&#xFF09;&#x5907;&#x673A;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-连接群集"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. &#x8FDE;&#x63A5;&#x7FA4;&#x96C6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-校验群集并禁用orveride"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. &#x6821;&#x9A8C;&#x7FA4;&#x96C6;&#x5E76;&#x7981;&#x7528;orveride</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-测试故障转移"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. &#x6D4B;&#x8BD5;&#x6545;&#x969C;&#x8F6C;&#x79FB;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-相关命令"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. &#x76F8;&#x5173;&#x547D;&#x4EE4;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ha-cluster-不中断升级过程"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HA-Cluster &#x4E0D;&#x4E2D;&#x65AD;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ha-配置命令集参考"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x547D;&#x4EE4;&#x96C6;&#x53C2;&#x8003;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+                        
+                          <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://juejin.im/" target="_blank">掘金</a></li>
+                    
+                        <li><a href="https://www.jianshu.com/" target="_blank">简书</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Theme by <a href="http://beantech.org" target=_blank>BeanTech</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
