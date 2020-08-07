@@ -153,14 +153,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -220,11 +220,11 @@
             <!-- Post Container -->
             <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
 
-                <h2 id="引言">引言</h2>
-<h3 id="什么是-quic">什么是 QUIC</h3>
+                <h2 id="1-引言">1. 引言</h2>
+<h3 id="11-什么是-quic">1.1. 什么是 QUIC</h3>
 <p>QUIC（Quick UDP Internet Connections）是 chromium 的一个项目，这是一个体验的协议，旨在降低基于 TCP 通讯的 Web 延迟。QUIC 非常类似 TCP+TLS+SPDY ，但是基于 UDP 实现的。因为 TCP 是由操作系统内核或者是 middlebox 固件实现，因此对 TCP 进行大幅改造不太可能。所以我们开发了 QUIC 基于 UDP 来避免 TCP 的一些限制。</p>
 <p>主页：https://www.chromium.org/quic</p>
-<h3 id="了解-http3">了解 HTTP/3</h3>
+<h3 id="12-了解-http3">1.2. 了解 HTTP/3</h3>
 <p>运行在 QUIC 之上的 HTTP 协议被称为 HTTP/3 (HTTP-over-QUIC)。QUIC 协议 (Quick UDP Internet Connection) 基于 UDP，正是看中了 UDP 的速度与效率。同时 QUIC 也整合了 TCP、TLS 和 HTTP/2 的优点，并加以优化。</p>
 <ul>
 <li>
@@ -246,10 +246,11 @@
 <p>HTTP 3 目前处于制订和测试阶段</p>
 </li>
 </ul>
-<h2 id="f5-big-ip-http3">F5 BIG-IP HTTP/3</h2>
+<h2 id="2-服务端">2. 服务端</h2>
+<h3 id="21-f5-big-ip-http3">2.1. F5 BIG-IP HTTP/3</h3>
 <p>参看：<a href="https://support.f5.com/csp/article/K60235402" target="_blank" rel="noopener">K60235402</a></p>
 <p>Beginning in BIG-IP 15.1.0.1, F5 introduced HTTP/3 and QUIC as an experimental feature. The HTTP/3 and QUIC profiles in the BIG-IP system are an experimental implementation of <a href="https://tools.ietf.org/html/draft-ietf-quic-http-24" target="_blank" rel="noopener">draft-ietf-quic-http-24</a> and <a href="https://tools.ietf.org/html/draft-ietf-quic-transport-24" target="_blank" rel="noopener">draft-ietf-quic-transport-24</a> respectively.</p>
-<h3 id="使用-tmui-创建-http3-virtual-server">使用 TMUI 创建 HTTP/3 virtual server</h3>
+<h4 id="使用-tmui-创建-http3-virtual-server">使用 TMUI 创建 HTTP/3 virtual server</h4>
 <p><strong>Impact of procedure</strong>: Performing the following procedure should not have a negative impact on your system.</p>
 <ol>
 <li>
@@ -303,7 +304,7 @@
 <p>Select <strong>Finished</strong>.</p>
 </li>
 </ol>
-<h3 id="使用-tmsh-创建-http3-virtual-server">使用 tmsh 创建 HTTP/3 virtual server</h3>
+<h4 id="使用-tmsh-创建-http3-virtual-server">使用 tmsh 创建 HTTP/3 virtual server</h4>
 <p><strong>Impact of procedure</strong>: Performing the following procedure should not have a negative impact on your system.</p>
 <ol>
 <li>
@@ -382,7 +383,7 @@
 </table>
 </li>
 </ol>
-<h2 id="nginx-http3">Nginx HTTP/3</h2>
+<h3 id="22-nginx-http3">2.2 Nginx HTTP/3</h3>
 <p>参考：<a href="https://www.nginx.com/blog/introducing-technology-preview-nginx-support-for-quic-http-3/" target="_blank" rel="noopener">Introducing a Technology Preview of NGINX Support for QUIC and HTTP/3</a></p>
 <p>June 10, 2020</p>
 <p>NGINX QUIC+HTTP/3 Preview<a href="https://www.nginx.com/blog/introducing-technology-preview-nginx-support-for-quic-http-3/#NGINX-QUIC+HTTP/3-Preview" target="_blank" rel="noopener"> </a></p>
@@ -392,10 +393,10 @@
 <p>For those familiar with NGINX configurations, enabling QUIC+HTTP/3 is quite straightforward.</p>
 <p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;              # TCP listener for HTTP/1.1</span><br><span class="line">    listen 443 http3 reuseport;  # UDP listener for QUIC+HTTP/3</span><br><span class="line"></span><br><span class="line">    ssl_protocols       TLSv1.3; # QUIC requires TLS 1.3</span><br><span class="line">    ssl_certificate     ssl/www.example.com.crt;</span><br><span class="line">    ssl_certificate_key ssl/www.example.com.key;</span><br><span class="line"></span><br><span class="line">    add_header Alt-Svc 'quic=":443"'; # Advertise that QUIC is available</span><br><span class="line">    add_header QUIC-Status $quic;     # Sent when QUIC was used</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>For more information about building NGINX from the <strong>nginx-quic</strong> repo, and recommended configuration, see the <a href="https://quic.nginx.org/README" target="_blank" rel="noopener">README</a>. In addition, a demo site with the http_v3_module enabled is available at https://quic.nginx.org/. From here you can check whether your browser already supports QUIC, and compare HTTP/3 interoperability with your own build of <strong>nginx-quic</strong>. Given the draft status of QUIC, you may need to use development  versions or the very latest builds of the common browsers to enable a  QUIC connection.</p>
-<h2 id="microsoft-http3">Microsoft HTTP/3</h2>
-<h3 id="msquic-is-open-source"><a href="https://techcommunity.microsoft.com/t5/networking-blog/msquic-is-open-source/ba-p/1345441" target="_blank" rel="noopener">MsQuic is Open Source</a></h3>
+<h3 id="23-microsoft-http3">2.3. Microsoft HTTP/3</h3>
+<h4 id="msquic-is-open-source"><a href="https://techcommunity.microsoft.com/t5/networking-blog/msquic-is-open-source/ba-p/1345441" target="_blank" rel="noopener">MsQuic is Open Source</a></h4>
 <p>Microsoft is open sourcing our QUIC library, <a href="https://github.com/microsoft/msquic" target="_blank" rel="noopener">MsQuic</a>, on GitHub under an <a href="https://github.com/microsoft/msquic/blob/master/LICENSE" target="_blank" rel="noopener">MIT license</a>. MsQuic is a cross-platform, general-purpose library that implements the <a href="https://quicwg.org/" target="_blank" rel="noopener">QUIC</a> transport protocol. QUIC is being standardized by the <a href="https://www.ietf.org/" target="_blank" rel="noopener">Internet Engineering Task Force</a> (IETF). MsQuic is a client and server solution optimized for multiple  usage patterns and is used by multiple Microsoft products and services.  MsQuic is currently in preview and supports Windows and Linux.</p>
-<h3 id="windows-10"><a href="https://github.com/microsoft/msquic" target="_blank" rel="noopener">Windows 10</a></h3>
+<h4 id="windows-10"><a href="https://github.com/microsoft/msquic" target="_blank" rel="noopener">Windows 10</a></h4>
 <p>On Windows 10, MsQuic relies on built-in support from <a href="https://docs.microsoft.com/en-us/windows/win32/com/schannel" target="_blank" rel="noopener">Schannel</a> for TLS 1.3 functionality. MsQuic is shipped in-box in the Windows kernel in the form of the <code>msquic.sys</code> driver, to support built-in HTTP and SMB features. User mode applications use <code>msquic.dll</code> (built from here) and package it with their app.</p>
 <blockquote>
 <p><strong>Important</strong> This configuration requires running the latest <a href="https://insider.windows.com/en-us/" target="_blank" rel="noopener">Windows Insider Preview Builds</a> for Schannel's TLS 1.3 support.</p>
@@ -403,21 +404,18 @@
 <blockquote>
 <p><strong>Important</strong> This configuration does not support 0-RTT due to Schannel's current lack of support.</p>
 </blockquote>
-<h2 id="apache-httpd">Apache httpd</h2>
+<h3 id="24-apache-httpd">2.4. Apache httpd</h3>
 <p>No there is no way at present. Apache has not committed to doing the work required here at this time.</p>
 <p><a href="https://www.litespeedtech.com/products/litespeed-web-server" target="_blank" rel="noopener">LiteSpeed is an Apache alternative</a> supporting many of the same features, but <a href="https://www.litespeedtech.com/products/litespeed-web-server" target="_blank" rel="noopener">with strong QUIC and HTTP/3 support</a>.</p>
-<h2 id="online-tools">Online Tools</h2>
-<p>https://http3check.net/</p>
-<p>https://gf.dev/http3-test</p>
-<h2 id="客户端">客户端</h2>
+<h2 id="3-客户端">3. 客户端</h2>
 <p>参考：</p>
 <p>https://developers.cloudflare.com/http3/intro</p>
 <p>https://quic.nginx.org/README</p>
-<h3 id="firefox">Firefox</h3>
+<h3 id="31-firefox">3.1. Firefox</h3>
 <p>Firefox 75 及以上版本支持 HTTP/3</p>
 <p>启用方法：在地址栏输入 'about:config'，配置 network.http.http3.enabled = true</p>
 <p>通过 “Web 开发者” 可以看到 “版本:HTTP/3” “协议版本:: TLSv1.3”</p>
-<h3 id="chrome-edge">Chrome、Edge</h3>
+<h3 id="32-chrome-edge">3.2. Chrome、Edge</h3>
 <p>Chrome 83 及以上版本支持 HTTP/3，使用命令行增加如下启动参数：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./chrome --enable-quic --quic-version=h3-27</span><br></pre></td></tr></table></figure></p>
 <p><strong>Running on Windows</strong></p>
@@ -427,7 +425,7 @@
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-quic --quic-version=h3-27</span><br></pre></td></tr></table></figure></p>
 <p>Microsoft Edge (based on Chromium) 与 Chrome 同步支持，例如在 macOS 中运行 Edge：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Microsoft\ Edge.app//Contents/MacOS/Microsoft\ Edge --enable-quic --quic-version=h3-27</span><br></pre></td></tr></table></figure></p>
-<h3 id="curl">Curl</h3>
+<h3 id="33-curl">3.3. Curl</h3>
 <p>文档显示 Curl <a href="https://daniel.haxx.se/blog/2019/09/11/curl-7-66-0-the-parallel-http-3-future-is-here/" target="_blank" rel="noopener">7.66</a> 及以上支持 HTTP/3，使用 --http3 参数，但实际上需要额外配置才能支持！</p>
 <ul>
 <li>
@@ -443,9 +441,9 @@
 </ul>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install curl</span><br><span class="line">ln /usr/local/bin/curl /usr/local/Cellar/curl/7.71.1/bin/curl</span><br><span class="line">chmod +x /usr/local/bin/curl</span><br></pre></td></tr></table></figure></p>
 <p>报错如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl --http3 -s -o /dev/null -v https://geekflare.com</span><br><span class="line"></span><br><span class="line">curl: option --http3: the installed libcurl version doesn&apos;t support this</span><br><span class="line">curl: try &apos;curl --help&apos; or &apos;curl --manual&apos; for more information</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl --http3 -s -o /dev/null -v https://sysin.org</span><br><span class="line"></span><br><span class="line">curl: option --http3: the installed libcurl version doesn&apos;t support this</span><br><span class="line">curl: try &apos;curl --help&apos; or &apos;curl --manual&apos; for more information</span><br></pre></td></tr></table></figure></p>
 <p>解决办法：创建支持 HTTP/3 的 curl：参看 <a href="https://github.com/curl/curl/blob/master/docs/HTTP3.md" target="_blank" rel="noopener">HTTP3 (and QUIC)</a></p>
-<h4 id="linux-ngtcp2-version-curl-build-with-openssl">Linux ngtcp2 version curl Build with OpenSSL</h4>
+<h4 id="linux-ngtcp2-version-curl-build-with-openssl">Linux: ngtcp2 version curl Build with OpenSSL</h4>
 <p>Build (patched) OpenSSL</p>
 <pre><code>git clone --depth 1 -b OpenSSL_1_1_1d-quic-draft-27 https://github.com/tatsuhiro-t/openssl
 cd openssl
@@ -479,6 +477,7 @@ cd curl
 LDFLAGS=&quot;-Wl,-rpath,/usr/local/openssl/lib&quot; ./configure --with-ssl=/usr/local/openssl --with-nghttp3=/usr/local/nghttp3 --with-ngtcp2=/usr/local/ngtcp2 --enable-alt-svc
 make
 </code></pre>
+<p>也可以 <a href="https://github.com/curl/curl/blob/master/docs/HTTP3.md#build-with-gnutls" target="_blank" rel="noopener">Build with GnuTLS</a></p>
 <h4 id="macoscurl-quiche">macOS：Curl + Quiche</h4>
 <p>Homebrew formula for curl + quiche to easily build and test HTTP/3 on MacOS.</p>
 <p><strong>Requirement</strong></p>
@@ -499,6 +498,9 @@ make
 <p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --help | egrep 'alt-svc|http3'</span><br><span class="line">     --alt-svc &lt;file name&gt; Enable alt-svc with this cache file</span><br><span class="line">     --http3         Use HTTP v3</span><br></pre></td></tr></table></figure></p>
 <p>Now, you can try curl on any H3 enabled sites.</p>
 <p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --http3 -I https://sysin.org</span><br><span class="line">curl --http3 -I https://cloudflare-quic.com</span><br></pre></td></tr></table></figure></p>
+<h3 id="34-在线检测网站">3.4. 在线检测网站</h3>
+<p>https://http3check.net/</p>
+<p>https://gf.dev/http3-test</p>
 
 
 
@@ -569,7 +571,7 @@ make
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#引言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x5F15;&#x8A00;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#什么是-quic"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">&#x4EC0;&#x4E48;&#x662F; QUIC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#了解-http3"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">&#x4E86;&#x89E3; HTTP/3</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#f5-big-ip-http3"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">F5 BIG-IP HTTP/3</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用-tmui-创建-http3-virtual-server"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x4F7F;&#x7528; TMUI &#x521B;&#x5EFA; HTTP/3 virtual server</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用-tmsh-创建-http3-virtual-server"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x4F7F;&#x7528; tmsh &#x521B;&#x5EFA; HTTP/3 virtual server</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#nginx-http3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Nginx HTTP/3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#microsoft-http3"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Microsoft HTTP/3</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#msquic-is-open-source"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text"><a href="https://techcommunity.microsoft.com/t5/networking-blog/msquic-is-open-source/ba-p/1345441" target="_blank" rel="noopener">MsQuic is Open Source</a></span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#windows-10"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text"><a href="https://github.com/microsoft/msquic" target="_blank" rel="noopener">Windows 10</a></span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#apache-httpd"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Apache httpd</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#online-tools"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Online Tools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#客户端"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">&#x5BA2;&#x6237;&#x7AEF;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#firefox"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">Firefox</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#chrome-edge"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">Chrome&#x3001;Edge</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#curl"><span class="toc-nav-number">7.3.</span> <span class="toc-nav-text">Curl</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#linux-ngtcp2-version-curl-build-with-openssl"><span class="toc-nav-number">7.3.1.</span> <span class="toc-nav-text">Linux ngtcp2 version curl Build with OpenSSL</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#macoscurl-quiche"><span class="toc-nav-number">7.3.2.</span> <span class="toc-nav-text">macOS&#xFF1A;Curl + Quiche</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-引言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. &#x5F15;&#x8A00;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#11-什么是-quic"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1. &#x4EC0;&#x4E48;&#x662F; QUIC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#12-了解-http3"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">1.2. &#x4E86;&#x89E3; HTTP/3</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-服务端"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. &#x670D;&#x52A1;&#x7AEF;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#21-f5-big-ip-http3"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1. F5 BIG-IP HTTP/3</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使用-tmui-创建-http3-virtual-server"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">&#x4F7F;&#x7528; TMUI &#x521B;&#x5EFA; HTTP/3 virtual server</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使用-tmsh-创建-http3-virtual-server"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">&#x4F7F;&#x7528; tmsh &#x521B;&#x5EFA; HTTP/3 virtual server</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#22-nginx-http3"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 Nginx HTTP/3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#23-microsoft-http3"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">2.3. Microsoft HTTP/3</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#msquic-is-open-source"><span class="toc-nav-number">2.3.1.</span> <span class="toc-nav-text"><a href="https://techcommunity.microsoft.com/t5/networking-blog/msquic-is-open-source/ba-p/1345441" target="_blank" rel="noopener">MsQuic is Open Source</a></span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#windows-10"><span class="toc-nav-number">2.3.2.</span> <span class="toc-nav-text"><a href="https://github.com/microsoft/msquic" target="_blank" rel="noopener">Windows 10</a></span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#24-apache-httpd"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">2.4. Apache httpd</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-客户端"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. &#x5BA2;&#x6237;&#x7AEF;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#31-firefox"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1. Firefox</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#32-chrome-edge"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2. Chrome&#x3001;Edge</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#33-curl"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3.3. Curl</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#linux-ngtcp2-version-curl-build-with-openssl"><span class="toc-nav-number">3.3.1.</span> <span class="toc-nav-text">Linux: ngtcp2 version curl Build with OpenSSL</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#macoscurl-quiche"><span class="toc-nav-number">3.3.2.</span> <span class="toc-nav-text">macOS&#xFF1A;Curl + Quiche</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#34-在线检测网站"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3.4. &#x5728;&#x7EBF;&#x68C0;&#x6D4B;&#x7F51;&#x7AD9;</span></a></li></ol></li></ol>
         
         </div>
       </aside>
