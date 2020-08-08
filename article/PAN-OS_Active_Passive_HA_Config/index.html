@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          TLS Server Name Indication (TLS SNI) Support - netgc | Blog | 数据中心：系统、平台和应用交付
+          Palo Alto PAN-OS Active/Passive HA 配置文档 - netgc | Blog | 数据中心：系统、平台和应用交付
         
     </title>
 
-    <link rel="canonical" href="http://sysin.org/article/TLS-SNI-Support/">
+    <link rel="canonical" href="http://sysin.org/article/PAN-OS_Active_Passive_HA_Config/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -72,7 +72,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_header.jpg')
+            background-image: url('/img/article_header/article_header2.jpg')
             /*post*/
         
     }
@@ -89,20 +89,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+                              <a class="tag" href="/tags/#PAN-OS" title="PAN-OS">PAN-OS</a>
                             
-                              <a class="tag" href="/tags/#F5" title="F5">F5</a>
-                            
-                              <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
-                            
-                              <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+                              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
                             
                         </div>
-                        <h1>TLS Server Name Indication (TLS SNI) Support</h1>
-                        <h2 class="subheading">关于 TLS SNI 的配置，主流浏览器和服务器的支持情况</h2>
+                        <h1>Palo Alto PAN-OS Active/Passive HA 配置文档</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by sysin on
-                            2020-06-01
+                            2016-08-01
                         </span>
                     </div>
                 
@@ -216,79 +212,141 @@
             <!-- Post Container -->
             <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
 
-                <p>TLS Server Name Indication (TLS SNI)，used when a single virtual IP server needs to host multiple domains.</p>
-<p>TLS SNI Support 即一个 IP 地址上支持多个域名的 SSL 站点，或者说一个 IP 上支持绑定多个 SSL 证书。</p>
-<h2 id="支持-tls-sni-的浏览器">支持 TLS SNI 的浏览器</h2>
-<p>Browsers/clients with support for TLS server name indication:</p>
+                <h2 id="1-概述ha-模式">1. 概述：HA 模式</h2>
+<p>您可以按照以下两种模式来设置防火墙的 HA：</p>
 <ul>
-<li>Opera 8.0 and later (the TLS 1.1 protocol must be enabled)</li>
-<li>Internet Explorer 7 or later (under Windows Vista and later only, not under Windows XP)</li>
-<li>Firefox 2.0 or later</li>
-<li>Curl 7.18.1 or later (when compiled against an SSL/TLS toolkit with SNI support)</li>
-<li>Chrome 6.0 or later (on all platforms - releases up to 5.0 only on specific OS versions)</li>
-<li>Safari 3.0 or later (under OS X 10.5.6 or later and under Windows Vista and later)</li>
+<li>主动/被动 — 一个防火墙主动管理通信，而另一个防火墙保持同步并随时准备在主动设备发生故障时转换为主动状态。在此配置中，两个防火墙共享相同的配置设置，一台主动管理通信，直到发生路径、链接、系统或网络故障。当主动防火墙发生故障时，被动设备将无缝接管并实施相同的策略，以维持网络的安全性。主动/被动高可用性在 Virtual Wire、第 2 层和第 3 层部署中受支持。</li>
+<li>主动/主动 — HA 对中的两个防火墙都是主动设备，同时处理通信，并且同步处理会话设置和会话所有权。两个防火墙会分别获取会话表及路由表，并彼此进行同步。主动/主动高可用性在 Virtual Wire、第 2层和第 3 层部署中受支持。处于主动/主动 HA 模式的防火墙不支持 DHCP 客户端。而且，仅主动-主要防火墙具备 DHCP 中继功能。主动-辅助防火墙会丢弃其收到的 DHCP 广播数据包。</li>
 </ul>
-<p>To find out if your browser supports SNI, you can go to https://alice.sni.velox.ch/.</p>
-<h2 id="f5-big-ip-tls-sni-support">F5 BIG-IP TLS SNI Support</h2>
-<ul>
-<li>版本支持</li>
-</ul>
-<p>主流支持版本（v11.6及以上）都可以支持，参看官方文档：<a href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-11-6-0/5.html" target="_blank" rel="noopener">v11.6</a>，<a href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-system-ssl-administration-12-1-1/5.html" target="_blank" rel="noopener">v12.1</a>，<a href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-1-0/5.html" target="_blank" rel="noopener">v13.1</a></p>
-<ul>
-<li>配置要点</li>
-</ul>
-<p>参看：<a href="https://support.f5.com/csp/article/K13452" target="_blank" rel="noopener">K13452</a></p>
-<p>分别创建多个域名的（Client or Server）SSL Profile</p>
-<p>Server Name，分别填写域名（可选），如 www.a.com，支持通配符 *.a.com 也支持 * 代表任意域名，另外一个如 www.b.com</p>
-<p>Default SSL Profile for SNI，其中一个域名需要勾选作为默认</p>
-<p>Virtual Servers 的 SSL Profile（Client or Server）同时选择上述创建的多个 SSL Profile</p>
-<p>注意：在 BIG-IP 13.x 及以前版本，多个 SSL Profile 的 Ciphers 和 Client Authentication 属性需要配置一致（14.x 及以后版本无此要求）</p>
-<ul>
-<li>iRules</li>
-</ul>
-<p>另外请注意，没有自动机制允许 BIG-IP 根据在客户端 SSL Hello 消息中接收到的 “Server Name” 值来选择 SSL Profile。</p>
-<p>不过，在 iRule 的额外帮助下，您可以根据从客户机收到的初始 HTTP 请求中接收的“主机名”报头值强制选择正确的 serverssl profile。</p>
-<p><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_REQUEST &#123;</span><br><span class="line">    <span class="keyword">set</span> hostname [getfield [HTTP::host] <span class="string">":"</span> <span class="number">1</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">when SERVER_CONNECTED &#123;</span><br><span class="line">    <span class="keyword">switch</span> -<span class="keyword">glob</span> [<span class="keyword">string</span> tolower $hostname] &#123;</span><br><span class="line">    <span class="string">"siteA.com"</span> &#123;</span><br><span class="line">        SSL::profile serverssl-siteA</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">"siteB.com"</span> &#123;</span><br><span class="line">        SSL::profile serverssl-siteB</span><br><span class="line">    &#125;</span><br><span class="line">    default &#123;</span><br><span class="line"><span class="comment">    #default serversssl profile to be selected if Host header value cannot be matched with predefined values</span></span><br><span class="line">        SSL::profile serverssl</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="nginx-tls-sni-support">Nginx TLS SNI Support</h2>
-<ul>
-<li>版本支持</li>
-</ul>
-<p>参看<a href="https://nginx.org/en/docs/http/configuring_https_servers.html" target="_blank" rel="noopener">官方文档</a></p>
-<p>OpenSSL supports SNI since 0.9.8f version if it was built with config option “--enable-tlsext”. Since OpenSSL 0.9.8j this option is enabled by default. If nginx was built with SNI support, then nginx will show this when run with the “-V” switch:</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ nginx -V</span><br><span class="line">...</span><br><span class="line">TLS SNI support enabled</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>Nginx 0.x 版本已经支持 TLS SNI</p>
 <blockquote>
-<ul>
-<li>The SNI support status has been shown by the “-V” switch since 0.8.21 and 0.7.62.</li>
-<li>The <code>ssl</code> parameter of the <a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#listen" target="_blank" rel="noopener">listen</a> directive has been supported since 0.7.14. Prior to 0.8.21 it could only be specified along with the <code>default</code> parameter.</li>
-<li>SNI has been supported since 0.5.23.</li>
-<li>The shared SSL session cache has been supported since 0.5.6.</li>
-<li>Version 1.9.1 and later: the default SSL protocols are TLSv1, TLSv1.1, and TLSv1.2 (if supported by the OpenSSL library).</li>
-<li>Version 0.7.65, 0.8.19 and later: the default SSL protocols are SSLv3, TLSv1, TLSv1.1, and TLSv1.2 (if supported by the OpenSSL library).</li>
-<li>Version 0.7.64, 0.8.18 and earlier: the default SSL protocols are SSLv2, SSLv3, and TLSv1.</li>
-<li>Version 1.0.5 and later: the default SSL ciphers are “<code>HIGH:!aNULL:!MD5</code>”.</li>
-<li>Version 0.7.65, 0.8.20 and later: the default SSL ciphers are “<code>HIGH:!ADH:!MD5</code>”.</li>
-<li>Version 0.8.19: the default SSL ciphers are “<code>ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM</code>”.</li>
-<li>Version 0.7.64, 0.8.18 and earlier: the default SSL ciphers are
-“<code>ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP</code>”.</li>
-</ul>
+<p>主动/主动配置不会加载平衡通信。虽然可通过发送通信至对等加载共享，但不会发生负载平衡。可通过 ECMP、多个 ISP 及负载均衡器加载共享会话至两道防火墙。</p>
 </blockquote>
+<p>在决定是使用主动/被动还是主动/主动模式时，请考虑以下差异：</p>
 <ul>
-<li>一般配置方法</li>
+<li>主动/被动模式设计简单；该模式下，能更轻松地解决路由及通信流问题。主动/被动模式支持第 2 层部署；主动/主动模式不支持。</li>
+<li>主动/主动模式需要能构建复杂性更高的网络的高级设计概念。根据实施主动/主动 HA 的方式，可能需要额外配置，如激活两道防火墙的联网协议、复制 NAT 池、部署浮动 IP 地址等，从而提供相应的故障转移。由于两个防火墙均在主动处理通信，防火墙使用会话所有者及会话设置概念执行第 7 层内容检查。如果防火墙分别需要各自的路由实例，且您需要防火墙始终输出完整、实时的冗余，则建议您使用主动/主动模式。主动/主动模式下，故障转移的速度更快，此外，两个防火墙均会主动处理流通信，因此，较之主动/被动模式，其能更好地处理最大通信流。</li>
 </ul>
-<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       443 ssl http2;</span><br><span class="line">        server_name  a.sysin.org;</span><br><span class="line">        ssl_certificate     a.sysin.org.crt;</span><br><span class="line">        ssl_certificate_key a.sysin.org.key;</span><br><span class="line">        ssl_protocols       TLSv1.2 TLSv1.3;</span><br><span class="line">        ssl_ciphers 'AES128+EECDH:AES128+EDH';</span><br><span class="line">        add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";</span><br><span class="line"></span><br><span class="line">        charset utf-8;</span><br><span class="line">        #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       443 ssl http2;</span><br><span class="line">        server_name  b.sysin.org;</span><br><span class="line">        ssl_certificate     b.sysin.org.crt;</span><br><span class="line">        ssl_certificate_key b.sysin.org.key;</span><br><span class="line">        ssl_protocols       TLSv1.2 TLSv1.3;</span><br><span class="line">        ssl_ciphers 'AES128+EECDH:AES128+EDH';</span><br><span class="line">        add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";</span><br><span class="line"></span><br><span class="line">        charset utf-8;</span><br><span class="line">        #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="iis-tsl-sni-support">IIS TSL SNI Support</h2>
-<p>参看<a href="https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-8/iis-80-server-name-indication-sni-ssl-scalability" target="_blank" rel="noopener">官方文档</a></p>
+<blockquote>
+<p>主动/主动模式下，HA 对可用于临时处理通信，且其处理的通信量较一个防火墙正常情况下处理的更大。但这并非绝对的，原因是如果一个防火墙发生故障，流量便会重定向流至HA 对中的另一道防火墙。您的设计必须让另一个防火墙能够处理最大通信负载，同时启用内容检查。如果设计为另一个防火墙订阅的通信处理能力过大，则可能导致高延迟和/或应用程序故障。</p>
+</blockquote>
+<p>本例使用主动/被动模式。</p>
+<h2 id="2-不同步的配置">2. 不同步的配置</h2>
+<blockquote>
+<p>详细参见 PAN-OS® Administrator’s Guide, Reference: HA Synchronization</p>
+</blockquote>
+<p>以下部分的配置无法通过 HA 同步配置，必须在节点上独立配置</p>
 <ul>
-<li>版本支持</li>
+<li>
+<p>Device &gt; Setup（管理接口、主机名、域名、时区、DNS、NTP、SNMP等）</p>
+</li>
+<li>
+<p>Device &gt; Scheduled Log Export</p>
+</li>
+<li>
+<p>Device &gt; Software</p>
+</li>
+<li>
+<p>Device &gt; GlobalProtect Client</p>
+</li>
+<li>
+<p>Device &gt; Dynamic Updates</p>
+</li>
+<li>
+<p>Device &gt; Licenses</p>
+</li>
+<li>
+<p>Device &gt; Support</p>
+</li>
+<li>
+<p>Device &gt; Master Key and Diagnostics</p>
+</li>
+<li>
+<p>Device &gt; High Availability（HA 配置页面）</p>
+</li>
+<li>
+<p>Reports, logs, and Dashboard Settings</p>
+</li>
 </ul>
-<p>要求 IIS 8.0 （Windows 2012）及以上版本</p>
+<h2 id="3-创建-ha-的要求">3. 创建 HA 的要求</h2>
 <ul>
-<li>配置要点</li>
+<li>防火墙型号相同</li>
+<li>PAN-OS 版本相同</li>
+<li>接口类型相同：管理接口、HA1、HA2</li>
+<li>许可相同</li>
 </ul>
-<p>创建多个 HTTPs 站点时，需要填写以下内容</p>
-<p><strong>Hostname</strong>: （注意与 SSL 证书名称保持一致）</p>
-<p><strong>Require Server Name Indication</strong>: 需要勾选</p>
+<h2 id="4-接口">4. 接口</h2>
+<p>PA-800 系列及以上有专用 HA1 和 HA2 接口</p>
+<p>PA-500、PA-200 及 PA-VM 需使用 in‐band 接口作为 HA 接口，至少 2 个（Network--Interface--Ethernet，创建 Interface Type 为 HA 的接口）</p>
+<p>HA 接口可以使用网线直连</p>
+<blockquote>
+<p>For firewalls without dedicated HA ports such as the PA‐200, PA‐220, and PA‐500 firewalls, as a best practice use the dataplane port for the HA port, and use the management port as the HA1 backup.</p>
+</blockquote>
+<p>需要配置以下接口</p>
+<ul>
+<li>Control link (HA1)  //专有 HA1 或者 in‐band 接口</li>
+<li>Control link (HA1 Backup)  //通常使用管理接口</li>
+<li>Data link (HA2)  //专有 HA2 或者 in‐band 接口</li>
+<li>Data link (HA2 Backup)  //可以不配置</li>
+</ul>
+<p>接口选项</p>
+<ul>
+<li>有专有 HA 接口：</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HA1: Dedicated HA1 port</span><br><span class="line">HA1 Backup: In‐band port</span><br><span class="line">Recommendation: Enable Heartbeat Backup</span><br><span class="line"></span><br><span class="line">HA1: Dedicated HA1 port</span><br><span class="line">HA1 Backup: Management port</span><br><span class="line">Recommendation: Do not enable Heartbeat Backup</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>无专有 HA 接口：</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HA1: In‐band port</span><br><span class="line">HA1 Backup: In‐band port</span><br><span class="line">Recommendation: Enable Heartbeat Backup</span><br><span class="line"></span><br><span class="line">HA1: Management port</span><br><span class="line">HA1 Backup: In‐band port</span><br><span class="line">Recommendation: Do not enable Heartbeat Backup</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-配置-ha分别在主备节点配置">5. 配置 HA（分别在主备节点配置）</h2>
+<p><strong>前提配置：</strong></p>
+<pre><code>* 管理接口配置
+* 无专有HA接口需要配置 2 个 In-band 接口作为 HA 接口
+* 启用管理接口 Ping，Device &gt; Setup &gt; Interfaces
+</code></pre>
+<p>（1）Device &gt; High Availability &gt; General</p>
+<p>右侧</p>
+<ul>
+<li>Control link (HA1)  //专有 HA1 或者 in‐band 接口，需要配置 IP</li>
+<li>Control link (HA1 Backup)  //通常使用管理接口</li>
+<li>Data link (HA2)  //专有 HA2 或者 in‐band 接口，若为直连接口默认 Transport 为 Ethernet，无需配置 IP。若需要路由需要将 Transport 选为 IP 或者 UDP，并且配置 IP 地址信息。勾选&quot;Enable Session Synchronization&quot;。</li>
+<li>Data link (HA2 Backup)  //可以不配置</li>
+</ul>
+<p>左侧</p>
+<ul>
+<li>Setup</li>
+<li>Group ID：主备节点相同例如为 1</li>
+<li>Mode：Active Passive</li>
+<li>勾选 Enable Config Sync</li>
+</ul>
+<p>（2）Active/Passive Settings</p>
+<p>可以保持默认</p>
+<p>（3）Election Settings</p>
+<p>Device Priority：取值范围 0–255，数值越小优先级越高，例如 active 节点填写 100，passive 节点则需要大于 100 如 200</p>
+<p>（4）Setup</p>
+<ul>
+<li>勾选 Enable HA</li>
+<li>Peer HA1 IP Address：填写对端节点</li>
+<li>Backup Peer HA1 IP Address：填写对端节点</li>
+</ul>
+<blockquote>
+<p>实际测试以上步骤并无严格顺序要求。</p>
+</blockquote>
+<p><strong>保存配置：Commit</strong></p>
+<h2 id="6-同步配置">6. 同步配置</h2>
+<ul>
+<li>分别在主备节点添加 High Avaliabilty widget.</li>
+<li>Dashboard &gt; Widgets &gt; System &gt; High Avaliabilty</li>
+<li>在 Active 节点点击 Sync to peer</li>
+<li>以后配置将自动同步</li>
+</ul>
+<h2 id="7-定义-ha-failover-条件">7. 定义 HA Failover 条件</h2>
+<p>Device &gt; High Availability &gt; Link and Path Monitoring</p>
+<p>分别添加 Link Group 和 Path Group</p>
+<h2 id="8-failover">8. Failover</h2>
+<p>Device &gt; High Availability &gt; Operational Commands</p>
+<p>点击 Suspend local device</p>
+<p>在 Dashboard 的High Availability widget 查看状态</p>
+<p>点击 Make local device functional，此时节点将变为 passive 状态</p>
 
 
 
@@ -297,12 +355,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Download-macOS-Catalina-10.15.5-0601-update/" data-toggle="tooltip" data-placement="top" title="macOS Catalina 10.15.5 正式版 下载 百度网盘 6月1日 补充更新">&larr; Previous Post</a>
+                            <a href="/article/FortiOS-FGCP-HA-Config/" data-toggle="tooltip" data-placement="top" title="FortiGate FGCP HA 配置文档">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/TLSv1.3-Support/" data-toggle="tooltip" data-placement="top" title="TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况">Next Post &rarr;</a>
+                            <a href="/article/Juniper-SRX-JSRP-Config/" data-toggle="tooltip" data-placement="top" title="Juniper SRX JSRP 配置文档">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -359,7 +417,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#支持-tls-sni-的浏览器"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x652F;&#x6301; TLS SNI &#x7684;&#x6D4F;&#x89C8;&#x5668;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#f5-big-ip-tls-sni-support"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">F5 BIG-IP TLS SNI Support</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#nginx-tls-sni-support"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Nginx TLS SNI Support</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#iis-tsl-sni-support"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">IIS TSL SNI Support</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-概述ha-模式"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. &#x6982;&#x8FF0;&#xFF1A;HA &#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-不同步的配置"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. &#x4E0D;&#x540C;&#x6B65;&#x7684;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-创建-ha-的要求"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. &#x521B;&#x5EFA; HA &#x7684;&#x8981;&#x6C42;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-接口"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. &#x63A5;&#x53E3;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-配置-ha分别在主备节点配置"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. &#x914D;&#x7F6E; HA&#xFF08;&#x5206;&#x522B;&#x5728;&#x4E3B;&#x5907;&#x8282;&#x70B9;&#x914D;&#x7F6E;&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-同步配置"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. &#x540C;&#x6B65;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-定义-ha-failover-条件"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. &#x5B9A;&#x4E49; HA Failover &#x6761;&#x4EF6;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-failover"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">8. Failover</span></a></li></ol>
         
         </div>
       </aside>
@@ -376,13 +434,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+                          <a class="tag" href="/tags/#PAN-OS" title="PAN-OS">PAN-OS</a>
                         
-                          <a class="tag" href="/tags/#F5" title="F5">F5</a>
-                        
-                          <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
-                        
-                          <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+                          <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
                         
                     </div>
                 </section>

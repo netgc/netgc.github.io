@@ -136,14 +136,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -495,6 +495,40 @@ console 口登录，初始默认用户名 root，密码为空
 
 <div class="post-preview">
 
+    <a href="/article/PAN-OS_Active_Passive_HA_Config/">
+        <h2 class="post-title">
+            
+            Palo Alto PAN-OS Active/Passive HA 配置文档
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1. 概述：HA 模式
+您可以按照以下两种模式来设置防火墙的 HA：
+
+主动/被动 — 一个防火墙主动管理通信，而另一个防火墙保持同步并随时准备在主动设备发生故障时转换为主动状态。在此配置中，两个防火墙共享相同的配置设置，一台主动管理通信，直到发生路径、链接、系统或网络故障。当主动防火墙发生故障时，被动设备将无缝接管并实施相同的策略，以维持网络的安全性。主动/被动高可用性在 Virtu......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by sysin on
+            2016-08-01
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#PAN-OS" title="PAN-OS">PAN-OS</a>
+            
+              <a href="/tags/#Firewall" title="Firewall">Firewall</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/article/Chrome_不能打开_kubernetes_Dashboard_解决方法/">
         <h2 class="post-title">
             
@@ -506,41 +540,6 @@ console 口登录，初始默认用户名 root，密码为空
         <div class="post-content-preview">
             步骤：
 12345678910111213mkdir key &amp;&amp; cd key#生成证书openssl genrsa -out dashboard.key 2048openssl req -new -out dashboard.csr -key dashboard.key -subj '/CN=kubernetes-dashboard-certs'openssl x5......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by sysin on
-            2019-08-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
-            
-              <a href="/tags/#SSL" title="SSL">SSL</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/Kubernetes_v1.18_编译_kubeadmin_修改证书有效期到_100_年/">
-        <h2 class="post-title">
-            
-            Kubernetes v1.18 编译 kubeadmin 修改证书有效期到 100 年
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            kubeadm 默认证书为一年，一年过期后，会导致api service不可用，使用过程中会出现：x509: certificate has expired or is not yet valid.
-Google 建议通过不停更新版本来自动更新证书，太坑^_^
-可以在初始化群集之前重新编译kubeadm，证书有效期自动为100年
-1. 获取源码
-访问：https://github.co......
         </div>
     </a>
     
@@ -615,10 +614,6 @@ Google 建议通过不停更新版本来自动更新证书，太坑^_^
             
         
             
-            <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a>
-            
-        
-            
             <a href="/tags/#Kubernetes" title="Kubernetes" rel="2">Kubernetes</a>
             
         
@@ -627,11 +622,19 @@ Google 建议通过不停更新版本来自动更新证书，太坑^_^
             
         
             
-            <a href="/tags/#PAN-OS" title="PAN-OS" rel="1">PAN-OS</a>
+            <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a>
+            
+        
+            
+            <a href="/tags/#PAN-OS" title="PAN-OS" rel="2">PAN-OS</a>
             
         
             
             <a href="/tags/#Download" title="Download" rel="3">Download</a>
+            
+        
+            
+            <a href="/tags/#VMware" title="VMware" rel="1">VMware</a>
             
         
             
@@ -643,7 +646,11 @@ Google 建议通过不停更新版本来自动更新证书，太坑^_^
             
         
             
-            <a href="/tags/#VMware" title="VMware" rel="1">VMware</a>
+            <a href="/tags/#FortiOS" title="FortiOS" rel="1">FortiOS</a>
+            
+        
+            
+            <a href="/tags/#Firewall" title="Firewall" rel="3">Firewall</a>
             
         
             
@@ -655,11 +662,11 @@ Google 建议通过不停更新版本来自动更新证书，太坑^_^
             
         
             
-            <a href="/tags/#FortiOS" title="FortiOS" rel="1">FortiOS</a>
+            <a href="/tags/#JUNOS" title="JUNOS" rel="1">JUNOS</a>
             
         
             
-            <a href="/tags/#Firewall" title="Firewall" rel="2">Firewall</a>
+            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
             
         
             
@@ -683,14 +690,6 @@ Google 建议通过不停更新版本来自动更新证书，太坑^_^
             
         
             
-            <a href="/tags/#JUNOS" title="JUNOS" rel="1">JUNOS</a>
-            
-        
-            
-            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
-            
-        
-            
             <a href="/tags/#Network" title="Network" rel="1">Network</a>
             
         
@@ -703,11 +702,11 @@ Google 建议通过不停更新版本来自动更新证书，太坑^_^
             
         
             
-            <a href="/tags/#iOS" title="iOS" rel="1">iOS</a>
+            <a href="/tags/#Ubuntu" title="Ubuntu" rel="1">Ubuntu</a>
             
         
             
-            <a href="/tags/#Ubuntu" title="Ubuntu" rel="1">Ubuntu</a>
+            <a href="/tags/#iOS" title="iOS" rel="1">iOS</a>
             
         
     </div>
@@ -825,7 +824,7 @@ Google 建议通过不停更新版本来自动更新证书，太坑^_^
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
