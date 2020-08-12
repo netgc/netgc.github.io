@@ -223,8 +223,16 @@
                 <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
 <h2 id="1-引言">1. 引言</h2>
 <h3 id="11-什么是-quic">1.1 什么是 QUIC</h3>
-<p>QUIC（Quick UDP Internet Connections）是 chromium 的一个项目，这是一个体验的协议，旨在降低基于 TCP 通讯的 Web 延迟。QUIC 非常类似 TCP+TLS+SPDY ，但是基于 UDP 实现的。因为 TCP 是由操作系统内核或者是 middlebox 固件实现，因此对 TCP 进行大幅改造不太可能。所以我们开发了 QUIC 基于 UDP 来避免 TCP 的一些限制。</p>
+<p>QUIC（Quick UDP Internet Connections）是 chromium 的一个项目，这是一个体验的协议，旨在降低基于 TCP 通讯的 Web 延迟。QUIC 非常类似 TCP+TLS+SPDY ，但是基于 UDP 实现的。因为 TCP 是由操作系统内核或者是 middlebox 固件实现，因此对 TCP 进行大幅改造不太可能。所以 Google 开发了 QUIC 基于 UDP 来避免 TCP 的一些限制。</p>
 <p>主页：https://www.chromium.org/quic</p>
+<p>QUIC 与已有的 TCP+TLS+SPDY 比较关键的特性：</p>
+<ul>
+<li>降低了连接建立时间</li>
+<li>改进了握手控制</li>
+<li>多路复用</li>
+<li>可对错误连接进行转发</li>
+<li>连接移植</li>
+</ul>
 <h3 id="12-了解-http3">1.2 了解 HTTP/3</h3>
 <p>运行在 QUIC 之上的 HTTP 协议被称为 HTTP/3 (HTTP-over-QUIC)。QUIC 协议 (Quick UDP Internet Connection) 基于 UDP，正是看中了 UDP 的速度与效率。同时 QUIC 也整合了 TCP、TLS 和 HTTP/2 的优点，并加以优化。</p>
 <ul>
@@ -238,13 +246,13 @@
 </ol>
 </li>
 <li>
-<p>HTTP 3 与 HTTP 1.1 和 HTTP 2 没有直接的关系，也不是 HTTP/2 的扩展</p>
+<p>HTTP/3 与 HTTP/1.1 和 HTTP/2 没有直接的关系，也不是 HTTP/2 的扩展</p>
 </li>
 <li>
-<p>HTTP 3 将会是一个全新的 WEB 协议</p>
+<p>HTTP/3 将会是一个全新的 WEB 协议</p>
 </li>
 <li>
-<p>HTTP 3 目前处于制订和测试阶段</p>
+<p>HTTP/3 目前处于制订和测试阶段</p>
 </li>
 </ul>
 <h2 id="2-服务端">2. 服务端</h2>
