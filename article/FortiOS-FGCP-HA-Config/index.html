@@ -89,9 +89,9 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
-                            
                               <a class="tag" href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+                            
+                              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
                             
                         </div>
                         <h1>FortiGate FGCP HA 配置文档</h1>
@@ -145,14 +145,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -212,8 +212,8 @@
             <!-- Post Container -->
             <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
 
-                <h2 id="概述">概述</h2>
-<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+                <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<h2 id="概述">概述</h2>
 <p>FortiOS 提供 6 种冗余解决方案，工业标准的 VRRP 和 5 种专有的解决方案：</p>
 <ul>
 <li>FortiGate Cluster Protocol (FGCP) high availability，</li>
@@ -226,30 +226,32 @@
 <h3 id="fgcp-ha">FGCP HA</h3>
 <p>FortiGate HA 集群由为 HA 操作配置的两到四个 FortiGate 组成。集群中的每个 FortiGate 称为集群设备。所有集群设备必须是相同的ForitGate 型号，安装相同的 FortiOS 固件版本。所有集群设备还必须具有相同的硬件配置(例如，相同数量的硬盘等等)，并以相同的操作模式(NAT 模式或透明模式)运行。</p>
 <blockquote>
-<p>你可以创建最多由四个 FortiGate 组成的 FGCP 集群。</p>
+<p>您可以创建最多由四个 FortiGate 组成的 FGCP 集群。</p>
 </blockquote>
 <p>此外，集群设备必须能够通过心跳接口彼此通信。创建集群并继续运行集群需要这种心跳通信。没有它，集群就像独立 FortiGate 的集合。</p>
 <p>在启动时，使用相同的 HA 配置配置集群设备并连接它们的心跳接口之后，集群设备使用 FortiGate 集群协议(FGCP)査找为 HA 操作配置的其他FortiGate，并协商创建集群。在集群操作期间，FGCP 通过心跳接口链接在集群设备之间共享通信和同步信息。这种通信和同步称为 FGCP 心跳或者 HA 心跳。通常，简称为心跳。</p>
 <p>集群使用 FGCP 选择主设备，并提供设备、链接和会话故障转移。FGCP 还管理两种 HA 模式：主动-被动(故障转移 HA)和主动-主动(负载均衡 HA)。</p>
-<h3 id="同步配置">同步配置</h3>
+<h3 id="不同步的配置">不同步的配置</h3>
 <p>FGCP 使用增量同步和周期性同步的组合，以确保所有集群设备的配置与主设备的配置同步。这意味着在大多数情况下，你只需进行—次配置更改，就可以将其同步到所有集群设备。这包括包含额外信息的特殊配置设置(例如，第三方证书、替换消息文本文件和图形等)。</p>
 <p>某些配置设置不同步，以支持 FortiGate 某些特定操作。以下设置在集群设备之间不同步：</p>
-<p>• FortiGate 主机名。允许你识别集群设备。
-• GUI 仪表板配置。故障转移只有，你可能必须重新配置仪表板小部件。
-• HA 覆盖。
-• HA 设备优先级。
-• 虚拟集群 1 和虚拟集群 2 设备优先级。
-• ping 服务器或死网关检测配置的HA优先级(ha-priority)设置。
-• 成为 HA 保留管理接口的 FortiGate 接口的系统接口设置。
-• 保留管理接口的默认路由，使用<code>config system ha</code>命令的<code>ha-mgmt-interface-gateway</code>选项设置。
-• 动态加权负载均衡阈值和高低水印。
-• OSPF summary-addresses 设置。</p>
+<ul>
+<li>FortiGate 主机名。允许你识别集群设备。</li>
+<li>GUI 仪表板配置。故障转移只有，你可能必须重新配置仪表板小部件。</li>
+<li>HA 覆盖。</li>
+<li>HA 设备优先级。</li>
+<li>虚拟集群 1 和虚拟集群 2 设备优先级。</li>
+<li>ping 服务器或死网关检测配置的HA优先级(ha-priority)设置。</li>
+<li>成为 HA 保留管理接口的 FortiGate 接口的系统接口设置。</li>
+<li>保留管理接口的默认路由，使用<code>config system ha</code>命令的<code>ha-mgmt-interface-gateway</code>选项设置。</li>
+<li>动态加权负载均衡阈值和高低水印。</li>
+<li>OSPF summary-addresses 设置。</li>
+</ul>
 <p>此外，许可证是不同步的，因为每个 FortiGate 必须单独许可。这包括 FortiCloud 激活和 FortiClient 许可，如果你购买了超过 10 个虚拟域(VDOM)，则输入一个许可密钥。</p>
 <h3 id="ha-工作模式">HA 工作模式</h3>
 <p><strong>Active-Passive（A-P）模式</strong></p>
 <p>集群中的所有防火墙必须工作在同一个模式下。可以对运行中的HA集群进行模式的修改，但会造成一定的延时，因为集群需要重新协商并选取新的主设备。A-P 模式提供了备机保护。HA 集群中由一台主设备，和一台以上到从设备组成。</p>
 <p>从设备与主设备一样连接到网络，但不处理任何的数据包，从设备处于备用状态。从设备会自动同步主设备的配置，并时刻监视主设备到运行状态。整个失效保护的过程是透明的，一旦主设备失效，从设备会自动接替其工作。如果设备的接口或链路出现故障，集群内会更新链路状态数据库，重新选举新的主设备。</p>
-<p>Active-Active（A-A）模式</p>
+<p><strong>Active-Active（A-A）模式</strong></p>
 <p>A-A 模式下会对占用资源较多的进程进行在各个设备中进行分担。需要处理协议识别、病毒扫描、ips、网页过滤、邮件过滤、数据防泄露、应用程序控制、voip 内容扫描、协议保护（HTTP，HTTPS，FTP，IMAP，IMAPS，POP3，SMTP，SMTPS，IM，NNTP，SIP，SIMPLE），SCCP 协议控制等。通过对如上内容的负载均担，A-A 模式可以提供更高的 UTM 性能。安全策略中的终端控制，流控，用户认证功能，在 A-A 模式下没有什么提高效果。其他非 UTM功能不会进行负载分担，将由主设备进行处理。除了 UTM功 能外，还可以实现对 TCP 会话进行分担。</p>
 <p>AA模式下，集群中的主设备负责对所有通信会话的处理，然后将部分负载分发到所有从设备上。从设备可以说是活动的，因为要处理 UTM 的相关会话。但从设备只处理由主设备分配的数据，不会响应 arp 等。其他方面 AA 模式和 AP 模式是相同的。</p>
 <p>单机配置同步、单机会话同步模式</p>
@@ -272,9 +274,7 @@
 </ol>
 <p>假如 HA 的两台 FGT 存在上述不一致的情况，那么做为备机的 FGT 将会被 Shutdown 主动关闭。</p>
 <p>串口下将会打印 shutdown 并提示原因：</p>
-<p>slave and master have different hdisk status. Cannot work with HA master. Shutdown the box!</p>
-<p>The system is going down NO</p>
-<p>The system is halted.</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slave and master have different hdisk status. Cannot work with HA master. Shutdown the box!</span><br><span class="line"></span><br><span class="line">The system is going down NOW</span><br><span class="line"></span><br><span class="line">The system is halted.</span><br></pre></td></tr></table></figure></p>
 <h3 id="ha-配置步骤">HA 配置步骤</h3>
 <p>步骤1、配置设备 1 的 HA</p>
 <p>步骤2、配置设备 2 的 HA</p>
@@ -611,7 +611,7 @@ get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概述"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6982;&#x8FF0;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#fgcp-ha"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">FGCP HA</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#同步配置"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">&#x540C;&#x6B65;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-工作模式"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HA &#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置要求"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x8981;&#x6C42;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置步骤"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x6B65;&#x9AA4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置建议"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x5EFA;&#x8BAE;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fgcp-ha-配置实例"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FGCP HA &#x914D;&#x7F6E;&#x5B9E;&#x4F8B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-配置任务概述两台设备配置主备模式"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. &#x914D;&#x7F6E;&#x4EFB;&#x52A1;&#x6982;&#x8FF0;&#xFF1A;&#x4E24;&#x53F0;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x4E3B;&#x5907;&#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-配置群集"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. &#x914D;&#x7F6E;&#x7FA4;&#x96C6;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1主设备"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1&#xFF09;&#x4E3B;&#x8BBE;&#x5907;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2备机"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2&#xFF09;&#x5907;&#x673A;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-连接群集"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. &#x8FDE;&#x63A5;&#x7FA4;&#x96C6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-校验群集并禁用orveride"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. &#x6821;&#x9A8C;&#x7FA4;&#x96C6;&#x5E76;&#x7981;&#x7528;orveride</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-测试故障转移"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. &#x6D4B;&#x8BD5;&#x6545;&#x969C;&#x8F6C;&#x79FB;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-相关命令"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. &#x76F8;&#x5173;&#x547D;&#x4EE4;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ha-cluster-不中断升级过程"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HA-Cluster &#x4E0D;&#x4E2D;&#x65AD;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ha-配置命令集参考"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x547D;&#x4EE4;&#x96C6;&#x53C2;&#x8003;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概述"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6982;&#x8FF0;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#fgcp-ha"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">FGCP HA</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#不同步的配置"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">&#x4E0D;&#x540C;&#x6B65;&#x7684;&#x914D;&#x7F6E;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-工作模式"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HA &#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置要求"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x8981;&#x6C42;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置步骤"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x6B65;&#x9AA4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ha-配置建议"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x5EFA;&#x8BAE;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fgcp-ha-配置实例"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FGCP HA &#x914D;&#x7F6E;&#x5B9E;&#x4F8B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-配置任务概述两台设备配置主备模式"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. &#x914D;&#x7F6E;&#x4EFB;&#x52A1;&#x6982;&#x8FF0;&#xFF1A;&#x4E24;&#x53F0;&#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x4E3B;&#x5907;&#x6A21;&#x5F0F;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-配置群集"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. &#x914D;&#x7F6E;&#x7FA4;&#x96C6;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1主设备"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1&#xFF09;&#x4E3B;&#x8BBE;&#x5907;</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2备机"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2&#xFF09;&#x5907;&#x673A;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-连接群集"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. &#x8FDE;&#x63A5;&#x7FA4;&#x96C6;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-校验群集并禁用orveride"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. &#x6821;&#x9A8C;&#x7FA4;&#x96C6;&#x5E76;&#x7981;&#x7528;orveride</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-测试故障转移"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. &#x6D4B;&#x8BD5;&#x6545;&#x969C;&#x8F6C;&#x79FB;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-相关命令"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. &#x76F8;&#x5173;&#x547D;&#x4EE4;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ha-cluster-不中断升级过程"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HA-Cluster &#x4E0D;&#x4E2D;&#x65AD;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ha-配置命令集参考"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">HA &#x914D;&#x7F6E;&#x547D;&#x4EE4;&#x96C6;&#x53C2;&#x8003;</span></a></li></ol>
         
         </div>
       </aside>
@@ -628,9 +628,9 @@ get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
-                        
                           <a class="tag" href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+                        
+                          <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
                         
                     </div>
                 </section>
