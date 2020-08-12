@@ -220,7 +220,8 @@
             <!-- Post Container -->
             <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
 
-                <h2 id="1-前言">1. 前言</h2>
+                <p>作者：gc(at)sysin.org，主页：www.sysin.org</p>
+<h2 id="为什么要使用-tls-v13">为什么要使用 TLS v1.3</h2>
 <p>TLS 1.3 是时隔九年对 TLS 1.2 等之前版本的新升级，也是迄今为止改动最大的一次。针对目前已知的安全威胁，IETF（Internet Engineering Task Force，互联网工程任务组）制定 TLS 1.3 的新标准，使其有望成为有史以来最安全，但也最复杂的 TLS 协议。</p>
 <p>TLS 1.3 与之前的协议有较大差异，主要在于：</p>
 <ul>
@@ -233,7 +234,41 @@
 </ul>
 <p>对比旧协议中的不足，TLS 1.3 确实可以称得上是向前迈了一大步。既避免之前版本出现的缺陷，也减少了 TLS 握手的时间。</p>
 <p>总结一下，TLS 1.3 与以前的版本相比具有如下两个大的优势：更快的访问速度和更强的安全性！</p>
-<h2 id="2-客户端支持">2. 客户端支持</h2>
+<p><strong>TLS 1. 0 和 TLS 1. 1 是分别于 1996 年和 2006 年发布的老版协议，使用的是弱加密算法和系统</strong>。比如 SHA-1 和 MD5，这些算法和系统十分脆弱，存在重大安全漏洞，容易受到降级攻击的严重影响，而在 2008 年和 2017 年分别发布了协议的新版本，分为<strong>TLS 1. 2 和TLS 1.3，无疑更优于旧版本，使用起来也更安全</strong>。</p>
+<p>2018 年，在春季 TLS 1.3 版本发布之后，苹果、谷歌、Mozilla和微软四大浏览器制造商于 2018 年 10 月联合宣布计划在 2020 年初取消对 TLS 1. 0 和 TLS 1.1 的支持。</p>
+<p>主流浏览器客户端都提供了禁用 TLS 1.0 和 TLS 1.1 协议的大致期限：</p>
+<table>
+<thead>
+<tr>
+<th><strong>Browser Name</strong></th>
+<th></th>
+<th><strong>Date</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft IE and Edge</td>
+<td></td>
+<td>First half of 2020</td>
+</tr>
+<tr>
+<td>Mozilla Firefox</td>
+<td></td>
+<td>March 2020</td>
+</tr>
+<tr>
+<td>Safari/Webkit</td>
+<td></td>
+<td>March 2020</td>
+</tr>
+<tr>
+<td>Google Chrome</td>
+<td></td>
+<td>January 2020</td>
+</tr>
+</tbody>
+</table>
+<h2 id="客户端支持">客户端支持</h2>
 <h3 id="浏览器">浏览器</h3>
 <p><strong>Modern</strong>: Modern clients that support TLS 1.3, with no need for backwards compatibility</p>
 <table>
@@ -270,7 +305,8 @@
 <h3 id="curl">curl</h3>
 <p>7.52.0 - December 21 2016，curl: introduce the --tlsv1.3 option to force TLS 1.3</p>
 <p>使用参数 <code>--tlsv1.3</code>，可以通过 <code>curl --help</code> 查看是否支持该参数</p>
-<h2 id="3-f5-big-ip-tlsv1_3">3. F5 BIG-IP TLSv1_3</h2>
+<h2 id="服务端支持">服务端支持</h2>
+<h3 id="f5-big-ip-tlsv1_3">F5 BIG-IP TLSv1_3</h3>
 <p><a href="https://support.f5.com/csp/article/K10251520" target="_blank" rel="noopener">BIG-IP v14 开始支持 TLSv1_3</a>（In BIG-IP 14.0.0, the BIG-IP system adds limited support for Transport Layer Security (TLS) 1.3. Starting in BIG-IP 14.1.0.1 and later, this support was updated to provide production level support for TLS 1.3.）</p>
 <p>By default, TLS 1.3 is disabled. To enable TLS 1.3, you must remove the <strong>No TLSv1.3</strong> option from the <strong>Enabled Options</strong> list in the Configuration utility for the Client SSL and Server SSL profiles</p>
 <p>You can view a list of TLS 1.3 supported ciphers and groups using the following TMOS Shell (<strong>tmsh</strong>) commands:</p>
@@ -291,11 +327,11 @@
 <p>Enabled Options，</p>
 <p>Disable No TLSv1.3</p>
 <p>添加，No TLSv1 和 TLSv1.1，保留默认的“Don't insert empty fragments”</p>
-<h2 id="4-iis-amp-windows-tlsv13">4. IIS &amp; Windows TLSv1.3</h2>
+<h3 id="iis-amp-windows-tlsv13">IIS &amp; Windows TLSv1.3</h3>
 <p>IIS 10 &amp; Windows Server 2019 正式版尚未支持，<a href="https://forums.iis.net/t/1250687.aspx?IIS+10+TLS+1+3+support" target="_blank" rel="noopener">参看</a></p>
 <p>最新的 Windows Insider Preview 已经支持 TLS 1.3</p>
 <p>the latest <a href="https://insider.windows.com/en-us/" target="_blank" rel="noopener">Windows Insider Preview Builds</a> for Schannel's TLS 1.3 support.</p>
-<h2 id="5-nginx-tlsv13">5. Nginx TLSv1.3</h2>
+<h3 id="nginx-tlsv13">Nginx TLSv1.3</h3>
 <blockquote>
 <p>The <code>TLSv1.1</code> and <code>TLSv1.2</code> parameters (1.1.13, 1.0.12) work only when OpenSSL 1.0.1 or higher is used.</p>
 </blockquote>
@@ -305,7 +341,7 @@
 <p><a href="http://wiki.nginx.org/HttpSslModule#ssl_protocols" target="_blank" rel="noopener">More info on the NGINX documentation</a></p>
 <p>参考配置：启用 HTTP/2、TLSv1.3、推荐的Ciphers、HSTS</p>
 <p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       443 ssl http2; # HTTP/2 Enable</span><br><span class="line">    server_name  www.sysin.org;</span><br><span class="line">    ssl_certificate     www.sysin.org.crt;</span><br><span class="line">    ssl_certificate_key www.sysin.org.key;</span><br><span class="line">    ssl_protocols       TLSv1.2 TLSv1.3; # Requires nginx &gt;= 1.13.0 else use TLSv1.2</span><br><span class="line">    ssl_ciphers  ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;</span><br><span class="line">    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="6-apache-httpd-tlsv13">6. Apache httpd TLSv1.3</h2>
+<h3 id="apache-httpd-tlsv13">Apache httpd TLSv1.3</h3>
 <p><strong>版本要求：</strong></p>
 <p>Apache version <code>2.4.36</code> or greater. (网上文章传言 2.4.38 是错误的！)</p>
 <p>OpenSSL version <code>1.1.1</code> or greater.</p>
@@ -326,12 +362,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Download-macOS-Catalina-10.15.5-0601-update/" data-toggle="tooltip" data-placement="top" title="macOS Catalina 10.15.5 正式版 下载 百度网盘 6月1日 补充更新">&larr; Previous Post</a>
+                            <a href="/article/TLS-SNI-Support/" data-toggle="tooltip" data-placement="top" title="TLS Server Name Indication (TLS SNI) Support">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/TLS-SNI-Support/" data-toggle="tooltip" data-placement="top" title="TLS Server Name Indication (TLS SNI) Support">Next Post &rarr;</a>
+                            <a href="/article/Download-VMware-macOS-Catalina-iso/" data-toggle="tooltip" data-placement="top" title="用于 VMware 的 macOS Catalina 10.15.5 iso 百度网盘 下载">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -388,7 +424,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-前言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. &#x524D;&#x8A00;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-客户端支持"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. &#x5BA2;&#x6237;&#x7AEF;&#x652F;&#x6301;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#浏览器"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x6D4F;&#x89C8;&#x5668;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#curl"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">curl</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-f5-big-ip-tlsv1_3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. F5 BIG-IP TLSv1_3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-iis-amp-windows-tlsv13"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. IIS &amp; Windows TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-nginx-tlsv13"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. Nginx TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-apache-httpd-tlsv13"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. Apache httpd TLSv1.3</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#为什么要使用-tls-v13"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x4F7F;&#x7528; TLS v1.3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#客户端支持"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5BA2;&#x6237;&#x7AEF;&#x652F;&#x6301;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#浏览器"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x6D4F;&#x89C8;&#x5668;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#curl"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">curl</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#服务端支持"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x670D;&#x52A1;&#x7AEF;&#x652F;&#x6301;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#f5-big-ip-tlsv1_3"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">F5 BIG-IP TLSv1_3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#iis-amp-windows-tlsv13"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">IIS &amp; Windows TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#nginx-tlsv13"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">Nginx TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#apache-httpd-tlsv13"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">Apache httpd TLSv1.3</span></a></li></ol></li></ol>
         
         </div>
       </aside>
