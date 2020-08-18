@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="数据中心：系统、平台和应用交付">
+    <meta name="keyword"  content="Apple,macOS,iOS,Cisco,IOS,IOS-XE,NX-OS,Nexus,ACI,Docker,Kubernetes,F5,BIG-IP,LTM,DNS,ASM,Linux,CentOS,Ubuntu,Microsoft,Windows,Oracle,Palo Alto,PAN-OS,VMware,ESXi,vCenter,NSX,VSAN,FortiGate,FortiOS,Firepower">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          VMware NSX-T Data Center 3.0 下载 - System Inside | 数据中心：系统、平台和应用交付
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/Download-VMware-NSX-T-3/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<link rel="alternate" href="/atom.xml" title="System Inside" type="application/atom+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header2.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+                            
+                              <a class="tag" href="/tags/#Download" title="Download">Download</a>
+                            
+                        </div>
+                        <h1>VMware NSX-T Data Center 3.0 下载</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2020-05-15
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll" >
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" height="64" border="0" style="vertical-align:middle"/></a>
+        </div>
+        <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <p>VMware NSX-T Data Center 3.0  | 2020 年 4 月 7 日 | 内部版本 15946738</p>
+<h2 id="通过-vmware-nsx-实现全栈网络安全虚拟化">通过 VMware NSX 实现全栈网络安全虚拟化</h2>
+<p>使虚拟云网络能够跨数据中心、多云环境、裸机和容器基础架构连接并保护应用。VMware NSX Data Center 提供完整的 L2-L7 网络和安全虚拟化平台，支持像从单一窗口管理单个条目一样轻松管理整个网络。</p>
+<h2 id="跨云环境提供-l2-l7-虚拟化平台">跨云环境提供 L2-L7 虚拟化平台</h2>
+<h3 id="通过自动化实现敏捷性">通过自动化实现敏捷性</h3>
+<p>通过在软件中运行整个 L2-L7 体系（与底层物理硬件分离），为您的网络和安全服务提供一键式置备服务，实现强大的灵活性、敏捷性和规模。<a href="https://www.vmware.com/cn/products/nsx/automation.html" target="_blank" rel="noopener">探索网络自动化 &gt;&gt;</a></p>
+<h3 id="实现原生安全性">实现原生安全性</h3>
+<p>通过细分到单个工作负载的微分段，为应用提供精细的保护。针对每个工作负载创建情境感知安全策略，同时利用 IDS/IPS 以抵御多云环境中的横向威胁。<a href="https://www.vmware.com/cn/security/network-security-solutions.html" target="_blank" rel="noopener">有关服务定义的防火墙的更多内容 &gt;&gt;</a></p>
+<h3 id="享受一致的多云环境运维体验">享受一致的多云环境运维体验</h3>
+<p>可从单一窗口管理私有云和公有云中一致的网络和安全策略，而无论您的应用是在虚拟机、容器还是裸机中运行。<a href="https://www.vmware.com/cn/products/nsx/multi-cloud-networking.html" target="_blank" rel="noopener">查看多云网络策略 &gt;&gt;</a></p>
+<h3 id="同时节省-capex-和-opex">同时节省 CAPEX 和 OPEX</h3>
+<p>通过将网络和安全功能整合到单个分布式虚拟化平台，将 CAPEX 降低高达 35%，并通过简化运维管理和优化流量来大幅削减 OPEX。<a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/nsx/vmware-nsx-solution-brief.pdf" target="_blank" rel="noopener">下载解决方案概述 &gt;&gt;</a></p>
+<h2 id="nsx-的主要应用场景有哪些">NSX 的主要应用场景有哪些？</h2>
+<h3 id="采用零信任安全策略">采用零信任安全策略</h3>
+<p>使用 NSX 中的微分段功能锁定关键应用，在软件中创建逻辑 DMZ，并减少虚拟桌面环境的攻击面。<a href="https://www.vmware.com/cn/solutions/micro-segmentation.html" target="_blank" rel="noopener">零信任安全策略</a>现在可在私有云和公有云环境中实施，并且效率很高。</p>
+<p><a href="https://www.vmware.com/cn/products/nsx/security.html" target="_blank" rel="noopener">有关微分段的更多内容</a></p>
+<h3 id="加快交付网络和安全服务">加快交付网络和安全服务</h3>
+<p>通过利用蓝图在所有站点和云环境中一致地自动置备和管理网络和安全服务，或者通过将基础架构公开为代码，来加快应用交付。</p>
+<p><a href="https://www.vmware.com/cn/solutions/network-automation.html" target="_blank" rel="noopener">有关网络自动化的更多内容</a></p>
+<h3 id="跨云环境延展网络">跨云环境延展网络</h3>
+<p>通过一致的网络和安全服务精简多云运维，并在此过程中启用从无缝数据中心延展到多数据中心池的多云应用场景，从而加快工作负载移动速度。</p>
+<p><a href="https://www.vmware.com/cn/products/nsx/multi-cloud-networking.html" target="_blank" rel="noopener">有关多云网络的更多内容</a></p>
+<h3 id="将容器作为一等公民予以管理">将容器作为“一等公民”予以管理</h3>
+<p>为容器化应用和微服务提供虚拟机享有的集成式全体系网络和安全服务。利用针对 Kubernetes 的原生容器网络功能、微分段和针对<a href="https://www.vmware.com/cn/topics/glossary/content/microservices.html" target="_blank" rel="noopener">微服务</a>的端到端可观察性。</p>
+<p><a href="https://www.vmware.com/cn/products/nsx/cloud-native-apps.html" target="_blank" rel="noopener">有关容器网络的更多内容</a></p>
+<h2 id="扩展虚拟云的功能">扩展虚拟云的功能</h2>
+<h3 id="升级到原生安全性">升级到原生安全性</h3>
+<p>依靠专门构建的唯一<a href="https://www.vmware.com/cn/security/internal-firewall.html" target="_blank" rel="noopener">内部防火墙</a>来保护东西向网络流量，以及跨云环境一致地保护工作负载。</p>
+<p><a href="https://www.vmware.com/cn/security/network-security-solutions.html" target="_blank" rel="noopener">有关服务定义的防火墙的更多内容 </a></p>
+<h3 id="运行-vmware-cloud-on-aws">运行 VMware Cloud on AWS</h3>
+<p>将本地部署 vSphere 环境扩展到 AWS 云中，交付顺畅的混合云体验。</p>
+<p><a href="https://cloud.vmware.com/cn/vmc-aws" target="_blank" rel="noopener">有关 VMC on AWS 的更多内容 </a></p>
+<h3 id="通过-idsips-实现高级威胁检测">通过 IDS/IPS 实现高级威胁检测</h3>
+<p>用分布式软件 IDS/IPS 解决方案替换分散的设备，以检测东西向流量上的横向威胁移动并轻松实现合规性。</p>
+<p><a href="https://www.vmware.com/cn/products/nsx-distributed-ids-ips.html" target="_blank" rel="noopener">有关 NSX Distributed IDS/IPS 的更多内容 </a></p>
+<h3 id="利用全局可见性">利用全局可见性</h3>
+<p>跨虚拟、物理和公有云网络基础架构（包括防火墙）获得端到端运维可见性和故障排除能力。</p>
+<p><a href="https://www.vmware.com/cn/products/vrealize-network-insight.html" target="_blank" rel="noopener">有关 vRealize Network Insight 的更多内容 </a></p>
+<h3 id="获取推荐的安全策略">获取推荐的安全策略</h3>
+<p>通过丰富的应用拓扑虚拟化和自动化策略推荐，简化运维微分段。</p>
+<p><a href="https://www.vmware.com/cn/products/nsx-intelligence-analytics-engine.html" target="_blank" rel="noopener">有关 NSX Intelligence 的更多内容 </a></p>
+<h3 id="将-nsx-延展到云端应用">将 NSX 延展到云端应用</h3>
+<p>通过单一窗口，为在公有云上运行的原生应用提供一致的网络和安全服务。</p>
+<p><a href="https://www.vmware.com/cn/products/nsx-cloud.html" target="_blank" rel="noopener">有关 NSX Cloud 的更多内容 </a></p>
+<h2 id="新增功能">新增功能</h2>
+<p>NSX-T Data Center 3.0 针对私有云、公有云和多云环境的虚拟化网络和安全引入了各种新功能。亮点包括以下重点领域和新功能：</p>
+<ul>
+<li>**云级网络连接：**NSX Federation</li>
+<li>**原生安全：**分布式 IDS、用于 Windows 物理服务器的微分段、基于时间的防火墙规则以及 URL 分析的功能预览</li>
+<li>**现代应用网络连接：**适用于 vSphere with Kubernetes 的 NSX-T、容器网络连接和安全增强功能</li>
+<li><strong>下一代电信云</strong>：适用于虚拟机移动化的 L3 EVPN，加速数据平面性能、NAT64、对容器的 IPv6 支持、适用于 NFV 的东西向服务链</li>
+</ul>
+<p>NSX-T Data Center 3.0.0 版本提供了以下新功能和增强功能。</p>
+<h3 id="l2-网络">L2 网络</h3>
+<p><strong>NSX-T 对 VDS 7.0 的支持</strong></p>
+<p>NSX-T 现在能够在 vSphere VDS 交换机版本 7.0 上运行。建议 NSX 和 vSphere  的新部署利用这一紧密集成，并开始过渡到在 VDS 上使用 NSX-T。在未来版本中，将弃用 N-VDS NSX-T 主机交换机。之后，计划将  NSX-T 和 ESXi 主机交换机融合。N-VDS 将交换机保留在 KVM、NSX-T Edge 节点、本机公有云 NSX  代理中，用于处理裸机工作负载。</p>
+<p>此版本仍支持当前 NSX-T ESXi 主机交换机 N-VDS，建议当前在 ESXi 中使用 N-VDS 的 NSX 部署继续使用同一交换机。原因有两个方面：</p>
+<ol>
+<li>对于现有 NSX 部署，将 N-VDS 转换为 VDS 7.0 是一种手动过程。如果需要，请与您的 VMware 代表联系以了解更多详细信息。</li>
+<li>N-VDS 和 VDS API 有所不同。N-VDS 或 VDS API 本身未作任何更改。但是，如果您转为在环境中使用 VDS，就要开始调用 VDS API 而不是 N-VDS API。必须在将 N-VDS 转换为 VDS 之前进行此生态系统更改。</li>
+</ol>
+<p>从 N-VDS 迁移到 VDS 时，建议考虑以下部署注意事项：</p>
+<ul>
+<li>VDS 通过 vCenter 进行配置。N-VDS 独立于 vCenter。由于 VDS 对 NSX-T 的支持，并且将最终弃用 N-VDS，NSX-T 将与 vCenter 密切绑定，而且需要 vCenter 才能启用 NSX。</li>
+<li>N-VDS 能够支持 ESXi 主机特定配置。VDS 使用基于集群的配置，不支持 ESXi 主机特定配置。</li>
+<li>对于此版本，N-VDS 与 VDS 的功能并不完全一致。</li>
+<li>与 N-VDS 相比，针对 VDS 的虚拟机和 vmKernel 接口 API 的支持类型有所不同。</li>
+</ul>
+<p><strong>RHEL 支持</strong>：我们在 NSX 的受支持操作系统的列表中增加了 RHEL 7.6 和 RHEL 7.7。这适用于 KVM 和裸机工作负载。</p>
+<p><strong>Edge 网桥：</strong></p>
+<p>现在可以通过 Edge 网桥将为客户机 VLAN 标记配置的分段扩展到 VLAN。通过在将分段映射到网桥配置文件时配置一系列  VLAN ID，可以启用该功能。具有此范围内的 VLAN ID 的分段流量将桥接到 VLAN，并保留其 VLAN 标记。在网桥的 VLAN  端接收且 VLAN ID 属于分段到网桥映射中所配置范围的流量将桥接到分段，并保留其 VLAN ID 作为客户机 VLAN 标记。</p>
+<p>Edege 网桥现在支持基于策略的 UI。</p>
+<p><strong>每个 VNI 的 MAC 限制</strong>：在 ESXi 数据平面中，每个逻辑交换机的默认 MAC 限制的默认值为 2048。NSX 现在提供了将每个逻辑交换机的 MAC 限制从默认值更改为符合客户要求的值的功能。</p>
+<p><strong>支持 Windows 2016 裸机服务器</strong></p>
+<p>NSX 支持以下用例：</p>
+<ol>
+<li>与支持 VLAN 的虚拟化工作负载的连接</li>
+<li>与支持覆盖网络的虚拟化工作负载的连接</li>
+<li>虚拟工作负载和物理工作负载之间的通信安全性</li>
+<li>物理工作负载之间的通信安全性</li>
+</ol>
+<p>支持适用于：</p>
+<ul>
+<li>两个 PNIC 的情况（管理和应用使用单独的 IP）</li>
+<li>一个 PNIC 的情况（管理和应用使用相同的 IP）</li>
+</ul>
+<p>有关当前支持的最高配置，请参见 <a href="https://configmax.vmware.com/home" target="_blank" rel="noopener">VMware 最高配置</a>。</p>
+<p><strong>增强型数据路径</strong></p>
+<ul>
+<li><strong>ENS 中支持 tx 零复制</strong> - 对于更大的包大小 (600-700B)，现在支持 tx 零复制。从 vSphere 7.0 开始支持此功能，这改进了 l2/l3 缓存未命中情况，最终提高了整体性能。</li>
+<li><strong>FPO Flow Director 卸载和关联的 vmkapi 更改</strong> - N-VDS 支持 NIC 卸载，因此提高了增强型数据路径中的性能。</li>
+<li><strong>U-ENS 数据平面整合</strong> - ENS（增强型网络堆栈）和 FC（流量缓存）可在 N-VDS（或 vSwitch）上为 NSX-T 提供快速路径。ENS 用于常规用途，而 FC 则更多用于电信用例。</li>
+<li><strong>ENS 性能优化</strong> - 对于缓存利用率和数据包大小，已改进了性能。</li>
+</ul>
+<h3 id="联合">联合</h3>
+<p>NSX-T 3.0 引入了通过单一窗口（称为全局管理器 (GM)）联合多个内部部署数据中心的功能。GM 提供图形用户界面和基于意图的 REST API 端点。通过 GM，您可以跨多个位置和延伸的网络连接对象配置一致的安全策略：Tier-0 和 Tier-1 网关和分段。</p>
+<h3 id="edge-平台">Edge 平台</h3>
+<ul>
+<li>新的 Edge 虚拟机超大型规格为高级服务提供了更大规模和更高的吞吐量。</li>
+<li>在 Tier-0 网关上改进了收敛时间，并且在裸机 Edge 上，将 Edge 虚拟机上支持的 BFD 间隔降低至 500ms 和 50ms。</li>
+<li>增强了 Edge 虚拟机部署：通过 NSX 执行 Edge 虚拟机部署期间，将执行以下操作：
+<ul>
+<li>在 ESX 重新引导时自动启动 Edge 虚拟机</li>
+<li>在 DFW 排除列表中添加了 Edge 虚拟机</li>
+<li>配置以下参数：“允许 SSH”、“允许 root 用户登录”、“NTP 服务器列表”、“域搜索列表”、“DNS 服务器列表”和“默认用户凭据”</li>
+</ul>
+</li>
+<li>AMD EPYC 支持：现在，可以在 AMD EPYC 系列 CPU 上部署 Edge 节点、虚拟机和裸机：
+<ul>
+<li>AMD EPYC 7xx1 系列 (Naples)</li>
+<li>AMD EPYC 3000 嵌入式系列及更高版本</li>
+<li>AMD EPYC 7xx2 系列 (Rome)</li>
+</ul>
+</li>
+</ul>
+<h3 id="l3-网络">L3 网络</h3>
+<ul>
+<li>通过 UI/API 更改 Tier-0 网关 HA 模式，提供了将 Tier-0 网关高可用性模式从主动/主动更改为主动/备用的选项，以及通过 UI 和 API 进行反向更改的选项。</li>
+<li>VRF Lite 支持通过 Tier-0 网关的虚拟路由转发 (VRF) 提供多租户数据平面隔离。VRF 具有自己的隔离路由表、上行链路、NAT 和网关防火墙服务。</li>
+<li>L3 EVPN 支持提供了一个北向连接选项，可通过 MP-BGP EVPN AFI（路由类型 5）向提供商 Edge 通告 Tier-0 网关上的所有 VRF，并且通过对每个 VRF 使用一个 VNI，采用 VXLAN 封装在数据平面上保持隔离。</li>
+<li>支持对 Tier-1 网关进行限速，这提供了对进出 Tier-1 网关上行链路的所有流量进行限速的功能。</li>
+<li>策略和 UI 中的元数据代理支持增强了基于意图的 API 和策略 UI，以配置元数据代理。</li>
+<li>DHCP 服务器策略和 UI 增强了基于意图的 API 和策略 UI，以在本地将 DHCP 服务器配置到分段。</li>
+<li>适用于 L3 的策略 API 增强了基于意图的 API 和策略 UI，以检索网关上的运行时信息。</li>
+<li>L3 多播（第 1 阶段）：
+<ul>
+<li>NSX-T 3.0 首次在 NSX-T 中引入多播。</li>
+<li>仅在 T0 上支持多播复制，且预期具有多播工作负载的任何主机都必须连接到 T0。未来版本将支持 T1。</li>
+<li>NSX-T 3.0 中也只有一个从 Edge 到 TOR 的上行链路。在未来版本中，将内置冗余，并且对于支持 PIM 的 TOR，可能有多个到 TOR 的上行链路。</li>
+<li>必须始终在 NSX 域外部对 RP 进行编程。</li>
+<li>NSX-T 3.0 中的多播流量不支持 Edge 服务。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ipv6">IPv6</h3>
+<ul>
+<li>NAT64 提供从 IPv4 到 IPv6 的转换机制。它在遵循 RFC 6146 标准的情况下，提供了从 IPv6 到 IPv4 的有状态网络地址转换。</li>
+<li>有状态 DHCPv6 支持 - NSX 现在支持通过 Edge 节点上托管的 NSX 本机 DHCP 服务器，对 IPv6 地址和关联参数进行有状态交付。</li>
+</ul>
+<h3 id="防火墙">防火墙</h3>
+<ul>
+<li><strong>使用 NSX Federation 在多个站点之间实施一致的安全策略</strong> - NSX-T 3.0 引入了可管理多个 NSX Manager 的全局管理器 (GM) 概念。使用 NSX-T 3.0，全局管理器可以通过单一窗口在多个站点之间实施一致的安全策略。</li>
+<li><strong>安全仪表板简介</strong> - NSX-T 3.0 引入了新的安全概览仪表板，确保安全和防火墙管理员能够一目了然地查看防火墙和分布式 IDS 的当前运行状态。</li>
+<li><strong>基于时间的防火墙规则调度</strong> - 与 NSX-T 3.0 一样，您现在可以在特定时间间隔内调度实施特定规则。</li>
+<li><strong>通过引入向导来快速执行基于 VLAN 的微分段</strong> - 通过使用 NSX-T，只需非常简单的步骤即可配置数据中心以引入分段。</li>
+<li><strong>适用于 Windows 物理服务器的微分段</strong> <strong>-</strong> 在 NSX-T 3.0 中为 Windows 物理服务器引入了微分段。</li>
+<li><strong>URL 分析 - 功能预览</strong> - 引入了 URL 筛选预览，并对 URL 进行检测、分类和信誉评分。此功能预览仅在网关防火墙上可用。</li>
+<li><strong>在 KVM 中针对 FW 支持 TCP/UDP 和 ICMP 会话定时器配置</strong> - 针对 KVM 上运行的工作负载，支持在 KVM 中进行防火墙定时器配置更改。</li>
+</ul>
+<h3 id="身份防火墙">身份防火墙</h3>
+<ul>
+<li><strong>在身份防火墙规则中为 VDI 环境筛选 ICMP 流量</strong> - 这允许为 VDI 用户创建身份防火墙规则以根据 ICMP 协议筛选流量。这仅限于 VDI，不适用于 RDSH 用户。</li>
+<li><strong>为身份防火墙组选择性地同步 AD 组</strong> - 这允许同步要在身份防火墙规则中用作端点的特定 AD 组。此功能可优化 AD 组的性能和可用性。目前，此功能仅在使用 API 时可用。</li>
+<li><strong>针对身份防火墙规则筛选 UDP 流量</strong> - 这允许在身份防火墙规则中筛选 UDP 流量。</li>
+</ul>
+<h3 id="分布式入侵检测系统-d-ids">分布式入侵检测系统 (D-IDS)</h3>
+<p>NSX  平台中引入了分布式入侵检测功能，作为平台的威胁与漏洞检测功能的一部分。此功能可在管理程序内启用入侵检测功能，以检测易受攻击的网络流量。可以在每个虚拟机和虚拟机的每个 vNIC 上启用此分布式机制，并实施精细的规则检查。作为此功能集的一部分，NSX Manager 可以通过 NSX  签名服务下载最新的特征码包。这样就可以在环境中采用最新威胁特征码来更新 NSX 分布式 IDS。</p>
+<h3 id="服务插入和客户机侦测">服务插入和客户机侦测</h3>
+<ul>
+<li><strong>适用于 Edge 上 NFV-SFC 的东西向服务链</strong> - 多个服务链接功能之前仅适用于分布式流量，但现在适用于 Edge 流量。现在，东西向服务链也可以进行扩展以重定向 Edge 流量。</li>
+<li><strong>禁用 NSX 服务虚拟机的克隆</strong> - 现在禁止从 vSphere Client 克隆服务虚拟机以防止虚拟机出现故障。</li>
+</ul>
+<h3 id="负载均衡">负载均衡</h3>
+<ul>
+<li><strong>负载均衡器运行状况检查支持多个监控器和“AND”条件</strong> - 此增强功能允许将多个活动运行状况监控器配置为一个运行状况监控策略。所有活动运行状况监控器都必须成功通过，才能将该成员视为正常。</li>
+<li><strong>第 4 层和第 7 层虚拟服务器的连接丢弃</strong> - 第 4 层虚拟服务器具有一个新选项，可允许或拒绝来自指定网络的连接。适用于第 7 层虚拟服务器的 LB 规则允许使用组来指定网络，并具有新的“丢弃”操作以采用静默方式丢弃请求，而不是返回 HTTP 状态代码。</li>
+<li><strong>对 LB 虚拟服务器和成员的 IPv6 支持</strong> - 支持将 IPv6 VIP 负载均衡到 IPv6 成员。</li>
+<li><strong>JSON Web 令牌支持</strong> - 负载均衡器可以验证 JSON Web 令牌或 JWT，并根据其负载授予访问权限。</li>
+<li><strong>按负载均衡器规则执行 SSL 直通和动态 SSL 终止</strong> - 负载均衡器可以根据 SSL 客户端 Hello 中的 SNI 来选择一个池，而不会终止 SSL。此外，它还可以基于 SNI 执行 SSL 直通、SSL 卸载或端到端 SSL。</li>
+<li><strong>负载均衡器超大型支持</strong> - 为超大型 Edge 引入了超大型规格，以便更好地进行扩展。</li>
+<li><strong>适用于 vSphere with Kubernetes 的 DLB</strong> - vSphere with Kubernetes 管理的 k8s 集群 IP 支持分布式负载均衡器。任何其他工作负载类型都不支持 DLB。</li>
+</ul>
+<h3 id="vpn">VPN</h3>
+<ul>
+<li><strong>Intel QAT 支持 VPN 批量加密</strong> - 支持 Intel QAT 卡以在裸机 Edge 上卸载 VPN 批量加密。</li>
+<li><strong>L2VPN 的本地输出</strong> - 可以将两个本地网关连接到具有相同网关 IP 地址的延伸网络，以允许通过本地网关输出出站流量。</li>
+<li><strong>按需 DPD</strong> - 支持按需 DPD 以避免 DPD 短期存活，同时能够快速检测远程故障。</li>
+<li><strong>Tier-1 LR 上的 L2 VPN</strong> - Tier-1 网关上支持 L2 VPN 服务。</li>
+<li><strong>VPN 会话的有状态故障切换</strong> - IKE SA 和 IPsec SA 将实时同步到备用 VPN 服务，以进行有状态故障切换。</li>
+<li><strong>PMTU 发现</strong> - 对 L2 和 L3 VPN 服务均支持 PMTU 发现，以避免数据包分片。</li>
+</ul>
+<h3 id="自动化-openstack-和其他-cmp">自动化、OpenStack 和其他 CMP</h3>
+<ul>
+<li><strong>搜索 API</strong> <strong>可用</strong> - 通过 API 公开 NSX-T 搜索功能（已经在 UI 中提供）。这可以构建强大的查询，以根据 NSX-T 对象的标记、类型、名称或其他属性返回这些对象并简化自动化过程。API 指南中介绍了搜索 API 的详细用法。</li>
+<li><strong>Terraform Provider for NSX-T - 声明式 API 支持</strong> - Terraform Provider 提供了通过内部部署的 NSX-T 的声明式 API 来配置逻辑对象的功能。这样就可以通过 NSX-T 策略 API  模型的灵活性和额外功能来发挥 Terraform 的优势。新的资源和数据源通过网络连接（Tier-0 网关、Tier-1  网关、分段）、安全性（集中式和分布式防火墙、组）和服务（负载均衡器、NAT、DHCP）覆盖更广泛的结构，从而实现基础架构即代码。Terraform Provider 发行说明中提供了更多详细信息。</li>
+<li><strong>适用于 NSX-T 的 Ansible 模块</strong> - <strong>升级和逻辑对象支持</strong> - 增强了适用于 NSX-T 的 Ansible 模块，除了安装之外，还支持升级。这些模块还允许通过声明式 API 配置 Tier-0  网关、Tier-1 网关、分段和分布式防火墙规则，从而设置环境。这可以自动完成环境设置、升级和基本拓扑创建过程。Ansible  模块发行说明中提供了更多详细信息。</li>
+<li><strong>OpenStack 集成改进 - 扩展了 IPv6、VPNaaS 支持、vRF Lite 支持</strong> - 适用于 NSX-T 声明式 API 的 Neutron 插件经过扩展，涵盖 IPv6 和 VPNaaS。Ipv6  实现为以前版本中已有的所有功能增加了负载均衡器支持，VPNaaS 则能够从 NSX-T 中创建的 OpenStack IPsec VPN  进行配置。除了 Tier-0 外，OpenStack Neutron 插件还验证了 Tier-0 vRF-lite  是否作为外部网络使用，允许大型企业和服务提供商以最少量的 Edge 资源提供隔离和灵活性。OpenStack Neutron  插件发行说明中提供了更多详细信息。</li>
+</ul>
+<h3 id="容器网络连接和安全">容器网络连接和安全</h3>
+<ul>
+<li><strong>用户界面中的“容器清单与监控”</strong> - 可以在 NSX-T 用户界面中直观呈现容器集群、命名空间、网络策略和 Pod 级别清单。此外，还可以查看容器/K8 对象与 NSX-T 逻辑对象之间的相互关联。</li>
+<li><strong>IPAM 灵活性</strong> - NSX 策略 IP 块 API 已得到增强，可划分为不同大小的 IP 子网。此功能可帮助 NSX Container Plugin 使用策略 API 为命名空间划分出可变大小的子网。</li>
+<li><strong>NCP 组件运行状况监控</strong> - 可以使用 NSX Manager UI/API 监控 NSX Container Plugin 和相关组件运行状况信息，如 NCP 状态、NSX 节点代理状态、NSX Hyperbus Agent 状态。</li>
+</ul>
+<h3 id="nsx-cloud">NSX Cloud</h3>
+<ul>
+<li><strong>应用 ID 和 URL 筛选</strong> - 现在可以通过 NSX Cloud 为公有云中的选择性本机服务提供应用 ID 和 URL 功能。这扩大了在公有云中可使用 NSX Cloud 中的单个一致性策略保护的工作负载/服务的范围。我们从 AWS 和 Azure 中最常用的服务开始。</li>
+<li><strong>支持 AWS 和 Azure 政府云</strong> - 商务云（AWS 和 Azure）上 NSX Cloud 的所有功能现都已扩展到政府云（在美国的所有政府云区域中）。功能受各自公有云提供商的 API/可用性支持的约束。</li>
+<li><strong>支持 SLES 12sp3 (SUSE 12 SP3)</strong> - 现在支持具有运行 SLES 12sp3 的代理的公有云虚拟机。</li>
+<li><strong>在无代理 VPC 和 VNet 中支持 VPN</strong> - 可以在内部部署的 Edge 之间建立 VPN 连接，也可以在公有云（AWS 和 Azure）中建立 VPN 连接，即使 VPC 和 VNet 在无代理模式下运行。</li>
+</ul>
+<h3 id="运维">运维</h3>
+<ul>
+<li><strong>同时支持精简和厚磁盘模式</strong> - NSX Manager 和 NSX Intelligence 设备现在同时支持精简模式和厚模式，并在部署时提供此选择。</li>
+<li><strong>增加了 NSX Manager 的磁盘大小</strong> - 从 NSX-T 3.0 开始，NSX  Manager 的磁盘大小将从 200 GB 增加到 300 GB（集群中的每个 NSX Manager 节点）。在新的 NSX Manager 安装过程中，请确保底层数据存储具有足够的磁盘空间。在升级到 NSX-T 3.0 的过程中，请确保在升级 NSX Manager  之前添加了新的数据存储。</li>
+<li><strong>减小了 NSX-T 中的 VIB 大小</strong> - 在所有 NSX 主机安装中，NSX-T 3.0 具有更小的 VIB 占用空间，以便您能够在其管理程序上安装 ESX 和其他第三方 VIB 以及 NSX。</li>
+<li><strong>支持联合升级</strong> - 通过 NSX Federation，管理员可以按照《升级指南》中的详细兼容性矩阵表，以异步方式升级全局管理器和本地管理器。</li>
+<li><strong>针对 N-vDS 的定期 MTU/VLAN 运行状况检查</strong> - 现在可以对 NSX 主机交换机（例如 N-vDS）执行运行状况检查。</li>
+<li><strong>无中断就地升级</strong> - 对 NSX 传输节点的就地升级进行了更多增强，警告也更少，《升级指南》中详细介绍了这一方面。</li>
+<li><strong>流跟踪策略支持</strong> - 现在可在“策略”选项卡（之前名为“简化”选项卡）下使用流跟踪调试工具。</li>
+<li><strong>能够在主机级别执行 TN 安装并提供进度条</strong> - 管理员可以在 UI 中查看管理程序上的 NSX 安装详细进度。</li>
+<li><strong>Spoofguard 的跟踪流观察值</strong> - 跟踪流调试工具现在会显示因 Spoofguard 功能而可能出现的任何数据包丢弃问题。</li>
+<li><strong>在主机离开 VC 集群时可以自动卸载 NSX</strong> - 在用户将传输节点移至 vSphere 集群外部时，将自动卸载 NSX。《升级指南》中提供了有关该功能的更多详细信息。</li>
+<li><strong>中央设备配置</strong> - NSX 现在支持以集中方式配置在 NSX Manager 和 Edge 节点之间通用的设置，而不要求管理员在每个节点上使用本地 CLI 配置。</li>
+<li><strong>SNMP 陷阱</strong> - NSX 现在支持从 NSX Manager、Edge 节点和受支持管理程序主机的 NSX 组件生成 SNMP 陷阱通知。这些陷阱通知用于 NSX 生成的事件和警报。在 NSX 下载站点上，NSX MIB 作为 NSX 交付内容的一部分提供。</li>
+<li><strong>NSX 警报框架和系统警报/事件</strong> - 对于此版本的 NSX，该产品现在支持的警报框架改进了警示和警报的交付，以帮助在生产环境中成功运行 NSX。NSX 文档中提供了受支持警报的列表。</li>
+</ul>
+<h3 id="清单">清单</h3>
+<ul>
+<li><strong>NSX 标记列表和批量操作支持</strong> - NSX-T 增加了 UI/API 支持，用于列出 NSX 标记，以及向多个虚拟机分配/取消分配 NSX 标记。</li>
+<li><strong>物理服务器列表</strong> - NSX-T 增加了用于列出物理服务器的 UI 支持。</li>
+</ul>
+<h3 id="可用性和用户界面">可用性和用户界面</h3>
+<ul>
+<li><strong>网络拓扑的图形可视化</strong> - 提供 Tier-0 网关、Tier-1 网关、分段和连接工作负载（虚拟机和容器）的交互式网络拓扑图，而且能够导出为 PDF。</li>
+<li><strong><em>*新的入门向导*</em></strong> - 引入了新的入门向导，只需三个简单步骤便可以为 VLAN 微分段准备集群。</li>
+<li><strong>从搜索结果中快速访问操作和警报</strong> - 增强了搜索结果页面，可以快速访问相关操作和警报。在网络、安全、清单和系统对象中增加了更多搜索条件。</li>
+<li><strong>NSX 策略与 Manager 模式的用户界面首选项</strong> - 您可以在用户界面中切换 NSX  策略模式和 NSX Manager 模式，并控制默认显示。默认情况下，新安装会在 NSX 策略模式下显示 UI，并且隐藏了 UI  模式切换器。如果环境中包含通过 NSX Manager 模式创建的对象（例如，通过 NSX 升级或云管理平台），默认情况下会在 UI 右上角显示 UI 模式切换器。</li>
+<li><strong>针对系统设备概览的 UI 设计改进</strong> - 改进了 UI 设计布局，可显示 NSX 系统设备的资源活动和运行状态。</li>
+</ul>
+<h3 id="许可">许可</h3>
+<ul>
+<li><strong>新的 VMware NSX Data Center 许可证</strong> - 增加了对 2020 年 4 月推出的新附加模块许可证 VMware NSX Data Center Distributed Threat  Prevention 的支持，并继续支持 2018 年 6 月推出的 NSX Data Center  许可证（Standard、Professional、Advanced、Enterprise Plus 和 Remote Office  Branch Office）以及之前的 VMware NSX for vSphere  许可证密钥。此外，许可证使用情况报告还会使用内核、CPU、CCU 和虚拟机衡量指标捕获微分段、联合使用情况。分布式入侵检测使用情况基于每个  CPU。有关 NSX 许可证的详细信息，请参阅 VMware 知识库文章 <a href="https://kb.vmware.com/s/article/52462" target="_blank" rel="noopener">52462</a>。</li>
+<li><strong>vShield Endpoint 管理支持</strong> - NSX-T 支持管理 vShield Endpoint 防病毒卸载功能。有关详细信息，请参见 VMware 知识库文章 <a href="http://kb.vmware.com/kb/2110078" target="_blank" rel="noopener">2110078</a>。</li>
+<li><strong>默认许可证和评估密钥分发方面的更改</strong> - 默认安装的许可证是“NSX for vShield Endpoint”，此许可证只允许使用 NSX 来部署和管理 vShield Endpoint 的防病毒卸载功能。可以通过 VMware 销售或 VMware 评估网站请求评估许可证密钥。</li>
+<li><strong>NSX 评估许可证到期</strong> - 在 60 天 NSX 评估许可证到期后，您可以删除对象，但不允许创建或编辑对象。</li>
+</ul>
+<h3 id="aaa-和平台安全性">AAA 和平台安全性</h3>
+<ul>
+<li><strong>通过 LDAP 进行基于 AD 的本机身份验证</strong> - 此功能增加了对 NSX 管理员和用户的支持，使其可以通过直接 AD (Active Directory) 与  LDAP（轻量级目录访问协议）的集成进行身份验证，并登入到 NSX-T 平台。大多数企业级/业务用户凭据都存储在基于 Microsoft 的  AD 中。直接 AD  配置简化了用户入场过程，在其使用方式不合适或增加操作复杂性的情况下不会带来配置其他身份系统的麻烦。此外，此功能还允许使用具备强大搜索选项的  NSX-T RBAC 功能，以确定用于角色分配的相关 AD 用户/组。支持安全（LDAPS、startTLS）和常规 LDAP  配置。现在，NSX-T 客户可以灵活地配置 Workspace One Access（之前称为 VIDM）或本机  AD，在某些情况下，还可以组合配置 vIDM 和直接 AD，以满足其运行需求。</li>
+<li><strong>与 OpenLDAP 集成</strong> - 除了支持本机 AD 集成外，NSX-T 3.0 还能灵活地对使用 OpenLDAP 目录服务的用户进行身份验证并使之入场。</li>
+<li><strong>vSphere with Kubernetes 中用于 NSX-T 的 AAA 功能</strong> - 在 vSphere 7.0 设备中运行容器化应用程序和 Kubernetes 功能的用户，可以利用有限数量的 NSX 网络连接功能并进行故障排除，而无需通过 vSphere 设备进行额外的身份验证。</li>
+<li><strong>“代表”API 功能</strong> - 通过指示是否已代表另一个 NSX 用户调用 API 操作，允许跟踪派生的用户操作，尤其是在使用主体身份 (PI) 或服务帐户执行 API 调用的情况下。包含*“X-NSX-EUSER: &lt;username&gt;”* 标头的任何 API 调用都将导致审核日志中包含额外的用户活动信息 - <em>&quot;euser=&lt;username&gt;&quot;</em>。此功能对于深入的用户审计非常有用，例如，使用有关“某人”做了“某事”的上下文数据维护丰富的审计记录。</li>
+<li><strong>远程用户基于会话的身份验证</strong> -  NSX-T 3.0  具有增强的身份验证功能，允许本地和远程用户创建基于 cookie 的会话，用于对基于 API 的活动进行身份验证和持久保存。新的增强功能简化了  API 用户的会话创建过程，并通过避免重复的身份验证促进了有效的 API 操作和安全合规性。支持基于 vIDM 和基于 LDAP 的远程用户。</li>
+<li><strong>为 API 写入调用设置了独立的审核日志</strong> <strong>-</strong> 此功能支持检索仅包含 API 写入调用相关信息的审核日志内容。通过跟踪之前和之后的状态，提高了审计记录的可读性。</li>
+<li><strong>启用/禁用基于 Cookie 的身份验证</strong> - NSX 管理员现在可以关闭基于 Cookie（基于会话）的 API 身份验证，从而改善 NSX-T 平台操作的安全状况。默认情况下，可以使用基于 Cookie 的身份验证，并且可以在关闭后重新启用。</li>
+<li><strong>启用/禁用基本身份验证</strong> - 如果 NSX 管理员担心使用基本身份验证不安全，现在就可以对使用的 API 和 CLI 禁用（或重新启用）基本身份验证。默认情况下，支持基本身份验证。</li>
+</ul>
+<h3 id="nsx-data-center-for-vsphere-到-nsx-t-data-center-的迁移">NSX Data Center for vSphere 到 NSX-T Data Center 的迁移</h3>
+<ul>
+<li><strong>包含维护模式的迁移协调器</strong> - 使用 vSphere 7.0 和 vDS 7.0 时，迁移协调器会将主机迁移到现有 vDS（版本 7.0），而不是迁移到 N-VDS。这最大限度地降低了迁移对客户环境的影响。</li>
+<li><strong>从 NSX Data Center for vSphere 迁移到使用 vDS 7.0 的 NSX-T Data Center</strong> - NSX 迁移协调器现在支持使用维护模式执行最终主机迁移步骤。在将主机从 NSX for vSphere 转换为 NSX-T  之前，此模式允许从主机迁移虚拟机。通过将主机置于维护模式，可以使用 vMotion 迁移虚拟机，以最大限度地降低对进出虚拟机的数据流量的影响。</li>
+</ul>
+<h3 id="nsx-intelligence">NSX Intelligence</h3>
+<ul>
+<li><a href="https://docs.vmware.com/cn/VMware-NSX-Intelligence/1.1/rn/VMware-NSX-Intelligence-11-Release-Notes.html" target="_blank" rel="noopener">VMware NSX Intelligence 1.1 发行说明</a>中详细介绍了 NSX Intelligence 1.1 中引入的新功能和增强功能。</li>
+<li><a href="https://docs.vmware.com/cn/VMware-NSX-Intelligence/index.html" target="_blank" rel="noopener">NSX Intelligence 文档</a>中现在单独提供了可帮助您安装、配置、更新、使用和管理 NSX Intelligence 的文档。</li>
+</ul>
+<h3 id="兼容性和系统要求">兼容性和系统要求</h3>
+<p>有关兼容性和系统要求信息，请参见<a href="https://docs.vmware.com/cn/VMware-NSX-T-Data-Center/3.0/installation/GUID-3E0C4CEC-D593-4395-84C4-150CD6285963.html" target="_blank" rel="noopener">《NSX-T Data Center 安装指南》</a>。</p>
+<h3 id="api-弃用和行为变化">API 弃用和行为变化</h3>
+<ul>
+<li><strong>移除应用程序发现</strong> - 已弃用并移除此功能。</li>
+<li>**从 NSX-T 2.4 和 2.5 升级后“高级网络连接和安全性”**<strong>UI 中的变化</strong> - 如果从 NSX-T Data Center 2.4 和 2.5 进行升级，在 NSX-T Data Center 3.0 中，通过单击“管理器”模式可使用“高级网络和安全”UI 选项卡下的菜单选项。</li>
+<li><strong>API 弃用策略</strong> - VMware 现在会在 NSX API 指南中发布我们的 API 弃用策略，以帮助使用 NSX 实现自动化的客户了解哪些 API 被视为已弃用，以及未来何时会将它们从产品中移除。</li>
+</ul>
+<h3 id="api-和-cli-资源">API 和 CLI 资源</h3>
+<p>请参见 <a href="https://code.vmware.com/apis/547/nsx-t" target="_blank" rel="noopener">code.vmware.com</a> 以使用 NSX-T Data Center API 或 CLI 实现自动化。</p>
+<p>可从 <strong>API 参考</strong>选项卡获取 API 文档。可从<strong>文档</strong>选项卡获取 CLI 文档。</p>
+<h3 id="本地化语言">本地化语言</h3>
+<p>NSX-T Data Center 已本地化为多种语言：英语、德语、法语、日语、简体中文、韩语、繁体中文和西班牙语。由于 NSX-T Data Center 本地化使用浏览器语言设置，因此，请确保您的设置与期望的语言相匹配。</p>
+<h2 id="下载链接">下载链接</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接: https://pan.baidu.com/s/1yqtXvdYVTp4QYygyLNYoLw  密码: knvs</span><br></pre></td></tr></table></figure></p>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/Disable-Firefox-Auto-update-Windows_macOS_Linux/" data-toggle="tooltip" data-placement="top" title="如何禁用 Firefox 自动更新（Windows、macOS、Linux）">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Ubuntu-20.04-Install/" data-toggle="tooltip" data-placement="top" title="Ubuntu 20.04 LTS (Focal Fossa) 安装笔记">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="/css/share.min.css">
+                    <script src="/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>
+
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#通过-vmware-nsx-实现全栈网络安全虚拟化"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x901A;&#x8FC7; VMware NSX &#x5B9E;&#x73B0;&#x5168;&#x6808;&#x7F51;&#x7EDC;&#x5B89;&#x5168;&#x865A;&#x62DF;&#x5316;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#跨云环境提供-l2-l7-虚拟化平台"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x8DE8;&#x4E91;&#x73AF;&#x5883;&#x63D0;&#x4F9B; L2-L7 &#x865A;&#x62DF;&#x5316;&#x5E73;&#x53F0;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#通过自动化实现敏捷性"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x901A;&#x8FC7;&#x81EA;&#x52A8;&#x5316;&#x5B9E;&#x73B0;&#x654F;&#x6377;&#x6027;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#实现原生安全性"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x5B9E;&#x73B0;&#x539F;&#x751F;&#x5B89;&#x5168;&#x6027;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#享受一致的多云环境运维体验"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">&#x4EAB;&#x53D7;&#x4E00;&#x81F4;&#x7684;&#x591A;&#x4E91;&#x73AF;&#x5883;&#x8FD0;&#x7EF4;&#x4F53;&#x9A8C;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#同时节省-capex-和-opex"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">&#x540C;&#x65F6;&#x8282;&#x7701; CAPEX &#x548C; OPEX</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#nsx-的主要应用场景有哪些"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">NSX &#x7684;&#x4E3B;&#x8981;&#x5E94;&#x7528;&#x573A;&#x666F;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#采用零信任安全策略"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">&#x91C7;&#x7528;&#x96F6;&#x4FE1;&#x4EFB;&#x5B89;&#x5168;&#x7B56;&#x7565;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#加快交付网络和安全服务"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">&#x52A0;&#x5FEB;&#x4EA4;&#x4ED8;&#x7F51;&#x7EDC;&#x548C;&#x5B89;&#x5168;&#x670D;&#x52A1;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#跨云环境延展网络"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">&#x8DE8;&#x4E91;&#x73AF;&#x5883;&#x5EF6;&#x5C55;&#x7F51;&#x7EDC;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#将容器作为一等公民予以管理"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">&#x5C06;&#x5BB9;&#x5668;&#x4F5C;&#x4E3A;&#x201C;&#x4E00;&#x7B49;&#x516C;&#x6C11;&#x201D;&#x4E88;&#x4EE5;&#x7BA1;&#x7406;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#扩展虚拟云的功能"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x6269;&#x5C55;&#x865A;&#x62DF;&#x4E91;&#x7684;&#x529F;&#x80FD;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#升级到原生安全性"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">&#x5347;&#x7EA7;&#x5230;&#x539F;&#x751F;&#x5B89;&#x5168;&#x6027;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行-vmware-cloud-on-aws"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">&#x8FD0;&#x884C; VMware Cloud on AWS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#通过-idsips-实现高级威胁检测"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">&#x901A;&#x8FC7; IDS/IPS &#x5B9E;&#x73B0;&#x9AD8;&#x7EA7;&#x5A01;&#x80C1;&#x68C0;&#x6D4B;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#利用全局可见性"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">&#x5229;&#x7528;&#x5168;&#x5C40;&#x53EF;&#x89C1;&#x6027;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#获取推荐的安全策略"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">&#x83B7;&#x53D6;&#x63A8;&#x8350;&#x7684;&#x5B89;&#x5168;&#x7B56;&#x7565;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#将-nsx-延展到云端应用"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">&#x5C06; NSX &#x5EF6;&#x5C55;&#x5230;&#x4E91;&#x7AEF;&#x5E94;&#x7528;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#新增功能"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x65B0;&#x589E;&#x529F;&#x80FD;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#l2-网络"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">L2 &#x7F51;&#x7EDC;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#联合"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">&#x8054;&#x5408;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#edge-平台"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">Edge &#x5E73;&#x53F0;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#l3-网络"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">L3 &#x7F51;&#x7EDC;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ipv6"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">IPv6</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#防火墙"><span class="toc-nav-number">5.6.</span> <span class="toc-nav-text">&#x9632;&#x706B;&#x5899;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#身份防火墙"><span class="toc-nav-number">5.7.</span> <span class="toc-nav-text">&#x8EAB;&#x4EFD;&#x9632;&#x706B;&#x5899;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分布式入侵检测系统-d-ids"><span class="toc-nav-number">5.8.</span> <span class="toc-nav-text">&#x5206;&#x5E03;&#x5F0F;&#x5165;&#x4FB5;&#x68C0;&#x6D4B;&#x7CFB;&#x7EDF; (D-IDS)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#服务插入和客户机侦测"><span class="toc-nav-number">5.9.</span> <span class="toc-nav-text">&#x670D;&#x52A1;&#x63D2;&#x5165;&#x548C;&#x5BA2;&#x6237;&#x673A;&#x4FA6;&#x6D4B;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#负载均衡"><span class="toc-nav-number">5.10.</span> <span class="toc-nav-text">&#x8D1F;&#x8F7D;&#x5747;&#x8861;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#vpn"><span class="toc-nav-number">5.11.</span> <span class="toc-nav-text">VPN</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#自动化-openstack-和其他-cmp"><span class="toc-nav-number">5.12.</span> <span class="toc-nav-text">&#x81EA;&#x52A8;&#x5316;&#x3001;OpenStack &#x548C;&#x5176;&#x4ED6; CMP</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#容器网络连接和安全"><span class="toc-nav-number">5.13.</span> <span class="toc-nav-text">&#x5BB9;&#x5668;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x548C;&#x5B89;&#x5168;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#nsx-cloud"><span class="toc-nav-number">5.14.</span> <span class="toc-nav-text">NSX Cloud</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运维"><span class="toc-nav-number">5.15.</span> <span class="toc-nav-text">&#x8FD0;&#x7EF4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#清单"><span class="toc-nav-number">5.16.</span> <span class="toc-nav-text">&#x6E05;&#x5355;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#可用性和用户界面"><span class="toc-nav-number">5.17.</span> <span class="toc-nav-text">&#x53EF;&#x7528;&#x6027;&#x548C;&#x7528;&#x6237;&#x754C;&#x9762;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#许可"><span class="toc-nav-number">5.18.</span> <span class="toc-nav-text">&#x8BB8;&#x53EF;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#aaa-和平台安全性"><span class="toc-nav-number">5.19.</span> <span class="toc-nav-text">AAA &#x548C;&#x5E73;&#x53F0;&#x5B89;&#x5168;&#x6027;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#nsx-data-center-for-vsphere-到-nsx-t-data-center-的迁移"><span class="toc-nav-number">5.20.</span> <span class="toc-nav-text">NSX Data Center for vSphere &#x5230; NSX-T Data Center &#x7684;&#x8FC1;&#x79FB;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#nsx-intelligence"><span class="toc-nav-number">5.21.</span> <span class="toc-nav-text">NSX Intelligence</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#兼容性和系统要求"><span class="toc-nav-number">5.22.</span> <span class="toc-nav-text">&#x517C;&#x5BB9;&#x6027;&#x548C;&#x7CFB;&#x7EDF;&#x8981;&#x6C42;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#api-弃用和行为变化"><span class="toc-nav-number">5.23.</span> <span class="toc-nav-text">API &#x5F03;&#x7528;&#x548C;&#x884C;&#x4E3A;&#x53D8;&#x5316;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#api-和-cli-资源"><span class="toc-nav-number">5.24.</span> <span class="toc-nav-text">API &#x548C; CLI &#x8D44;&#x6E90;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#本地化语言"><span class="toc-nav-number">5.25.</span> <span class="toc-nav-text">&#x672C;&#x5730;&#x5316;&#x8BED;&#x8A00;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载链接"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+                        
+                          <a class="tag" href="/tags/#Download" title="Download">Download</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>SITE LINKS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://blog.51cto.com/250823" target="_blank">51CTO Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
