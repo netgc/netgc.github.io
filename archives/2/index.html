@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://sysin.org/page/2/">
+    <link rel="canonical" href="http://sysin.org/archives/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -498,33 +498,30 @@ Windows
 
 <div class="post-preview">
 
-    <a href="/article/FortiOS-FGCP-HA-Config/">
+    <a href="/article/Chrome_不能打开_kubernetes_Dashboard_解决方法/">
         <h2 class="post-title">
             
-            FortiGate FGCP HA 配置文档
+            Chrome 不能打开 kubernetes Dashboard 解决方法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             作者：gc(at)sysin.org，主页：www.sysin.org
-概述
-FortiOS 提供 6 种冗余解决方案，工业标准的 VRRP 和 5 种专有的解决方案：
-
-FortiGate Cluster Protocol (FGCP) high availability，
-FortiGate Session Life Support Protocol (FGSP) high ava......
+步骤：
+12345678910111213mkdir key &amp;&amp; cd key#生成证书openssl genrsa -out dashboard.key 2048openssl req -new -out dashboard.csr -key dashboard.key -subj '/CN=k......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by sysin on
-            2017-08-01
+            2019-08-15
         </p>
         <div class="tags">
             
-              <a href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+              <a href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
             
-              <a href="/tags/#Firewall" title="Firewall">Firewall</a>
+              <a href="/tags/#SSL" title="SSL">SSL</a>
             
         </div>
     
@@ -534,33 +531,31 @@ FortiGate Session Life Support Protocol (FGSP) high ava......
 
 <div class="post-preview">
 
-    <a href="/article/Juniper-SRX-JSRP-Config/">
+    <a href="/article/Kubernetes_v1.18_编译_kubeadmin_修改证书有效期到_100_年/">
         <h2 class="post-title">
             
-            Juniper SRX JSRP 配置文档
+            Kubernetes v1.18 编译 kubeadmin 修改证书有效期到 100 年
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             作者：gc(at)sysin.org，主页：www.sysin.org
-一、准备篇
-1. 设备登录
-console 口登录，初始默认用户名 root，密码为空
-123456root% cli /***进入操作模式***/root&gt;root&gt; configureEntering configuration mode /***进入配置模式***/[edit]Root#
-2. 恢......
+kubeadm 默认证书为一年，一年过期后，会导致api service不可用，使用过程中会出现：x509: certificate has expired or is not yet valid.
+Google 建议通过不停更新版本来自动更新证书，太坑^_^
+可以在初始化群集之前重新编译kubeadm，证书有效期......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by sysin on
-            2013-08-01
+            2019-08-15
         </p>
         <div class="tags">
             
-              <a href="/tags/#Firewall" title="Firewall">Firewall</a>
+              <a href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
             
-              <a href="/tags/#JUNOS" title="JUNOS">JUNOS</a>
+              <a href="/tags/#SSL" title="SSL">SSL</a>
             
         </div>
     
@@ -579,7 +574,7 @@ console 口登录，初始默认用户名 root，密码为空
     
     
         <li class="next">
-            <a href="/page/3/">Older Posts &rarr;</a>
+            <a href="/archives/3/">Older Posts &rarr;</a>
         </li>
     
 </ul>
@@ -611,7 +606,11 @@ console 口登录，初始默认用户名 root，密码为空
     <div class="tags">
         
             
-            <a href="/tags/#HTTP" title="HTTP" rel="4">HTTP</a>
+            <a href="/tags/#Linux" title="Linux" rel="5">Linux</a>
+            
+        
+            
+            <a href="/tags/#CentOS" title="CentOS" rel="2">CentOS</a>
             
         
             
@@ -623,11 +622,7 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#Linux" title="Linux" rel="5">Linux</a>
-            
-        
-            
-            <a href="/tags/#CentOS" title="CentOS" rel="2">CentOS</a>
+            <a href="/tags/#HTTP" title="HTTP" rel="4">HTTP</a>
             
         
             
@@ -635,15 +630,11 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#VMware" title="VMware" rel="4">VMware</a>
+            <a href="/tags/#DNS" title="DNS" rel="1">DNS</a>
             
         
             
             <a href="/tags/#Download" title="Download" rel="5">Download</a>
-            
-        
-            
-            <a href="/tags/#PAN-OS" title="PAN-OS" rel="2">PAN-OS</a>
             
         
             
@@ -655,11 +646,11 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+            <a href="/tags/#VMware" title="VMware" rel="4">VMware</a>
             
         
             
-            <a href="/tags/#Blog" title="Blog" rel="1">Blog</a>
+            <a href="/tags/#PAN-OS" title="PAN-OS" rel="2">PAN-OS</a>
             
         
             
@@ -671,7 +662,15 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
+            <a href="/tags/#JUNOS" title="JUNOS" rel="1">JUNOS</a>
+            
+        
+            
+            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+            
+        
+            
+            <a href="/tags/#Blog" title="Blog" rel="1">Blog</a>
             
         
             
@@ -683,7 +682,7 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#JUNOS" title="JUNOS" rel="1">JUNOS</a>
+            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
             
         
             
@@ -835,7 +834,7 @@ console 口登录，初始默认用户名 root，密码为空
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">August 2010</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
