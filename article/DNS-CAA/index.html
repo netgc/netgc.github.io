@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -358,12 +358,12 @@
 </li>
 </ul>
 <h2 id="检测">检测</h2>
-<p>可以使用 <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">SSL Test</a> 在线检测，会提示：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DNS Certification Authority Authorization (CAA) Policy found for this domain.  MORE INFO »</span><br></pre></td></tr></table></figure></p>
 <p>dig</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># dig sslmate.com caa</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.13-RedHat-9.11.13-5.el8_2 &lt;&lt;&gt;&gt; sslmate.com caa</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 21947</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;sslmate.com.                   IN      CAA</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 issue &quot;sectigo.com&quot;</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 issuewild &quot;;&quot;</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 iodef &quot;mailto:security@opsmate.com&quot;</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 issue &quot;letsencrypt.org&quot;</span><br></pre></td></tr></table></figure></p>
 <p>nslookup</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># nslookup</span><br><span class="line">&gt; set type=caa</span><br><span class="line">&gt; sslmate.com</span><br><span class="line">Server:         183.60.83.19</span><br><span class="line">Address:        183.60.83.19#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">sslmate.com     rdata_257 = 0 issuewild &quot;;&quot;</span><br><span class="line">sslmate.com     rdata_257 = 0 iodef &quot;mailto:security@opsmate.com&quot;</span><br><span class="line">sslmate.com     rdata_257 = 0 issue &quot;letsencrypt.org&quot;</span><br><span class="line">sslmate.com     rdata_257 = 0 issue &quot;sectigo.com&quot;</span><br><span class="line"></span><br><span class="line">Authoritative answers can be found from:</span><br></pre></td></tr></table></figure></p>
+<p>使用 <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">SSL Test</a> 在线检测，会提示：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DNS Certification Authority Authorization (CAA) Policy found for this domain.  MORE INFO »</span><br></pre></td></tr></table></figure></p>
 
 
 
