@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="数据中心：系统、平台和应用交付">
+    <meta name="keyword"  content="Apple,macOS,iOS,Cisco,IOS,IOS-XE,NX-OS,Nexus,ACI,Docker,Kubernetes,F5,BIG-IP,LTM,DNS,ASM,Linux,CentOS,Ubuntu,Microsoft,Windows,Oracle,Palo Alto,PAN-OS,VMware,ESXi,vCenter,NSX,VSAN,FortiGate,FortiOS,Firepower">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Varnish with Hitch HTTP/2 implement on CentOS 8.0 - System Inside | 数据中心：系统、平台和应用交付
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/Varnish-with-Hitch-HTTP2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<link rel="alternate" href="/atom.xml" title="System Inside" type="application/atom+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header2.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+                            
+                              <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+                            
+                              <a class="tag" href="/tags/#Varnish" title="Varnish">Varnish</a>
+                            
+                        </div>
+                        <h1>Varnish with Hitch HTTP/2 implement on CentOS 8.0</h1>
+                        <h2 class="subheading">Varnish 已经通过 Hitch 完整的支持 HTTP/2，以下是在 CentOS 8.0 中的实现示例。</h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2020-08-20
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll" >
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" height="64" border="0" style="vertical-align:middle"/></a>
+        </div>
+        <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <p>版本支持：</p>
+<p>In Varnish Cache 5.0 there is experimental support for HTTP/2.</p>
+<p>Varnish 6.0 now fully supports HTTP/2.</p>
+<p>Varnish HTTP/2 前端通过 Hitch 代理实现。</p>
+<p>访问逻辑：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+------------+    +------------+    +------------+    +------------+</span><br><span class="line">|            |    |            |    |            |    |            |</span><br><span class="line">|    浏览器   +----+    Hitch   +----+  Varnish   +----+    Nginx   |</span><br><span class="line">|            |    |            |    |            |    |            |</span><br><span class="line">+------------+    +------------+    +------------+    +------------+</span><br></pre></td></tr></table></figure></p>
+<h2 id="hitch-简介">Hitch 简介</h2>
+<p>Hitch 是 Varnish Software 开发的基于 libev 的高性能 SSL/TLS 开源代理软件。</p>
+<p>它支持 TLS 1.0、1.1、1.2 和 1.3，对于大型部署环境，它支持多达 15000个 Socket 侦听和 50万张证书。作为 Stud 项目的继承者，Hitch 更快、更小、用途单一，允许同时在 Varnish 前端和后端使用 SSL/TLS。</p>
+<p><strong>主要特性：</strong></p>
+<ul>
+<li>支持 TLS 1.0, TLS 1.1, 和 TLS 1.2 (hitch 1.5 版本开始支持 TLS 1.3)</li>
+<li>SNI, 支持通配符证书和非通配符证书</li>
+<li>支持 HAproxy 的 PROXY 协议</li>
+<li>支持 NPN 或 ALPN 扩展实现 HTTP/2</li>
+<li>支持大规模部署（多达 15000个 Socket 侦听和 50万张证书）</li>
+<li>支持平滑重新加载证书和监听端点</li>
+</ul>
+<p>Varnish Software 同时为 Hitch 提供商业支持。</p>
+<p>访问以下网站了解更多：</p>
+<p><a href="http://hitch-tls.org/" target="_blank" rel="noopener">Hitch community site</a></p>
+<p><a href="https://github.com/varnish/hitch/" target="_blank" rel="noopener">Hitch on Github</a></p>
+<h2 id="安装-varnish-60-lts">安装 Varnish 6.0 LTS</h2>
+<p>Bash Scripts</p>
+<p>quick install repo</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://packagecloud.io/install/repositories/varnishcache/varnish60lts/script.rpm.sh | sudo bash</span><br></pre></td></tr></table></figure></p>
+<p>Install</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install varnish -y</span><br><span class="line"><span class="meta">#</span> or</span><br><span class="line">dnf install varnish -y</span><br></pre></td></tr></table></figure></p>
+<p>Version</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">varnishd -V</span><br><span class="line">varnishd (varnish-6.0.2 revision 0458b54db26cfbea79af45ca5c4767c7c2925a91)</span><br><span class="line">Copyright (c) 2006 Verdens Gang AS</span><br><span class="line">Copyright (c) 2006-2018 Varnish Software AS</span><br></pre></td></tr></table></figure></p>
+<p>Default config</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/varnish/default.vcl</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> This is an example VCL file for Varnish.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> It does not do anything by default, delegating control to the</span><br><span class="line"><span class="meta">#</span> builtin VCL. The builtin VCL is called when there is no explicit</span><br><span class="line"><span class="meta">#</span> return statement.</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> See the VCL chapters in the Users Guide at https://www.varnish-cache.org/docs/</span><br><span class="line"><span class="meta">#</span> and https://www.varnish-cache.org/trac/wiki/VCLExamples for more examples.</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Marker to tell the VCL compiler that this VCL has been adapted to the</span><br><span class="line"><span class="meta">#</span> new 4.0 format.</span><br><span class="line">vcl 4.0;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Default backend definition. Set this to point to your content server.</span><br><span class="line">backend default &#123;</span><br><span class="line">    .host = "127.0.0.1";</span><br><span class="line">    .port = "8080";</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sub vcl_recv &#123;</span><br><span class="line">    # Happens before we check if we have this in cache already.</span><br><span class="line">    #</span><br><span class="line">    # Typically you clean up the request here, removing cookies you don't need,</span><br><span class="line">    # rewriting the request, etc.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sub vcl_backend_response &#123;</span><br><span class="line">    # Happens after we have read the response headers from the backend.</span><br><span class="line">    #</span><br><span class="line">    # Here you clean the response headers, removing silly Set-Cookie headers</span><br><span class="line">    # and other mistakes your backend does.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sub vcl_deliver &#123;</span><br><span class="line">    # Happens when we have all the pieces we need, and are about to send the</span><br><span class="line">    # response to the client.</span><br><span class="line">    #</span><br><span class="line">    # You can do accounting or modifying the final object here.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装-hitch-15epel">安装 Hitch 1.5（EPEL）</h2>
+<p><code>hitch</code> requires:</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">libev &gt;= 4</span><br><span class="line">openssl (recent, &gt;=1.0.0 recommended)</span><br></pre></td></tr></table></figure></p>
+<p>hitch currently works on Linux, OpenBSD, FreeBSD, and MacOSX. It has been tested the most heavily on Linux/x86_64.</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dnf install epel-release -y</span><br><span class="line">dnf install hitch -y</span><br></pre></td></tr></table></figure></p>
+<p>Version</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hitch -V</span><br><span class="line">hitch 1.5.2</span><br></pre></td></tr></table></figure></p>
+<p>Default config</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/hitch/hitch.conf</span><br><span class="line"><span class="meta">#</span> Run 'man hitch.conf' for a description of all options.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">frontend = &#123;</span><br><span class="line">    host = "*"</span><br><span class="line">    port = "443"</span><br><span class="line">&#125;</span><br><span class="line">backend = "[127.0.0.1]:6086"    # 6086 is the default Varnish PROXY port.</span><br><span class="line">workers = 4                     # number of CPU cores</span><br><span class="line"></span><br><span class="line">daemon = on</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> We strongly recommend you create a separate non-privileged hitch</span><br><span class="line"><span class="meta">#</span> user and group</span><br><span class="line">user = "hitch"</span><br><span class="line">group = "hitch"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Enable to let clients negotiate HTTP/2 with ALPN. (default off)</span><br><span class="line"><span class="meta">#</span> alpn-protos = "h2, http/1.1"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> run Varnish as backend over PROXY; varnishd -a :80 -a localhost:6086,PROXY ..</span><br><span class="line">write-proxy-v2 = on             # Write PROXY header</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">syslog = on</span><br><span class="line">log-level = 1</span><br><span class="line"><span class="meta">#</span> Add pem files to this directory</span><br><span class="line">pem-dir = "/etc/pki/tls/private"</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-hitch">配置 hitch</h2>
+<p>示例配置（<a href="https://github.com/varnish/hitch/blob/master/docs/configuration.md" target="_blank" rel="noopener">更多参数参看官方文档</a>）：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/hitch/hitch.conf /etc/hitch/hitch.conf.bak</span><br><span class="line"></span><br><span class="line">echo '</span><br><span class="line"><span class="meta">#</span> Run 'man hitch.conf' for a description of all options.</span><br><span class="line"></span><br><span class="line">frontend = &#123;</span><br><span class="line">    host = "*"</span><br><span class="line">    port = "443"</span><br><span class="line">&#125;</span><br><span class="line">backend = "[127.0.0.1]:6086"    # 6086 is the default Varnish PROXY port.</span><br><span class="line">workers = 4                     # number of CPU cores</span><br><span class="line"></span><br><span class="line">daemon = on</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> We strongly recommend you create a separate non-privileged hitch</span><br><span class="line"><span class="meta">#</span> user and group</span><br><span class="line">user = "hitch"</span><br><span class="line">group = "hitch"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Enable to let clients negotiate HTTP/2 with ALPN. (default off)</span><br><span class="line"><span class="meta">#</span> Varnish 启动参数必须增加 `-p feature=+http2`，开始 HTTP/2 特性（默认关闭）</span><br><span class="line">alpn-protos = "h2, http/1.1"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> run Varnish as backend over PROXY; varnishd -a :80 -a localhost:6086,PROXY ..</span><br><span class="line">write-proxy-v2 = on             # Write PROXY header</span><br><span class="line"></span><br><span class="line">syslog = on</span><br><span class="line">log-level = 1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Add pem files to this directory</span><br><span class="line"><span class="meta">#</span>pem-dir = "/etc/pki/tls/private"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span># PEM 文件包含 key、cert 和 chain 的组合，可以支持多个 PEM 文件</span><br><span class="line"><span class="meta">#</span># cat example.com.key example.com.crt my-ca-bundle.crt &gt; example.com.pem</span><br><span class="line">pem-file = "/etc/hitch/varnish.pem"</span><br><span class="line"><span class="meta">#</span> 定义第二个 PEM 文件</span><br><span class="line"><span class="meta">#</span>pem-file = "/etc/hitch/mydomain.pem"</span><br><span class="line"><span class="meta">#</span># 官方推荐默认 cipher</span><br><span class="line">ciphers = "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"</span><br><span class="line"><span class="meta">#</span># Hitch supports TLS (1.0, 1.1, 1.2, 1.3) and SSL 3. By default</span><br><span class="line">tls-protos = TLSv1.2 TLSv1.3</span><br><span class="line"><span class="meta">#</span># TCP Fast Open saves up to one full round-trip time (RTT) over the standard three-way connection handshake during a TCP session.</span><br><span class="line">tcp-fastopen = on</span><br><span class="line">' &gt; /etc/hitch/hitch.conf</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>OCSP staple 相关配置参看<a href="https://github.com/varnish/hitch/blob/master/docs/configuration.md" target="_blank" rel="noopener">官方文档</a></p>
+</blockquote>
+<p><strong>不间断运行重新加载配置</strong></p>
+<p>当前支持添加、更新和删除 PEM 文件（<code>PEM-file</code>）和前端侦听端点（<code>frontend</code>）。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl reload hitch</span><br></pre></td></tr></table></figure></p>
+<h2 id="启动-varnish-支持-http2">启动 Varnish 支持 HTTP/2</h2>
+<p>默认情况下，Varnish 中的 HTTP/2 支持是禁用的，因此必须添加一个特性标志才能启用它。即通过传递“-p feature=+http2”作为 Varnish 的启动参数来实现。</p>
+<p>您可以通过运行<code>varnishadm param.show feature</code>命令来检查是否已启用参数。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># varnishadm param.show feature</span><br><span class="line"></span><br><span class="line">feature</span><br><span class="line">        Value is: none (default)</span><br><span class="line"></span><br><span class="line">        Enable/Disable various minor features.</span><br><span class="line">           none                       Disable all features.</span><br><span class="line"></span><br><span class="line">        Use +/- prefix to enable/disable individual feature:</span><br><span class="line">           short_panic                Short panic message.</span><br><span class="line">           wait_silo                  Wait for persistent silo.</span><br><span class="line">           no_coredump                No coredumps.</span><br><span class="line">           esi_ignore_https           Treat HTTPS as HTTP in</span><br><span class="line">                                      ESI:includes</span><br><span class="line">           esi_disable_xml_check      Don&apos;t check of body looks like</span><br><span class="line">                                      XML</span><br><span class="line">           esi_ignore_other_elements  Ignore non-esi XML-elements</span><br><span class="line">           esi_remove_bom             Remove UTF-8 BOM</span><br><span class="line">           https_scheme               Also split https URIs</span><br><span class="line">           http2                      Support HTTP/2 protocol</span><br><span class="line">           http_date_postel           Relax parsing of timestamps in</span><br><span class="line">                                      HTTP headers</span><br></pre></td></tr></table></figure></p>
+<p><strong>启动 Varnish</strong></p>
+<blockquote>
+<p>本例中，Varnish 使用默认配置，事先运行了 Nginx，将 Nginx 默认端口修改为 8080 即可（具体过程略）。</p>
+</blockquote>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">varnishd -a :<span class="number">80</span> -a localhost:<span class="number">6086</span>,PROXY -p feature=+http2 -f /etc/varnish/<span class="keyword">default</span>.vcl</span><br><span class="line">#或者</span><br><span class="line">varnishd -a localhost:<span class="number">6086</span>,PROXY -p feature=+http2 -f /etc/varnish/<span class="keyword">default</span>.vcl</span><br></pre></td></tr></table></figure></p>
+<p><strong>验证 Varnish 已经开启 HTTP/2 支持</strong></p>
+<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">varnishadm param.show feature</span><br><span class="line">feature</span><br><span class="line">        Value is: +http2</span><br><span class="line">        Default is: none</span><br><span class="line"></span><br><span class="line">        ......</span><br></pre></td></tr></table></figure></p>
+<p><strong>然后启动 hitch</strong></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart hitch</span><br></pre></td></tr></table></figure></p>
+<p><strong>配置 HSTS</strong></p>
+<p>编辑 varnish vcl，如下字段添加：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sub vcl_deliver &#123;</span><br><span class="line">	<span class="built_in">set</span> resp.http.Strict-Transport-Security = <span class="string">"max-age=31536000; includeSubDomains; preload"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Varnish 需要重启或者重新加载配置才能生效。</p>
+</blockquote>
+<h2 id="ssl-test-a">SSL Test A+</h2>
+<p>以上配置在 Qualys SSL Labs SSL 测试中可获得 A+ 评级。</p>
+<p><img src="/article/Varnish-with-Hitch-HTTP2/Varnish-APlus.png" alt="Varnish-APlus"></p>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/public-key-authentication/" data-toggle="tooltip" data-placement="top" title="使用 Public Key 认证">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Download-VMware-Horizon-8.0-2006/" data-toggle="tooltip" data-placement="top" title="VMware Horizon 8.0 2006 下载">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="/css/share.min.css">
+                    <script src="/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>
+
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hitch-简介"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Hitch &#x7B80;&#x4ECB;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装-varnish-60-lts"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5B89;&#x88C5; Varnish 6.0 LTS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安装-hitch-15epel"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">&#x5B89;&#x88C5; Hitch 1.5&#xFF08;EPEL&#xFF09;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#配置-hitch"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x914D;&#x7F6E; hitch</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#启动-varnish-支持-http2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x542F;&#x52A8; Varnish &#x652F;&#x6301; HTTP/2</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ssl-test-a"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">SSL Test A+</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+                        
+                          <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+                        
+                          <a class="tag" href="/tags/#Varnish" title="Varnish">Varnish</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>SITE LINKS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://blog.51cto.com/250823" target="_blank">51CTO Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
