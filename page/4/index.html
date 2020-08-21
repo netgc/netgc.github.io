@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://sysin.org/archives/4/">
+    <link rel="canonical" href="http://sysin.org/page/4/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -136,14 +136,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,33 +213,33 @@
 
 <div class="post-preview">
 
-    <a href="/article/FortiOS-FGCP-HA-Config/">
+    <a href="/article/CentOS-8.0-Install/">
         <h2 class="post-title">
             
-            FortiGate FGCP HA 配置文档
+            CentOS 8.0 安装笔记
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             作者：gc(at)sysin.org，主页：www.sysin.org
-概述
-FortiOS 提供 6 种冗余解决方案，工业标准的 VRRP 和 5 种专有的解决方案：
+初始版本：CentOS 8.0.1905
+继 RHEL 8 发布之后，CentOS 社区也发布了让人期待已久的 CentOS 8，并发布了两种模式：
 
-FortiGate Cluster Protocol (FGCP) high availability，
-FortiGate Session Life Support Protocol (FGSP) high ava......
+CentOS stream：滚动发布的 Linux 发行版，适用于需要频繁更新的开发者
+CentOS：类似 RHEL 8 的稳定操作系统，系统管理员可以用其部署或配......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by sysin on
-            2017-08-01
+            2019-06-01
         </p>
         <div class="tags">
             
-              <a href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+              <a href="/tags/#Linux" title="Linux">Linux</a>
             
-              <a href="/tags/#Firewall" title="Firewall">Firewall</a>
+              <a href="/tags/#CentOS" title="CentOS">CentOS</a>
             
         </div>
     
@@ -249,32 +249,34 @@ FortiGate Session Life Support Protocol (FGSP) high ava......
 
 <div class="post-preview">
 
-    <a href="/article/PAN-OS_Active_Passive_HA_Config/">
+    <a href="/article/MTU-and-Jumbo_Frames-Setting/">
         <h2 class="post-title">
             
-            Palo Alto PAN-OS Active/Passive HA 配置文档
+            如何修改 MTU 和巨型帧（Jumbo Frames）设置
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             作者：gc(at)sysin.org，主页：www.sysin.org
-1. 概述：HA 模式
-您可以按照以下两种模式来设置防火墙的 HA：
-
-主动/被动 — 一个防火墙主动管理通信，而另一个防火墙保持同步并随时准备在主动设备发生故障时转换为主动状态。在此配置中，两个防火墙共享相同的配置设置，一台主动管理通信，直到发生路径、链接、系统或网络故障。当主动防火墙发生故障时，被动设备将无缝接......
+一、概念
+1. MTU 的概念
+最大传输单元（Maximum Transmission Unit，MTU）是指一种通信协议在某一层上面所能通过的最大数据报大小（以字节为单位），它通常与链路层协议有密切的关系。
+由于以太网传输电气方面的限制，每个以太网帧都有最小的大小 64bytes，最大不能超过 1518bytes......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by sysin on
-            2016-08-01
+            2018-08-01
         </p>
         <div class="tags">
             
-              <a href="/tags/#PAN-OS" title="PAN-OS">PAN-OS</a>
+              <a href="/tags/#VMware" title="VMware">VMware</a>
             
-              <a href="/tags/#Firewall" title="Firewall">Firewall</a>
+              <a href="/tags/#MTU" title="MTU">MTU</a>
+            
+              <a href="/tags/#Cisco" title="Cisco">Cisco</a>
             
         </div>
     
@@ -284,33 +286,28 @@ FortiGate Session Life Support Protocol (FGSP) high ava......
 
 <div class="post-preview">
 
-    <a href="/article/Juniper-SRX-JSRP-Config/">
+    <a href="/article/DNS-CAA/">
         <h2 class="post-title">
             
-            Juniper SRX JSRP 配置文档
+            DNS CAA 记录及创建方法
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
             作者：gc(at)sysin.org，主页：www.sysin.org
-一、准备篇
-1. 设备登录
-console 口登录，初始默认用户名 root，密码为空
-123456root% cli /***进入操作模式***/root&gt;root&gt; configureEntering configuration mode /***进入配置模式***/[edit]Root#
-2. 恢......
+关于 CAA
+有一百多个被称为证书颁发机构的组织，可以颁发 SSL 证书来保证您的域的身份。如果您和大多数域所有者一样，您可能只从少数几个证书颁发机构获得证书。CAA（Certificate Authority Authorization，证书颁发机构授权）允许您声明您实际使用的证书颁发机构，禁止其他机构为您的域颁......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by sysin on
-            2013-08-01
+            2018-06-08
         </p>
         <div class="tags">
             
-              <a href="/tags/#Firewall" title="Firewall">Firewall</a>
-            
-              <a href="/tags/#JUNOS" title="JUNOS">JUNOS</a>
+              <a href="/tags/#DNS" title="DNS">DNS</a>
             
         </div>
     
@@ -356,7 +353,7 @@ console 口登录，初始默认用户名 root，密码为空
 <ul class="pager">
     
         <li class="previous">
-            <a href="/archives/3/">&larr; Newer Posts</a>
+            <a href="/page/3/">&larr; Newer Posts</a>
         </li>
     
     
@@ -393,14 +390,6 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#Kubernetes" title="Kubernetes" rel="2">Kubernetes</a>
-            
-        
-            
-            <a href="/tags/#SSL" title="SSL" rel="2">SSL</a>
-            
-        
-            
             <a href="/tags/#Linux" title="Linux" rel="6">Linux</a>
             
         
@@ -409,11 +398,11 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#PAN-OS" title="PAN-OS" rel="3">PAN-OS</a>
+            <a href="/tags/#Kubernetes" title="Kubernetes" rel="2">Kubernetes</a>
             
         
             
-            <a href="/tags/#Download" title="Download" rel="9">Download</a>
+            <a href="/tags/#SSL" title="SSL" rel="2">SSL</a>
             
         
             
@@ -422,6 +411,14 @@ console 口登录，初始默认用户名 root，密码为空
         
             
             <a href="/tags/#Firefox" title="Firefox" rel="1">Firefox</a>
+            
+        
+            
+            <a href="/tags/#PAN-OS" title="PAN-OS" rel="3">PAN-OS</a>
+            
+        
+            
+            <a href="/tags/#Download" title="Download" rel="9">Download</a>
             
         
             
@@ -437,14 +434,6 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-            
-        
-            
-            <a href="/tags/#Blog" title="Blog" rel="1">Blog</a>
-            
-        
-            
             <a href="/tags/#FortiOS" title="FortiOS" rel="2">FortiOS</a>
             
         
@@ -453,7 +442,11 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
+            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+            
+        
+            
+            <a href="/tags/#Blog" title="Blog" rel="1">Blog</a>
             
         
             
@@ -466,6 +459,10 @@ console 口登录，初始默认用户名 root，密码为空
         
             
             <a href="/tags/#Cisco" title="Cisco" rel="2">Cisco</a>
+            
+        
+            
+            <a href="/tags/#nodejs" title="nodejs" rel="1">nodejs</a>
             
         
             
@@ -497,11 +494,7 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#CISCO" title="CISCO" rel="1">CISCO</a>
-            
-        
-            
-            <a href="/tags/#NX-OS" title="NX-OS" rel="1">NX-OS</a>
+            <a href="/tags/#Ubuntu" title="Ubuntu" rel="1">Ubuntu</a>
             
         
             
@@ -509,7 +502,11 @@ console 口登录，初始默认用户名 root，密码为空
             
         
             
-            <a href="/tags/#Ubuntu" title="Ubuntu" rel="1">Ubuntu</a>
+            <a href="/tags/#CISCO" title="CISCO" rel="1">CISCO</a>
+            
+        
+            
+            <a href="/tags/#NX-OS" title="NX-OS" rel="1">NX-OS</a>
             
         
     </div>
