@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          iOS 如何去除软件更新标记（数字1角标） - System Inside | 数据中心：系统、平台和应用交付
+          Chrome 不能打开 kubernetes Dashboard 解决方法 - System Inside | 数据中心：系统、平台和应用交付
         
     </title>
 
-    <link rel="canonical" href="http://sysin.org/article/iPhone_iOS_如何去除更新标记/">
+    <link rel="canonical" href="http://sysin.org/article/Chrome_Unable_to_open_kubernetes_Dashboard/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -72,7 +72,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_header2.jpg')
+            background-image: url('/img/article_header/article_header.jpg')
             /*post*/
         
     }
@@ -89,16 +89,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+                              <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
                             
-                              <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                              <a class="tag" href="/tags/#SSL" title="SSL">SSL</a>
                             
                         </div>
-                        <h1>iOS 如何去除软件更新标记（数字1角标）</h1>
+                        <h1>Chrome 不能打开 kubernetes Dashboard 解决方法</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by sysin on
-                            2020-06-11
+                            2019-08-15
                         </span>
                     </div>
                 
@@ -213,30 +213,22 @@
             <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
 
                 <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
-<p>描述文件下载地址：https://betaprofiles.com/ 或者 https://www.ibeta.me/</p>
-<p>手机上用safari浏览器打开上面两个网址中的任意一个，选择“<a href="https://betaprofiles.com/#block" target="_blank" rel="noopener">Block Update</a>”或者“屏蔽OTA更新”，根据提示安装即可。</p>
-<h2 id="ios-13">iOS 13</h2>
-<h3 id="描述文件可用">描述文件可用</h3>
-<p>直接安装描述文件屏蔽更新，无需重启，检查更新即可去除。</p>
-<p>也适用于watchOS 6+，当然也适用于iPadOS 13+</p>
-<h3 id="描述文件不可用">描述文件不可用</h3>
-<p>描述文件不适用的解决办法：WiFi+充电，系统自动下载更新，然后删除更新文件，重启系统，标记即可消失。</p>
-<p>在路由器上屏蔽iOS更新网址：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 appldnld.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 updates-http.cdn-apple.com</span><br></pre></td></tr></table></figure></p>
-<h2 id="ios-12">iOS 12</h2>
-<h3 id="描述文件可用">描述文件可用</h3>
-<p>安装描述文件屏蔽更新，需要重启。此时已经屏蔽更新，不过更新标记任然存在。</p>
-<p>通过以下方法去除标记：</p>
-<p>方法一：设置--通用--还原--还原所有设置（需要重新配置的东西比较多：网络、指纹面部识别等等，iCloud设置和屏幕布局等会保留）</p>
-<p>方法二：退出iCloud登录，还原网络设置（可能需要），标记可以去除，重新登录iCloud（如果还原网络需要重新设置的只有WiFi等，比较少）</p>
-<h3 id="描述文件不可用">描述文件不可用</h3>
-<p>通过以下方法去除标记：</p>
-<p>方法一：设置--通用--还原--还原所有设置（需要重新配置的东西比较多：屏幕布局、网络、指纹面部识别等等）</p>
-<p>方法二：退出iCloud登录，还原网络设置（可能需要），标记可以去除，重新登录iCloud（如果还原网络需要重新设置的只有WiFi等，比较少）</p>
-<p>在路由器上屏蔽iOS更新网址：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 appldnld.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 updates-http.cdn-apple.com</span><br></pre></td></tr></table></figure></p>
+<h2 id="步骤">步骤：</h2>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mkdir key &amp;&amp; cd key</span><br><span class="line"><span class="meta">#</span>生成证书</span><br><span class="line">openssl genrsa -out dashboard.key 2048</span><br><span class="line">openssl req -new -out dashboard.csr -key dashboard.key -subj '/CN=kubernetes-dashboard-certs'</span><br><span class="line">openssl x509 -req -in dashboard.csr -signkey dashboard.key -out dashboard.crt</span><br><span class="line"><span class="meta">#</span>删除原有的证书secret</span><br><span class="line">kubectl delete secret kubernetes-dashboard-certs -n kube-system</span><br><span class="line"><span class="meta">#</span>创建新的证书secret</span><br><span class="line">kubectl create secret generic kubernetes-dashboard-certs --from-file=dashboard.key --from-file=dashboard.crt -n kube-system</span><br><span class="line"><span class="meta">#</span>查看dashboard pod，v2.0是 -n kubernetes-dashboard</span><br><span class="line">kubectl get pod -n kube-system</span><br><span class="line"><span class="meta">#</span>重启dashboard pod，v2.0是 -n kubernetes-dashboard</span><br><span class="line">kubectl delete pod &lt;pod name&gt; -n kube-system</span><br></pre></td></tr></table></figure></p>
+<h2 id="在部署-dashboard-时手动创建证书">在部署 Dashboard 时手动创建证书</h2>
+<ul>
+<li>
+<p>修改配置文件</p>
+<p><code>vi dashboard.yaml</code></p>
+</li>
+</ul>
+<p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#因为自动生成的证书很多浏览器无法使用，所以我们自己创建，注释掉kubernetes-dashboard-certs对象声明</span></span><br><span class="line"><span class="comment">#apiVersion: v1</span></span><br><span class="line"><span class="comment">#kind: Secret</span></span><br><span class="line"><span class="comment">#metadata:</span></span><br><span class="line"><span class="comment">#  labels:</span></span><br><span class="line"><span class="comment">#    k8s-app: kubernetes-dashboard</span></span><br><span class="line"><span class="comment">#  name: kubernetes-dashboard-certs</span></span><br><span class="line"><span class="comment">#  namespace: kubernetes-dashboard</span></span><br><span class="line"><span class="comment">#type: Opaque</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>创建证书</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mkdir dashboard-certs</span><br><span class="line"></span><br><span class="line">cd dashboard-certs/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>创建命名空间</span><br><span class="line">kubectl create namespace kubernetes-dashboard</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 创建key文件</span><br><span class="line">openssl genrsa -out dashboard.key 2048</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>证书请求，CN=可修改为实际IP或者域名</span><br><span class="line">openssl req -days 36000 -new -out dashboard.csr -key dashboard.key -subj '/CN=kubernetes-dashboard-certs'</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>自签证书</span><br><span class="line">openssl x509 -req -in dashboard.csr -signkey dashboard.key -out dashboard.crt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>创建kubernetes-dashboard-certs对象</span><br><span class="line">kubectl create secret generic kubernetes-dashboard-certs --from-file=dashboard.key --from-file=dashboard.crt -n kubernetes-dashboard</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>备注：描述文件不可用时，iOS 13的方法有小伙伴反馈也适用于iOS 12，未经验证。</p>
+<p>备注：dashboard v2.0 namespace 是 kubernetes-dashboard</p>
 </blockquote>
 
 
@@ -246,12 +238,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Download-VMware-Cloud-Director-Availability-4/" data-toggle="tooltip" data-placement="top" title="VMware Cloud Director Availability 4.0 下载">&larr; Previous Post</a>
+                            <a href="/article/Static-Route-Windows_Linux_Cisco_VMware/" data-toggle="tooltip" data-placement="top" title="静态路由实例">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/Download-macOS-Catalina-10.15.5-0601-update/" data-toggle="tooltip" data-placement="top" title="macOS Catalina 10.15.5 正式版 下载 百度网盘 6月1日 补充更新">Next Post &rarr;</a>
+                            <a href="/article/kubernetes-kubeadmin-cert-100y/" data-toggle="tooltip" data-placement="top" title="Kubernetes v1.18 编译 kubeadmin 修改证书有效期到 100 年">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -308,7 +300,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ios-13"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">iOS 13</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#描述文件可用"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#x53EF;&#x7528;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#描述文件不可用"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#x4E0D;&#x53EF;&#x7528;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ios-12"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">iOS 12</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#描述文件可用"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#x53EF;&#x7528;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#描述文件不可用"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#x4E0D;&#x53EF;&#x7528;</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#步骤"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x6B65;&#x9AA4;&#xFF1A;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#在部署-dashboard-时手动创建证书"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x5728;&#x90E8;&#x7F72; Dashboard &#x65F6;&#x624B;&#x52A8;&#x521B;&#x5EFA;&#x8BC1;&#x4E66;</span></a></li></ol>
         
         </div>
       </aside>
@@ -325,9 +317,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+                          <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
                         
-                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                          <a class="tag" href="/tags/#SSL" title="SSL">SSL</a>
                         
                     </div>
                 </section>
