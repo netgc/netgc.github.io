@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sysin.org/"/>
-  <updated>2020-08-26T05:13:10.133Z</updated>
+  <updated>2020-08-26T08:07:26.758Z</updated>
   <id>http://sysin.org/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://sysin.org/article/Deploy-Security-Header-on-Cloudflare/"/>
     <id>http://sysin.org/article/Deploy-Security-Header-on-Cloudflare/</id>
     <published>2020-08-26T02:10:12.000Z</published>
-    <updated>2020-08-26T05:13:10.133Z</updated>
+    <updated>2020-08-26T08:07:26.758Z</updated>
     
-    <content type="html"><![CDATA[<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p><p>原文发布链接：<a href="https://www.sysin.org/article/Deploy-Security-Header-on-Cloudflare/" target="_blank" rel="noopener">https://www.sysin.org/article/Deploy-Security-Header-on-Cloudflare/</a></p><h2 id="1-cloudflare-works-介绍">1. Cloudflare Works 介绍</h2><p>以下引自官网，更多内容请参看<a href="https://developers.cloudflare.com/workers/" target="_blank" rel="noopener">官方文档</a>。</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Cloudflare Workers provides a serverless execution environment that allows you to create entirely new applications or augment existing ones without configuring or maintaining infrastructure.</span><br><span class="line"></span><br><span class="line">使用 Cloudflare Workers® 进行无服务器计算</span><br><span class="line"></span><br><span class="line">网络就是计算机®</span><br><span class="line"></span><br><span class="line">在覆盖 100 个国家/地区超过 200 个城市的 Cloudflare 全球云网络上构建无服务器应用程序。 Cloudflare Workers 提供了一个轻量级的 JavaScript 执行环境，允许开发人员在不配置或不维护基础设施的情况下，扩充现有应用程序或创建全新应用程序。</span><br><span class="line"></span><br><span class="line">在边缘运行 JavaScript</span><br><span class="line"></span><br><span class="line">请在全球数以百计的 Cloudflare 数据中心中运行 JavaScript Service Workers。修改站点的 HTTP 请求和响应，发出并行请求或从边缘生成响应。</span><br></pre></td></tr></table></figure></p><p>注意：Workers 免费版请求数限制为 10万。</p><h2 id="2-创建一个-works">2. 创建一个 Works</h2><p>登录 Cloudflare，选择你的“域名” &gt; Works，或者直接点击右侧面板“Works”，点击“创建 Worker”，覆盖粘贴以下 js 脚本，点击“保存并部署”。可以将创建的 Work 修改一个友好名称，如“set-header”。</p><blockquote><p>备注：首次启用该功能有个选择“子域”的向导，根据提示点击下一步即可。</p></blockquote><p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> securityHeaders = &#123;</span><br><span class="line">        <span class="string">"Content-Security-Policy"</span>: <span class="string">"upgrade-insecure-requests"</span>,</span><br><span class="line">        <span class="string">"Strict-Transport-Security"</span>: <span class="string">"max-age=31536000; includeSubDomains; preload"</span>, <span class="comment">//可选，“SSL/TLS &gt; 边缘证书 &gt; HTTP 严格传输安全 (HSTS)“ 中可以直接修改</span></span><br><span class="line">        <span class="string">"X-Xss-Protection"</span>: <span class="string">"1; mode=block"</span>,</span><br><span class="line">        <span class="string">"X-Frame-Options"</span>: <span class="string">"SAMEORIGIN"</span>,</span><br><span class="line">        <span class="string">"X-Content-Type-Options"</span>: <span class="string">"nosniff"</span>,</span><br><span class="line">        <span class="string">"Referrer-Policy"</span>: <span class="string">"strict-origin-when-cross-origin"</span>,</span><br><span class="line">        <span class="string">"Feature-Policy"</span>: <span class="string">"camera 'none'; microphone 'none'"</span>,</span><br><span class="line">        <span class="string">"X-Author"</span>: <span class="string">"gc@sysin.org"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    sanitiseHeaders = &#123;</span><br><span class="line">        Server: <span class="string">"sysin.org"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    removeHeaders = [</span><br><span class="line">        <span class="string">"Public-Key-Pins"</span>,</span><br><span class="line">        <span class="string">"X-Powered-By"</span>,</span><br><span class="line">        <span class="string">"X-AspNet-Version"</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">addHeaders</span>(<span class="params">req</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(req),</span><br><span class="line">        newHeaders = <span class="keyword">new</span> Headers(response.headers),</span><br><span class="line">        setHeaders = <span class="built_in">Object</span>.assign(&#123;&#125;, securityHeaders, sanitiseHeaders);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (newHeaders.has(<span class="string">"Content-Type"</span>) &amp;&amp; !newHeaders.get(<span class="string">"Content-Type"</span>).includes(<span class="string">"text/html"</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Response(response.body, &#123;</span><br><span class="line">            status: response.status,</span><br><span class="line">            statusText: response.statusText,</span><br><span class="line">            headers: newHeaders</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Object</span>.keys(setHeaders).forEach(<span class="function"><span class="params">name</span> =&gt;</span> newHeaders.set(name, setHeaders[name]));</span><br><span class="line"></span><br><span class="line">    removeHeaders.forEach(<span class="function"><span class="params">name</span> =&gt;</span> newHeaders.delete(name));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Response(response.body, &#123;</span><br><span class="line">        status: response.status,</span><br><span class="line">        statusText: response.statusText,</span><br><span class="line">        headers: newHeaders</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addEventListener(<span class="string">"fetch"</span>, event =&gt; event.respondWith(addHeaders(event.request)));</span><br></pre></td></tr></table></figure></p><blockquote><p>备注：具体 Header 内容请根据实际情况修改。</p></blockquote><h2 id="3-添加路由">3. 添加路由</h2><p>即将上述 worker 关联到需要执行的 URL。</p><p>示例：关联到该域名下的所有 URL，需要创建两条路由，分别关联到上述创建的 Worker（set-header）。</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*.sysin.org/*</span><br><span class="line">sysin.org/*</span><br></pre></td></tr></table></figure></p><h2 id="4-验证">4. 验证</h2><p>curl</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I https://sysin.org</span><br></pre></td></tr></table></figure></p><p>或者在线检测</p><p><a href="https://securityheaders.com/" target="_blank" rel="noopener">https://securityheaders.com/</a></p>]]></content>
+    <content type="html"><![CDATA[<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p><p>原文发布链接：<a href="https://www.sysin.org/article/Deploy-Security-Header-on-Cloudflare/" target="_blank" rel="noopener">https://www.sysin.org/article/Deploy-Security-Header-on-Cloudflare/</a></p><h2 id="1-cloudflare-works-介绍">1. Cloudflare Works 介绍</h2><p>以下引自官网，更多内容请参看<a href="https://developers.cloudflare.com/workers/" target="_blank" rel="noopener">官方文档</a>。</p><p>“Cloudflare Workers provides a serverless execution environment that allows you to create entirely new applications or augment existing ones without configuring or maintaining infrastructure.</p><p>使用 Cloudflare Workers® 进行无服务器计算</p><p>网络就是计算机®</p><p>在覆盖 100 个国家/地区超过 200 个城市的 Cloudflare 全球云网络上构建无服务器应用程序。 Cloudflare Workers 提供了一个轻量级的 JavaScript 执行环境，允许开发人员在不配置或不维护基础设施的情况下，扩充现有应用程序或创建全新应用程序。</p><p>在边缘运行 JavaScript</p><p>请在全球数以百计的 Cloudflare 数据中心中运行 JavaScript Service Workers。修改站点的 HTTP 请求和响应，发出并行请求或从边缘生成响应。”</p><p>注意：Workers 免费版请求数限制为 10万。</p><h2 id="2-创建一个-works">2. 创建一个 Works</h2><p>登录 Cloudflare，选择你的“域名” &gt; Works，或者直接点击右侧面板“Works”，点击“创建 Worker”，覆盖粘贴以下 js 脚本，点击“保存并部署”。可以将创建的 Work 修改一个友好名称，如“set-header”。</p><blockquote><p>备注：首次启用该功能有个选择“子域”的向导，根据提示点击下一步即可。</p></blockquote><p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> securityHeaders = &#123;</span><br><span class="line">        <span class="string">"Content-Security-Policy"</span>: <span class="string">"upgrade-insecure-requests"</span>,</span><br><span class="line">        <span class="string">"Strict-Transport-Security"</span>: <span class="string">"max-age=31536000; includeSubDomains; preload"</span>, <span class="comment">//可选，“SSL/TLS &gt; 边缘证书 &gt; HTTP 严格传输安全 (HSTS)“ 中可以直接修改</span></span><br><span class="line">        <span class="string">"X-Xss-Protection"</span>: <span class="string">"1; mode=block"</span>,</span><br><span class="line">        <span class="string">"X-Frame-Options"</span>: <span class="string">"SAMEORIGIN"</span>,</span><br><span class="line">        <span class="string">"X-Content-Type-Options"</span>: <span class="string">"nosniff"</span>,</span><br><span class="line">        <span class="string">"Referrer-Policy"</span>: <span class="string">"strict-origin-when-cross-origin"</span>,</span><br><span class="line">        <span class="string">"Feature-Policy"</span>: <span class="string">"camera 'none'; microphone 'none'"</span>,</span><br><span class="line">        <span class="string">"X-Author"</span>: <span class="string">"gc@sysin.org"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    sanitiseHeaders = &#123;</span><br><span class="line">        Server: <span class="string">"sysin.org"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    removeHeaders = [</span><br><span class="line">        <span class="string">"Public-Key-Pins"</span>,</span><br><span class="line">        <span class="string">"X-Powered-By"</span>,</span><br><span class="line">        <span class="string">"X-AspNet-Version"</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">addHeaders</span>(<span class="params">req</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(req),</span><br><span class="line">        newHeaders = <span class="keyword">new</span> Headers(response.headers),</span><br><span class="line">        setHeaders = <span class="built_in">Object</span>.assign(&#123;&#125;, securityHeaders, sanitiseHeaders);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (newHeaders.has(<span class="string">"Content-Type"</span>) &amp;&amp; !newHeaders.get(<span class="string">"Content-Type"</span>).includes(<span class="string">"text/html"</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Response(response.body, &#123;</span><br><span class="line">            status: response.status,</span><br><span class="line">            statusText: response.statusText,</span><br><span class="line">            headers: newHeaders</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Object</span>.keys(setHeaders).forEach(<span class="function"><span class="params">name</span> =&gt;</span> newHeaders.set(name, setHeaders[name]));</span><br><span class="line"></span><br><span class="line">    removeHeaders.forEach(<span class="function"><span class="params">name</span> =&gt;</span> newHeaders.delete(name));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Response(response.body, &#123;</span><br><span class="line">        status: response.status,</span><br><span class="line">        statusText: response.statusText,</span><br><span class="line">        headers: newHeaders</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addEventListener(<span class="string">"fetch"</span>, event =&gt; event.respondWith(addHeaders(event.request)));</span><br></pre></td></tr></table></figure></p><blockquote><p>备注：具体 Header 内容请根据实际情况修改。</p></blockquote><h2 id="3-添加路由">3. 添加路由</h2><p>即将上述 worker 关联到需要执行的 URL。</p><p>示例：关联到该域名下的所有 URL，需要创建两条路由，分别关联到上述创建的 Worker（set-header）。</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*.sysin.org/*</span><br><span class="line">sysin.org/*</span><br></pre></td></tr></table></figure></p><h2 id="4-验证">4. 验证</h2><p>curl</p><p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I https://sysin.org</span><br></pre></td></tr></table></figure></p><p>或者在线检测</p><p><a href="https://securityheaders.com/" target="_blank" rel="noopener">https://securityheaders.com/</a></p>]]></content>
     
     <summary type="html">
     
@@ -161,9 +161,9 @@ Released 11 August 2020&lt;/p&gt;
     
     
     
-      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
-    
       <category term="Download" scheme="http://sysin.org/tags/Download/"/>
+    
+      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
     
   </entry>
   
@@ -188,9 +188,9 @@ Released 11 August 2020&lt;/p&gt;
     
     
     
-      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
-    
       <category term="Download" scheme="http://sysin.org/tags/Download/"/>
+    
+      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
     
   </entry>
   
@@ -218,9 +218,9 @@ Released 11 August 2020&lt;/p&gt;
     
     
     
-      <category term="Download" scheme="http://sysin.org/tags/Download/"/>
-    
       <category term="PAN-OS" scheme="http://sysin.org/tags/PAN-OS/"/>
+    
+      <category term="Download" scheme="http://sysin.org/tags/Download/"/>
     
   </entry>
   
@@ -308,9 +308,9 @@ Released 11 August 2020&lt;/p&gt;
     
     
     
-      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
-    
       <category term="Download" scheme="http://sysin.org/tags/Download/"/>
+    
+      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
     
   </entry>
   
@@ -337,9 +337,9 @@ Released 11 August 2020&lt;/p&gt;
     
     
     
-      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
-    
       <category term="Download" scheme="http://sysin.org/tags/Download/"/>
+    
+      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
     
   </entry>
   
@@ -518,9 +518,9 @@ Released 11 August 2020&lt;/p&gt;
     
     
     
-      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
-    
       <category term="Download" scheme="http://sysin.org/tags/Download/"/>
+    
+      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
     
   </entry>
   
@@ -599,9 +599,9 @@ Released 11 August 2020&lt;/p&gt;
     
     
     
-      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
-    
       <category term="Download" scheme="http://sysin.org/tags/Download/"/>
+    
+      <category term="VMware" scheme="http://sysin.org/tags/VMware/"/>
     
   </entry>
   
