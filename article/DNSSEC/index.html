@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="数据中心：系统、平台和应用交付">
+    <meta name="keyword"  content="Apple,macOS,iOS,Cisco,IOS,IOS-XE,NX-OS,Nexus,ACI,Docker,Kubernetes,F5,BIG-IP,LTM,DNS,ASM,Linux,CentOS,Ubuntu,Microsoft,Windows,Oracle,Palo Alto,PAN-OS,VMware,ESXi,vCenter,NSX,VSAN,FortiGate,FortiOS,Firepower">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          DNSSEC 实战 - System Inside | 数据中心：系统、平台和应用交付
+        
+    </title>
+
+    <link rel="canonical" href="http://sysin.org/article/DNSSEC/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<link rel="alternate" href="/atom.xml" title="System Inside" type="application/atom+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/article_header2.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#DNS" title="DNS">DNS</a>
+                            
+                        </div>
+                        <h1>DNSSEC 实战</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by sysin on
+                            2018-08-30
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll" >
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" height="64" border="0" style="vertical-align:middle"/></a>
+        </div>
+        <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<h2 id="1-dns-欺骗和缓存污染">1. DNS 欺骗和缓存污染</h2>
+<p>客户端（PC等）发起域名请求的时候（例如访问：www.baidu.com），如果在本地缓存没有的情况下，会往递归服务器发送域名查询请求（我们也称之为 localdns），递归服务器再一层层递归从 . 到 com. 再到 baidu.com.（即到 . 的权威服务器 --&gt; com. 的权威服务器 --&gt; baidu.com. 的权威服务器)，最终取到 www.baidu.com. 对应的解析 A 记录返回给客户端。在整个查询过程中，攻击者可以假冒任何一个应答方：递归服务器 --&gt; .的权威服务器 --&gt; com. 的权威服务器 --&gt; baidu.com. 的权威服务器，给请求方发送一个伪造的响应（UDP 包极其容易伪造），其中响应的解析记录给了一个错误的 IP 地址或者其他类型的解析记录（比如 NXDomain、ServFail 或者 cname 到错误的域名地址去等）。客户端或者是解析服务器在没有经过数据来源正确性校验的情况下接受了伪造的应答，直接将导致客户端无法正常访问网站或者其他资源或者客户端请求重定向到了伪造的网站上去。另外由于 DNS 当中存在着缓存，这种错误的记录将随着攻击者设定的 TTL 进行存活缓存，如果是递归服务器受到 DNS 欺骗那将会导致自身以及大面积的客户端缓存了错误的解析记录（可以通过清除缓存解决）。</p>
+<h2 id="2-dnssec-简介">2. DNSSEC 简介</h2>
+<p>DNSSEC 全称 Domain Name System Security Extensions，即 DNS 安全扩展，是由 IETF 提供的一系列 DNS 安全认证的机制（可参考 <a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC2535</a>）。它提供一种可以验证应答信息真实性和完整性的机制，利用密码技术，使得域名解析服务器可以验证它所收到的应答（包括域名不存在的应答）是否来自于真实的服务器，或者是否在传输过程中被篡改过。</p>
+<p>DNSSEC 采用基于公共密钥加密的数字签名，从而增强 DNS 验证强度。DNSSEC 并非对 DNS 查询和响应本身进行加密签名，而是由数据所有者对 DNS 数据自身进行签名。</p>
+<p>每一个 DNS 区均包含一个公私秘钥对。DNS 区所有者使用该区域的私钥对区域内的 DNS 数据进行签名，为这些数据生成数字签名。顾名思义，&quot;私钥&quot;是指 DNS 区所有者会对这些密钥材料保密。但是，该区域的公钥则在区域内公开发布，供全体用户检索。凡在区域内查找数据的递归解析器，还必需检索区域公钥，从而使用公钥验证 DNS 数据的真实性。解析器确认检索到的 DNS 数据的数字签名是否有效。如果有效，证明 DNS 数据合法，则将 DNS 数据返回给用户。如果签名未通过验证，解析器会假设发生攻击，丢弃数据并向用户返回错误。</p>
+<p>DNSSEC 在 DNS 协议中新增了两项重要功能：</p>
+<ul>
+<li>数据来源验证 - 解析器可以通过加密的方式验证收到的数据是否确实来自其认定的数据传送区域。</li>
+<li>数据完整性保护 - 解析器可以确信，自区域所有者使用区域私钥初次进行数据签名以来，数据在传输过程中并未遭到修改。</li>
+</ul>
+<h2 id="3-dnssec-原理">3. DNSSEC 原理</h2>
+<p>DNSSEC 通过公钥密码技术对DNS中的信息创建密码签名，为 DNS 信息同时提供认证和信息完整性检查，它的实施步骤如下：</p>
+<p>DNS 服务器收到 DNS 查询请求后，用散列函数将要回复 DNS 报文的内容进行散列运算，得到“内容摘要”，使用私匙加密后再附加到 DNS 报文中；</p>
+<p>DNS 查询请求者接收到报文后，利用公匙解密收到的“内容摘要”，再利用散列函数计算一次 DNS 查询请求报文中的“内容摘要”，两者对比；</p>
+<p>若相同，就可以确认接收到的 DNS 信息是正确的DNS响应；若验证失败，则表明这一报文可能是假冒的，或者在传输过程、缓存过程中被篡改了。</p>
+<h2 id="4-dnssec-资源记录">4. DNSSEC 资源记录</h2>
+<p>为了实现资源记录的签名和验证，DNSSEC 增加了四种类型的资源记录：</p>
+<ul>
+<li>
+<p>RRSIG (Resource Record Signature) 记录：存储资源记录集合 (RRSets) 的数字签名</p>
+</li>
+<li>
+<p>DNSKEY (DNS Public Key) 记录：存储公开密钥</p>
+</li>
+<li>
+<p>DS (Delegation Signer) 记录：存储 DNSKEY 的散列值，用于验证 DNSKEY 的真实性，从而建立一个信任链</p>
+</li>
+<li>
+<p>NSEC (Next Secure) 记录：用于应答那些不存在的资源记录</p>
+</li>
+</ul>
+<h2 id="5-主流-dns-支持情况">5. 主流 DNS 支持情况</h2>
+<h3 id="公共-dns">公共 DNS</h3>
+<p>检查方法：<code>dig +noadditional DS icann.org. @DNS的IP | grep DS</code> 如果有 DS 记录返回则说明该服务器支持 DNSSEC</p>
+<p>Google DNS：8.8.8.8，8.8.4.4</p>
+<p>Google DNS IPv6：2001:4860:4860::8888，2001:4860:4860::8844</p>
+<p>Cloudflare DNS：1.1.1.1，1.0.0.1</p>
+<p>OpenDNS：208.67.222.222，208.67.220.220</p>
+<p>阿里 AliDNS：223.5.5.5，223.6.6.6</p>
+<p>CNNIC SDNS：1.2.4.8，210.2.4.8</p>
+<p>114 DNS：114.114.114.114，114.114.115.115</p>
+<p>百度 DNS：180.76.76.76</p>
+<p>DNSPOD（腾讯）DNS：119.29.29.29，182.254.116.116</p>
+<p>上海电信：202.96.209.5，202.96.209.133</p>
+<p>北京联通：202.106.196.115，202.106.46.151，202.106.0.20</p>
+<p>以上公共 DNS 都支持 DNSSEC，本地运营商的 DNS 可以使用上述方法查询是否支持。</p>
+<h3 id="域名和域名注册商是否支持-dnssec">域名和域名注册商是否支持 DNSSEC</h3>
+<p>超过 90% 的顶级域名 TLD（top-level domains）支持 <strong>DNSSEC</strong>，具体列表可以查询：<a href="http://stats.research.icann.org/dns/tld_report/" target="_blank" rel="noopener">ICANN TLD <strong>DNSSEC</strong> Report</a>。</p>
+<p>对于添加资源记录，ICANN 要求域名注册服务商必须支持，参看：<a href="https://www.icann.org/resources/pages/approved-with-specs-2013-09-17-zh#operation" target="_blank" rel="noopener">注册服务商运营补充规范</a>。</p>
+<p><strong>对于启用 DNSSEC 解析功能，支持的服务商似乎并不多或者需要付费支持，这可能是当前 DNSSEC 部署比较少的原因。</strong></p>
+<p>以下是一些知名的域名注册商和服务商对 DNSSEC 的支持情况：</p>
+<p>阿里云（原万网）：DNSSEC 解析功能需要付费，使用第三方支持 DNSSEC 的 DNS 解析，可以在阿里云添加 DNSSEC 资源记录（免费）。</p>
+<p>腾讯云（DNSPOD）：没有发现 DNSSEC 解析功能，仅仅支持添加资源记录（免费），<a href="https://cloud.tencent.com/developer/article/1649093" target="_blank" rel="noopener">参看官网</a>。</p>
+<p>Godady：升级 <a href="https://sg.godaddy.com/zh/hosting/premium-dns" target="_blank" rel="noopener">尊享版 DNS</a>（付费）可以启用 DNSSEC，支持免费添加 DS 记录。</p>
+<p>AWS Route 53：不支持 DNSSEC 解析，仅仅支持添加资源记录，<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-configure-dnssec.html" target="_blank" rel="noopener">参看官网</a>。</p>
+<p>微软 Azure DNS：<a href="https://docs.microsoft.com/en-us/azure/dns/dns-faq" target="_blank" rel="noopener">Does Azure DNS support DNSSEC?</a> No. Azure DNS doesn't currently support the Domain Name System Security Extensions (DNSSEC).</p>
+<p>Google Domain：Google Cloud DNS 中启用 DNSSEC 功能需要付费，参看 <a href="https://cloud.google.com/community/tutorials/dnssec-cloud-dns-domains" target="_blank" rel="noopener"><strong>ctivating DNSSEC for Cloud DNS domains - Google Cloud</strong></a>。</p>
+<p>Cloudflare：免费一键开启 DNSSEC 功能，当然 Cloudflare 不是域名注册商，需要在域名注册商处添加 DS 记录（<a href="https://support.cloudflare.com/hc/en-us/articles/360006660072" target="_blank" rel="noopener">参看这里</a>）。</p>
+<h2 id="6-配置-dnssec-示例">6. 配置 DNSSEC 示例</h2>
+<p>本例中，sysin.org 使用 Cloudflare DNS，域名注册在阿里云。</p>
+<h3 id="在-cloudflare-启用-dnssec">在 Cloudflare 启用 DNSSEC</h3>
+<p>登录 Cloudflare，选择你的域名，点击“DNS”图标，下拉可以看到“DNSSEC”，点击“Enable DNSSEC”，可以看到提示需要到域名注册商添加 DS 记录：</p>
+<p><img src="/article/dnssec/cloudflare-ds-changed.png" alt="cloudflare-ds-changed"></p>
+<p>Digest 已经做处理😁。</p>
+<h3 id="在阿里云域名管理添加资源记录">在阿里云域名管理添加资源记录</h3>
+<p>登录阿里云控制台，选择“域名”，则进入“域名列表”，可以看到域名“sysin.org”，点击操作最后面的“管理”，则进入“基本信息 / sysin.org”页面，点击左侧的“DNSSEC设置”，点击“添加DS记录”</p>
+<p><img src="/article/dnssec/aliyun-ds.png" alt="aliyun-ds"></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*关键标签：即 Key Tag，复制上述 Key Tag 内容粘贴进来</span><br><span class="line"></span><br><span class="line">*加密算法：即 Algorithm，下拉选择 13</span><br><span class="line"></span><br><span class="line">*摘要类型：即 Digest Type，选择 2-SHA-256</span><br><span class="line"></span><br><span class="line">*摘要：即 Digest，复制上述 Digest 内容粘贴进来</span><br></pre></td></tr></table></figure></p>
+<h3 id="验证">验证</h3>
+<p>使用<a href="https://dnsviz.net/" target="_blank" rel="noopener">测试工具</a>输入域名进行测试</p>
+<p>测试页面中如每一级都显示出了 <strong>DS</strong>，且无红色报错框，说明已开启 DS，并已生效。</p>
+<p>在 Cloudflare 上述页面也会显示：Success! sysin.org is protected with DNSSEC.</p>
+<h2 id="7-查询和验证-dnssec">7. 查询和验证 DNSSEC</h2>
+<h3 id="dig-命令">dig 命令</h3>
+<p><strong>检查一个有 DNSSEC 签名的域名的 RRSIG (Resource Record Signature)</strong></p>
+<p><strong>查看有DNSSEC签名的域名 (sysin.org) 需要通过一个支持DNSSEC的DNS服务器 (8.8.8.8),</strong></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">% dig sysin.org +dnssec @8.8.8.8</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; sysin.org +dnssec @8.8.8.8</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 63155</span><br><span class="line">;; flags: qr rd ra ad; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags: do; udp: 512</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;sysin.org.			IN	A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">sysin.org.		299	IN	A	104.27.163.41</span><br><span class="line">sysin.org.		299	IN	A	172.67.214.128</span><br><span class="line">sysin.org.		299	IN	A	104.27.162.41</span><br><span class="line">sysin.org.		299	IN	RRSIG	A 13 2 300 20200829022403 20200827002403 34505 sysin.org. 93sJ5e/HTDsFWOYbgw+kw4snha1Bvq1SPSjxWbto8DYvRdaLgZtVVH/N k81Gw086yUTJTpXLLOLDfCel0r//gA==</span><br><span class="line"></span><br><span class="line">;; Query time: 133 msec</span><br><span class="line">;; SERVER: 8.8.8.8#53(8.8.8.8)</span><br><span class="line">;; WHEN: Fri Aug 28 09:24:03 CST 2020</span><br><span class="line">;; MSG SIZE  rcvd: 191</span><br></pre></td></tr></table></figure></p>
+<h3 id="在线检测网站">在线检测网站</h3>
+<p><a href="https://dnsviz.net/" target="_blank" rel="noopener">https://dnsviz.net/</a></p>
+<p><a href="https://dnssec-analyzer.verisignlabs.com/" target="_blank" rel="noopener">https://dnssec-analyzer.verisignlabs.com/</a></p>
+<h3 id="浏览器扩展">浏览器扩展</h3>
+<p>Firefox：<a href="https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/" target="_blank" rel="noopener">https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/</a></p>
+<p><img src="/article/dnssec/sysin-dnssec.png" alt="sysin-dnssec"></p>
+<p>Chrome：<a href="https://chrome.google.com/webstore/search/dnssec" target="_blank" rel="noopener">https://chrome.google.com/webstore/search/dnssec</a></p>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/CentOS-8.0-Install/" data-toggle="tooltip" data-placement="top" title="CentOS 8.0 安装笔记">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/MTU-and-Jumbo_Frames-Setting/" data-toggle="tooltip" data-placement="top" title="如何修改 MTU 和巨型帧（Jumbo Frames）设置">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="/css/share.min.css">
+                    <script src="/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>
+
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+<!-- !page.toc_nav_num = dispaly number change by gc -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-dns-欺骗和缓存污染"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. DNS &#x6B3A;&#x9A97;&#x548C;&#x7F13;&#x5B58;&#x6C61;&#x67D3;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-dnssec-简介"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. DNSSEC &#x7B80;&#x4ECB;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-dnssec-原理"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. DNSSEC &#x539F;&#x7406;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-dnssec-资源记录"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. DNSSEC &#x8D44;&#x6E90;&#x8BB0;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-主流-dns-支持情况"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. &#x4E3B;&#x6D41; DNS &#x652F;&#x6301;&#x60C5;&#x51B5;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#公共-dns"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">&#x516C;&#x5171; DNS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#域名和域名注册商是否支持-dnssec"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">&#x57DF;&#x540D;&#x548C;&#x57DF;&#x540D;&#x6CE8;&#x518C;&#x5546;&#x662F;&#x5426;&#x652F;&#x6301; DNSSEC</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-配置-dnssec-示例"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. &#x914D;&#x7F6E; DNSSEC &#x793A;&#x4F8B;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在-cloudflare-启用-dnssec"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">&#x5728; Cloudflare &#x542F;&#x7528; DNSSEC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在阿里云域名管理添加资源记录"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">&#x5728;&#x963F;&#x91CC;&#x4E91;&#x57DF;&#x540D;&#x7BA1;&#x7406;&#x6DFB;&#x52A0;&#x8D44;&#x6E90;&#x8BB0;&#x5F55;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#验证"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">&#x9A8C;&#x8BC1;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-查询和验证-dnssec"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. &#x67E5;&#x8BE2;&#x548C;&#x9A8C;&#x8BC1; DNSSEC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#dig-命令"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">dig &#x547D;&#x4EE4;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在线检测网站"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">&#x5728;&#x7EBF;&#x68C0;&#x6D4B;&#x7F51;&#x7AD9;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#浏览器扩展"><span class="toc-nav-number">7.3.</span> <span class="toc-nav-text">&#x6D4F;&#x89C8;&#x5668;&#x6269;&#x5C55;</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+            <!-- Sidebar Container -->
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1 post-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#DNS" title="DNS">DNS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>SITE LINKS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a></li>
+                    
+                        <li><a href="https://blog.51cto.com/250823" target="_blank">51CTO Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })
+</script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-11 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a target="_blank" href="/atom.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/netgc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; sysin 2020
+                    <br>
+                    Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span>
+                    Powered by <a href="https://github.com/" target=_blank><img border="0" src="https://github.githubassets.com/favicons/favicon.svg" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sysin.org/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://sysin.org/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
