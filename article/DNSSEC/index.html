@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -274,11 +274,11 @@
 <p>本例中，sysin.org 使用 Cloudflare DNS，域名注册在阿里云。</p>
 <h3 id="在-cloudflare-启用-dnssec">在 Cloudflare 启用 DNSSEC</h3>
 <p>登录 Cloudflare，选择你的域名，点击“DNS”图标，下拉可以看到“DNSSEC”，点击“Enable DNSSEC”，可以看到提示需要到域名注册商添加 DS 记录：</p>
-<p><img src="/article/dnssec/cloudflare-ds-changed.png" alt="cloudflare-ds-changed"></p>
+<p><img src="/article/DNSSEC/cloudflare-ds-changed.png" alt="cloudflare-ds-changed"></p>
 <p>Digest 已经做处理😁。</p>
 <h3 id="在阿里云域名管理添加资源记录">在阿里云域名管理添加资源记录</h3>
 <p>登录阿里云控制台，选择“域名”，则进入“域名列表”，可以看到域名“sysin.org”，点击操作最后面的“管理”，则进入“基本信息 / sysin.org”页面，点击左侧的“DNSSEC设置”，点击“添加DS记录”</p>
-<p><img src="/article/dnssec/aliyun-ds.png" alt="aliyun-ds"></p>
+<p><img src="/article/DNSSEC/aliyun-ds.png" alt="aliyun-ds"></p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*关键标签：即 Key Tag，复制上述 Key Tag 内容粘贴进来</span><br><span class="line"></span><br><span class="line">*加密算法：即 Algorithm，下拉选择 13</span><br><span class="line"></span><br><span class="line">*摘要类型：即 Digest Type，选择 2-SHA-256</span><br><span class="line"></span><br><span class="line">*摘要：即 Digest，复制上述 Digest 内容粘贴进来</span><br></pre></td></tr></table></figure></p>
 <h3 id="验证">验证</h3>
 <p>使用<a href="https://dnsviz.net/" target="_blank" rel="noopener">测试工具</a>输入域名进行测试</p>
@@ -294,7 +294,7 @@
 <p><a href="https://dnssec-analyzer.verisignlabs.com/" target="_blank" rel="noopener">https://dnssec-analyzer.verisignlabs.com/</a></p>
 <h3 id="浏览器扩展">浏览器扩展</h3>
 <p>Firefox：<a href="https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/" target="_blank" rel="noopener">https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/</a></p>
-<p><img src="/article/dnssec/sysin-dnssec.png" alt="sysin-dnssec"></p>
+<p><img src="/article/DNSSEC/sysin-dnssec.png" alt="sysin-dnssec"></p>
 <p>Chrome：<a href="https://chrome.google.com/webstore/search/dnssec" target="_blank" rel="noopener">https://chrome.google.com/webstore/search/dnssec</a></p>
 
 
