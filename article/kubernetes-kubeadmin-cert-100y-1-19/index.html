@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="google-site-verification" content="sysin"> -->
+  <!-- <meta name="baidu-site-verification" content="sysin" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Kubernetes v1.19 编译 kubeadmin 修改证书有效期到 100年 - sysin - System Inside </title>
+  <meta name="description" content=" Kubernetes v1.19 编译 kubeadmin 修改证书有效期到 100年 - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" Kubernetes v1.19 编译 kubeadmin 修改证书有效期到 100年 " />
+  <link rel="canonical" href="https://sysin.org/article/kubernetes-kubeadmin-cert-100y-1-19/" />
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="../../css/highlight.css">
+<link rel="stylesheet" href="../../css/widget.css">
+<link rel="stylesheet" href="../../css/rocket.css">
+<link rel="stylesheet" href="../../css/signature.css">
+<link rel="stylesheet" href="../../css/catalog.css">
+<link rel="stylesheet" href="../../css/livemylife.css">
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+    <!-- reward start -->
+    <link rel="stylesheet" href="/css/donate.css" />
+    <!-- reward end -->
+    
+
+  
+  <!-- scroll start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- scroll end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css" />
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+<link rel="alternate" href="atom.xml" title="System Inside" type="application/atom+xml">
+<link rel="alternate" href="feed.xml" title="System Inside" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body-dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body-dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="System Inside" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/article_header/article_header.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+              
+              <a class="tag" href="/tags/#SSL" title="SSL">SSL</a>
+              
+            </div>
+            <h1>Kubernetes v1.19 编译 kubeadmin 修改证书有效期到 100年</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2019-09-02
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">7</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.5k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
+
+        <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<p>转载请保留出处。</p>
+<p><a href="https://kubernetes.io/blog/2020/08/26/kubernetes-release-1.19-accentuate-the-paw-sitive/" target="_blank" rel="noopener">Kubernetes 1.19</a>, August 26, 2020</p>
+<p><strong>原有方法继续有效！</strong></p>
+<p>kubeadm 默认证书为一年，一年过期后，会导致 api service 不可用，使用过程中会出现：x509: certificate has expired or is not yet valid.</p>
+<p>Google 建议通过不停更新版本来自动更新证书，太坑^_^</p>
+<p><strong>可以在初始化群集之前重新编译 kubeadm，证书有效期自动为 100年</strong></p>
+<p>已经修改好的 kubeadm 下载（1.17.0、1.18.0、1.19.0）：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接: https:<span class="regexp">//</span>pan.baidu.com<span class="regexp">/s/</span><span class="number">1</span>EabyIm2fO4Rj5HOP_f5e9g  密码: klom</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-获取源码"><a href="#1-获取源码" class="headerlink" title="1. 获取源码"></a>1. 获取源码</h2><p>访问：<a href="https://github.com/kubernetes/kubernetes/releases" target="_blank" rel="noopener">https://github.com/kubernetes/kubernetes/releases</a>，下载特定版本源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/kubernetes/kubernetes/archive/v1.19.0.tar.gz</span><br><span class="line">tar -zxvf v1.19.0.tar.gz</span><br><span class="line">mv kubernetes-1.19.0 kubernetes</span><br><span class="line">cd kubernetes</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-修改证书有效期"><a href="#2-修改证书有效期" class="headerlink" title="2. 修改证书有效期"></a>2. 修改证书有效期</h2><p>查看网上的资料主要有两个地方需要修改</p>
+<h3 id="修改-CA-有效期为-100年（默认为-10年）"><a href="#修改-CA-有效期为-100年（默认为-10年）" class="headerlink" title="修改 CA 有效期为 100年（默认为 10年）"></a>修改 CA 有效期为 100年（默认为 10年）</h3><p>vim ./staging/src/k8s.io/client-go/util/cert/cert.go</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法里面NotAfter:              now.Add(duration365d * 10).UTC()</span></span><br><span class="line"><span class="comment">// 默认有效期就是10年，改成100年</span></span><br><span class="line"><span class="comment">// 输入/NotAfter查找，回车定位</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewSelfSignedCACert</span><span class="params">(cfg Config, key crypto.Signer)</span> <span class="params">(*x509.Certificate, error)</span></span> &#123;</span><br><span class="line">        now := time.Now()</span><br><span class="line">        tmpl := x509.Certificate&#123;</span><br><span class="line">                SerialNumber: <span class="built_in">new</span>(big.Int).SetInt64(<span class="number">0</span>),</span><br><span class="line">                Subject: pkix.Name&#123;</span><br><span class="line">                        CommonName:   cfg.CommonName,</span><br><span class="line">                        Organization: cfg.Organization,</span><br><span class="line">                &#125;,</span><br><span class="line">                NotBefore:             now.UTC(),</span><br><span class="line">                <span class="comment">// NotAfter:              now.Add(duration365d * 10).UTC(),</span></span><br><span class="line">                NotAfter:              now.Add(duration365d * <span class="number">100</span>).UTC(),</span><br><span class="line">                KeyUsage:              x509.KeyUsageKeyEncipherment | x509.KeyUsageDigitalSignature | x509.KeyUsageCertSign,</span><br><span class="line">                BasicConstraintsValid: <span class="literal">true</span>,</span><br><span class="line">                IsCA:                  <span class="literal">true</span>,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        certDERBytes, err := x509.CreateCertificate(cryptorand.Reader, &amp;tmpl, &amp;tmpl, key.Public(), key)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x509.ParseCertificate(certDERBytes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改证书有效期为-100年（默认为-1年）"><a href="#修改证书有效期为-100年（默认为-1年）" class="headerlink" title="修改证书有效期为 100年（默认为 1年）"></a>修改证书有效期为 100年（默认为 1年）</h3><p>vim ./cmd/kubeadm/app/constants/constants.go</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 就是这个常量定义CertificateValidity，改成*100年</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">        <span class="comment">// KubernetesDir is the directory Kubernetes owns for storing various configuration files</span></span><br><span class="line">        KubernetesDir = <span class="string">"/etc/kubernetes"</span></span><br><span class="line">        <span class="comment">// ManifestsSubDirName defines directory name to store manifests</span></span><br><span class="line">        ManifestsSubDirName = <span class="string">"manifests"</span></span><br><span class="line">        <span class="comment">// TempDirForKubeadm defines temporary directory for kubeadm</span></span><br><span class="line">        <span class="comment">// should be joined with KubernetesDir.</span></span><br><span class="line">        TempDirForKubeadm = <span class="string">"tmp"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// CertificateValidity defines the validity for all the signed certificates generated by kubeadm</span></span><br><span class="line">        <span class="comment">// CertificateValidity = time.Hour * 24 * 365</span></span><br><span class="line">        CertificateValidity = time.Hour * <span class="number">24</span> * <span class="number">365</span> * <span class="number">100</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// CACertAndKeyBaseName defines certificate authority base name</span></span><br><span class="line">        CACertAndKeyBaseName = <span class="string">"ca"</span></span><br><span class="line">        <span class="comment">// CACertName defines certificate name</span></span><br><span class="line">        CACertName = <span class="string">"ca.crt"</span></span><br><span class="line">        <span class="comment">// CAKeyName defines certificate name</span></span><br><span class="line">        CAKeyName = <span class="string">"ca.key"</span></span><br></pre></td></tr></table></figure>
+
+<p>源代码改好了，接下来就是编译 kubeadm 了</p>
+<h2 id="3-编译"><a href="#3-编译" class="headerlink" title="3. 编译"></a>3. 编译</h2><h3 id="3-1-Docker-镜像编译"><a href="#3-1-Docker-镜像编译" class="headerlink" title="3.1 Docker 镜像编译"></a>3.1 Docker 镜像编译</h3><ul>
+<li>查看 kube-cross 的 TAG 版本号</li>
+</ul>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cat ./build/build-image/cross/VERSION</span><br><span class="line"></span><br><span class="line">v1<span class="number">.15</span><span class="number">.0</span><span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我们可以使用官方容器对代码进行编译：k8s.gcr.io/kube-cross:v1.15.0-1</p>
+<ul>
+<li>拉取镜像</li>
+</ul>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull k8s.gcr.io/kube-cross:v1<span class="number">.15</span><span class="number">.0</span><span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<p>无法文明上网，也没有找到替代镜像，可以直接跳过，使用本机编译。</p>
+<ul>
+<li>编译</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> docker run --rm -v &lt;你修改后的代码目录&gt;:/go/src/k8s.io/kubernetes -it gcrcontainer/kube-cross bash</span></span><br><span class="line">docker run --rm -v /root/kubernetes:/go/src/k8s.io/kubernetes -it k8s.gcr.io/kube-cross:v1.15.0-1 bash</span><br><span class="line"></span><br><span class="line">cd /go/src/k8s.io/kubernetes</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译kubeadm, 这里主要编译kubeadm 即可</span></span><br><span class="line">make all WHAT=cmd/kubeadm GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译kubelet</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> make all WHAT=cmd/kubelet GOFLAGS=-v</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译kubectl</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> make all WHAT=cmd/kubectl GOFLAGS=-v</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出容器</span></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">编译完产物在 _output/bin/kubeadm 目录下，</span></span><br><span class="line"><span class="meta">#</span><span class="bash">其中bin是使用了软连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash">真实路径是_output/<span class="built_in">local</span>/bin/linux/amd64/kubeadm</span></span><br><span class="line">mv /usr/bin/kubeadm /usr/bin/kubeadm_backup</span><br><span class="line">cp _output/local/bin/linux/amd64/kubeadm /usr/bin/kubeadm</span><br><span class="line"><span class="meta">#</span><span class="bash">chmod +x /usr/bin/kubeadm</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证版本</span></span><br><span class="line">kubeadm version</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-本机编译"><a href="#3-2-本机编译" class="headerlink" title="3.2 本机编译"></a>3.2 本机编译</h3><p>环境需求参看<a href="https://github.com/kubernetes/community/blob/master/contributors/devel/development.md" target="_blank" rel="noopener">官方文档</a>。</p>
+<h4 id="3-2-1-软件包准备"><a href="#3-2-1-软件包准备" class="headerlink" title="3.2.1 软件包准备"></a>3.2.1 软件包准备</h4><p>CentOS：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install </span>gcc make -y</span><br><span class="line">yum <span class="keyword">install </span>rsync <span class="keyword">jq </span>-y</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu：</p>
+<figure class="highlight leaf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential <span class="function"><span class="keyword">#</span><span class="params">(<span class="variable">Following</span> <span class="variable">command</span> <span class="variable">will</span> <span class="variable">install</span> <span class="variable">essential</span> <span class="variable">commands</span> <span class="variable">like</span> <span class="variable">gcc</span>, <span class="variable">make</span> <span class="variable">etc</span>.)</span></span></span><br><span class="line">sudo apt install rsync jq -y</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-GoLang-环境"><a href="#3-2-2-GoLang-环境" class="headerlink" title="3.2.2 GoLang 环境"></a>3.2.2 GoLang 环境</h4><p>查看 kube-cross 的 TAG 版本号</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># cat ./build/build-image/cross/VERSION</span><br><span class="line"></span><br><span class="line">v1<span class="number">.15</span><span class="number">.0</span><span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装 Go 环境：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.15.linux-amd64.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 或者</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> wget https://golang.google.cn/dl/go1.15.linux-amd64.tar.gz</span></span><br><span class="line">tar zxvf go1.15.linux-amd64.tar.gz  -C /usr/local</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑/etc/profile文件添加如下：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">go setting</span></span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/usr/local/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>验证：</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="keyword">version</span></span><br><span class="line"><span class="keyword">go</span> <span class="keyword">version</span> go1.<span class="number">15</span> linux/amd64</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编译kubeadm, 这里主要编译kubeadm 即可</span></span><br><span class="line">make all WHAT=cmd/kubeadm GOFLAGS=-v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译kubelet</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> make all WHAT=cmd/kubelet GOFLAGS=-v</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译kubectl</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> make all WHAT=cmd/kubectl GOFLAGS=-v</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">编译完产物在 _output/bin/kubeadm 目录下，</span></span><br><span class="line"><span class="meta">#</span><span class="bash">其中bin是使用了软连接</span></span><br><span class="line"><span class="meta">#</span><span class="bash">真实路径是_output/<span class="built_in">local</span>/bin/linux/amd64/kubeadm</span></span><br><span class="line">mv /usr/bin/kubeadm /usr/bin/kubeadm_backup</span><br><span class="line">cp _output/local/bin/linux/amd64/kubeadm /usr/bin/kubeadm</span><br><span class="line">chmod +x /usr/bin/kubeadm</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubeadm version</span><br><span class="line">kubeadm version: &amp;version.Info&#123;Major:"1", Minor:"19", GitVersion:"v1.19.0", GitCommit:"e19964183377d0ec2052d1f1fa930c4d7575bd50", GitTreeState:"archive", BuildDate:"2020-09-01T04:36:15Z", GoVersion:"go1.15", Compiler:"gc", Platform:"linux/amd64"&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、执行命令更新证书"><a href="#4、执行命令更新证书" class="headerlink" title="4、执行命令更新证书"></a>4、执行命令更新证书</h2><p>可以先备份证书，证书在 /etc/kubernetes/pki</p>
+<ul>
+<li>检查证书到期时间</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">kubeadm alpha certs check-expiration</span></span><br></pre></td></tr></table></figure>
+
+<p>输出如下：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[check-expiration] Reading configuration <span class="keyword">from</span> the cluster...</span><br><span class="line">[check-expiration] FYI: You can look at <span class="keyword">this</span> config file with <span class="string">'kubectl -n kube-system get cm kubeadm-config -oyaml'</span></span><br><span class="line"></span><br><span class="line">CERTIFICATE                EXPIRES                  RESIDUAL TIME   CERTIFICATE AUTHORITY   EXTERNALLY MANAGED</span><br><span class="line">admin.conf                 Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y                                     no</span><br><span class="line">apiserver                  Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             ca                      no</span><br><span class="line">apiserver-etcd-client      Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             etcd-ca                 no</span><br><span class="line">apiserver-kubelet-client   Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             ca                      no</span><br><span class="line">controller-manager.conf    Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y                                     no</span><br><span class="line">etcd-healthcheck-client    Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             etcd-ca                 no</span><br><span class="line">etcd-peer                  Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             etcd-ca                 no</span><br><span class="line">etcd-server                Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             etcd-ca                 no</span><br><span class="line">front-proxy-client         Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             front-proxy-ca          no</span><br><span class="line">scheduler.conf             Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y                                     no</span><br><span class="line"></span><br><span class="line">CERTIFICATE AUTHORITY   EXPIRES                  RESIDUAL TIME   EXTERNALLY MANAGED</span><br><span class="line">ca                      Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             no</span><br><span class="line">etcd-ca                 Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             no</span><br><span class="line">front-proxy-ca          Aug <span class="number">08</span>, <span class="number">2120</span> <span class="number">05</span>:<span class="number">35</span> UTC   <span class="number">99</span>y             no</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>续订证书，查看可以使用的参数</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">kubeadm alpha certs renew --help</span><br><span class="line">Available Commands:</span><br><span class="line">  admin.conf               Renew the certificate embedded <span class="keyword">in</span> the kubeconfig file <span class="keyword">for</span> the admin <span class="keyword">to</span> use <span class="keyword">and</span> <span class="keyword">for</span> kubeadm itself</span><br><span class="line">  all                      Renew all available certificates</span><br><span class="line">  apiserver                Renew the certificate <span class="keyword">for</span> serving the Kubernetes API</span><br><span class="line">  apiserver-etcd-client    Renew the certificate the apiserver uses <span class="keyword">to</span> access etcd</span><br><span class="line">  apiserver-kubelet-client Renew the certificate <span class="keyword">for</span> the API<span class="built_in"> server </span><span class="keyword">to</span> connect <span class="keyword">to</span> kubelet</span><br><span class="line">  controller-manager.conf  Renew the certificate embedded <span class="keyword">in</span> the kubeconfig file <span class="keyword">for</span> the controller manager <span class="keyword">to</span> use</span><br><span class="line">  etcd-healthcheck-client  Renew the certificate <span class="keyword">for</span> liveness probes <span class="keyword">to</span> healthcheck etcd</span><br><span class="line">  etcd-peer                Renew the certificate <span class="keyword">for</span> etcd nodes <span class="keyword">to</span> communicate with each other</span><br><span class="line">  etcd-server              Renew the certificate <span class="keyword">for</span> serving etcd</span><br><span class="line">  front-proxy-client       Renew the certificate <span class="keyword">for</span> the front<span class="built_in"> proxy </span>client</span><br><span class="line">  scheduler.conf           Renew the certificate embedded <span class="keyword">in</span> the kubeconfig file <span class="keyword">for</span> the<span class="built_in"> scheduler </span>manager <span class="keyword">to</span> use</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>续订全部证书</li>
+</ul>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubeadm alpha certs renew <span class="keyword">all</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>再次查看证书有效期，全部都 100年了</p>
+<p>  kubeadm alpha certs check-expiration</p>
+</li>
+</ul>
+<p>参考文章：</p>
+<p><a href="https://blog.csdn.net/fuck487/article/details/102759523" target="_blank" rel="noopener">https://blog.csdn.net/fuck487/article/details/102759523</a></p>
+<p><a href="https://www.cnblogs.com/skymyyang/p/11093686.html" target="_blank" rel="noopener">https://www.cnblogs.com/skymyyang/p/11093686.html</a></p>
+
+
+        <hr>
+
+        
+          <!-- promotion start -->
+          <div class="tip">
+            <p>
+              广而告之：<a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>，<a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云 云产品限时秒杀，爆款1核2G云服务器，首年99元</a>
+            </p>
+          </div>
+          <!-- promotion end -->
+          <hr>
+          
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/article/Gartner-Magic-Quadrant-WAF-2019/" data-toggle="tooltip" data-placement="top" title="Gartner Magic Quadrant for Web Application Firewalls 2019">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/article/Chrome_Unable_to_open_kubernetes_Dashboard/" data-toggle="tooltip" data-placement="top" title="Chrome 不能打开 kubernetes Dashboard 解决方法">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+        <hr>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            如果文章中使用的内容和图片侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有用，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+          </p>
+        </div>
+        <!-- tip end -->
+        <hr>
+        
+
+        <!--打赏-->
+        
+            <div class="reward">
+                <div class="reward-button">赏 <span class="reward-code">
+                    <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span>
+                    <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.jpg"><b>微信打赏</b> </span>
+                    </span></div>
+                <p class="reward-notice">赞赏一下</p>
+            </div>
+        <hr>
+        
+
+        <!--打赏-->
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Kubernetes v1.19 编译 kubeadmin 修改证书有效期到 100年&body=Hi,I found this website and thought you might like it https://sysin.org/article/kubernetes-kubeadmin-cert-100y-1-19/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- require APlayer -->
+        
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a4a3611e5f9fc02efc2c',
+    clientSecret: '2eaf392b1017d6ca39ed728da12d2f5470aa0888',
+    repo: 'gitalk',
+    owner: 'netgc',
+    admin: 'netgc',
+    id: 'Mon Sep 02 2019 10:10:00 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content (TOC) -->
+      <!-- Table of Contents -->
+<!-- Don not display number -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+<!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-获取源码"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 获取源码</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-修改证书有效期"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 修改证书有效期</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改-CA-有效期为-100年（默认为-10年）"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">修改 CA 有效期为 100年（默认为 10年）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改证书有效期为-100年（默认为-1年）"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">修改证书有效期为 100年（默认为 1年）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-编译"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 编译</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-Docker-镜像编译"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 Docker 镜像编译</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-本机编译"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 本机编译</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-2-1-软件包准备"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text">3.2.1 软件包准备</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3-2-2-GoLang-环境"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text">3.2.2 GoLang 环境</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4、执行命令更新证书"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4、执行命令更新证书</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+            
+            <a class="tag" href="/tags/#SSL" title="SSL">SSL</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>SITE LINKS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://my.oschina.net/sysin/" target="_blank">OSCHINA Blog</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a target="_blank" href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2020
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.svg"></a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+<script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://sysin.org/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Baidu Push -->
+
+<script>
+  (function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://sysin.org/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

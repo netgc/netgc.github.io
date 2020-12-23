@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="google-site-verification" content="sysin"> -->
+  <!-- <meta name="baidu-site-verification" content="sysin" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 - sysin - System Inside </title>
+  <meta name="description" content=" Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 " />
+  <link rel="canonical" href="https://sysin.org/article/Ubuntu-20_04-Install/" />
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="../../css/highlight.css">
+<link rel="stylesheet" href="../../css/widget.css">
+<link rel="stylesheet" href="../../css/rocket.css">
+<link rel="stylesheet" href="../../css/signature.css">
+<link rel="stylesheet" href="../../css/catalog.css">
+<link rel="stylesheet" href="../../css/livemylife.css">
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+    <!-- reward start -->
+    <link rel="stylesheet" href="/css/donate.css" />
+    <!-- reward end -->
+    
+
+  
+  <!-- scroll start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- scroll end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css" />
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+<link rel="alternate" href="atom.xml" title="System Inside" type="application/atom+xml">
+<link rel="alternate" href="feed.xml" title="System Inside" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body-dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body-dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="System Inside" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/article_header/article_header.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+              <a class="tag" href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
+              
+            </div>
+            <h1>Ubuntu 20.04 LTS (Focal Fossa) 安装笔记</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2020-05-15
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">9</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
+
+        <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<p>转载请保留出处。</p>
+<h2 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h2><h3 id="Updated-Packages"><a href="#Updated-Packages" class="headerlink" title="Updated Packages"></a>Updated Packages</h3><p><strong>Linux Kernel 5.4</strong></p>
+<p><strong>Toolchain Upgrades 🛠️</strong></p>
+<pre><code>Ubuntu 20.04 LTS comes with refreshed state-of-the-art toolchain including new upstream releases of glibc 2.31, ☕ OpenJDK 11, rustc 1.41, GCC 9.3, 🐍 Python 3.8.2, 💎 ruby 2.7.0, php 7.4, 🐪 perl 5.30, golang 1.13.</code></pre><p><strong>Ubuntu Desktop</strong></p>
+<ul>
+<li>New graphical boot splash (integrates with the system BIOS logo).</li>
+<li>Refreshed <a href="https://ubuntu.com/blog/new-ubuntu-theme-in-development-for-20-04" target="_blank" rel="noopener">Yaru theme</a> 🎨<ul>
+<li><a href="https://twitter.com/m_wimpress/status/1232246572479590401" target="_blank" rel="noopener">Light/Dark theme switching</a></li>
+</ul>
+</li>
+<li>GNOME 3.36</li>
+<li><a href="https://www.mesa3d.org/" target="_blank" rel="noopener">Mesa</a> 20.0 OpenGL stack</li>
+<li><a href="http://www.bluez.org/" target="_blank" rel="noopener">BlueZ</a> 5.53</li>
+<li><a href="https://www.freedesktop.org/wiki/Software/PulseAudio/" target="_blank" rel="noopener">PulseAudio</a> 14.0 (prerelease)</li>
+<li><a href="https://www.mozilla.org/en-US/firefox/75.0/releasenotes/" target="_blank" rel="noopener">Firefox 75.0</a></li>
+<li><a href="https://www.thunderbird.net/en-US/thunderbird/68.7.0/releasenotes/" target="_blank" rel="noopener">Thunderbird 68.7.0</a></li>
+<li><a href="https://wiki.documentfoundation.org/ReleaseNotes/6.4" target="_blank" rel="noopener">LibreOffice 6.4</a></li>
+</ul>
+<h3 id="Network-configuration"><a href="#Network-configuration" class="headerlink" title="Network configuration"></a>Network configuration</h3><p>With this Ubuntu release, <a href="https://netplan.io/" target="_blank" rel="noopener">netplan.io</a> has grown multiple new features, some of which are:</p>
+<ul>
+<li>Basic support for configuring SR-IOV network devices. Starting with  netplan.io 0.99, users can declare Virtual Functions for every SR-IOV  Physical Function, configure those as any other networking device and  set hardware VLAN VF filtering on them.</li>
+<li>Support for GSM modems via the <a href="https://wiki.ubuntu.com/NetworkManager" target="_blank" rel="noopener">NetworkManager</a> backend via the <code>modems</code> section.</li>
+<li>Adding <a href="https://wiki.ubuntu.com/WiFi" target="_blank" rel="noopener">WiFi</a> flags for <code>bssid</code>/<code>band</code>/<code>channel</code> settings.</li>
+<li>Adding ability to set <code>ipv6-address-generation</code> for the <a href="https://wiki.ubuntu.com/NetworkManager" target="_blank" rel="noopener">NetworkManager</a> backend and <code>emit-lldp</code> for networkd.</li>
+</ul>
+<h3 id="Storage-File-Systems"><a href="#Storage-File-Systems" class="headerlink" title="Storage/File Systems"></a>Storage/File Systems</h3><p>ZFS 0.8.3</p>
+<h3 id="Other-base-system-changes-since-18-04-LTS"><a href="#Other-base-system-changes-since-18-04-LTS" class="headerlink" title="Other base system changes since 18.04 LTS"></a>Other base system changes since 18.04 LTS</h3><ul>
+<li><p>Python3 by default（Python 3.8.  Python 2.7 已经移除）</p>
+</li>
+<li><p>Snap Store replaces ubuntu-software</p>
+</li>
+</ul>
+<h3 id="Ubuntu-Server"><a href="#Ubuntu-Server" class="headerlink" title="Ubuntu Server"></a>Ubuntu Server</h3><ul>
+<li><p>Installer</p>
+<p>  The live server installer is now the preferred media to install Ubuntu Server on all architectures.</p>
+</li>
+<li><p>QEMU</p>
+<p>  QEMU was updated to 4.2 release.</p>
+</li>
+<li><p>libvirt</p>
+<p>  libvirt was updated to version 6.0.</p>
+</li>
+<li><p>dpdk</p>
+<p>  Ubuntu 20.04 LTS includes the latest stable release 19.11.1 of the latest LTS series 19.11.x. The very latest (non-stable) version being 20.02 was not chosen for  downstream projects of DPDK (like Open vSwitch) not being compatible  yet.</p>
+</li>
+<li><p>Open vSwitch</p>
+<p>  Open vSwitch has been updated to 2.13.</p>
+</li>
+<li><p>Chrony</p>
+<p>  Chrony been updated to <a href="https://chrony.tuxfamily.org/news.html" target="_blank" rel="noopener">version 3.5</a>.</p>
+</li>
+<li><p>cloud-init</p>
+<p>  Cloud-init was updated to version 20.1-10.</p>
+</li>
+<li><p>PHP 7.4</p>
+</li>
+<li><p>Ruby 2.7</p>
+</li>
+<li><p>Ruby on Rails 5.2.3</p>
+</li>
+<li><p>Ubuntu HA/Clustering</p>
+<p>  Kronosnet<br>  Corosync 3.0<br>  Pacemaker 2.0<br>  Resource Agents<br>  Fence Agents<br>  keepalived</p>
+</li>
+<li><p>isc-kea 1.6 stable track（dhcp server）</p>
+</li>
+<li><p>Bind 9.16</p>
+</li>
+<li><p>OpenSSH updates with U2F Support</p>
+</li>
+<li><p>HAProxy 2.0</p>
+</li>
+<li><p>Apache, TLSv1.3, client cert auth</p>
+</li>
+<li><p>Samba 4.11</p>
+</li>
+<li><p>PostgreSQL 12</p>
+</li>
+<li><p>nginx</p>
+<p>  Starting in Focal Fossa, nginx-core no longer ships with the legacy geoip module enabled by default. If you are using the legacy geoip module in nginx,  you may run into upgrade issues if you do not deactivate the geoip  module in your configuration. This was done as part of the deprecation  of GeoIP legacy support.</p>
+</li>
+<li><p>Squid 4.x</p>
+</li>
+<li><p>s390x</p>
+</li>
+<li><p>OpenStack Ussuri</p>
+</li>
+<li><p>Ceph was updated to the 15.2.1 release</p>
+</li>
+</ul>
+<p><strong>完整更新内容请查阅发行说明：</strong></p>
+<ul>
+<li><a href="https://wiki.ubuntu.com/FocalFossa/ReleaseNotes" target="_blank" rel="noopener">https://wiki.ubuntu.com/FocalFossa/ReleaseNotes</a></li>
+</ul>
+<h2 id="1-安装摘要"><a href="#1-安装摘要" class="headerlink" title="1. 安装摘要"></a>1. 安装摘要</h2><p>18.04：安装界面变化比较大，参看截图，默认 SSH Server 已经安装（测试 18.04.3 修改为需要手动勾选），没有时区选择界面</p>
+<p>20.04：安装界面少了步骤的数字提示，参看截图，SSH Server 需要勾选安装，没有时区选择界面</p>
+<p>注意：分区如果选择 LVM，默认 / 目录只使用了4G，需要编辑使用全部容量</p>
+<h2 id="2-格式化网卡名称"><a href="#2-格式化网卡名称" class="headerlink" title="2. 格式化网卡名称"></a>2. 格式化网卡名称</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">类似 CentOS 7，及 Ubuntu 16.04 开始，安装好后网卡名称变成 ens160 了</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑 grub 配置文件</span></span><br><span class="line">sudo vi /etc/default/grub</span><br><span class="line">修改 GRUB_CMDLINE_LINUX=""为GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 直接使用sed编辑</span></span><br><span class="line">sudo sed -i "/^GRUB_CMDLINE_LINUX=""/c GRUB_CMDLINE_LINUX=\"net.ifnames=0 biosdevname=0\"" /etc/default/grub</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新 grub 配置文件</span></span><br><span class="line">sudo update-grub</span><br><span class="line"><span class="meta">#</span><span class="bash"> 然后下一节编辑配置文件并重启生效</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-网络配置"><a href="#3-网络配置" class="headerlink" title="3. 网络配置"></a>3. 网络配置</h2><p>查看 IP 地址信息</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip address</span><br><span class="line"><span class="comment"># 简写 ip a</span></span><br><span class="line"><span class="comment"># ifconfig也支持</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 netplan 管理网络</p>
+<blockquote>
+<p>18.04:<br>cat /etc/network/interfaces<br>ifupdown has been replaced by netplan<br>默认使用netplan管理网络</p>
+<p>18.04默认配置文件：/etc/netplan/50-cloud-init.yaml</p>
+<p>20.04:<br>cat /etc/network/interfaces<br>cat: /etc/network/interfaces: No such file or directory</p>
+<p>20.04默认配置文件：/etc/netplan/00-installer-config.yaml</p>
+</blockquote>
+<p>配置静态IP地址</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">sudo</span> <span class="string">vim</span> <span class="string">/etc/netplan/00-installer-config.yaml</span></span><br><span class="line"><span class="comment"># 格式如下：</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">eth0:</span> <span class="comment">#ens160修改为 eth0</span></span><br><span class="line">      <span class="attr">addresses:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.5</span><span class="string">/24</span></span><br><span class="line">      <span class="attr">gateway4:</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.1</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.11</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.12</span></span><br><span class="line">        <span class="attr">search:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">sysin.org</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 运行以下命令使配置生效</span></span><br><span class="line">sudo netplan apply</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启系统后彻底生效</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<p>配置为DHCP</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo '</span><br><span class="line">network:</span><br><span class="line">  version: 2</span><br><span class="line">  ethernets:</span><br><span class="line">    eth0:</span><br><span class="line">      dhcp4: yes</span><br><span class="line">      dhcp6: yes</span><br><span class="line">' &gt; /etc/netplan/00-installer-config.yaml</span><br></pre></td></tr></table></figure>
+
+<p>恢复传统的网络配置方式</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以恢复原有配置方式</span></span><br><span class="line">sudo apt <span class="keyword">install</span> net-tools <span class="comment">#ifconfig、netstat、route等命令集</span></span><br><span class="line">sudo apt <span class="keyword">install</span> ifupdown <span class="comment">#模板未执行该命令</span></span><br></pre></td></tr></table></figure>
+
+<p>补充：yaml 基础</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">大小写敏感</span><br><span class="line">使用缩进表示层级关系</span><br><span class="line">缩进时不允许使用<span class="literal">Tab</span>键，只允许使用空格</span><br><span class="line">缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</span><br></pre></td></tr></table></figure>
+
+<p>缩进建议使用2个空格，使用短横线“-”表示列表时，”- “后面的条目需要对齐，如果使用超过2个空格缩进，格式将有误。</p>
+<p>配置静态路由示例</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">eth0:</span></span><br><span class="line">      <span class="attr">addresses:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.5</span><span class="string">/24</span></span><br><span class="line">      <span class="comment">#gateway4: 10.19.190.254</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.11</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.12</span></span><br><span class="line">        <span class="attr">search:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">sysin.org</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.254</span></span><br><span class="line">          <span class="attr">metric:</span> <span class="number">100</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="number">10.19</span><span class="number">.177</span><span class="number">.0</span><span class="string">/24</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">10.19</span><span class="number">.190</span><span class="number">.1</span></span><br><span class="line">          <span class="attr">metric:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-修改主机名"><a href="#4-修改主机名" class="headerlink" title="4. 修改主机名"></a>4. 修改主机名</h2><p>设置主机名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改为主机名 ubuntu01</span></span><br><span class="line">ubuntu01</span><br></pre></td></tr></table></figure>
+
+<p>添加domain name</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加一行</span></span><br><span class="line">127.0.0.1  ubuntu01.sysin.org ubuntu01</span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意这里的格式，IP 后面先写 FQDN 再写主机名，与 CentOS 相同</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 先写主机名后写 FQDN 不影响解析，但是<span class="string">'hostname -f'</span>命令无法只能显示主机名</span></span><br></pre></td></tr></table></figure>
+
+<p>查看FQDN</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hostname -f</span><br><span class="line"><span class="meta">#</span><span class="bash"> 正确显示如下</span></span><br><span class="line">ubuntu01.sysin.org</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-设置时区"><a href="#5-设置时区" class="headerlink" title="5. 设置时区"></a>5. 设置时区</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">sudo </span><span class="string">timedatectl </span><span class="built_in">set-timezone</span> <span class="string">Asia/</span><span class="string">Shanghai</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-修改国内镜像源"><a href="#6-修改国内镜像源" class="headerlink" title="6. 修改国内镜像源"></a>6. 修改国内镜像源</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 模板使用aliyun</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 备份</span></span><br><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 替换为阿里云镜像源</span></span><br><span class="line">sudo sed -i 's/cn.archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 提示：-i 写入文件，s 替换命令</span></span><br><span class="line"></span><br><span class="line">选择时区后镜像地址为cn.archive.ubuntu.com，注意修改替换命令</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 根据实际网络情况选择镜像，可以Ping镜像地址查看延迟</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 网易163</span></span><br><span class="line">sudo sed -i 's/cn.archive.ubuntu.com/mirrors.163.com/' /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 中科大</span></span><br><span class="line">sudo sed -i 's/cn.archive.ubuntu.com/mirrors.ustc.edu.cn/' /etc/apt/sources.list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 清华</span></span><br><span class="line">sudo sed -i 's/cn.archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/' /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>更新</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update #更新源</span><br><span class="line">sudo apt upgrade #更新已安装的包</span><br><span class="line">sudo apt dist-upgrade #升级系统</span><br><span class="line">sudo apt clean &amp;&amp; sudo apt autoclean #清理下载文件的存档</span><br><span class="line"><span class="meta">#</span><span class="bash"> apt 是新版命令，替代 apt-get，apt-get 将来会淘汰</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-安装-SNMP（模板未配置）"><a href="#7-安装-SNMP（模板未配置）" class="headerlink" title="7. 安装 SNMP（模板未配置）"></a>7. 安装 SNMP（模板未配置）</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> snmpd snmp</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-配置-NTP"><a href="#8-配置-NTP" class="headerlink" title="8. 配置 NTP"></a>8. 配置 NTP</h2><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install chrony</span><br><span class="line"></span><br><span class="line">sudo systemctl enable chrony</span><br><span class="line">sudo systemctl start chrony</span><br><span class="line">sudo systemctl status chrony</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看配置文件，暂使用默认配置</span></span><br><span class="line">cat /etc/chrony/chrony.conf</span><br></pre></td></tr></table></figure>
+
+<p>chrony 自带一个交互式工具 chronyc，在配置文件中指定了时间服务器之后，如果想查看同步状态，可以进入这个交互式工具的交互界面。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chronyc 有很多的子命令，可以输入 help 来查看</span><br><span class="line">chronyc&gt; help</span><br><span class="line">    选项：</span><br><span class="line">    sources <span class="selector-attr">[-v]</span>    显示关于当前来源的信息</span><br><span class="line">    sourcestats <span class="selector-attr">[-v]</span>      显示时间同步状态（如时间偏移了多少之类）</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-虚机安装-VMware-Tools"><a href="#9-虚机安装-VMware-Tools" class="headerlink" title="9. 虚机安装 VMware Tools"></a>9. 虚机安装 VMware Tools</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Ubuntu <span class="number">16.04</span> 在 ESXi 中安装系统时已经自动安装了 vm-tools（<span class="number">18.04</span>、<span class="number">20.04</span>相同）</span><br><span class="line"># <span class="number">20.04</span> 自带 vm-tools 版本为 <span class="number">11.0</span><span class="number">.5</span>，与 ESXi <span class="number">7.0</span><span class="number">.0</span> 匹配</span><br><span class="line">sudo apt install open-vm-tools</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-安装必备工具"><a href="#10-安装必备工具" class="headerlink" title="10. 安装必备工具"></a>10. 安装必备工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zip unzip</span><br><span class="line">sudo apt install lrzsz</span><br><span class="line">sudo apt install htop #20.04已默认安装（18.04已默认安装）</span><br><span class="line">sudo apt install lnav</span><br><span class="line">sudo apt install fd-find #fd命令，20.04已经收录</span><br><span class="line">sudo apt install ripgrep #rg命令，20.04已经收录</span><br><span class="line">sudo apt install tree</span><br><span class="line">sudo apt install build-essential #Following command will install essential commands like gcc, make etc.</span><br><span class="line">sudo apt install net-tools #ifconfig、netstat、route等命令集</span><br><span class="line">sudo apt install ntp ntpdate ntpstat #可选，模板未安装</span><br><span class="line"><span class="meta">#</span><span class="bash"> nc lsof pstree 系统自带</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="11-开启-root-账号登录"><a href="#11-开启-root-账号登录" class="headerlink" title="11. 开启 root 账号登录"></a>11. 开启 root 账号登录</h2><p>Ubuntu 默认禁用 root 用户登录，安装时候创建特定用户作为管理员帐号，启用 root 用户步骤如下：</p>
+<ul>
+<li>修改 root 密码</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改配置文件</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo cp <span class="regexp">/etc/</span>ssh<span class="regexp">/sshd_config /</span>etc<span class="regexp">/ssh/</span>sshd_config.bak</span><br><span class="line"></span><br><span class="line">sudo vi <span class="regexp">/etc/</span>ssh<span class="regexp">/sshd_config</span></span><br></pre></td></tr></table></figure>
+
+<p>找到下面相关配置：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Authentication:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#LoginGraceTime 2m</span></span><br><span class="line"><span class="meta">#PermitRootLogin prohibit-password</span></span><br><span class="line"><span class="meta">#StrictModes yes</span></span><br><span class="line"><span class="meta">#MaxAuthTries 6</span></span><br><span class="line"><span class="meta">#MaxSessions 10</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#PubkeyAuthentication yes</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># Expect .ssh/authorized_keys2 to be disregarded by default in future.</span></span><br><span class="line"><span class="meta">#AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2</span></span><br></pre></td></tr></table></figure>
+
+<p>修改如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">增加一句</span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line">快速配置：</span><br><span class="line">sudo sed -i "/^#PermitRootLogin/c "PermitRootLogin" "yes"" /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>补充</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">PermitRootLogin</span> prohibit-password  <span class="comment">#允许root登录，但禁止适用密码认证</span></span><br><span class="line">可以配合使用Pubkey认证，修改PubkeyAuthentication <span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重启服务生效</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo systemctl restart ssh</span></span><br></pre></td></tr></table></figure>
+
+
+
+        <hr>
+
+        
+          <!-- promotion start -->
+          <div class="tip">
+            <p>
+              广而告之：<a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>，<a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云 云产品限时秒杀，爆款1核2G云服务器，首年99元</a>
+            </p>
+          </div>
+          <!-- promotion end -->
+          <hr>
+          
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/article/Download-VMware-NSX-T-3/" data-toggle="tooltip" data-placement="top" title="VMware NSX-T Data Center 3.0 下载">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/article/Download-VMware-Cloud-Foundation-4/" data-toggle="tooltip" data-placement="top" title="VMware Cloud Foundation 4.0 下载">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+        <hr>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            如果文章中使用的内容和图片侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有用，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+          </p>
+        </div>
+        <!-- tip end -->
+        <hr>
+        
+
+        <!--打赏-->
+        
+            <div class="reward">
+                <div class="reward-button">赏 <span class="reward-code">
+                    <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span>
+                    <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.jpg"><b>微信打赏</b> </span>
+                    </span></div>
+                <p class="reward-notice">赞赏一下</p>
+            </div>
+        <hr>
+        
+
+        <!--打赏-->
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Ubuntu 20.04 LTS (Focal Fossa) 安装笔记&body=Hi,I found this website and thought you might like it https://sysin.org/article/Ubuntu-20_04-Install/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- require APlayer -->
+        
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a4a3611e5f9fc02efc2c',
+    clientSecret: '2eaf392b1017d6ca39ed728da12d2f5470aa0888',
+    repo: 'gitalk',
+    owner: 'netgc',
+    admin: 'netgc',
+    id: 'Fri May 15 2020 10:10:00 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content (TOC) -->
+      <!-- Table of Contents -->
+<!-- Don not display number -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+<!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#新特性"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">新特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Updated-Packages"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Updated Packages</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Network-configuration"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Network configuration</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Storage-File-Systems"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Storage/File Systems</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Other-base-system-changes-since-18-04-LTS"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Other base system changes since 18.04 LTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ubuntu-Server"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">Ubuntu Server</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-安装摘要"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1. 安装摘要</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-格式化网卡名称"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2. 格式化网卡名称</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-网络配置"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3. 网络配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-修改主机名"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">4. 修改主机名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-设置时区"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">5. 设置时区</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-修改国内镜像源"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">6. 修改国内镜像源</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-安装-SNMP（模板未配置）"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">7. 安装 SNMP（模板未配置）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-配置-NTP"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">8. 配置 NTP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-虚机安装-VMware-Tools"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">9. 虚机安装 VMware Tools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-安装必备工具"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">10. 安装必备工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-开启-root-账号登录"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">11. 开启 root 账号登录</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+            <a class="tag" href="/tags/#Ubuntu" title="Ubuntu">Ubuntu</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>SITE LINKS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://my.oschina.net/sysin/" target="_blank">OSCHINA Blog</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a target="_blank" href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2020
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.svg"></a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+<script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://sysin.org/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Baidu Push -->
+
+<script>
+  (function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://sysin.org/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="google-site-verification" content="sysin"> -->
+  <!-- <meta name="baidu-site-verification" content="sysin" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> HTTP 安全响应头（Security Response header）配置手册 - sysin - System Inside </title>
+  <meta name="description" content=" HTTP 安全响应头（Security Response header）配置手册 - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" HTTP 安全响应头（Security Response header）配置手册 " />
+  <link rel="canonical" href="https://sysin.org/article/security-headers/" />
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="../../css/highlight.css">
+<link rel="stylesheet" href="../../css/widget.css">
+<link rel="stylesheet" href="../../css/rocket.css">
+<link rel="stylesheet" href="../../css/signature.css">
+<link rel="stylesheet" href="../../css/catalog.css">
+<link rel="stylesheet" href="../../css/livemylife.css">
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+    <!-- reward start -->
+    <link rel="stylesheet" href="/css/donate.css" />
+    <!-- reward end -->
+    
+
+  
+  <!-- scroll start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- scroll end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css" />
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+<link rel="alternate" href="atom.xml" title="System Inside" type="application/atom+xml">
+<link rel="alternate" href="feed.xml" title="System Inside" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body-dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body-dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="System Inside" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/article_header/article_header.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+              
+              <a class="tag" href="/tags/#Header" title="Header">Header</a>
+              
+              <a class="tag" href="/tags/#Security" title="Security">Security</a>
+              
+            </div>
+            <h1>HTTP 安全响应头（Security Response header）配置手册</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2020-11-13
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">28</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">6.6k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
+
+        <p>请访问原文链接：<a href="/article/security-headers/" title="HTTP 安全响应头（Security Response header）配置手册">HTTP 安全响应头（Security Response header）配置手册</a>，查看最新版。转载请保留出处。</p>
+<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<h2 id="一、常用安全-Header-释义"><a href="#一、常用安全-Header-释义" class="headerlink" title="一、常用安全 Header 释义"></a>一、常用安全 Header 释义</h2><h3 id="1-Strict-Transport-Security-HSTS"><a href="#1-Strict-Transport-Security-HSTS" class="headerlink" title="1. Strict-Transport-Security (HSTS)"></a>1. Strict-Transport-Security (HSTS)</h3><p><code>HTTP Strict Transport Security</code>（通常简称为 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/HSTS" target="_blank" rel="noopener">HSTS</a>）是一个安全功能，它告诉浏览器只能通过HTTPS访问当前资源，而不是 <a href="https://developer.mozilla.org/en/HTTP" target="_blank" rel="noopener">HTTP</a>。</p>
+<p>作用：访问一个 HTTPS 网站，要求浏览器总是通过 HTTPS 访问它。</p>
+<p>语法：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strict</span>-transport-<span class="keyword">security</span>: max-age=&lt;expire-<span class="type">time</span>&gt;</span><br><span class="line"><span class="keyword">strict</span>-transport-<span class="keyword">security</span>: max-age=&lt;expire-<span class="type">time</span>&gt;; includeSubDomains</span><br><span class="line"><span class="keyword">strict</span>-transport-<span class="keyword">security</span>: max-age=&lt;expire-<span class="type">time</span>&gt;; includeSubDomains; preload</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">strict</span>-trans<span class="keyword">port</span>-security: max-age=31536000; includeSubDomains; preload</span><br></pre></td></tr></table></figure>
+
+<p>释义：</p>
+<ul>
+<li><code>max-age=&lt;expire-time&gt;</code> 设置在浏览器收到这个请求后的 <expire-time> 秒的时间内凡是访问这个域名下的请求都使用 HTTPS 请求。</li>
+<li><code>includeSubDomains</code> 可选，如果这个可选的参数被指定，那么说明此规则也适用于该网站的所有子域名。</li>
+<li><code>preload</code> 可选，加入预加载列表</li>
+</ul>
+<p>谷歌维护着一个 <a href="https://hstspreload.appspot.com/" target="_blank" rel="noopener">HSTS 预加载服务</a>。按照如下指示成功提交你的域名后，浏览器将会永不使用非安全的方式连接到你的域名。虽然该服务是由谷歌提供的，但所有浏览器都有使用这份列表的意向（或者已经在用了）。但是，这不是 HSTS 标准的一部分，也不该被当作正式的内容。</p>
+<ul>
+<li>Chrome &amp; Chromium 的 HSTS 预加载列表： <a href="https://www.chromium.org/hsts" target="_blank" rel="noopener">https://www.chromium.org/hsts</a></li>
+<li>Firefox 的 HSTS 预加载列表：<a href="https://hg.mozilla.org/mozilla-central/raw-file/tip/security/manager/ssl/nsSTSPreloadList.inc" target="_blank" rel="noopener">nsSTSPreloadList.inc</a></li>
+</ul>
+<blockquote>
+<p>输入 chrome://net-internals/#hsts，进入 HSTS 管理界面，可以增加/删除/查询 HSTS 记录。<br>将网站加入预加载列表：<a href="https://hstspreload.org/" target="_blank" rel="noopener">https://hstspreload.org/</a></p>
+</blockquote>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Security/HTTP_Strict_Transport_Security" target="_blank" rel="noopener">HTTP Strict Transport Security (HSTS)</a></p>
+<h3 id="2-Public-Key-Pins（HPKP）"><a href="#2-Public-Key-Pins（HPKP）" class="headerlink" title="2. Public-Key-Pins（HPKP）"></a>2. Public-Key-Pins（HPKP）</h3><p>作用：防止中间人攻击。是 HTTPS 网站防止攻击者利用 CA 错误签发的证书进行中间人攻击的一种安全机制，用于预防 CA 遭入侵或者其他会造成 CA 签发未授权证书的情况。</p>
+<p>服务器通过 Public-Key-Pins（或 Public-Key-Pins-Report-Onky 用于监测）header 向浏览器传递 HTTP 公钥固定信息。</p>
+<p>语法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Public-Key-Pins: pin-sha256="base64=="; max-age=expireTime [<span class="string">; includeSubdomains</span>][<span class="symbol">; report-uri="reportURI"</span>]</span><br></pre></td></tr></table></figure>
+
+<p>字段含义：</p>
+<ul>
+<li>pin-sha256：即证书指纹，允许出现多次，实际上应用最少指定两个</li>
+<li>max-age：过期时间</li>
+<li>includeSubdomains：是否包含子域</li>
+<li>report-uri：验证失败时上报的地址</li>
+</ul>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Public-Key-Pins" target="_blank" rel="noopener">Public-Key-Pins</a></p>
+<h3 id="3-Content-Security-Policy（CSP）"><a href="#3-Content-Security-Policy（CSP）" class="headerlink" title="3. Content-Security-Policy（CSP）"></a>3. Content-Security-Policy（CSP）</h3><p><strong>X-Content-Security-Policy（旧版）/Content-Security-Policy</strong></p>
+<p>CSP 是一个计算机的安全标志，主要用来防止 XSS、点击劫持、SQL 注入等攻击；CSP 通过定义运行加载脚本的位置和内容防止恶意代码的加载。</p>
+<p>作用：用于定义页面可以加载哪些资源，减少和上报 XSS 的攻击，防止数据包嗅探攻击。</p>
+<p>响应头：</p>
+<ul>
+<li>Content-Security-Policy</li>
+<li>X-Content-Security-Policy</li>
+<li>X-Webkit-CSP</li>
+</ul>
+<p>使用方法：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-<span class="keyword">Security</span>-<span class="keyword">Policy</span>: <span class="keyword">default</span>-src <span class="string">'self'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>一个策略由一系列策略指令组成，每个策略指令都描述了一个针对某个特定类型资源以及生效范围的策略。</li>
+<li>default-src 是 CSP 指令，多个指令之间使用英文分号分割。</li>
+<li>self 是指令值，多个指令值用英文空格分割。</li>
+<li>支持的 CSP 指令。</li>
+</ul>
+<p>元素也可以用于配置 CSP：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>指令值示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>default-src</td>
+<td>‘self’ cnd.a.com</td>
+<td>定义针对所有类型资源的默认加载策略，某类型资源如果没有单独定义策略，就使用默认的</td>
+</tr>
+<tr>
+<td>script-src</td>
+<td>‘self’ js.a.com</td>
+<td>定义针对 JavaScript 的加载策略</td>
+</tr>
+<tr>
+<td>style-src</td>
+<td>‘self’ css.a.com</td>
+<td>定义针对样式的加载策略</td>
+</tr>
+<tr>
+<td>img-src</td>
+<td>‘self’ img.a.com</td>
+<td>定义针对图片的加载策略</td>
+</tr>
+<tr>
+<td>connect-src</td>
+<td>‘self’</td>
+<td>针对 Ajax、WebSocket 等请求的加载策略。不允许的情况下，浏览器会模拟一个状态为 400 的响应</td>
+</tr>
+<tr>
+<td>font-src</td>
+<td>font.a.com</td>
+<td>针对 WebFont 的加载策略</td>
+</tr>
+<tr>
+<td>object-src</td>
+<td>‘self’</td>
+<td>针对 &lt;object&gt;、&lt;embed&gt;、&lt;applet&gt; 等标签引入的 flash 等插件的加载策略</td>
+</tr>
+<tr>
+<td>media-src</td>
+<td>media.a.com</td>
+<td>针对 &lt;audio&gt;、&lt;video&gt; 等标签引入的 HTML 多媒体的加载策略</td>
+</tr>
+<tr>
+<td>frame-src</td>
+<td>‘self’</td>
+<td>针对 frame 的加载策略</td>
+</tr>
+<tr>
+<td>sanbox</td>
+<td>allow-forms</td>
+<td>对请求的资源启用 sandbox（类似于 iframe 的 sandbox 属性）</td>
+</tr>
+<tr>
+<td>report-uri</td>
+<td>/report-uri</td>
+<td>告诉浏览器如果请求不被策略允许，往哪个地址提交日志信息。如果想让浏览器只汇报日志，不阻止任何内容，可以改用 Content-Security-Policy-Report-Only 头</td>
+</tr>
+</tbody></table>
+<p>指令值可以由下面内容组成：</p>
+<table>
+<thead>
+<tr>
+<th>指令值</th>
+<th>指令值示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>img-src</td>
+<td>允许任何内容</td>
+</tr>
+<tr>
+<td>‘none’</td>
+<td>img-src ‘none’</td>
+<td>不允许任何内容</td>
+</tr>
+<tr>
+<td>‘self’</td>
+<td>img-src ‘self’</td>
+<td>允许来自相同源的内容（相同的协议、域名和端口）</td>
+</tr>
+<tr>
+<td>data:</td>
+<td>img-src data:</td>
+<td>允许 data:协议(如 base64 编码的图片)</td>
+</tr>
+<tr>
+<td><a href="http://www.a.com" target="_blank" rel="noopener">www.a.com</a></td>
+<td>img-src img.a.com</td>
+<td>允许加载指定域名的资源</td>
+</tr>
+<tr>
+<td>.a.com</td>
+<td>img-src .a.com</td>
+<td>允许加载 a.com 任何子域的资源</td>
+</tr>
+<tr>
+<td><a href="https://img.com" target="_blank" rel="noopener">https://img.com</a></td>
+<td>img-src <a href="https://img.com" target="_blank" rel="noopener">https://img.com</a></td>
+<td>允许加载 img.com 的 https 资源</td>
+</tr>
+<tr>
+<td>https:</td>
+<td>img-src https:</td>
+<td>允许加载 https 资源</td>
+</tr>
+<tr>
+<td>‘unsafe-inline’</td>
+<td>script-src ‘unsafe-inline’</td>
+<td>允许加载 inline 资源（例如常见的 style 属性，onclick, inline js, inline css）</td>
+</tr>
+<tr>
+<td>‘unsafe-eval’</td>
+<td>script-src ‘unsafe-eval’</td>
+<td>允许加载动态 js 代码，例如 eval()</td>
+</tr>
+</tbody></table>
+<p>违例报告</p>
+<ul>
+<li>document-uri：发生违规的文档的 URI。</li>
+<li>referrer：违规发生处的文档引用地址</li>
+<li>blocked-uri：被 CS P阻止的资源 URI。如果被阻止的 URI 来自不同的源而非文档 URI，则被阻止的资源 URI 会被删减，仅保留协议、主机和端口号。</li>
+<li>violated-directive：违反的策略名称</li>
+<li>original-policy：在 Content-Security-Policy HTTP header 中指明的原始策略。</li>
+</ul>
+<p>示例：让浏览器自动升级请求，访问到 http 资源时自动替换成 https 请求</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-<span class="keyword">Security</span>-<span class="keyword">Policy</span>: upgrade-insecure-requests</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP" target="_blank" rel="noopener">内容安全策略CSP</a></p>
+<h3 id="4-Referrer-Policy"><a href="#4-Referrer-Policy" class="headerlink" title="4. Referrer-Policy"></a>4. Referrer-Policy</h3><p>用来监管哪些访问来源信息——会在 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referer" target="_blank" rel="noopener"><code>Referer</code></a>  中发送——应该被包含在生成的请求当中。（注意 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referer" target="_blank" rel="noopener"><code>Referer</code></a> 实际上是单词 “referrer” 的错误拼写。<code>Referrer-Policy</code> 这个首部并没有延续这个错误拼写。）</p>
+<p>作用：增加隐私保护。</p>
+<p>语法</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Referrer-<span class="keyword">Policy</span>: <span class="keyword">no</span>-referrer</span><br><span class="line">Referrer-<span class="keyword">Policy</span>: <span class="keyword">no</span>-referrer-<span class="keyword">when</span>-downgrade</span><br><span class="line">Referrer-<span class="keyword">Policy</span>: origin</span><br><span class="line">Referrer-<span class="keyword">Policy</span>: origin-<span class="keyword">when</span>-<span class="keyword">cross</span>-origin</span><br><span class="line">Referrer-<span class="keyword">Policy</span>: same-origin</span><br><span class="line">Referrer-<span class="keyword">Policy</span>: <span class="keyword">strict</span>-origin</span><br><span class="line">Referrer-<span class="keyword">Policy</span>: <span class="keyword">strict</span>-origin-<span class="keyword">when</span>-<span class="keyword">cross</span>-origin</span><br><span class="line">Referrer-<span class="keyword">Policy</span>: unsafe-url</span><br></pre></td></tr></table></figure>
+
+<p>可配置值：</p>
+<ul>
+<li>no-referrer：不允许被记录。</li>
+<li>origin：只记录 origin，即域名。</li>
+<li>strict-origin：只有在 HTTPS -&gt; HTTPS 之间才会被记录下来。</li>
+<li>strict-origin-when-cross-origin：同源请求会发送完整的 URL；HTTPS-&gt;HTTPS，发送源；降级下不发送此首部。</li>
+<li>no-referrer-when-downgrade(default)：同 strict-origin。</li>
+<li>origin-when-cross-origin：对于同源的请求，会发送完整的 URL 作为引用地址，但是对于非同源请求仅发送文件的源。</li>
+<li>same-origin：对于同源请求会发送完整 URL，非同源请求则不发送 referer。</li>
+<li>unsafe-url：无论是同源请求还是非同源请求，都发送完整的 URL（移除参数信息之后）作为引用地址。（可能会泄漏敏感信息）。</li>
+</ul>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy" target="_blank" rel="noopener">Referrer-Policy</a></p>
+<h3 id="5-Expect-CT"><a href="#5-Expect-CT" class="headerlink" title="5. Expect-CT"></a>5. Expect-CT</h3><p><code>Expect-CT</code> 头允许站点选择性报告和/或执行证书透明度 (Certificate Transparency) 要求，来防止错误签发的网站证书的使用不被察觉。当站点启用 <code>Expect-CT</code> 头，就是在请求浏览器检查该网站的任何证书是否出现在公共证书透明度日志之中。</p>
+<p>另外一种解释：用于指示浏览器或者客户端验证签名证书的时间戳</p>
+<p>语法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Expect-CT: report-uri="<span class="tag">&lt;<span class="name">uri</span>&gt;</span>";</span><br><span class="line">           enforce;</span><br><span class="line">           max-age=<span class="tag">&lt;<span class="name">age</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>指令</p>
+<ul>
+<li><p>max-age</p>
+<p>该指令指定接收到 <code>Expect-CT</code> 头后的秒数，在此期间用户代理应将收到消息的主机视为已知的 Expect-CT 主机。如果缓存接收到的值大于它可以表示的值，或者如果其随后计算溢出，则缓存将认为该值为 2147483648（2的31次幂）或其可以方便表示的最大正整数。</p>
+</li>
+<li><p>report-uri=”<uri>“ 可选</p>
+<p>该指令指定用户代理应向其报告 Expect-CT 失效的 URI。 当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为“强制执行和报告”配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
+</li>
+<li><p>enforce 可选</p>
+<p>该指令示意用户代理应强制遵守证书透明度政策（而不是只报告合规性），并且用户代理应拒绝违反证书透明度政策的之后连接。当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为“强制执行和报告”配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
+</li>
+</ul>
+<p>示例</p>
+<p>  以下示例指定 24 小时的证书透明度执行，并向 foo.example 报告违规行为.</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expect-CT: max-age=86400; enforce; report-uri="https://foo.example/report"</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expect-CT" target="_blank" rel="noopener">Expect-CT</a></p>
+<h3 id="6-Access-Control-Allow-Origin"><a href="#6-Access-Control-Allow-Origin" class="headerlink" title="6. Access-Control-Allow-Origin"></a>6. Access-Control-Allow-Origin</h3><p><code>Access-Control-Allow-Origin</code> 响应头指定了该响应的资源是否被允许与给定的<a href="https://developer.mozilla.org/en-US/docs/Glossary/origin" target="_blank" rel="noopener">origin</a>共享。跨原始资源共享（CORS）允许网站在它们之间共享内容，为了使网站之间安全的跨域获取资源，可以通过设置<code>Access-Control-Allow-Origin</code>来允许指定网站来跨域获取本地资源。</p>
+<blockquote>
+<p>当目标页面的<code>response</code>中包含<code>Access-Control-Allow-Origin</code>这个 header，并且 value 有对方的域名，浏览器才允许目标获取页面的数据。</p>
+</blockquote>
+<p>示例：只允许”10.10.10.10“访问自己本地资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http:&#x2F;&#x2F;10.10.10.10</span><br></pre></td></tr></table></figure>
+
+<p>语法</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: *</span><br><span class="line">Access-Control-Allow-Origin: &lt;origin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>指令</p>
+<p>  <code>*</code></p>
+<p>  对于不需具备凭证（credentials）的请求，服务器会以“<code>*</code>”作为通配符，从而允许所有域都具有访问资源的权限。</p>
+<p>  <code>&lt;origin&gt;</code></p>
+<p>  指定一个可以访问资源的 URL。</p>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Origin" target="_blank" rel="noopener">Access-Control-Allow-Origin</a></p>
+<h3 id="7-Cache-Control"><a href="#7-Cache-Control" class="headerlink" title="7. Cache-Control"></a>7. Cache-Control</h3><p><code>Cache-Control</code> 通用消息头字段，被用于在 http 请求和响应中，通过指定指令来实现缓存机制。缓存指令是单向的，这意味着在请求中设置的指令，不一定被包含在响应中。</p>
+<p>缓存机制可以减少对网络带宽的占用，可以提高访问速度，提高用户的体验，<strong>特定请求被禁止缓存可以提高安全性</strong>。</p>
+<p><strong>语法</strong></p>
+<p>指令不区分大小写，并且具有可选参数，可以用令牌或者带引号的字符串语法。多个指令以逗号分隔。</p>
+<ul>
+<li>缓存请求指令</li>
+</ul>
+<p>客户端可以在HTTP请求中使用的标准 Cache-Control 指令。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Cache</span>-Control: <span class="keyword">max</span>-age=&lt;<span class="keyword">seconds</span>&gt;</span><br><span class="line"><span class="keyword">Cache</span>-Control: <span class="keyword">max</span>-stale[=&lt;<span class="keyword">seconds</span>&gt;]</span><br><span class="line"><span class="keyword">Cache</span>-Control: <span class="keyword">min</span>-<span class="keyword">fresh</span>=&lt;<span class="keyword">seconds</span>&gt;</span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">no</span>-<span class="keyword">cache</span></span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">no</span>-<span class="keyword">store</span></span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">no</span>-transform</span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">only</span>-<span class="keyword">if</span>-cached</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>缓存响应指令</li>
+</ul>
+<p>服务器可以在响应中使用的标准 Cache-Control 指令。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Cache</span>-control: must-revalidate</span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">no</span>-<span class="keyword">cache</span></span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">no</span>-<span class="keyword">store</span></span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">no</span>-transform</span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">public</span></span><br><span class="line"><span class="keyword">Cache</span>-control: <span class="keyword">private</span></span><br><span class="line"><span class="keyword">Cache</span>-control: proxy-revalidate</span><br><span class="line"><span class="keyword">Cache</span>-Control: <span class="keyword">max</span>-age=&lt;<span class="keyword">seconds</span>&gt;</span><br><span class="line"><span class="keyword">Cache</span>-control: s-maxage=&lt;<span class="keyword">seconds</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>扩展<code>Cache-Control</code>指令</li>
+</ul>
+<p>拓展缓存指令不是核心HTTP缓存标准文档的一部分，使用前请注意检查<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control#浏览器兼容性" target="_blank" rel="noopener">兼容性</a>！</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Cache</span>-control: immutable</span><br><span class="line"><span class="keyword">Cache</span>-control: stale-<span class="keyword">while</span>-revalidate=&lt;<span class="keyword">seconds</span>&gt;</span><br><span class="line"><span class="keyword">Cache</span>-control: stale-<span class="keyword">if</span>-<span class="keyword">error</span>=&lt;<span class="keyword">seconds</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令</strong></p>
+<ul>
+<li><p>可缓存性</p>
+<ul>
+<li><p><code>public</code></p>
+<p>表明响应可以被任何对象（包括：发送请求的客户端，代理服务器，等等）缓存，即使是通常不可缓存的内容。（例如：1.该响应没有<code>max-age</code>指令或<code>Expires</code>消息头；2. 该响应对应的请求方法是 <a href="https://wiki.developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST" target="_blank" rel="noopener">POST</a> 。）</p>
+</li>
+<li><p><code>private</code></p>
+<p>表明响应只能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。私有缓存可以缓存响应内容，比如：对应用户的本地浏览器。</p>
+</li>
+<li><p><code>no-cache</code></p>
+<p>在发布缓存副本之前，强制要求缓存把请求提交给原始服务器进行验证(协商缓存验证)。</p>
+</li>
+<li><p><code>no-store</code></p>
+<p>缓存不应存储有关客户端请求或服务器响应的任何内容，即不使用任何缓存。</p>
+</li>
+</ul>
+</li>
+<li><p>到期</p>
+<ul>
+<li><p><code>max-age=&lt;seconds&gt;</code></p>
+<p>设置缓存存储的最大周期，超过这个时间缓存被认为过期(单位秒)。与<code>Expires</code>相反，时间是相对于请求的时间。</p>
+</li>
+<li><p><code>s-maxage=&lt;seconds&gt;</code></p>
+<p>覆盖<code>max-age</code>或者<code>Expires</code>头，但是仅适用于共享缓存(比如各个代理)，私有缓存会忽略它。</p>
+</li>
+<li><p><code>max-stale[=&lt;seconds&gt;]</code></p>
+<p>表明客户端愿意接收一个已经过期的资源。可以设置一个可选的秒数，表示响应不能已经过时超过该给定的时间。</p>
+</li>
+<li><p><code>min-fresh=&lt;seconds&gt;</code></p>
+<p>表示客户端希望获取一个能在指定的秒数内保持其最新状态的响应。</p>
+</li>
+<li><p><code>stale-while-revalidate=&lt;seconds&gt;</code></p>
+<p>表明客户端愿意接受陈旧的响应，同时在后台异步检查新的响应。秒值指示客户愿意接受陈旧响应的时间长度。</p>
+</li>
+<li><p><code>stale-if-error=&lt;seconds&gt;</code></p>
+<p>表示如果新的检查失败，则客户愿意接受陈旧的响应。秒数值表示客户在初始到期后愿意接受陈旧响应的时间。</p>
+</li>
+</ul>
+</li>
+<li><p>重新验证和重新加载</p>
+<ul>
+<li><p><code>must-revalidate</code></p>
+<p>一旦资源过期（比如已经超过<code>max-age</code>），在成功向原始服务器验证之前，缓存不能用该资源响应后续请求。</p>
+</li>
+<li><p><code>proxy-revalidate</code></p>
+<p>与must-revalidate作用相同，但它仅适用于共享缓存（例如代理），并被私有缓存忽略。</p>
+</li>
+<li><p><code>immutable</code></p>
+<p>表示响应正文不会随时间而改变。资源（如果未过期）在服务器上不发生改变，因此客户端不应发送重新验证请求头（例如<code>If-None-Match</code>或I<code>f-Modified-Since</code>）来检查更新，即使用户显式地刷新页面。在Firefox中，immutable只能被用在 <code>https://</code> transactions. 有关更多信息，请参阅<a href="http://bitsup.blogspot.de/2016/05/cache-control-immutable.html" target="_blank" rel="noopener">这里</a>。</p>
+</li>
+</ul>
+</li>
+<li><p>其他</p>
+<ul>
+<li><p><code>no-transform</code></p>
+<p>不得对资源进行转换或转变。<code>Content-Encoding</code>、<code>Content-Range</code>、<code>Content-Type</code>等HTTP头不能由代理修改。例如，非透明代理或者如<a href="https://support.google.com/webmasters/answer/6211428?hl=en" target="_blank" rel="noopener">Google’s Light Mode</a>可能对图像格式进行转换，以便节省缓存空间或者减少缓慢链路上的流量。<code>no-transform</code>指令不允许这样做。</p>
+</li>
+<li><p><code>only-if-cached</code></p>
+<p>表明客户端只接受已缓存的响应，并且不要向原始服务器检查是否有更新的拷贝。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control</a></p>
+<h3 id="8-Set-Cookie"><a href="#8-Set-Cookie" class="headerlink" title="8. Set-Cookie"></a>8. Set-Cookie</h3><p>由服务器端向客户端发送 cookie</p>
+<p>语法：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span></span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; Expires=<span class="params">&lt;date&gt;</span></span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; Max-Age=<span class="params">&lt;non-zero-digit&gt;</span></span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; Domain=<span class="params">&lt;domain-value&gt;</span></span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; Path=<span class="params">&lt;path-value&gt;</span></span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; Secure</span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; HttpOnly</span><br><span class="line"></span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; SameSite=Strict</span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; SameSite=Lax</span><br><span class="line"></span><br><span class="line"><span class="comment">// Multiple directives are also possible, for example:</span></span><br><span class="line">Set-Cookie: <span class="params">&lt;cookie-name&gt;</span>=<span class="params">&lt;cookie-value&gt;</span>; Domain=<span class="params">&lt;domain-value&gt;</span>; Secure; HttpOnly</span><br></pre></td></tr></table></figure>
+
+<p>安全相关：</p>
+<ul>
+<li>HttpOnly：防止使用 javascript（如 document.cookie）去存取 cookie</li>
+<li>Secure：强制 cookie 只能在 HTTPS 环境下传递</li>
+</ul>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie" target="_blank" rel="noopener">Set-Cookie</a></p>
+<h3 id="9-X-Frame-Options"><a href="#9-X-Frame-Options" class="headerlink" title="9. X-Frame-Options"></a>9. X-Frame-Options</h3><p>是否允许一个页面可在 &lt; frame &gt;、&lt; iframe &gt;、&lt; embed &gt; 或者 &lt; object &gt; 中展现的标记。</p>
+<ul>
+<li><p>frame 标签：框架标签，放置一个 HTML 文档（页面）</p>
+</li>
+<li><p>iframe 标签：内联框架标签，在一个 HTML 页面中显示（插入）另一个 HTML 页面</p>
+</li>
+<li><p>embed 标签：音频元素标签，插入一个音频元素</p>
+</li>
+<li><p>object 标签：定义外部内容的容器标签</p>
+</li>
+</ul>
+<p>作用：减少/避免点击劫持 (clickjacking) 的攻击。</p>
+<p>语法：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">X</span>-Frame-<span class="meta">Options</span>: DENY</span><br><span class="line"><span class="meta">X</span>-Frame-<span class="meta">Options</span>: SAMEORIGIN</span><br><span class="line"><span class="meta">X</span>-Frame-<span class="meta">Options</span>: ALLOW-<span class="meta">FROM</span> https://example.com/</span><br></pre></td></tr></table></figure>
+
+<p>响应头支持三种配置：</p>
+<ul>
+<li>DENY：表示该页面不允许在 frame 中展示，即便是在相同域名的页面中嵌套也不允许。</li>
+<li>SAMEORIGIN：表示该页面可以在相同域名页面的 frame 中展示。</li>
+<li>ALLOW-FROM uri：表示该页面可以在指定来源的 frame 中展示。</li>
+</ul>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/X-Frame-Options" target="_blank" rel="noopener"><code>X-Frame-Options</code></a></p>
+<h3 id="10-X-XSS-Protection"><a href="#10-X-XSS-Protection" class="headerlink" title="10. X-XSS-Protection"></a>10. X-XSS-Protection</h3><p>HTTP <strong><code>X-XSS-Protection</code></strong> 响应头是 Internet Explorer，Chrome 和 Safari 的一个特性，当检测到跨站脚本攻击 (<a href="https://developer.mozilla.org/en-US/docs/Glossary/XSS" target="_blank" rel="noopener">XSS</a>)时，浏览器将停止加载页面。若网站设置了良好的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noopener"><code>Content-Security-Policy</code></a> 来禁用内联 JavaScript (<code>&#39;unsafe-inline&#39;</code>)，现代浏览器不太需要这些保护， 但其仍然可以为尚不支持 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSP" target="_blank" rel="noopener">CSP</a> 的旧版浏览器的用户提供保护。</p>
+<p>作用：防范 XSS 攻击。</p>
+<p> PS：这个是旧属性，基本上可以被 CSP 取代，但是仍可以为还没有支持 CSP 的浏览器提供一层保护。<br> 主流浏览器默认都开启了 XSS 保护。</p>
+<p>语法：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">X-XSS-Protection:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">X-XSS-Protection:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">X-XSS-Protection:</span> <span class="number">1</span><span class="string">;</span> <span class="string">mode=block</span></span><br><span class="line"><span class="attr">X-XSS-Protection:</span> <span class="number">1</span><span class="string">;</span> <span class="string">report=&lt;reporting-uri&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>释义：</p>
+<ul>
+<li>0：禁止XSS过滤。</li>
+<li>1：启用XSS过滤（通常浏览器是默认的）。 如果检测到跨站脚本攻击，浏览器将清除页面（删除不安全的部分）。</li>
+<li>1; mode=block：启用 XSS 过滤。 如果检测到攻击，浏览器将不会清除页面，而是阻止页面加载。</li>
+<li>1; report=<reporting-URI> (Chromium only)：启用 XSS 过滤。 如果检测到跨站脚本攻击，浏览器将清除页面并使用 CSP <code>report-uri</code>指令的功能发送违规报告。</li>
+</ul>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection" target="_blank" rel="noopener">X-XSS-Protection</a></p>
+<h3 id="11-X-Content-Type-Options"><a href="#11-X-Content-Type-Options" class="headerlink" title="11. X-Content-Type-Options"></a>11. X-Content-Type-Options</h3><p><code>X-Content-Type-Options</code> HTTP 消息头相当于一个提示标志，被服务器用来提示客户端一定要遵循在 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type" target="_blank" rel="noopener"><code>Content-Type</code></a> 首部中对 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="noopener">MIME 类型</a> 的设定，而不能对其进行修改。这就禁用了客户端的 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#MIME_sniffing" target="_blank" rel="noopener">MIME 类型嗅探</a>行为。</p>
+<p>作用：禁用浏览器的 Content-Type 猜测行为。</p>
+<p>背景：浏览器通常会根据响应头 Content-Type 字段来分辨资源类型。有些资源的 Content-Type 是错的或者未定义。这时，浏览器会启用 MIME-sniffing 来猜测该资源的类型，解析内容并执行。利用这个特性，攻击者可以让原本应该解析为图片的请求被解析为 JavaScript。</p>
+<p>使用方法：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X-Content-<span class="keyword">Type</span>-<span class="keyword">Options</span>: nosniff</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Content-Type-Options" target="_blank" rel="noopener">X-Content-Type-Options</a></p>
+<h3 id="12-X-Permitted-Cross-Domain-Policies"><a href="#12-X-Permitted-Cross-Domain-Policies" class="headerlink" title="12. X-Permitted-Cross-Domain-Policies"></a>12. X-Permitted-Cross-Domain-Policies</h3><p>用于指定客户端能够访问的跨域策略文件的类型。</p>
+<p>跨域策略文件是一种 XML 文件，用于授予 Web 客户端应用权限以处理跨域数据，如 Adobe Flash、Adobe Reader 等。当客户端请求托管在非自己域上的内容时，远程域需要配置一个跨域策略文件以授权请求域的访问，从而使得客户端继续进行相应的交互。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X-Permitted-<span class="keyword">Cross</span>-<span class="keyword">Domain</span>-Policies: <span class="keyword">none</span></span><br><span class="line">X-Permitted-<span class="keyword">Cross</span>-<span class="keyword">Domain</span>-Policies: master-<span class="keyword">only</span></span><br><span class="line">X-Permitted-<span class="keyword">Cross</span>-<span class="keyword">Domain</span>-Policies: <span class="keyword">by</span>-content-<span class="keyword">type</span></span><br><span class="line">X-Permitted-<span class="keyword">Cross</span>-<span class="keyword">Domain</span>-Policies: <span class="keyword">by</span>-ftp-filename</span><br><span class="line">X-Permitted-<span class="keyword">Cross</span>-<span class="keyword">Domain</span>-Policies: <span class="keyword">all</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>释义</strong></p>
+<ul>
+<li>none：目标服务器的任何位置都不允许使用策略文件，包括主策略文件</li>
+<li>master-only：仅允许使用主策略文件</li>
+<li>by-content-type：仅限 HTTP/HTTPS 协议使用，只允许使用 Content-Type: text/x-cross-domain-policy 提供的策略文件</li>
+<li>by-ftp-filename：仅限 FTP 协议使用，只允许使用文件名为 crossdomain.xml 的策略文件</li>
+<li>all：目标域上的所有策略文件都可以使用</li>
+</ul>
+<h3 id="13-Permissions-Policy（Feature-Policy）"><a href="#13-Permissions-Policy（Feature-Policy）" class="headerlink" title="13. Permissions-Policy（Feature-Policy）"></a>13. Permissions-Policy（Feature-Policy）</h3><p>2020年 7月 16日，W3C 组织发布规范，Feature Policy 正式更名为 <a href="https://www.w3.org/TR/permissions-policy/" target="_blank" rel="noopener">Permissions Policy</a>。（参看：<a href="https://sysin.org/article/Feature-Policy-renamed-to-Permissions-Policy/">Feature-Policy 退场，欢迎 Permissions-Policy ！</a>）</p>
+<p>Feature Policy 是一个新的 http 响应头属性，允许一个站点开启或者禁止一些浏览器属性和 API，来更好的确保站点的安全性和隐私性。有点类似<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSP" target="_blank" rel="noopener">内容安全策略</a>，但是它控制的是浏览器的特征而不是安全行为.</p>
+<p>跟其他 http 安全响应头的设置一样，只需要敲定页面具体的限制策略，然后在 http 响应头中返回相应的策略即可：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Feature</span>-Policy: vibrate <span class="string">'self'</span>; usermedia <span class="string">'*'</span>; sync-xhr <span class="string">'self'</span> example.com</span><br></pre></td></tr></table></figure>
+
+<p>语法</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Feature</span>-Policy: <span class="variable">&lt;feature&gt;</span> <span class="variable">&lt;allowlist&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><feature> 允许开启或者禁止的浏览器属性和API列表</strong></p>
+<p>允许开启或者禁止的浏览器属性和API列表还没有完全敲定，比如 Mozilla 可以使用的指令有（see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy#Directives" target="_blank" rel="noopener">Features list</a>）：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Accelerometer</span><br><span class="line">Ambient light sensor</span><br><span class="line">Autoplay</span><br><span class="line">Camera</span><br><span class="line"><span class="keyword">Encrypted</span> media</span><br><span class="line">Fullscreen</span><br><span class="line">Geolocation</span><br><span class="line">Gyroscope</span><br><span class="line">Magnetometer</span><br><span class="line">Microphone</span><br><span class="line">Midi</span><br><span class="line">PaymentRequest</span><br><span class="line">Picture-<span class="keyword">in</span>-picture</span><br><span class="line">USB</span><br><span class="line">VR / XR</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://developers.google.com/web/updates/2018/06/feature-policy" target="_blank" rel="noopener">For now, there are a couple of ways to see what features are controllable.</a></p>
+<ul>
+<li><p>Check out our <a href="https://feature-policy-demos.appspot.com/" target="_blank" rel="noopener"><strong>Feature Policy</strong> Kitchen Sink</a> of demos. It has examples of each policy that’s been implemented in Blink.</p>
+</li>
+<li><p>Check <a href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/feature_policy/feature_policy.cc?l=138&rcl=ab90b51c5b60de15054a32b0bd18e4839536a1c9" target="_blank" rel="noopener">Chrome’s source</a> for the list of feature names.</p>
+</li>
+<li><p>Query <code>document.featurePolicy.allowedFeatures()</code> on <code>about:blank</code> to find the list:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"geolocation"</span>,</span><br><span class="line"> <span class="string">"midi"</span>,</span><br><span class="line"> <span class="string">"camera"</span>,</span><br><span class="line"> <span class="string">"usb"</span>,</span><br><span class="line"> <span class="string">"magnetometer"</span>,</span><br><span class="line"> <span class="string">"fullscreen"</span>,</span><br><span class="line"> <span class="string">"animations"</span>,</span><br><span class="line"> <span class="string">"payment"</span>,</span><br><span class="line"> <span class="string">"picture-in-picture"</span>,</span><br><span class="line"> <span class="string">"accelerometer"</span>,</span><br><span class="line"> <span class="string">"vr"</span>,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check [chromestatus.com](<a href="https://www.chromestatus.com/features#component%3A" target="_blank" rel="noopener">https://www.chromestatus.com/features#component%3A</a> Blink&gt;FeaturePolicy) for the policies that have been implemented or are being considered in Blink.</p>
+</li>
+</ul>
+<p><strong><allowlist> 取值，可以同时取多个值</strong></p>
+<ul>
+<li>*：在页面和内嵌iframes里面都允许。</li>
+<li>‘self’：在页面上允许，在内嵌iframes内只允许同源资源使用。</li>
+<li>‘src’：仅在iframe内生效的属性，只允许iframe内src属性与设置头相同的资源使用。</li>
+<li>‘none’：在页面和内嵌中全部禁止。</li>
+<li>&lt;origin(s)&gt;：允许在特定的origin中使用，多个origins可以用空格隔开。</li>
+</ul>
+<p>‘*’ 和 ‘none’ 单独使用，’self’ 和 ‘src’可以和一个或者多个origins并列使用</p>
+<p><strong>示例</strong></p>
+<p>禁用摄像头和定位 API，则可以在返回的 response 中传递以下定义 feature policy 的 HTTP 的头部信息：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Feature-Policy: camera 'none'; geolocation 'none'</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Feature-Policy" target="_blank" rel="noopener">Feature-Policy</a></p>
+<p><strong>语法变更</strong></p>
+<p>原有 Feature-Policy 示例：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Feature-<span class="string">Policy:</span> geolocation <span class="string">'self'</span> <span class="string">https:</span><span class="comment">//example.com; microphone 'none'</span></span><br></pre></td></tr></table></figure>
+
+<p>Permissions-Policy 语法变更为：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permissions-Policy: <span class="attr">geolocation=(self</span> <span class="string">"https://example.com"</span>), <span class="attr">microphone=()</span></span><br></pre></td></tr></table></figure>
+
+<p>例如，本站部署的 Header：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Feature-Policy"</span>: <span class="type"></span>"camera <span class="string">'none'</span>; microphone <span class="string">'none'</span><span class="string">"</span></span><br></pre></td></tr></table></figure>
+
+<p>也相应变更为：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Permissions-Policy"</span>: <span class="string">"camera=()，microphonee=()"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、配置方法"><a href="#二、配置方法" class="headerlink" title="二、配置方法"></a>二、配置方法</h2><p>以添加以下 Header 示例：</p>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">x</span>-frame-<span class="meta">options</span>: SAMEORIGIN</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-应用交付控制器"><a href="#1-应用交付控制器" class="headerlink" title="1. 应用交付控制器"></a>1. 应用交付控制器</h3><ul>
+<li><p>F5 BIG-IP (iRules)</p>
+  <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_RESPONSE &#123;</span><br><span class="line">  HTTP::header insert X-Frame-Options <span class="string">"SAMEORIGIN"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  移除、替换原有 Header</p>
+  <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_RESPONSE &#123;</span><br><span class="line">  HTTP::header replace Server <span class="string">"SYSIN.ORG/2.0"</span></span><br><span class="line">  HTTP::header remove X-AspNet-Version</span><br><span class="line">  HTTP::header remove X-Powered-By</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ctrix ADC (AppExpert)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add rewrite action insert_x-frame-options_act insert_http_header X-Frame-Options &quot;\&quot;SAMEORIGIN\&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>  移除、替换原有 Header</p>
+  <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add</span> rewrite action <span class="keyword">server</span>-<span class="keyword">header</span>-remove-act delete_http_header X-Powered-<span class="keyword">By</span></span><br><span class="line"><span class="keyword">add</span> rewrite action <span class="keyword">server</span>-<span class="keyword">header</span>-remove-act delete_http_header X-AspNet-<span class="keyword">Version</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-Web-服务器"><a href="#2-Web-服务器" class="headerlink" title="2. Web 服务器"></a>2. Web 服务器</h3><ul>
+<li><p>配置 Apache，所有页面上发送<code>X-Frame-Options</code>响应头，需要在<code>site</code>中配置如下：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Header always set X-Frame-Options &quot;SAMEORLGIN&quot;</span><br></pre></td></tr></table></figure>
+
+<p>  移除、替换原有 Header</p>
+  <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Header</span> <span class="keyword">always</span> unset "X-Powered-By"</span><br><span class="line"><span class="keyword">Header</span> unset "X-Powered-By”</span><br></pre></td></tr></table></figure>
+
+<p>  <a href="https://httpd.apache.org/docs/current/mod/mod_headers.html" target="_blank" rel="noopener">语法</a>：<code>Header [condition] add|append|echo|edit|edit*|merge|set|setifempty|unset|note header [[expr=]value [replacement] [early|env=[!]varname|expr=expression]]</code></p>
+<p>  替换 Server</p>
+<p>  需要 Apache <a href="https://www.tecmint.com/change-apache-server-name-to-anything-in-server-headers/" target="_blank" rel="noopener"><strong>mod_security</strong></a> module (For CentOS: <code>yum install mod_security</code>)</p>
+  <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ServerTokens Prod</span><br><span class="line">SecServerSignature “Your-<span class="keyword">Server</span>-<span class="type">Name</span>”</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 Nginx，所有页面上发送<code>X-Frame-Options</code>响应头，在<code>http</code>,<code>server</code>或者<code>location</code>配置中添加：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_header X-Frame-Options &quot;SAMEORLGIN&quot; always;</span><br></pre></td></tr></table></figure>
+
+<p>  也可以使用模块：<a href="https://github.com/openresty/headers-more-nginx-module#more_set_headers" target="_blank" rel="noopener">more_set_headers</a></p>
+<p>  清除 Header：<a href="https://github.com/openresty/headers-more-nginx-module#more_clear_headers" target="_blank" rel="noopener">more_clear_headers</a></p>
+  <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">more_clear_headers</span> <span class="string">'X-Hidden-*'</span>;  <span class="comment">#支持通配符</span></span><br><span class="line"><span class="attribute">more_clear_headers</span> <span class="string">'X-Powered-By'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>  <a href="https://www.tomred.net/devops/nginx-remove-server-header.html" target="_blank" rel="noopener">Remove Server Header</a></p>
+<p>  Install</p>
+  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Debian/Ubuntu the first</span></span><br><span class="line">~/$&gt; sudo apt-get <span class="keyword">install</span> nginx-extras</span><br><span class="line"></span><br><span class="line"><span class="comment"># RHEL and Amazon Linux</span></span><br><span class="line">~/$&gt; yum <span class="keyword">install</span> nginx-plus-module-headers-more</span><br></pre></td></tr></table></figure>
+
+<p>  Remove Server Header</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/nginx/nginx.conf</span></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    # Basic Settings</span><br><span class="line">    more_set_headers <span class="string">'Server: '</span>;</span><br></pre></td></tr></table></figure>
+
+<p>  Override Server Header</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/nginx/nginx.conf</span></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    # Basic Settings</span><br><span class="line">    more_set_headers <span class="string">'Server: None Of Your Business'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>  Remove Server Version from Header</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/nginx/nginx.conf</span></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    # Basic Settings</span><br><span class="line">    server_tokens off;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 IIS，在 Web.config 文件中添加：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;system.webServer&gt;</span><br><span class="line">  &lt;httpProtocol&gt;</span><br><span class="line">        &lt;customHeaders&gt;</span><br><span class="line">            &lt;add name&#x3D;&quot;X-Frame-Options&quot; value&#x3D;&quot;SAMEORLGIN&quot; &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;customHeaders&gt;</span><br><span class="line">    &lt;&#x2F;httpProtocol&gt;</span><br><span class="line">&lt;&#x2F;system.webServer&gt;</span><br></pre></td></tr></table></figure>
+
+<p>  或者使用 “<strong>Internet Information Services (IIS) Manager</strong>” &gt; <strong>HTTP Response Headers</strong>，直接添加。</p>
+<p>  删除和修改 Server Header</p>
+<p>  <a href="https://download.cnet.com/UrlScan-for-IIS-64-bit/3000-10248_4-75451809.html" target="_blank" rel="noopener">下载</a>并安装 UrlScan，编辑配置文件 URLScan.ini（位于 %WINDIR%\System32\Inetsrv\URLscan）</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">RemoveServerHeader</span>=0  #默认，修改值为 1 则不发送<span class="built_in"> Server </span>header</span><br><span class="line"><span class="attribute">AlternateServerName</span>=需要替换的名称</span><br></pre></td></tr></table></figure>
+
+<p>  删除或者修改 <strong>X-Powered-By</strong></p>
+<p>  “<strong>Internet Information Services (IIS) Manager</strong>” &gt; <strong>HTTP Response Headers</strong>，直接修改或者删除。</p>
+<p>  删除 <strong>X-AspNet-Version</strong></p>
+<p>  在站点的web.config文件下的&lt;system.web&gt;结点下添加</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">httpRuntime</span> <span class="attr">enableVersionHeader</span>=<span class="string">"false"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3-应用程序"><a href="#3-应用程序" class="headerlink" title="3. 应用程序"></a>3. 应用程序</h3><p>这里提供部分示例：</p>
+<ul>
+<li><p>JAVA</p>
+<p>  Spring Security 支持在响应中添加各种安全头，默认响应安全头如下：</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Cache</span>-Control: <span class="keyword">no</span>-<span class="keyword">cache</span>, <span class="keyword">no</span>-<span class="keyword">store</span>, <span class="keyword">max</span>-age=<span class="number">0</span>, must-revalidate</span><br><span class="line"><span class="keyword">Pragma</span>: <span class="keyword">no</span>-<span class="keyword">cache</span></span><br><span class="line">Expires: <span class="number">0</span></span><br><span class="line">X-<span class="keyword">Content</span>-<span class="keyword">Type</span>-Options: nosniff</span><br><span class="line"><span class="keyword">Strict</span>-Transport-<span class="keyword">Security</span>: <span class="keyword">max</span>-age=<span class="number">31536000</span> ; includeSubDomains</span><br><span class="line">X-Frame-Options: DENY</span><br><span class="line">X-XSS-Protection: 1; mode=block</span><br></pre></td></tr></table></figure>
+
+<p>  示例：Spring Security 用 “X-Frame-Options: SAMEORIGIN” 允许 iframes 在同一个域。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSecurityConfig</span> <span class="keyword">extends</span></span></span><br><span class="line"><span class="class"><span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">  http</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  .headers()</span><br><span class="line">    .frameOptions()</span><br><span class="line">      .sameOrigin();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSecurityConfig</span> <span class="keyword">extends</span></span></span><br><span class="line"><span class="class"><span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">  http</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  .headers()</span><br><span class="line">    .frameOptions()</span><br><span class="line">      .sameOrigin();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  更多参看：<a href="https://www.baeldung.com/spring-response-header" target="_blank" rel="noopener">https://www.baeldung.com/spring-response-header</a></p>
+</li>
+<li><p>PHP</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header( <span class="string">'x-frame-options: SAMEORIGIN'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In this example a HTTP header X-PHP-Version is added to the HTTP request. The value of this header is the version string of the PHP interpreter that is running the instance of HTTP_Request.</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">"HTTP/Request.php"</span>;</span><br><span class="line"></span><br><span class="line">$req =&amp; <span class="keyword">new</span> HTTP_Request(<span class="string">"http://example.com/"</span>);</span><br><span class="line">$req-&gt;addHeader(<span class="string">"X-PHP-Version"</span>, phpversion());</span><br><span class="line"></span><br><span class="line">$response = $req-&gt;sendRequest();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (PEAR::isError($response)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> $response-&gt;getMessage();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> $req-&gt;getResponseBody();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>C#</p>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> Microsoft.Web.Administration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">internal</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Sample</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">      <span class="keyword">using</span> (ServerManager serverManager = <span class="keyword">new</span> ServerManager())</span><br><span class="line">      &#123;</span><br><span class="line">        Configuration config = serverManager.GetWebConfiguration(<span class="string">"Default Web Site"</span>);</span><br><span class="line">        ConfigurationSection httpProtocolSection = config.GetSection(<span class="string">"system.webServer/httpProtocol"</span>);</span><br><span class="line">        ConfigurationElementCollection customHeadersCollection = httpProtocolSection.GetCollection(<span class="string">"customHeaders"</span>);</span><br><span class="line"></span><br><span class="line">        ConfigurationElement addElement = customHeadersCollection.CreateElement(<span class="string">"add"</span>);</span><br><span class="line">        addElement[<span class="string">"name"</span>] = <span class="string">@"x-frame-options"</span>;</span><br><span class="line">        addElement[<span class="string">"value"</span>] = <span class="string">@"SAMEORIGIN"</span>;</span><br><span class="line">        customHeadersCollection.Add(addElement);</span><br><span class="line"></span><br><span class="line">        serverManager.CommitChanges();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>VB.net</p>
+  <figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Imports</span> System</span><br><span class="line"><span class="keyword">Imports</span> System.<span class="keyword">Text</span></span><br><span class="line"><span class="keyword">Imports</span> Microsoft.Web.Administration</span><br><span class="line"></span><br><span class="line"><span class="keyword">Module</span> Sample</span><br><span class="line"></span><br><span class="line">  <span class="keyword">Sub</span> Main()</span><br><span class="line">      <span class="keyword">Dim</span> serverManager <span class="keyword">As</span> ServerManager = <span class="keyword">New</span> ServerManager</span><br><span class="line">      <span class="keyword">Dim</span> config <span class="keyword">As</span> Configuration = serverManager.GetWebConfiguration(<span class="string">"Default Web Site"</span>)</span><br><span class="line">      <span class="keyword">Dim</span> httpProtocolSection <span class="keyword">As</span> ConfigurationSection = config.GetSection(<span class="string">"system.webServer/httpProtocol"</span>)</span><br><span class="line">      <span class="keyword">Dim</span> customHeadersCollection <span class="keyword">As</span> ConfigurationElementCollection = httpProtocolSection.GetCollection(<span class="string">"customHeaders"</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">Dim</span> addElement <span class="keyword">As</span> ConfigurationElement = customHeadersCollection.CreateElement(<span class="string">"add"</span>)</span><br><span class="line">      addElement(<span class="string">"name"</span>) = <span class="string">"x-frame-options"</span></span><br><span class="line">      addElement(<span class="string">"value"</span>) = <span class="string">"SAMEORIGIN"</span></span><br><span class="line">      customHeadersCollection.Add(addElement)</span><br><span class="line"></span><br><span class="line">      serverManager.CommitChanges()</span><br><span class="line">  <span class="keyword">End</span> <span class="keyword">Sub</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Module</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JavaScript</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> adminManager = <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.ApplicationHost.WritableAdminManager'</span>);</span><br><span class="line">adminManager.CommitPath = <span class="string">"MACHINE/WEBROOT/APPHOST/Default Web Site"</span>;</span><br><span class="line"><span class="keyword">var</span> httpProtocolSection = adminManager.GetAdminSection(<span class="string">"system.webServer/httpProtocol"</span>, <span class="string">"MACHINE/WEBROOT/APPHOST/Default Web Site"</span>);</span><br><span class="line"><span class="keyword">var</span> customHeadersCollection = httpProtocolSection.ChildElements.Item(<span class="string">"customHeaders"</span>).Collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> addElement = customHeadersCollection.CreateNewElement(<span class="string">"add"</span>);</span><br><span class="line">addElement.Properties.Item(<span class="string">"name"</span>).Value = <span class="string">"x-frame-options"</span>;</span><br><span class="line">addElement.Properties.Item(<span class="string">"value"</span>).Value = <span class="string">"SAMEORIGIN"</span>;</span><br><span class="line">customHeadersCollection.AddElement(addElement);</span><br><span class="line"></span><br><span class="line">adminManager.CommitChanges();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="三、安全响应头设置建议"><a href="#三、安全响应头设置建议" class="headerlink" title="三、安全响应头设置建议"></a>三、安全响应头设置建议</h2><p>可以查看一些领先的网站实例，参考配置。</p>
+<p>通常需要修改、移除和添加一些 Header 如下：</p>
+<h3 id="1-需要修改的-Header"><a href="#1-需要修改的-Header" class="headerlink" title="1. 需要修改的 Header"></a>1. 需要修改的 Header</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Server</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-需要移除的-Header"><a href="#2-需要移除的-Header" class="headerlink" title="2. 需要移除的 Header"></a>2. 需要移除的 Header</h3><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">X</span>-Powered-<span class="meta">By</span></span><br><span class="line"><span class="meta">X</span>-AspNet-Version</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-建议添加的-Header"><a href="#3-建议添加的-Header" class="headerlink" title="3. 建议添加的 Header"></a>3. 建议添加的 Header</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Strict</span>-Transport-<span class="keyword">Security</span></span><br><span class="line">X-Content-<span class="keyword">Type</span>-<span class="keyword">Options</span></span><br><span class="line">Content-<span class="keyword">Security</span>-<span class="keyword">Policy</span></span><br><span class="line">X-Xss-Protection</span><br><span class="line">X-Frame-<span class="keyword">Options</span></span><br><span class="line">Referrer-<span class="keyword">Policy</span></span><br><span class="line">Feature-<span class="keyword">Policy</span></span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"Content-Security-Policy"</span>: <span class="string">"upgrade-insecure-requests"</span>,</span><br><span class="line"><span class="string">"Strict-Transport-Security"</span>: <span class="string">"max-age=31536000; includeSubDomains; preload"</span>,</span><br><span class="line"><span class="string">"X-Xss-Protection"</span>: <span class="string">"1; mode=block"</span>,</span><br><span class="line"><span class="string">"X-Frame-Options"</span>: <span class="string">"SAMEORIGIN"</span>,</span><br><span class="line"><span class="string">"X-Content-Type-Options"</span>: <span class="string">"nosniff"</span>,</span><br><span class="line"><span class="string">"Referrer-Policy"</span>: <span class="string">"strict-origin-when-cross-origin"</span>,</span><br><span class="line"><span class="string">"Feature-Policy"</span>: <span class="string">"camera '</span>none'; microphone <span class="string">'none'</span><span class="string">",</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-通过-Security-Headers-网站检测"><a href="#4-通过-Security-Headers-网站检测" class="headerlink" title="4. 通过 Security Headers 网站检测"></a>4. 通过 <a href="https://securityheaders.com/" target="_blank" rel="noopener">Security Headers</a> 网站检测</h3><p>注意 FAQ 中的要点：</p>
+<p><a href="https://securityheaders.com/faq/" target="_blank" rel="noopener">Frequently asked questions</a></p>
+<p><strong>How do I get an A+ grade?</strong></p>
+<p>To get an A+ grade your site needs to issue all of the HTTP response headers that we check for. This indicates a high level of commitment to  improving security for your visitors.</p>
+<p><strong>What headers do you check for?</strong></p>
+<p>Over a HTTP connection we check for Content-Security-Policy,  X-Content-Type-Options, X-Frame-Options and X-XSS-Protection. Over a  HTTPS connection we check for 2 additional headers which are  Strict-Transport-Security and Public-Key-Pins.</p>
+<h2 id="四、资源网站"><a href="#四、资源网站" class="headerlink" title="四、资源网站"></a>四、资源网站</h2><p>MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers" target="_blank" rel="noopener">HTTP Headers</a></p>
+<p><a href="https://www.veracode.com/blog/" target="_blank" rel="noopener">Veracode Blog</a>：Application Security Research, News, and Education</p>
+<h2 id="五、检测工具"><a href="#五、检测工具" class="headerlink" title="五、检测工具"></a>五、检测工具</h2><ul>
+<li><p>在线检查网站：<a href="https://securityheaders.com/（推荐，提供配置建议）" target="_blank" rel="noopener">https://securityheaders.com/（推荐，提供配置建议）</a></p>
+</li>
+<li><p>命令行工具：</p>
+<p>curl：<code>curl -I https://sysin.org</code></p>
+<p><img src="curl-sysin.jpg" alt="curl sysin"></p>
+<p><a href="https://github.com/riramar/hsecscan" target="_blank" rel="noopener">hsecscan</a>（Python）</p>
+</li>
+<li><p>浏览器自带开发者工具，或者第三方 Header 扩展</p>
+</li>
+</ul>
+
+
+        <hr>
+
+        
+          <!-- promotion start -->
+          <div class="tip">
+            <p>
+              广而告之：<a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>，<a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云 云产品限时秒杀，爆款1核2G云服务器，首年99元</a>
+            </p>
+          </div>
+          <!-- promotion end -->
+          <hr>
+          
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/article/macOS-Big-Sur-boot-iso/" data-toggle="tooltip" data-placement="top" title="macOS Big Sur 11.1 可启动 ISO 镜像（用于虚拟机安装）">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/article/Splunk-8/" data-toggle="tooltip" data-placement="top" title="Splunk 8 - Data-to-Everything™ 平台">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+        <hr>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            如果文章中使用的内容和图片侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有用，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+          </p>
+        </div>
+        <!-- tip end -->
+        <hr>
+        
+
+        <!--打赏-->
+        
+            <div class="reward">
+                <div class="reward-button">赏 <span class="reward-code">
+                    <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span>
+                    <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.jpg"><b>微信打赏</b> </span>
+                    </span></div>
+                <p class="reward-notice">赞赏一下</p>
+            </div>
+        <hr>
+        
+
+        <!--打赏-->
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=HTTP 安全响应头（Security Response header）配置手册&body=Hi,I found this website and thought you might like it https://sysin.org/article/security-headers/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- require APlayer -->
+        
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a4a3611e5f9fc02efc2c',
+    clientSecret: '2eaf392b1017d6ca39ed728da12d2f5470aa0888',
+    repo: 'gitalk',
+    owner: 'netgc',
+    admin: 'netgc',
+    id: 'Fri Nov 13 2020 14:50:12 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content (TOC) -->
+      <!-- Table of Contents -->
+<!-- Don not display number -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+<!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一、常用安全-Header-释义"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一、常用安全 Header 释义</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-Strict-Transport-Security-HSTS"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1. Strict-Transport-Security (HSTS)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-Public-Key-Pins（HPKP）"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2. Public-Key-Pins（HPKP）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-Content-Security-Policy（CSP）"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">3. Content-Security-Policy（CSP）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-Referrer-Policy"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">4. Referrer-Policy</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-Expect-CT"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">5. Expect-CT</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-Access-Control-Allow-Origin"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">6. Access-Control-Allow-Origin</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-Cache-Control"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">7. Cache-Control</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-Set-Cookie"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">8. Set-Cookie</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-X-Frame-Options"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">9. X-Frame-Options</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#10-X-XSS-Protection"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">10. X-XSS-Protection</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#11-X-Content-Type-Options"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">11. X-Content-Type-Options</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#12-X-Permitted-Cross-Domain-Policies"><span class="toc-nav-number">1.12.</span> <span class="toc-nav-text">12. X-Permitted-Cross-Domain-Policies</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#13-Permissions-Policy（Feature-Policy）"><span class="toc-nav-number">1.13.</span> <span class="toc-nav-text">13. Permissions-Policy（Feature-Policy）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二、配置方法"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">二、配置方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-应用交付控制器"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. 应用交付控制器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-Web-服务器"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. Web 服务器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-应用程序"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 应用程序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#三、安全响应头设置建议"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">三、安全响应头设置建议</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-需要修改的-Header"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. 需要修改的 Header</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-需要移除的-Header"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 需要移除的 Header</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-建议添加的-Header"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 建议添加的 Header</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-通过-Security-Headers-网站检测"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 通过 Security Headers 网站检测</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#四、资源网站"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">四、资源网站</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#五、检测工具"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">五、检测工具</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+            
+            <a class="tag" href="/tags/#Header" title="Header">Header</a>
+            
+            <a class="tag" href="/tags/#Security" title="Security">Security</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>SITE LINKS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://my.oschina.net/sysin/" target="_blank">OSCHINA Blog</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a target="_blank" href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2020
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.svg"></a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+<script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://sysin.org/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Baidu Push -->
+
+<script>
+  (function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://sysin.org/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

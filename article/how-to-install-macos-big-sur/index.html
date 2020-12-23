@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="google-site-verification" content="sysin"> -->
+  <!-- <meta name="baidu-site-verification" content="sysin" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> 如何在 Mac 和虚拟机上安装 macOS Big Sur 11 正式版 - sysin - System Inside </title>
+  <meta name="description" content=" 如何在 Mac 和虚拟机上安装 macOS Big Sur 11 正式版 - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" 如何在 Mac 和虚拟机上安装 macOS Big Sur 11 正式版 " />
+  <link rel="canonical" href="https://sysin.org/article/how-to-install-macos-big-sur/" />
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="../../css/highlight.css">
+<link rel="stylesheet" href="../../css/widget.css">
+<link rel="stylesheet" href="../../css/rocket.css">
+<link rel="stylesheet" href="../../css/signature.css">
+<link rel="stylesheet" href="../../css/catalog.css">
+<link rel="stylesheet" href="../../css/livemylife.css">
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+    <!-- reward start -->
+    <link rel="stylesheet" href="/css/donate.css" />
+    <!-- reward end -->
+    
+
+  
+  <!-- scroll start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- scroll end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css" />
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+<link rel="alternate" href="atom.xml" title="System Inside" type="application/atom+xml">
+<link rel="alternate" href="feed.xml" title="System Inside" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body-dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body-dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="System Inside" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/article_header/article_header_m1.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+              
+              <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+              
+            </div>
+            <h1>如何在 Mac 和虚拟机上安装 macOS Big Sur 11 正式版</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2020-11-14
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">9</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
+
+        <p>请访问原文链接：<a href="/article/how-to-install-macos-big-sur/" title="如何在 Mac 和虚拟机上安装 macOS Big Sur 11 正式版">如何在 Mac 和虚拟机上安装 macOS Big Sur 11 正式版</a>，查看最新版。转载请保留出处。</p>
+<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<p><strong>macfz：请停止抄袭！</strong></p>
+<blockquote>
+<p>2020.11.17 更新：增加配备 Apple T2 安全芯片的 Mac 额外操作步骤。</p>
+</blockquote>
+<p>本文适用以下场景：</p>
+<ul>
+<li><p>Mac 上全新安装 macOS Big Sur（在官方兼容列表中的硬件）</p>
+<p>如果 Mac 不在官方兼容性列表，请参看：<a href="https://sysin.org/article/install-macos-11-on-unsupported-mac/">在不受支持的 Mac 上安装 macOS Big Sur 11.0 正式版</a></p>
+<p>在线升级不在讨论范畴，补丁加补丁……</p>
+</li>
+<li><p>在 ESXi、Windows 和 macOS 中安装 macOS Big Sur 虚机</p>
+<p><img src="macOS-Big-Sur-in-Fusion.jpg" alt="macOS-Big-Sur-in-Fusion"></p>
+</li>
+</ul>
+<h2 id="1-获取-macOS-Big-Sur-正式版软件包"><a href="#1-获取-macOS-Big-Sur-正式版软件包" class="headerlink" title="1. 获取 macOS Big Sur 正式版软件包"></a>1. 获取 macOS Big Sur 正式版软件包</h2><ul>
+<li><p>Mac App Store</p>
+<p><a href="https://apps.apple.com/us/app/macos-big-sur/id1526878132?mt=12" target="_blank" rel="noopener">https://apps.apple.com/us/app/macos-big-sur/id1526878132?mt=12</a></p>
+<p>或者打开 App Store 直接搜索 macOS （或者 Big Sur）下载即可。</p>
+</li>
+<li><p>百度网盘镜像</p>
+<p>请访问：<a href="https://sysin.org/article/macOS-Big-Sur/">https://sysin.org/article/macOS-Big-Sur/</a></p>
+</li>
+</ul>
+<p>上述两种方式，都会将 Install macOS Big Sur.app 放置于 /Applications （应用程序）下面。</p>
+<ul>
+<li><p>可启动 ISO 镜像，可用于虚拟安装</p>
+<p>请访问：<a href="https://sysin.org/article/macOS-Big-Sur-boot-iso/">https://sysin.org/article/macOS-Big-Sur-boot-iso/</a></p>
+</li>
+</ul>
+<h2 id="2-了解-macOS-Big-Sur-兼容设备"><a href="#2-了解-macOS-Big-Sur-兼容设备" class="headerlink" title="2. 了解 macOS Big Sur 兼容设备"></a>2. 了解 macOS Big Sur 兼容设备</h2><ul>
+<li>MacBook 2015 and later <a href="https://support.apple.com/kb/HT201608" target="_blank" rel="noopener">Learn more</a></li>
+<li>MacBook Air 2013 and later <a href="https://support.apple.com/kb/HT201862" target="_blank" rel="noopener">Learn more</a></li>
+<li>MacBook Pro Late 2013 and later <a href="https://support.apple.com/kb/HT201300" target="_blank" rel="noopener">Learn more</a></li>
+<li>Mac mini 2014 and later <a href="https://support.apple.com/kb/HT201894" target="_blank" rel="noopener">Learn more</a></li>
+<li>iMac 2014 and later <a href="https://support.apple.com/kb/HT201634" target="_blank" rel="noopener">Learn more</a></li>
+<li>iMac Pro 2017 and later (all models)</li>
+<li>Mac Pro 2013 and later <a href="https://support.apple.com/kb/HT202888" target="_blank" rel="noopener">Learn more</a></li>
+</ul>
+<p>如果您的 Mac 不在兼容性列表请参看这里：<a href="https://sysin.org/article/install-macos-11-on-unsupported-mac/">在不受支持的 Mac 上安装 macOS Big Sur 11.0 正式版</a></p>
+<h2 id="3-安装方式：在当前系统下全新安装"><a href="#3-安装方式：在当前系统下全新安装" class="headerlink" title="3. 安装方式：在当前系统下全新安装"></a>3. 安装方式：在当前系统下全新安装</h2><h3 id="（1）一般步骤"><a href="#（1）一般步骤" class="headerlink" title="（1）一般步骤"></a>（1）一般步骤</h3><p>1) 确保已经下载好 Install macOS Big Sur.app 并放置于 /Applications （应用程序）下</p>
+<p>2）在当前系统中全新安装，打开“磁盘工具”，新建一个大约 16G 的 “macOS 扩展（日志式）”分区（非 APFS 卷），命名为 Install，执行命令写入：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Applications/<span class="keyword">Install</span>\ macOS\ <span class="keyword">Big</span>\ Sur.app/<span class="keyword">Contents</span>/Resources/createinstallmedia <span class="comment">--volume /Volumes/Install</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建完毕后，卷名称自动修改为 Install macOS Big Sur</p>
+</blockquote>
+<p>3）打开“系统偏好设置…” &gt; “启动磁盘”，选择上述分区（Install macOS Big Sur），重新启动，进入 macOS 安装画面</p>
+<p>如果不支持切换启动磁盘，重新启动，按住 Option 键，出现启动选择画面，选择“Install macOS Big Sur”图标，进入安装画面</p>
+<p><img src="macos-big-sur-boot-1.jpg" alt="macos-big-sur-boot-1"></p>
+<p>4）选择磁盘工具，抹掉原有卷（默认名称：Macintosh HD，格式：APFS）即可全新安装</p>
+<p><img src="macos-big-sur-boot-2.jpg" alt="macos-big-sur-boot-2"></p>
+<p>5）关闭磁盘工具，选择“安装 macOS Big Sur”，根据提示多次点击下一步即可完成安装</p>
+<h3 id="（2）配备-Apple-T2-安全芯片的电脑可能需要额外的操作"><a href="#（2）配备-Apple-T2-安全芯片的电脑可能需要额外的操作" class="headerlink" title="（2）配备 Apple T2 安全芯片的电脑可能需要额外的操作"></a>（2）配备 Apple T2 安全芯片的电脑可能需要额外的操作</h3><p>下列 Mac 电脑配备了 Apple T2 安全芯片：</p>
+<ul>
+<li>2020 年推出的 <a href="https://support.apple.com/zh-cn/HT201634" target="_blank" rel="noopener">iMac</a></li>
+<li>iMac Pro</li>
+<li>2019 年推出的 <a href="https://support.apple.com/zh-cn/HT202888" target="_blank" rel="noopener">Mac Pro</a></li>
+<li>2018 年推出的 <a href="https://support.apple.com/zh-cn/HT201894" target="_blank" rel="noopener">Mac mini</a></li>
+<li>2018 年或之后推出的 <a href="https://support.apple.com/zh-cn/HT201862" target="_blank" rel="noopener">MacBook Air</a></li>
+<li>2018 年或之后推出的 <a href="https://support.apple.com/zh-cn/HT201300" target="_blank" rel="noopener">MacBook Pro</a></li>
+</ul>
+<p>您也可以通过“<a href="https://support.apple.com/zh-cn/HT203001" target="_blank" rel="noopener">系统信息</a>”来了解您的 Mac 有没有配备这款芯片：</p>
+<ol>
+<li>在按住 Option 键的同时，选取苹果 () 菜单 &gt;“系统信息”。</li>
+<li>在边栏中，选择“控制器”或“iBridge”，具体取决于所使用的 macOS 版本。</li>
+<li>如果您在右侧看到“Apple T2 芯片”，即表示您的 Mac 配备 Apple T2 安全芯片。</li>
+</ol>
+<p><img src="controller-t2.jpg" alt="Apple-T2"></p>
+<p>在配备 Apple T2 安全芯片的 Mac 启动“Install macOS Big Sur”，可能报错：“需要更新软件才能使用这个启动磁盘。”</p>
+<p><img src="install-error-1.jpg" alt="install-error-1"></p>
+<p>此时需要，连接网络（点击右上角的 Wi-Fi 图标联网）后，点击“更新”按钮，等待软件更新，更新完毕自动重启。</p>
+<p>可能出现”安装更新时出错。”的提示，确保网络访问正常，点击“再试一次”（因网络访问原因，可能需要多次重试）。</p>
+<p><img src="install-error-2.jpg" alt="install-error-2"></p>
+<p>重启后再次启动“Install macOS Big Sur”，可能仍然报错如下，确保已经联网，点击“再试一次”。</p>
+<p><img src="install-error-3.jpg" alt="install-error-3"></p>
+<p>按提示重启后，当系统要求您进行身份验证时，点按管理员账号，输入密码，正常进入安装画面。</p>
+<h2 id="4-安装方式：使用移动存储介质全新安装"><a href="#4-安装方式：使用移动存储介质全新安装" class="headerlink" title="4. 安装方式：使用移动存储介质全新安装"></a>4. 安装方式：使用移动存储介质全新安装</h2><h3 id="（1）一般步骤-1"><a href="#（1）一般步骤-1" class="headerlink" title="（1）一般步骤"></a>（1）一般步骤</h3><blockquote>
+<p>提示：U 盘也可以使用移动硬盘替代，特别是 SSD 移动硬盘，速度更快。</p>
+</blockquote>
+<p>1）创建启动 U 盘</p>
+<p>  准备一个 16G 或者以上的 U 盘，打开“实用工具 &gt; 磁盘工具”，选择 U 盘，点击“抹掉”，格式如下：</p>
+<ul>
+<li><p>Mac OS X 扩展（日志式）；</p>
+</li>
+<li><p>GUID 分区图；</p>
+</li>
+<li><p>分区名称：sysin（默认为 Untitled，可以自定义，注意下面终端命令中的 sysin 也要改成你自定义的同样的名称）</p>
+<p>打开终端，执行如下命令：</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Applications/<span class="keyword">Install</span>\ macOS\ <span class="keyword">Big</span>\ Sur.app/<span class="keyword">Contents</span>/Resources/createinstallmedia <span class="comment">--volume /Volumes/sysin</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：创建完毕后，分区名称将自动修改为：Install macOS Big Sur</p>
+</blockquote>
+<p>2）使用 U 盘启动安装</p>
+<p>  重新启动，按住 option 键不放，直到出现启动选择画面，选择 Install macOS Big Sur 图标，启动安装画面。</p>
+<p>3）抹掉磁盘，开始全新安装，具体过程与上述第 3 条一样，不在赘述</p>
+<h3 id="（2）配备-Apple-T2-安全芯片的电脑需要额外的操作"><a href="#（2）配备-Apple-T2-安全芯片的电脑需要额外的操作" class="headerlink" title="（2）配备 Apple T2 安全芯片的电脑需要额外的操作"></a>（2）配备 Apple T2 安全芯片的电脑需要额外的操作</h3><p><a href="https://support.apple.com/zh-cn/HT208862" target="_blank" rel="noopener">配备 Apple T2 安全芯片的 Mac 电脑</a>具有启动安全性实用工具。这个实用工具提供了以下三项功能，以帮助保护您的 Mac 免受未经授权的访问：<a href="https://support.apple.com/zh-cn/HT208198#firmwarepassword" target="_blank" rel="noopener">固件密码</a>保护、<a href="https://support.apple.com/zh-cn/HT208198#secureboot" target="_blank" rel="noopener">安全启动</a>和<a href="https://support.apple.com/zh-cn/HT208198#externalboot" target="_blank" rel="noopener">外部启动</a>。</p>
+<p>要打开启动安全性实用工具，请按照以下步骤操作：</p>
+<ol>
+<li>将您的 Mac 开机，然后在看到 Apple 标志后立即按住 Command (⌘)-R 键。Mac 会从 <a href="https://support.apple.com/zh-cn/HT201314" target="_blank" rel="noopener">macOS 恢复功能</a>启动。</li>
+<li>在您看到“macOS 实用工具”窗口后，请从菜单栏中选取“实用工具”&gt;“启动安全性实用工具”。</li>
+<li>当系统要求您进行身份验证时，点按“输入 macOS 密码”，然后选取管理员帐户并输入相应的密码。</li>
+</ol>
+<p><img src="startup-security-utility.jpg" alt="启动安全性实用工具"></p>
+<p>此时点选“允许从外部介质启动”，退出启动安全性实用工具。</p>
+<p>重新启动，按住 option 键不放，选择“Install macOS Big Sur”，启动安装画面。</p>
+<p>如果出现报错：“需要更新软件才能使用这个启动磁盘。”，参看上述第 3 条，第（2）项说明。</p>
+<h2 id="5-虚拟机安装"><a href="#5-虚拟机安装" class="headerlink" title="5. 虚拟机安装"></a>5. 虚拟机安装</h2><p>安装之前需要准备可引导的 macOS 软件包，默认 Apple 官方提供的软件包都是不可引导的。</p>
+<p>直接下载可启动 ISO 镜像，请访问：<a href="https://sysin.org/article/macOS-Big-Sur-boot-iso/">https://sysin.org/article/macOS-Big-Sur-boot-iso/</a>。</p>
+<p>本例仅测试在 VMware 软件中安装，其他虚机软件未验证，方法类似。</p>
+<h3 id="（1）在-macOS-中安装虚拟机"><a href="#（1）在-macOS-中安装虚拟机" class="headerlink" title="（1）在 macOS 中安装虚拟机"></a>（1）在 macOS 中安装虚拟机</h3><p><a href="https://sysin.org/article/Download-VMware-Fusion-12/">VMware Fusion 12</a> 和 <a href="https://www.parallels.com/directdownload/pd16/?experience=enter_key" target="_blank" rel="noopener">Parallels Desktop 16 for Mac</a> 都可以完全支持 macOS Big Sur，使用可引导的 ISO，直接安装即可。</p>
+<p><img src="vmware-fusion-12-macos.jpg" alt="vmware-fusion-12-macos"></p>
+<h3 id="（2）在-Windows-中安装虚拟机"><a href="#（2）在-Windows-中安装虚拟机" class="headerlink" title="（2）在 Windows 中安装虚拟机"></a>（2）在 Windows 中安装虚拟机</h3><p><a href="https://sysin.org/article/Download-VMware-Workstation-16/">VMware Workstation 16</a> 已经完全支持 macOS Big Sur（VMware 甚至提前发布了 macOS 11.1 ？），当然运行在非 Mac 硬件上需要 <strong><a href="https://github.com/BDisp/unlocker" target="_blank" rel="noopener">unlocker</a></strong> 才可开启。</p>
+<p>第三方已经有修改过的 Workstation 软件集成了 unlocker，版权原因这里不列出，可自行搜索。</p>
+<p>笔者考虑在将来发布一个 MOD，来方便解决这个问题，敬请关注本站更新。</p>
+<p><img src="vmware-workstation-16-macos.jpg" alt="vmware-workstation-16-macos"></p>
+<p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox</a> <a href="https://www.virtualbox.org/manual/UserManual.html#idp19714672" target="_blank" rel="noopener">Version 6.1.16 (2020-10-16)</a> 更新显示可以支持 macOS Big Sur。</p>
+<h3 id="（3）在物理机-ESXi-中安装虚拟机"><a href="#（3）在物理机-ESXi-中安装虚拟机" class="headerlink" title="（3）在物理机 ESXi 中安装虚拟机"></a>（3）在物理机 ESXi 中安装虚拟机</h3><p>本文落笔之时，最新的 ESXi 7.0 Update 1 官方 Guest OS 列表仅支持到 macOS 10.15，但实际上可以正常运行 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a href="https://github.com/netgc/esxi-unlocker-3.0" target="_blank" rel="noopener">esxi-unlocker</a></strong> 才可开启。</p>
+<p>新建 vm 时，兼容性选择 ESXi 7.0 U1，可以看到 10.16 即 Big Sur 11.0 (VMware 甚至发布了 macOS 10.17 ？)</p>
+<p><img src="ESXi7U1-New-macOS.jpg" alt="ESXi7U1-New-macOS"></p>
+<p>可以使用本站的 <a href="https://sysin.org/article/Download-VMware-ESXi-7-MOD/">ESXi 7.0 MOD</a>，配合以下第 6 条解决报错。安装过程这里就不在赘述。</p>
+<p>笔者已经发布一个新版的 MOD: <a href="https://sysin.org/article/vmware-esxi-7-u1-slic/">ESXi 7.0 U1</a></p>
+<h2 id="6-解决-“BiErrorDomain-Error-3-”-报错"><a href="#6-解决-“BiErrorDomain-Error-3-”-报错" class="headerlink" title="6. 解决 “BiErrorDomain Error 3.” 报错"></a>6. 解决 “BiErrorDomain Error 3.” 报错</h2><p>在一些早期版本的虚拟化软件中，尚未完全支持 macOS Big Sur，会出现“BiErrorDomain Error 3.”报错，可参照一下方法解决。</p>
+<h3 id="（1）使用-VMware-安装"><a href="#（1）使用-VMware-安装" class="headerlink" title="（1）使用 VMware 安装"></a>（1）使用 VMware 安装</h3><p>在 VMware 中安装 macOS Big Sur，都会提示 “BiErrorDomain Error 3.”，无法继续，需要编辑 vmx 文件添加以下配置：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbios.reflectHost = <span class="string">"TRUE"</span></span><br><span class="line">hw.model = <span class="string">"MacBookPro16,1"</span></span><br><span class="line">board-id = <span class="string">"Mac-E1008331FDC96864"</span></span><br></pre></td></tr></table></figure>
+
+<p>以上示例模拟的是 16-inch MacBook Pro，可以根据需要选择其他兼容的 Mac 设备。</p>
+<p>获取 Mac Model ID，执行如下命令</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl hw.model</span><br></pre></td></tr></table></figure>
+
+<p>获取 Mac Board ID，执行如下命令：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ioreg -l | grep board-id</span><br></pre></td></tr></table></figure>
+
+<p><strong>适用的 VMware 软件和版本</strong></p>
+<p>在以下软件和版本中测试通过</p>
+<p>VMware ESXi 7.0.0</p>
+<p>VMware Fusion 11.5.5</p>
+<p>VMware Workstation 11.5.5 Windows x64</p>
+<p><strong>提示：</strong>不要安装自带的 VM-Tools，可能存在兼容性问题，下载 <a href="https://my.vmware.com/web/vmware/downloads/details?downloadGroup=VMTOOLS1120&productId=742" target="_blank" rel="noopener">VMware Tools 11.2.0</a> 或以上版本安装。</p>
+<h3 id="（2）使用-VirtualBox-安装"><a href="#（2）使用-VirtualBox-安装" class="headerlink" title="（2）使用 VirtualBox 安装"></a>（2）使用 VirtualBox 安装</h3><p>使用 VirtualBox 安装 macOS Big Sur，出现 “BiErrorDomain Error 3.” 报错，解决方法类似：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd “C:\Program Files\Oracle\VirtualBox\”</span><br><span class="line">VBoxManage.exe modifyvm “Your VM Name” –cpuidset <span class="number">00000001</span> <span class="number">000106e5</span> <span class="number">00100800</span> <span class="number">0098e3</span>fd bfebfbff</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiSystemProduct” “iMac19,<span class="number">1</span>”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiSystemVersion” “<span class="number">1.0</span>”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiBoardProduct” “Mac-AA95B1DDAB278B95”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/smc/<span class="number">0</span>/Config/DeviceKey” “ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/smc/<span class="number">0</span>/Config/GetKeyFromRealSMC” <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="（3）使用-Parallels-Desktop-安装"><a href="#（3）使用-Parallels-Desktop-安装" class="headerlink" title="（3）使用 Parallels Desktop 安装"></a>（3）使用 Parallels Desktop 安装</h3><p>在下面设置以下值：<strong>Hardware &gt; Boot Order &gt; Advanced Settings &gt; Boot Flags.</strong></p>
+<ul>
+<li><code>devices.mac_hw_model=&quot;MacBookPro16,1&quot;</code></li>
+<li><code>devices.smbios.board_id=&quot;Mac-E1008331FDC96864&quot;</code></li>
+</ul>
+
+
+        <hr>
+
+        
+          <!-- promotion start -->
+          <div class="tip">
+            <p>
+              广而告之：<a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>，<a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云 云产品限时秒杀，爆款1核2G云服务器，首年99元</a>
+            </p>
+          </div>
+          <!-- promotion end -->
+          <hr>
+          
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/article/apple-silicon-app/" data-toggle="tooltip" data-placement="top" title="Apple Silicon（M1 芯片）Mac 上的 App 类型总结">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/article/macOS-Big-Sur-boot-iso/" data-toggle="tooltip" data-placement="top" title="macOS Big Sur 11.1 可启动 ISO 镜像（用于虚拟机安装）">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+        <hr>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            如果文章中使用的内容和图片侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有用，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+          </p>
+        </div>
+        <!-- tip end -->
+        <hr>
+        
+
+        <!--打赏-->
+        
+            <div class="reward">
+                <div class="reward-button">赏 <span class="reward-code">
+                    <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span>
+                    <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.jpg"><b>微信打赏</b> </span>
+                    </span></div>
+                <p class="reward-notice">赞赏一下</p>
+            </div>
+        <hr>
+        
+
+        <!--打赏-->
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=如何在 Mac 和虚拟机上安装 macOS Big Sur 11 正式版&body=Hi,I found this website and thought you might like it https://sysin.org/article/how-to-install-macos-big-sur/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- require APlayer -->
+        
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a4a3611e5f9fc02efc2c',
+    clientSecret: '2eaf392b1017d6ca39ed728da12d2f5470aa0888',
+    repo: 'gitalk',
+    owner: 'netgc',
+    admin: 'netgc',
+    id: 'Sat Nov 14 2020 15:01:48 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content (TOC) -->
+      <!-- Table of Contents -->
+<!-- Don not display number -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+<!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-获取-macOS-Big-Sur-正式版软件包"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 获取 macOS Big Sur 正式版软件包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-了解-macOS-Big-Sur-兼容设备"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 了解 macOS Big Sur 兼容设备</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-安装方式：在当前系统下全新安装"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 安装方式：在当前系统下全新安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（1）一般步骤"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">（1）一般步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（2）配备-Apple-T2-安全芯片的电脑可能需要额外的操作"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">（2）配备 Apple T2 安全芯片的电脑可能需要额外的操作</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-安装方式：使用移动存储介质全新安装"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 安装方式：使用移动存储介质全新安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（1）一般步骤-1"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">（1）一般步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（2）配备-Apple-T2-安全芯片的电脑需要额外的操作"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">（2）配备 Apple T2 安全芯片的电脑需要额外的操作</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-虚拟机安装"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 虚拟机安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（1）在-macOS-中安装虚拟机"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">（1）在 macOS 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（2）在-Windows-中安装虚拟机"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">（2）在 Windows 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（3）在物理机-ESXi-中安装虚拟机"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">（3）在物理机 ESXi 中安装虚拟机</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-解决-“BiErrorDomain-Error-3-”-报错"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 解决 “BiErrorDomain Error 3.” 报错</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（1）使用-VMware-安装"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">（1）使用 VMware 安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（2）使用-VirtualBox-安装"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">（2）使用 VirtualBox 安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#（3）使用-Parallels-Desktop-安装"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">（3）使用 Parallels Desktop 安装</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+            
+            <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>SITE LINKS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://my.oschina.net/sysin/" target="_blank">OSCHINA Blog</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a target="_blank" href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2020
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.svg"></a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+<script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://sysin.org/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Baidu Push -->
+
+<script>
+  (function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://sysin.org/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

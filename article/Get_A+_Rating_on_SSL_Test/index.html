@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="google-site-verification" content="sysin"> -->
+  <!-- <meta name="baidu-site-verification" content="sysin" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> 在 Qualys SSL Labs SSL 测试中获得 A+ 评级的秘技 2020版 - sysin - System Inside </title>
+  <meta name="description" content=" 在 Qualys SSL Labs SSL 测试中获得 A+ 评级的秘技 2020版 - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" 在 Qualys SSL Labs SSL 测试中获得 A+ 评级的秘技 2020版 " />
+  <link rel="canonical" href="https://sysin.org/article/Get_A+_Rating_on_SSL_Test/" />
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="../../css/highlight.css">
+<link rel="stylesheet" href="../../css/widget.css">
+<link rel="stylesheet" href="../../css/rocket.css">
+<link rel="stylesheet" href="../../css/signature.css">
+<link rel="stylesheet" href="../../css/catalog.css">
+<link rel="stylesheet" href="../../css/livemylife.css">
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+    <!-- reward start -->
+    <link rel="stylesheet" href="/css/donate.css" />
+    <!-- reward end -->
+    
+
+  
+  <!-- scroll start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- scroll end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css" />
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+<link rel="alternate" href="atom.xml" title="System Inside" type="application/atom+xml">
+<link rel="alternate" href="feed.xml" title="System Inside" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body-dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body-dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="System Inside" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/article_header/article_header2.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+              
+              <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+              
+              <a class="tag" href="/tags/#F5" title="F5">F5</a>
+              
+              <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+              
+              <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+              
+              <a class="tag" href="/tags/#Apache" title="Apache">Apache</a>
+              
+              <a class="tag" href="/tags/#IIS" title="IIS">IIS</a>
+              
+              <a class="tag" href="/tags/#Tomcat" title="Tomcat">Tomcat</a>
+              
+              <a class="tag" href="/tags/#Varnish" title="Varnish">Varnish</a>
+              
+              <a class="tag" href="/tags/#HAProxy" title="HAProxy">HAProxy</a>
+              
+            </div>
+            <h1>在 Qualys SSL Labs SSL 测试中获得 A+ 评级的秘技 2020版</h1>
+            <h2 class="subheading">本系列文章将阐述主流应用交付控制器和主流 Web 服务器如何运行 HTTP/2 和 TLSv1.3 协议，以及如何在 SSL Test 中获得 A+ 评级。</h2>
+            <span class="meta">
+              Posted by sysin on
+              2020-06-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">39</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">7.7k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
+
+        <p>请访问 <a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a> 获得最新版，文章内容将持续补充更新。</p>
+<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<p>转载请保留出处。</p>
+<h2 id="Qualys-SSL-Labs-简介"><a href="#Qualys-SSL-Labs-简介" class="headerlink" title="Qualys SSL Labs 简介"></a>Qualys SSL Labs 简介</h2><p>Qualys，Inc.（NASDAQ:QLYS）是云安全和合规解决方案的先驱和领先提供商，在 100 多个国家拥有 6700 多个客户，其中包括福布斯全球 100 强和财富 100 强中的大多数。QualysGuard 云平台和集成解决方案套件通过按需提供关键的安全智能并自动化 IT 系统和 web 应用程序的全方位审核、法规遵从性和保护，帮助组织简化安全操作并降低合规成本。Qualys 成立于 1999 年，与英国电信、戴尔安全工程、富士通、IBM、NTT、Symantec、Verizon 和 Wipro 等领先的托管服务提供商和咨询机构建立了战略合作关系。该公司还是云安全联盟（CSA）的创始成员。</p>
+<p>SSL Labs 推出的全球知名的 SSL 网站在线检测工具，会对 HTTPS 网站的证书链、安全性、性能、协议细节进行全面检测，检测完毕后会进行打分，同时给出一份详细的检测报告和改进建议。</p>
+<p>测试网站：<a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">https://www.ssllabs.com/ssltest/</a></p>
+<h2 id="测试规则概述"><a href="#测试规则概述" class="headerlink" title="测试规则概述"></a>测试规则概述</h2><p><a href="https://blog.qualys.com/ssllabs/2018/11/19/grade-change-for-tls-1-0-and-tls-1-1-protocols" target="_blank" rel="noopener">2020年算法变更</a></p>
+<p><strong>January 2020</strong></p>
+<p>主要是修改了 TLS 1.0 和 TLS 1.1 的评分标准，<strong>TLS 1.0 和 TLS 1.1 是分别于 1996 年和 2006 年发布的老版协议，使用的是弱加密算法和系统</strong>。比如 SHA-1 和 MD5，这些算法和系统十分脆弱，存在重大安全漏洞，容易受到降级攻击的严重影响，而在 2008 年和 2017 年分别发布了协议的新版本，即 <a href="https://tools.ietf.org/html/rfc5246" target="_blank" rel="noopener">TLS 1.2</a> 和 <a href="https://datatracker.ietf.org/doc/rfc8446/" target="_blank" rel="noopener">TLS 1.3</a>，无疑更优于旧版本，使用起来也更安全。</p>
+<p>2018 年，在春季 TLS 1.3 版本发布之后，苹果、谷歌、Mozilla 和微软四大浏览器制造商于 2018 年 10 月联合宣布计划在 2020 年初取消对 TLS 1.0 和 TLS 1.1 的支持。</p>
+<p>主流浏览器客户端都提供了禁用 TLS 1.0 和 TLS 1.1 协议的大致期限：</p>
+<table>
+<thead>
+<tr>
+<th><strong>Browser Name</strong></th>
+<th><strong>Date</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Microsoft IE and Edge</td>
+<td>First half of 2020</td>
+</tr>
+<tr>
+<td>Mozilla Firefox</td>
+<td>March 2020</td>
+</tr>
+<tr>
+<td>Safari/Webkit</td>
+<td>March 2020</td>
+</tr>
+<tr>
+<td>Google Chrome</td>
+<td>January 2020</td>
+</tr>
+</tbody></table>
+<p>备注：由于受 COVID-19 影响，浏览器厂商推迟了 TLS 1.0 和 1.1 版本协议的淘汰时间。</p>
+<h3 id="Existing-Grades-Sample"><a href="#Existing-Grades-Sample" class="headerlink" title="Existing Grades Sample"></a>Existing Grades Sample</h3><table>
+<thead>
+<tr>
+<th><strong>Server Configuration</strong></th>
+<th><strong>Grade</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TLS 1.2, TLS 1.1, TLS 1.0 + HSTS + No Warning + TLS_FALLBACK_SCSV</td>
+<td>A+</td>
+</tr>
+<tr>
+<td>TLS 1.2, TLS 1.1, TLS 1.0 + HSTS + No Warning +  No support for TLS_FALLBACK_SCSV</td>
+<td>A</td>
+</tr>
+<tr>
+<td>TLS 1.2, TLS 1.1, TLS 1.0 + HSTS + Warnings + No support for TLS_FALLBACK_SCSV</td>
+<td>A-</td>
+</tr>
+</tbody></table>
+<h3 id="Future-Grades-Sample"><a href="#Future-Grades-Sample" class="headerlink" title="Future Grades Sample"></a>Future Grades Sample</h3><table>
+<thead>
+<tr>
+<th><strong>Server Configuration</strong></th>
+<th><strong>Grade</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TLS 1.2, TLS 1.1, TLS 1.0 + HSTS + No Warning + TLS_FALLBACK_SCSV</td>
+<td>B</td>
+</tr>
+<tr>
+<td>TLS 1.2, TLS 1.1, TLS 1.0 + HSTS + No Warning +  No support for TLS_FALLBACK_SCSV</td>
+<td>B</td>
+</tr>
+<tr>
+<td>TLS 1.2, TLS 1.1, TLS 1.0 + HSTS + Warnings + No support for TLS_FALLBACK_SCSV</td>
+<td>B</td>
+</tr>
+<tr>
+<td>TLS 1.2 + HSTS + No Warning + TLS_FALLBACK_SCSV</td>
+<td>A+</td>
+</tr>
+<tr>
+<td>TLS 1.2 + HSTS + No Warning + No support for TLS_FALLBACK_SCSV</td>
+<td>A</td>
+</tr>
+<tr>
+<td>TLS 1.2 + HSTS + Warnings + No support for TLS_FALLBACK_SCSV</td>
+<td>A-</td>
+</tr>
+</tbody></table>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li>Modernizing TLS connections in Microsoft Edge and Internet Explorer 11 : <a href="https://blogs.windows.com/msedgedev/2018/10/15/modernizing-tls-edge-ie11/" target="_blank" rel="noopener">https://blogs.windows.com/msedgedev/2018/10/15/modernizing-tls-edge-ie11/</a></li>
+<li>Removing Old Versions of TLS : <a href="https://blog.mozilla.org/security/2018/10/15/removing-old-versions-of-tls/" target="_blank" rel="noopener">https://blog.mozilla.org/security/2018/10/15/removing-old-versions-of-tls/</a></li>
+<li>Deprecation of Legacy TLS 1.0 and 1.1 Versions: <a href="https://webkit.org/blog/8462/deprecation-of-legacy-tls-1-0-and-1-1-versions/" target="_blank" rel="noopener">https://webkit.org/blog/8462/deprecation-of-legacy-tls-1-0-and-1-1-versions/</a></li>
+<li>Modernizing Transport Security: <a href="https://security.googleblog.com/2018/10/modernizing-transport-security.html" target="_blank" rel="noopener">https://security.googleblog.com/2018/10/modernizing-transport-security.html</a></li>
+<li>Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS): <a href="https://tools.ietf.org/html/rfc7525" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc7525</a></li>
+</ul>
+<h2 id="1-F5-BIG-IP"><a href="#1-F5-BIG-IP" class="headerlink" title="1. F5 BIG-IP"></a>1. F5 BIG-IP</h2><p>F5 BIG-IP 默认 B 级别（本例基于当前最新的 BIG-IP 16.0.0）</p>
+<p>TLS 1.2 + HSTS + No Warning + TLS_FALLBACK_SCSV = A+</p>
+<p>（No Warning 即受信任 SSL 证书，TLS_FALLBACK_SCSV F5 默认支持）</p>
+<p>故：A 级别 + 开启 HSTS = A+，推荐启用 TLSv1_3 和 HTTP/2</p>
+<p>其他应用交付产品可以参照 F5 配置</p>
+<h3 id="Ciphers-配置：A-级别-TLSv1-2"><a href="#Ciphers-配置：A-级别-TLSv1-2" class="headerlink" title="Ciphers 配置：A 级别 (TLSv1.2)"></a>Ciphers 配置：A 级别 (TLSv1.2)</h3><p>根据2020年1月算法变更，需要 TLSv1.2 及以上版本才能获得 A，新的 A 级别如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ECDHE+AES-GCM:ECDHE+AES-GCM:ECDHE+AES:ECDHE+<span class="number">3</span>DES:RSA+AES-GCM:RSA+AES:RSA+<span class="number">3</span>DES:-MD5:-RC4:-SSLv3:-TLSv1:-TLSv1_1</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ECDHE+AES-GCM:ECDHE+AES:ECDHE+<span class="number">3</span>DES:RSA+AES-GCM:RSA+AES:RSA+<span class="number">3</span>DES:-MD5:-RC4:-SSLv3:-TLSv1:-TLSv1_1</span><br></pre></td></tr></table></figure>
+
+<p>F5 Cipher TLS 版本写法（与 nginx 和 apache 等使用 OpenSSL 的软件略有不同）：</p>
+<p>TLSv1<br>TLSv1_1<br>TLSv1_2<br>TLSv1_3</p>
+<p><strong>执行步骤：</strong></p>
+<p>编辑 SSL Profile，修改 Ciphers，将默认 Default 替换上述内容。</p>
+<h3 id="启用-HSTS"><a href="#启用-HSTS" class="headerlink" title="启用 HSTS"></a>启用 HSTS</h3><p>HSTS（HTTP Strict Transport Security，RFC6797），即 HTTP 严格安全传输，是国际互联网工程组织 IETF 正在推行一种新的 Web 安全协议，网站采用 HSTS 后，用户访问时无需手动在地址栏中输入 HTTPS，浏览器会自动采用 HTTPS 访问网站地址，从而保证用户始终访问到网站的加密链接，保护数据传输安全。HSTS 的作用是强制客户端（如浏览器）使用HTTPS与服务器创建连接。服务器开启 HSTS 的方法是，当客户端通过 HTTPS 发出请求时，在服务器返回的超文本传输协议响应头中包含 Strict-Transport-Security 字段。</p>
+<p><strong>Preload List：让防御更加彻底</strong></p>
+<p>HSTS 存在一个比较薄弱的环节，那就是浏览器没有当前网站的 HSTS 信息的时候，或者第一次访问网站的时候，依然需要一次明文的 HTTP 请求和重定向才能切换到 HTTPS，以及刷新 HSTS 信息。而就是这么一瞬间却给攻击者留下了可乘之机，使得他们可以把这一次的 HTTP 请求劫持下来，继续中间人攻击。针对这种攻击，HSTS 也有应对办法，那就是在浏览器里内置一个列表 Preload List，只要是在这个列表里的域名，无论何时、何种情况，浏览器都只使用 HTTPS 发起连接。这个列表由 Google Chromium 维护，FireFox、Safari、IE等主流浏览器均在使用。</p>
+<p>可以通过官网（<a href="https://hstspreload.org），查询网站是否在" target="_blank" rel="noopener">https://hstspreload.org），查询网站是否在</a> <strong>Preload List</strong>，可以申请将网站加入到 <strong>Preload List</strong>。</p>
+<p><strong>执行步骤：</strong></p>
+<p>v12 及以上版本直接在 TMUI 中 Enabling HSTS in the HTTP profile 或者使用 iRuels</p>
+<p>v11 及以下可以只能通过 iRules 实现</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### iRule for HSTS HTTP Virtuals ###</span></span><br><span class="line">when HTTP_REQUEST &#123;</span><br><span class="line">HTTP::respond <span class="number">301</span> Location <span class="string">"https://[HTTP::host][HTTP::uri]"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### iRule for HSTS HTTPS Virtuals ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 31536000 sec = 1 Year</span></span><br><span class="line"></span><br><span class="line">when HTTP_RESPONSE &#123;</span><br><span class="line"> HTTP::header insert Strict-Transport-Security <span class="string">"max-age=31536000; includeSubDomains; preload"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OR</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_RESPONSE &#123;</span><br><span class="line"> HTTP::header insert Strict-Transport-Security <span class="string">"max-age=31536000; includeSubDomains"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>max-age 是必选参数，是一个以秒为单位的数值，它代表着 HSTS Header 的过期时间，通常设置为 1年，即 31536000秒。</li>
+<li>includeSubDomains 是可选参数，如果包含它，则意味着当前域名及其子域名均开启 HSTS 保护。</li>
+<li>preload 是可选参数，只有当你申请将自己的域名加入到浏览器内置列表的时候才需要使用到它。</li>
+</ul>
+<h3 id="启用-TLSv1-3"><a href="#启用-TLSv1-3" class="headerlink" title="启用 TLSv1_3"></a>启用 TLSv1_3</h3><p><a href="https://support.f5.com/csp/article/K10251520" target="_blank" rel="noopener">BIG-IP v14 开始支持 TLSv1_3</a>（In BIG-IP 14.0.0, the BIG-IP system adds limited support for Transport Layer Security (TLS) 1.3. Starting in BIG-IP 14.1.0.1 and later, this support was updated to provide production level support for TLS 1.3.）</p>
+<p>默认没有启用：By default, TLS 1.3 is disabled. To enable TLS 1.3, you must remove the <strong>No TLSv1.3</strong> option from the <strong>Enabled Options</strong> list in the Configuration utility for the Client SSL and Server SSL profiles</p>
+<p>You can view a list of TLS 1.3 supported ciphers and groups using the following TMOS Shell (<strong>tmsh</strong>) commands:</p>
+<ul>
+<li><p>To view the supported client-side ciphers, use the following command:</p>
+<p>tmsh run util clientssl-ciphers TLSv1_3</p>
+</li>
+<li><p>To view the supported server-side ciphers, use the following command:</p>
+<p>tmsh run util serverssl-ciphers TLSv1_3</p>
+</li>
+</ul>
+<p><strong>配置启用 TLSv1_3</strong></p>
+<p>编辑 ClientSSL Profle：</p>
+<p>Ciphers：选择 Cipher Group，下拉选择 f5-secure</p>
+<p>Options：Options List…</p>
+<p>Enabled Options，<br>    Disable No TLSv1.3<br>    添加，No TLSv1 和 No TLSv1.1，保留默认的“Don’t insert empty fragments”</p>
+<h3 id="配置-HTTP-2"><a href="#配置-HTTP-2" class="headerlink" title="配置 HTTP/2"></a>配置 HTTP/2</h3><p>详见<a href="https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-http2-full-proxy-configuration/http2-full-proxy-configuring.html#concept-1135" target="_blank" rel="noopener">官方文档</a></p>
+<p>配置 HTTP/2 就是在启用 HTTP profile 的 VS 上关联一个 HTTP/2 profile，核心参数配置任然在原有的 HTTP profile 上。</p>
+<p>特殊配置是 SSL profile 要取消勾选 Renegotiation，其他都可以使用默认配置。</p>
+<h3 id="TLS-FALLBACK-SCSV"><a href="#TLS-FALLBACK-SCSV" class="headerlink" title="TLS-FALLBACK-SCSV"></a>TLS-FALLBACK-SCSV</h3><p><a href="https://wiki.openssl.org/index.php/SSL_MODE_SEND_FALLBACK_SCSV" target="_blank" rel="noopener">TLS-FALLBACK-SCSV</a>（TLS Fallback Signaling Cipher Suite Value）是 OpenSSL 的一种阻止协议降级攻击的特性和机制。F5 BIG-IP，Nginx 和 Apache httpd 的 HTTPS 皆基于 OpenSSL 实现，符合要求的 OpenSSL 版本即可支持。</p>
+<p>Poodle and TLS-FALLBACK-SCSV</p>
+<p>SSLv3 allows exploiting of the <a href="https://raymii.org/s/articles/Check_servers_for_the_Poodle_bug.html" target="_blank" rel="noopener">POODLE</a> bug. This is one more major reason to disable this.</p>
+<p>Google have proposed an extension to SSL/TLS named <a href="https://tools.ietf.org/html/draft-ietf-tls-downgrade-scsv-00" target="_blank" rel="noopener">TLS <em>FALLBACK</em> SCSV</a> that seeks to prevent forced SSL downgrades. This is automatically enabled if you upgrade OpenSSL to the following versions:</p>
+<ul>
+<li>OpenSSL 1.0.1 has TLS <em>FALLBACK</em> SCSV in 1.0.1j and higher.</li>
+<li>OpenSSL 1.0.0 has TLS <em>FALLBACK</em> SCSV in 1.0.0o and higher.</li>
+<li>OpenSSL 0.9.8 has TLS <em>FALLBACK</em> SCSV in 0.9.8zc and higher.</li>
+</ul>
+<p>TLS Fallback Signaling Cipher Suite Value (SCSV) for Preventing Protocol Downgrade Attacks。</p>
+<h2 id="2-Microsoft-IIS"><a href="#2-Microsoft-IIS" class="headerlink" title="2. Microsoft IIS"></a>2. Microsoft IIS</h2><p>根据规则：TLS 1.2 + HSTS + No Warning + TLS_FALLBACK_SCSV = A+</p>
+<p>理论上 Windows &amp; IIS 不支持 TLS_FALLBACK_SCSV，所以无法 A+，但是<strong>开启 HSTS，并仅启用 TLS1.2 可以获得 A+ 得分</strong>，这样就不存在协议降级风险。</p>
+<p>Microsoft 的 SSL 基于 Schannel 实现，与 OpenSSL 无关（或称 Microsoft TLS）。</p>
+<blockquote>
+<p>Schannel is a Security Support Provider (SSP) that implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) Internet standard authentication protocols.<br>The Security Support Provider Interface (SSPI) is an API used by Windows systems to perform security-related functions including authentication. The SSPI functions as a common interface to several SSPs, including the Schannel SSP.</p>
+</blockquote>
+<h3 id="IIS-获得-A-级别"><a href="#IIS-获得-A-级别" class="headerlink" title="IIS 获得 A 级别"></a>IIS 获得 A 级别</h3><p>测试环境：IIS 10 on Windows Server 2019</p>
+<p>执行 <a href="https://www.hass.de/content/setup-microsoft-windows-or-iis-ssl-perfect-forward-secrecy-and-tls-12" target="_blank" rel="noopener">ps 脚本</a> 或者使用 <a href="https://www.nartac.com/" target="_blank" rel="noopener">IIS Crypto</a>，将获得A，这里以 IIS Crypto 为例：</p>
+<p>IIS Crypto：点击 “Best Pratices”，Server Protocols 只勾选 TLS 1.2，Apply 并重启生效。</p>
+<p><img src="image-20200815-001.png" alt="IISCrypto"></p>
+<p>仅启用 TLS 1.2 将获得 A，远程桌面也可以正常连接，启用 HSTS 将获得 A+。</p>
+<blockquote>
+<p>在早期的 Windows 版本中，仅启用 TLS 1.2 远程桌面将无法连接。</p>
+</blockquote>
+<h3 id="HSTS"><a href="#HSTS" class="headerlink" title="HSTS"></a>HSTS</h3><ul>
+<li><p>In older versions of IIS (IIS 7.0 to 10.0 R1703) this requirement can only archived the simple way with an installation of <a href="https://github.com/FWest98/hsts-iis-module" target="_blank" rel="noopener">HTTP Strict Transport Security IIS Module</a>.</p>
+</li>
+<li><p>Microsoft added native <a href="https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-10-version-1709/iis-10-version-1709-hsts" target="_blank" rel="noopener">HTTP Strict Transport Security (HSTS) Support</a> to IIS 10.0 Version 1709</p>
+</li>
+</ul>
+<p>IIS 管理器 – 选择站点 – 高级设置 – HSTS</p>
+<p><img src="image-20200815-002.png" alt="IIS--HSTS"><br><img src="image-20200815-003.png" alt="IIS--HSTS"></p>
+<h3 id="TLSv1-3"><a href="#TLSv1-3" class="headerlink" title="TLSv1.3"></a>TLSv1.3</h3><p>IIS 10 &amp; Windows Server 2019 正式版尚未支持，<a href="https://forums.iis.net/t/1250687.aspx?IIS+10+TLS+1+3+support" target="_blank" rel="noopener">参看这里</a></p>
+<p>最新的 Windows Insider Preview 已经支持 TLS 1.3，并且通过 MSQUIC 实验性的支持 HTTP/3。</p>
+<p>the latest <a href="https://insider.windows.com/en-us/" target="_blank" rel="noopener">Windows Insider Preview Builds</a> for Schannel’s TLS 1.3 support.</p>
+<h3 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h3><p>版本要求：</p>
+<p>HTTP2 requires Windows 2016 with IIS 10 or later.</p>
+<p>配置方法：</p>
+<p>首先配置好 SSL 证书并创建 HTTPS 站点，IIS 10 默认开启 HTTP/2 协议，所以我们都不用额外去设置（可以禁用，新建站点时或者”编辑网站” &gt; “绑定…”勾选”禁用 HTTP/2”）。</p>
+<p><img src="image-20200815-004.png" alt="IIS--HTTP/2"></p>
+<h2 id="3-Nginx"><a href="#3-Nginx" class="headerlink" title="3. Nginx"></a>3. Nginx</h2><h3 id="Nginx-SSL-证书配置方法"><a href="#Nginx-SSL-证书配置方法" class="headerlink" title="Nginx SSL 证书配置方法"></a>Nginx SSL 证书配置方法</h3><p><a href="http://nginx.org/en/docs/http/configuring_https_servers.html" target="_blank" rel="noopener">官方文档</a></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="attr">listen</span>       <span class="string">443 ssl;</span></span><br><span class="line">    <span class="attr">server_name</span>  <span class="string">www.example.com;</span></span><br><span class="line">    <span class="attr">ssl_certificate</span>     <span class="string">www.example.com.crt;</span></span><br><span class="line">    <span class="attr">ssl_certificate_key</span> <span class="string">www.example.com.key;</span></span><br><span class="line">    <span class="attr">ssl_protocols</span>       <span class="string">TLSv1 TLSv1.1 TLSv1.2;</span></span><br><span class="line">    <span class="attr">ssl_ciphers</span>  <span class="string">HIGH:!aNULL:!MD5;</span></span><br><span class="line">    <span class="attr">...</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>证书文件使用 PEM 格式。</p>
+<p>证书文件使用相对路径时，证书文件要放在主配置文件相同目录下（默认 /etc/nginx）。</p>
+</blockquote>
+<p>更多配置，这篇文章可以参考：<a href="https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html" target="_blank" rel="noopener">Strong SSL Security on nginx</a></p>
+<h3 id="TLSv1-3-1"><a href="#TLSv1-3-1" class="headerlink" title="TLSv1.3"></a>TLSv1.3</h3><p>版本支持如下：</p>
+<ul>
+<li>The <code>TLSv1.1</code> and <code>TLSv1.2</code> parameters (1.1.13, 1.0.12) work only when OpenSSL 1.0.1 or higher is used.</li>
+<li>The <code>TLSv1.3</code> parameter (1.13.0) works only when OpenSSL 1.1.1 built with TLSv1.3 support is used.</li>
+</ul>
+<p><a href="http://wiki.nginx.org/HttpSslModule#ssl_protocols" target="_blank" rel="noopener">More info on the NGINX documentation</a></p>
+<h3 id="HTTP-2-1"><a href="#HTTP-2-1" class="headerlink" title="HTTP/2"></a>HTTP/2</h3><p><strong>版本要求</strong></p>
+<p>openssl 的版本必须在 1.0.2e 及以上，执行以下命令验证：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl <span class="built_in">version</span></span><br></pre></td></tr></table></figure>
+
+<p>nginx 的版本必须在 1.9.5 以上，需要添加 –with-http_v2_module 模块，执行以下命令验证：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nginx -V</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参考配置"><a href="#参考配置" class="headerlink" title="参考配置"></a>参考配置</h3><p>以下配置：启用 HTTP/2、TLSv1.3、推荐的 Ciphers、HSTS，可以获得 A+ 得分</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    #listen       443 ssl;</span><br><span class="line">    listen       443 ssl http2; # HTTP/2 Enable</span><br><span class="line">    listen       [::]:443 ssl http2; # IPv6</span><br><span class="line">    server_name  www.sysin.org;</span><br><span class="line">    ssl_certificate     www.sysin.org.crt;</span><br><span class="line">    ssl_certificate_key www.sysin.org.key;</span><br><span class="line">    ssl_protocols       TLSv1.2 TLSv1.3; # Requires nginx &gt;= 1.13.0 else use TLSv1.2</span><br><span class="line">    ssl_ciphers         HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA;</span><br><span class="line">    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload" always;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    #ssl_protocols       TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;</span><br><span class="line">    #ssl_ciphers  HIGH:!aNULL:!MD5;  #B</span><br><span class="line">    #ssl_ciphers  HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA;  #A</span><br><span class="line">    #ssl_ciphers  ALL:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS:!RC4;  #B</span><br><span class="line">    #ssl_ciphers  ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;  #A (Mozilla Intermediate)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Kubernetes-ingress-nginx"><a href="#4-Kubernetes-ingress-nginx" class="headerlink" title="4. Kubernetes ingress-nginx"></a>4. Kubernetes ingress-nginx</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="默认-TLS-版本和-Ciphers"><a href="#默认-TLS-版本和-Ciphers" class="headerlink" title="默认 TLS 版本和 Ciphers"></a>默认 TLS 版本和 Ciphers</h4><p>nginx-ingress 默认仅使用 TLS 1.2 和 1.3, with a <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#ssl-ciphers" target="_blank" rel="noopener">secure set of TLS ciphers</a>.</p>
+<p>默认 cipher 列表: <code>ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384</code>.</p>
+<p>Legacy TLS 支持</p>
+<p>如果需要兼容一些老旧的浏览器和操作系统，需要使用 <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/" target="_blank" rel="noopener">ConfigMap</a> 修改默认配置，例如：</p>
+<p><a href="https://ssl-config.mozilla.org/#server=nginx&config=old" target="_blank" rel="noopener">mozilla-ssl-config-old</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">kind</span>: <span class="selector-tag">ConfigMap</span></span><br><span class="line"><span class="selector-tag">apiVersion</span>: <span class="selector-tag">v1</span></span><br><span class="line"><span class="selector-tag">metadata</span>:</span><br><span class="line">  <span class="selector-tag">name</span>: <span class="selector-tag">nginx-config</span></span><br><span class="line"><span class="selector-tag">data</span>:</span><br><span class="line">  <span class="selector-tag">ssl-ciphers</span>: "<span class="selector-tag">ECDHE-ECDSA-AES128-GCM-SHA256</span><span class="selector-pseudo">:ECDHE-RSA-AES128-GCM-SHA256</span><span class="selector-pseudo">:ECDHE-ECDSA-AES256-GCM-SHA384</span><span class="selector-pseudo">:ECDHE-RSA-AES256-GCM-SHA384</span><span class="selector-pseudo">:ECDHE-ECDSA-CHACHA20-POLY1305</span><span class="selector-pseudo">:ECDHE-RSA-CHACHA20-POLY1305</span><span class="selector-pseudo">:DHE-RSA-AES128-GCM-SHA256</span><span class="selector-pseudo">:DHE-RSA-AES256-GCM-SHA384</span><span class="selector-pseudo">:DHE-RSA-CHACHA20-POLY1305</span><span class="selector-pseudo">:ECDHE-ECDSA-AES128-SHA256</span><span class="selector-pseudo">:ECDHE-RSA-AES128-SHA256</span><span class="selector-pseudo">:ECDHE-ECDSA-AES128-SHA</span><span class="selector-pseudo">:ECDHE-RSA-AES128-SHA</span><span class="selector-pseudo">:ECDHE-ECDSA-AES256-SHA384</span><span class="selector-pseudo">:ECDHE-RSA-AES256-SHA384</span><span class="selector-pseudo">:ECDHE-ECDSA-AES256-SHA</span><span class="selector-pseudo">:ECDHE-RSA-AES256-SHA</span><span class="selector-pseudo">:DHE-RSA-AES128-SHA256</span><span class="selector-pseudo">:DHE-RSA-AES256-SHA256</span><span class="selector-pseudo">:AES128-GCM-SHA256</span><span class="selector-pseudo">:AES256-GCM-SHA384</span><span class="selector-pseudo">:AES128-SHA256</span><span class="selector-pseudo">:AES256-SHA256</span><span class="selector-pseudo">:AES128-SHA</span><span class="selector-pseudo">:AES256-SHA</span><span class="selector-pseudo">:DES-CBC3-SHA"</span></span><br><span class="line">  <span class="selector-tag">ssl-protocols</span>: "<span class="selector-tag">TLSv1</span> <span class="selector-tag">TLSv1</span><span class="selector-class">.1</span> <span class="selector-tag">TLSv1</span><span class="selector-class">.2</span> <span class="selector-tag">TLSv1</span><span class="selector-class">.3</span>"</span><br></pre></td></tr></table></figure>
+
+<h4 id="HSTS-默认启用"><a href="#HSTS-默认启用" class="headerlink" title="HSTS 默认启用"></a>HSTS 默认启用</h4><p>可以在 <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/" target="_blank" rel="noopener">ConfigMap</a> 中配置参数 <code>hsts: &quot;false&quot;</code> 禁用默认行为</p>
+<h4 id="HTTP-redirect"><a href="#HTTP-redirect" class="headerlink" title="HTTP redirect"></a>HTTP redirect</h4><p>对于 TLS 类型的 ingress，控制器默认将 HTTP 请求定向到 HTTPS（308 Permanent Redirect response），</p>
+<p>可以在 NGINX <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/" target="_blank" rel="noopener">config map</a>, 中使用  <code>ssl-redirect: &quot;false&quot;</code>  参数全局禁用，或者针对单个 ingress 规则使用 annotation <code>nginx.ingress.kubernetes.io/ssl-redirect: &quot;false&quot;</code> 来禁用。</p>
+<p>本例部署的 <a href="https://github.com/kubernetes/ingress-nginx" target="_blank" rel="noopener">ingress-nginx</a> 版本为 0.30.0，经过测试只要使用受信任证书，即可获得 A+ 得分。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><strong>以下发布 Dashboard 为例，配置受信任 SSL 证书</strong></p>
+<p>查看 Dashboard 已经正常部署（部署 Dashboard 参看其他文档）：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">kubectl</span> <span class="meta">get</span> po,<span class="keyword">svc </span>-n kubernetes-dashboard -o wide</span><br></pre></td></tr></table></figure>
+
+<p>部署受信任的 SSL 证书：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建 secret，在 ingress 不能直接使用证书需要转换为 secret 才能使用</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> key 和 cert 都为 PEM 格式，cert 包含证书文件和证书链部分</span></span><br><span class="line">kubectl create secret tls dashboard-ingress-tls --key dashboard-ingress.key --cert dashboard-ingress.crt -n kubernetes-dashboard</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看 secret 内容</span></span><br><span class="line">kubectl get secret dashboard-ingress-tls -n kubernetes-dashboard -o yaml</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除命令</span></span><br><span class="line">kubectl delete secret dashboard-ingress-tls -n kubernetes-dashboard</span><br></pre></td></tr></table></figure>
+
+<p>配置 ingress 转发文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi dashboard-ingress.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/ingress.class:</span> <span class="string">"nginx"</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/backend-protocol:</span> <span class="string">"HTTPS"</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard-ingress</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span> <span class="comment">#注意修改</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secretName:</span> <span class="string">dashboard-ingress-tls</span> <span class="comment">#上述创建的secret</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">k8s.sysin.cn</span> <span class="comment">#域名</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line"> <span class="attr">paths:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">   <span class="attr">backend:</span></span><br><span class="line">     <span class="attr">serviceName:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">     <span class="attr">servicePort:</span> <span class="number">443</span></span><br></pre></td></tr></table></figure>
+
+<p>host: 对应的域名<br>path: url上下文<br>backend: 后向转发到对应的 serviceName: 和 servicePort:</p>
+<p>注意，dashboard 默认使用 https 提供服务，ingress 默认 backend-protocol 使用 http，这里发布成功的关键是要添加 annotations 参数</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">annotations:</span><br><span class="line">  nginx<span class="selector-class">.ingress</span><span class="selector-class">.kubernetes</span>.io/ingress<span class="selector-class">.class</span>: <span class="string">"nginx"</span></span><br><span class="line">  nginx<span class="selector-class">.ingress</span><span class="selector-class">.kubernetes</span>.io/backend-protocol: <span class="string">"HTTPS"</span></span><br></pre></td></tr></table></figure>
+
+<p>部署：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl <span class="built_in">apply</span> -f dashboard-ingress.yaml</span><br></pre></td></tr></table></figure>
+
+<p>部署成功后可以通过域名访问：<a href="https://k8s.sysin.cn" target="_blank" rel="noopener">https://k8s.sysin.cn</a></p>
+<h2 id="5-Apache-httpd"><a href="#5-Apache-httpd" class="headerlink" title="5. Apache httpd"></a>5. Apache httpd</h2><h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>参看<a href="https://httpd.apache.org/docs/2.4/ssl/ssl_howto.html" target="_blank" rel="noopener">官网文档</a></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute"><span class="nomarkup">LoadModule</span></span> ssl_module modules/mod_ssl.so</span><br><span class="line"></span><br><span class="line"><span class="attribute"><span class="nomarkup">Listen</span></span> 443</span><br><span class="line"><span class="section">&lt;VirtualHost *:443&gt;</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">ServerName</span></span> www.example.com</span><br><span class="line">    <span class="attribute">SSLEngine</span> <span class="literal">on</span></span><br><span class="line">    <span class="attribute">SSLCertificateFile</span> <span class="string">"/path/to/www.example.com.cert"</span></span><br><span class="line">    <span class="attribute">SSLCertificateKeyFile</span> <span class="string">"/path/to/www.example.com.key"</span></span><br><span class="line">    <span class="attribute">SSLCipherSuite</span> HIGH:!aNULL:!MD5</span><br><span class="line">    <span class="comment">#SSLCipherSuite RC4-SHA:AES128-SHA:HIGH:!aNULL:!MD5</span></span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-2-2"><a href="#HTTP-2-2" class="headerlink" title="HTTP/2"></a>HTTP/2</h3><p><a href="https://httpd.apache.org/docs/2.4/mod/mod_http2.html" target="_blank" rel="noopener">Apache Module mod_http2</a> Available in version 2.4.17 and later</p>
+<p>两种配置:</p>
+<p>HTTP/2 in a VirtualHost context (TLS only)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Protocols h2 http&#x2F;1.1</span><br></pre></td></tr></table></figure>
+
+<p>Allows HTTP/2 negotiation (h2) via TLS ALPN in a secure <code>&lt;VirtualHost&gt;</code>. HTTP/2 preamble checking (Direct mode, see <code>H2Direct</code>) is disabled by default for <code>h2</code>.</p>
+<p>HTTP/2 in a Server context (TLS and cleartext)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Protocols h2 h2c http&#x2F;1.1</span><br></pre></td></tr></table></figure>
+
+<p>Allows HTTP/2 negotiation (h2) via TLS ALPN for secure <code>&lt;VirtualHost&gt;</code>. Allows HTTP/2 cleartext negotiation (h2c) upgrading from an initial HTTP/1.1 connection or via HTTP/2 preamble checking (Direct mode, see <code>H2Direct</code>).</p>
+<h3 id="HSTS-1"><a href="#HSTS-1" class="headerlink" title="HSTS"></a>HSTS</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Load modules (or use the IfModule)</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">LoadModule</span></span> headers_module modules/mod_headers.so</span><br><span class="line"></span><br><span class="line"><span class="attribute"><span class="nomarkup">LoadModule</span></span> rewrite_module modules/mod_rewrite.so</span><br></pre></td></tr></table></figure>
+
+<p>Rewrite HTTP connections and redirect them to HTTPS:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Redirect HTTP connections to HTTPS</span></span><br><span class="line"></span><br><span class="line"><span class="section">&lt;IfModule mod_rewrite.c&gt;</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">RewriteEngine</span></span> <span class="literal">On</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">RewriteCond</span></span> <span class="variable">%&#123;HTTPS&#125;</span> <span class="literal">off</span></span><br><span class="line"><span class="attribute"><span class="nomarkup">RewriteRule</span></span> (.*) https://<span class="variable">%&#123;HTTP_HOST&#125;</span><span class="variable">%&#123;REQUEST_URI&#125;</span><span class="meta"> [R=301,L]</span></span><br><span class="line"><span class="section">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Now configure the virtual host:</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:<span class="number">443</span>&gt;</span><br><span class="line"><span class="keyword">Header</span> <span class="keyword">always</span> <span class="keyword">set</span> <span class="keyword">Strict</span>-Transport-<span class="keyword">Security</span> "max-age=31536000; includeSubDomains; preload"</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="TLSv1-3-2"><a href="#TLSv1-3-2" class="headerlink" title="TLSv1.3"></a>TLSv1.3</h3><p><strong>版本要求：</strong></p>
+<p>Apache version <code>2.4.36</code> or greater. (网上文章传言 2.4.38 是错误的！)</p>
+<p>OpenSSL version <code>1.1.1</code> or greater.</p>
+<p>CentOS 8 和 Ubuntu 20.04 自带软件包满足要求，低版本需要编译安装。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">root@</span>c8 ~]# openssl version</span><br><span class="line">OpenSSL <span class="number">1.1</span><span class="number">.1</span>c FIPS  <span class="number">28</span> May <span class="number">2019</span></span><br><span class="line"></span><br><span class="line">[<span class="symbol">root@</span>c8 ~]# dnf list httpd</span><br><span class="line">Installed Packages</span><br><span class="line">httpd.x86_64        <span class="number">2.4</span><span class="number">.37</span><span class="number">-21.</span>module_el8<span class="number">.2</span><span class="number">.0</span>+<span class="number">382</span>+<span class="number">15</span>b0afa8        @AppStream</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">root@</span>u20:~# openssl version</span><br><span class="line">OpenSSL <span class="number">1.1</span><span class="number">.1f</span>  <span class="number">31</span> Mar <span class="number">2020</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">root@</span>u20:~# apt list apache2</span><br><span class="line">Listing... Done</span><br><span class="line">apache2/focal <span class="number">2.4</span><span class="number">.41</span><span class="number">-4</span>ubuntu3 amd64</span><br></pre></td></tr></table></figure>
+
+<p><strong>仅启用 TLS 1.2</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSLProtocol -<span class="keyword">all</span> +TLSv1.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>配置项如下所示:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *:443&gt;</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">ServerName</span></span> www.example.com</span><br><span class="line">    <span class="attribute"><span class="nomarkup">DocumentRoot</span></span> /var/www/html</span><br><span class="line"></span><br><span class="line">    <span class="attribute">SSLEngine</span> <span class="literal">on</span></span><br><span class="line">    <span class="attribute">SSLProtocol</span> -<span class="literal">all</span> +TLSv1.2</span><br><span class="line">    <span class="attribute">SSLCertificateFile</span> <span class="string">"/path/to/www.example.com.cert"</span></span><br><span class="line">    <span class="attribute">SSLCertificateKeyFile</span> <span class="string">"/path/to/www.example.com.key"</span></span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>启用 TLS 1.3 和 1.2</strong></p>
+<p>The Apache version 2.4.36 or higher versions support TLS v1.3. You must upgrade Apache packages before enabled TLS 1.3 in SSL settings.</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSLProtocol -all +TLSv1<span class="number">.2</span> +TLSv1<span class="number">.3</span></span><br></pre></td></tr></table></figure>
+
+<p>配置项如下所示:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *:443&gt;</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">ServerName</span></span> www.example.com</span><br><span class="line">    <span class="attribute"><span class="nomarkup">DocumentRoot</span></span> /var/www/html</span><br><span class="line"></span><br><span class="line">    <span class="attribute">SSLEngine</span> <span class="literal">on</span></span><br><span class="line">    <span class="attribute">SSLProtocol</span> -<span class="literal">all</span> +TLSv1.2 +TLSv1.3</span><br><span class="line">    <span class="attribute">SSLCertificateFile</span> <span class="string">"/path/to/www.example.com.cert"</span></span><br><span class="line">    <span class="attribute">SSLCertificateKeyFile</span> <span class="string">"/path/to/www.example.com.key"</span></span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>记得重启 Apache 服务才能生效。</p>
+<h3 id="参考配置-1"><a href="#参考配置-1" class="headerlink" title="参考配置"></a>参考配置</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For CentOS</span></span><br><span class="line">yum install mod_ssl</span><br><span class="line">mv <span class="regexp">/etc/</span>httpd<span class="regexp">/conf.d/</span>ssl.conf <span class="regexp">/etc/</span>httpd<span class="regexp">/conf.d/</span>ssl.conf.bak</span><br></pre></td></tr></table></figure>
+
+<p>配置文件自动增加”/etc/httpd/conf.modules.d/00-ssl.conf”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">echo '</span><br><span class="line">Listen 443</span><br><span class="line">&lt;VirtualHost *:443&gt;</span><br><span class="line">    Protocols h2 http/1.1</span><br><span class="line">    ServerName sysin.org</span><br><span class="line">    DocumentRoot /var/www/html</span><br><span class="line">    SSLEngine on</span><br><span class="line">    SSLProtocol -all +TLSv1.2 +TLSv1.3</span><br><span class="line">    SSLCertificateFile "/etc/httpd/ssl/sysin.org.pem"</span><br><span class="line">    SSLCertificateKeyFile "/etc/httpd/ssl/sysin.org.key"</span><br><span class="line">    SSLCipherSuite HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA</span><br><span class="line">    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line">' &gt; /etc/httpd/conf.d/sysin.org.conf</span><br></pre></td></tr></table></figure>
+
+<p>其他 Cipher 参考配置</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SSLCipherSuite HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA  #A</span><br><span class="line">SSLCipherSuite ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384  #A (Mozilla Intermediate)</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Apache-Tomcat"><a href="#6-Apache-Tomcat" class="headerlink" title="6. Apache Tomcat"></a>6. Apache Tomcat</h2><p>Tomcat 不使用 OpenSSL，所以不支持 TLS-FALLBACK-SCSV 特性，在 Tomcat 9 最新版默认配置即可获得 A 得分，开启 HSTS 也是 A 得分。</p>
+<h3 id="基本配置-1"><a href="#基本配置-1" class="headerlink" title="基本配置"></a>基本配置</h3><p>打开 <em>conf/server.xml</em> 文件可以看到默认的 SSL/TLS HTTP/1.1 和 HTTP/2 配置方法如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Define an SSL/TLS HTTP/1.1 Connector on port 8443</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8443"</span> <span class="attr">protocol</span>=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">maxThreads</span>=<span class="string">"150"</span> <span class="attr">SSLEnabled</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SSLHostConfig</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Certificate</span> <span class="attr">certificateKeystoreFile</span>=<span class="string">"conf/localhost-rsa.jks"</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">type</span>=<span class="string">"RSA"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SSLHostConfig</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Connector</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Define an SSL/TLS HTTP/1.1 Connector on port 8443 with HTTP/2</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8443"</span> <span class="attr">protocol</span>=<span class="string">"org.apache.coyote.http11.Http11AprProtocol"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">maxThreads</span>=<span class="string">"150"</span> <span class="attr">SSLEnabled</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">UpgradeProtocol</span> <span class="attr">className</span>=<span class="string">"org.apache.coyote.http2.Http2Protocol"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SSLHostConfig</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Certificate</span> <span class="attr">certificateKeyFile</span>=<span class="string">"conf/localhost-rsa-key.pem"</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">certificateFile</span>=<span class="string">"conf/localhost-rsa-cert.pem"</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">certificateChainFile</span>=<span class="string">"conf/localhost-rsa-chain.pem"</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">type</span>=<span class="string">"RSA"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SSLHostConfig</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Connector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://tomcat.apache.org/tomcat-9.0-doc/config/http.html#SSL_Support_-_Certificate" target="_blank" rel="noopener">Certificate 参数配置参考</a></p>
+<h3 id="HTTP-2-3"><a href="#HTTP-2-3" class="headerlink" title="HTTP/2"></a>HTTP/2</h3><p>版本要求：Tomcat 8.5.0，2016-03-24，开始支持 HTTP/2</p>
+<p>配置 HTTP/2：即增加 <code>&lt;UpgradeProtocol className=&quot;org.apache.coyote.http2.Http2Protocol&quot; /&gt;</code></p>
+<blockquote>
+<p>根据官方文档使用 PEM 格式证书测试失败，这里使用 PFX 格式。</p>
+</blockquote>
+<p>Tomcat 9 强制要求证书别名设置为 tomcat。您需要使用以下 keytool 命令（这里的证书原来别名是 alias，阿里云申请的免费证书默认别名）转换证书别名为 tomcat：</p>
+<p><code>keytool -changealias -keystore my-cert.pfx -alias alias -destalias tomcat</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Define an SSL/TLS HTTP/1.1 Connector on port 443 with HTTP/2</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"443"</span> <span class="attr">protocol</span>=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">maxThreads</span>=<span class="string">"150"</span> <span class="attr">SSLEnabled</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">UpgradeProtocol</span> <span class="attr">className</span>=<span class="string">"org.apache.coyote.http2.Http2Protocol"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SSLHostConfig</span> <span class="attr">protocols</span>=<span class="string">"TLSv1.2+TLSv1.3"</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">ciphers</span>=<span class="string">"HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Certificate</span> <span class="attr">certificateKeystoreFile</span>=<span class="string">"conf/k8s.sysin.cn.pfx"</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">certificateKeystoreType</span>=<span class="string">"PKCS12"</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">certificateKeystorePassword</span>=<span class="string">"your-pfx-password"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SSLHostConfig</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Connector</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 默认参数如下：</span></span><br><span class="line"><span class="comment">        hostName= default:`_default_`</span></span><br><span class="line"><span class="comment">        ciphers= default:`HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA`</span></span><br><span class="line"><span class="comment">        protocols= default:`all`</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>ciphers 参看：<a href="https://cwiki.apache.org/confluence/display/TOMCAT/Ciphers" target="_blank" rel="noopener">Ciphers</a>，<a href="https://cwiki.apache.org/confluence/display/TOMCAT/HowTo+SSLCiphers" target="_blank" rel="noopener">HowTo SSLCiphers</a></p>
+<p>protocols 写法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">The names of the protocols <span class="keyword">to</span> support when communicating with clients. This should be a list of any combination of the following:</span><br><span class="line"></span><br><span class="line">    SSLv2Hello</span><br><span class="line">    SSLv3</span><br><span class="line">    TLSv1</span><br><span class="line">    TLSv1.1</span><br><span class="line">    TLSv1.2</span><br><span class="line">    TLSv1.3</span><br><span class="line">    all</span><br><span class="line"></span><br><span class="line">Each token <span class="keyword">in</span> the list can be prefixed with a plus sign (<span class="string">"+"</span>) <span class="keyword">or</span> a minus sign (<span class="string">"-"</span>). A plus sign adds the protocol, a minus sign removes it form the current list. The list is built starting <span class="keyword">from</span> an empty list.</span><br><span class="line"></span><br><span class="line">The token all is an alias <span class="keyword">for</span> SSLv2Hello,TLSv1,TLSv1.1,TLSv1.2,TLSv1.3.</span><br><span class="line"></span><br><span class="line">Note that TLSv1.3 is only supported <span class="keyword">for</span> JSSE when using a JVM that implements TLSv1.3.</span><br><span class="line"></span><br><span class="line">Note that SSLv2Hello will be ignored <span class="keyword">for</span> OpenSSL based secure connectors. <span class="keyword">If</span> more than one protocol is specified <span class="keyword">for</span> an OpenSSL based secure connector it will always support SSLv2Hello. <span class="keyword">If</span> a single protocol is specified it will <span class="keyword">not</span> support SSLv2Hello.</span><br><span class="line"></span><br><span class="line">Note that SSLv2 <span class="keyword">and</span> SSLv3 are inherently unsafe.</span><br><span class="line"></span><br><span class="line"><span class="keyword">If</span> <span class="keyword">not</span> specified, the<span class="built_in"> default </span>value of all will be used.</span><br></pre></td></tr></table></figure>
+
+<h3 id="HSTS-2"><a href="#HSTS-2" class="headerlink" title="HSTS"></a>HSTS</h3><p>Response Header 配置</p>
+<p>Enabling HSTS (to include maxAgeSeconds = 31536000, includeSubDomains, and preload) requires two modifications of the Tomcat’s <code>conf/web.xml</code> file:</p>
+<p>1). 启用 HSTS 支持，查找以下部分（通过搜索 “httpHeaderSecurity” 关键词）：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    &lt;filter&gt;</span></span><br><span class="line"><span class="comment">        &lt;filter-name&gt;httpHeaderSecurity&lt;/filter-name&gt;</span></span><br><span class="line"><span class="comment">        &lt;filter-class&gt;org.apache.catalina.filters.HttpHeaderSecurityFilter&lt;/filter-class&gt;</span></span><br><span class="line"><span class="comment">        &lt;async-supported&gt;true&lt;/async-supported&gt;</span></span><br><span class="line"><span class="comment">    &lt;/filter&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>替换为（或者新增）：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>httpHeaderSecurity<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.catalina.filters.HttpHeaderSecurityFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>hstsEnabled<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>hstsMaxAgeSeconds<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>31536000<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>hstsIncludeSubDomains<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>hstsPreload<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">async-supported</span>&gt;</span>true<span class="tag">&lt;/<span class="name">async-supported</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2). 继续搜索 “httpHeaderSecurity” 关键词，查找如下内容，在 “Built In Filter Mappings” 这一段:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    &lt;filter-mapping&gt;</span></span><br><span class="line"><span class="comment">        &lt;filter-name&gt;httpHeaderSecurity&lt;/filter-name&gt;</span></span><br><span class="line"><span class="comment">        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="comment">        &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;</span></span><br><span class="line"><span class="comment">    &lt;/filter-mapping&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>移除注释，如下:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>httpHeaderSecurity<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>REQUEST<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-redirection"><a href="#HTTP-redirection" class="headerlink" title="HTTP redirection"></a>HTTP redirection</h3><p>编辑 <code>server.xml</code>，将 HTTP 重定向到 HTTPS，这里分别使用 80 和 443 端口，搜索 “Connector” 关键词，查找到如下部分：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">&lt;Connector executor="tomcatThreadPool"</span></span><br><span class="line"><span class="comment">           port="8080" protocol="HTTP/1.1"</span></span><br><span class="line"><span class="comment">           connectionTimeout="20000"</span></span><br><span class="line"><span class="comment">           redirectPort="8443" /&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">executor</span>=<span class="string">"tomcatThreadPool"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">port</span>=<span class="string">"80"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">redirectPort</span>=<span class="string">"443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>或者修改这里：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector <span class="attribute">port</span>=<span class="string">"8080"</span> <span class="attribute">protocol</span>=<span class="string">"HTTP/1.1"</span></span><br><span class="line">           <span class="attribute">connectionTimeout</span>=<span class="string">"20000"</span></span><br><span class="line">           <span class="attribute">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"80"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">redirectPort</span>=<span class="string">"443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-HAProxy"><a href="#7-HAProxy" class="headerlink" title="7. HAProxy"></a>7. HAProxy</h2><h3 id="SSL-cipher"><a href="#SSL-cipher" class="headerlink" title="SSL cipher"></a>SSL cipher</h3><p>Global 参数中关于 SSL 的配置</p>
+<p><strong>以下三个参数是定义 frontend</strong></p>
+<ul>
+<li><a href="http://cbonte.github.io/haproxy-dconv/2.2/configuration.html#ssl-default-bind-ciphers" target="_blank" rel="noopener">ssl-default-bind-ciphers</a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl-default-bind-ciphers &lt;ciphers&gt; #适用于 TLSv1.2及以下版本</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="http://cbonte.github.io/haproxy-dconv/2.2/configuration.html#ssl-default-bind-ciphersuites" target="_blank" rel="noopener">ssl-default-bind-ciphersuites</a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl-default-bind-ciphersuites &lt;ciphersuites&gt; #OpenSSL 1.1.1 or later，TLSv1.3</span><br></pre></td></tr></table></figure>
+
+<p>同时需要同时支持 TLSv1.2 及以下版本和 TLSv1.3 两个参数需要同时设置。</p>
+<ul>
+<li><a href="http://cbonte.github.io/haproxy-dconv/2.2/configuration.html#ssl-default-bind-options" target="_blank" rel="noopener">ssl-default-bind-options</a></li>
+</ul>
+<p>示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl-<span class="keyword">default</span>-bind-options ssl-min-ver TLSv1<span class="number">.2</span> no-tls-tickets</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">ssl-default-server-options</span> <span class="literal">no</span><span class="string">-sslv3</span> <span class="literal">no</span><span class="string">-tlsv10</span> <span class="literal">no</span><span class="string">-tlsv11</span> <span class="literal">no</span><span class="string">-tls-tickets</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>以下对应定义 backend server</strong></p>
+<ul>
+<li><a href="http://cbonte.github.io/haproxy-dconv/2.2/configuration.html#ssl-default-server-ciphers" target="_blank" rel="noopener">ssl-default-server-ciphers</a></li>
+</ul>
+<p>适用于 TLSv1.2及以下版本</p>
+<ul>
+<li><a href="http://cbonte.github.io/haproxy-dconv/2.2/configuration.html#ssl-default-server-ciphersuites" target="_blank" rel="noopener">ssl-default-server-ciphersuites</a></li>
+</ul>
+<p>适用于 OpenSSL 1.1.1 or later，TLSv1.3</p>
+<ul>
+<li><a href="http://cbonte.github.io/haproxy-dconv/2.2/configuration.html#ssl-default-server-options" target="_blank" rel="noopener">ssl-default-server-options</a></li>
+</ul>
+<p>参看官方文档：<a href="https://www.haproxy.com/documentation/aloha/latest/traffic-management/lb-layer7/tls/#configuring-tls-settings" target="_blank" rel="noopener">Configuring TLS Settings</a></p>
+<p><strong>参考配置：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">global</span><br><span class="line">......</span><br><span class="line">    #ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384 #for TLSv1.2, Mozilla Intermediate</span><br><span class="line">    ssl-default-bind-ciphers HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA #for TLSv1.2</span><br><span class="line">    ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256 #for TLSv1.3</span><br><span class="line">    ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets</span><br><span class="line">    #ssl-default-bind-options prefer-client-ciphers no-sslv3 no-tlsv10 no-tlsv11 no-tls-tickets</span><br><span class="line">.....</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTTP-2-4"><a href="#HTTP-2-4" class="headerlink" title="HTTP/2"></a>HTTP/2</h3><p>HAProxy 1.8 及以上版本支持 HTTP/2</p>
+<p>From <a href="https://www.haproxy.com/blog/whats-new-haproxy-1-8/" target="_blank" rel="noopener">the 1.8 announcement</a>:</p>
+<blockquote>
+<p>HAProxy 1.8 now supports HTTP/2 on the client side (in the frontend sections) and can act as a gateway between HTTP/2 clients and your HTTP/1.1 and HTTP/1.0 applications.</p>
+</blockquote>
+<p>HTTP/2 协议已经被迅速采用，HAProxy 1.8 现在在客户端支持 HTTP/2（在前端部分），并且可以充当 HTTP/2 客户端与 HTTP/1.1 和 HTTP/1.0 应用程序之间的网关。</p>
+<p>要启用对 HTTP/2 的支持，前端部分的绑定行必须配置为 SSL 端点，alpn 必须宣布 h2，如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">frontend myapp</span><br><span class="line">  <span class="string">bind :</span><span class="number">443</span> ssl crt <span class="regexp">/path/</span>to<span class="regexp">/cert.crt alpn h2,http/</span><span class="number">1.1</span></span><br><span class="line">  mode http</span><br></pre></td></tr></table></figure>
+
+<p>备注：cert.crt 证书采用 PEM 格式，包含私钥、证书，证书链在一个文件中。</p>
+<h3 id="TLSv1-3-3"><a href="#TLSv1-3-3" class="headerlink" title="TLSv1.3"></a>TLSv1.3</h3><p>要求：HAProxy 1.8.1 及以上，OpenSSL 1.1.1 及以上。</p>
+<p>参数：ssl-default-bind-ciphersuites，参看上述 SSL cipher 部分的描述。</p>
+<h3 id="HSTS-3"><a href="#HSTS-3" class="headerlink" title="HSTS"></a>HSTS</h3><p>方法如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">frontend <span class="keyword">public</span></span><br><span class="line"></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line">    http-response add-header Strict-Transport-Security <span class="string">"max-age=31536000; includeSubDomains; preload"</span></span><br><span class="line"></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p>Rewriting HTTP responses 方法示例</p>
+<ul>
+<li>add-header</li>
+</ul>
+<p>语法：</p>
+<p><code>http-response add-header &lt;name&gt; &lt;fmt&gt; [&lt;condition&gt;]</code></p>
+<p>示例：</p>
+<p><code>http-response add-header X-Via %[env(HOSTNAME)]</code></p>
+<ul>
+<li>set-header</li>
+</ul>
+<p>相当于覆盖或者替换原有 header</p>
+<p>语法：</p>
+<p><code>http-response set-header &lt;name&gt; &lt;fmt&gt; [&lt;condition&gt;]</code></p>
+<p>示例：</p>
+<p><code>http-response set-header Server webserver #hide server header</code></p>
+<ul>
+<li>del-header</li>
+</ul>
+<p>语法：</p>
+<p><code>http-response del-header &lt;name&gt; [&lt;condition&gt;]</code></p>
+<p>示例：</p>
+<p><code>http-response del-header X-Varnish</code></p>
+<ul>
+<li>replace-value</li>
+</ul>
+<p>高级替换</p>
+<p>语法：</p>
+<p><code>http-response replace-value &lt;name&gt; &lt;match-regex&gt; &lt;replace-fmt&gt; [&lt;condition&gt;]</code></p>
+<h3 id="Redirecting-HTTP-Requests"><a href="#Redirecting-HTTP-Requests" class="headerlink" title="Redirecting HTTP Requests"></a>Redirecting HTTP Requests</h3><p>重定向 HTTP 请求到 HTTPS，可以参考以下官方示例：</p>
+<p><strong>Examples of traffic redirection</strong></p>
+<p>Append a <strong>www.</strong> prefix in front of all URLs that do not have it:</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">acl has<span class="emphasis">_www hdr_</span>beg(host) -i www</span><br><span class="line">http-request redirect code 301 location <span class="link">http://www.%</span>[<span class="string">hdr(host)</span>]%[req.uri] unless has<span class="emphasis">_www</span></span><br></pre></td></tr></table></figure>
+
+<p>Redirect all HTTP traffic to HTTPS when SSL is handled by haproxy:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">acl <span class="keyword">http</span>      ssl_fc,<span class="keyword">not</span></span><br><span class="line"><span class="keyword">http</span>-request redirect scheme <span class="keyword">https</span> <span class="keyword">if</span> <span class="keyword">http</span></span><br></pre></td></tr></table></figure>
+
+<p>Send redirects for requests for articles without a ‘/‘:</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">acl missing_slash path_reg ^/article/[^/]*$</span><br><span class="line">http-request redirect code 301<span class="built_in"> prefix </span>/ drop-query append-slash <span class="keyword">if</span> missing_slash</span><br></pre></td></tr></table></figure>
+
+<p>Move the login URL only to HTTPS:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">acl <span class="keyword">http</span>       ssl_fc,<span class="keyword">not</span></span><br><span class="line">acl <span class="keyword">https</span>      ssl_fc</span><br><span class="line">acl u_login    path_beg   /login</span><br><span class="line">acl u_logout   path_beg   /logout</span><br><span class="line">acl up_userid  urlp_len(userid) gt <span class="number">0</span></span><br><span class="line">acl cookie_set hdr_sub(cookie) SEEN=<span class="number">1</span></span><br><span class="line"><span class="keyword">http</span>-request redirect scheme <span class="keyword">https</span> <span class="keyword">if</span> <span class="keyword">http</span>  u_login</span><br><span class="line"><span class="keyword">http</span>-request redirect prefix <span class="keyword">https</span>://%[req.hdr(Host)] <span class="built_in">set</span>-cookie SEEN=<span class="number">1</span> <span class="keyword">if</span> !cookie_set</span><br><span class="line"><span class="keyword">http</span>-request redirect prefix <span class="keyword">https</span>://%[req.hdr(Host)] drop-query <span class="keyword">if</span> u_login !up_userid</span><br><span class="line"><span class="keyword">http</span>-request redirect scheme <span class="keyword">http</span> <span class="keyword">if</span> <span class="keyword">https</span> !u_login</span><br><span class="line"><span class="keyword">http</span>-request redirect location / <span class="built_in">clear</span>-cookie USERID=       <span class="keyword">if</span> u_logout</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考配置-2"><a href="#参考配置-2" class="headerlink" title="参考配置"></a>参考配置</h3><p><a href="https://github.com/certsimple/haproxy-http2-load-balancing-config" target="_blank" rel="noopener">Config files and scripts for HAProxy 1.8 with HTTP/2 and dynamic reconfiguration</a></p>
+<p>An ‘haproxy.cfg’ with:</p>
+<ul>
+<li>The ability to switch backends dynamically</li>
+<li>HTTP/2 support in all browsers</li>
+<li>Logging to systemd</li>
+<li>The various www vs non-www, HTTP vs HTTPS combinations redirected to a single HTTPS site.</li>
+<li>A branded ‘sorry’ page</li>
+<li>A separate server that handles blogs and marketing content</li>
+<li>Support for <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events" target="_blank" rel="noopener">HTML5 Server Sent Events</a></li>
+<li>An A+ on the SSL Labs test</li>
+</ul>
+<p>See the <a href="https://certsimple.com/blog/haproxy-http2-dynamic-load-balancing-ssl" target="_blank" rel="noopener">full docs</a> at <a href="https://certsimple.com" target="_blank" rel="noopener">fast EV HTTPS verification</a> provider <a href="https://certsimple.com" target="_blank" rel="noopener">CertSimple</a>.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#https://github.com/certsimple/haproxy-http2-load-balancing-config/blob/master/haproxy.cfg</span></span></span><br><span class="line">global</span><br><span class="line"><span class="meta">	#</span><span class="bash"> Log to systemd<span class="string">'s /dev/log compatibility socket</span></span></span><br><span class="line">	log /dev/log local0 info</span><br><span class="line"></span><br><span class="line">	chroot /var/lib/haproxy</span><br><span class="line">	pidfile /var/run/haproxy.pid</span><br><span class="line">	maxconn 4000</span><br><span class="line">	user haproxy</span><br><span class="line">	group haproxy</span><br><span class="line">	daemon</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> turn on stats unix socket - see http://cbonte.github.io/haproxy-dconv/1.8/configuration.html<span class="comment">#3.1-stats%20socket</span></span></span><br><span class="line">	stats socket /var/lib/haproxy/stats mode 600 level admin</span><br><span class="line">	stats timeout 2m</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> generated 2020-09-12, Mozilla Guideline v5.6, HAProxy 2.1, OpenSSL 1.1.1d, intermediate configuration</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> https://ssl-config.mozilla.org/<span class="comment">#server=haproxy&amp;version=2.1&amp;config=intermediate&amp;openssl=1.1.1d&amp;guideline=5.6</span></span></span><br><span class="line">    # intermediate configuration</span><br><span class="line">    ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384</span><br><span class="line">    ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256</span><br><span class="line">    ssl-default-bind-options prefer-client-ciphers no-sslv3 no-tlsv10 no-tlsv11 no-tls-tickets</span><br><span class="line">    #ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets</span><br><span class="line"></span><br><span class="line">    ssl-default-server-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384</span><br><span class="line">    ssl-default-server-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256</span><br><span class="line">    ssl-default-server-options no-sslv3 no-tlsv10 no-tlsv11 no-tls-tickets</span><br><span class="line"></span><br><span class="line">    # curl https://ssl-config.mozilla.org/ffdhe2048.txt &gt; /path/to/dhparam</span><br><span class="line">    ssl-dh-param-file /path/to/dhparam</span><br><span class="line"></span><br><span class="line">defaults</span><br><span class="line">	mode http</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Needed <span class="keyword">for</span> GeoIP</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Enable insertion of the X-Forwarded-For header to requests sent to servers</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> May be used <span class="keyword">in</span> sections :defaults	frontend	listen	backend</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> http://cbonte.github.io/haproxy-dconv/2.2/configuration.html<span class="comment">#4.2-option%20forwardfor</span></span></span><br><span class="line">	option forwardfor</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> See http://cbonte.github.io/haproxy-dconv/1.8/configuration.html<span class="comment">#option%20http-server-close</span></span></span><br><span class="line">	option http-server-close</span><br><span class="line"></span><br><span class="line">	log global</span><br><span class="line">	option httplog</span><br><span class="line">	option dontlognull</span><br><span class="line">	option http-server-close</span><br><span class="line">	option forwardfor except 127.0.0.0/8</span><br><span class="line">	option redispatch</span><br><span class="line">	retries 3</span><br><span class="line">	timeout http-request 10s</span><br><span class="line">	timeout queue 1m</span><br><span class="line">	timeout client 1m</span><br><span class="line">	timeout server 1m</span><br><span class="line"></span><br><span class="line">	timeout check 10s</span><br><span class="line">	maxconn 3000</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> From http://stackoverflow.com/questions/21419859/configuring-haproxy-to-work-with-server-sent-events</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Set the max time to <span class="built_in">wait</span> <span class="keyword">for</span> a connection attempt to a server to succeed</span></span><br><span class="line">	timeout connect 30s</span><br><span class="line"><span class="meta">	#</span><span class="bash"> handle a client suddenly disappearing from the net</span></span><br><span class="line">	timeout client-fin 30s</span><br><span class="line">	option http-server-close</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> The <span class="string">'stats'</span> site, <span class="built_in">where</span> we see what<span class="string">'s up and what'</span>s down - uncomment and <span class="built_in">set</span> a password <span class="keyword">if</span> you want it!</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> stats <span class="built_in">enable</span></span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> stats uri /haproxy?stats</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> stats realm Strictly\ Private</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> stats auth someusername:i-am-an-awful-password-and-you-should-change-me</span></span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Show a custom page during site maintenance (ie, when <span class="string">'blue'</span> and <span class="string">'green'</span> are both down)</span></span><br><span class="line">	errorfile 503 /etc/haproxy/errors/503-mycustom.http</span><br><span class="line"></span><br><span class="line">frontend public</span><br><span class="line"><span class="meta">	#</span><span class="bash"> HTTP/2 - see https://www.haproxy.com/blog/whats-new-haproxy-1-8/</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> h2 is HTTP2 with TLS - see https://http2.github.io/faq/</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Order matters, so h2 before http1.1</span></span><br><span class="line">	bind :443 ssl crt /etc/https/cert-and-private-key-and-intermediate-and-dhparam.pem alpn h2,http/1.1</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Redirect http -&gt; https</span></span><br><span class="line">	bind :80</span><br><span class="line">	redirect scheme https code 301 if ! &#123; ssl_fc &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Redirect www -&gt; example.com</span></span><br><span class="line">	redirect prefix https://example.com code 301 if &#123; hdr(host) -i www.example.com &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> HSTS (15768000 seconds = 6 months)</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> HSTS (31536000 seconds = 1 years)</span></span><br><span class="line">	http-response set-header Strict-Transport-Security max-age=31536000</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Use the marketing site <span class="keyword">for</span> marketing URLs</span></span><br><span class="line">	acl marketing path_beg -i /help /sitemap.xml /BingSiteAuth.xml /about /blog /videos/blog /images/blog /fonts/blog /css/blog /js/blog</span><br><span class="line">	use_backend marketing if marketing</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span><span class="bash"> Everything <span class="keyword">else</span> goes to the app servers</span></span><br><span class="line">	default_backend app</span><br><span class="line">	option httpclose</span><br><span class="line">	option forwardfor</span><br><span class="line"></span><br><span class="line">backend marketing</span><br><span class="line">	balance roundrobin</span><br><span class="line">	server static 127.0.0.1:8000 check</span><br><span class="line"></span><br><span class="line">backend app</span><br><span class="line"><span class="meta">	#</span><span class="bash"> From http://blog.haproxy.com/2014/01/17/emulating-activepassing-application-clustering-with-haproxy/</span></span><br><span class="line"><span class="meta">	#</span><span class="bash"> See also https://cbonte.github.io/haproxy-dconv/configuration-1.5.html<span class="comment">#stick-table</span></span></span><br><span class="line">	stick-table type ip size 1m</span><br><span class="line">	stick on dst</span><br><span class="line"><span class="meta">	#</span><span class="bash"> See https://cloud.digitalocean.com/droplets <span class="keyword">for</span> these IPs</span></span><br><span class="line">	server green 10.1.1.1:8000 check</span><br><span class="line">	server blue 10.1.1.2:8000 check backup</span><br><span class="line"><span class="meta">	#</span><span class="bash"> http://stackoverflow.com/questions/21419859/configuring-haproxy-to-work-with-server-sent-events</span></span><br><span class="line">	timeout tunnel 10h</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-Varnish-with-Hitch"><a href="#8-Varnish-with-Hitch" class="headerlink" title="8. Varnish with Hitch"></a>8. Varnish with Hitch</h2><p>Varnish Cache 是一种 web 应用程序加速器，同时以被用于缓存的 HTTP 反向代理而闻名。Varnish HTTP/2 前端通过 Hitch 代理实现。Hitch 是 Varnish Software 开发的基于 libev 的高性能 SSL/TLS 开源代理软件。</p>
+<p>笔者写了一篇文章描述了整个配置过程，访问这里查看：<a href="https://www.sysin.org/article/Varnish-with-Hitch-HTTP2/" target="_blank" rel="noopener">Varnish with Hitch HTTP/2 implement on CentOS 8.0</a></p>
+<h3 id="启动-Varnish-支持-HTTP-2"><a href="#启动-Varnish-支持-HTTP-2" class="headerlink" title="启动 Varnish 支持 HTTP/2"></a>启动 Varnish 支持 HTTP/2</h3><p>默认情况下，Varnish 中的 HTTP/2 支持是禁用的，因此必须添加一个特性标志才能启用它。即通过传递“-p feature=+http2”作为 Varnish 的启动参数来实现。</p>
+<p>您可以通过运行<code>varnishadm param.show feature</code>命令来检查是否已启用参数。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># varnishadm param.show feature</span></span><br><span class="line"></span><br><span class="line">feature</span><br><span class="line">        Value is: none (default)</span><br><span class="line"></span><br><span class="line">        Enable/<span class="builtin-name">Disable</span> various minor features.</span><br><span class="line">           none                       <span class="builtin-name">Disable</span> all features.</span><br><span class="line"></span><br><span class="line">        Use +/-<span class="built_in"> prefix </span><span class="keyword">to</span> enable/<span class="builtin-name">disable</span> individual feature:</span><br><span class="line">           short_panic                Short panic message.</span><br><span class="line">           wait_silo                  Wait <span class="keyword">for</span> persistent silo.</span><br><span class="line">           no_coredump                <span class="literal">No</span> coredumps.</span><br><span class="line">           esi_ignore_https           Treat HTTPS as HTTP <span class="keyword">in</span></span><br><span class="line">                                      ESI:includes</span><br><span class="line">           esi_disable_xml_check      Don<span class="string">'t check of body looks like</span></span><br><span class="line"><span class="string">                                      XML</span></span><br><span class="line"><span class="string">           esi_ignore_other_elements  Ignore non-esi XML-elements</span></span><br><span class="line"><span class="string">           esi_remove_bom             Remove UTF-8 BOM</span></span><br><span class="line"><span class="string">           https_scheme               Also split https URIs</span></span><br><span class="line"><span class="string">           http2                      Support HTTP/2 protocol</span></span><br><span class="line"><span class="string">           http_date_postel           Relax parsing of timestamps in</span></span><br><span class="line"><span class="string">                                      HTTP headers</span></span><br></pre></td></tr></table></figure>
+
+<p>启动 Varnish</p>
+<blockquote>
+<p>本例中，Varnish 使用默认配置，事先运行了 Nginx，将 Nginx 默认端口修改为 8080 即可（具体过程略）。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">varnishd -a :<span class="number">80</span> -a localhost:<span class="number">6086</span>,PROXY -p feature=+http2 -f /etc/varnish/<span class="keyword">default</span>.vcl</span><br><span class="line">#或者</span><br><span class="line">varnishd -a localhost:<span class="number">6086</span>,PROXY -p feature=+http2 -f /etc/varnish/<span class="keyword">default</span>.vcl</span><br></pre></td></tr></table></figure>
+
+<p>验证 Varnish 已经开启 HTTP/2 支持</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">varnishadm param.show feature</span><br><span class="line">feature</span><br><span class="line">        Value is: +http2</span><br><span class="line">        Default is: none</span><br><span class="line"></span><br><span class="line">        ......</span><br></pre></td></tr></table></figure>
+
+<h3 id="hitch-参考配置：Ciphers，HTTP-2-和-TLSv1-3"><a href="#hitch-参考配置：Ciphers，HTTP-2-和-TLSv1-3" class="headerlink" title="hitch 参考配置：Ciphers，HTTP/2 和 TLSv1.3"></a>hitch 参考配置：Ciphers，HTTP/2 和 TLSv1.3</h3><p>版本要求：</p>
+<ul>
+<li>Cache 5.0 开始实验性的支持 HTTP/2</li>
+<li>Varnish 6.0 完整支持 HTTP/2</li>
+<li>hitch 1.5 版本开始支持 TLS 1.3</li>
+</ul>
+<p>示例配置（<a href="https://github.com/varnish/hitch/blob/master/docs/configuration.md" target="_blank" rel="noopener">更多参数参看官方文档</a>）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/hitch/hitch.conf /etc/hitch/hitch.conf.bak</span><br><span class="line"></span><br><span class="line">echo '</span><br><span class="line"><span class="meta">#</span><span class="bash"> Run <span class="string">'man hitch.conf'</span> <span class="keyword">for</span> a description of all options.</span></span><br><span class="line"></span><br><span class="line">frontend = &#123;</span><br><span class="line">    host = "*"</span><br><span class="line">    port = "443"</span><br><span class="line">&#125;</span><br><span class="line">backend = "[127.0.0.1]:6086"    # 6086 is the default Varnish PROXY port.</span><br><span class="line">workers = 4                     # number of CPU cores</span><br><span class="line"></span><br><span class="line">daemon = on</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> We strongly recommend you create a separate non-privileged hitch</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> user and group</span></span><br><span class="line">user = "hitch"</span><br><span class="line">group = "hitch"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Enable to <span class="built_in">let</span> clients negotiate HTTP/2 with ALPN. (default off)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Varnish 启动参数必须增加 `-p feature=+http2`，开启 HTTP/2 特性（默认关闭）</span></span><br><span class="line">alpn-protos = "h2, http/1.1"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> run Varnish as backend over PROXY; varnishd -a :80 -a localhost:6086,PROXY ..</span></span><br><span class="line">write-proxy-v2 = on             # Write PROXY header</span><br><span class="line"></span><br><span class="line">syslog = on</span><br><span class="line">log-level = 1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Add pem files to this directory</span></span><br><span class="line"><span class="meta">#</span><span class="bash">pem-dir = <span class="string">"/etc/pki/tls/private"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># PEM 文件包含 key、cert 和 chain 的组合，可以支持多个 PEM 文件</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># cat example.com.key example.com.crt my-ca-bundle.crt &gt; example.com.pem</span></span></span><br><span class="line">pem-file = "/etc/hitch/varnish.pem"</span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义第二个 PEM 文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash">pem-file = <span class="string">"/etc/hitch/mydomain.pem"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 官方推荐默认 cipher</span></span></span><br><span class="line">ciphers = "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Hitch supports TLS (1.0, 1.1, 1.2, 1.3) and SSL 3. By default</span></span></span><br><span class="line">tls-protos = TLSv1.2 TLSv1.3</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># TCP Fast Open saves up to one full round-trip time (RTT) over the standard three-way connection handshake during a TCP session.</span></span></span><br><span class="line">tcp-fastopen = on</span><br><span class="line">' &gt; /etc/hitch/hitch.conf</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>OCSP staple 相关配置参看<a href="https://github.com/varnish/hitch/blob/master/docs/configuration.md" target="_blank" rel="noopener">官方文档</a></p>
+</blockquote>
+<p>以上配置将获得 A 评级，加上下面的 HSTS 即可获得 A+ 评级。</p>
+<h3 id="HSTS-4"><a href="#HSTS-4" class="headerlink" title="HSTS"></a>HSTS</h3><p>编辑 varnish vcl，如下字段添加：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sub vcl_deliver &#123;</span><br><span class="line">	<span class="built_in">set</span> resp.http.Strict-Transport-Security = <span class="string">"max-age=31536000; includeSubDomains; preload"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+        <hr>
+
+        
+          <!-- promotion start -->
+          <div class="tip">
+            <p>
+              广而告之：<a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>，<a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云 云产品限时秒杀，爆款1核2G云服务器，首年99元</a>
+            </p>
+          </div>
+          <!-- promotion end -->
+          <hr>
+          
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/article/TLSv1.3-Support/" data-toggle="tooltip" data-placement="top" title="TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/article/DL-Veritas-Backup-Exec-21/" data-toggle="tooltip" data-placement="top" title="Veritas Backup Exec™ 21 下载 百度网盘">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+        <hr>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            如果文章中使用的内容和图片侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有用，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+          </p>
+        </div>
+        <!-- tip end -->
+        <hr>
+        
+
+        <!--打赏-->
+        
+            <div class="reward">
+                <div class="reward-button">赏 <span class="reward-code">
+                    <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span>
+                    <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.jpg"><b>微信打赏</b> </span>
+                    </span></div>
+                <p class="reward-notice">赞赏一下</p>
+            </div>
+        <hr>
+        
+
+        <!--打赏-->
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=在 Qualys SSL Labs SSL 测试中获得 A+ 评级的秘技 2020版&body=Hi,I found this website and thought you might like it https://sysin.org/article/Get_A+_Rating_on_SSL_Test/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- require APlayer -->
+        
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a4a3611e5f9fc02efc2c',
+    clientSecret: '2eaf392b1017d6ca39ed728da12d2f5470aa0888',
+    repo: 'gitalk',
+    owner: 'netgc',
+    admin: 'netgc',
+    id: 'Mon Jun 01 2020 10:10:00 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content (TOC) -->
+      <!-- Table of Contents -->
+<!-- Don not display number -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+<!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Qualys-SSL-Labs-简介"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Qualys SSL Labs 简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#测试规则概述"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">测试规则概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Existing-Grades-Sample"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Existing Grades Sample</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Future-Grades-Sample"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Future Grades Sample</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#References"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">References</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-F5-BIG-IP"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">1. F5 BIG-IP</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ciphers-配置：A-级别-TLSv1-2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Ciphers 配置：A 级别 (TLSv1.2)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启用-HSTS"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">启用 HSTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启用-TLSv1-3"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">启用 TLSv1_3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置-HTTP-2"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">配置 HTTP/2</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#TLS-FALLBACK-SCSV"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">TLS-FALLBACK-SCSV</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-Microsoft-IIS"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">2. Microsoft IIS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#IIS-获得-A-级别"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">IIS 获得 A 级别</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HSTS"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">HSTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#TLSv1-3"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP-2"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">HTTP/2</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-Nginx"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">3. Nginx</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Nginx-SSL-证书配置方法"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Nginx SSL 证书配置方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#TLSv1-3-1"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP-2-1"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">HTTP/2</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考配置"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">参考配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-Kubernetes-ingress-nginx"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">4. Kubernetes ingress-nginx</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概述"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#默认-TLS-版本和-Ciphers"><span class="toc-nav-number">6.1.1.</span> <span class="toc-nav-text">默认 TLS 版本和 Ciphers</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#HSTS-默认启用"><span class="toc-nav-number">6.1.2.</span> <span class="toc-nav-text">HSTS 默认启用</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#HTTP-redirect"><span class="toc-nav-number">6.1.3.</span> <span class="toc-nav-text">HTTP redirect</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#示例"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">示例</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-Apache-httpd"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">5. Apache httpd</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#基本配置"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">基本配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP-2-2"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">HTTP/2</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HSTS-1"><span class="toc-nav-number">7.3.</span> <span class="toc-nav-text">HSTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#TLSv1-3-2"><span class="toc-nav-number">7.4.</span> <span class="toc-nav-text">TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考配置-1"><span class="toc-nav-number">7.5.</span> <span class="toc-nav-text">参考配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-Apache-Tomcat"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">6. Apache Tomcat</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#基本配置-1"><span class="toc-nav-number">8.1.</span> <span class="toc-nav-text">基本配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP-2-3"><span class="toc-nav-number">8.2.</span> <span class="toc-nav-text">HTTP/2</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HSTS-2"><span class="toc-nav-number">8.3.</span> <span class="toc-nav-text">HSTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP-redirection"><span class="toc-nav-number">8.4.</span> <span class="toc-nav-text">HTTP redirection</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-HAProxy"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">7. HAProxy</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SSL-cipher"><span class="toc-nav-number">9.1.</span> <span class="toc-nav-text">SSL cipher</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HTTP-2-4"><span class="toc-nav-number">9.2.</span> <span class="toc-nav-text">HTTP/2</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#TLSv1-3-3"><span class="toc-nav-number">9.3.</span> <span class="toc-nav-text">TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HSTS-3"><span class="toc-nav-number">9.4.</span> <span class="toc-nav-text">HSTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Redirecting-HTTP-Requests"><span class="toc-nav-number">9.5.</span> <span class="toc-nav-text">Redirecting HTTP Requests</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考配置-2"><span class="toc-nav-number">9.6.</span> <span class="toc-nav-text">参考配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-Varnish-with-Hitch"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">8. Varnish with Hitch</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#启动-Varnish-支持-HTTP-2"><span class="toc-nav-number">10.1.</span> <span class="toc-nav-text">启动 Varnish 支持 HTTP/2</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#hitch-参考配置：Ciphers，HTTP-2-和-TLSv1-3"><span class="toc-nav-number">10.2.</span> <span class="toc-nav-text">hitch 参考配置：Ciphers，HTTP/2 和 TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HSTS-4"><span class="toc-nav-number">10.3.</span> <span class="toc-nav-text">HSTS</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+            
+            <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+            
+            <a class="tag" href="/tags/#F5" title="F5">F5</a>
+            
+            <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+            
+            <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+            
+            <a class="tag" href="/tags/#Apache" title="Apache">Apache</a>
+            
+            <a class="tag" href="/tags/#IIS" title="IIS">IIS</a>
+            
+            <a class="tag" href="/tags/#Tomcat" title="Tomcat">Tomcat</a>
+            
+            <a class="tag" href="/tags/#Varnish" title="Varnish">Varnish</a>
+            
+            <a class="tag" href="/tags/#HAProxy" title="HAProxy">HAProxy</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>SITE LINKS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://my.oschina.net/sysin/" target="_blank">OSCHINA Blog</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a target="_blank" href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2020
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.svg"></a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+<script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://sysin.org/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Baidu Push -->
+
+<script>
+  (function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://sysin.org/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

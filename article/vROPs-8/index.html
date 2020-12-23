@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="google-site-verification" content="sysin"> -->
+  <!-- <meta name="baidu-site-verification" content="sysin" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> VMware vRealize Operations 8.2 发布 - 自动驾驶式 IT 运维管理 - sysin - System Inside </title>
+  <meta name="description" content=" VMware vRealize Operations 8.2 发布 - 自动驾驶式 IT 运维管理 - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" VMware vRealize Operations 8.2 发布 - 自动驾驶式 IT 运维管理 " />
+  <link rel="canonical" href="https://sysin.org/article/vROPs-8/" />
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="../../css/highlight.css">
+<link rel="stylesheet" href="../../css/widget.css">
+<link rel="stylesheet" href="../../css/rocket.css">
+<link rel="stylesheet" href="../../css/signature.css">
+<link rel="stylesheet" href="../../css/catalog.css">
+<link rel="stylesheet" href="../../css/livemylife.css">
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+    <!-- reward start -->
+    <link rel="stylesheet" href="/css/donate.css" />
+    <!-- reward end -->
+    
+
+  
+  <!-- scroll start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- scroll end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css" />
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+<link rel="alternate" href="atom.xml" title="System Inside" type="application/atom+xml">
+<link rel="alternate" href="feed.xml" title="System Inside" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body-dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body-dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="System Inside" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/article_header/article_header.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#vRealize" title="vRealize">vRealize</a>
+              
+            </div>
+            <h1>VMware vRealize Operations 8.2 发布 - 自动驾驶式 IT 运维管理</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2020-10-14
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">20</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">5.4k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
+
+        <p>请访问原文链接：<a href="/article/vROPs-8/" title="VMware vRealize Operations 8.2 发布 - 自动驾驶式 IT 运维管理">VMware vRealize Operations 8.2 发布 - 自动驾驶式 IT 运维管理</a>，查看最新版。转载请保留出处。</p>
+<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<p>更新时间 2020年10月06日</p>
+<p>VMware vRealize Operations Manager 8.2 | 2020 年 | 内部版本 16949153</p>
+<p>VMware vRealize Operations Manager 升级 PAK（从 7.x 升级到 8.2）| 2020 年 | 内部版本 16949158</p>
+<p>注意：此 .pak 升级文件包含从 SUSE 到 Photon 的操作系统升级文件以及 vApp 升级文件。</p>
+<p>VMware vRealize Operations Manager 升级 PAK（从 8.x 升级到 8.2）| 2020 年 | 内部版本 16949151</p>
+<p>注意：此 .pak 升级文件包含从 Photon 到 Photon 的操作系统升级文件以及 vApp 升级文件。</p>
+<p>VMware vRealize Operations Manager 8.2 Endpoint Operations 代理 | 2020 年 | 内部版本 16934075</p>
+<p>VMware vRealize Operations Manager 8.2 Endpoint Operations 代理 PAK 升级 | 2020 年 | 内部版本 16849112</p>
+<p>VMware vRealize Operations Manager 8.2 升级前评估工具 | 2020 年 | 内部版本 16931956</p>
+<p>VMware vRealize Application Remote Collector 8.2 | 2020 年 | 内部版本 16974106</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>VMware vRealize Operations 可提供从应用到基础架构的自动驾驶式 IT 运维管理，以优化、规划及扩展 SDDC 和 VMware Cloud 部署，同时提供对多个公有云的可见性。在 AI 和预测性分析的支持下，它可帮助 IT 部门在一个统一的运维平台上轻松且不受干扰地进行生产运维。无论本地部署还是 SaaS，vRealize Operations 均可提供持续性能优化、高效容量管理、主动规划、智能修复和集成式合规性。</p>
+<p><strong>为何选择 vRealize Operations</strong></p>
+<ul>
+<li><p>来自市场领导者的成熟解决方案</p>
+<p>连续四年被 IDC 评为市场领导者，其所提供的针对要求最严苛应用的自动驾驶式运维功能，值得客户信赖。</p>
+</li>
+<li><p>真正的云计算管理平台</p>
+<p>自动驾驶式运维与深层数据和市场领先的自动化相关联，因此 IT 团队可以满怀信心地根据业务目标准确优化性能和成本。</p>
+</li>
+<li><p>卓越的混合云监控和故障排除功能</p>
+<p>基于与广泛的应用和基础架构生态系统相关联的结构化和非结构化数据，运行智能分析，能够帮助客户迅速解决问题。</p>
+</li>
+<li><p>专为 SDDC 和 vSphere 构建的原生控制台</p>
+<p>客户青睐由同一工程团队设计且可与 vSphere、VMware Cloud on AWS 和 <a href="https://www.vmware.com/cn/products/vsan.html" target="_blank" rel="noopener">vSAN</a> 顺畅协作的原生工具。</p>
+</li>
+<li><p>无规则的运维敏捷性</p>
+<p>vRealize Operations 提供从本地部署到 SaaS 的多个部署选项，以支持业务创新，缩短销售就绪时间以及实现快速可扩展性。具有分布式和复杂环境的客户可以跨多个地理位置分散的数据中心以及跨多个 vRealize Operations 或 vRealize Operations Cloud 实例获得联合视图。</p>
+</li>
+</ul>
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><p><strong>持续性能优化</strong></p>
+<ul>
+<li><a href="https://cloud.vmware.com/cn/vrealize-automation-cloud" target="_blank" rel="noopener">vRealize Automation Cloud</a> 与 <a href="https://cloud.vmware.com/cn/vrealize-operations-cloud" target="_blank" rel="noopener">vRealize Operations Cloud</a> 之间的集成</li>
+</ul>
+<p><strong>智能修复</strong></p>
+<ul>
+<li>全面支持 <a href="https://www.vmware.com/cn/products/vsphere.html" target="_blank" rel="noopener">vSphere 7.0</a> with Kubernetes 监控</li>
+<li>除了 AWS 和 Microsoft Azure 之外，还支持 Google Cloud Platform (GCP)</li>
+<li>原生支持 <a href="https://cloud.vmware.com/cn/vmc-aws" target="_blank" rel="noopener">VMware Cloud on AWS</a>，包括 NSX-T 支持和新仪表盘</li>
+<li>通过简化的警报创建、仪表盘管理、一致的导航和新的摘要页面，提高了易用性</li>
+<li><a href="https://cloud.vmware.com/cn/vrealize-operations-cloud" target="_blank" rel="noopener">vRealize Operations Cloud</a> 与 <a href="https://cloud.vmware.com/cn/log-insight-cloud" target="_blank" rel="noopener">vRealize Log Insight Cloud</a> 之间的集成</li>
+<li>与 <a href="https://www.vmware.com/cn/products/vrealize-log-insight.html" target="_blank" rel="noopener">vRealize Network Insight</a> 集成的网络感知故障排除</li>
+<li>与 Slack 集成</li>
+<li>管理包：新的 VxRail 和增强的 AWS、SDDC、SNMP</li>
+<li>跨新工作流的自愿性产品可及性测试 (VPAT)</li>
+<li>物理操作系统支持（仅限 vRealize Operations Cloud）</li>
+</ul>
+<p><strong>高效的容量和成本管理</strong></p>
+<ul>
+<li>适用于 vRealize Automation 8.1 托管虚拟机的基于费率卡的定价</li>
+<li>通过 CloudHealth（包括 Perspectives）增强了公有云成本核算</li>
+<li>改进了 VMware Cloud on AWS 迁移评估</li>
+<li>支持虚拟卷</li>
+</ul>
+<p><strong>集成式合规性</strong></p>
+<ul>
+<li>更新 DISA 和 CIS 的合规性包内容</li>
+</ul>
+<p><strong>更多信息</strong></p>
+<ul>
+<li>阅读<a href="http://blogs.vmware.com/management/2020/03/whats-new-in-vrealize-operations-8-1.html" target="_blank" rel="noopener">发布博客</a></li>
+<li>通过 <a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/subscription-upgrade-program-vrops.pdf" target="_blank" rel="noopener">vRealize Operations 的订阅升级计划</a>，可享受高达 25% 的 SaaS 折扣</li>
+<li>了解有关 <a href="https://cloud.vmware.com/cn/vrealize-operations-cloud" target="_blank" rel="noopener"><strong>vRealize Operations Cloud</strong></a> 的更多信息</li>
+</ul>
+<h2 id="新增功能"><a href="#新增功能" class="headerlink" title="新增功能"></a><strong>新增功能</strong></h2><p><strong>产品增强功能</strong></p>
+<p>vRealize Operations Manager 8.2 为自驱动操作提供了新的增强功能，可帮助客户优化、规划和扩展 VMware  Cloud，其中包括内部部署私有云或多个公有云（如 VMware Cloud on AWS）中的 VMware  SDDC，同时可统一多云监控。此版本依托于人工智能  (AI)，提供统一的操作平台，可提供持续的性能优化、高效容量和成本管理、主动规划、应用感知智能修复和集成的合规性。</p>
+<p>以下列出了关键特性和功能：</p>
+<p><strong>简化故障排除和智能修复</strong></p>
+<ul>
+<li>应用程序操作：<ul>
+<li>通过 Telegraf 代理支持新的应用程序：Oracle 数据库、Hyper-v、.Net、Clickhouse、Redis 和 Cassandra。</li>
+<li>支持基于脚本的 Telegraf 代理安装，使客户能够自动安装代理。</li>
+</ul>
+</li>
+<li>增强了与 vRealize Network Insight 的集成以发现应用程序。</li>
+<li>分层范围中的对象之间的衡量指标关联。</li>
+<li>增强的日志集成：<ul>
+<li>日志-衡量指标关联</li>
+<li>新的日志小组件</li>
+</ul>
+</li>
+<li>增强型 vSAN（文件服务和 CNS）支持。</li>
+<li>能够 ping 端点的可用性。</li>
+<li>vCenter 云帐户已得到增强，因此不需要对 CA 签名的解决方案证书进行手动验收。此类证书的更新可无缝运行。</li>
+</ul>
+<p><strong>高效的容量和成本管理</strong></p>
+<ul>
+<li>基于 vCenter Server 和 VMware Cloud on AWS 的工作负载的基于费率卡的定价。</li>
+<li>在各个服务器级别对维护、许可证、劳动力和设施成本驱动因素进行精细自定义。</li>
+<li>能够为服务器许可证成本自定义自动发现的操作系统。</li>
+<li>能够在 Showback 基于列表的视图中包含已删除虚拟机成本。</li>
+<li>增强了 Tanzu Kubernetes Grid 对容量管理和优化的支持。</li>
+<li>支持基于空间的 vSAN 空闲容量计算。</li>
+</ul>
+<p><strong>仪表板、小组件、报告和视图增强功能</strong></p>
+<ul>
+<li>简化了策略管理工作流。</li>
+<li>增强了 vSAN 的对象摘要页面。</li>
+<li>改进了 vSphere 标记的可视化。</li>
+<li>增强了仪表板管理和小组件可视化：<ul>
+<li>“前 N 项”小组件现在具有阈值。</li>
+<li>“记分板”小组件具有新主题（名称：梯度）。</li>
+<li>“视图分布图表”具有新的分布类型（名称：摘要）。</li>
+<li>“属性”小组件现在具有阈值。</li>
+<li>除了当前值外，“运行状况”图表现在还显示最大值和最小值。</li>
+<li>改进了仪表板文件夹管理。</li>
+<li>改进了仪表板共享管理。</li>
+<li>仪表板至仪表板导航。</li>
+</ul>
+</li>
+<li>增强的“入门”页面。仪表板现在分为三个主要方面：<ul>
+<li>管理</li>
+<li>流</li>
+<li>集合</li>
+</ul>
+</li>
+<li>新增和改进了具有预计算性能衡量指标的即时可用仪表板。</li>
+<li>以下仪表板已被弃用，将至少在另一个版本中进行维护。但是，在当前版本中，可从“仪表板库”&gt;“已弃用”中使用和启用此功能。已弃用的仪表板在“入门”仪表板中不可用。<ul>
+<li>“容量分配概览”仪表板</li>
+<li>“集群配置”仪表板</li>
+<li>集群利用率”仪表板</li>
+<li>“数据存储使用情况概览”仪表板</li>
+<li>“数据存储利用率”仪表板</li>
+<li>“分布式交换机配置”仪表板</li>
+<li>重负载虚拟机</li>
+<li>“主机配置”仪表板</li>
+<li>“主机使用情况概览”仪表板</li>
+<li>“主机利用率”仪表板</li>
+<li>迁移到 vSAN</li>
+<li>“操作概览”仪表板</li>
+<li>“优化历史记录”仪表板</li>
+<li>“优化性能”仪表板</li>
+<li>集群故障排除</li>
+<li>数据存储故障排除</li>
+<li>主机故障排除</li>
+<li>“虚拟机故障排除”仪表板</li>
+<li>“vSAN 故障排除”仪表板</li>
+<li>“通过日志排除故障”仪表板</li>
+<li>“利用率概览”仪表板</li>
+<li>“虚拟机配置”仪表板</li>
+<li>“虚拟机利用率”仪表板</li>
+<li>vSAN 容量概览</li>
+<li>vSAN 操作概览</li>
+<li>“vSphere 安全合规性”仪表板</li>
+</ul>
+</li>
+</ul>
+<p><strong>平台增强功能</strong></p>
+<ul>
+<li>已移至 Zulu OpenJDK8。</li>
+<li>改进了内容管理，只需单击一下即可导出和导入所有自定义和现成内容。</li>
+<li>基于 Swagger 的 API 文档。<ul>
+<li>能够通过单一控制台浏览 API、进行身份验证和执行 API 以及收集 API 响应。</li>
+<li>能够以 XML 和 JSON 格式查看 API 输出。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本身份验证</strong></p>
+<p>默认情况下，使用 REST API 的基本身份验证已弃用并在 vRealize Operations Manager 8.2  全新部署中禁用。已升级到 vRealize Operations Manager 8.2  的实例将继承与升级前相同的属性。建议您改为使用基于令牌的身份验证。如果您仍需要启用或禁用基本身份验证，请参见<a href="https://kb.vmware.com/s/article/77271" target="_blank" rel="noopener">知识库文章 77271</a>。</p>
+<p><strong>法规遵从性包</strong></p>
+<p>从 vRealize Operations Manager 8.1 开始，以下法规遵从性包是本机的。对于较新版本的法规遵从性包，必须升级到 vRealize Operations Manager 8.1。</p>
+<ul>
+<li>VMware vRealize Compliance Pack for DISA</li>
+<li>VMware vRealize Compliance Pack for ISO</li>
+<li>VMware vRealize Compliance Pack for HIPAA</li>
+<li>VMware vRealize Compliance Pack for FISMA</li>
+<li>VMware vRealize Compliance Pack for CIS</li>
+<li>VMware vRealize Compliance Pack for PCI</li>
+</ul>
+<p>VMware vRealize Compliance Pack for DISA 支持 ESXi 6.5，VMware vRealize Compliance Pack for CIS 支持 ESXi 6.7。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><h3 id="持续性能优化"><a href="#持续性能优化" class="headerlink" title="持续性能优化"></a>持续性能优化</h3><p>在运维和业务目标的驱动下，通过由实时预测性分析驱动的操作和 AI 实现自动均衡工作负载并主动避免争用，从而确保以最低成本获得所需的应用性能。将自动化目标驱动的工作负载均衡和优化应用于 VMware Cloud Foundation、vSAN 或 VMware Cloud on AWS。</p>
+<ul>
+<li>自动均衡工作负载</li>
+</ul>
+<p>根据 VMware Cloud Foundation、vSAN 或 VMware Cloud on AWS 上部署的虚拟机的业务和运维目标，自动并持续地跨集群均衡工作负载。优化工作负载均衡，以节约成本、提高性能、增强合规性或进行整合。对照定义的目标持续验证工作负载性能，将预测性分析应用于项目未来要求，自动均衡工作负载或将负载均衡安排在方便的维护时段内。</p>
+<ul>
+<li>在虚拟机的整个生命周期持续自动执行工作负载安置</li>
+</ul>
+<p>集成 vRealize Operations 和 vRealize Automation，或集成 vRealize Operations Cloud 和 vRealize Automation Cloud，用于初始安置和持续安置，以满足利用率和业务目标，共享通用构造以交付新一代云计算管理平台。</p>
+<ul>
+<li>基于主机的自动安置由运维和业务目标驱动</li>
+</ul>
+<p>跨主机创建安置区（不考虑集群边界），以根据软件许可证实施、等级和其他标签优化工作负载的安置和均衡。将业务目标应用到 VMware Distributed Resource Scheduler (DRS) 并自动执行 DRS 管理。</p>
+<ul>
+<li>Predictive DRS</li>
+</ul>
+<p>通过将 vRealize Operations 的预测性分析功能与 VMware Distributed Resource Scheduler (DRS) 相结合来避免资源争用。分析并预测未来的需求或争用情况，并主动移动工作负载以避免问题。</p>
+<h3 id="集成式合规性"><a href="#集成式合规性" class="headerlink" title="集成式合规性"></a>集成式合规性</h3><p>通过集成式合规性和自动偏差修复，降低风险并实施 IT 和监管标准。</p>
+<ul>
+<li>VMware Cloud 配置与合规性</li>
+</ul>
+<p>使用即时可用的集群、主机和虚拟机合规性仪表盘，为 vSphere、vSAN、NSX、VMware Cloud Foundation 和 VMware Cloud on AWS 启用安全配置。</p>
+<ul>
+<li>VMware Cloud 法规遵从性</li>
+</ul>
+<p>根据 DISA、FISMA、ISO、CIS、PCI 和 HIPAA 等通用模板，测量 vSphere、vSAN、NSX、VMware Cloud Foundation 和 VMware Cloud on AWS 合规性程度，或创建自定义合规性标准。</p>
+<ul>
+<li>自动化配置管理</li>
+</ul>
+<p>通过即时可用的工作流和 vRealize Orchestrator 集成自动修复偏差。</p>
+<h3 id="新一代运维平台"><a href="#新一代运维平台" class="headerlink" title="新一代运维平台"></a>新一代运维平台</h3><p>vRealize Operations 提供多种部署选项，以支持业务创新、缩短价值实现时间并快速扩展。</p>
+<ul>
+<li>可通过本地部署或作为服务提供</li>
+</ul>
+<p>vRealize Operations 可作为本地部署软件或云计算服务提供。名为 <a href="https://cloud.vmware.com/cn/vrealize-operations-cloud" target="_blank" rel="noopener">vRealize Operations Cloud</a> 的云计算服务可提供与传统产品完全兼容的功能特性，但具有软件即服务的所有优势，例如降低运维开销、自动更新以及更快地获得新功能特性和创新。</p>
+<ul>
+<li>跨多个数据中心联合</li>
+</ul>
+<p>利用跨多个和地理位置分散的数据中心的联合视图在同一位置管理大型分布式复杂环境。</p>
+<ul>
+<li>连续可用性</li>
+</ul>
+<p>连续可用性提供了跨故障域延伸 vRealize Operations 集群的能力，这将有助于 vRealize Operations 集群在发生故障时继续运行，从而确保不间断的运维视图。</p>
+<ul>
+<li>可延展的开放式平台</li>
+</ul>
+<p>利用具有扩展能力和恢复能力的开放式可延展体系架构，管理复杂的大型异构混合环境。部署 VMware 及第三方硬件和应用供应商提供的特定领域的管理包。</p>
+<h3 id="容量及成本管理和规划"><a href="#容量及成本管理和规划" class="headerlink" title="容量及成本管理和规划"></a>容量及成本管理和规划</h3><p>通过与成本分析相关的基于 ML 的实时容量分析降低成本、提高效率，改善利用率和整合，同时积极规划未来。</p>
+<ul>
+<li>主动式容量管理</li>
+</ul>
+<p>实时预测性容量分析基于容量使用情况和需求提供主动式警报，并根据可行的建议（包括回收、采购和云迁移规划选项）进行分配。</p>
+<ul>
+<li>回收和优化规模</li>
+</ul>
+<p>在保证业务和运维目标的前提下，回收超额配置的容量，优化虚拟机规模并加大整合。实时预测性容量分析基于容量使用情况和需求提供主动警报。这些分析还提供切实可行的建议（包括回收）以及计算和存储采购方案。</p>
+<ul>
+<li>VMware Cloud 成本管理</li>
+</ul>
+<p>将容量分析与成本核算信息结合起来，轻松了解和跟踪运维效率和容量管理如何推动成本效益。定义和自定义成本动因，并采取措施优化容量和成本。了解总体拥有成本，获得精细的节约机会来管理 VMware Cloud Foundation 和 vSAN 成本，并获得反馈和计费报告。在本地获取有关 VMware Cloud on AWS 的成本和计费的见解，并通过 VMware 与 Cloud Health 的集成扩展公有云成本核算可见性。</p>
+<ul>
+<li>容量规划</li>
+</ul>
+<p>使用灵活的容量建模来开发跨超融合、混合和多云环境的资源策略和情景假设。高级容量规划能够为新工作负载的最佳拟合建模、规划硬件采购、比较跨多个数据中心的成本以及规划向 VMware Cloud on AWS 的迁移。评估在私有云中部署工作负载的成本，与其他公有云环境（如 AWS、Azure 和 Google Cloud）的成本进行比较。</p>
+<h3 id="智能修复"><a href="#智能修复" class="headerlink" title="智能修复"></a>智能修复</h3><p>借助从应用到基础架构的统一可见性以及与指标和日志相关的切实可行的洞察信息，更快速地预测和预防问题，并进行故障排除。通过与 VMware Cloud Foundation、vSphere 7.0、vSAN、VMware Cloud on AWS 和多个公有云（如 AWS、Microsoft Azure 和 Google Cloud Platform）进行原生 SDDC 集成，来精简和集中化 IT 运维。</p>
+<ul>
+<li>对 Workbench 进行故障排除</li>
+</ul>
+<p>获得应用和基础架构运行状况的统一 IT 运维视图，以便进行异常检测和加快根本原因分析。直观了解和关联关键绩效指标、度量标准、事件和日志，并获得切实可行的工作流以快速排除故障。通过高级预测性分析实现性能问题的主动修复。洞察应用与基础架构的依赖关系，以简化变更影响分析和故障排除过程。</p>
+<ul>
+<li>跨 VMware Cloud 和原生公有云的统一可见性</li>
+</ul>
+<p>为 VMware Cloud Foundation、vSAN 和 VMware Cloud on AWS 环境获取即时可用且可自定义的仪表盘、报告和视图。自定义仪表盘、报告和视图，以创建独特的工作流，并在基础架构、运维和应用团队之间轻松共享。与通用的票证系统和协作工具集成，如 Service Now 和 Slack。原生集成 AWS、Azure 和 Google Cloud Platform 帐户及指标，以实现统一的可见性，加快决策制定和故障排除。</p>
+<ul>
+<li>全方位故障排除</li>
+</ul>
+<p>通过在环境中同时使用衡量指标和日志进行全方位故障排除，使故障排除更智能。vRealize Operations 与 vRealize Log Insight 集成以及 vRealize Operations Cloud 与 vRealize Log Insight Cloud 之间集成，可将结构化数据（例如衡量指标和关键绩效指标）与非结构化数据（例如日志文件）融合在一起，以便更快地分析根本原因。</p>
+<ul>
+<li>原生 VMware Cloud 集成</li>
+</ul>
+<p>运用并扩展 vCenter、vSAN、VMware Cloud Foundation 和 VMware Cloud on AWS 等 VMware SDDC 组件。全面了解 VMware Cloud Foundation 部署，自动均衡工作负载，优化性能，并管理容量和成本。规划向 VMware Cloud on AWS 的迁移并在部署后均衡工作负载，管理容量，以及获取有关计费和成本的洞察信息。</p>
+<ul>
+<li>vSAN 的全球运维</li>
+</ul>
+<p>在 vCenter 用户界面中了解 vSphere 和 vSAN 环境概况，包括 KPI、关键警报、容量概述和运维见解及建议。在上下文中全面启动 vRealize Operations 仪表盘，以进行全栈故障排除以及容量和成本管理，包括剩余容量和时间、重复数据消除以及压缩节约和回收机会。借助高级故障排除、主动式警报以及从虚拟机到磁盘的可见性，实现对多站点和 vSAN 延伸集群的集中式管理。</p>
+<ul>
+<li>容器和 Kubernetes 管理</li>
+</ul>
+<p>即时可用且可自定义的仪表盘、报告、视图和警报可帮助运用 vSphere 7.0 with Kubernetes，从而提供对传统虚拟机和容器环境的完整可见性和控制。在 vCenter 中纳管主管集群、命名空间、POD 和来宾集群时自动发现它们的新构造。获取新的摘要页面，以监控 Kubernetes 构造的性能、容量、利用率和配置。管理和预测容量，以显示容量瓶颈并优化容器环境规模。此外，使用容器管理包来扩展原生部署容器的这种可见性。</p>
+<ul>
+<li>在本地监控常见的打包应用和操作系统</li>
+</ul>
+<p>使 IT 和应用所有者能够更快地确定问题类别和解决问题。vRealize Operations 可轻松自动发现虚拟机和应用，部署具有完整生命周期管理功能的代理，并为常见的打包应用收集监控和排除故障所需的指标。vRealize Operations 会映射应用和基础架构之间的关系，以提供全体系的可视化，并缩短确定性能和可用性问题根本原因的时间。</p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><p><strong>自动驾驶式运维</strong></p>
+<ul>
+<li>Standard</li>
+<li>Advanced</li>
+<li>Enterprise</li>
+</ul>
+<p>有关完整的功能特性级版本比较，请参见<a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vCenter/vmw-vrealize-operations-datasheet.pdf" target="_blank" rel="noopener"><strong>自动驾驶式运维产品介绍</strong></a>。</p>
+<p>1vRealize Operations Advanced 和 Enterprise 单行版中已不再随附 VMware Configuration Manager。vRealize 或 vCloud Suite 也已不再随附 VMware Configuration Manager。VMware Configuration Manager 作为独立的单行版产品提供。</p>
+<p>2可能需要 VMware 或第三方管理包。有关 vRealize Operations 管理包的完整目录，请参见<a href="https://marketplace.vmware.com/vsx/?contentType=1" target="_blank" rel="noopener">此处</a>。</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>了解和评估</p>
+<ul>
+<li><a href="https://www.vmware.com/learn/350332_REG.html" target="_blank" rel="noopener">现代 IT 运维管理购买者指南</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vCenter/vmw-vrealize-operations-datasheet.pdf" target="_blank" rel="noopener">vRealize Operations 产品介绍</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vCenter/vmware-sap-vrops-whitepaper.pdf" target="_blank" rel="noopener">分析借助 VMware vRealize Operations 实现的 SAP 性能白皮书</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vrealize/vmware-self-driving-operations-powered-by-ai-ml-brochure.pdf" target="_blank" rel="noopener">基于 AI/ML 的自动驾驶式运维手册</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/vrealize/vmware-cloud-on-aws-with-self-driving-operations-solutions-brief.pdf" target="_blank" rel="noopener">VMware Cloud on AWS 与自动驾驶式运维解决方案简述</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vrealize/vmw-vrops-vsan-solution-brief.pdf" target="_blank" rel="noopener">vSAN 和自动驾驶式运维解决方案简述</a></li>
+<li><a href="https://marketplace.vmware.com/vsx/?contentType=1" target="_blank" rel="noopener">vRealize Operations Management Pack</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vrealize/vmware-cloud-management-with-actionable-insights-ebook.pdf" target="_blank" rel="noopener">云计算管理切实可行的洞察信息电子书</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vrealize/vmware-tracking-cloud-management-success-guide.pdf" target="_blank" rel="noopener">成功实现云计算管理指南</a></li>
+<li><a href="javascript:void(0);" target="_blank" rel="noopener"> vRealize Operations 7.5 可以提供哪些优势？</a></li>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/products/vrealize/vmw-cut-risks-to-your-business-by-zombie-hunting-eBook.pdf" target="_blank" rel="noopener">通过 Zombie Hunting 电子书降低业务风险</a></li>
+</ul>
+<p>安装和配置</p>
+<ul>
+<li><a href="https://www.vmware.com/cn/products/vrealize-operations/upgrade-center.html" target="_blank" rel="noopener">vRealize Operations 升级中心</a></li>
+<li><a href="https://docs.vmware.com/cn/vRealize-Operations-Manager/index.html" target="_blank" rel="noopener">vRealize Operations 文档</a></li>
+</ul>
+<p>加入社区</p>
+<ul>
+<li><a href="https://communities.vmware.com/community/vmtn/server/vcenter/vcops" target="_blank" rel="noopener">vRealize Operations 社区</a></li>
+<li><a href="https://blogs.vmware.com/management/" target="_blank" rel="noopener">云计算管理博客上有关 vRealize Operations 的文章</a></li>
+<li><a href="https://www.vmug.com/" target="_blank" rel="noopener">VMware 用户组 (VMUG)</a></li>
+</ul>
+<p>规划与设计</p>
+<ul>
+<li><a href="https://www.vmware.com/content/dam/digitalmarketing/vmware/zh-cn/pdf/solutionbrief/products/vrealize-operations/blue-medora-true-visibility-suite.pdf" target="_blank" rel="noopener">Blue Medora True Visibility Suite (TVS) 解决方案简述</a></li>
+</ul>
+<p>管理和优化</p>
+<ul>
+<li><a href="https://www.vmware.com/assessment/voa" target="_blank" rel="noopener">vSphere Optimization Assessment</a></li>
+<li><a href="https://vrealize.vmware.com/t/vrealize-suite-standard-2/manage-hyper-converged-infrastructure/what-s-new-for-vsan-in-vrealize-operations-7-5-1/" target="_blank" rel="noopener">在 vRealize Operations 中优化 vSAN 并进行故障排除</a></li>
+<li><a href="https://vrealize.vmware.com/t/vrealize-suite-standard-2/application-aware-operations/video-install-and-configure-application-monitoring-1/" target="_blank" rel="noopener">通过 vRealize Operations 监控应用</a></li>
+<li><a href="https://vrealize.vmware.com/t/vrealize-suite-standard-2/optimize-capacity/video-capacity-overview/" target="_blank" rel="noopener">使用 vRealize Operations 评估容量</a></li>
+<li><a href="javascript:void(0);" target="_blank" rel="noopener"> vRealize Operations：优化工作负载以实现整合</a></li>
+<li><a href="javascript:void(0);" target="_blank" rel="noopener"> vRealize Operations：优化工作负载以实施基于主机的许可</a></li>
+<li><a href="javascript:void(0);" target="_blank" rel="noopener"> vRealize Operations：优化工作负载以实现服务级别协议分层</a></li>
+<li><a href="javascript:void(0);" target="_blank" rel="noopener"> vRealize Operations 情景假设：物理基础架构规划</a></li>
+<li><a href="javascript:void(0);" target="_blank" rel="noopener"> vRealize Operations 情景假设：迁移至 AWS</a></li>
+<li><a href="javascript:void(0);" target="_blank" rel="noopener"> 在 vRealize Operations 中共享仪表盘</a></li>
+<li><a href="https://www.vmware.com/cn/products/vrealize-operations/upgrade-center.html#resources" target="_blank" rel="noopener">有关最新 vRealize Operations 功能的更多视频</a></li>
+</ul>
+<h2 id="定价"><a href="#定价" class="headerlink" title="定价"></a>定价</h2><p> vRealize Operations 可作为单行版提供，也可与各种 VMware 套件捆绑在一起或作为服务提供。若要了解不同的产品版本，请参阅<a href="https://www.vmware.com/cn/products/vrealize-operations.html#compare" target="_blank" rel="noopener">版本对比表</a>。提供四种许可模式。</p>
+<ul>
+<li><strong>可移动许可单元：</strong>这是 <a href="https://www.vmware.com/cn/products/vcloud-suite.html" target="_blank" rel="noopener">vCloud Suite</a> 和 <a href="https://www.vmware.com/cn/products/vrealize-suite.html" target="_blank" rel="noopener">vRealize Suite</a> 的许可指标。</li>
+<li><strong>按具有无限虚拟机的处理器：</strong>这是以下单行版产品的许可指标：vRealize Operations Standard、Advanced 和 Enterprise 版以及 <a href="https://www.vmware.com/cn/products/vrealize-log-insight.html" target="_blank" rel="noopener">vRealize Log Insight</a>。</li>
+<li><strong>按虚拟机或按操作系统实例：</strong>这是以下单行版产品的许可指标：vRealize Operations Standard、Advanced 和 Enterprise 版以及 <a href="https://www.vmware.com/cn/products/vrealize-log-insight.html" target="_blank" rel="noopener">vRealize Log Insight</a>。</li>
+<li><strong>软件即订阅 (SaaS)：</strong>访问 vRealize Operations Cloud 网页，网址为 <a href="https://cloud.vmware.com/cn/vrealize-operations-cloud" target="_blank" rel="noopener">https://cloud.vmware.com/vrealize-operations-cloud</a>。</li>
+</ul>
+<p>vRealize Operations Advanced 或 Enterprise 版已不再随附 VMware vRealize Configuration Manager。vRealize 或 vCloud Suite 也已不再随附 VMware Configuration Manager。vRealize Configuration Manager 作为独立的单行版产品提供。</p>
+<h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><p>官网下载：<a href="https://my.vmware.com/en/web/vmware/downloads/details?downloadGroup=VROPS-820&productId=936" target="_blank" rel="noopener">Download</a></p>
+<p>百度网盘：</p>
+<p>链接: <a href="https://pan.baidu.com/s/1wo7SEt7eI230ukrxyiqHPQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1wo7SEt7eI230ukrxyiqHPQ</a>  密码: snc4</p>
+
+
+        <hr>
+
+        
+          <!-- promotion start -->
+          <div class="tip">
+            <p>
+              广而告之：<a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>，<a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云 云产品限时秒杀，爆款1核2G云服务器，首年99元</a>
+            </p>
+          </div>
+          <!-- promotion end -->
+          <hr>
+          
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/article/VMware-vRealize-Download-Link/" data-toggle="tooltip" data-placement="top" title="VMware vRealize 最新版本官网下载链接 202010">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/article/vRLI-8/" data-toggle="tooltip" data-placement="top" title="VMware vRealize Log Insight 8.2 发布 - 智能日志记录和分析">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+        <hr>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            如果文章中使用的内容和图片侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有用，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+          </p>
+        </div>
+        <!-- tip end -->
+        <hr>
+        
+
+        <!--打赏-->
+        
+            <div class="reward">
+                <div class="reward-button">赏 <span class="reward-code">
+                    <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span>
+                    <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.jpg"><b>微信打赏</b> </span>
+                    </span></div>
+                <p class="reward-notice">赞赏一下</p>
+            </div>
+        <hr>
+        
+
+        <!--打赏-->
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=VMware vRealize Operations 8.2 发布 - 自动驾驶式 IT 运维管理&body=Hi,I found this website and thought you might like it https://sysin.org/article/vROPs-8/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- require APlayer -->
+        
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a4a3611e5f9fc02efc2c',
+    clientSecret: '2eaf392b1017d6ca39ed728da12d2f5470aa0888',
+    repo: 'gitalk',
+    owner: 'netgc',
+    admin: 'netgc',
+    id: 'Wed Oct 14 2020 13:24:38 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content (TOC) -->
+      <!-- Table of Contents -->
+<!-- Don not display number -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+<!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概述"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#功能特性"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">功能特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#新增功能"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#应用场景"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">应用场景</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#持续性能优化"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">持续性能优化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#集成式合规性"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">集成式合规性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新一代运维平台"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">新一代运维平台</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#容量及成本管理和规划"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">容量及成本管理和规划</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#智能修复"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">智能修复</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#比较"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">比较</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#资源"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">资源</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#定价"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">定价</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载链接"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">下载链接</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#vRealize" title="vRealize">vRealize</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>SITE LINKS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://my.oschina.net/sysin/" target="_blank">OSCHINA Blog</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a target="_blank" href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2020
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.svg"></a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+<script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://sysin.org/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Baidu Push -->
+
+<script>
+  (function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://sysin.org/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
