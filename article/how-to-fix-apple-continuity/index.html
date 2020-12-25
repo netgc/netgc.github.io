@@ -272,11 +272,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">11</span> Minutes
+              Estimated Reading Time <span class="post-count">12</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">3.2k</span> In Total
+              Words <span class="post-count">3.4k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -339,14 +339,14 @@
         <p>请访问原文链接：<a href="/article/how-to-fix-apple-continuity/" title="修复 Apple &quot;连续互通” 方法汇总：修复 AirDrop（隔空投送），修复 Apple Watch 解锁 Mac，修复 HandOff（接力）等">修复 Apple &quot;连续互通” 方法汇总：修复 AirDrop（隔空投送），修复 Apple Watch 解锁 Mac，修复 HandOff（接力）等</a>，查看最新版。转载请保留出处。</p>
 <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
 <p>how-to-fix-apple-continuity-from-sysin</p>
-<p>macOS Big Sur（戏称为 Bug Sir）在即将被抛弃的 Intel Mac 上真是 Bug 多多，最常见的是：</p>
+<p>macOS Big Sur 使 macOS 这款先进的桌面操作系统提升至性能与美学的新境界。通过精致的全新设计，充分体验 Mac 的强大功能。但是 Bug 也不可避免（戏称为 Bug Sir），比如常见的有：</p>
 <ul>
 <li><p>卡顿（特别是中文输入法卡顿（包括系统自带的），11.1 未修复）</p>
 </li>
-<li><p>蓝牙问题明显，影响 AirDrop、Apple Watch Unlock Mac 等连续互通功能</p>
+<li><p>蓝牙问题，影响 AirDrop、Apple Watch Unlock Mac 等连续互通功能</p>
 </li>
 </ul>
-<p>本文描述基于 macOS Big Sur，方法也适用于 macOS 其他版本。</p>
+<p>本文描述了修复 Apple 连续互通故障的一般步骤。</p>
 <p>Apple 连续互通故障特别复杂，可能修复一项功能，其他功能全部恢复正常，也可能某个功能独立故障无法修复，必要时请联系 Apple 支持。</p>
 <h2 id="1-了解-Apple-Continuity（连续互通）"><a href="#1-了解-Apple-Continuity（连续互通）" class="headerlink" title="1. 了解 Apple Continuity（连续互通）"></a>1. 了解 Apple Continuity（连续互通）</h2><h3 id="使用“连续互通”连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch"><a href="#使用“连续互通”连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch" class="headerlink" title="使用“连续互通”连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch"></a><a href="https://support.apple.com/zh-cn/HT204681" target="_blank" rel="noopener">使用“连续互通”连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch</a></h3><p>当您在所有设备上登录您的 Apple ID 后，您便可以使用“连续互通”功能在设备之间实现无缝衔接。点按下面的某项功能以了解相关信息，例如，如何在佩戴 Apple Watch 期间自动解锁 Mac，或者如何使用 iPad 扩展 Mac 的工作空间。</p>
 <p><img src="continuity-handoff-icon.png" width="10%" height="10%"> <a href="https://support.apple.com/zh-cn/HT209455" target="_blank" rel="noopener">接力</a>：在一台设备上开始工作，再切换到附近的另一台设备上继续工作。</p>
@@ -370,7 +370,8 @@
 <li>开启蓝牙（通常是蓝牙模块固件和配置等问题，通过重置配置来解决，某些时候需要系统更新才能彻底解决）</li>
 <li>Wi-Fi 连接（问题通常不会出现）</li>
 </ul>
-<h2 id="3-验证：通过“安全模式”快速修复"><a href="#3-验证：通过“安全模式”快速修复" class="headerlink" title="3. 验证：通过“安全模式”快速修复"></a>3. 验证：通过“安全模式”快速修复</h2><p>安全模式可以帮助您确定问题是不是由 Mac 启动时载入的软件所致。</p>
+<p>第三方应用软件的影响：一些使用蓝牙或者 Wi-Fi 的工具软件可能存在 Bug 影响了“连续互通”功能的正常发挥。</p>
+<h2 id="3-第一步骤：通过“安全模式”快速修复"><a href="#3-第一步骤：通过“安全模式”快速修复" class="headerlink" title="3. 第一步骤：通过“安全模式”快速修复"></a>3. 第一步骤：通过“安全模式”快速修复</h2><p>安全模式可以帮助您确定问题是不是由 Mac 启动时载入的软件所致。</p>
 <p>操作步骤：</p>
 <h3 id="Apple-芯片"><a href="#Apple-芯片" class="headerlink" title="Apple 芯片"></a>Apple 芯片</h3><ol>
 <li>将 Mac 关机。</li>
@@ -387,6 +388,7 @@
 <h3 id="验证问题"><a href="#验证问题" class="headerlink" title="验证问题"></a>验证问题</h3><p>此时我们可以尝试一下 AirDrop（隔空投送）传输文件，或者 Apple Watch 解锁 Mac 等有问题的“连续互通“特性。如果在安全模式下工作正常，那么请正常重新启动 Mac 以退出安全模式。然后再次测试是否存在问题。此时问题可能已解决。（恭喜！这是最简单的修复步骤。）</p>
 <p><strong>如果问题在安全模式下仍然存在</strong></p>
 <p>如果问题在安全模式下仍然存在，或者在安全模式下启动时您的 Mac 重新启动数次后关机，则应<a href="https://support.apple.com/zh-cn/HT204904" target="_blank" rel="noopener">重新安装 macOS</a> 并确保您的 Apple 软件和第三方 App 是最新版本。</p>
+<p>如果在安全模式下问题已经解决，重启后问题依旧，可以尝试下述修复步骤。</p>
 <h2 id="4-验证-iCloud-的连续互通性"><a href="#4-验证-iCloud-的连续互通性" class="headerlink" title="4. 验证 iCloud 的连续互通性"></a>4. 验证 iCloud 的连续互通性</h2><p>我们可以使用”<a href="https://support.apple.com/zh-cn/HT209455" target="_blank" rel="noopener">接力</a>“或者”<a href="https://support.apple.com/zh-cn/HT209460" target="_blank" rel="noopener">通用剪贴板</a>“来测试一下 iCloud 账号是否连续互通。</p>
 <ul>
 <li>在 iOS 或者 Mac 上打开 Safari 浏览器，打开一个网页，比如：sysin.org，此时查看另外一台 iOS 或者 Mac 的 Docker 栏是否出现了 Safari 的提示图标。</li>
@@ -400,9 +402,11 @@
 </ul>
 <h2 id="5-重置和修复蓝牙"><a href="#5-重置和修复蓝牙" class="headerlink" title="5. 重置和修复蓝牙"></a>5. 重置和修复蓝牙</h2><h3 id="重置蓝牙模块"><a href="#重置蓝牙模块" class="headerlink" title="重置蓝牙模块"></a>重置蓝牙模块</h3><p>按住 Shift + Option，同时点按菜单栏的蓝牙图标（控制中心图标中的蓝牙图标也可以）,出现菜单如下，点击”还原蓝牙模块“</p>
 <p><img src="bluetooth-icon.png" alt="bluetooth-icon"></p>
-<h3 id="重置蓝牙配置文件"><a href="#重置蓝牙配置文件" class="headerlink" title="重置蓝牙配置文件"></a>重置蓝牙配置文件</h3><p>打开终端，执行如下命令</p>
+<h3 id="重置蓝牙配置文件"><a href="#重置蓝牙配置文件" class="headerlink" title="重置蓝牙配置文件"></a>重置蓝牙配置文件</h3><p>关闭蓝牙（某些情况下无法正常关闭，需要执行命令<code>sudo pkill blued</code>，这也是蓝牙问题的征兆）</p>
+<p>打开终端，执行如下命令</p>
 <p><code>rm /Library/Preferences/com.apple.Bluetooth.plist</code></p>
-<h3 id="删除-Apple-Watch-解锁-Mac-的配置文件"><a href="#删除-Apple-Watch-解锁-Mac-的配置文件" class="headerlink" title="删除 Apple Watch 解锁 Mac 的配置文件"></a>删除 Apple Watch 解锁 Mac 的配置文件</h3><p>（1）打开 KeyChain Access（钥匙串访问），点击菜单”显示–显示不可见项“</p>
+<p>然后重新开启蓝牙</p>
+<h3 id="删除-Apple-Watch-解锁-Mac-配置文件"><a href="#删除-Apple-Watch-解锁-Mac-配置文件" class="headerlink" title="删除 Apple Watch 解锁 Mac 配置文件"></a>删除 Apple Watch 解锁 Mac 配置文件</h3><p>（1）打开 KeyChain Access（钥匙串访问），点击菜单”显示–显示不可见项“</p>
 <p>启动台–其他–钥匙串访问，或者直接搜索 KeyChain</p>
 <p><img src="keychain-01.png" alt="keychain-01"></p>
 <p>（2）搜索”Auto Unlock“，将出现的项全部删除</p>
@@ -412,7 +416,12 @@
 <p>（4）打开终端，执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm ~/Library/Sharing/AutoUnlock/ltk.plist</span><br><span class="line">rm ~/Library/Sharing/AutoUnlock/pairing-records.plist</span><br></pre></td></tr></table></figure>
 
-<h2 id="6-重置-Mac-的-SMC"><a href="#6-重置-Mac-的-SMC" class="headerlink" title="6. 重置 Mac 的 SMC"></a>6. 重置 Mac 的 SMC</h2><p>重置系统管理控制器 (SMC) 可以解决某些与电源、电池、风扇和其他功能相关的问题。</p>
+<p>最后重启，验证问题是否解决。</p>
+<h2 id="6-排查-App-问题"><a href="#6-排查-App-问题" class="headerlink" title="6. 排查 App 问题"></a>6. 排查 App 问题</h2><p>如前所述在安全模式下面如果问题已经得到解决，有可能是系统加载了一些自动启动的 App 影响了蓝牙或者 Wi-Fi 的可用性，此时禁止 App 自动启动来验证问题，可以通过 App 的设置来禁止自动启动，或者使用一些系统优化工具来控制 App 开机启动。</p>
+<p>重启系统验证问题是否解决，必要时，使用排除法来确定是哪个 App 的问题，然后更新（或者降版本）确认有问题的 App。</p>
+<p>笔者使用的一款 Wi-Fi 管理工具就是一个例子，因为经常要使用该工具，开机自启动，结果导致 AirDrop 失效，尝试多种方式修复，短暂恢复后再次失效，后来更新到新版 App 才得以彻底修复。</p>
+<p>如果问题依然没有解决，下一步将重置 SMC 和 NVRAM。</p>
+<h2 id="7-重置-Mac-的-SMC"><a href="#7-重置-Mac-的-SMC" class="headerlink" title="7. 重置 Mac 的 SMC"></a>7. 重置 Mac 的 SMC</h2><p>重置系统管理控制器 (SMC) 可以解决某些与电源、电池、风扇和其他功能相关的问题。</p>
 <h3 id="在配备-T2-芯片的电脑上重置-SMC"><a href="#在配备-T2-芯片的电脑上重置-SMC" class="headerlink" title="在配备 T2 芯片的电脑上重置 SMC"></a>在配备 T2 芯片的电脑上重置 SMC</h3><p><a href="https://support.apple.com/zh-cn/HT208862" target="_blank" rel="noopener">如果您的 Mac 配备 Apple T2 安全芯片</a>，请按照以下步骤操作。如果您需要协助，请<a href="https://support.apple.com/zh-cn/contact" target="_blank" rel="noopener">联系 Apple 支持</a>。</p>
 <h4 id="配备-T2-芯片的笔记本电脑"><a href="#配备-T2-芯片的笔记本电脑" class="headerlink" title="配备 T2 芯片的笔记本电脑"></a>配备 T2 芯片的笔记本电脑</h4><p>重置 SMC 之前，请尝试以下步骤：</p>
 <ol>
@@ -465,7 +474,7 @@
 <li>等待 15 秒钟，然后重新接回电源线。</li>
 <li>等待 5 秒钟，然后按下<strong>电源按钮</strong>以将 Mac 开机。</li>
 </ol>
-<h2 id="7-重置-Mac-上的-NVRAM-或-PRAM"><a href="#7-重置-Mac-上的-NVRAM-或-PRAM" class="headerlink" title="7. 重置 Mac 上的 NVRAM 或 PRAM"></a>7. 重置 Mac 上的 NVRAM 或 PRAM</h2><p>如果 Mac 出现了与 NVRAM 或 PRAM 中储存的设置有关的问题，那么进行重置可能会有帮助。</p>
+<h2 id="8-重置-Mac-上的-NVRAM-或-PRAM"><a href="#8-重置-Mac-上的-NVRAM-或-PRAM" class="headerlink" title="8. 重置 Mac 上的 NVRAM 或 PRAM"></a>8. 重置 Mac 上的 NVRAM 或 PRAM</h2><p>如果 Mac 出现了与 NVRAM 或 PRAM 中储存的设置有关的问题，那么进行重置可能会有帮助。</p>
 <p>NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用这些内存来储存某些设置并对其进行快速访问。PRAM（参数 RAM）储存着类似的信息，且 NVRAM 和 PRAM 的重置步骤相同。</p>
 <p>可储存在 NVRAM 中的设置包括音量、显示屏分辨率、启动磁盘选择、时区，以及最近的内核崩溃信息。储存在 NVRAM 中的设置取决于您的 Mac 以及与这台 Mac 搭配使用的设备。</p>
 <p>如果您遇到与这些设置或其他设置有关的问题，那么重置 NVRAM 可能会有帮助。例如，如果 Mac 并非从“启动磁盘”偏好设置中选定的磁盘启动，或者在 Mac 启动前短暂地显示了一个问号图标，则可能需要重置 NVRAM。</p>
@@ -478,8 +487,6 @@
 </ul>
 <p>如果您的 Mac 使用了<a href="https://support.apple.com/zh-cn/HT204455" target="_blank" rel="noopener">固件密码</a>，这个组合键将不起任何作用或导致您的 Mac 从 <a href="https://support.apple.com/zh-cn/HT201314" target="_blank" rel="noopener">macOS 恢复功能</a>启动。要重置 NVRAM，请先关闭固件密码。</p>
 <p>在您的 Mac 完成启动后，您可能需要打开“系统偏好设置”并调整已重置的任何设置，例如音量、显示屏分辨率、启动磁盘选择或时区。</p>
-<h2 id="8-新建账号登录后再删除"><a href="#8-新建账号登录后再删除" class="headerlink" title="8. 新建账号登录后再删除"></a>8. 新建账号登录后再删除</h2><p>参看：<a href="https://www.wuaishare.cn/161.html" target="_blank" rel="noopener">升级到 macOS Big Sur 后无法使用隔空投送和接力</a></p>
-<p>方法简言之，新建一个用户账号，使用新的用户账号登录，测试隔空投送和接力，如果正常，退出该用户登录，重新登录原有用户账号，此时可能已经修复，删除新建的用户账号。</p>
 <h2 id="9-软件更新"><a href="#9-软件更新" class="headerlink" title="9. 软件更新"></a>9. 软件更新</h2><p>什么？系统已经是 macOS Big Sur 11.1 + iOS 14.3，在等等看吧……</p>
 <h2 id="10-系统恢复"><a href="#10-系统恢复" class="headerlink" title="10. 系统恢复"></a>10. 系统恢复</h2><p>无力回天只能<a href="https://support.apple.com/zh-cn/HT204904" target="_blank" rel="noopener">重新安装 macOS</a>。</p>
 <h2 id="11-联系-Apple-Support"><a href="#11-联系-Apple-Support" class="headerlink" title="11. 联系 Apple Support"></a>11. 联系 Apple Support</h2><p>都重新安装了系统，也无法解决？</p>
@@ -491,8 +498,6 @@
 <li><p>到全国任意一家 <a href="https://www.apple.com.cn/retail/" target="_blank" rel="noopener">Apple Store 零售店</a></p>
 </li>
 </ul>
-<h2 id="12-笔者的修复过程"><a href="#12-笔者的修复过程" class="headerlink" title="12. 笔者的修复过程"></a>12. 笔者的修复过程</h2><p>笔者在两台 Intel Mac 上（分别是 2018 和 2019 机型），尝试了所有修复方法，并且是全盘抹掉全新安装的 macOS Big Sur，也使用过系统快照恢复，偶尔确实可以修复，但是很快又失效，或者直接无法修复，只能认为是系统 Bug，让我们等待系统更新吧……</p>
-<p>但是今天（12月23日）奇迹发生了，突然弹出一个通知可以使用 Apple Watch 解锁 Mac，然后点击提示输入密码，然后解锁正常了，然后然后 Airdrop 正常了，再然后另外一台 Mac 同样操作也都正常了……</p>
 
 
         <hr>
@@ -671,7 +676,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-了解-Apple-Continuity（连续互通）"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 了解 Apple Continuity（连续互通）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用“连续互通”连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">使用“连续互通”连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#系统要求（机型）"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">系统要求（机型）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关于-AirDrop（隔空投送）"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">关于 AirDrop（隔空投送）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关于-Apple-Watch-解锁-Mac"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">关于 Apple Watch 解锁 Mac</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关于-Handoff（接力）"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">关于 Handoff（接力）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-了解产生问题的原因"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 了解产生问题的原因</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-验证：通过“安全模式”快速修复"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 验证：通过“安全模式”快速修复</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Apple-芯片"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Apple 芯片</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Intel-处理器"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Intel 处理器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#验证问题"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">验证问题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-验证-iCloud-的连续互通性"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 验证 iCloud 的连续互通性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-重置和修复蓝牙"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 重置和修复蓝牙</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重置蓝牙模块"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">重置蓝牙模块</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重置蓝牙配置文件"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">重置蓝牙配置文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除-Apple-Watch-解锁-Mac-的配置文件"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">删除 Apple Watch 解锁 Mac 的配置文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-重置-Mac-的-SMC"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 重置 Mac 的 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在配备-T2-芯片的电脑上重置-SMC"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">在配备 T2 芯片的电脑上重置 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#配备-T2-芯片的笔记本电脑"><span class="toc-nav-number">6.1.1.</span> <span class="toc-nav-text">配备 T2 芯片的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#配备-T2-芯片的台式电脑"><span class="toc-nav-number">6.1.2.</span> <span class="toc-nav-text">配备 T2 芯片的台式电脑</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在其他电脑上重置-SMC"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">在其他电脑上重置 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#装有不可拆卸电池的笔记本电脑"><span class="toc-nav-number">6.2.1.</span> <span class="toc-nav-text">装有不可拆卸电池的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#装有可拆卸电池的笔记本电脑"><span class="toc-nav-number">6.2.2.</span> <span class="toc-nav-text">装有可拆卸电池的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#台式电脑"><span class="toc-nav-number">6.2.3.</span> <span class="toc-nav-text">台式电脑</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-重置-Mac-上的-NVRAM-或-PRAM"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 重置 Mac 上的 NVRAM 或 PRAM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-新建账号登录后再删除"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">8. 新建账号登录后再删除</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-软件更新"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">9. 软件更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-系统恢复"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">10. 系统恢复</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-联系-Apple-Support"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">11. 联系 Apple Support</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#12-笔者的修复过程"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">12. 笔者的修复过程</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-了解-Apple-Continuity（连续互通）"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 了解 Apple Continuity（连续互通）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用“连续互通”连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">使用“连续互通”连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#系统要求（机型）"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">系统要求（机型）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关于-AirDrop（隔空投送）"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">关于 AirDrop（隔空投送）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关于-Apple-Watch-解锁-Mac"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">关于 Apple Watch 解锁 Mac</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关于-Handoff（接力）"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">关于 Handoff（接力）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-了解产生问题的原因"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 了解产生问题的原因</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-第一步骤：通过“安全模式”快速修复"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 第一步骤：通过“安全模式”快速修复</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Apple-芯片"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Apple 芯片</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Intel-处理器"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Intel 处理器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#验证问题"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">验证问题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-验证-iCloud-的连续互通性"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 验证 iCloud 的连续互通性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-重置和修复蓝牙"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 重置和修复蓝牙</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重置蓝牙模块"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">重置蓝牙模块</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重置蓝牙配置文件"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">重置蓝牙配置文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#删除-Apple-Watch-解锁-Mac-配置文件"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">删除 Apple Watch 解锁 Mac 配置文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-排查-App-问题"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 排查 App 问题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-重置-Mac-的-SMC"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 重置 Mac 的 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在配备-T2-芯片的电脑上重置-SMC"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">在配备 T2 芯片的电脑上重置 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#配备-T2-芯片的笔记本电脑"><span class="toc-nav-number">7.1.1.</span> <span class="toc-nav-text">配备 T2 芯片的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#配备-T2-芯片的台式电脑"><span class="toc-nav-number">7.1.2.</span> <span class="toc-nav-text">配备 T2 芯片的台式电脑</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在其他电脑上重置-SMC"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">在其他电脑上重置 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#装有不可拆卸电池的笔记本电脑"><span class="toc-nav-number">7.2.1.</span> <span class="toc-nav-text">装有不可拆卸电池的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#装有可拆卸电池的笔记本电脑"><span class="toc-nav-number">7.2.2.</span> <span class="toc-nav-text">装有可拆卸电池的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#台式电脑"><span class="toc-nav-number">7.2.3.</span> <span class="toc-nav-text">台式电脑</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-重置-Mac-上的-NVRAM-或-PRAM"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">8. 重置 Mac 上的 NVRAM 或 PRAM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-软件更新"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">9. 软件更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-系统恢复"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">10. 系统恢复</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-联系-Apple-Support"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">11. 联系 Apple Support</span></a></li></ol>
         
         </div>
       </aside>
