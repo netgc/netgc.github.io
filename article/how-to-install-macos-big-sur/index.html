@@ -340,7 +340,7 @@
 <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
 <p><strong>macfz：请停止抄袭！</strong></p>
 <blockquote>
-<p>2020.11.17 更新：增加配备 Apple T2 安全芯片的 Mac 额外操作步骤。</p>
+<p>2020.11.17 更新：增加配备 Apple T2 安全芯片的 Mac 额外操作步骤。<br>2020-11-30 更新：增加 ESXi 7.0 U1 Mod，直接运行 macOS Big Sur。<br>2020-12-29 更新：增加 VMware Workstation 16.1 Patch，直接运行 macOS Big Sur。</p>
 </blockquote>
 <p>本文适用以下场景：</p>
 <ul>
@@ -453,16 +453,15 @@
 <p>本例仅测试在 VMware 软件中安装，其他虚机软件未验证，方法类似。</p>
 <h3 id="（1）在-macOS-中安装虚拟机"><a href="#（1）在-macOS-中安装虚拟机" class="headerlink" title="（1）在 macOS 中安装虚拟机"></a>（1）在 macOS 中安装虚拟机</h3><p><a href="https://sysin.org/article/Download-VMware-Fusion-12/">VMware Fusion 12</a> 和 <a href="https://www.parallels.com/directdownload/pd16/?experience=enter_key" target="_blank" rel="noopener">Parallels Desktop 16 for Mac</a> 都可以完全支持 macOS Big Sur，使用可引导的 ISO，直接安装即可。</p>
 <p><img src="vmware-fusion-12-macos.jpg" alt="vmware-fusion-12-macos"></p>
-<h3 id="（2）在-Windows-中安装虚拟机"><a href="#（2）在-Windows-中安装虚拟机" class="headerlink" title="（2）在 Windows 中安装虚拟机"></a>（2）在 Windows 中安装虚拟机</h3><p><a href="https://sysin.org/article/Download-VMware-Workstation-16/">VMware Workstation 16</a> 已经完全支持 macOS Big Sur（VMware 甚至提前发布了 macOS 11.1 ？），当然运行在非 Mac 硬件上需要 <strong><a href="https://github.com/BDisp/unlocker" target="_blank" rel="noopener">unlocker</a></strong> 才可开启。</p>
-<p>第三方已经有修改过的 Workstation 软件集成了 unlocker，版权原因这里不列出，可自行搜索。</p>
-<p>笔者考虑在将来发布一个 MOD，来方便解决这个问题，敬请关注本站更新。</p>
+<h3 id="（2）在-Windows-中安装虚拟机"><a href="#（2）在-Windows-中安装虚拟机" class="headerlink" title="（2）在 Windows 中安装虚拟机"></a>（2）在 Windows 中安装虚拟机</h3><p><a href="https://sysin.org/article/Download-VMware-Workstation-16/">VMware Workstation 16</a> 已经完全支持 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a href="https://github.com/BDisp/unlocker" target="_blank" rel="noopener">unlocker</a></strong> 才可开启。</p>
+<p>笔者已经发布一个<a href="https://sysin.org/article/Download-VMware-Workstation-16/">补丁</a>，来方便解决这个问题，补丁后支持 SLIC 2.5 和 macOS Unlock，可以直接运行 macOS Big Sur。</p>
 <p><img src="vmware-workstation-16-macos.jpg" alt="vmware-workstation-16-macos"></p>
 <p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox</a> <a href="https://www.virtualbox.org/manual/UserManual.html#idp19714672" target="_blank" rel="noopener">Version 6.1.16 (2020-10-16)</a> 更新显示可以支持 macOS Big Sur。</p>
 <h3 id="（3）在物理机-ESXi-中安装虚拟机"><a href="#（3）在物理机-ESXi-中安装虚拟机" class="headerlink" title="（3）在物理机 ESXi 中安装虚拟机"></a>（3）在物理机 ESXi 中安装虚拟机</h3><p>本文落笔之时，最新的 ESXi 7.0 Update 1 官方 Guest OS 列表仅支持到 macOS 10.15，但实际上可以正常运行 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a href="https://github.com/netgc/esxi-unlocker-3.0" target="_blank" rel="noopener">esxi-unlocker</a></strong> 才可开启。</p>
 <p>新建 vm 时，兼容性选择 ESXi 7.0 U1，可以看到 10.16 即 Big Sur 11.0 (VMware 甚至发布了 macOS 10.17 ？)</p>
 <p><img src="ESXi7U1-New-macOS.jpg" alt="ESXi7U1-New-macOS"></p>
 <p>可以使用本站的 <a href="https://sysin.org/article/Download-VMware-ESXi-7-MOD/">ESXi 7.0 MOD</a>，配合以下第 6 条解决报错。安装过程这里就不在赘述。</p>
-<p>笔者已经发布一个新版的 MOD: <a href="https://sysin.org/article/vmware-esxi-7-u1-slic/">ESXi 7.0 U1</a></p>
+<p>笔者已经发布一个新版的 MOD: <a href="https://sysin.org/article/vmware-esxi-7-u1-slic/">ESXi 7.0 U1</a>，可以直接运行 macOS Big Sur。</p>
 <h2 id="6-解决-“BiErrorDomain-Error-3-”-报错"><a href="#6-解决-“BiErrorDomain-Error-3-”-报错" class="headerlink" title="6. 解决 “BiErrorDomain Error 3.” 报错"></a>6. 解决 “BiErrorDomain Error 3.” 报错</h2><p>在一些早期版本的虚拟化软件中，尚未完全支持 macOS Big Sur，会出现“BiErrorDomain Error 3.”报错，可参照一下方法解决。</p>
 <h3 id="（1）使用-VMware-安装"><a href="#（1）使用-VMware-安装" class="headerlink" title="（1）使用 VMware 安装"></a>（1）使用 VMware 安装</h3><p>在 VMware 中安装 macOS Big Sur，都会提示 “BiErrorDomain Error 3.”，无法继续，需要编辑 vmx 文件添加以下配置：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbios.reflectHost = <span class="string">"TRUE"</span></span><br><span class="line">hw.model = <span class="string">"MacBookPro16,1"</span></span><br><span class="line">board-id = <span class="string">"Mac-E1008331FDC96864"</span></span><br></pre></td></tr></table></figure>
