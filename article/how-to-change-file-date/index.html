@@ -255,9 +255,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
-              
               <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+              <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
               
               <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
               
@@ -397,7 +397,7 @@
 <p>但作为正统 Unix 系统，Darwin 的 stat 命令有额外的参数：</p>
 <p>加上 -x 参数可以看到 Access、Modify 和 Change 三个时间，类似 Linux 中直接执行 stat 的效果。</p>
 <p>加上 -s 参数，可以看到除了上述时间，还多了一个 birthtime 即创建时间</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">stat</span> sysin.txt</span></span><br><span class="line">16777220 3851534 -rw-r--r-- 1 user staff 0 0 "Jan 10 12:46:01 2021" "May 19 15:05:00 2020" "Jan 10 12:46:01 2021" "May 18 15:05:00 2020" 4096 0 0 sysin.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> sa @ SAMBP <span class="keyword">in</span> ~/Desktop [13:02:49]</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">stat</span> -x sysin.txt</span></span><br><span class="line">  File: "sysin.txt"</span><br><span class="line">  Size: 0            FileType: Regular File</span><br><span class="line">  Mode: (0644/-rw-r--r--)         Uid: (  501/      sa)  Gid: (   20/   staff)</span><br><span class="line">Device: 1,4   Inode: 3851534    Links: 1</span><br><span class="line">Access: Sun Jan 10 12:46:01 2021</span><br><span class="line">Modify: Tue May 19 15:05:00 2020</span><br><span class="line">Change: Sun Jan 10 12:46:01 2021</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> sa @ SAMBP <span class="keyword">in</span> ~/Desktop [13:02:54]</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">stat</span> -s sysin.txt</span></span><br><span class="line">st_dev=16777220 st_ino=3851534 st_mode=0100644 st_nlink=1 st_uid=501 st_gid=20 st_rdev=0 st_size=0 st_atime=1610253961 st_mtime=1589871900 st_ctime=1610253961 st_birthtime=1589785500 st_blksize=4096 st_blocks=0 st_flags=0</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">stat</span> sysin.txt</span></span><br><span class="line">16777220 3851534 -rw-r--r-- 1 user staff 0 0 "Jan 10 12:46:01 2021" "May 19 15:05:00 2020" "Jan 10 12:46:01 2021" "May 18 15:05:00 2020" 4096 0 0 sysin.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">stat</span> -x sysin.txt</span></span><br><span class="line">  File: "sysin.txt"</span><br><span class="line">  Size: 0            FileType: Regular File</span><br><span class="line">  Mode: (0644/-rw-r--r--)         Uid: (  501/      User)  Gid: (   20/   staff)</span><br><span class="line">Device: 1,4   Inode: 3851534    Links: 1</span><br><span class="line">Access: Sun Jan 10 12:46:01 2021</span><br><span class="line">Modify: Tue May 19 15:05:00 2020</span><br><span class="line">Change: Sun Jan 10 12:46:01 2021</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">stat</span> -s sysin.txt</span></span><br><span class="line">st_dev=16777220 st_ino=3851534 st_mode=0100644 st_nlink=1 st_uid=501 st_gid=20 st_rdev=0 st_size=0 st_atime=1610253961 st_mtime=1589871900 st_ctime=1610253961 st_birthtime=1589785500 st_blksize=4096 st_blocks=0 st_flags=0</span><br></pre></td></tr></table></figure>
 
 <p>修改时间可以使用 touch 和 setfile 命令</p>
 <p>touch（同 Linux，修改时间和访问时间）</p>
@@ -608,9 +608,9 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
-            
             <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+            <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
             
             <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
             
