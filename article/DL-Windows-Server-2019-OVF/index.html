@@ -274,11 +274,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">5</span> Minutes
+              Estimated Reading Time <span class="post-count">4</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.3k</span> In Total
+              Words <span class="post-count">940</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -338,14 +338,33 @@
       <!-- Post Container -->
       <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
 
-        <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+        <blockquote>
+<p>2021.01.24 更新：已经确认存在版本兼容性问题，暂停下载。</p>
+</blockquote>
+<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
 <p>转载请保留出处。</p>
 <p><a href="https://www.microsoft.com" target="_blank" rel="noopener"> <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" alt="img"> Microsoft </a> <a href="https://www.microsoft.com/zh-cn/windows-server" target="_blank" rel="noopener">Windows Server</a> 2019</p>
 <p>Version 1809, Updated 1909，Build 17763.737，OVF Build Date：2020.05.20</p>
 <h2 id="部署截图"><a href="#部署截图" class="headerlink" title="部署截图"></a>部署截图</h2><p><img src="win2019dcovf-01.png" alt="img"></p>
+<p>请注意：此处密码必须符合复杂性要求（系统默认值）。</p>
+<p>密码必须符合下列最低要求:</p>
+<ul>
+<li>不能包含用户的帐户名，不能包含用户姓名中超过两个连续字符的部分</li>
+<li>至少有六个字符长</li>
+<li>包含以下四类字符中的三类字符:<ul>
+<li>英文大写字母(A 到 Z)</li>
+<li>英文小写字母(a 到 z)</li>
+<li>10 个基本数字(0 到 9)</li>
+<li>非字母字符(例如 !、$、#、%)</li>
+</ul>
+</li>
+<li>在更改或创建密码时执行复杂性要求</li>
+</ul>
 <p><img src="win2019dcovf-02.png" alt="img"></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">链接: https:<span class="regexp">//</span>pan.baidu.com<span class="regexp">/s/</span><span class="number">1</span>vVKMYQuLd-PXf8kU9lNhbA  密码: bkjj</span><br></pre></td></tr></table></figure>
-
+<p>请注意：此处 2.2 子网掩码前缀使用 CIDR 表示法，例如掩码 255.255.255.255.0 则填写 24</p>
+<h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2><p>经过网友测试反馈，已经确认该 OVF 在非指定的宿主虚拟化软件上存在部署自定义参数的问题，即设置密码和网络配置无效。</p>
+<p>初步判断 VMware Tools 使用的特定版本与宿主机某些版本交互存在问题，无法正确传输参数到客户机系统中。考虑在下个版本中改进。</p>
+<p>已经暂停下载。</p>
 <h2 id="OVF-特性"><a href="#OVF-特性" class="headerlink" title="OVF 特性"></a>OVF 特性</h2><h3 id="1-OVF-版本"><a href="#1-OVF-版本" class="headerlink" title="1. OVF 版本"></a>1. OVF 版本</h3><ol>
 <li>VM 版本 11，即兼容 ESXi 6.0 / Fusion 7.x / Workstation 11.x / Player 7.x 及以上版本</li>
 <li>VM-Tools 基于 vSphere 7.0，版本：11.0.5</li>
@@ -384,97 +403,6 @@
 </li>
 </ol>
 <h3 id="9-备注"><a href="#9-备注" class="headerlink" title="9. 备注"></a>9. 备注</h3><p>当前 Windows Server 2019 2020 年 4 月份更新已经发布，经过测试英文版无法添加简体中文的语言包，故废弃。</p>
-<hr>
-<h2 id="充分利用-Windows-Server"><a href="#充分利用-Windows-Server" class="headerlink" title="充分利用 Windows Server"></a>充分利用 Windows Server</h2><p>Windows Server 2019 是连接本地环境与 Azure 的操作系统，在增加更多安全层级的同时帮助你实现应用程序和基础结构现代化。</p>
-<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4ruvi?ver=8370&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="img">  Azure 的混合功能</p>
-<p>将你的数据中心扩展至 Azure，最大化你的投资并获取新的混合功能。</p>
-<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4rJLT?ver=28d5&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="img">  高级多层级安全</p>
-<p>从操作系统开始，通过保护数据中心以提升您的安全状况。</p>
-<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4rzFs?ver=290a&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="img">  应用程序的更快创新</p>
-<p>支持创建云原生应用程序，并使用容器和微服务实现传统应用程序的现代化。</p>
-<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4rxpJ?ver=ebcd&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="img">  前所未有的超聚合基础架构</p>
-<p>改进你的数据中心基础结构，实现更高的效率和安全性。</p>
-<p><a href="https://azure.microsoft.com/campaigns/windows-server/" target="_blank" rel="noopener">了解基于 Azure 的 Windows Server</a></p>
-<hr>
-<h2 id="了解有关-Windows-Server-的更多信息"><a href="#了解有关-Windows-Server-的更多信息" class="headerlink" title="了解有关 Windows Server 的更多信息"></a>了解有关 Windows Server 的更多信息</h2><p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pHY4?ver=4570&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="Windows Admin Center">  Windows Admin Center</p>
-<p>利用这个基于浏览器的应用程序管理服务器、群集、超融合基础结构以及 Windows 10 电脑。</p>
-<p><a href="https://www.microsoft.com/zh-CN/windows-server/windows-admin-center" target="_blank" rel="noopener">了解详细信息</a></p>
-<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pHY7?ver=6b6c&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="Windows Migration Center">  Windows Migration Center</p>
-<p>了解如何使用分步指南与各种资源，将你的 Windows 工作负载迁移到 Azure。</p>
-<p><a href="https://azure.microsoft.com/migration/windows-server/" target="_blank" rel="noopener">了解详细信息</a></p>
-<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pFiG?ver=3be7&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="Windows Server on Azure">  基于 Azure 免费帐户的 Windows Server</p>
-<p>现在，你可以利用搭载 Azure 的云端的所有优势。免费开始。</p>
-<p><a href="https://azure.microsoft.com/free/windows-server-on-azure/" target="_blank" rel="noopener">立即试用 Azure</a></p>
-<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pHYa?ver=9de0&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="Ultimate Guide to Windows Server 2019">  Windows Server 2019 终极指南</p>
-<p>了解 Windows Server 2019 中的最新功能，以及如何通过与 Windows Admin Center 混合使用来实现现代化。</p>
-<p><a href="https://info.microsoft.com/ww-landing-ultimate-guide-to-windows-server-2019.html?lcid=zh-cn" target="_blank" rel="noopener">了解详细信息</a></p>
-<hr>
-<h2 id="了解各公司如何使用-Windows-Server-和-Azure-发挥其潜力"><a href="#了解各公司如何使用-Windows-Server-和-Azure-发挥其潜力" class="headerlink" title="了解各公司如何使用 Windows Server 和 Azure 发挥其潜力"></a>了解各公司如何使用 Windows Server 和 Azure 发挥其潜力</h2><ul>
-<li><p><a href="https://customers.microsoft.com/story/alaska-airlines-travel-transportation-azure" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pXTq?ver=8625&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="https://customers.microsoft.com/story/allscripts-partner-professional-services-azure" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4q0tj?ver=dff4&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="https://customers.microsoft.com/story/altair-manufacturing-azure" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pNr6?ver=f9f0&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="https://customers.microsoft.com/story/capstone-mining" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pXTv?ver=e5a2&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="https://customers.microsoft.com/story/malaysia-airlines-berhad" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4q0to?ver=030c&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="http://customers.microsoft.com/story/mosaicandcapgemini" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pNrc?ver=39c5&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="http://customers.microsoft.com/story/rio-tinto-mining-azure" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pKO0?ver=fa00&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="https://customers.microsoft.com/story/smithfield-azure-us-en" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pXTD?ver=ee02&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-<li><p><a href="https://customers.microsoft.com/story/tencent-telecommunications-azure-service-fabric-windows-server-en" target="_blank" rel="noopener"><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4pXTG?ver=0e0c&q=90&m=6&h=201&w=358&b=%23FFFFFFFF&l=f&o=t&aim=true" alt="No Data Available"> </a></p>
-</li>
-</ul>
-<hr>
-<h2 id="比较-Windows-服务器不同版本的特性"><a href="#比较-Windows-服务器不同版本的特性" class="headerlink" title="比较 Windows 服务器不同版本的特性"></a>比较 Windows 服务器不同版本的特性</h2><p>查看 Windows Server 2019 相较于旧版本在新混合、安全性、基础架构和应用程序平台等方面的特性。</p>
-<p><a href="https://download.microsoft.com/download/B/F/0/BF00B689-94F5-4E12-8159-7804D0C27C09/Windows_Server_2019_Feature_Comparison_Guide_EN_US.pdf" target="_blank" rel="noopener">下载 Windows Server 2019 功能特性比较摘要</a></p>
-<hr>
-<h2 id="Windows-Server-资源"><a href="#Windows-Server-资源" class="headerlink" title="Windows Server 资源"></a>Windows Server 资源</h2><p>特色资源</p>
-<ul>
-<li><a href="https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server" target="_blank" rel="noopener">Windows Server 的新增功能</a></li>
-<li><a href="https://info.microsoft.com/ww-landing-ultimate-guide-to-windows-server-2019.html" target="_blank" rel="noopener">《Windows Server 2019 终极指南》电子书</a></li>
-<li><a href="http://download.microsoft.com/download/9/C/4/9C44E138-B93A-4C11-849C-3184D22C7B11/Windows_Server_2019_Solution_Brief_EN_US.pdf" target="_blank" rel="noopener">混合操作数据表</a></li>
-<li><a href="https://azure.microsoft.com/zh-cn/resources/ultimate-guide-windows-server-on-azure/" target="_blank" rel="noopener">《基于 Azure 的 Windows Server 终极指南》电子书</a></li>
-<li><a href="https://www.microsoft.com/cloud-platform/windows-server-2008" target="_blank" rel="noopener">Windows Server 2008 支持结束指导</a></li>
-</ul>
-<p>部署</p>
-<ul>
-<li><a href="https://docs.microsoft.com/windows-server/get-started/System-Requirements" target="_blank" rel="noopener">Windows Server 2016 系统要求</a></li>
-<li><a href="https://docs.microsoft.com/windows-server/get-started/installation-and-upgrade" target="_blank" rel="noopener">Windows Server 安装、升级和迁移</a></li>
-<li><a href="https://www.youtube.com/user/MSCloudOS/playlists?sort=dd&view=50&shelf_id=38" target="_blank" rel="noopener">Windows Server 视频和演示</a></li>
-<li><a href="https://docs.microsoft.com/windows-server/windows-server" target="_blank" rel="noopener">Windows Server 文档</a></li>
-<li><a href="https://docs.microsoft.com/windows-server-essentials/get-started/get-started" target="_blank" rel="noopener">开始使用 Windows Server 2016 Essentials</a></li>
-<li><a href="https://docs.microsoft.com/windows-server/get-started/getting-started-with-nano-server" target="_blank" rel="noopener">安装 Nano Server 选项</a></li>
-</ul>
-<p>管理</p>
-<ul>
-<li><a href="https://www.microsoft.com/system-center" target="_blank" rel="noopener">使用 System Center 2016 简化 IT 管理</a></li>
-<li><a href="https://docs.microsoft.com/powershell/" target="_blank" rel="noopener">PowerShell 自动化平台和脚本语言</a></li>
-<li><a href="https://blogs.technet.microsoft.com/servermanagement" target="_blank" rel="noopener">服务器管理工具</a></li>
-</ul>
-<p>培训</p>
-<ul>
-<li><a href="https://mva.microsoft.com/product-training/windows-server#!lang=1033" target="_blank" rel="noopener">Windows Server 课程 - Microsoft 虚拟学院</a></li>
-<li><a href="https://www.microsoft.com/learning/windows-server-training.aspx" target="_blank" rel="noopener">Windows Server 培训</a></li>
-<li>[Windows Server 认证](<a href="https://www.microsoft.com/learning/browse-all-certifications.aspx?technology=windows" target="_blank" rel="noopener">https://www.microsoft.com/learning/browse-all-certifications.aspx?technology=windows</a> server)</li>
-<li><a href="https://www.microsoft.com/handsonlabs/SelfPacedLabs#products=447518&page=1&sort=Newest" target="_blank" rel="noopener">Windows Server 虚拟实验室</a></li>
-</ul>
-<p>技术支持</p>
-<ul>
-<li><a href="https://www.microsoft.com/fasttrack/microsoft-365/ems?rtc=1" target="_blank" rel="noopener">Windows Server 技术库</a></li>
-<li><a href="https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh801901(v=ws.11)" target="_blank" rel="noopener">Windows Server 2012 R2 技术库</a></li>
-<li><a href="https://www.microsoft.com/cloud-platform/windows-server-2008" target="_blank" rel="noopener">Windows Server 2008 支持终止</a></li>
-<li><a href="https://docs.microsoft.com/windows-server/" target="_blank" rel="noopener">Windows Server 2003 支持终止</a></li>
-</ul>
-<p>社区</p>
-<ul>
-<li><a href="https://techcommunity.microsoft.com/t5/windows-server/ct-p/Windows-Server" target="_blank" rel="noopener">Windows Server 社区</a></li>
-<li><a href="https://cloudblogs.microsoft.com/windowsserver/" target="_blank" rel="noopener">Windows Server 博客</a></li>
-</ul>
 
 
         <hr>
@@ -657,7 +585,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#部署截图"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载地址"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载地址</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-特性"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-版本"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-系统配置"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 系统配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-多语言界面支持"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 多语言界面支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-系统激活"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 系统激活</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-系统组件"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">5. 系统组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-远程桌面性能优化"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">6. 远程桌面性能优化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#应用软件"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">应用软件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-个性化配置"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">8. 个性化配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-备注"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">9. 备注</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#充分利用-Windows-Server"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">充分利用 Windows Server</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#了解有关-Windows-Server-的更多信息"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">了解有关 Windows Server 的更多信息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#了解各公司如何使用-Windows-Server-和-Azure-发挥其潜力"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">了解各公司如何使用 Windows Server 和 Azure 发挥其潜力</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#比较-Windows-服务器不同版本的特性"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">比较 Windows 服务器不同版本的特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-Server-资源"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">Windows Server 资源</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#部署截图"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#已知问题"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">已知问题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-特性"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-版本"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-系统配置"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 系统配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-多语言界面支持"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 多语言界面支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-系统激活"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 系统激活</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-系统组件"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">5. 系统组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-远程桌面性能优化"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">6. 远程桌面性能优化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#应用软件"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">应用软件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-个性化配置"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">8. 个性化配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-备注"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">9. 备注</span></a></li></ol></li></ol>
         
         </div>
       </aside>
