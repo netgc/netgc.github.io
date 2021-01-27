@@ -367,7 +367,7 @@
 <p>2.2 子网掩码前缀使用 CIDR 表示法，例如掩码 255.255.255.0 填写 24</p>
 <h2 id="OVF-特性"><a href="#OVF-特性" class="headerlink" title="OVF 特性"></a>OVF 特性</h2><h3 id="1-OVF-版本"><a href="#1-OVF-版本" class="headerlink" title="1. OVF 版本"></a>1. OVF 版本</h3><ol>
 <li>VM 版本 11，即兼容 ESXi 6.0 / Fusion 7.x / Workstation 11.x / Player 7.x 及以上版本</li>
-<li>VM-Tools 基于 vSphere 7.0，版本：11.0.5</li>
+<li>VM-Tools 版本：11.2.5 (2021-01-12)</li>
 <li>启用 CPU、内存热添加</li>
 </ol>
 <h3 id="2-系统配置"><a href="#2-系统配置" class="headerlink" title="2. 系统配置"></a>2. 系统配置</h3><ol>
@@ -376,16 +376,16 @@
 <li>分区：System Reserve（549M），C 盘 40G 整数分区</li>
 <li>启用远程桌面</li>
 <li>启用 ICMPv4 防火墙规则</li>
-<li>新建了一个名为 sysadmin 的管理员账号（专用），部署时候可以禁用该项</li>
+<li>新建了一个名为 sysadmin 的管理员账号（特殊用途），部署时候可以禁用该项</li>
 <li>添加了 “Command Prompt” 和 “PowerShell” 右键快捷命令菜单</li>
 </ol>
-<h3 id="3-多语言界面支持"><a href="#3-多语言界面支持" class="headerlink" title="3. 多语言界面支持"></a>3. 多语言界面支持</h3><p>本次英文版添加了简体中文界面语言支持，切换方法如下：</p>
+<h3 id="3-简体中文界面支持"><a href="#3-简体中文界面支持" class="headerlink" title="3. 简体中文界面支持"></a>3. 简体中文界面支持</h3><p>本次英文版添加了简体中文界面语言支持，切换方法如下：</p>
 <p>Settings &gt; Time &amp; Language &gt; Language, Windows Display Languages 下拉勾选 ”Chinese (Simplified, China)”</p>
 <p>注销登录或者重启生效</p>
-<h3 id="4-系统激活"><a href="#4-系统激活" class="headerlink" title="4. 系统激活"></a>4. 系统激活</h3><p>SLIC 2.5 OEM 激活，证书使用 Dell。使用<a href="https://sysin.org/">定制版的 VMware ESXi</a> 自动激活。</p>
+<h3 id="4-系统激活"><a href="#4-系统激活" class="headerlink" title="4. 系统激活"></a>4. 系统激活</h3><p>SLIC 2.5 OEM 激活，使用 Dell 证书。使用<a href="https://sysin.org/tags/#SLIC">定制版的 VMware 软件</a> 自动激活。</p>
 <h3 id="5-系统组件"><a href="#5-系统组件" class="headerlink" title="5. 系统组件"></a>5. 系统组件</h3><ol>
 <li>添加组件：Telnet Client、SNMP-Service、Windows Backup</li>
-<li>添加组件：.NETFX 3.5 (启用此组件需要系统 iso 镜像)</li>
+<li>添加组件：.NETFX 3.5 (启用此组件需要系统 iso 镜像，这里预先配置)</li>
 </ol>
 <h3 id="6-远程桌面性能优化"><a href="#6-远程桌面性能优化" class="headerlink" title="6. 远程桌面性能优化"></a>6. 远程桌面性能优化</h3><ol>
 <li>禁用 Logon Backgroud<br>echo 个性化设置：禁用登录背景 Logon Image<br>reg add “HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System” /v DisableLogonBackgroundImage /t REG_DWORD /d 1 /f</li>
@@ -597,7 +597,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#部署截图"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-特性"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-版本"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-系统配置"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-多语言界面支持"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 多语言界面支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-系统激活"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统激活</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-系统组件"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 系统组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-远程桌面性能优化"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 远程桌面性能优化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-应用软件"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. 应用软件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-个性化配置"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">8. 个性化配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-备注"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">9. 备注</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载地址"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">下载地址</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#适用的-VMware-软件下载"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#部署截图"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-特性"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-版本"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-系统配置"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-简体中文界面支持"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 简体中文界面支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-系统激活"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统激活</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-系统组件"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 系统组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-远程桌面性能优化"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 远程桌面性能优化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-应用软件"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. 应用软件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-个性化配置"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">8. 个性化配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-备注"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">9. 备注</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载地址"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">下载地址</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#适用的-VMware-软件下载"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li></ol>
         
         </div>
       </aside>
