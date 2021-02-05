@@ -276,7 +276,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">521</span> In Total
+              Words <span class="post-count">528</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -339,9 +339,9 @@
         <p>请访问原文链接：<a href="/article/Disable-Firefox-Auto-update/" title="如何禁用 Firefox 自动更新（Windows、macOS、Linux）">如何禁用 Firefox 自动更新（Windows、macOS、Linux）</a>，查看最新版。转载请保留出处。</p>
 <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
 <blockquote>
-<p><a href="https://sysin.org/article/Disable-FireFox-Auto-update/">如何禁用 FireFox 自动更新</a><br><a href="https://sysin.org/article/Disable-Edge-Auto-update/">如何禁用 Microsoft Edge 自动更新</a><br><a href="https://sysin.org/article/Disable-Chrome-Auto-update/">如何禁用 Google Chrome 自动更新</a></p>
+<p><a href="https://sysin.org/article/Disable-FireFox-Auto-update/">如何禁用 Mozilla FireFox 自动更新</a><br><a href="https://sysin.org/article/Disable-Edge-Auto-update/">如何禁用 Microsoft Edge 自动更新</a><br><a href="https://sysin.org/article/Disable-Chrome-Auto-update/">如何禁用 Google Chrome 自动更新</a></p>
 </blockquote>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><h3 id="方法一：使用策略文件"><a href="#方法一：使用策略文件" class="headerlink" title="方法一：使用策略文件"></a>方法一：使用策略文件</h3><p>官方策略模板：<a href="https://github.com/mozilla/policy-templates/releases" target="_blank" rel="noopener">https://github.com/mozilla/policy-templates/releases</a></p>
+<h2 id="Firefox-for-Windows"><a href="#Firefox-for-Windows" class="headerlink" title="Firefox for Windows"></a>Firefox for Windows</h2><h3 id="方法一：使用策略文件"><a href="#方法一：使用策略文件" class="headerlink" title="方法一：使用策略文件"></a>方法一：使用策略文件</h3><p>官方策略模板：<a href="https://github.com/mozilla/policy-templates/releases" target="_blank" rel="noopener">https://github.com/mozilla/policy-templates/releases</a></p>
 <p>创建策略文件：&lt;Firefox安装目录&gt;\distribution\policies.json</p>
 <p>内容如下，</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"policies"</span>: &#123;</span><br><span class="line">    <span class="attr">"DisableAppUpdate."</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -363,7 +363,7 @@
 
 <h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>此时 “选项” 中 Firefox 更新，提示“更新已被系统管理员禁用”，检查更新按钮也不可用！</p>
 <p>参考文章：<a href="https://www.webnots.com/how-to-disable-automatic-update-in-firefox/" target="_blank" rel="noopener">https://www.webnots.com/how-to-disable-automatic-update-in-firefox/</a></p>
-<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><h3 id="方法一：配置策略文件"><a href="#方法一：配置策略文件" class="headerlink" title="方法一：配置策略文件"></a>方法一：配置策略文件</h3><p>获取最新或者对应版本的策略模板：<a href="https://github.com/mozilla/policy-templates/releases" target="_blank" rel="noopener">https://github.com/mozilla/policy-templates/releases</a></p>
+<h2 id="Firefox-for-macOS"><a href="#Firefox-for-macOS" class="headerlink" title="Firefox for macOS"></a>Firefox for macOS</h2><h3 id="方法一：配置策略文件"><a href="#方法一：配置策略文件" class="headerlink" title="方法一：配置策略文件"></a>方法一：配置策略文件</h3><p>获取最新或者对应版本的策略模板：<a href="https://github.com/mozilla/policy-templates/releases" target="_blank" rel="noopener">https://github.com/mozilla/policy-templates/releases</a></p>
 <p>自动更新策略描述如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"policies"</span>: &#123;</span><br><span class="line">    <span class="attr">"DisableAppUpdate"</span>: <span class="literal">true</span> | <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -384,7 +384,7 @@
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults <span class="keyword">write</span> /<span class="keyword">Library</span>/Preferences/org.mozilla.firefox DisableAppUpdate -bool <span class="keyword">TRUE</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h3><p>此时 “首选项” 中 Firefox 更新，提示“更新已被系统管理员禁用”，检查更新按钮也不可用！</p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>On Linux, the file goes into <code>firefox/distribution</code>, where <code>firefox</code> is the installation directory for firefox, which varies by distribution or you can specify system-wide policy by placing the file in <code>/etc/firefox/policies</code>.</p>
+<h2 id="Firefox-for-Linux"><a href="#Firefox-for-Linux" class="headerlink" title="Firefox for Linux"></a>Firefox for Linux</h2><p>On Linux, the file goes into <code>firefox/distribution</code>, where <code>firefox</code> is the installation directory for firefox, which varies by distribution or you can specify system-wide policy by placing the file in <code>/etc/firefox/policies</code>.</p>
 
 
         <hr>
@@ -567,7 +567,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Windows</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法一：使用策略文件"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">方法一：使用策略文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法二：使用注册表"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">方法二：使用注册表</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#效果"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">效果</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">macOS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法一：配置策略文件"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">方法一：配置策略文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法二：命令行实现"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">方法二：命令行实现</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#效果-1"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">效果</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Linux</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Firefox-for-Windows"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Firefox for Windows</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法一：使用策略文件"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">方法一：使用策略文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法二：使用注册表"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">方法二：使用注册表</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#效果"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">效果</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Firefox-for-macOS"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Firefox for macOS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法一：配置策略文件"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">方法一：配置策略文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方法二：命令行实现"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">方法二：命令行实现</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#效果-1"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">效果</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Firefox-for-Linux"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Firefox for Linux</span></a></li></ol>
         
         </div>
       </aside>
