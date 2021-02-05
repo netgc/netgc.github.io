@@ -7,10 +7,10 @@
   <!-- <meta name="google-site-verification" content="sysin"> -->
   <!-- <meta name="baidu-site-verification" content="sysin" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> TLS Server Name Indication (TLS SNI) Support - sysin - System Inside </title>
-  <meta name="description" content=" TLS Server Name Indication (TLS SNI) Support - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
-  <meta name="keyword"  content=" TLS Server Name Indication (TLS SNI) Support " />
-  <link rel="canonical" href="https://sysin.org/article/TLS-SNI-Support/" />
+  <title> 如何禁用 Google Chrome 自动更新（Windows、macOS） - sysin - System Inside </title>
+  <meta name="description" content=" 如何禁用 Google Chrome 自动更新（Windows、macOS） - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" 如何禁用 Google Chrome 自动更新（Windows、macOS） " />
+  <link rel="canonical" href="https://sysin.org/article/Disable-Chrome-Auto-update/" />
   <link rel="shortcut icon" href="/img/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -255,20 +255,16 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+              <a class="tag" href="/tags/#Chrome" title="Chrome">Chrome</a>
               
-              <a class="tag" href="/tags/#F5" title="F5">F5</a>
-              
-              <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
-              
-              <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+              <a class="tag" href="/tags/#AutoUpdate" title="AutoUpdate">AutoUpdate</a>
               
             </div>
-            <h1>TLS Server Name Indication (TLS SNI) Support</h1>
-            <h2 class="subheading">关于 TLS SNI 的配置，主流浏览器和服务器的支持情况</h2>
+            <h1>如何禁用 Google Chrome 自动更新（Windows、macOS）</h1>
+            <h2 class="subheading"></h2>
             <span class="meta">
               Posted by sysin on
-              2020-06-01
+              2021-02-05
             </span>
 
 
@@ -276,11 +272,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">5</span> Minutes
+              Estimated Reading Time <span class="post-count">6</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1k</span> In Total
+              Words <span class="post-count">1.3k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -340,79 +336,73 @@
       <!-- Post Container -->
       <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
 
-        <p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
-<p>转载请保留出处。</p>
-<p>TLS Server Name Indication (TLS SNI)，used when a single virtual IP server needs to host multiple domains.</p>
-<p>TLS SNI Support 即一个 IP 地址上支持多个域名的 SSL 站点，或者说一个 IP 上支持绑定多个 SSL 证书。</p>
-<h2 id="支持-TLS-SNI-的浏览器"><a href="#支持-TLS-SNI-的浏览器" class="headerlink" title="支持 TLS SNI 的浏览器"></a>支持 TLS SNI 的浏览器</h2><p>Browsers/clients with support for TLS server name indication:</p>
-<ul>
-<li>Opera 8.0 and later (the TLS 1.1 protocol must be enabled)</li>
-<li>Internet Explorer 7 or later (under Windows Vista and later only, not under Windows XP)</li>
-<li>Firefox 2.0 or later</li>
-<li>Curl 7.18.1 or later (when compiled against an SSL/TLS toolkit with SNI support)</li>
-<li>Chrome 6.0 or later (on all platforms - releases up to 5.0 only on specific OS versions)</li>
-<li>Safari 3.0 or later (under OS X 10.5.6 or later and under Windows Vista and later)</li>
-</ul>
-<p>To find out if your browser supports SNI, you can go to <a href="https://alice.sni.velox.ch/" target="_blank" rel="noopener">https://alice.sni.velox.ch/</a>.</p>
-<h2 id="F5-BIG-IP-TLS-SNI-Support"><a href="#F5-BIG-IP-TLS-SNI-Support" class="headerlink" title="F5 BIG-IP TLS SNI Support"></a>F5 BIG-IP TLS SNI Support</h2><ul>
-<li>版本支持</li>
-</ul>
-<p>主流支持版本（v11.6及以上）都可以支持，参看官方文档：<a href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-11-6-0/5.html" target="_blank" rel="noopener">v11.6</a>，<a href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-system-ssl-administration-12-1-1/5.html" target="_blank" rel="noopener">v12.1</a>，<a href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-1-0/5.html" target="_blank" rel="noopener">v13.1</a></p>
-<ul>
-<li>配置要点</li>
-</ul>
-<p>参看：<a href="https://support.f5.com/csp/article/K13452" target="_blank" rel="noopener">K13452</a></p>
-<p>分别创建多个域名的（Client or Server）SSL Profile</p>
-<p>Server Name，分别填写域名（可选），如 <a href="http://www.a.com，支持通配符" target="_blank" rel="noopener">www.a.com，支持通配符</a> *.a.com 也支持 * 代表任意域名，另外一个如 <a href="http://www.b.com" target="_blank" rel="noopener">www.b.com</a></p>
-<p>Default SSL Profile for SNI，其中一个域名需要勾选作为默认</p>
-<p>Virtual Servers 的 SSL Profile（Client or Server）同时选择上述创建的多个 SSL Profile</p>
-<p>注意：在 BIG-IP 13.x 及以前版本，多个 SSL Profile 的 Ciphers 和 Client Authentication 属性需要配置一致（14.x 及以后版本无此要求）</p>
-<ul>
-<li>iRules</li>
-</ul>
-<p>另外请注意，没有自动机制允许 BIG-IP 根据在客户端 SSL Hello 消息中接收到的 “Server Name” 值来选择 SSL Profile。</p>
-<p>不过，在 iRule 的额外帮助下，您可以根据从客户机收到的初始 HTTP 请求中接收的“主机名”报头值强制选择正确的 serverssl profile。</p>
-<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_REQUEST &#123;</span><br><span class="line">    <span class="keyword">set</span> hostname [getfield [HTTP::host] <span class="string">":"</span> <span class="number">1</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">when SERVER_CONNECTED &#123;</span><br><span class="line">    <span class="keyword">switch</span> -<span class="keyword">glob</span> [<span class="keyword">string</span> tolower $hostname] &#123;</span><br><span class="line">    <span class="string">"siteA.com"</span> &#123;</span><br><span class="line">        SSL::profile serverssl-siteA</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">"siteB.com"</span> &#123;</span><br><span class="line">        SSL::profile serverssl-siteB</span><br><span class="line">    &#125;</span><br><span class="line">    default &#123;</span><br><span class="line"><span class="comment">    #default serversssl profile to be selected if Host header value cannot be matched with predefined values</span></span><br><span class="line">        SSL::profile serverssl</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Nginx-TLS-SNI-Support"><a href="#Nginx-TLS-SNI-Support" class="headerlink" title="Nginx TLS SNI Support"></a>Nginx TLS SNI Support</h2><ul>
-<li>版本支持</li>
-</ul>
-<p>参看<a href="https://nginx.org/en/docs/http/configuring_https_servers.html" target="_blank" rel="noopener">官方文档</a></p>
-<p>OpenSSL supports SNI since 0.9.8f version if it was built with config option “–enable-tlsext”. Since OpenSSL 0.9.8j this option is enabled by default. If nginx was built with SNI support, then nginx will show this when run with the “-V” switch:</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ nginx -<span class="type">V</span></span><br><span class="line">...</span><br><span class="line"><span class="type">TLS</span> <span class="type">SNI</span> sup<span class="keyword">port</span> enabled</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<p>Nginx 0.x 版本已经支持 TLS SNI</p>
+        <p>请访问原文链接：<a href="/article/Disable-Chrome-Auto-update/" title="如何禁用 Google Chrome 自动更新（Windows、macOS）">如何禁用 Google Chrome 自动更新（Windows、macOS）</a>，查看最新版。转载请保留出处。</p>
+<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
 <blockquote>
-<ul>
-<li>The SNI support status has been shown by the “-V” switch since 0.8.21 and 0.7.62.</li>
-<li>The <code>ssl</code> parameter of the <a href="https://nginx.org/en/docs/http/ngx_http_core_module.html#listen" target="_blank" rel="noopener">listen</a> directive has been supported since 0.7.14. Prior to 0.8.21 it could only be specified along with the <code>default</code> parameter.</li>
-<li>SNI has been supported since 0.5.23.</li>
-<li>The shared SSL session cache has been supported since 0.5.6.</li>
-<li>Version 1.9.1 and later: the default SSL protocols are TLSv1, TLSv1.1, and TLSv1.2 (if supported by the OpenSSL library).</li>
-<li>Version 0.7.65, 0.8.19 and later: the default SSL protocols are SSLv3, TLSv1, TLSv1.1, and TLSv1.2 (if supported by the OpenSSL library).</li>
-<li>Version 0.7.64, 0.8.18 and earlier: the default SSL protocols are SSLv2, SSLv3, and TLSv1.</li>
-<li>Version 1.0.5 and later: the default SSL ciphers are “<code>HIGH:!aNULL:!MD5</code>”.</li>
-<li>Version 0.7.65, 0.8.20 and later: the default SSL ciphers are “<code>HIGH:!ADH:!MD5</code>”.</li>
-<li>Version 0.8.19: the default SSL ciphers are “<code>ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM</code>”.</li>
-<li>Version 0.7.64, 0.8.18 and earlier: the default SSL ciphers are<br>“<code>ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP</code>”.</li>
-</ul>
+<p><a href="https://sysin.org/article/Disable-FireFox-Auto-update/">如何禁用 FireFox 自动更新</a><br><a href="https://sysin.org/article/Disable-Edge-Auto-update/">如何禁用 Microsoft Edge 自动更新</a><br><a href="https://sysin.org/article/Disable-Chrome-Auto-update/">如何禁用 Google Chrome 自动更新</a></p>
 </blockquote>
-<ul>
-<li>一般配置方法</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       443 ssl http2;</span><br><span class="line">        server_name  a.sysin.org;</span><br><span class="line">        ssl_certificate     a.sysin.org.crt;</span><br><span class="line">        ssl_certificate_key a.sysin.org.key;</span><br><span class="line">        ssl_protocols       TLSv1.2 TLSv1.3;</span><br><span class="line">        ssl_ciphers 'AES128+EECDH:AES128+EDH';</span><br><span class="line">        add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";</span><br><span class="line"></span><br><span class="line">        charset utf-8;</span><br><span class="line">        #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       443 ssl http2;</span><br><span class="line">        server_name  b.sysin.org;</span><br><span class="line">        ssl_certificate     b.sysin.org.crt;</span><br><span class="line">        ssl_certificate_key b.sysin.org.key;</span><br><span class="line">        ssl_protocols       TLSv1.2 TLSv1.3;</span><br><span class="line">        ssl_ciphers 'AES128+EECDH:AES128+EDH';</span><br><span class="line">        add_header Strict-Transport-Security "max-age=31536000; includeSubdomains; preload";</span><br><span class="line"></span><br><span class="line">        charset utf-8;</span><br><span class="line">        #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>未经用户允许自动更新，也不提供选项禁用自动更新，属实不文明不举，以下方法可以禁用自动更新。</p>
+<h2 id="Google-Chrome-for-Windows"><a href="#Google-Chrome-for-Windows" class="headerlink" title="Google Chrome for Windows"></a>Google Chrome for Windows</h2><h3 id="Google-Chrome-如何自动更新？"><a href="#Google-Chrome-如何自动更新？" class="headerlink" title="Google Chrome 如何自动更新？"></a>Google Chrome 如何自动更新？</h3><p>当前以 Chrome 88.0 版本为例，新版本将来可能有所变更：</p>
+<p>企业版使用以下方法进行自动更新</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">更新服务：</span><br><span class="line">Google 更新服务 (gupdate)</span><br><span class="line">Google 更新服务 (gupdatem)</span><br><span class="line">Google Chrome Elevation Service (GoogleChromeElevationService)</span><br><span class="line"></span><br><span class="line">任务计划：</span><br><span class="line">GoogleUpdateTaskMachineCore</span><br><span class="line">GoogleUpdateTaskMachineUA</span><br><span class="line"></span><br><span class="line">安装路径：</span><br><span class="line">x64</span><br><span class="line">C:<span class="symbol">\P</span>rogram Files<span class="symbol">\G</span>oogle<span class="symbol">\C</span>hrome<span class="symbol">\A</span>pplication<span class="symbol">\c</span>hrome.exe</span><br><span class="line">x86</span><br><span class="line">C:<span class="symbol">\P</span>rogram Files (x86)<span class="symbol">\G</span>oogle<span class="symbol">\C</span>hrome<span class="symbol">\A</span>pplication<span class="symbol">\c</span>hrome.exe</span><br><span class="line"></span><br><span class="line">GoogleUpdate.exe 路径：</span><br><span class="line">x64 和 x86 版本相同</span><br><span class="line">C:<span class="symbol">\P</span>rogram Files (x86)<span class="symbol">\G</span>oogle<span class="symbol">\U</span>pdate<span class="symbol">\G</span>oogleUpdate.exe</span><br></pre></td></tr></table></figure>
 
-<h2 id="IIS-TSL-SNI-Support"><a href="#IIS-TSL-SNI-Support" class="headerlink" title="IIS TSL SNI Support"></a>IIS TSL SNI Support</h2><p>参看<a href="https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-8/iis-80-server-name-indication-sni-ssl-scalability" target="_blank" rel="noopener">官方文档</a></p>
+<p>用户版不带自动更新程序</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户版安装路径：</span><br><span class="line">C:<span class="symbol">\U</span>sers<span class="symbol">\用</span>户名<span class="symbol">\A</span>ppData<span class="symbol">\L</span>ocal<span class="symbol">\G</span>oogle<span class="symbol">\C</span>hrome<span class="symbol">\A</span>pplication<span class="symbol">\c</span>hrome.exe</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-PowerShell-禁用更新"><a href="#使用-PowerShell-禁用更新" class="headerlink" title="使用 PowerShell 禁用更新"></a>使用 PowerShell 禁用更新</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ([<span class="type">Environment</span>]::Is64BitOperatingSystem <span class="operator">-eq</span> “True”) &#123;</span><br><span class="line">    <span class="comment">#Write-Host "64-bit OS"</span></span><br><span class="line">    <span class="variable">$PF</span>=<span class="variable">$</span>&#123;env:ProgramFiles(x86)&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">#Write-Host "32-bit OS"</span></span><br><span class="line">    <span class="variable">$PF</span>=<span class="variable">$env:ProgramFiles</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$</span>(<span class="built_in">Test-Path</span> <span class="string">"<span class="variable">$env:ProgramFiles</span>\Google\Chrome\Application\chrome.exe"</span>) <span class="operator">-eq</span> <span class="string">"true"</span>) &#123;</span><br><span class="line">    <span class="comment"># 结束进程</span></span><br><span class="line">    taskkill /im chrome.exe /f</span><br><span class="line">    taskkill /im GoogleUpdate.exe /f</span><br><span class="line">    <span class="comment"># Google Chrome 更新服务</span></span><br><span class="line">    <span class="comment">#这里也可以使用 sc.exe stop "service name"</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">"gupdate"</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">"gupdatem"</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">"GoogleChromeElevationService"</span></span><br><span class="line">    <span class="comment"># Windows 10 默认 PS 版本 5.1 没有 Remove-Service 命令</span></span><br><span class="line">    <span class="comment"># This cmdlet was added in PS v6. See https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6#cmdlet-updates.</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name "gupdate"</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name "gupdatem"</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name "GoogleChromeElevationService"</span></span><br><span class="line">    <span class="comment"># sc 在 PowerShell 中是 Set-Content 别名，所以要使用 sc.exe 否则执行后无任何效果</span></span><br><span class="line">    sc.exe delete <span class="string">"gupdate"</span></span><br><span class="line">    sc.exe delete <span class="string">"gupdatem"</span></span><br><span class="line">    sc.exe delete <span class="string">"GoogleChromeElevationService"</span></span><br><span class="line">    <span class="comment"># 任务计划企业版</span></span><br><span class="line">    schtasks.exe /Delete /TN \GoogleUpdateBrowserReplacementTask /F</span><br><span class="line">    schtasks.exe /Delete /TN \GoogleUpdateTaskMachineCore /F</span><br><span class="line">    schtasks.exe /Delete /TN \GoogleUpdateTaskMachineUA /F</span><br><span class="line">    <span class="comment"># 移除更新程序</span></span><br><span class="line">    <span class="built_in">Remove-Item</span> <span class="string">"<span class="variable">$PF</span>\Google\Update\"</span> <span class="literal">-Recurse</span>  <span class="literal">-Force</span></span><br><span class="line">    echo <span class="string">"Disable Google Chrome Enterprise x64 Auto Update Successful!"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">elseif</span> (<span class="variable">$</span>(<span class="built_in">Test-Path</span> <span class="string">"<span class="variable">$</span>&#123;env:ProgramFiles(x86)&#125;\Google\Chrome\Application\chrome.exe"</span>) <span class="operator">-eq</span> <span class="string">"true"</span>) &#123;</span><br><span class="line">    <span class="comment"># 结束进程</span></span><br><span class="line">    taskkill /im chrome.exe /f</span><br><span class="line">    taskkill /im GoogleUpdate.exe /f</span><br><span class="line">    <span class="comment"># Google Chrome 更新服务</span></span><br><span class="line">    <span class="comment">#这里也可以使用 sc.exe stop "service name"</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">"gupdate"</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">"gupdatem"</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">"GoogleChromeElevationService"</span></span><br><span class="line">    <span class="comment"># Windows 10 默认 PS 版本 5.1 没有 Remove-Service 命令</span></span><br><span class="line">    <span class="comment"># This cmdlet was added in PS v6. See https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6#cmdlet-updates.</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name "gupdate"</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name "gupdatem"</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name "GoogleChromeElevationService"</span></span><br><span class="line">    <span class="comment"># sc 在 PowerShell 中是 Set-Content 别名，所以要使用 sc.exe 否则执行后无任何效果</span></span><br><span class="line">    sc.exe delete <span class="string">"gupdate"</span></span><br><span class="line">    sc.exe delete <span class="string">"gupdatem"</span></span><br><span class="line">    sc.exe delete <span class="string">"GoogleChromeElevationService"</span></span><br><span class="line">    <span class="comment"># 任务计划企业版</span></span><br><span class="line">    schtasks.exe /Delete /TN \GoogleUpdateBrowserReplacementTask /F</span><br><span class="line">    schtasks.exe /Delete /TN \GoogleUpdateTaskMachineCore /F</span><br><span class="line">    schtasks.exe /Delete /TN \GoogleUpdateTaskMachineUA /F</span><br><span class="line">    <span class="comment"># 移除更新程序</span></span><br><span class="line">    <span class="built_in">Remove-Item</span> <span class="string">"<span class="variable">$PF</span>\Google\Update\"</span> <span class="literal">-Recurse</span>  <span class="literal">-Force</span></span><br><span class="line">    echo <span class="string">"Disable Google Chrome Enterprise x86 Auto Update Successful!"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    echo <span class="string">"No Google Chrome Enterprise Installation Detected!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果图：</p>
+<p><img src="chrome-win.jpg" alt="About Chrome for Windows"></p>
+<h2 id="Google-Chrome-for-Mac"><a href="#Google-Chrome-for-Mac" class="headerlink" title="Google Chrome for Mac"></a>Google Chrome for Mac</h2><h3 id="Google-Chrome-如何自动更新？-1"><a href="#Google-Chrome-如何自动更新？-1" class="headerlink" title="Google Chrome 如何自动更新？"></a>Google Chrome 如何自动更新？</h3><p>通过以下进程：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers/GoogleSoftwareUpdateAgent.app</span><br><span class="line"><span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers<span class="regexp">/GoogleSoftwareUpdateAgent.app via ~/</span>Library<span class="regexp">/Google/</span>GoogleSoftwareUpdate<span class="regexp">/GoogleSoftwareUpdate.bundle/</span>Contents<span class="regexp">/Helpers/</span>ksfetch</span><br><span class="line"><span class="regexp">/Applications/</span>Google Chrome.app via <span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers/ksfetch</span><br><span class="line"><span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers/ksfetch</span><br></pre></td></tr></table></figure>
+
+<p>访问 Google 相关域名检测并下载更新。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">tools</span><span class="selector-class">.google</span><span class="selector-class">.com</span> #主要</span><br><span class="line"><span class="selector-tag">update</span><span class="selector-class">.googleapis</span><span class="selector-class">.com</span> #某些版本适用</span><br></pre></td></tr></table></figure>
+
+<p>解决方案：</p>
 <ul>
-<li>版本支持</li>
+<li>屏蔽进程网络访问</li>
+<li>删除进程并禁止重新生成</li>
+<li>hosts 屏蔽相关域名</li>
 </ul>
-<p>要求 IIS 8.0 （Windows 2012）及以上版本</p>
-<ul>
-<li>配置要点</li>
-</ul>
-<p>创建多个 HTTPs 站点时，需要填写以下内容</p>
-<p><strong>Hostname</strong>: （注意与 SSL 证书名称保持一致）</p>
-<p><strong>Require Server Name Indication</strong>: 需要勾选</p>
+<h3 id="禁用-Google-Chrome-一般步骤"><a href="#禁用-Google-Chrome-一般步骤" class="headerlink" title="禁用 Google Chrome 一般步骤"></a>禁用 Google Chrome 一般步骤</h3><p>1.删除和设置权限</p>
+<p>打开终端执行如下命令：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/Library/Google/GoogleSoftwareUpdate</span></span><br><span class="line">rm -rf GoogleSoftwareUpdate.bundle</span><br><span class="line"></span><br><span class="line"><span class="keyword">cd</span> ~<span class="string">/Library/Google</span></span><br><span class="line">sudo chown root<span class="function">:wheel</span> GoogleSoftwareUpdate</span><br></pre></td></tr></table></figure>
+
+<p>2.编辑 hosts 文件，添加如下内容：</p>
+<p>手动编辑，打开终端，执行：<code>sudo vi /etc/hosts</code>，或者使用 <a href="https://github.com/oldj/SwitchHosts/releases" target="_blank" rel="noopener">SwitchHosts!</a>（免费软件）</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1</span> update.googleapis.com</span><br><span class="line"><span class="number">127.0.0.1</span> tools.google.com</span><br></pre></td></tr></table></figure>
+
+<p>3.或者（或同时）使用防火墙软件屏蔽：</p>
+<p>推荐 <a href="https://www.obdev.at/products/littlesnitch/" target="_blank" rel="noopener">Little Snitch</a>，这是一个商业软件</p>
+<p>分别新建规则，屏蔽以下进程访问网络：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers/GoogleSoftwareUpdateAgent.app</span><br><span class="line"><span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers<span class="regexp">/GoogleSoftwareUpdateAgent.app via ~/</span>Library<span class="regexp">/Google/</span>GoogleSoftwareUpdate<span class="regexp">/GoogleSoftwareUpdate.bundle/</span>Contents<span class="regexp">/Helpers/</span>ksfetch</span><br><span class="line"><span class="regexp">/Applications/</span>Google Chrome.app via <span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers/ksfetch</span><br><span class="line"><span class="regexp">~/Library/</span>Google<span class="regexp">/GoogleSoftwareUpdate/</span>GoogleSoftwareUpdate.bundle<span class="regexp">/Contents/</span>Helpers/ksfetch</span><br></pre></td></tr></table></figure>
+
+<p>Process Name：上述进程名</p>
+<p>Deny  Outgoing Connections</p>
+<p>To: Any Server</p>
+<p>效果图：</p>
+<p><img src="edge-mac.jpg" alt="About Chrome for macOS"></p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p><a href="https://support.google.com/chrome/a/answer/9049675" target="_blank" rel="noopener">Google Chrome 策略配置</a></p>
+<p>Google Chrome 下载</p>
+<p>备注：Chrome 内置多国语言界面。</p>
+<h3 id="macOS-最新稳定版固定下载地址"><a href="#macOS-最新稳定版固定下载地址" class="headerlink" title="macOS 最新稳定版固定下载地址"></a>macOS 最新稳定版固定下载地址</h3><p><a href="https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg" target="_blank" rel="noopener">Chrome for macOS with Intel chip</a></p>
+<p><a href="https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg" target="_blank" rel="noopener">Chrome for macOS with Apple chip</a></p>
+<h3 id="Linux-最新稳定版固定下载地址"><a href="#Linux-最新稳定版固定下载地址" class="headerlink" title="Linux 最新稳定版固定下载地址"></a>Linux 最新稳定版固定下载地址</h3><p><a href="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" target="_blank" rel="noopener">Chrome for Linux – deb</a></p>
+<p><a href="https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm" target="_blank" rel="noopener">Chrome for Linux – rpm</a></p>
+<h3 id="Windows-System-Setup-最新稳定版固定下载地址"><a href="#Windows-System-Setup-最新稳定版固定下载地址" class="headerlink" title="Windows System Setup 最新稳定版固定下载地址"></a>Windows System Setup 最新稳定版固定下载地址</h3><p>(安装在 Program Files 文件夹下，需要管理员权限安装)</p>
+<p><a href="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BC8677E28-5C52-39F1-E4F4-28C874ED170E%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dtrue/update2/installers/ChromeStandaloneSetup.exe" target="_blank" rel="noopener">Google Chrome System Setup x86 - 32bit</a></p>
+<p><a href="https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BC8677E28-5C52-39F1-E4F4-28C874ED170E%7D%26lang%3Den%26browser%3D4%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dtrue%26ap%3Dx64-stable/update2/installers/ChromeStandaloneSetup64.exe" target="_blank" rel="noopener">Google Chrome System Setup x64 - 64bit</a></p>
+<h3 id="Windows-User-Setup-安装在-Users-文件夹下"><a href="#Windows-User-Setup-安装在-Users-文件夹下" class="headerlink" title="Windows User Setup (安装在 Users 文件夹下)"></a>Windows User Setup (安装在 Users 文件夹下)</h3><p>查看最新版：<a href="https://tools.shuax.com/chrome/" target="_blank" rel="noopener">https://tools.shuax.com/chrome/</a></p>
+<h3 id="Windows-版固定下载地址（需要文明访问）"><a href="#Windows-版固定下载地址（需要文明访问）" class="headerlink" title="Windows 版固定下载地址（需要文明访问）"></a>Windows 版固定下载地址（需要文明访问）</h3><p>If you want to install Google Chrome for single user account:</p>
+<p><strong><a href="https://www.google.com/chrome/?standalone=1&platform=win" target="_blank" rel="noopener">Download Google Chrome Offline Installer (32-bit)</a></strong></p>
+<p><strong><a href="https://www.google.com/chrome/?standalone=1&platform=win64" target="_blank" rel="noopener">Download Google Chrome Offline Installer (64-bit)</a></strong></p>
+<p>If you want to install Google Chrome for all user accounts:</p>
+<p><strong><a href="https://www.google.com/chrome/?system=true&standalone=1&platform=win" target="_blank" rel="noopener">Google Chrome Offline Installer for All User Accounts (32-bit)</a></strong></p>
+<p><strong><a href="https://www.google.com/chrome/?system=true&standalone=1&platform=win64" target="_blank" rel="noopener">Google Chrome Offline Installer for All User Accounts (64-bit)</a></strong></p>
+<p>Download Full Offline Windows Installer (MSI) of Google Chrome:</p>
+<p><strong><a href="https://www.google.com/chrome/eula.html?msi=true" target="_blank" rel="noopener">Download Google Chrome MSI Installer for Windows</a></strong></p>
+<p><strong><a href="https://www.google.com/intl/en/chrome/business/browser/admin/" target="_blank" rel="noopener">Download Google Chrome MSI Installer for Windows (Alternative Link)</a></strong></p>
 
 
         <hr>
@@ -431,13 +421,9 @@
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/article/TLSv1.3-Support/" data-toggle="tooltip" data-placement="top" title="TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况">&larr; Previous Post</a>
-          </li>
-          
           
           <li class="next">
-            <a href="/article/Get_A+_Rating_on_SSL_Test/" data-toggle="tooltip" data-placement="top" title="在 Qualys SSL Labs SSL 测试中获得 A+ 评级的秘技 2020版">Next Post &rarr;</a>
+            <a href="/article/macOS-Big-Sur/" data-toggle="tooltip" data-placement="top" title="macOS Big Sur 11.2 (20D64) 正式版">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -496,7 +482,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=TLS Server Name Indication (TLS SNI) Support&body=Hi,I found this website and thought you might like it https://sysin.org/article/TLS-SNI-Support/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=如何禁用 Google Chrome 自动更新（Windows、macOS）&body=Hi,I found this website and thought you might like it https://sysin.org/article/Disable-Chrome-Auto-update/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -532,7 +518,7 @@
     repo: 'gitalk',
     owner: 'netgc',
     admin: 'netgc',
-    id: 'Mon Jun 01 2020 10:10:12 GMT+0800', // Ensure uniqueness and length less than 50
+    id: 'Fri Feb 05 2021 10:32:26 GMT+0800', // Ensure uniqueness and length less than 50
     distractionFreeMode: false, // Facebook-like distraction free mode
     perPage: 10 ,
     pagerDirection: 'last',
@@ -595,7 +581,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#支持-TLS-SNI-的浏览器"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">支持 TLS SNI 的浏览器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#F5-BIG-IP-TLS-SNI-Support"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">F5 BIG-IP TLS SNI Support</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Nginx-TLS-SNI-Support"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Nginx TLS SNI Support</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#IIS-TSL-SNI-Support"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">IIS TSL SNI Support</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Google-Chrome-for-Windows"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Google Chrome for Windows</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Google-Chrome-如何自动更新？"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Google Chrome 如何自动更新？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用-PowerShell-禁用更新"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">使用 PowerShell 禁用更新</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Google-Chrome-for-Mac"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Google Chrome for Mac</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Google-Chrome-如何自动更新？-1"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Google Chrome 如何自动更新？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#禁用-Google-Chrome-一般步骤"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">禁用 Google Chrome 一般步骤</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#资源"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">资源</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#macOS-最新稳定版固定下载地址"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">macOS 最新稳定版固定下载地址</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-最新稳定版固定下载地址"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Linux 最新稳定版固定下载地址</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows-System-Setup-最新稳定版固定下载地址"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">Windows System Setup 最新稳定版固定下载地址</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows-User-Setup-安装在-Users-文件夹下"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">Windows User Setup (安装在 Users 文件夹下)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows-版固定下载地址（需要文明访问）"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">Windows 版固定下载地址（需要文明访问）</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -615,13 +601,9 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+            <a class="tag" href="/tags/#Chrome" title="Chrome">Chrome</a>
             
-            <a class="tag" href="/tags/#F5" title="F5">F5</a>
-            
-            <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
-            
-            <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+            <a class="tag" href="/tags/#AutoUpdate" title="AutoUpdate">AutoUpdate</a>
             
           </div>
         </section>
