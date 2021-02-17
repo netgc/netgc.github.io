@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="google-site-verification" content="sysin"> -->
+  <!-- <meta name="baidu-site-verification" content="sysin" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） - sysin - System Inside </title>
+  <meta name="description" content=" Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） - sysin | System Inside | 数据中心：系统、平台和应用交付 " />
+  <meta name="keyword"  content=" Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） " />
+  <link rel="canonical" href="https://sysin.org/article/go-vs-code/" />
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Browser check -->
+  <script type="text/javascript" src="/js/browser.js"></script>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  <link rel="stylesheet" href="../../css/highlight.css">
+<link rel="stylesheet" href="../../css/widget.css">
+<link rel="stylesheet" href="../../css/rocket.css">
+<link rel="stylesheet" href="../../css/signature.css">
+<link rel="stylesheet" href="../../css/catalog.css">
+<link rel="stylesheet" href="../../css/livemylife.css">
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+    <!-- reward start -->
+    <link rel="stylesheet" href="/css/donate.css" />
+    <!-- reward end -->
+    
+
+  
+  <!-- scroll start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- scroll end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css" />
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css" /> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css" />
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+<link rel="alternate" href="atom.xml" title="System Inside" type="application/atom+xml">
+<link rel="alternate" href="feed.xml" title="System Inside" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body-dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body-dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="System Inside" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">System Inside</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/article_header/article_header.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Code" title="Code">Code</a>
+              
+              <a class="tag" href="/tags/#Go" title="Go">Go</a>
+              
+            </div>
+            <h1>Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows）</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2021-02-17
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">12</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.7k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- 不蒜子统计 start -->
+            <span class="meta">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            <!-- WordCount end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 post-container">
+
+        <p>请访问原文链接：<a href="/article/go-vs-code/" title="Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows）">Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows）</a>，查看最新版。转载请保留出处。</p>
+<p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p>
+<h2 id="Go-1-16-发布"><a href="#Go-1-16-发布" class="headerlink" title="Go 1.16 发布"></a>Go 1.16 发布</h2><p><a href="https://golang.google.cn/doc/devel/release.html#go1.16" target="_blank" rel="noopener">go1.16 (released 2021/02/16)</a>，支持 Apple Silicon Mac。</p>
+<p>Go 1.16 正式发布，添加了 macOS ARM64（Apple Silicon）的支持，该版本主要包括工具链、运行时和库的实现优化。并且，该版本保留了 <a href="https://golang.google.cn/doc/go1compat.html" target="_blank" rel="noopener">Go 1 兼容性的承诺</a>，几乎所有 Go 程序都能像以前一样继续编译和运行。详见：<a href="https://golang.google.cn/doc/go1.16" target="_blank" rel="noopener">Go 1.16 Release Notes</a>。</p>
+<p>Darwin and iOS</p>
+<p>  Go 1.16 adds support of 64-bit ARM architecture on macOS (also known as  Apple Silicon) with <code>GOOS=darwin</code>, <code>GOARCH=arm64</code>.  Like the <code>darwin/amd64</code> port, the <code>darwin/arm64</code>  port supports cgo, internal and external linking, <code>c-archive</code>,  <code>c-shared</code>, and <code>pie</code> build modes, and the race  detector.</p>
+<p>  The iOS port, which was previously <code>darwin/arm64</code>, has  been renamed to <code>ios/arm64</code>. <code>GOOS=ios</code>  implies the  <code>darwin</code> build tag, just as <code>GOOS=android</code>  implies the <code>linux</code> build tag. This change should be  transparent to anyone using gomobile to build iOS apps.</p>
+<p>  Go 1.16 adds an <code>ios/amd64</code> port, which targets the iOS  simulator running on AMD64-based macOS. Previously this was  unofficially supported through <code>darwin/amd64</code> with  the <code>ios</code> build tag set. See also  <a href="https://golang.google.cn/misc/ios/README" target="_blank" rel="noopener"><code>misc/ios/README</code></a> for  details about how to build programs for iOS and iOS simulator.</p>
+<p>  Go 1.16 is the last release that will run on macOS 10.12 Sierra.  Go 1.17 will require macOS 10.13 High Sierra or later.</p>
+<p>核心平台版本下载：</p>
+<table>
+<thead>
+<tr>
+<th>File name</th>
+<th>Kind</th>
+<th>OS</th>
+<th>Arch</th>
+<th>Size</th>
+<th>SHA256 Checksum</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://golang.google.cn/dl/go1.16.darwin-amd64.tar.gz" target="_blank" rel="noopener">go1.16.darwin-amd64.tar.gz</a></td>
+<td>Archive</td>
+<td>macOS</td>
+<td>x86-64</td>
+<td>124MB</td>
+<td><code>6000a9522975d116bf76044967d7e69e04e982e9625330d9a539a8b45395f9a8</code></td>
+</tr>
+<tr>
+<td><a href="https://golang.google.cn/dl/go1.16.darwin-arm64.tar.gz" target="_blank" rel="noopener">go1.16.darwin-arm64.tar.gz</a></td>
+<td>Archive</td>
+<td>macOS</td>
+<td>ARMv8</td>
+<td>120MB</td>
+<td><code>4dac57c00168d30bbd02d95131d5de9ca88e04f2c5a29a404576f30ae9b54810</code></td>
+</tr>
+<tr>
+<td><a href="https://golang.google.cn/dl/go1.16.linux-amd64.tar.gz" target="_blank" rel="noopener">go1.16.linux-amd64.tar.gz</a></td>
+<td>Archive</td>
+<td>Linux</td>
+<td>x86-64</td>
+<td>123MB</td>
+<td><code>013a489ebb3e24ef3d915abe5b94c3286c070dfe0818d5bca8108f1d6e8440d2</code></td>
+</tr>
+<tr>
+<td><a href="https://golang.google.cn/dl/go1.16.windows-amd64.zip" target="_blank" rel="noopener">go1.16.windows-amd64.zip</a></td>
+<td>Archive</td>
+<td>Windows</td>
+<td>x86-64</td>
+<td>137MB</td>
+<td><code>5cc88fa506b3d5c453c54c3ea218fc8dd05d7362ae1de15bb67986b72089ce93</code></td>
+</tr>
+<tr>
+<td><a href="https://golang.google.cn/dl/go1.16.windows-amd64.msi" target="_blank" rel="noopener">go1.16.windows-amd64.msi</a></td>
+<td>Installer</td>
+<td>Windows</td>
+<td>x86-64</td>
+<td>119MB</td>
+<td><code>0fd550a74f6c8ef5df405751f5e39a0ba25786930c5d61503bf71d3c3efa2414</code></td>
+</tr>
+</tbody></table>
+<p>其它版本，请访问官网：<a href="https://golang.google.cn/dl/" target="_blank" rel="noopener">https://golang.google.cn/dl/</a></p>
+<h2 id="百度网盘下载链接"><a href="#百度网盘下载链接" class="headerlink" title="百度网盘下载链接"></a>百度网盘下载链接</h2><blockquote>
+<p>文本基于 Visual Studio Code 1.50，Go 1.16。</p>
+</blockquote>
+<p>VS Code 1.50：</p>
+<ul>
+<li><p>macOS intel x64，链接: <a href="https://pan.baidu.com/s/1PE5BwJzY-k5rc396D9vmcA" target="_blank" rel="noopener">https://pan.baidu.com/s/1PE5BwJzY-k5rc396D9vmcA</a>  密码: 18o2</p>
+</li>
+<li><p>Windows x64 System Setup，链接: <a href="https://pan.baidu.com/s/1CDm9Vtd4cMaxNzsDLK2iNg" target="_blank" rel="noopener">https://pan.baidu.com/s/1CDm9Vtd4cMaxNzsDLK2iNg</a>  密码: no0h</p>
+</li>
+<li><p>Windows x64 User Setup，链接: <a href="https://pan.baidu.com/s/1PL4rFUgBn8xw1Ek5E0rmtA" target="_blank" rel="noopener">https://pan.baidu.com/s/1PL4rFUgBn8xw1Ek5E0rmtA</a>  密码: qew1</p>
+<p>如何屏蔽 VS Code 自动更新：添加 hosts <code>127.0.0.1 update.code.visualstudio.com</code><br>强烈建议屏蔽自动更新，否则你的环境将每月被自动更新一到数次！</p>
+</li>
+</ul>
+<p>Go 1.16：链接: <a href="https://pan.baidu.com/s/1nVIk7V4C3aaYGKk8NFiJTA" target="_blank" rel="noopener">https://pan.baidu.com/s/1nVIk7V4C3aaYGKk8NFiJTA</a>  密码: h3pi</p>
+<ul>
+<li>go1.16.darwin-amd64.tar.gz – macOS Intel x64</li>
+<li>go1.16.darwin-arm64.tar.gz – macOS Apple Silicon</li>
+<li>go1.16.linux-amd64.tar.gz  – Linux x86-64</li>
+<li>go1.16.windows-amd64.zip   – Windows x86-64 zip</li>
+<li>go1.16.windows-amd64.msi   – Windows x86-64 msi</li>
+</ul>
+<h2 id="macOS-go-开发环境"><a href="#macOS-go-开发环境" class="headerlink" title="macOS go 开发环境"></a>macOS go 开发环境</h2><h3 id="0-系统准备"><a href="#0-系统准备" class="headerlink" title="0. 系统准备"></a>0. 系统准备</h3><ul>
+<li><p><a href="https://sysin.org/article/macOS-Big-Sur/">macOS Big Sur 11</a></p>
+</li>
+<li><p>安装 Xcode Command Line Tools：<code>xcode-select --install</code> (若报错需要离线安装，<a href="https://sysin.org/article/apple-xcode-12/">下载</a>)</p>
+</li>
+<li><p>安装 brew：<code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
+</li>
+<li><p>安装 oh-my-zsh（推荐，非必须）：<code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code>，<a href="https://sysin.org/article/macOS_zsh_oh-my-zsh/">参看说明</a></p>
+</li>
+</ul>
+<blockquote>
+<p>GitHub 的这个域名需要文明访问<br>通过 <a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a> 查询，美国地址有效，添加到 hosts 文件（<code>vi /etc/hosts</code>）<br>199.232.96.133 raw.githubusercontent.com</p>
+</blockquote>
+<h3 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><p>下载地址：<a href="https://golang.google.cn/dl/" target="_blank" rel="noopener">https://golang.google.cn/dl/</a>，也有 pkg 格式软件包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://golang.google.cn/dl/go1.16.darwin-amd64.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 或者</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> wget https://dl.google.com/go/go1.16.darwin-amd64.tar.gz</span></span><br><span class="line">sudo tar zxvf go1.16.darwin-amd64.tar.gz  -C /usr/local</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2. 添加环境变量"></a>2. 添加环境变量</h3><p><strong>Go 环境变量解释</strong><br>GOROOT 就是 go 的安装路径<br>GOPATH 是 go tools 用到的环境变量，不要把 GOPATH 设置成 go 的安装路径，通常可以在用户目录下创建一个 gopath 目录用作 GOPATH</p>
+<p>以下是添加用户环境变量（推荐）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 创建目录</span></span></span><br><span class="line">mkdir ~/gopath</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">zsh</span></span><br><span class="line">echo '</span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=~/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br><span class="line">' &gt;&gt; ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">bash</span></span><br><span class="line">将以上 ~/.zshrc 替换为 ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">go</span> version</span><br><span class="line"><span class="keyword">go</span> version go1<span class="number">.16</span> darwin/amd64</span><br></pre></td></tr></table></figure>
+
+<p>如有必要也可以添加全局变量（一般不需要）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编辑/etc/profile文件`sudo vi /etc/profile`添加如下：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">go setting</span></span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/usr/local/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-go-命令自动补全"><a href="#3-go-命令自动补全" class="headerlink" title="3. go 命令自动补全"></a>3. go 命令自动补全</h3><ul>
+<li>安装</li>
+</ul>
+<p>在终端输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/posener/complete/gocomplete</span><br><span class="line"><span class="meta">#</span><span class="bash"> 命令会下载到 <span class="variable">$GOPATH</span>/bin 目录下</span></span><br><span class="line">gocomplete -install</span><br></pre></td></tr></table></figure>
+
+<p>退出终端，重新打开生效。</p>
+<ul>
+<li>卸载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gocomplete -uninstall</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-安装-VS-Code-和-Go-扩展"><a href="#4-安装-VS-Code-和-Go-扩展" class="headerlink" title="4. 安装 VS Code 和 Go 扩展"></a>4. 安装 VS Code 和 Go 扩展</h3><p>如果你还没有安装 VS Code, 直接下载安装 <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a>。浏览到“扩展面板” Extensions pane (Ctrl+Shift+X)。 搜索 “Go” 并安装即可 (the publisher ID is <code>golang.Go</code>)。</p>
+<blockquote>
+<p>Go 其他 IDE</p>
+<p>LiteIDE：一款开源、跨平台的轻量级 Go 语言集成开发环境（IDE），基于 Qt 开发。</p>
+<p>GoLand：付费软件，JetBrains 公司推出的 Go 语言集成开发环境。GoLand 同样基于 IntelliJ 平台开发，支持 JetBrains 的插件体系。当然是用 Java 开发的。</p>
+</blockquote>
+<h3 id="5-安装-go-tools"><a href="#5-安装-go-tools" class="headerlink" title="5. 安装 go tools"></a>5. 安装 go tools</h3><p>按 F1 键，输入 <code>&gt;go:install</code>，下面会自动搜索相关命令，我们选择 <code>Go:Install/Update Tools</code> 这个命令（使用 VS Code 打开 go 文件也会提示安装“xxx”工具）。</p>
+<p>安装报错无法访问 <a href="https://proxy.golang.org/" target="_blank" rel="noopener">https://proxy.golang.org/</a>，被墙。</p>
+<p>换一个国内能访问的代理地址：<a href="https://goproxy.cn" target="_blank" rel="noopener">https://goproxy.cn</a></p>
+<p>执行命令：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//goproxy.cn,direct</span></span><br></pre></td></tr></table></figure>
+
+<p>重新安装，正确通过！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Tools environment: GOPATH=/~/gopath</span><br><span class="line">Installing 17 tools at ~/gopath/bin in module mode.</span><br><span class="line">  gocode</span><br><span class="line">  gopkgs</span><br><span class="line">  go-outline</span><br><span class="line">  go-symbols</span><br><span class="line">  guru</span><br><span class="line">  gorename</span><br><span class="line">  gotests</span><br><span class="line">  gomodifytags</span><br><span class="line">  impl</span><br><span class="line">  fillstruct</span><br><span class="line">  goplay</span><br><span class="line">  godoctor</span><br><span class="line">  dlv</span><br><span class="line">  gocode-gomod</span><br><span class="line">  godef</span><br><span class="line">  goreturns</span><br><span class="line">  golint</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-智能提示"><a href="#6-智能提示" class="headerlink" title="6. 智能提示"></a>6. 智能提示</h3><p>使用 VS Code 打开一个文件夹，在文件夹中新建一个 .go 文件，例如：Helloworld.go，打开 Helloworld.go，输入 p，可以看到提示 package main 等内容已经出现。</p>
+<p>示例：Helloworld.go</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="built_in">println</span>(<span class="string">"Hello"</span>, <span class="string">"world"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例：Version.go</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"runtime"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  fmt.Printf(<span class="string">"%s"</span>, runtime.Version())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-格式化代码"><a href="#7-格式化代码" class="headerlink" title="7. 格式化代码"></a>7. 格式化代码</h3><p>在 VS Code 编辑区域右键点击出现菜单，选择“格式化文档”即可。</p>
+<p>Go 开发团队不想要 Go 语言像许多其它语言那样总是在为代码风格而引发无休止的争论，浪费大量宝贵的开发时间，因此他们制作了一个工具：<code>go fmt</code>（<code>gofmt</code>）。这个工具可以将你的源代码格式化成符合官方统一标准的风格，属于语法风格层面上的小型重构。遵循统一的代码风格是 Go 开发中无可撼动的铁律，因此你必须在编译或提交版本管理系统之前使用 <code>gofmt</code> 来格式化你的代码。</p>
+<p>在命令行输入 <code>gofmt –w program.go</code> 会格式化该源文件的代码然后将格式化后的代码覆盖原始内容（如果不加参数 <code>-w</code> 则只会打印格式化后的结果而不重写文件）；<code>gofmt -w *.go</code> 会格式化并重写所有 Go 源文件；<code>gofmt map1</code> 会格式化并重写 map1 目录及其子目录下的所有 Go 源文件。</p>
+<p>Go 对于代码的缩进层级方面使用 tab 还是空格并没有强制规定，但是使用 gofmt 格式化代码后将使用 Tab 替代空格（VS Code 默认设置一个 Tab 等于 4 个空格）。</p>
+<p>通过设置显示 Tab 和 空格来查看或者验证格式化效果。在 VS Code 打开“设置”，在搜索框中输入 renderControlCharacters，选中勾选框，即可显示 Tab；在搜索框中输入 renderWhitespace，选择 all，即可显示空格。</p>
+<h3 id="8-编译和运行第一个程序"><a href="#8-编译和运行第一个程序" class="headerlink" title="8. 编译和运行第一个程序"></a>8. 编译和运行第一个程序</h3><p>安装 VS Code 扩展 <a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner" target="_blank" rel="noopener">Code Runner</a>，在编辑区域右键点击出现菜单，选择“Run Code”，可以看到程序执行结果：</p>
+<p>Helloworld.go 输出：Hello world</p>
+<p>Version.go 输出：go1.16</p>
+<p>打开终端，编译：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build Helloworld.go</span><br></pre></td></tr></table></figure>
+
+<p>执行程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Helloworld</span><br></pre></td></tr></table></figure>
+
+<p>可以看到执行结果：Hello world</p>
+<h2 id="Linux-go-编译环境"><a href="#Linux-go-编译环境" class="headerlink" title="Linux go 编译环境"></a>Linux go 编译环境</h2><p>这里仅配置 Linux Shell 下的编译环境。</p>
+<p>桌面环境可以参照上述 macOS 部分。</p>
+<h3 id="1-软件包准备"><a href="#1-软件包准备" class="headerlink" title="1. 软件包准备"></a>1. 软件包准备</h3><p>CentOS (8)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc make -y</span><br><span class="line">yum install rsync jq -y</span><br><span class="line">yum install git -y</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu (20.04)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential #(Following command will install essential commands like gcc, make etc.)</span><br><span class="line">sudo apt install rsync jq -y</span><br><span class="line">sudo apt install git -y</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-下载安装"><a href="#2-下载安装" class="headerlink" title="2. 下载安装"></a>2. 下载安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.16.linux-amd64.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 或者</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> wget https://golang.google.cn/dl/go1.16.linux-amd64.tar.gz</span></span><br><span class="line">tar zxvf go1.16.linux-amd64.tar.gz  -C /usr/local</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑/etc/profile文件添加如下：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">go setting</span></span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/usr/local/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-验证"><a href="#3-验证" class="headerlink" title="3. 验证"></a>3. 验证</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> version</span><br><span class="line"><span class="keyword">go</span> version go1<span class="number">.16</span> linux/amd64</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-go-命令自动补全"><a href="#4-go-命令自动补全" class="headerlink" title="4. go 命令自动补全"></a>4. go 命令自动补全</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/posener/complete/gocomplete</span><br><span class="line"><span class="meta">#</span><span class="bash"> 命令会下载到 <span class="variable">$GOPATH</span>/bin 目录下</span></span><br><span class="line">gocomplete -install</span><br></pre></td></tr></table></figure>
+
+<h2 id="Windows-go-开发环境"><a href="#Windows-go-开发环境" class="headerlink" title="Windows go 开发环境"></a>Windows go 开发环境</h2><h3 id="0-系统准备-1"><a href="#0-系统准备-1" class="headerlink" title="0. 系统准备"></a>0. 系统准备</h3><ul>
+<li><p>Windows 10 或者 Windows Server 2019</p>
+</li>
+<li><p>安装 git，下载：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>，直接双击安装</p>
+</li>
+</ul>
+<h3 id="1-下载安装-1"><a href="#1-下载安装-1" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><p>下载 zip 压缩包版本：<a href="https://golang.google.cn/dl/go1.16.windows-amd64.zip" target="_blank" rel="noopener">https://golang.google.cn/dl/go1.16.windows-amd64.zip</a></p>
+<p>直接解压，例如：C:\go</p>
+<p>（另有 msi 软件包可直接安装：<a href="https://golang.google.cn/dl/go1.16.windows-amd64.msi" target="_blank" rel="noopener">https://golang.google.cn/dl/go1.16.windows-amd64.msi</a>）</p>
+<h3 id="2-环境变量"><a href="#2-环境变量" class="headerlink" title="2. 环境变量"></a>2. 环境变量</h3><p><strong>图形界面创建环境变量</strong></p>
+<p>图形界面（Windows 10）：此电脑 –&gt; 属性 –&gt; 高级系统设置 –&gt; 高级 –&gt; 环境变量…</p>
+<ul>
+<li><p>用户变量：</p>
+<ul>
+<li>新建：GOPATH = %UserProfile%\gopath (例如：当前用户是 C:\Users\Administrators)</li>
+<li>PATH 变量增加一条 %GOPATH%\bin</li>
+</ul>
+</li>
+<li><p>系统变量：</p>
+<ul>
+<li>新建：GOROOT = C:\go</li>
+<li>PATH 增加了一条 %GOROOT%\bin</li>
+</ul>
+</li>
+</ul>
+<p>备注：msi 安装包自动创建了两个环境变量（不完整），分别是：</p>
+<ul>
+<li>用户变量：gopath = %UserProfile%\go (例如：当前用户是 C:\Users\Administrators)</li>
+<li>系统变量：path 增加了一条 C:\go\bin</li>
+</ul>
+<p><strong>PowerShell 添加环境变量</strong></p>
+<p>环境变量所在注册表位置如下：</p>
+<ul>
+<li><p>用户变量所在位置：<code>HKEY_CURRENT_USER\Environment</code></p>
+</li>
+<li><p>系统变量所在位置：<code>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Environment</code></p>
+</li>
+</ul>
+<p>创建两条：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">"GOPATH"</span>, <span class="string">"<span class="variable">$env:USERPROFILE</span>\gopath"</span>, <span class="string">"User"</span>)</span><br><span class="line"><span class="comment">#调用命令结果：$(命令)</span></span><br><span class="line"><span class="comment">#获取原有用户 PATH 变量：$([environment]::GetEnvironmentvariable("Path", "User"))</span></span><br><span class="line"><span class="comment">#注意 PATH 中条目以分号结尾</span></span><br><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">"PATH"</span>, <span class="string">"<span class="variable">$</span>([environment]::GetEnvironmentvariable("</span>Path<span class="string">", "</span>User<span class="string">"));%GOPATH%\bin"</span>, <span class="string">"User"</span>)</span><br><span class="line"></span><br><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">"GOROOT"</span>, <span class="string">"C:\go"</span>, <span class="string">"Machine"</span>)</span><br><span class="line"><span class="comment">#调用命令结果：$(命令)</span></span><br><span class="line"><span class="comment">#获取原有系统 PATH 变量：$([environment]::GetEnvironmentvariable("Path", "Machine"))</span></span><br><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">"PATH"</span>, <span class="string">"<span class="variable">$</span>([environment]::GetEnvironmentvariable("</span>Path<span class="string">", "</span>Machine<span class="string">"));%GOROOT%\bin"</span>, <span class="string">"Machine"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">go</span> version</span><br><span class="line"><span class="keyword">go</span> version go1<span class="number">.16</span> windows/amd64</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-go-命令自动补全-1"><a href="#3-go-命令自动补全-1" class="headerlink" title="3. go 命令自动补全"></a>3. go 命令自动补全</h3><p>gocomplete 仅适用于 shell，Windows 下无效。</p>
+<h3 id="4-安装-VS-Code-和-Go-扩展-1"><a href="#4-安装-VS-Code-和-Go-扩展-1" class="headerlink" title="4. 安装 VS Code 和 Go 扩展"></a>4. 安装 VS Code 和 Go 扩展</h3><p>如果你还没有安装 VS Code, 直接下载安装 <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a>。浏览到“扩展面板” Extensions pane (Ctrl+Shift+X)。 搜索 “Go” 并安装即可 (the publisher ID is <code>golang.Go</code>)。</p>
+<h3 id="5-安装-go-tools-1"><a href="#5-安装-go-tools-1" class="headerlink" title="5. 安装 go tools"></a>5. 安装 go tools</h3><p>按 F1 键，输入 <code>&gt;go:install</code>，下面会自动搜索相关命令，我们选择 <code>Go:Install/Update Tools</code> 这个命令（使用 VS Code 打开 go 文件也会提示安装“xxx”工具）。</p>
+<p>安装报错无法访问 <a href="https://proxy.golang.org/" target="_blank" rel="noopener">https://proxy.golang.org/</a>，被墙。</p>
+<p>换一个国内能访问的代理地址：<a href="https://goproxy.cn" target="_blank" rel="noopener">https://goproxy.cn</a></p>
+<p>执行命令：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//goproxy.cn,direct</span></span><br></pre></td></tr></table></figure>
+
+<p>重新安装，正确通过！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Tools environment: GOPATH=C:\Users\Administrator\gopath</span><br><span class="line">Installing 9 tools at C:\Users\Administrator\gopath\bin in module mode.</span><br><span class="line">  gopkgs</span><br><span class="line">  go-outline</span><br><span class="line">  gotests</span><br><span class="line">  gomodifytags</span><br><span class="line">  impl</span><br><span class="line">  goplay</span><br><span class="line">  dlv</span><br><span class="line">  golint</span><br><span class="line">  gopls</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-测试智能提示"><a href="#6-测试智能提示" class="headerlink" title="6. 测试智能提示"></a>6. 测试智能提示</h3><p>使用 VS Code 打开一个文件夹，在文件夹中新建一个 .go 文件，例如：Helloworld.go，打开 Helloworld.go，输入 p，可以看到提示 package main 等内容已经出现。</p>
+<p>Helloworld.go</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="built_in">println</span>(<span class="string">"Hello"</span>, <span class="string">"world"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Version.go</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"runtime"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  fmt.Printf(<span class="string">"%s"</span>, runtime.Version())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        <hr>
+
+        
+          <!-- promotion start -->
+          <div class="tip">
+            <p>
+              广而告之：<a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>，<a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云 云产品限时秒杀，爆款1核2G云服务器，首年99元</a>
+            </p>
+          </div>
+          <!-- promotion end -->
+          <hr>
+          
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/article/apple-silicon-universal-app/" data-toggle="tooltip" data-placement="top" title="适配 Apple Silicon Mac 的 Universal App 更新">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+        <hr>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            如果文章中使用的内容和图片侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有用，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+          </p>
+        </div>
+        <!-- tip end -->
+        <hr>
+        
+
+        <!--打赏-->
+        
+            <div class="reward">
+                <div class="reward-button">赏 <span class="reward-code">
+                    <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span>
+                    <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay.jpg"><b>微信打赏</b> </span>
+                    </span></div>
+                <p class="reward-notice">赞赏一下</p>
+            </div>
+        <hr>
+        
+
+        <!--打赏-->
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows）&body=Hi,I found this website and thought you might like it https://sysin.org/article/go-vs-code/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- require APlayer -->
+        
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'a4a3611e5f9fc02efc2c',
+    clientSecret: '2eaf392b1017d6ca39ed728da12d2f5470aa0888',
+    repo: 'gitalk',
+    owner: 'netgc',
+    admin: 'netgc',
+    id: 'Wed Feb 17 2021 14:57:04 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'zh-CN'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content (TOC) -->
+      <!-- Table of Contents -->
+<!-- Don not display number -->
+
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+<!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Go-1-16-发布"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Go 1.16 发布</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#百度网盘下载链接"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">百度网盘下载链接</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-go-开发环境"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">macOS go 开发环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#0-系统准备"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">0. 系统准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-下载安装"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">1. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-添加环境变量"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">2. 添加环境变量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-go-命令自动补全"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3. go 命令自动补全</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-安装-VS-Code-和-Go-扩展"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">4. 安装 VS Code 和 Go 扩展</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-安装-go-tools"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">5. 安装 go tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-智能提示"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">6. 智能提示</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-格式化代码"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">7. 格式化代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-编译和运行第一个程序"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">8. 编译和运行第一个程序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-go-编译环境"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Linux go 编译环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-软件包准备"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 软件包准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-下载安装"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-验证"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-go-命令自动补全"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. go 命令自动补全</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-go-开发环境"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Windows go 开发环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#0-系统准备-1"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">0. 系统准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-下载安装-1"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">1. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-环境变量"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">2. 环境变量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-go-命令自动补全-1"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">3. go 命令自动补全</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-安装-VS-Code-和-Go-扩展-1"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">4. 安装 VS Code 和 Go 扩展</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-安装-go-tools-1"><span class="toc-nav-number">5.6.</span> <span class="toc-nav-text">5. 安装 go tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-测试智能提示"><span class="toc-nav-number">5.7.</span> <span class="toc-nav-text">6. 测试智能提示</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Code" title="Code">Code</a>
+            
+            <a class="tag" href="/tags/#Go" title="Go">Go</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>SITE LINKS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="http://blog.csdn.net/netgc" target="_blank">CSDN Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://my.oschina.net/sysin/" target="_blank">OSCHINA Blog</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-0 col-md-11 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a target="_blank" href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/netgc">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2021
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.svg"></a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+<script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script>
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://sysin.org/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '2bb536d3dd0b9939875b1491d84cce9c';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<!-- Baidu Push -->
+
+<script>
+  (function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://sysin.org/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
