@@ -356,6 +356,7 @@
 </blockquote>
 <p>设置远程登录管理用户：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root<span class="comment"># set system login user admin class super-user authentication plain-text-password</span></span><br><span class="line">root<span class="comment"># new password :</span></span><br><span class="line">root<span class="comment"># retype new password:</span></span><br><span class="line">//添加另外一个用户：</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">system</span> login <span class="keyword">user</span> sysadmin <span class="keyword">class</span> super-<span class="keyword">user</span> <span class="keyword">authentication</span> plain-<span class="built_in">text</span>-<span class="keyword">password</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>补充：通过 RESET CONFIG 按键恢复出厂设置</p>
 <p>To reset the device to its factory default configuration, press and hold the Reset Config button on the front panel of the SRX Series device for at least 15 seconds, until the Status LED glows amber.</p>
@@ -446,12 +447,12 @@
 <h2 id="二、配置篇"><a href="#二、配置篇" class="headerlink" title="二、配置篇"></a>二、配置篇</h2><p><strong>整个 JSRP 配置过程包括如下 7 个步骤</strong></p>
 <ul>
 <li>配置 Cluster id 和 Node id (对应 ScreenOS NSRP 的 cluster id 并需手工指定设备使用节点 id）</li>
-<li>指定 Control Port     （指定控制层面使用接口，用于配置同步及心跳）</li>
+<li>指定 Control Port  （指定控制层面使用接口，用于配置同步及心跳）</li>
 <li>指定 Fabric Link Port （指定数据层面使用接口，主要 session 等 RTO 同步）</li>
 <li>配置 Redundancy Group  （类似 NSRP 的 VSD group，优先级与抢占等配置）</li>
-<li>每个机箱的个性化配置    （单机无需同步的个性化配置，如主机名、带外管理口 IP 地址等）</li>
+<li>每个机箱的个性化配置 （单机无需同步的个性化配置，如主机名、带外管理口 IP 地址等）</li>
 <li>配置 Redundant Ethernet Interface （类似 NSRP 的 Redundant 冗余接口）</li>
-<li>配置 Interface Monitoring    （类似 NSRP interface monitor，是 RG 数据层面切换依据）</li>
+<li>配置 Interface Monitoring （类似 NSRP interface monitor，是 RG 数据层面切换依据）</li>
 </ul>
 <blockquote>
 <p>以下 SRX JSRP 配置样例，基于 SRX240 和 SRX3400：</p>
@@ -535,11 +536,12 @@
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> chassis <span class="comment">alarm ethernet link-down ignore</span>  //设置全部端口不产生告警</span><br><span class="line"><span class="comment">//注意：link-down 可以侦测端口的状态，如果设置了端口 link down 的 alarm 告警，则不用的端口最好 disable，以避免频繁告警</span></span><br><span class="line"><span class="comment">//补充：</span></span><br><span class="line"><span class="keyword">set</span> <span class="comment">chassis alarm ethernet link-down red</span>  //设置全部端口产生告警</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>SNMP</p>
+<li>SNMP</li>
+</ul>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> snmp <span class="keyword">location</span> Beijing</span><br><span class="line"><span class="keyword">set</span> snmp contact "xxx@domain.com"</span><br><span class="line"><span class="keyword">set</span> snmp community &lt;abc&gt; <span class="keyword">authorization</span> <span class="keyword">read</span>-<span class="keyword">only</span>  //将 &lt;abc&gt; 修改为自定义的字符</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">security</span> zones <span class="keyword">security</span>-<span class="type">zone</span> trust host-inbound-traffic <span class="keyword">system</span>-services snmp  //注意开启 <span class="type">zone</span> 的 snmp 服务，这里是 trust</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>关闭 ALG</p>
-</li>
+
+<ul>
+<li>关闭 ALG</li>
 </ul>
 <blockquote>
 <p>ALG 应用级网关，也叫做应用层网关（Application Layer Gateway）</p>
@@ -567,7 +569,6 @@
 <li>High-End 设备：</li>
 </ul>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">security</span> <span class="keyword">log</span> mode stream</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">security</span> <span class="keyword">log</span> source-address <span class="number">10.3</span><span class="number">.1</span><span class="number">.254</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">security</span> <span class="keyword">log</span> stream trafficlogs host <span class="number">10.3</span><span class="number">.1</span><span class="number">.200</span></span><br><span class="line">//开启 <span class="keyword">policy</span> 的日志记录 <span class="keyword">then</span> <span class="keyword">log</span> <span class="keyword">session</span>-<span class="keyword">close</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">security</span> policies <span class="keyword">from</span>-<span class="type">zone</span> trust <span class="keyword">to</span>-<span class="type">zone</span> untrust <span class="keyword">policy</span> permit-<span class="keyword">all</span> <span class="keyword">then</span> <span class="keyword">log</span> <span class="keyword">session</span>-<span class="keyword">close</span></span><br></pre></td></tr></table></figure>
-
 
 </li>
 </ul>
@@ -605,7 +606,8 @@
 </ul>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@SRX&gt;</span><br><span class="line"><span class="keyword">show</span> chassis <span class="keyword">cluster</span> status</span><br><span class="line"><span class="keyword">show</span> chassis <span class="keyword">cluster</span> interfaces</span><br><span class="line"><span class="keyword">show</span> chassis <span class="keyword">cluster</span> <span class="keyword">statistics</span></span><br><span class="line"><span class="keyword">show</span> chassis <span class="keyword">cluster</span> control-plane <span class="keyword">statistics</span></span><br><span class="line"><span class="keyword">show</span> chassis <span class="keyword">cluster</span> data-plane <span class="keyword">statistics</span></span><br><span class="line"><span class="keyword">show</span> chassis <span class="keyword">cluster</span> status redundancy-<span class="keyword">group</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">show</span> chassis <span class="keyword">cluster</span> status redundancy-<span class="keyword">group</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="12-Cluster-升级-In-Service-Software-Upgrade-ISSU"><a href="#12-Cluster-升级-In-Service-Software-Upgrade-ISSU" class="headerlink" title="12. Cluster 升级 In-Service Software Upgrade (ISSU)"></a>12. Cluster 升级 In-Service Software Upgrade (ISSU)</h3><p>[SRX] ISSU/ICU upgrade limitations on SRX firewalls<br><a href="https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB17946" target="_blank" rel="noopener">https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB17946</a><br>Upgrading a SRX Chassis Cluster<br><a href="http://blog.marquis.co/upgrading-a-srx-chassis-cluster/" target="_blank" rel="noopener">http://blog.marquis.co/upgrading-a-srx-chassis-cluster/</a></p>
+<h3 id="12-Cluster-升级-In-Service-Software-Upgrade-ISSU"><a href="#12-Cluster-升级-In-Service-Software-Upgrade-ISSU" class="headerlink" title="12. Cluster 升级 In-Service Software Upgrade (ISSU)"></a>12. Cluster 升级 In-Service Software Upgrade (ISSU)</h3><p>[SRX] ISSU/ICU upgrade limitations on SRX firewalls<br><a href="https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB17946" target="_blank" rel="noopener">https://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB17946</a></p>
+<p>Upgrading a SRX Chassis Cluster<br><a href="http://blog.marquis.co/upgrading-a-srx-chassis-cluster/" target="_blank" rel="noopener">http://blog.marquis.co/upgrading-a-srx-chassis-cluster/</a></p>
 <h4 id="branch-SRX-devices：-In-Band-Cluster-Upgrade-ICU"><a href="#branch-SRX-devices：-In-Band-Cluster-Upgrade-ICU" class="headerlink" title="branch SRX devices： In-Band Cluster Upgrade (ICU)"></a>branch SRX devices： In-Band Cluster Upgrade (ICU)</h4><pre><code>request system software in-service-upgrade /path/to/package no-sync
 
 {primary:node0}
@@ -614,8 +616,6 @@ root@SRX240-1&gt; request system software in-service-upgrade /var/tmp/junos-srxs
 {primary:node0}
 root@SRX3400-1&gt; request system software in-service-upgrade /var/tmp/junos-srx1k3k-12.3X48-D50.6-domestic.tgz reboot</code></pre><blockquote>
 <p>Important note<br>Unlike with the ICU upgrade process, you have to enter the option reboot to confirm that you want a reboot after. If you don’t use the option reboot, the command will fail. This only applies to the High End SRX devices, SRX1400, SRX3400, SRX3600, SRX5600 and SRX5800.</p>
-</blockquote>
-<blockquote>
 <p>SRX 240b（240h） 支持不了新版本，仅仅支持到 12.1x46，并已停产<br>ERROR: Unsupported platform srx240b for 12.1X47 and higher</p>
 </blockquote>
 <p>在老旧版本中，已经不适用，升级过程会中断业务。 升级步骤如下：</p>

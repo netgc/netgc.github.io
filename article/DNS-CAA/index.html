@@ -455,7 +455,7 @@
 <li><code>iodef</code>：指定认证机构可以向其报告策略违规的URL或邮箱。</li>
 </ul>
 <h2 id="创建-CAA-记录"><a href="#创建-CAA-记录" class="headerlink" title="创建 CAA 记录"></a>创建 CAA 记录</h2><p>可以使用 <a href="https://sslmate.com/caa/" target="_blank" rel="noopener">https://sslmate.com/caa/</a> 来生成，示例：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Name 	     <span class="built_in"> Type </span>	Value</span><br><span class="line">sysin.org.	CAA	  0 issue <span class="string">"digicert.com"</span></span><br><span class="line">                  0 issue <span class="string">"letsencrypt.org"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Name       <span class="built_in"> Type </span> Value</span><br><span class="line">sysin.org. CAA   0 issue <span class="string">"digicert.com"</span></span><br><span class="line">                  0 issue <span class="string">"letsencrypt.org"</span></span><br></pre></td></tr></table></figure>
 
 <p>添加 CAA 记录</p>
 <ul>
@@ -477,7 +477,6 @@
 
 <p>使用 <a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">SSL Test</a> 在线检测，会提示：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DNS Certification Authority Authorization (CAA)<span class="built_in"> Policy </span>found <span class="keyword">for</span> this domain.  MORE <span class="builtin-name">INFO</span> »</span><br></pre></td></tr></table></figure>
-
 
 
         <hr>

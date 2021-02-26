@@ -417,9 +417,12 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HA1: <span class="keyword">In</span>‐band port</span><br><span class="line">HA1 Backup: <span class="keyword">In</span>‐band port</span><br><span class="line">Recommendation: <span class="builtin-name">Enable</span> Heartbeat Backup</span><br><span class="line"></span><br><span class="line">HA1: Management port</span><br><span class="line">HA1 Backup: <span class="keyword">In</span>‐band port</span><br><span class="line">Recommendation: <span class="keyword">Do</span> <span class="keyword">not</span> <span class="builtin-name">enable</span> Heartbeat Backup</span><br></pre></td></tr></table></figure>
 
 <h2 id="5-配置-HA（分别在主备节点配置）"><a href="#5-配置-HA（分别在主备节点配置）" class="headerlink" title="5. 配置 HA（分别在主备节点配置）"></a>5. 配置 HA（分别在主备节点配置）</h2><p><strong>前提配置：</strong></p>
-<pre><code>* 管理接口配置
-* 无专有HA接口需要配置 2 个 In-band 接口作为 HA 接口
-* 启用管理接口 Ping，Device &gt; Setup &gt; Interfaces</code></pre><p>（1）Device &gt; High Availability &gt; General</p>
+<ul>
+<li>管理接口配置</li>
+<li>无专有HA接口需要配置 2 个 In-band 接口作为 HA 接口</li>
+<li>启用管理接口 Ping，Device &gt; Setup &gt; Interfaces</li>
+</ul>
+<p>（1）Device &gt; High Availability &gt; General</p>
 <p>右侧</p>
 <ul>
 <li>Control link (HA1)  //专有 HA1 或者 in‐band 接口，需要配置 IP</li>

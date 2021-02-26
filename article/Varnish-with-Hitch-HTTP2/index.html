@@ -411,7 +411,7 @@
 
 <p><strong>配置 HSTS</strong></p>
 <p>编辑 varnish vcl，如下字段添加：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sub vcl_deliver &#123;</span><br><span class="line">	<span class="built_in">set</span> resp.http.Strict-Transport-Security = <span class="string">"max-age=31536000; includeSubDomains; preload"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sub vcl_deliver &#123;</span><br><span class="line">    <span class="built_in">set</span> resp.http.Strict-Transport-Security = <span class="string">"max-age=31536000; includeSubDomains; preload"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>Varnish 需要重启或者重新加载配置才能生效。</p>

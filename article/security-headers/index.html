@@ -561,13 +561,13 @@
 <p>指令</p>
 <ul>
 <li><p>max-age</p>
-<p>该指令指定接收到 <code>Expect-CT</code> 头后的秒数，在此期间用户代理应将收到消息的主机视为已知的 Expect-CT 主机。如果缓存接收到的值大于它可以表示的值，或者如果其随后计算溢出，则缓存将认为该值为 2147483648（2的31次幂）或其可以方便表示的最大正整数。</p>
+<p>  该指令指定接收到 <code>Expect-CT</code> 头后的秒数，在此期间用户代理应将收到消息的主机视为已知的 Expect-CT 主机。如果缓存接收到的值大于它可以表示的值，或者如果其随后计算溢出，则缓存将认为该值为 2147483648（2的31次幂）或其可以方便表示的最大正整数。</p>
 </li>
 <li><p>report-uri=”<uri>“ 可选</p>
-<p>该指令指定用户代理应向其报告 Expect-CT 失效的 URI。 当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为“强制执行和报告”配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
+<p>  该指令指定用户代理应向其报告 Expect-CT 失效的 URI。 当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为“强制执行和报告”配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
 </li>
 <li><p>enforce 可选</p>
-<p>该指令示意用户代理应强制遵守证书透明度政策（而不是只报告合规性），并且用户代理应拒绝违反证书透明度政策的之后连接。当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为“强制执行和报告”配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
+<p>  该指令示意用户代理应强制遵守证书透明度政策（而不是只报告合规性），并且用户代理应拒绝违反证书透明度政策的之后连接。当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为“强制执行和报告”配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
 </li>
 </ul>
 <p>示例</p>
@@ -908,7 +908,7 @@
 <h2 id="四、资源网站"><a href="#四、资源网站" class="headerlink" title="四、资源网站"></a>四、资源网站</h2><p>MDN <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers" target="_blank" rel="noopener">HTTP Headers</a></p>
 <p><a href="https://www.veracode.com/blog/" target="_blank" rel="noopener">Veracode Blog</a>：Application Security Research, News, and Education</p>
 <h2 id="五、检测工具"><a href="#五、检测工具" class="headerlink" title="五、检测工具"></a>五、检测工具</h2><ul>
-<li><p>在线检查网站：<a href="https://securityheaders.com/（推荐，提供配置建议）" target="_blank" rel="noopener">https://securityheaders.com/（推荐，提供配置建议）</a></p>
+<li><p>在线检查网站：<a href="https://securityheaders.com/" target="_blank" rel="noopener">https://securityheaders.com/</a>（推荐，提供配置建议）</p>
 </li>
 <li><p>命令行工具：</p>
 <p>curl：<code>curl -I https://sysin.org</code></p>
