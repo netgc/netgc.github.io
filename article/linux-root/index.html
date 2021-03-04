@@ -431,11 +431,10 @@
 <p>也可以在文件尾部添加，这样方便 shell 处理。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Allow root to run any commands anywhere</span></span></span><br><span class="line">root ALL=(ALL) ALL</span><br><span class="line">user1 ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
 
-<p>修改完毕，现在可以用 user1 帐号登录，然后用命令 sudo + 命令，即可获得 root 权限进行操作。</p>
+<p>修改完毕，现在可以用 user1 帐号登录，然后用命令 <code>sudo 命令</code>，即可获得 root 权限进行操作。</p>
 <p>sudo 不需要密码修改如下（只需要这一行即可生效）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user1   ALL=(ALL)   NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
 
-<p>同时，由于普通用户没有配置 xxx/sbin 这样的路径，所以还需要在 .bash_profile 文件中增加环境变量：<br>PATH=$PATH:$HOME/bin:/usr/kerberos/sbin:/usr/local/sbin:/sbin:/usr/sbin</p>
 <p>直接切换：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
 
