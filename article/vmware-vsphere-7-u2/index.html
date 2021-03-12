@@ -287,11 +287,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">5</span> Minutes
+              Estimated Reading Time <span class="post-count">14</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.4k</span> In Total
+              Words <span class="post-count">3.6k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- 不蒜子统计 start -->
@@ -367,7 +367,7 @@
 <p>提供专为 SAP HANA 和 Epic 操作型数据库等设计的业界领先的巨型虚拟机。扩展 vSphere 基础架构，使每个集群的支持主机数量增加 50%。</p>
 <p><img src="https://www.vmware.com/content/vmware/vmware-published-sites/cn/products/vsphere/_jcr_content/parcontainer/threecolumncontainer_449742635/threecolumncontainer3/image.img.png/1611307488563.png" alt="vmware-vsphere-simplify-operations">  <strong>简化运维</strong></p>
 <p>使用 GPU 交付 AI/ML 基础架构。简化软件升级、修补和固件更新，并使用原生安全性保护混合云基础架构。</p>
-<h2 id="7-0-U2-新增功能"><a href="#7-0-U2-新增功能" class="headerlink" title="7.0 U2 新增功能"></a>7.0 U2 新增功能</h2><ul>
+<h2 id="新增功能"><a href="#新增功能" class="headerlink" title="新增功能"></a>新增功能</h2><h3 id="VMware-ESXi-7-0-Update-2-新增功能"><a href="#VMware-ESXi-7-0-Update-2-新增功能" class="headerlink" title="VMware ESXi 7.0 Update 2 新增功能"></a>VMware ESXi 7.0 Update 2 新增功能</h3><ul>
 <li><p>在以下服务器中，ESXi 7.0 Update 2 支持 vSphere Quick Boot：</p>
 <ul>
 <li>Dell Inc.<ul>
@@ -397,6 +397,53 @@
 <li><p><strong>vSphere Lifecycle Manager 快速升级：</strong>从 vSphere 7.0  Update 2 开始，可以将虚拟机挂起到内存并使用 Quick Boot  功能，从而显著缩短升级时间和系统停机时间并最大程度地缩短系统引导时间。可以对 vSphere Lifecycle Manager  进行如下配置：更新 ESXi 主机时，将虚拟机挂起到内存，而不是迁移虚拟机、关闭虚拟机电源或将虚拟机挂起到磁盘。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/com.vmware.vsphere-lifecycle-manager.doc/GUID-5AF3C64F-1178-4F1E-B5EC-2882957C6045.html" target="_blank" rel="noopener">配置 vSphere Lifecycle Manager 以执行快速升级</a>。</p>
 </li>
 <li><p><strong>加密 Fault Tolerance 日志流量：</strong>从 vSphere 7.0 Update 2  开始，可以加密 Fault Tolerance 日志流量以增强安全性。vSphere Fault Tolerance  会在主虚拟机和辅助虚拟机之间进行定期检查，以便能够从上个成功检查点快速恢复。检查点包含自上一个检查点以来修改的虚拟机状态。加密日志流量可防止恶意访问或网络攻击。</p>
+</li>
+</ul>
+<h3 id="VMware-vCenter-Server-7-0-Update-2-新增功能"><a href="#VMware-vCenter-Server-7-0-Update-2-新增功能" class="headerlink" title="VMware vCenter Server 7.0 Update 2 新增功能"></a>VMware vCenter Server 7.0 Update 2 新增功能</h3><ul>
+<li><p><strong>产品内置反馈：</strong>vCenter Server 7.0 Update 2 在 vSphere Client 中引入了产品内置反馈选项，可通过此选项提供有关关键 VMware vSphere 工作流和功能的实时评价和评论。</p>
+</li>
+<li><p><strong>vCenter Server 的新 CLI 部署：</strong>在 vCenter Server 7.0 Update 2 中，通过使用<code>vCSA_with_cluster_on_ESXi.json</code>模板，可以在 ESXi 主机上部署 vCenter Server 时引导单节点 vSAN 集群并启用 vSphere Lifecycle Manager 集群映像管理。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/com.vmware.vcenter.install.doc/GUID-A1777A0B-9FD6-4DE7-AC37-7B3181D13032.html" target="_blank" rel="noopener">适用于 vCenter Server Appliance 的 CLI 部署的 JSON 模板</a>。</p>
+</li>
+<li><p><strong>在您使用 vSphere Lifecycle Manager 基准管理的集群中的主机上执行并行修复：</strong>在 vCenter Server 7.0 Update 2 中，为了缩短修补或升级环境中 ESXi 主机所需的时间，可以让 vSphere  Lifecycle Manager 对使用基准的集群内的主机执行并行修复。只能并行修复已处于维护模式的 ESXi 主机。无法并行修复 vSAN  集群中的主机。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/com.vmware.vsphere-lifecycle-manager.doc/GUID-26EB282E-AD1E-425A-B4CF-1D70C0DE3C8F.html" target="_blank" rel="noopener">根据 vSphere Lifecycle Manager 基准和基准组修复 ESXi 主机</a>。</p>
+</li>
+<li><p><strong>改进了 vSphere Lifecycle Manager 错误消息：</strong>vCenter Server 7.0 Update 2 改进了错误消息，可帮助您更好地了解诸如升级和更新时跳过节点、硬件兼容性或作为 Lifecycle Manager 操作的一部分安装和更新 ESXi 等问题的根本原因。</p>
+</li>
+<li><p><strong>已扩展 VMware vSphere</strong> <strong>vMotion 操作</strong>：从 vCenter Server 7.0 Update 2 开始，vSphere vMotion 可自动调整以通过单个 vMotion  VMkernel 接口充分利用高速网络，例如 25 GbE、40 GbE 和 100 GbE，这超过了先前版本中的最大值 10  GbE。有关详细信息，请参见博客 <a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/com.vmware.vsphere.vcenterhost.doc/GUID-7DAD15D4-7F41-4913-9F16-567289E22977.html" target="_blank" rel="noopener">vSphere vMotion 网络最佳做法</a>和 <a href="https://core.vmware.com/vmotion" target="_blank" rel="noopener">vSphere 7 中的 vMotion 改进</a>。</p>
+</li>
+<li><p><strong>增强了 vSphere Lifecycle Manager 的可扩展性：</strong>在 vCenter  Server 7.0 Update 2 中，vSphere Lifecycle Manager 对 ESXi 主机和集群的操作得到了扩展，一个  vSphere Lifecycle Manager 映像管理的受支持 ESXi 主机数从 280 个扩展到高达 400 个。</p>
+</li>
+<li><p><strong>从 NSX-T 管理的虚拟分布式交换机升级和迁移到 vSphere Distributed Switche：</strong>通过使用 vSphere Lifecycle Manager 基准，您可以将系统升级到 vSphere 7.0 Update 2，同时在启用了  VMware NSX-T Data Center 的集群中从 NSX-T 管理的虚拟分布式交换机迁移到 vSphere Distributed  Switch。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/com.vmware.vsphere-lifecycle-manager.doc/GUID-485FFFEE-B59D-40CA-B9C6-95DC9AA3DC12.html" target="_blank" rel="noopener">使用 vSphere Lifecycle Manager 将 NSX-T 虚拟分布式交换机迁移到 vSphere Distributed Switch</a>。</p>
+</li>
+<li><p><strong>通过从单个参考主机导入所需的软件规范创建新集群：</strong>在 vCenter Server 7.0  Update 2 中，可通过从单个参考主机导入所需的软件规范，确保在创建新集群之前 vSphere Lifecycle Manager  库中具有所有必要的可用组件和映像，从而节省时间并减少工作量。您不需要构建或验证新映像，因为在映像导入过程中，vSphere Lifecycle  Manager 会从创建集群的 vCenter Server 实例中提取参考主机中的软件规范，以及与映像关联的软件库。可以从位于相同或不同  vCenter Server 实例的 ESXi 主机中导入映像。此外，还可以从不由 vCenter Server 管理的 ESXi  主机中导入映像，将参考主机移至集群，或者使用主机上的映像并将其植入新集群，而无需移动主机。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/com.vmware.vsphere-lifecycle-manager.doc/GUID-0F774E4D-67BA-43A3-AC26-C4A1D85175BD.html" target="_blank" rel="noopener">通过从主机导入映像创建使用单个映像的集群</a>。</p>
+</li>
+<li><p><strong>在由 vSphere Lifecycle Manager 管理的集群上启用 vSphere with Tanzu：</strong>作为 vSphere 管理员，您可以在使用单个 VMware vSphere Lifecycle Manager 映像管理的 vSphere  集群上启用 vSphere with Tanzu。然后，可以使用主管集群，同时该集群由 vSphere Lifecycle Manager  进行管理。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-31B4B930-EBF4-46E2-8F99-0AC6C9AFF134.html" target="_blank" rel="noopener">使用 vSphere Lifecycle Manager</a>。</p>
+</li>
+<li><p><strong>vSphere Lifecycle Manager 快速升级：</strong>从 vSphere 7.0 Update 2 开始，可以将 vSphere Lifecycle Manager 配置为将虚拟机挂起到内存，而不是迁移虚拟机、关闭虚拟机电源或将虚拟机挂起到磁盘。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/com.vmware.vsphere-lifecycle-manager.doc/GUID-5AF3C64F-1178-4F1E-B5EC-2882957C6045.html" target="_blank" rel="noopener">配置 vSphere Lifecycle Manager 以执行快速升级</a>。</p>
+</li>
+<li><p><strong>在 vSphere with Tanzu 中的主管集群上支持保密 vSphere Pod：</strong>从  vSphere 7.0 Update 2 开始，可以在 vSphere with Tanzu 中的主管集群上运行保密 vSphere  Pod，从而对客户机操作系统内存进行加密和保护，防止 Hypervisor 进行访问。可以通过添加 Secure Encrypted  Virtualization-Encrypted State (SEV-ES) 作为额外的安全增强功能来配置保密 vSphere  Pod。有关详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-D349E6C3-CD03-4C24-9D2C-4A54AF4CE1F7.html" target="_blank" rel="noopener">部署保密 vSphere Pod</a>。</p>
+</li>
+</ul>
+<h3 id="VMware-vSphere-with-Tanzu-新功能"><a href="#VMware-vSphere-with-Tanzu-新功能" class="headerlink" title="VMware vSphere with Tanzu 新功能"></a>VMware vSphere with Tanzu 新功能</h3><p>内部版本信息 - 2021 年 3 月 9 日</p>
+<p>  ESXi 7.0 | 2020 年 3 月 9 日 | ISO 内部版本 17630552<br>  vCenter Server 7.0 | 2021 年 3 月 9 日 | ISO 内部版本 17694817<br>  VMware NSX Advanced Load Balancer | 2020 年 10 月 12 日 | 20.1.X</p>
+<ul>
+<li><p>主管集群</p>
+<ul>
+<li><strong>配置了 VDS 网络连接的主管集群支持 NSX Advanced Load Balancer</strong> - 现在，可以通过以下方式启用主管集群：使用 NSX Advanced Load Balancer (Avi Networks) 实现 L4  负载均衡，以及对主管集群和 Tanzu Kubernetes 集群的控制平面节点实现负载均衡。有关配置 NSX Advanced Load  Balancer 的指导，请查看<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-AC9A7044-6117-46BC-9950-5367813CD5C1.html" target="_blank" rel="noopener">文档</a>页面。</li>
+<li><strong>主管集群可升级到 Kubernetes 1.19 并自动升级运行 Kubernetes 1.16 的主管集群</strong> - 可以将主管集群升级到 Kubernetes 1.19。在此更新中，支持以下主管集群版本：1.19、1.18 和 1.17。运行  Kubernetes 1.16 的主管集群会在更新 vCenter Server 后自动升级到 1.17。这将确保所有主管集群运行的都是受支持的 Kubernetes 版本。</li>
+<li><strong>PersistentVolumeClaim (PVC) 扩展</strong> - 现在，可以通过修改 PersistentVolumeClaim 对象扩展现有卷，即使卷当前正在使用时也可扩展。这适用于主管集群和 Tanzu Kubernetes 集群中的卷。</li>
+<li><strong>使用 vSphere Lifecycle Manager 管理主管集群生命周期</strong> – 对于配置了 NSX-T 网络连接的主管集群，可以将 vSphere Lifecycle Manager 用于基础架构配置和生命周期管理。</li>
+</ul>
+</li>
+<li><p>Tanzu Kubernetes Grid Service for vSphere</p>
+<ul>
+<li><strong>支持专用容器注册表</strong> - vSphere 管理员和 Kubernetes  平台运维人员现在可以定义在 Tanzu Kubernetes 集群中使用的其他证书颁发机构证书  (CA)，以信任专用容器注册表。借助此功能，Tanzu Kubernetes  集群能够从具有企业证书或自签名证书的容器注册表提取容器映像。可以在主管集群范围或针对每个 Tanzu Kubernetes 集群将专用 CA  配置为 Tanzu Kubernetes 集群的默认值。请访问<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-376FCCD1-7743-4202-ACCA-56F214B6892F.html" target="_blank" rel="noopener">文档</a>页面，详细了解如何为 Tanzu Kubernetes 集群配置专用容器注册表支持。</li>
+<li><strong>为具有 NSX-T 和 NSX Advanced Load Balancer 的服务类型 LoadBalancer 提供用户定义的 IP</strong> - Kubernetes 应用程序运维人员现在可以在配置服务类型 LoadBalancer 时提供用户定义的  LoadBalancerIP，从而允许服务具有静态 IP 端点。 此高级功能需要 NSX-T 负载均衡或 NSX Advanced Load  Balancer 以及主管集群。要了解如何配置此功能，请访问<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-83060EA7-991B-4E1E-BBE4-F53258A77A9C.html?hWord=N4IghgNiBcIDIHswBMBCkwDsDGBTATiAL5A" target="_blank" rel="noopener">文档</a>页面。</li>
+<li><strong>为具有 NSX-T 的服务类型LoadBalancer 配置 ExternalTrafficPolicy 和 LoadBalancerSourceRanges</strong> - Kubernetes 应用程序运维人员现在可以为服务配置值为“local”的 ExternalTrafficPallicy，以将客户端  IP 地址传播到最终 pod。此外，还可以为服务定义 loadBalancerSourceRanges，以限制哪些客户端 IP  可以访问负载均衡服务。这两项高级功能需要 NSX-T 负载均衡和主管集群。</li>
+<li><strong>Kubernetes 版本管理和指示</strong> - 现在可以使用 kubectl 检查  TanzuKubernetesReleases 与底层主管集群环境的兼容性。Tanzu Kubernetes 集群现在还指示是否推出了  Kubernetes 升级版，并推荐使用的下一个 TanzuKubernetesRelease。有关使用此新功能的详细信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-292482C2-A5FA-44B5-B26E-F887A91BB19D.html" target="_blank" rel="noopener">文档</a>页面。</li>
+<li><strong>改进的集群状态一目了然</strong> - 在上一版本中，VMware  通过实施条件状态报告呈现常见问题和错误，扩展了 WCPCluster 和 WCPMachine CRD。在 vSphere 7.0 Update 2 版本中，TanzuKubernetesCluster CRD  进行了增强，将子系统组件的条件状态报告汇总在一起，可提供即时解答信息和精细指导，从而帮助您调查问题。要了解如何配置此功能，请访问<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-F8589FF0-131B-48A0-8B94-F250A79A21E0.html" target="_blank" rel="noopener">文档</a>页面。</li>
+<li><strong>针对每个 Tanzu Kubernetes 集群实现 HTTP 代理配置</strong> - 现在可以针对每个 Tanzu Kubernetes 集群定义 HTTP/HTTPS 代理配置，或者，也可以通过默认配置在主管集群范围定义该配置。有关配置此功能的信息，请参见<a href="https://docs.vmware.com/cn/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-D1B91FBD-10DD-4757-BB35-2328C9CE12C9.html" target="_blank" rel="noopener">文档</a>页面。</li>
+<li><strong>支持 Tanzu Kubernetes Grid 扩展</strong> – 现在，Tanzu Kubernetes Grid Service 完全支持集群中扩展，包括 Fluent Bit、Contour、Prometheus、AlertManager 和 Grafana。</li>
+</ul>
 </li>
 </ul>
 <h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>百度网盘链接: <a href="https://pan.baidu.com/s/1KEUij2zZ5hCRMOq6jF6fmw" target="_blank" rel="noopener">https://pan.baidu.com/s/1KEUij2zZ5hCRMOq6jF6fmw</a>  密码: vi7f</p>
@@ -437,6 +484,10 @@
 
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a href="/article/f5os/" data-toggle="tooltip" data-placement="top" title="介绍一个新物种：F5 VELOS 和 F5OS">&larr; Previous Post</a>
+          </li>
           
           
           <li class="next">
@@ -572,7 +623,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#什么是-vSphere？"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是 vSphere？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-的优势"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere 的优势</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-0-U2-新增功能"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">7.0 U2 新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载地址"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#什么是-vSphere？"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是 vSphere？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-的优势"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere 的优势</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#新增功能"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">新增功能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-ESXi-7-0-Update-2-新增功能"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">VMware ESXi 7.0 Update 2 新增功能</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-vCenter-Server-7-0-Update-2-新增功能"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">VMware vCenter Server 7.0 Update 2 新增功能</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-vSphere-with-Tanzu-新功能"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">VMware vSphere with Tanzu 新功能</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下载地址"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
