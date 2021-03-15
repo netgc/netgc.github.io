@@ -15,8 +15,40 @@
     <atom:link href="https://sysin.org/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>sysin | System Inside | 数据中心：系统、平台和应用交付</description>
-    <pubDate>Sat, 13 Mar 2021 02:42:30 GMT</pubDate>
+    <pubDate>Mon, 15 Mar 2021 00:59:24 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>VMware ESXi 7.0 Update 2 SLIC &amp; Unlocker</title>
+      <link>https://sysin.org/article/vmware-esxi-7-u2-slic/</link>
+      <guid>https://sysin.org/article/vmware-esxi-7-u2-slic/</guid>
+      <pubDate>Mon, 15 Mar 2021 00:45:18 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;请访问原文链接：&lt;a href=&quot;/article/vmware-esxi-7-u2-slic/&quot; title=&quot;VMware ESXi 7.0 Update 2 SLIC &amp;amp; Unlocker&quot;&gt;VMware ESXi 7.0 Update 2 SLIC &amp;amp</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>请访问原文链接：<a href="/article/vmware-esxi-7-u2-slic/" title="VMware ESXi 7.0 Update 2 SLIC &amp; Unlocker">VMware ESXi 7.0 Update 2 SLIC &amp; Unlocker</a>，查看最新版。原创作品，转载请保留出处。</p><p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p><p><strong>申明：BIOS 文件以及 Unlocker 等底层修改都来自网上论坛的分享，该集成 ISO 免费分享，禁止某些下载网站用于盈利!!!</strong></p><h2 id="特性概览"><a href="#特性概览" class="headerlink" title="特性概览"></a>特性概览</h2><ul><li><p>SLIC 2.5：使用 OEM 支持 Windows Server 2019</p></li><li><p>macOS Unlock：直接运行 macOS Big Sur 11</p></li><li><p>LegacyCPU support，允许在不受支持的 CPU 上安装 ESXi 7.0</p></li><li><p>ESX-OSData 卷大小修改为 4G，解决 ESXi 7.0 默认安装占用磁盘空间过大的问题（超过 142GB）</p></li><li><p>同时提供 DellEMC、HPE 定制版镜像（CISCO 和 Lenovo 暂未发布更新）</p></li></ul><hr><h2 id="VMware-DELL-2-5-BIOS-EFI-Mod"><a href="#VMware-DELL-2-5-BIOS-EFI-Mod" class="headerlink" title="VMware_DELL_2.5_BIOS-EFI_Mod"></a>VMware_DELL_2.5_BIOS-EFI_Mod</h2><p><strong>SLP 2.5</strong> (BIOS.440 &amp; EFIs - Dell 2.5 SLIC) - NT 6.0  (Vista/Server 2008), NT 6.1 (7/Server 2008 R2), NT 6.2 (Server 2012), NT 6.3 (Server 2012 R2), NT 10.0 (Server 2016/Server 2019)</p><p>直接 OEM SLP 运行 Windows Server 2019 （<a href="https://sysin.org/article/DL-Windows-Server-2019-OVF/">附：集成 Windows Server 2019 OVF 下载</a>）</p><p><img src="windows-2019-esxi7.jpg" alt="windows-2019-esxi7"></p><p>其他 OVF：<a href="https://sysin.org/article/DL-CentOS-8-OVF/">CentOS 8.0 x86_64 OVF</a>，<a href="https://sysin.org/article/DL-Ubuntu-2004-OVF/">Ubuntu 20.04 LTS (Focal Fossa) OVF</a>，更多请在本站搜索“OVF”。</p><h2 id="支持-macOS-Big-Sur"><a href="#支持-macOS-Big-Sur" class="headerlink" title="支持 macOS Big Sur"></a>支持 macOS Big Sur</h2><p>直接新建虚机，操作系统选择“Apple macOS 11 (64-bit)”，即可安装和正常启动。</p><p><img src="New-VM-7-U2.jpg" alt="New-VM-7-U2"></p><p>恭喜 VMware 再次提前发布 macOS 12 ^_^。</p><p><img src="macOS-Big-Sur-in-VM.jpg" alt="macOS-Big-Sur-in-VM"></p><p>macOS Big Sur 可启动 iso 下载：<a href="https://sysin.org/article/macOS-Big-Sur/">https://sysin.org/article/macOS-Big-Sur/</a></p><h2 id="支持非官方支持的-CPU"><a href="#支持非官方支持的-CPU" class="headerlink" title="支持非官方支持的 CPU"></a>支持非官方支持的 CPU</h2><p>修改启动参数，在官方不受支持的CPU的服务器上可以正常安装。</p><p>根据 <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html#upgrades-and-installations-disallowed-for-unsupported-cpus-15" target="_blank" rel="noopener">VMware vSphere 7.0 Release Notes</a>，以下 CPU 已经不受支持（无法安装或者升级 ESXi 7.0）</p><p>Comparing the processors supported by vSphere 6.7, vSphere 7.0 no longer supports the following processors:</p><ul><li>Intel Family 6, Model = 2C (Westmere-EP)</li><li>Intel Family 6, Model = 2F (Westmere-EX)</li></ul><p>笔者在一台 10年的服务器上安装运行良好：HP DL 380 G7，Intel(R) Xeon(R) CPU E5606</p><p><img src="ESXi7-on-LegacyCPU.jpg" alt="ESXi7-on-LegacyCPU"></p><p>备注：本截图为 7.0 版本</p><h2 id="ESX-OSData-卷大小修改为-4G"><a href="#ESX-OSData-卷大小修改为-4G" class="headerlink" title="ESX-OSData 卷大小修改为 4G"></a>ESX-OSData 卷大小修改为 4G</h2><p>从 ESXi 7.0 开始，对磁盘空间的要求有所变化：</p><ul><li>8G SD 卡 + 32G 本地磁盘</li><li>32G 本地磁盘</li><li>142G 或者更大的本地磁盘</li></ul><p>通常我们在一块数百 G 或者更大的本地磁盘上安装 ESXi，系统分区磁盘空间将占用 142 GB 以上，整个系统分区需要 138GB 和 4GB 以上的空闲空间，其中 ESX-OSData volume 大约需要 120GB 的磁盘空间，对于磁盘空间紧张情况下可能有一定的浪费。修改后，对于使用 8G SD 卡启动的机器可以解决磁盘空间不足的问题。</p><h2 id="同时提供DellEMC-和-HPE-定制版镜像"><a href="#同时提供DellEMC-和-HPE-定制版镜像" class="headerlink" title="同时提供DellEMC 和 HPE 定制版镜像"></a>同时提供DellEMC 和 HPE 定制版镜像</h2><p>提供标准版、DellEMC 和 HPE 定制版 3 个 iso 文件。</p><p>CISCO 和 Lenovo 暂未发布更新。</p><p><strong>名称: VMware-VMvisor-Installer-7.0U2-17630552.x86_64-slic-sysin.org.iso</strong><br>大小: 412809216 字节 (393 MiB)<br>SHA256: AB0DFB65D68E5E2C25C07F27A7ED02229C457CB63AB4F4ABC61872C863F9038F</p><p><strong>名称: VMware-VMvisor-Installer-7.0.0.update02-17630552.x86_64-DellEMC_Customized-A00-slic-sysin.org.iso</strong><br>大小: 420896768 字节 (401 MiB)<br>SHA256: F2F7C274C468FF36C050121840AC2E9202D16123A1E794839838FD4DD04314F7</p><p><strong>名称: VMware-ESXi-7.0.2-17630552-HPE-702.0.0.10.6.3.24-Mar2021-slic-sysin.org.iso</strong><br>大小: 467771392 字节 (446 MiB)<br>SHA256: CF7057D02F04F5503EC25A15403949B9F5C37B7A933DDE4E014F892F2D9CA05F</p><hr><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><ul><li>标准版：<a href="https://pan.baidu.com/s/1TuMwhmSBSGcD9PELW7edvg" target="_blank" rel="noopener">https://pan.baidu.com/s/1TuMwhmSBSGcD9PELW7edvg</a>  密码: rn67</li><li>DellEMC 定制版：<a href="https://pan.baidu.com/s/1WSebRfkMWZHuGoVJMRc9kg" target="_blank" rel="noopener">https://pan.baidu.com/s/1WSebRfkMWZHuGoVJMRc9kg</a>  密码: piw3</li><li>HPE 定制版：<a href="https://pan.baidu.com/s/1jWTEAvU8u0LeHgJW4yfqyw" target="_blank" rel="noopener">https://pan.baidu.com/s/1jWTEAvU8u0LeHgJW4yfqyw</a>  密码: limt</li></ul><p>上一个版本，请访问：<a href="/article/vmware-esxi-7-u1-slic/" title="VMware ESXi 7.0 Update 1 SLIC 2.5 macOS Unlock">VMware ESXi 7.0 Update 1 SLIC 2.5 macOS Unlock</a><br>VMware vSphere 7.0 U2，请访问：<a href="/article/vmware-vsphere-7-u2/" title="VMware vSphere 7.0 Update 2">VMware vSphere 7.0 Update 2</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://sysin.org/categories/VMware/">VMware</category>
+      
+      
+      <category domain="https://sysin.org/tags/macOS/">macOS</category>
+      
+      <category domain="https://sysin.org/tags/Download/">Download</category>
+      
+      <category domain="https://sysin.org/tags/VMware/">VMware</category>
+      
+      <category domain="https://sysin.org/tags/SLIC/">SLIC</category>
+      
+      
+      <comments>https://sysin.org/article/vmware-esxi-7-u2-slic/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>VMware vSphere Bitfusion 3.0 -- 面向 AI 和 ML 应用提供弹性基础架构</title>
@@ -280,9 +312,9 @@
       
       <category domain="https://sysin.org/tags/Linux/">Linux</category>
       
-      <category domain="https://sysin.org/tags/Windows/">Windows</category>
-      
       <category domain="https://sysin.org/tags/Unix/">Unix</category>
+      
+      <category domain="https://sysin.org/tags/Windows/">Windows</category>
       
       <category domain="https://sysin.org/tags/SSH/">SSH</category>
       
@@ -464,9 +496,9 @@
       <category domain="https://sysin.org/categories/Download/">Download</category>
       
       
-      <category domain="https://sysin.org/tags/Backup/">Backup</category>
-      
       <category domain="https://sysin.org/tags/Download/">Download</category>
+      
+      <category domain="https://sysin.org/tags/Backup/">Backup</category>
       
       <category domain="https://sysin.org/tags/Veritas/">Veritas</category>
       
@@ -552,9 +584,9 @@
       <category domain="https://sysin.org/categories/Download/">Download</category>
       
       
-      <category domain="https://sysin.org/tags/Backup/">Backup</category>
-      
       <category domain="https://sysin.org/tags/Download/">Download</category>
+      
+      <category domain="https://sysin.org/tags/Backup/">Backup</category>
       
       <category domain="https://sysin.org/tags/Veritas/">Veritas</category>
       
@@ -582,38 +614,14 @@
       <category domain="https://sysin.org/categories/Download/">Download</category>
       
       
-      <category domain="https://sysin.org/tags/Backup/">Backup</category>
-      
       <category domain="https://sysin.org/tags/Download/">Download</category>
+      
+      <category domain="https://sysin.org/tags/Backup/">Backup</category>
       
       <category domain="https://sysin.org/tags/VMware/">VMware</category>
       
       
       <comments>https://sysin.org/article/zerto-8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Symantec Endpoint Protection 14.3 RU1 MP1 (macOS, Linux, Windows) - 端点安全解决方案</title>
-      <link>https://sysin.org/article/symantec-endpoint-protection-14/</link>
-      <guid>https://sysin.org/article/symantec-endpoint-protection-14/</guid>
-      <pubDate>Fri, 05 Mar 2021 05:21:18 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;请访问原文链接：&lt;a href=&quot;/article/symantec-endpoint-protection-14/&quot; title=&quot;Symantec Endpoint Protection 14.3 RU1 MP1 (macOS, Linux, Windows) - 端点</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p>请访问原文链接：<a href="/article/symantec-endpoint-protection-14/" title="Symantec Endpoint Protection 14.3 RU1 MP1 (macOS, Linux, Windows) - 端点安全解决方案">Symantec Endpoint Protection 14.3 RU1 MP1 (macOS, Linux, Windows) - 端点安全解决方案</a>，查看最新版。原创作品，转载请保留出处。</p><p>作者：gc(at)sysin.org，主页：<a href="https://www.sysin.org" target="_blank" rel="noopener">www.sysin.org</a></p><p>Symantec Endpoint Security 通过跨传统和移动端点的全面攻击防护、检测和响应来防止泄露，并通过单个代理和 AI 引导式云管理来提高安全团队的效率。</p><h2 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h2><h3 id="为您的组织提供无与伦比的端点安全"><a href="#为您的组织提供无与伦比的端点安全" class="headerlink" title="为您的组织提供无与伦比的端点安全"></a>为您的组织提供无与伦比的端点安全</h3><p>Symantec Endpoint Security  提供全球最全面的集成端点安全平台。作为本地、混合或云端解决方案，单代理赛门铁克平台可保护您的所有传统和移动端点设备，并使用人工智能 (AI)  来优化安全决策。基于云的统一管理系统针对所有锁定您端点的高级威胁简化了保护、检测和响应策略。</p><ul><li><p><strong>使企业保持正常运转</strong>。遭到入侵的端点对企业造成严重破坏。创新的攻击防御和攻击面减少机制可在整个攻击期间提供最强的安全性（例如，隐蔽的恶意软件、凭证盗窃、无文件攻击和“离地”攻击）。</p></li><li><p><strong>防止发生最坏的情况</strong>。全方位泄露是 CISO 最大的噩梦。通过先进的攻击分析和 AD 凭证盗窃预防机制，针对持久性威胁进行检测和补救。</p></li><li><p><strong>更智能的管理</strong>。工作量更小。智能自动化和 AI 引导式策略管理可提高管理员的工作效率；赛门铁克专家增强了 SOC 团队的能力，能够满足客户需求，而无需雇用更多人员。</p></li><li><p><strong>集中管理</strong>Integrated Cyber Defense Manager (ICDm) 是一款单一云管理控制台，能够加强整体的端点安全状况。</p></li><li><p><strong>全面保护端点安全</strong>。通过单代理的平台，全面保护传统设备和移动设备，提供本地、云或混合管理选项。</p></li><li><p><a href="https://www.broadcom.cn/products/cyber-security/cndpoint/cnd-user/complete" target="_blank" rel="noopener">了解更多信息</a></p></li></ul><h3 id="保护贯穿整个攻击生命周期"><a href="#保护贯穿整个攻击生命周期" class="headerlink" title="保护贯穿整个攻击生命周期"></a>保护贯穿整个攻击生命周期</h3><p><img src="https://www.broadcom.cn/media/1211238170610/endpoint-security-stage1-pre-attack-graphic.png" alt="endpoint-security"></p><ul><li><p>减少攻击面</p><ul><li>漏洞修复</li><li>泄露评估</li><li>设备控制</li><li>应用程序隔离与控制</li></ul></li></ul><p><img src="https://www.broadcom.cn/media/1211238439857/endpoint-security-stage2-attack-graphic.png" alt="endpoint-security"></p><ul><li><p>攻击防护</p><ul><li>恶意软件防护</li><li>漏洞利用防范</li><li>密集型防护</li><li>网络连接安全</li></ul></li></ul><p><img src="https://www.broadcom.cn/media/1211238440008/endpoint-security-stage3-breach-graphic.png" alt="endpoint-security"></p><ul><li><p>泄露防护</p><ul><li>入侵防护和防火墙</li><li>欺敌</li><li>Active Directory 安全</li><li>自动管理策略</li></ul></li></ul><p><img src="https://www.broadcom.cn/media/1211238440161/endpoint-security-stage4-post-breach-graphic.png" alt="endpoint-security"></p><ul><li><p>响应与补救</p><ul><li>目标性攻击分析</li><li>威胁搜寻</li><li>集成式响应</li><li>专家级 SOC 调查</li></ul></li></ul><h3 id="Symantec-Endpoint-Security-一览"><a href="#Symantec-Endpoint-Security-一览" class="headerlink" title="Symantec Endpoint Security 一览"></a>Symantec Endpoint Security 一览</h3><p>各种产品可满足您特定的端点安全需求。了解涵盖的产品。</p><ul><li><a href="https://www.broadcom.cn/products/cyber-security/cndpoint/cnd-user/complete" target="_blank" rel="noopener">Endpoint Security Complete</a></li><li><a href="https://www.broadcom.cn/products/cyber-security/endpoint/end-user/enterprise" target="_blank" rel="noopener">Endpoint Security Enterprise</a></li></ul><h3 id="业界认可"><a href="#业界认可" class="headerlink" title="业界认可"></a>业界认可</h3><p><img src="https://www.broadcom.cn/media/1211238044271/endpoint-protection-award-gartner.png" alt="endpoint-security"></p><p>赛门铁克在 Gartner 2019 年“端点防护平台”魔力象限中再次荣列领导者象限。</p><h2 id="更新说明"><a href="#更新说明" class="headerlink" title="更新说明"></a>更新说明</h2><p>What’s new for Symantec Endpoint Protection 14.3 RU1 MP1</p><p>Last Updated March 4, 2021</p><p>This section describes the new features in this release.</p><p><strong>14.3 RU1 MP1</strong></p><ul><li><p>Added ability to log in to Symantec Endpoint Protection Manager using credentials in AD format (i.e. <a href="mailto:username@domain.com" target="_blank" rel="noopener">username@domain.com</a> or domain\username).</p></li><li><p>Added ability to sync usernames in both  formats from Active Directory (UserPrincipalName and pre-Windows  2000 logon name - sAMAccountName). Symantec Endpoint Protection Manager  no longer creates duplicate entries and handles both usernames as  expected.</p></li><li><p>The new option</p><p><strong>Maintain existing client features when updating</strong></p><p> under</p><p><strong>Installation Features and Settings</strong></p><p> lets you create and export a client  package that will only upgrade the client to a new version but will make no changes to the configuration, client communication, or installed  features.</p></li><li><p>Antimalware AMSI Scan now takes the file/folder exceptions into account when scanning a script file before it runs.</p></li><li><p>Added ability to sync macOS details from Active Directory.</p></li><li><p>More information in logs:</p><ul><li>Log entries contain full client group information.</li><li>The Live Update events contain the revision information.</li></ul></li><li><p>The database schema includes the following table changes:</p><ul><li>New column “user_name_2” added in the SEM_CLIENT table.</li></ul></li></ul><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>百度网盘链接：<a href="https://pan.baidu.com/s/1pn0tO_uB-vHFFYI0zwcKVg" target="_blank" rel="noopener">https://pan.baidu.com/s/1pn0tO_uB-vHFFYI0zwcKVg</a>  密码: as27</p><ul><li><p>Symantec Endpoint Protection Manager（服务端，Windows）：<br>Symantec_Endpoint_Protection_14.3_RU1_MP1_SEPM_EN.exe</p></li><li><p>Symantec Endpoint Protection 客户端（macOS, Linux, Windows）：<br>Symantec_Endpoint_Protection_14.3_RU1_MP1_Win32-bit_Client_EN.exe<br>Symantec_Endpoint_Protection_14.3_RU1_MP1_Win64-bit_Client_EN.exe<br>Symantec_Endpoint_Protection_14.3_RU1_MP1_Mac_Client_EN.zip<br>Symantec_Endpoint_Protection_14.3.0_MP1_Linux_Client_EN.zip</p></li><li><p>Tools<br>SEP-Tools.zip<br>CleanWipe.zip</p></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://sysin.org/categories/Download/">Download</category>
-      
-      
-      
-      <comments>https://sysin.org/article/symantec-endpoint-protection-14/#disqus_thread</comments>
       
     </item>
     
