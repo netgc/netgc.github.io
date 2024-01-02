@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Veritas NetBackup 10 (Unix, Linux, Windows) - 企业备份和恢复解决方案 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Veritas NetBackup 10 (Unix, Linux, Windows) - 企业备份和恢复解决方案 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Veritas NetBackup 10 (Unix, Linux, Windows) - 企业备份和恢复解决方案 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/veritas-netbackup-10/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+              <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+              
+              <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+              
+              <a class="tag" href="/tags/#Backup" title="Backup">Backup</a>
+              
+              <a class="tag" href="/tags/#Veritas" title="Veritas">Veritas</a>
+              
+            </div>
+            <h1>Veritas NetBackup 10 (Unix, Linux, Windows) - 企业备份和恢复解决方案</h1>
+            <h2 class="subheading">The #1 enterprise backup and recovery solution.</h2>
+            <span class="meta">
+              Posted by sysin on
+              2022-04-18
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">16</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.7k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Mon Apr 18 2022 16:48:45 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from 'https://npm.onmicrosoft.cn/@waline/client@2.14.5/dist/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://comment.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/veritas-netbackup-10/" title="Veritas NetBackup 10 (Unix, Linux, Windows) - 企业备份和恢复解决方案">Veritas NetBackup 10 (Unix, Linux, Windows) - 企业备份和恢复解决方案</a>，查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="https://www.veritas.com/content/dotcom/zh_cn/protection/netbackup/_jcr_content/root/responsivegrid/bootstrapcolumns_738_1152852793/responsivegrid1/image_copy.coreimg.png/1654079610932/netbackup-resiliency.png" alt="NetBackup"></p>
+<h2 id="NetBackup-10-产品概述"><a href="#NetBackup-10-产品概述" class="headerlink" title="NetBackup 10 产品概述"></a>NetBackup 10 产品概述</h2><h3 id="了解-NetBackup-10-的最新创新成果"><a href="#了解-NetBackup-10-的最新创新成果" class="headerlink" title="了解 NetBackup 10 的最新创新成果"></a>了解 NetBackup 10 的最新创新成果</h3><p>自动化、云优化、安全</p>
+<p>NetBackup 10 是业内首个借助软件创新和自动化，实现云优化的企业数据保护解决方案，可打造更具成本效益、更加安全、可持续性更强的云环境。</p>
+<p>该新版本提升了自动化、云优化备份和配置，以及集成式数据保护的水平，支持 NetBackup 服务在云中以最佳性能运行，推动企业进一步实现完全自治的数据保护这一最终目标。</p>
+<p>​<img src="https://www.veritas.com/content/dotcom/zh_cn/protection/netbackup/whats-new/_jcr_content/root/responsivegrid/bootstrapcolumns/responsivegrid2/image.coreimg.png/1651832414526/netbackup-whats-new-rainbow-graphic.png" alt="NetBackup"></p>
+<p>最近更新</p>
+<p><a target="_blank" rel="noopener" href="https://www.veritas.com/content/dam/www/zh/documents/data-sheet/DS_netbackup_V1512.pdf">阅读产品资料</a></p>
+<ul>
+<li><p>集成式 SaaS 保护</p>
+<p>跨所有应用程序和环境实现统一数据保护和监控。</p>
+</li>
+<li><p>Kubernetes 跨平台的多云恢复</p>
+<p>精准管理整个多云环境中的数据保护和恢复。</p>
+</li>
+<li><p>集成式 NetBackup IT Analytics 基础功能</p>
+<p>优化备份性能和报告功能，同时缓解风险并降低成本。</p>
+</li>
+<li><p>面向 AWS 和 Azure 的弹性云资源自动扩展</p>
+<p>动态调整云计算资源以满足资源需求和工作负载要求，资源占用率平均降低 40%。</p>
+</li>
+<li><p>面向 AWS 和 Azure 的备份和恢复编排</p>
+<p>无代理、云优化的数据备份和恢复功能，支持通过快照和多层复制进行备份。</p>
+</li>
+<li><p>积极主动的网络防御，打造勒索软件应对韧性</p>
+<p>近乎实时的人工智能异常检测和恶意软件按需扫描，可确保从干净数据恢复，对勒索说不。</p>
+</li>
+</ul>
+<h3 id="一流的企业备份解决方案"><a href="#一流的企业备份解决方案" class="headerlink" title="一流的企业备份解决方案"></a>一流的企业备份解决方案</h3><p><a target="_blank" rel="noopener" href="https://www.veritas.com/zh/cn/form/whitepaper/gartner-mq-data-center-backup">阅读报告</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.veritas.com/content/dam/www/zh/documents/at-a-glance/SB_netbackup_cloud_optimization_V1349.pdf">查看说明资料</a></p>
+<h3 id="跨所有环境统一保护数据"><a href="#跨所有环境统一保护数据" class="headerlink" title="跨所有环境统一保护数据"></a>跨所有环境统一保护数据</h3><p>作为全球第一的数据备份和恢复解决方案，NetBackup 以便捷而强大的方式支持企业 IT 确保边缘、核心和云环境中数据的完整性和可用性 (sysin)。我们的解决方案当前管理的信息量高达 100 EB，远非其他解决方案可比。</p>
+<h3 id="87-的世界-500-强企业选择-NetBackup"><a href="#87-的世界-500-强企业选择-NetBackup" class="headerlink" title="87% 的世界 500 强企业选择 NetBackup"></a>87% 的世界 500 强企业选择 NetBackup</h3><p>我们的一体化解决方案具有无与伦比的卓越性能，可轻松节省您的成本。</p>
+<p><img src="https://www.veritas.com/content/dam/www/zh/images/icons/icons-white_transparent%20bkg_server.png.transform/icon-xl/img.png" alt="Icon"></p>
+<ul>
+<li><p>灵活部署</p>
+<p>支持任何规模的任意工作负载、任意云和任意架构。</p>
+</li>
+</ul>
+<p><img src="https://www.veritas.com/content/dam/www/zh/images/icons/icons-white_transparent%20bkg_strategy.png.transform/icon-xl/img.png" alt="Icon"></p>
+<ul>
+<li><p>运行简单化</p>
+<p>编排并自动执行发现、保护和恢复。</p>
+</li>
+</ul>
+<p><img src="https://www.veritas.com/content/dam/www/zh/images/icons/icons-white_transparent%20bkg_shield-lock.png.transform/icon-xl/img.png" alt="Icon"></p>
+<ul>
+<li><p>企业级韧性</p>
+<p>以近乎零的 RPO 和 RTO 恢复关键业务数据。</p>
+</li>
+</ul>
+<h3 id="端到端的勒索软件防护解决方案"><a href="#端到端的勒索软件防护解决方案" class="headerlink" title="端到端的勒索软件防护解决方案"></a>端到端的勒索软件防护解决方案</h3><p>弥补勒索软件应对韧性战略中的差距。NetBackup 可确保数据完整性 (sysin)，持续监控环境并轻松实现大规模恢复。</p>
+<p><a target="_blank" rel="noopener" href="https://www.veritas.com/zh/cn/form/whitepaper/ransomware-protection-with-nbu">下载白皮书</a></p>
+<ul>
+<li><p>保护</p>
+<p>确保数据完整性</p>
+<ul>
+<li>基于角色的访问控制</li>
+<li>双重身份验证</li>
+<li>使用 TLS 加密进行动态加密，通过 AES 256 进行静态加密</li>
+<li>独立于存储平台的防篡改支持</li>
+</ul>
+</li>
+<li><p>检测</p>
+<p>缓解威胁。</p>
+<ul>
+<li>人工智能/机器学习异常检测</li>
+<li>接收可操作的数据洞察</li>
+<li>全面了解整个应用程序基础架构</li>
+<li>通过预测分析持续扫描是否存在潜在威胁</li>
+</ul>
+</li>
+<li><p>恢复</p>
+<p>维持业务连续性</p>
+<ul>
+<li>多种恢复方法，可依据您的 RTO 和 RPO 需求选择</li>
+<li>灵活粒度恢复</li>
+<li>自动化和规模化的编排恢复</li>
+<li>通过内置工作流衡量和证明可恢复性</li>
+</ul>
+</li>
+</ul>
+<h3 id="混合云和多云数据保护"><a href="#混合云和多云数据保护" class="headerlink" title="混合云和多云数据保护"></a>混合云和多云数据保护</h3><p>端到端重复数据删除、韧性、迁移、快照编排和灾难恢复。一款解决方案可跨全部云环境解决上述所有需求。</p>
+<p><a target="_blank" rel="noopener" href="https://www.veritas.com/content/dam/www/zh/documents/at-a-glance/SB_netbackup_solution_brief_V0891.pdf">阅读解决方案简介</a></p>
+<ul>
+<li><p>私有云</p>
+<ul>
+<li>通过 NetBackup CloudCatalyst 优化备份和分层存储至云</li>
+<li>云中备份：支持多个云中多个租户的 IaaS/PaaS 工作负载</li>
+<li>通过 NetBackup Resiliency Manager 编排出入 <a target="_blank" rel="noopener" href="https://www.veritas.com/zh/cn/form/whitepaper/netbackup-aws-deployments">AWS</a> 和 <a target="_blank" rel="noopener" href="https://www.veritas.com/zh/cn/form/whitepaper/netbackup-azure-deployments">Azure</a> 云的工作负载迁移</li>
+<li>通过 AWS Snowball 和 Azure Data Box 批量数据迁移和做种</li>
+</ul>
+</li>
+<li><p>云备份</p>
+<ul>
+<li>面向云服务提供商的统一多租户管理</li>
+<li>200 多个 API，可轻松管理和自动执行备份任务，在现有的 NetBackup 基础架构中不断推出新功能</li>
+<li>扩展的云原生快照编排功能均可通过从单一管理面板进行管理</li>
+</ul>
+</li>
+<li><p>云中灾难恢复</p>
+<ul>
+<li>最大限度缩短 RPO 和 RTO 时间，同时确保满足企业 SLA 目标</li>
+<li>通过整合到 NetBackup 的现代化 Web 用户界面访问灾难恢复工具套件</li>
+<li>自动执行和编排灾难恢复，一键式恢复，自定义脚本编写，云中大规模恢复和灾难恢复演练</li>
+<li>运用灾难恢复环境进行测试和开发</li>
+<li>按钮式业务连续性</li>
+</ul>
+</li>
+<li><p>韧性</p>
+<ul>
+<li>持续数据保护推出的创新功能可助力企业在遭到勒索软件和恶意软件攻击后迅速恢复</li>
+<li>运用感染前某个时间点数据，一键恢复对整个基础设施中数据的访问</li>
+<li>最大限度减少数据丢失和 RTO，减轻运行工作量</li>
+<li>确保系统一旦经过备份，就可远离勒索软件的攻击</li>
+</ul>
+</li>
+</ul>
+<h3 id="面向云中虚拟环境的备份"><a href="#面向云中虚拟环境的备份" class="headerlink" title="面向云中虚拟环境的备份"></a>面向云中虚拟环境的备份</h3><p>NetBackup 可在云端实现无代理备份、即时访问以及可靠的粒度数据恢复，随着虚拟机环境自由扩展。</p>
+<p><a target="_blank" rel="noopener" href="https://www.veritas.com/zh/cn/form/whitepaper/the-essential-data-protection-guide-for-vmware-hybrid-clouds">下载白皮书</a></p>
+<ul>
+<li><p>支持</p>
+<ul>
+<li>VMware</li>
+<li>Microsoft Hyper-V</li>
+<li>Nutanix AHV</li>
+<li>Red Hat 虚拟化</li>
+</ul>
+</li>
+<li><p>可控性</p>
+<p>缓解威胁。</p>
+<ul>
+<li>可实现自助服务的基于角色的访问控制 (RBAC)</li>
+<li>可降低复杂性和存储消耗的无代理架构</li>
+<li>粒度恢复技术，可优化恢复级别，从单个文件和文件夹到整台虚拟机和 VMDK 均可</li>
+<li>适用于 VMware vCenter、vRealize Orchestration、vRealize Automation 和 Service Now 的本机插件</li>
+</ul>
+</li>
+<li><p>速度</p>
+<ul>
+<li>可同时即时访问 50 台 vSphere 虚拟机</li>
+<li>只要从备份磁盘存储启动就能即时恢复虚拟机，即使应用程序正在向主存储迁移，也可对应用程序进行完全访问</li>
+<li>查找并还原单个文件或文件夹 (sysin)，无需安装和浏览整台虚拟机</li>
+<li>从无代理备份和硬件快照还原虚拟机对象</li>
+</ul>
+</li>
+<li><p>可扩展性</p>
+<ul>
+<li>资源限制会尽量减少每个 ESXi 主机的负载，均衡主机之间的备份</li>
+<li>存储阵列和云之间的快照集成（单独或使用多种传输方法）</li>
+<li>传输模式提供四种备份虚拟机数据的方法</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://www.veritas.com/content/dotcom/zh_cn/protection/netbackup/_jcr_content/root/responsivegrid/bootstrapcolumns_738_2060487696/responsivegrid2/image.coreimg.png/1649244065574/netbackup-virtual-environments-overlay.png" alt="NetBackup"></p>
+<h3 id="业务韧性：自动化、规模化"><a href="#业务韧性：自动化、规模化" class="headerlink" title="业务韧性：自动化、规模化"></a>业务韧性：自动化、规模化</h3><p>NetBackup 支持 60+ 个公有云存储目标，集成全自动 SLA 驱动的 Resiliency Platform，全面保护您的数据。</p>
+<p><a target="_blank" rel="noopener" href="https://www.veritas.com/content/dam/www/zh/documents/solution-overview/SO_enterprise_resiliency_strategy_V1095.pdf">阅读解决方案概述</a></p>
+<ul>
+<li><p>运行简单化</p>
+<ul>
+<li>单一控制台融合 VRP 授权和用户操作，简化了管理流程</li>
+<li>一键式工作负载迁移，无需费时的数据转换</li>
+<li>运用诸多 API 实现云中和本地多层应用程序的自动、经编排的恢复</li>
+</ul>
+</li>
+<li><p>云中灾难恢复</p>
+<ul>
+<li>在 Azure 和 AzureStack 的区域之间自动执行经编排的大规模灾难恢复</li>
+<li>面向复杂多层应用程序的多 SLO 合规性</li>
+<li>勒索软件防护：时间点恢复，可实现近乎零的 RPO</li>
+</ul>
+</li>
+<li><p>合规和性能</p>
+<ul>
+<li>通过审计报告和零中断恢复演练，确保符合最严苛的 SLA 目标</li>
+<li>满足所有 RTO 和 RPO 要求</li>
+<li>降低资本支出和总拥有成本，同时对恢复准备状况始终了如指掌</li>
+</ul>
+</li>
+<li><p>韧性</p>
+<ul>
+<li>持续数据保护推出的创新功能可助力企业在遭到勒索软件和恶意软件攻击后迅速恢复</li>
+<li>运用感染前某个时间点数据，一键恢复对整个基础设施中数据的访问</li>
+<li>最大限度减少数据丢失和 RTO，减轻运行工作量</li>
+<li>确保系统一旦经过备份，就可远离勒索软件的攻击</li>
+</ul>
+</li>
+</ul>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>NetBackup 10 文件信息：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>Product</strong></th>
+<th><strong>Version</strong></th>
+<th><strong>File name</strong></th>
+<th><strong>Abstract</strong></th>
+<th><strong>Release date</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Critical?</strong></th>
+<th><strong>Checksum type</strong></th>
+<th><strong>Checksum</strong></th>
+<th><strong>Size</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_solaris_x64.sja</td>
+<td>VxUpdate 10.0 for Solaris X86</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>fe9b3ac191bc7202905903894da3c64c01edcd288da00db2e11c7f7ad7f7be04</td>
+<td>818717885</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_suse_ppc64le.sja</td>
+<td>VxUpdate 10.0 for PowerPC SUSE Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>b2a077f452f45e5fd21ecca1f0e31d6c4a803584d7f79400f9e8ca04666e556a</td>
+<td>148448385</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_suse_zseries.sja</td>
+<td>VxUpdate 10.0 for zSeries SUSE Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>a28628410f290deb5917aa2d89f434def61407165233573284c54ec695250b3a</td>
+<td>821290504</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NBAntiMalwareClient_1.0.zip</td>
+<td>NetBackup Malware Scanner 1.0</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>b4f4f9ffa100446a9d00214217b4005dc35dddb58941ca29a191a03457c42fd2</td>
+<td>51546398</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>VRTScloudpoint-docker-10.0.0.0.9818.img.gz</td>
+<td>NetBackup 10.0 CloudPoint 10.0 for Docker</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>cd6525042c348b0814fb8bbe3e5269ca8abff2ea44094f7d749f20a6d278e708</td>
+<td>2552447716</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>VRTScloudpoint-podman-10.0.0.0.9818.tar.gz</td>
+<td>NetBackup 10.0 CloudPoint 10.0 for Podman</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>57882ae225128ab5b671a41a20a5625ed71da6cb2933db875f76c3979b67fe39</td>
+<td>2531062547</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>netbackupkops-10.0.tar.gz</td>
+<td>NetBackup 10.0 Operator for Kubernetes Workloads</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>9c8c85238d5222cbf77c321237aba3d8c7dd0f1dfb5366c3a256b39424bf0c93</td>
+<td>129547622</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>veritasnetbackup-datamover-10.0-0070.tar</td>
+<td>NetBackup 10.0 DataMover for Kubernetes Workloads</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>afaa1873ee44717eecc55225e294f1fe039d8dff4ee1440545742a5b7ce4b5fb</td>
+<td>603447296</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>netbackup-dedupe-direct-for-oracle.linuxR_x86_10.0.tar.gz</td>
+<td>NetBackup 10.0 Oracle Direct Plugin for RedHat Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>a1f53d29664833d760b42dceffe4fcdf72212ccc4a5ce8b7b23689236d368cd4</td>
+<td>11625638</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>VRTSk8s-netbackup-10.0-0070.tar</td>
+<td>NetBackup 10.0 Azure Kubernetes (AKS) Platform</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>c4963b0b2fe1f16c553c792defcbd8e0e4e8914ca75bfa4194debf6264b8001a</td>
+<td>4229099520</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>nbos-appliance-10.0.1014.qcow2.txz</td>
+<td>NetBackup 10.0 for OpenStack Virtual Appliance Plugin</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>5d5f96ac259ffe2b39860628e150a1747e5294181e5fc687e0f25ae7d6e313aa</td>
+<td>1666661796</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>nbos-cfg-scripts-10.0.1014.tar.gz</td>
+<td>NetBackup 10.0 for OpenStack Configuration Scripts</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>8da66fae60c9227c73335bc6bb7fe1e220b5709cbebee45b12249ce179b88d02</td>
+<td>12285297</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>nbos-rhosp16-10.0.1014.tar.gz</td>
+<td>NetBackup 10.0 for OpenStack RedHAt OpenStack 16.0 Containers</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>b2d1ff2a9b43e2f8f741928da0911bf15bb1c1fe1e07870b8ea5401014b175c0</td>
+<td>2368552637</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>nbos-rhosp16.1-10.0.1014.tar.gz</td>
+<td>NetBackup 10.0 for OpenStack RedHat OpenStack 16.1 Containers</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>afbe65afb2c081c3a72ca0fb44785fe7b13e3ad106e8d114798dc43dc512e15d</td>
+<td>2380970416</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>nbosjmclient-10.0.1014.tar.gz</td>
+<td>NetBackup 10.0 for OpenStack Workloadmgr CLI Client - Optional</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>6772eb407153828ac052e58da4b9e5f166ef572bb6708695d0a6af37cab184e6</td>
+<td>582437</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NetBackup_Self_Service_10.0_Windows_ML.zip</td>
+<td>NetBackup Self Service 10.0</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>5efa34708129717273a543d29dbdcdf9c71b8fe09434a81e1e1bd7d0f83c9033</td>
+<td>208037930</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NSS_plug-in_1.3_for_VMware_vCloud_Director.zip</td>
+<td>NetBackup Self Service plug-in 1.3 for VMware vCloud Director</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>42e335c0340cf3966443391237b5d8e1c8cfa34ea0e0b67742f01b35673ac8e5</td>
+<td>1092544</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NBMariaDBAgent_10.0.zip</td>
+<td>NetBackup 10.0 MariaDB Agent</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>85bf4e935e5eaaae28568b20e57806c6bafe86ee935c2f2684ed072c4f22c960</td>
+<td>1239857</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NBMySQLAgent_10.0.zip</td>
+<td>NetBackup 10.0 MySQL Agent</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>5dea3d2d7e218654db381b4beec65fb7ad0d660ceab8529871a2e7abdff0faa3</td>
+<td>1200941</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NBPostgreSQLAgent_10.0.zip</td>
+<td>NetBackup 10.0 PostgreSQL Agent</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>1638d7141c60f846cf1edea67c1939103e0f0be42a64634f89f9ece5daedf34d</td>
+<td>1233143</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NBSQLiteAgent_10.0.zip</td>
+<td>NetBackup 10.0 SQLite Agent</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>527f28edeb82f9f568fd697a9d2c3d70dd0fe228650953f9a28f3a9bb888330f</td>
+<td>1011810</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NetBackup_10.0_CLIENTS1.tar.gz</td>
+<td>NetBackup 10.0 Non-Linux Based UNIX NetBackup Clients</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>c8a11d669292beb8232715fce8dd178da7d28f30bce30a7ff3450039e856a97c</td>
+<td>3956916445</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NetBackup_10.0_CLIENTS2.tar.gz</td>
+<td>NetBackup 10.0 Linux Based Clients</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>7508b342587647f75f13ebfd49923e21e0a8b6b7dd9130c500cf44ddf6ef9d65</td>
+<td>4729949488</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NetBackup_10.0_LinuxR_x86_64.tar.gz</td>
+<td>NetBackup 10.0 for Linux RedHat</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>12b11348b80c8b7aab11cf50a3f4ac7a45e2b13fedcb7cff01032f0c8f75388e</td>
+<td>4273398330</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NetBackup_10.0_LinuxS_x86_64.tar.gz</td>
+<td>NetBackup 10.0 for Linux SUSE</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>0d2430bf84538c0c4feb2ab59da4c343f4b1db3e5b4d3d680edc92b5b43f5890</td>
+<td>3762706957</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>NetBackup_10.0_Win.zip</td>
+<td>NetBackup 10.0 for Windows</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>5f5048be922c936ae47f6e38be0a9327f6e4bbc352ee3a00afb28b7f993b7187</td>
+<td>2347208790</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>OpsCenter_10.0_Unix.tar.gz</td>
+<td>OpsCenter 10.0 for UNIX</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>5344cec9303d3024abfc4426b1e911f89f725ffd1ca4ec4f1296da9e6e8ae6ba</td>
+<td>620259298</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>OpsCenter_10.0_Win.zip</td>
+<td>OpsCenter 10.0 for Windows</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>e92671e98dd77887b5683523a478bdaa910dc5194994eb1c28fb8aeb23cc189b</td>
+<td>448505256</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nb_10.0_redhat_x64.sja</td>
+<td>VxUpdate 10.0 for RedHat Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>8fbba4145fb7a7fc1251d60488bbbb0fa91fc00565b9f08432c337cfb3c2448c</td>
+<td>2452538057</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nb_10.0_suse_x64.sja</td>
+<td>VxUpdate 10.0 for SUSE Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>55ae74498e1b74313e75a48d209f7efb726804e7083d1f07b085a506ca279549</td>
+<td>1767719507</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nb_10.0_windows_x64.sja</td>
+<td>VxUpdate 10.0 for Windows</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>0c8b5531ae15cae9ed2a6e9e4082e5fdc16cf4246545f9a863f4e0b8090f38d6</td>
+<td>2134690003</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_aix_rs6000.sja</td>
+<td>VxUpdate 10.0 for AIX</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>2670d5354a2d5be60c2e2070595cb646e598eb2ba41b17f452cd50229d577c96</td>
+<td>1162615255</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_debian_x64.sja</td>
+<td>VxUpdate 10.0 for Debian</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>a9d9ed1f61121cc151257996eaa3db98544b874169e0224aa35c158500b3a9cb</td>
+<td>1042462677</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_hpux_ia64.sja</td>
+<td>VxUpdate 10.0 for HPUX</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>b135cfc03f6272d749801b7af4d91337feb53adc90629139a13637f768b05ae0</td>
+<td>1218142568</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_redhat_ppc64le.sja</td>
+<td>VxUpdate 10.0 for PowerPC RedHat Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>a661d11e75999e27f448b3130ce6d937130f0017987cabee29cf87d44395d131</td>
+<td>147454034</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_redhat_zseries.sja</td>
+<td>VxUpdate 10.0 for zSeries RedHat Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>0395babb62dbaac41169718a77344578cc9b55637ae945132aed74d3f525b893</td>
+<td>816867867</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>vxupdate_nbclient_10.0_solaris_sparc.sja</td>
+<td>VxUpdate 10.0 for Solaris Sparc</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>027e726d86be18fdb2b960ce283b1ef9da35430d90b311f100f0d9650c3dae83</td>
+<td>847952034</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_dbinstaller_shared-service_linux_11000.iso</td>
+<td>NetBackup IT Analytics DB Installer (Oracle not Included)</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>3fc022ee788ba1cf983fb07fbeb052dac8e3c4caf1e051b7d1f52c4d5a70c7a4</td>
+<td>50241536</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_dbinstaller_shared-service_win_11000.iso</td>
+<td>NetBackup IT Analytics DB Installer (Oracle not Included)</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>a7e47eb5c6fb38d854f6e36d3012bc6e0ecfcde54f161d4169f6b0a2131f3be5</td>
+<td>3872768</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_installer_11000_linux.iso</td>
+<td>NetBackup IT Analytics Portal Installer for Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>c12c738170f2ee6103e204ee6af11e3108d6a093ecbe746116dfde11b2a7009f</td>
+<td>3420723200</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_installer_11000_win.iso</td>
+<td>NetBackup IT Analytics Portal Installer for Windows</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>e298377ac8e1df217c9714f7acf859ab2add48d230d82df7f612a5d67e4b373c</td>
+<td>3465947136</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_datacollector_linux_11000.iso</td>
+<td>NetBackup IT Analytics Data Collector Installer for Linux</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>12bf9c0a0b24b4dca6274d1662697950bb0b309b92e828887dc2eb56d10c2379</td>
+<td>756133888</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_datacollector_win_11000.iso</td>
+<td>NetBackup IT Analytics Data Collector Installer for Windows</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>8230c6f7d6ad84e94129467a47adc64b66e6ae36ab3d84d06129a6ece380bd0b</td>
+<td>696412160</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_exporter_installer_win_11000.iso</td>
+<td>NetBackup IT Analytics Prometheus Exporter and Data Sender installer for Veritas NetBackup ( Windows)</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>f113d71458518dc3fcd09833bd1e209e635f13150a903d7473e4a0b0373fb13d</td>
+<td>19843072</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>itanalytics_exporter_installer_linux_11000.iso</td>
+<td>NetBackup IT Analytics Prometheus Exporter and Data Sender installer for Veritas NetBackup ( Linux)</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>33ed9ee2cbace1dccbd3e5aa52894f8e5058a62d65be2418d3fa1ec55bf8b0ff</td>
+<td>26005504</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>ITAnalyticsdatacollector_11000_Container.zip</td>
+<td>NetBackup IT Analytics Data Collector Container installer for 11.0.00</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>2df3dc74bfffbf85c532746efbeb0d2db9968ff72c3c59fc4c9796fe84778173</td>
+<td>5009370996</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>Get_host_lock_utility.zip</td>
+<td>Utility to retrieve the host lock string required to generate a license key</td>
+<td>2022-03-28</td>
+<td>Tool</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>cd0bfd5ee8f3fe460c86fd72da035ce20bfa7f77277358e82d10ea822a8485e2</td>
+<td>4462</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>VRTSflex-netbackup-10.0-0071.x86_64.rpm</td>
+<td>NetBackup 10.0 application for Flex</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>e1f3417c1d4407ebd183ff1d65665a2d094bd7ffec420f4cec5423fcaa8f4e36</td>
+<td>3391098526</td>
+</tr>
+<tr>
+<td><strong>NetBackup</strong></td>
+<td>10.0</td>
+<td>VRTSflex-msdp-16.0-0063.x86_64.rpm</td>
+<td>NetBackup WORM 16.0 storage server (NetBackup 10.0) for Flex Application</td>
+<td>2022-03-28</td>
+<td>Installer</td>
+<td>N</td>
+<td>SHA-256</td>
+<td>4afb53eb46d82bd67e2154cce439c35783183394c1331e6d6b3316b33fe5ded2</td>
+<td>476102032</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>NetBackup 10</strong> Download<br>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1zckHM8ysPmagOqZdgP9PiQ?pwd=">https://pan.baidu.com/s/1zckHM8ysPmagOqZdgP9PiQ?pwd=</a> &lt;限时分享，过期专享&gt;</p>
+<p><strong>✅ 公布获取此专享资源的正确方式：</strong></p>
+<p>为保证本站持续发展，该资源通过<code>捐赠</code>获取，捐赠是一种可以附加条件的行为，按照下面<code>指定方式</code>捐赠即可获得该项下载。</p>
+<ul>
+<li>点击 💙<a href="https://sysin.org/img/alipay18.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay18.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言</code>（以便发送链接，<strong>在其他平台留言恕无法处理</strong>）。24 小时内处理，白天会尽量及时，谢谢。</li>
+</ul>
+<p>捐赠者请知悉：</p>
+<ul>
+<li>笔者耗费了大量的时间和精力来分享产品和知识，网站运行也需要成本，捐赠是对本站提供下载服务的回报。</li>
+<li>捐赠获取的软件皆为官方原版或包含了使用方法或分享了技术心得，捐赠是对笔者行业知识的认同和回馈。</li>
+<li>下载的软件仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</li>
+<li>如果需要购买产品，请联系开发者和厂商。</li>
+<li>笔者乐意解答技术问题，但限于时间和知识，如您未能获得满意答案请见谅，捐赠并不包含其他服务。</li>
+<li><strong>未承诺提供版本更新服务</strong>，但是当前页面发布的更新版可留言获取。</li>
+<li><strong>如果不认同上述条款，请勿捐赠，谢谢。</strong></li>
+</ul>
+<p>感谢无私捐助者！当然无需任何捐助或者捐赠，您仍然能获得本站 15T+ 的免费资源和技术分享。</p>
+<hr>
+<p>新版已发布：</p>
+<ul>
+<li><a href="/blog/veritas-netbackup-10-1/" title="Veritas NetBackup 10.1 (Unix, Linux, Windows) - 一流的企业备份解决方案">Veritas NetBackup 10.1 (Unix, Linux, Windows) - 一流的企业备份解决方案</a>
+</li>
+<li><a href="/blog/veritas-netbackup-10-2/" title="Veritas NetBackup 10.2 (Unix, Linux, Windows) - 一流的企业备份解决方案">Veritas NetBackup 10.2 (Unix, Linux, Windows) - 一流的企业备份解决方案</a>
+</li>
+<li><a href="/blog/veritas-netbackup-10-3/" title="Veritas NetBackup 10.3 (Unix, Linux, Windows) - 一流的企业备份解决方案">Veritas NetBackup 10.3 (Unix, Linux, Windows) - 一流的企业备份解决方案</a>
+</li>
+</ul>
+<p>相关产品：<a href="/blog/veritas-backup-exec-22/" title="Veritas Backup Exec™ 22.2 (Windows) - 面向中小型企业的数据备份和恢复">Veritas Backup Exec™ 22.2 (Windows) - 面向中小型企业的数据备份和恢复</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/acunetix-14/" data-toggle="tooltip" data-placement="top" title="Acunetix 14.7.220425114 for macOS, Linux and Windows - 漏洞扫描">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/apple-iwork-12/" data-toggle="tooltip" data-placement="top" title="Apple iWork (Pages、Numbers、Keynote) 12.0 发布">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和测试使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://npm.onmicrosoft.cn/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://comment.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/veritas-netbackup-10/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，QQ、微博等联合登录已关闭，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#NetBackup-10-%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">NetBackup 10 产品概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%86%E8%A7%A3-NetBackup-10-%E7%9A%84%E6%9C%80%E6%96%B0%E5%88%9B%E6%96%B0%E6%88%90%E6%9E%9C"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">了解 NetBackup 10 的最新创新成果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E6%B5%81%E7%9A%84%E4%BC%81%E4%B8%9A%E5%A4%87%E4%BB%BD%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">一流的企业备份解决方案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B7%A8%E6%89%80%E6%9C%89%E7%8E%AF%E5%A2%83%E7%BB%9F%E4%B8%80%E4%BF%9D%E6%8A%A4%E6%95%B0%E6%8D%AE"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">跨所有环境统一保护数据</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#87-%E7%9A%84%E4%B8%96%E7%95%8C-500-%E5%BC%BA%E4%BC%81%E4%B8%9A%E9%80%89%E6%8B%A9-NetBackup"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">87% 的世界 500 强企业选择 NetBackup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AB%AF%E5%88%B0%E7%AB%AF%E7%9A%84%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E9%98%B2%E6%8A%A4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">端到端的勒索软件防护解决方案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B7%B7%E5%90%88%E4%BA%91%E5%92%8C%E5%A4%9A%E4%BA%91%E6%95%B0%E6%8D%AE%E4%BF%9D%E6%8A%A4"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">混合云和多云数据保护</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%9D%A2%E5%90%91%E4%BA%91%E4%B8%AD%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%A4%87%E4%BB%BD"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">面向云中虚拟环境的备份</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%9A%E5%8A%A1%E9%9F%A7%E6%80%A7%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%8C%96%E3%80%81%E8%A7%84%E6%A8%A1%E5%8C%96"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">业务韧性：自动化、规模化</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+            <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+            
+            <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+            
+            <a class="tag" href="/tags/#Backup" title="Backup">Backup</a>
+            
+            <a class="tag" href="/tags/#Veritas" title="Veritas">Veritas</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://sysin.blog.csdn.net/" target="_blank">CSDN博客</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云•云小站</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://sysin.blog.csdn.net/">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">C</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

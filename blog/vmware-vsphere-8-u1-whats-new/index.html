@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> VMware vSphere 8 Update 1 新增功能 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware vSphere 8 Update 1 新增功能 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" VMware vSphere 8 Update 1 新增功能 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/vmware-vsphere-8-u1-whats-new/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+              
+              <a class="tag" href="/tags/#ESXi" title="ESXi">ESXi</a>
+              
+              <a class="tag" href="/tags/#vCenter" title="vCenter">vCenter</a>
+              
+            </div>
+            <h1>VMware vSphere 8 Update 1 新增功能</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2023-03-17
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">15</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">4.1k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Fri Mar 17 2023 10:55:22 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from 'https://npm.onmicrosoft.cn/@waline/client@2.14.5/dist/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://comment.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/vmware-vsphere-8-u1-whats-new/" title="VMware vSphere 8 Update 1 新增功能">VMware vSphere 8 Update 1 新增功能</a>，查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>vSphere 8.0 Update 1 现已发布：</p>
+<ul>
+<li><a href="/blog/vmware-vsphere-8-u1/" title="VMware vSphere 8.0 Update 1c - 企业级工作负载平台 (Custom Image update)">VMware vSphere 8.0 Update 1c - 企业级工作负载平台 (Custom Image update)</a>
+</li>
+</ul>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://core.vmware.com/resource/whats-new-vsphere-8-update-1">What’s New in vSphere 8 Update 1?</a></p>
+<p>为了与发布传统保持一致，我们很自豪地宣布 vSphere 8 Update 1，作为 vSphere 8 的更新即将推出。发布后，您将能够通过 VMware Appliance Management Interface (VAMI) 更新 vCenter 并将 ESXi 更新为使用 vSphere Lifecycle Manager 的任何其他补丁。请参阅我们的 <a target="_blank" rel="noopener" href="https://blogs.vmware.com/vsphere/2023/03/announcing-vsphere-8-update-1.html">vSphere 8 Update 1 公告博客文章</a>。</p>
+<p><strong>VMware vSphere 8</strong> 是企业工作负载平台，可将云的优势带入本地工作负载。它通过基于 DPU 和 GPU 的加速来增强性能，通过 VMware Cloud Console 提高运营效率，与附加混合云服务无缝集成，并通过与 VM 一起运行容器的企业级集成 Kubernetes 运行时加速创新。</p>
+<h2 id="提高运营效率"><a href="#提高运营效率" class="headerlink" title="提高运营效率"></a>提高运营效率</h2><p>因此，让我们了解自 vSphere 8 以来的新功能！第一站：效率。IT 基础架构很有趣，但 VMware 的所有人都希望让您重新解决有趣的业务问题。</p>
+<h3 id="vSphere-配置文件"><a href="#vSphere-配置文件" class="headerlink" title="vSphere 配置文件"></a>vSphere 配置文件</h3><ul>
+<li><p>在 vSphere 8 中，我们引入了名为 vSphere 配置文件的下一代 vSphere 集群配置管理技术预览。随着 vSphere 8 Update 1 的发布，vSphere 配置文件现在是一项完全受支持的功能，不再处于技术预览阶段。vSphere 配置文件是 vSphere 8.0 中的一项新功能，它允许管理员在集群级别管理主机配置。此功能允许管理员：</p>
+</li>
+<li><p>以 JSON 文档的形式在集群中设置所需的配置。</p>
+</li>
+<li>检查主机是否符合所需的配置。</li>
+<li>如果不合规，修复主机以使其合规。</li>
+</ul>
+<p><img src="https://images.core.vmware.com/sites/default/files/vsphere-config-profiles-demo-gif.gif" alt="vSphere 配置文件演示 GIF"></p>
+<p>在 vSphere 8 Update 1 中，vSphere Configuration Profiles 支持 vSphere Distributed Switch 配置，这在早期的技术预览中是不可用的。vSphere 配置文件不支持使用 VMware NSX 的环境。</p>
+<p>现有的 vSphere 集群可以转换为使用 vSphere 配置文件。如果集群附加了主机配置文件，您将在集群转换为 vSphere 配置文件后看到删除主机配置文件的警告。转换完成后，主机配置文件无法附加到集群或集群内的主机。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-vcp-2.png" alt="vSphere 配置文件现有集群"></p>
+<blockquote>
+<p><strong>注意：</strong> 如果集群仍在使用基于基线的生命周期管理，您必须先将集群转换为使用基于映像的生命周期管理。</p>
+</blockquote>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-vcp-3.png" alt="vSphere 配置文件新集群"></p>
+<p>vSphere 配置文件可以在创建新集群期间激活。需要使用单个映像定义来管理新集群。创建集群后即可进行配置定制。</p>
+<p>有关 vSphere 配置文件的更多信息，请参阅我们的专用登录页面：</p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/vsphere-configuration-profiles">查看资源页面</a></p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/vsphere-configuration-profiles">vSphere 配置文件</a></p>
+<p>vSphere 8 中的声明式集群配置。</p>
+<h3 id="适用于独立主机的-vSphere-Lifecycle-Manager"><a href="#适用于独立主机的-vSphere-Lifecycle-Manager" class="headerlink" title="适用于独立主机的 vSphere Lifecycle Manager"></a>适用于独立主机的 vSphere Lifecycle Manager</h3><p>vSphere 8 引入了 vSphere Lifecycle Manager 对由 vCenter 使用 vSphere API 管理的独立 ESXi 主机的支持。在 vSphere 8 Update 1 中，完整的 vSphere Client 支持可用于独立 ESXi 主机，以组成所需的映像、修复、检查合规性等。您期望 vSphere Lifecycle Manager 能够对 vSphere 集群执行的所有操作，您都可以为独立主机执行，包括暂存和 ESXi 快速启动。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-vclm-standalone-host.png" alt="vLCM 独立主机 UI"></p>
+<p>您还可以为独立 ESXi 主机定义自定义映像库。这对于位于边缘的主机很有用，因为可以将它们配置为使用与 ESXi 主机位于同一位置的库，并避免因远程 ESXi 主机和 vCenter 之间的连接不良或高延迟而导致的修复问题 (sysin)。</p>
+<h3 id="在单个-GPU-上托管不同的-GPU-工作负载"><a href="#在单个-GPU-上托管不同的-GPU-工作负载" class="headerlink" title="在单个 GPU 上托管不同的 GPU 工作负载"></a>在单个 GPU 上托管不同的 GPU 工作负载</h3><p>在早期的 vSphere 版本中，ESXi 主机上的所有 NVIDIA vGPU 工作负载必须使用相同的 vGPU 配置文件类型和 GPU 内存大小。</p>
+<p>在 vSphere 8 U1 中，现在可以为 NVIDIA vGPU 分配不同的 vGPU 配置文件类型。所有配置文件的 GPU 内存大小必须保持不变。例如，在图中我们显示了三个虚拟机，每个虚拟机都有不同的 vGPU 配置文件类型“B、C 和 Q”，GPU 内存大小为“8GB”。这使您可以在不同的工作负载之间更有效地共享 GPU 资源。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-heterogeneus-vgpu.png" alt="不同的 vGPU 配置文件"></p>
+<p>NVIDIA 根据工作负载提供不同的 vGPU 配置文件类型。</p>
+<ul>
+<li>配置文件类型 A 专为应用程序流或基于会话的解决方案而设计</li>
+<li>配置文件类型 B 专为 VDI 应用而设计</li>
+<li>配置文件类型 C 专为机器学习等计算密集型应用程序而设计</li>
+<li>配置文件类型 Q 专为图形密集型应用程序而设计</li>
+</ul>
+<p>有关 vGPU 配置文件类型的更多信息，请参阅 <a target="_blank" rel="noopener" href="https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#virtual-gpu-types-grid">Nvidia Grid vGPU 用户指南</a>。</p>
+<h3 id="使用-vSphere-Distributed-Switch-的主管服务"><a href="#使用-vSphere-Distributed-Switch-的主管服务" class="headerlink" title="使用 vSphere Distributed Switch 的主管服务"></a>使用 vSphere Distributed Switch 的主管服务</h3><p>在 vSphere 8 Update 1 中，除了 VM 服务之外，Supervisor 服务现在在使用 vSphere Distributed Switch 网络堆栈时可用。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-supervisor-services-1.png" alt="VDS 上的主管服务"></p>
+<p>Supervisor Services 是经过 vSphere 认证的 Kubernetes 运营商，可为开发人员提供基础架构即服务组件和紧密集成的独立软件供应商服务。您可以在 vSphere with Tanzu 环境中安装和管理 Supervisor 服务，以便它们可用于 Kubernetes 工作负载。当 Supervisor Services 安装在 Supervisors 上时，DevOps 工程师可以使用服务 API 在其用户命名空间中的 Supervisors 上创建实例。</p>
+<p>您可以从 vSphere Client 管理 vSphere 服务平台中的主管服务。通过使用该平台，您可以管理 Supervisor Services 的生命周期，将它们安装在 Supervisor 上，以及执行版本控制 (sysin)。Supervisor 服务可以有多个版本，您可以在 Supervisor 上安装这些版本，因为一次只能在 Supervisor 上运行一个版本。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-supervisor-services-2.png" alt="VDS 上的主管服务"></p>
+<p>有关主管服务的更多信息，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-services-workloads/GUID-052CF490-4B77-4CA2-8A4C-8624718ADA4E.html">有关使用 vSphere with Tanzu 管理主管服务的文档。</a>。</p>
+<h3 id="虚拟机服务自带镜像"><a href="#虚拟机服务自带镜像" class="headerlink" title="虚拟机服务自带镜像"></a>虚拟机服务自带镜像</h3><p>VMware VM 服务已得到增强，可为客户创建的 VM 映像提供支持。DevOps 或管理员可以启动映像构建管道以创建支持 CloudInit 或 vAppConfig 的映像。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-vm-service-byoi.gif" alt="用于 DevOps 的VM 服务 BYOI"></p>
+<p>管理员将这些新的 VM 模板添加到内容库中，以供 DevOps 团队使用。DevOps 创建了将在首次启动时配置 VM 的云配置规范。DevOps 团队提交 VM 规范以及云配置以创建和配置 VM。</p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/blog/vsphere-8-vmservice-bring-your-own-image-part-1">阅读帖子</a></p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/blog/vsphere-8-vmservice-bring-your-own-image-part-1">vSphere 8：VMService 自带镜像 - 第 1 部分</a></p>
+<p>VMService 建立在通过 vSphere with Tanzu 启用的 Kubernetes 支持之上，以通过 Kubernetes API 实现虚拟机生命周期的 DevOps 自动化。该支持仅限于 VMware 精选的来宾操作系统映像——Photon 和 Ubuntu。现在您可以使用您熟悉的工具（如 Packer 或 Ansible）构建您的基础映像，然后使用新的传输 vAppConfig 或 CloudInit 自定义已部署的操作系统</p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/blog/vsphere-8-vmservice-bring-your-own-image-part-2">阅读帖子</a></p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/blog/vsphere-8-vmservice-bring-your-own-image-part-2">vSphere 8：VMService 自带镜像 - 第 2 部分</a></p>
+<p>DevOps 自动化对于现代应用程序的实施至关重要。Kubernetes 生态系统正迅速成为支持这种自动化的基线基础设施。vSphere 8 公开了一个 Kubernetes API，它不仅可以直接使用，还可以启用 TKG 和 VMService。在本博客系列的第 1 部分中，我们能够使用 VMware 精选的基础映像和用于实例配置的 cloud-init 来自动化 VM 实例的生命周期。开发人员需要更多选择，在 vSphere 8 中，VMware 扩展了 VMService 以支持在 VM 部署中使用自定义映像。此博客将向您展示如何自带映像 (BYOI) 并通过本机 cloud-init 数据源启用实例配置。对于那些希望直接跳到视频演示的人，请看这里。</p>
+<h3 id="DevOps-的-VM-控制台"><a href="#DevOps-的-VM-控制台" class="headerlink" title="DevOps 的 VM 控制台"></a>DevOps 的 VM 控制台</h3><p>DevOps 用户可以使用 kubectl 轻松访问他们已部署的虚拟机的虚拟机远程控制台。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-devops-vm-console.png" alt="Vm 控制台链接"></p>
+<p>创建一个唯一链接以授予对虚拟机控制台的访问权限，并且不要求用户具有访问 vSphere Client 的权限 (sysin)。VM 网络控制台向用户提供一次性使用的限时（2 分钟）URL。需要在端口 443 上连接到主管控制平面。VM web 控制台允许对可能没有网络连接以允许 SSH 的 VM 进行自助调试和故障排除。</p>
+<h3 id="集成的-Skyline-健康诊断插件"><a href="#集成的-Skyline-健康诊断插件" class="headerlink" title="集成的 Skyline 健康诊断插件"></a>集成的 Skyline 健康诊断插件</h3><p>部署和管理 VMware Skyline Health Diagnostics 比以往任何时候都更容易。vSphere Client 中嵌入的引导式工作流可用于轻松部署 Skyline Health Diagnostics 设备并将其注册到 vCenter。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-skyline-embedded.png" alt="嵌入式 Skyline 安装程序"></p>
+<p>Skyline Health Diagnostics 是 VMware 的自助诊断和健康平台。它可以帮助你</p>
+<ul>
+<li>诊断任何故障或已知问题并解决</li>
+<li>运行健康检查</li>
+<li>了解 VMware 安全公告和相关解决方案的适用性</li>
+<li>确定可能影响产品更新或升级的问题</li>
+</ul>
+<p>它使用产品日志、配置信息和各种其他信息来检测问题并以知识库文章或补救步骤的形式提供建议。</p>
+<h3 id="增强的-vSphere-Green-衡量指标"><a href="#增强的-vSphere-Green-衡量指标" class="headerlink" title="增强的 vSphere Green 衡量指标"></a>增强的 vSphere Green 衡量指标</h3><p>在 vSphere 8.0 中，我们引入了新指标来捕获主机的功耗，包括与虚拟机工作负载相关的功耗。vSphere 8.0 Update 1 现在能够归因于每个虚拟机的单独功耗。更好的 VM 指标，将 VM 大小考虑在内，为客户提供更多数据来汇总 VM 功耗，从而了解工作负载的能效。IT 管理员可以获得每个虚拟机的功率指标，开发人员可以从 API 接口获得功率指标，应用程序所有者可以访问其功耗数据的聚合视图。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-green-metrics.png" alt="虚拟机绿色指标"></p>
+<p>静态功耗是 VM 的建模空闲功耗，就好像 VM 是一个假设的裸机主机，配置了与 VM 相同数量的 CPU 和内存。静态功耗估算保持该假设主机开机所需的基本功耗 (sysin)。使用情况是基于 VM 活动 CPU 和内存利用率的实际测量功率。它源自主机连接的功率计（IPMI - 智能平台管理接口）。</p>
+<h2 id="提升安全性"><a href="#提升安全性" class="headerlink" title="提升安全性"></a>提升安全性</h2><p>安全始终是一种权衡。有时我们会交换绩效、预算、员工时间，甚至员工幸福感。VMware 一直在寻找方法，让做正确的事变得容易，从而减少安全性的权衡。</p>
+<h3 id="适用于-vCenter-的-Okta-联合身份验证"><a href="#适用于-vCenter-的-Okta-联合身份验证" class="headerlink" title="适用于 vCenter 的 Okta 联合身份验证"></a>适用于 vCenter 的 Okta 联合身份验证</h3><p>身份管理和多因素身份验证是当今安全的重要组成部分。从 Okta 开始，vSphere 8 Update 1 为 vCenter 带来了现代基于云的身份提供商支持。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-okta-1.png" alt="Okta 支持"></p>
+<p>联合身份意味着 vSphere 永远看不到用户凭据，这有助于安全性和合规性工作。它的工作方式就像每个人都习惯的大多数 Web 身份验证服务一样，您将被重定向到该服务，并在您进行身份验证后重定向回来 (sysin)。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-okta-2.png" alt="Okta 支持"></p>
+<h3 id="用于安全系统的-ESXi-快速引导"><a href="#用于安全系统的-ESXi-快速引导" class="headerlink" title="用于安全系统的 ESXi 快速引导"></a>用于安全系统的 ESXi 快速引导</h3><p>vSphere 在 vSphere 6.7 中引入了快速启动的概念，它在很多方面都非常有帮助。谁不想要更快的重启？ 更重要的是，拥有大节点的 vSAN 客户有时会发现他们的节点重启时间比重建超时时间长，这也是一个问题，因为重建会增加集群的负载并增加闪存设备的磨损。</p>
+<p>启用了 TPM 2.0 的主机通过安全启动和认证过程，验证主机的配置，是检测恶意软件和其他错误配置的强大方法。Quick Boot 现在与 vSphere 8 Update 1 中的快速启动兼容。无需再进行选择。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-tpm-quickboot.png" alt="使用 TPM 快速启动"></p>
+<p>而且，与 vSphere 中的大多数安全增强功能一样，客户端中的一个好消息是现在支持快速启动。</p>
+<h3 id="使用-vTPM-的-vSphere-容错"><a href="#使用-vTPM-的-vSphere-容错" class="headerlink" title="使用 vTPM 的 vSphere 容错"></a>使用 vTPM 的 vSphere 容错</h3><p>VMware vSphere Fault Tolerance (FT) 通过创建镜像主虚拟机的虚拟机实时影子实例，为应用程序（最多四个虚拟 CPU）提供持续可用性。如果发生硬件中断，vSphere FT 会自动触发故障转移以消除停机时间并防止数据丢失。故障转移后，vSphere FT 会自动创建一个新的辅助虚拟机来为应用程序提供持续保护。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-vtpm-ft.png" alt="具有 vTPM 的 vSphere FT"></p>
+<p>虚拟 TPM 是当今客户操作系统的重要组件，支持 Microsoft Device Guard、Credential Guard、基于虚拟化的安全、安全启动和操作系统证明等功能。他们也出现在监管合规审计中 (sysin)。vSphere 8 Update 1 通过启用具有虚拟 TPM 的虚拟机进行复制和保护，消除了另一个安全权衡。</p>
+<h2 id="增强工作负载性能"><a href="#增强工作负载性能" class="headerlink" title="增强工作负载性能"></a>增强工作负载性能</h2><p>vSphere 8 在提高工作负载性能方面增加了一些强大的功能。Update 1 将此提升到一个新的水平，有助于满足现代分布式工作负载的吞吐量和延迟需求</p>
+<h3 id="Nvidia-NVSwitch-支持"><a href="#Nvidia-NVSwitch-支持" class="headerlink" title="Nvidia NVSwitch 支持"></a>Nvidia NVSwitch 支持</h3><p>我们 VMware 长期以来一直在讨论 AI，我们对 vSphere 中的 GPU 提供了深入而灵活的支持。我们通过与 NVIDIA 的合作，通过增加对他们的 NVSwitch 技术的支持，继续推进本地 AI。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-nvswitch-1.png" alt="NV开关"></p>
+<p>在需要多个 GPU 并行工作的高性能计算 (HPC) 和 AI 应用程序（例如，深度学习、科学模拟和大数据分析）中尤其需要此技术。对于使用 2 个以上 GPU 的应用程序，强烈建议这样做。许多人工智能和高性能计算应用受到商品服务器硬件内部总线速度的限制。为了解决这个问题，NVIDIA 创建了一个名为 NVSwitch 的特殊开关，它允许多达 8 个 GPU 以极快的速度进行通信。</p>
+<p>NVLink 和 NVSwitch 的区别：</p>
+<ul>
+<li>NVLink 是 NVSwitch 的后端协议。NVLink Bridge 点对点连接可用于以非常高的带宽连接 2 到 4 个 GPU。</li>
+<li>连接四个以上的 GPU 需要 NVSwitch，使用 vSphere 8U1 NVSwitch 支持，您可以形成 2、4 或 8 个 GPU 的分区以应用于虚拟机。</li>
+<li>NVLink 采用“Hopper”架构，一对 GPU 可以双向传输 450 GB/s，总带宽为 900 GB/s。</li>
+</ul>
+<p>相比之下，PCIe Gen5 x16 可以传输高达 64 GB/s，因此您可以看到使用 NVLink 和 NVSwitch 时 GPU 到 GPU 带宽的显着增加。</p>
+<p>使用 vSphere 8 中的供应商设备组和 vGPU 配置文件使用支持 NVLink 和 NVSwitch 的系统，这允许在不妨碍日常 vSphere 操作的情况下灵活处理这些类型的工作负载 (sysin)。</p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/blog/using-more-gpus-vsphere-8-machine-learning-and-hpc-applications-nvidia-nvswitch">阅读帖子</a></p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/blog/using-more-gpus-vsphere-8-machine-learning-and-hpc-applications-nvidia-nvswitch">在 vSphere 8 中使用更多 GPU 以通过 NVIDIA NVSwitch 进行机器学习和 HPC 应用</a></p>
+<p>在本文中，我们将 vSphere 8 U1 中的供应商设备组概念提升到一个新的水平，方法是探索服务器内使用 NVSwitch 技术连接的 8 个 GPU 组，并将所有 GPU 或子集呈现为一个设备组到一个虚拟机。这非常适合那些需要在服务器上使用多个 GPU 来执行模型训练过程或其他大型任务的数据科学/机器学习从业者。</p>
+<h3 id="用于-NVMe-的-VM-DirectPath-I-O-热插拔"><a href="#用于-NVMe-的-VM-DirectPath-I-O-热插拔" class="headerlink" title="用于 NVMe 的 VM DirectPath I/O 热插拔"></a>用于 NVMe 的 VM DirectPath I/O 热插拔</h3><p>在以前的版本中，添加或删除 VM DirectPath IO 设备需要虚拟机处于关闭状态。vSphere 8 Update 1 引入了对使用 vSphere API 热添加和热移除 NVMe 设备的支持。</p>
+<p><img src="https://core.vmware.com/sites/default/files/8u1-wn-hot-plug.png" alt="热插拔"></p>
+<p>服务器必须通过“PCIe Native Surprise Hot Plug 认证”以支持热添加和热移除 VM DirectPath IO NVMe 设备。</p>
+<h2 id="核心存储"><a href="#核心存储" class="headerlink" title="核心存储"></a>核心存储</h2><p>有关 vSphere 核心存储中的新增功能，请查看以下文章。</p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/resource/whats-new-vsphere-8-core-storage">阅读更多</a></p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/resource/whats-new-vsphere-8-core-storage">vSphere 8 核心存储的新特性</a></p>
+<p>vSphere 8 Update 1 新的 vSphere 8 Update 1 vVol 和核心存储增强功能、功能和新增功能。vSphere 8 U1 存储在 vVols、NVMeoF、VMFS 和 NFS 方面具有多项存储增强功能。</p>
+<h2 id="下载-vSphere-8-0U1"><a href="#下载-vSphere-8-0U1" class="headerlink" title="下载 vSphere 8.0U1"></a>下载 vSphere 8.0U1</h2><p>VMware vSphere 8 Update 1 下载：</p>
+<ul>
+<li><a href="/blog/vmware-vsphere-8-u1/" title="VMware vSphere 8.0 Update 1c - 企业级工作负载平台 (Custom Image update)">VMware vSphere 8.0 Update 1c - 企业级工作负载平台 (Custom Image update)</a>
+</li>
+</ul>
+<p><strong>本站定制镜像</strong>：</p>
+<ul>
+<li><a href="/blog/vmware-esxi-8-u1-oem/" title="VMware ESXi 8.0U1c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0U1c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a></li>
+<li><a href="/blog/vmware-esxi-8-u1-sysin/" title="VMware ESXi 8.0U1c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U1c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+</li>
+</ul>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/proxmox-ve-7/" data-toggle="tooltip" data-placement="top" title="Proxmox Virtual Environment (Proxmox VE) 7.4 - 开源虚拟化管理平台">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/dbeaver-23-mac/" data-toggle="tooltip" data-placement="top" title="DBeaver Ultimate Edtion 23 for macOS Intel x64 & Apple ARM64 (sysin)">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和测试使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://npm.onmicrosoft.cn/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://comment.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/vmware-vsphere-8-u1-whats-new/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，QQ、微博等联合登录已关闭，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8F%90%E9%AB%98%E8%BF%90%E8%90%A5%E6%95%88%E7%8E%87"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">提高运营效率</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#vSphere-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">vSphere 配置文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E4%BA%8E%E7%8B%AC%E7%AB%8B%E4%B8%BB%E6%9C%BA%E7%9A%84-vSphere-Lifecycle-Manager"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">适用于独立主机的 vSphere Lifecycle Manager</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E5%8D%95%E4%B8%AA-GPU-%E4%B8%8A%E6%89%98%E7%AE%A1%E4%B8%8D%E5%90%8C%E7%9A%84-GPU-%E5%B7%A5%E4%BD%9C%E8%B4%9F%E8%BD%BD"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">在单个 GPU 上托管不同的 GPU 工作负载</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8-vSphere-Distributed-Switch-%E7%9A%84%E4%B8%BB%E7%AE%A1%E6%9C%8D%E5%8A%A1"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">使用 vSphere Distributed Switch 的主管服务</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%B8%A6%E9%95%9C%E5%83%8F"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">虚拟机服务自带镜像</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DevOps-%E7%9A%84-VM-%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">DevOps 的 VM 控制台</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%9B%86%E6%88%90%E7%9A%84-Skyline-%E5%81%A5%E5%BA%B7%E8%AF%8A%E6%96%AD%E6%8F%92%E4%BB%B6"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">集成的 Skyline 健康诊断插件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A2%9E%E5%BC%BA%E7%9A%84-vSphere-Green-%E8%A1%A1%E9%87%8F%E6%8C%87%E6%A0%87"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">增强的 vSphere Green 衡量指标</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8F%90%E5%8D%87%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">提升安全性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E4%BA%8E-vCenter-%E7%9A%84-Okta-%E8%81%94%E5%90%88%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">适用于 vCenter 的 Okta 联合身份验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%A8%E4%BA%8E%E5%AE%89%E5%85%A8%E7%B3%BB%E7%BB%9F%E7%9A%84-ESXi-%E5%BF%AB%E9%80%9F%E5%BC%95%E5%AF%BC"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">用于安全系统的 ESXi 快速引导</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8-vTPM-%E7%9A%84-vSphere-%E5%AE%B9%E9%94%99"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">使用 vTPM 的 vSphere 容错</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A2%9E%E5%BC%BA%E5%B7%A5%E4%BD%9C%E8%B4%9F%E8%BD%BD%E6%80%A7%E8%83%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">增强工作负载性能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Nvidia-NVSwitch-%E6%94%AF%E6%8C%81"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Nvidia NVSwitch 支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%94%A8%E4%BA%8E-NVMe-%E7%9A%84-VM-DirectPath-I-O-%E7%83%AD%E6%8F%92%E6%8B%94"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">用于 NVMe 的 VM DirectPath I&#x2F;O 热插拔</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E5%AD%98%E5%82%A8"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">核心存储</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD-vSphere-8-0U1"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载 vSphere 8.0U1</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+            
+            <a class="tag" href="/tags/#ESXi" title="ESXi">ESXi</a>
+            
+            <a class="tag" href="/tags/#vCenter" title="vCenter">vCenter</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://sysin.blog.csdn.net/" target="_blank">CSDN博客</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云•云小站</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://sysin.blog.csdn.net/">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">C</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

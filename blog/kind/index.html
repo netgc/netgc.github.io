@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> kind：Kubernetes in Docker，单机运行 Kubernetes 群集的最佳方案 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" kind：Kubernetes in Docker，单机运行 Kubernetes 群集的最佳方案 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" kind：Kubernetes in Docker，单机运行 Kubernetes 群集的最佳方案 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/kind/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+              
+              <a class="tag" href="/tags/#Docker" title="Docker">Docker</a>
+              
+              <a class="tag" href="/tags/#kind" title="kind">kind</a>
+              
+            </div>
+            <h1>kind：Kubernetes in Docker，单机运行 Kubernetes 群集的最佳方案</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2021-04-28
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">22</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">4.8k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Wed Apr 28 2021 15:17:40 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from 'https://npm.onmicrosoft.cn/@waline/client@2.14.5/dist/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://comment.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/kind/" title="kind：Kubernetes in Docker，单机运行 Kubernetes 群集的最佳方案">kind：Kubernetes in Docker，单机运行 Kubernetes 群集的最佳方案</a>，查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<blockquote>
+<p>2021.04.28 更新，kind 更新到 v0.10.0，主要是新增对 Kubernetes <code>v1.20</code>  的支持，详见 <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/releases/tag/v0.10.0">Github Release</a>。</p>
+</blockquote>
+<p>是否没有足够的机器运行 Kubernetes 测试环境，个人电脑配置不高的话，运行多个节点的虚拟化有点力不从心，国内公有云主机一般不支持嵌套虚拟化，一套 3M+3N 的群集环境成本太高。VMware Fusion 12.0 发布，将 Kind 带入了我们的视野，这是 Google 官方的一个工具，可能是在单机运行 Kubernetes 群集的最佳方案。笔者在一台 1C 2G 的公有云虚机上运行 Kind，虽然计算资源有限，也可以完成一般的测试。</p>
+<p>在<a target="_blank" rel="noopener" href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k">阿里云</a>或者<a target="_blank" rel="noopener" href="https://curl.qcloud.com/IQz7k8Kc">腾讯云</a>购买一台不到 100 元一年的入门云主机来运行 Kubernetes 群集，还可以将应用直接发布到互联网，开发测试非常方便。</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>kind 是 Kubernetes in Docker 的简写，是一个使用 Docker 容器作为 Nodes，在本地创建和运行 Kubernetes 群集的工具。适用于在本机创建 Kubernetes 群集环境进行开发和测试。</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://kind.sigs.k8s.io/">https://kind.sigs.k8s.io/</a></p>
+<p>kind 由以下组件构成:</p>
+<ul>
+<li>Go <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/tree/master/pkg">packages</a> implementing <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/tree/master/pkg/cluster">cluster creation</a>, <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/tree/master/pkg/build">image build</a>, etc.</li>
+<li>A command line interface (<a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/tree/master/main.go"><code>kind</code></a>) built on these packages.</li>
+<li>Docker <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/tree/master/images">image(s)</a> written to run systemd, Kubernetes, etc.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kubernetes/test-infra/tree/master/kubetest"><code>kubetest</code></a> integration also built on these packages (WIP)</li>
+</ul>
+<p>kind 使用 <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/">kubeadm</a> 创建和启动群集节点。</p>
+<p>kind 使用 <a target="_blank" rel="noopener" href="https://containerd.io/">containerd</a> 作为容器运行时，所以弃用 Dockershim 对 kind 没有影响。🐳</p>
+<h2 id="2-kind-架构"><a href="#2-kind-架构" class="headerlink" title="2. kind 架构"></a>2. kind 架构</h2><p>kind 官方架构图如下，它将 docker 容器作为 kubernetes 的 “node”，并在该 “node” 中安装 kubernetes 组件，包括一个或者多个 Control Plane 和 一个或者多个 Work nodes。这就解决了在本机运行多个 node 的问题，而不需要虚拟化 (sysin)。</p>
+<p><img src="kind-diagram.webp" alt="kind"></p>
+<h2 id="3-安装-Kind"><a href="#3-安装-Kind" class="headerlink" title="3. 安装 Kind"></a>3. 安装 Kind</h2><p>(1)、<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/">安装 Docker</a>，这是前提条件。</p>
+<p>快速安装：<code>sudo sh -c &quot;$(curl -fsSL https://get.docker.com)&quot;</code></p>
+<p>(2)、<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">安装 kubectl</a>：Kind 本身不需要 kubectl，安装 kubectl 可以在本机直接管理 Kubernetes 群集。</p>
+<ul>
+<li><p>Linux:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -LO &quot;https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl&quot;</span><br><span class="line">sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">验证版本</span></span><br><span class="line">kubectl version --client</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>macOS:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install kubectl</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">验证版本</span></span><br><span class="line">kubectl version --client</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>(3)、安装 kind：</p>
+<p>查看版本：Github <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/releases">releases</a> page</p>
+<ul>
+<li><p>Linux：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-linux-amd64</span><br><span class="line">chmod +x ./kind</span><br><span class="line">mv ./kind /usr/local/bin/kind</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">验证版本</span></span><br><span class="line">kind version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>macOS (homebrew):</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install kind</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">验证版本</span></span><br><span class="line">kind version</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.10.0/kind-darwin-amd64</span><br><span class="line">chmod +x ./kind</span><br><span class="line">mv ./kind /usr/local/bin/kind</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">验证版本</span></span><br><span class="line">kind version</span><br></pre></td></tr></table></figure>
+<p> 如果安装了 VMware Fusion 12，在启动 vctl（<code>vctl system start</code>）之后，直接运行 <code>vctl kind</code>。</p>
+</li>
+<li><p>Windows：可以支持，不推荐。</p>
+</li>
+</ul>
+<h2 id="4-操作入门"><a href="#4-操作入门" class="headerlink" title="4. 操作入门"></a>4. 操作入门</h2><blockquote>
+<p>注意：以下命令基本上都需要 root 权限，非 root 用户请使用 sudo。</p>
+</blockquote>
+<h3 id="创建群集"><a href="#创建群集" class="headerlink" title="创建群集"></a>创建群集</h3><p>创建一个默认群集：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kind create cluster</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo kind create cluster</span></span><br><span class="line">Creating cluster &quot;kind&quot; ...</span><br><span class="line"> ✓ Ensuring node image (kindest/node:v1.20.2) 🖼</span><br><span class="line"> ✓ Preparing nodes 📦</span><br><span class="line"> ✓ Writing configuration 📜</span><br><span class="line"> ✓ Starting control-plane 🕹️</span><br><span class="line"> ✓ Installing CNI 🔌</span><br><span class="line"> ✓ Installing StorageClass 💾</span><br><span class="line">Set kubectl context to &quot;kind-kind&quot;</span><br><span class="line">You can now use your cluster with:</span><br><span class="line"></span><br><span class="line">kubectl cluster-info --context kind-kind</span><br><span class="line"></span><br><span class="line">Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/</span><br></pre></td></tr></table></figure>
+<p>默认的群集名称为<code>kind</code>，可以使用参数<code>--name</code>指定创建的群集的名称，可以创建多个群集：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kind create cluster --name kind-2</span><br></pre></td></tr></table></figure>
+<p>指定 node 镜像版本创建群集 (sysin)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">default</span></span><br><span class="line">kind create cluster --image kindest/node:latest</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.20.0</span></span><br><span class="line">kind create cluster --image kindest/node:v1.20.0</span><br></pre></td></tr></table></figure>
+<p>多群集切换</p>
+<p>获取群集名称，可以看到下面有两个群集：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kind get clusters</span><br><span class="line">kind</span><br><span class="line">kind2</span><br></pre></td></tr></table></figure>
+<p>切换群集：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到群集`kind`</span></span><br><span class="line">kubectl cluster-info --context kind-kind</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到群集`kind-2`</span></span><br><span class="line">kubectl cluster-info --context kind-kind-2</span><br></pre></td></tr></table></figure>
+<p>可以通过 <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Kubernetes kubeconfig</a> 配置文件来配置默认群集.</p>
+<p>查看节点（默认只有一个 control-plane）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get nodes</span><br><span class="line">NAME                 STATUS   ROLES    AGE     VERSION</span><br><span class="line">kind-control-plane   Ready    master   7m51s   v1.20.2</span><br></pre></td></tr></table></figure>
+<h3 id="删除群集"><a href="#删除群集" class="headerlink" title="删除群集"></a>删除群集</h3><p>删除群集<code>kind-2</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kind delete cluster --name kind-2</span><br></pre></td></tr></table></figure>
+<h3 id="将镜像加载到-kind-群集中"><a href="#将镜像加载到-kind-群集中" class="headerlink" title="将镜像加载到 kind 群集中"></a>将镜像加载到 kind 群集中</h3><p>Kind 群集中的 Docker 镜像可以从互联网直接拉取，如果需要将本机镜像加载到 Kind 群集中，使用如下命令</p>
+<p><code>kind load docker-image my-custom-image</code></p>
+<p><code>kind load docker-image my-custom-image --name kind-2</code> (指定群集名称)</p>
+<p><code>kind load image-archive /my-image-archive.tar</code> （加载导出的镜像压缩包）</p>
+<h2 id="5-配置-kind-群集"><a href="#5-配置-kind-群集" class="headerlink" title="5. 配置 kind 群集"></a>5. 配置 kind 群集</h2><p>可以查看示例配置文件 <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/kubernetes-sigs/kind/master/site/content/docs/user/kind-example-config.yaml">kind-example-config</a>，创建群集时使用 <code>--config</code> 参数:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kind create cluster --config kind-example-config.yaml</span><br></pre></td></tr></table></figure>
+<p>示例配置文件如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this config file contains all config fields with comments</span></span><br><span class="line"><span class="comment"># <span class="doctag">NOTE:</span> this is not a particularly useful config file</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="comment"># patch the generated kubeadm config with some extra settings</span></span><br><span class="line"><span class="attr">kubeadmConfigPatches:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">  apiVersion: kubelet.config.k8s.io/v1beta1</span></span><br><span class="line"><span class="string">  kind: KubeletConfiguration</span></span><br><span class="line"><span class="string">  evictionHard:</span></span><br><span class="line"><span class="string">    nodefs.available: &quot;0%&quot;</span></span><br><span class="line"><span class="string"></span><span class="comment"># patch it further using a JSON 6902 patch</span></span><br><span class="line"><span class="attr">kubeadmConfigPatchesJSON6902:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">group:</span> <span class="string">kubeadm.k8s.io</span></span><br><span class="line">  <span class="attr">version:</span> <span class="string">v1beta2</span></span><br><span class="line">  <span class="attr">kind:</span> <span class="string">ClusterConfiguration</span></span><br><span class="line">  <span class="attr">patch:</span> <span class="string">|</span></span><br><span class="line"><span class="string">    - op: add</span></span><br><span class="line"><span class="string">      path: /apiServer/certSANs/-</span></span><br><span class="line"><span class="string">      value: my-hostname</span></span><br><span class="line"><span class="string"></span><span class="comment"># 1 control plane node and 3 workers</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="comment"># the control plane node config</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line"><span class="comment"># the three workers</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br></pre></td></tr></table></figure>
+<h3 id="Multi-node-clusters"><a href="#Multi-node-clusters" class="headerlink" title="Multi-node clusters"></a>Multi-node clusters</h3><p>示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># three node (two workers) cluster config</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br></pre></td></tr></table></figure>
+<h3 id="Control-plane-HA"><a href="#Control-plane-HA" class="headerlink" title="Control-plane HA"></a>Control-plane HA</h3><p>示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># a cluster with 3 control-plane nodes and 3 workers</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br></pre></td></tr></table></figure>
+<h3 id="将-node-的端口映射到主机"><a href="#将-node-的端口映射到主机" class="headerlink" title="将 node 的端口映射到主机"></a>将 node 的端口映射到主机</h3><p>可以通过<code>extraPortMappings</code>将 node 的端口映射到主机</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="attr">extraPortMappings:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">hostPort:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">listenAddress:</span> <span class="string">&quot;0.0.0.0&quot;</span> <span class="comment"># Optional, defaults to &quot;0.0.0.0&quot;</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">udp</span> <span class="comment"># Optional, defaults to tcp</span></span><br></pre></td></tr></table></figure>
+<h3 id="指定-Kubernetes-的版本"><a href="#指定-Kubernetes-的版本" class="headerlink" title="指定 Kubernetes 的版本"></a>指定 Kubernetes 的版本</h3><p>可以通过设置 node 的容器镜像版本运行指定版本的 kubernetes 群集。可以在<a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/releases">官方 release 页面中</a>中查找需要镜像 tag，带上 <code>sha256</code> shasum（非必须），例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">kindest/node:v1.18.15@sha256:5c1b980c4d0e0e8e7eb9f36f7df525d079a96169c8a8f20d8bd108c0d0889cc4</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">kindest/node:v1.18.15@sha256:5c1b980c4d0e0e8e7eb9f36f7df525d079a96169c8a8f20d8bd108c0d0889cc4</span></span><br></pre></td></tr></table></figure>
+<p>kind 0.10 支持的版本如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.20: kindest/node:v1.20.2@sha256:8f7ea6e7642c0da54f04a7ee10431549c0257315b3a634f6ef2fecaaedb19bab</span><br><span class="line">1.19: kindest/node:v1.19.7@sha256:a70639454e97a4b733f9d9b67e12c01f6b0297449d5b9cbbef87473458e26dca</span><br><span class="line">1.18: kindest/node:v1.18.15@sha256:5c1b980c4d0e0e8e7eb9f36f7df525d079a96169c8a8f20d8bd108c0d0889cc4</span><br><span class="line">1.17: kindest/node:v1.17.17@sha256:7b6369d27eee99c7a85c48ffd60e11412dc3f373658bc59b7f4d530b7056823e</span><br><span class="line">1.16: kindest/node:v1.16.15@sha256:c10a63a5bda231c0a379bf91aebf8ad3c79146daca59db816fb963f731852a99</span><br><span class="line">1.15: kindest/node:v1.15.12@sha256:67181f94f0b3072fb56509107b380e38c55e23bf60e6f052fbd8052d26052fb5</span><br><span class="line">1.14: kindest/node:v1.14.10@sha256:3fbed72bcac108055e46e7b4091eb6858ad628ec51bf693c21f5ec34578f6180</span><br></pre></td></tr></table></figure>
+<h3 id="IPv6-clusters"><a href="#IPv6-clusters" class="headerlink" title="IPv6 clusters"></a>IPv6 clusters</h3><p><code>kind</code>目前支持 IPv6 单栈群集，前提是运行 Docker 的主机支持 IPv6，双栈支持即将到来, 大多数操作系统/发行版支持 IPv6，Linux 上通过以下命令查看：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl net.ipv6.conf.all.disable_ipv6</span><br></pre></td></tr></table></figure>
+<p>显示如下，表明主机启用了 IPv6：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.all.disable_ipv6 = 0</span><br></pre></td></tr></table></figure>
+<p>如果 Docker 运行在 Windows 或者 Mac 上，IPv6 端口转发不起作用，需要指定 API Server 使用 IPv4 端口转发：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># an ipv6 cluster</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">networking:</span></span><br><span class="line">  <span class="attr">ipFamily:</span> <span class="string">ipv6</span></span><br><span class="line">  <span class="attr">apiServerAddress:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+<p>在 Linux 上只需要这样:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># an ipv6 cluster</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">networking:</span></span><br><span class="line">  <span class="attr">ipFamily:</span> <span class="string">ipv6</span></span><br></pre></td></tr></table></figure>
+<h3 id="导出-Cluster-日志"><a href="#导出-Cluster-日志" class="headerlink" title="导出 Cluster 日志"></a>导出 Cluster 日志</h3><p>从默认 cluster (名称为 <code>kind</code>)导出日志：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kind export logs</span><br><span class="line">Exported logs to: /tmp/396758314</span><br></pre></td></tr></table></figure>
+<p>切换群集加上 <code>--name</code> 参数。</p>
+<p>默认日志导出到 /tmp 目录下，可以指定导出的目录，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kind export logs ./somedir</span><br><span class="line">Exported logs to: ./somedir</span><br></pre></td></tr></table></figure>
+<p>日志文件结构如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── docker-info.txt</span><br><span class="line">└── kind-control-plane/</span><br><span class="line">    ├── containers</span><br><span class="line">    ├── docker.log</span><br><span class="line">    ├── inspect.json</span><br><span class="line">    ├── journal.log</span><br><span class="line">    ├── kubelet.log</span><br><span class="line">    ├── kubernetes-version.txt</span><br><span class="line">    └── pods/</span><br></pre></td></tr></table></figure>
+<h2 id="6-配置概述"><a href="#6-配置概述" class="headerlink" title="6. 配置概述"></a>6. 配置概述</h2><h3 id="6-1-入门"><a href="#6-1-入门" class="headerlink" title="6.1 入门"></a>6.1 入门</h3><p>在创建 Kind 群集时，需要通过一个 <a target="_blank" rel="noopener" href="https://yaml.org/">YAML</a> 配置文件来自定义群集配置。</p>
+<p>一个最小化的配置如下:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br></pre></td></tr></table></figure>
+<p>将配置文件保存为 <code>config.yaml</code>，通过运行命令 <code>kind create cluster --config=config.yaml</code> 来创建群集。</p>
+<h3 id="6-2-Cluster-Wide-选项"><a href="#6-2-Cluster-Wide-选项" class="headerlink" title="6.2 Cluster-Wide 选项"></a>6.2 Cluster-Wide 选项</h3><p>以下全局选项可用，并非所有的选项列入文档，可以关注官网文档的更新。</p>
+<h4 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h4><p>关于网络的配置选项。</p>
+<h5 id="IP-Family"><a href="#IP-Family" class="headerlink" title="IP Family"></a>IP Family</h5><p>IPv6 (and soon dual-stack!) clusters：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">networking:</span><br><span class="line">  ipFamily: ipv6</span><br></pre></td></tr></table></figure>
+<p>上节 “IPv6 Clusters” 中有更详细的描述。</p>
+<h5 id="API-Server"><a href="#API-Server" class="headerlink" title="API Server"></a>API Server</h5><p>自定义 API Server 侦听地址和端口：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">networking:</span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">WARNING: It is _strongly_ recommended that you keep this the default</span></span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">(127.0.0.1) <span class="keyword">for</span> security reasons. However it is possible to change this.</span></span><br><span class="line">  apiServerAddress: &quot;127.0.0.1&quot;</span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">By default the API server listens on a random open port.</span></span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">You may choose a specific port but probably don<span class="string">&#x27;t need to in most cases.</span></span></span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash"><span class="string">Using a random port makes it easier to spin up multiple clusters.</span></span></span><br><span class="line">  apiServerPort: 6443</span><br></pre></td></tr></table></figure>
+<h5 id="Pod-Subnet"><a href="#Pod-Subnet" class="headerlink" title="Pod Subnet"></a>Pod Subnet</h5><p>自定义 pod IP 地址范围：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">networking:</span><br><span class="line">  podSubnet: &quot;10.244.0.0/16&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="Service-Subnet"><a href="#Service-Subnet" class="headerlink" title="Service Subnet"></a>Service Subnet</h5><p>自定义 service IP 地址范围：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">networking:</span><br><span class="line">  serviceSubnet: &quot;10.96.0.0/12&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="禁用默认-CNI"><a href="#禁用默认-CNI" class="headerlink" title="禁用默认 CNI"></a>禁用默认 CNI</h5><p>KIND 附带了一个简单的网络实现（“kindnetd”），它基于标准 CNI 插件（<code>ptp</code>，<code>host local</code>，…）和简单的 netlink 路由。</p>
+<p>这个 CNI 也处理 IP 伪装。</p>
+<p>您可以禁用默认值以安装其他 CNI。这是一个高级用户功能，支持有限，但已知许多常见的 CNI 清单可以工作，例如 Calico。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">networking:</span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">the default CNI will not be installed</span></span><br><span class="line">  disableDefaultCNI: true</span><br></pre></td></tr></table></figure>
+<h5 id="kube-proxy-mode"><a href="#kube-proxy-mode" class="headerlink" title="kube-proxy mode"></a>kube-proxy mode</h5><p>kube-proxy mode 可选 iptables 和 ipvs，默认使用的 iptables。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">networking:</span><br><span class="line">  kubeProxyMode: &quot;ipvs&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="Nodes"><a href="#Nodes" class="headerlink" title="Nodes"></a>Nodes</h4><p> <code>kind: Cluster</code> 的 <code>nodes</code> 字段如果不设置，默认时这样的（即仅有一个 control plane）:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="comment"># one node hosting a control plane</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br></pre></td></tr></table></figure>
+<p>多节点群集示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="comment"># One control plane node and three &quot;workers&quot;.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># While these will not add more real compute capacity and</span></span><br><span class="line"><span class="comment"># have limited isolation, this can be useful for testing</span></span><br><span class="line"><span class="comment"># rolling updates etc.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The API-server and other control plane components will be</span></span><br><span class="line"><span class="comment"># on the control-plane node.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># You probably don&#x27;t need this unless you are testing Kubernetes itself.</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br></pre></td></tr></table></figure>
+<p>可以通过设置 node 的容器镜像版本运行指定版本的 kubernetes 群集。可以在<a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind/releases">官方 release 页面中</a>中查找需要镜像 tag，带上 <code>sha256</code> shasum，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">nodes:</span><br><span class="line">- role: control-plane</span><br><span class="line">- role: worker</span><br><span class="line">  image: kindest/node:v1.16.4@sha256:b91a2c2317a000f3a783489dfb755064177dbc3a0b2f4147d50f04825d016f55</span><br></pre></td></tr></table></figure>
+<h3 id="6-3-Per-Node-选项"><a href="#6-3-Per-Node-选项" class="headerlink" title="6.3 Per-Node 选项"></a>6.3 Per-Node 选项</h3><p>以下选项适用于 <code>nodes</code>，并非所有的选项列入文档，可以关注官网文档的更新。</p>
+<h4 id="Extra-Mounts"><a href="#Extra-Mounts" class="headerlink" title="Extra Mounts"></a>Extra Mounts</h4><p>附加挂载可以用来将主机上的存储挂载到 Node 上，用于持久保存数据。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="comment"># add a mount from /path/to/my/files on the host to /files on the node</span></span><br><span class="line">  <span class="attr">extraMounts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hostPath:</span> <span class="string">/path/to/my/files/</span></span><br><span class="line">    <span class="attr">containerPath:</span> <span class="string">/files</span></span><br></pre></td></tr></table></figure>
+<h4 id="Extra-Port-Mappings"><a href="#Extra-Port-Mappings" class="headerlink" title="Extra Port Mappings"></a>Extra Port Mappings</h4><p>附加端口映射可以将端口转发到 Kind 节点。这是一个跨平台的选项，可以将流量引入 Kind 群集。</p>
+<p>使用 Linux 上的 docker，您可以简单地将流量从主机发送到节点 IP，但要在 macOS 和 Windows，您需要使用这些设置才能实现。</p>
+<p>另外也可以使用 ingress 转发流量。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="comment"># port forward 80 on the host to 80 on this node</span></span><br><span class="line">  <span class="attr">extraPortMappings:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">hostPort:</span> <span class="number">80</span></span><br><span class="line">    <span class="comment"># optional: set the bind address on the host</span></span><br><span class="line">    <span class="comment"># 0.0.0.0 is the current default</span></span><br><span class="line">    <span class="attr">listenAddress:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="comment"># optional: set the protocol to one of TCP, UDP, SCTP.</span></span><br><span class="line">    <span class="comment"># TCP is the default</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br></pre></td></tr></table></figure>
+<h4 id="Kubeadm-Config-Patches"><a href="#Kubeadm-Config-Patches" class="headerlink" title="Kubeadm Config Patches"></a>Kubeadm Config Patches</h4><p>KIND 使用 <a target="_blank" rel="noopener" href="https://kind.sigs.k8s.io/docs/design/principles/#leverage-existing-tooling"><code>kubeadm</code></a> 配置群集节点。</p>
+<p>KIND 在第一个控制平面节点上运行“kubeadm init”，该节点可以使用 kubeadm <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-init/#config-file">InitConfiguration</a> (<a target="_blank" rel="noopener" href="https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1beta2#InitConfiguration">spec</a>) 进行自定义配置。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">    kind: InitConfiguration</span></span><br><span class="line"><span class="string">    nodeRegistration:</span></span><br><span class="line"><span class="string">      kubeletExtraArgs:</span></span><br><span class="line"><span class="string">        node-labels: &quot;my-label=true&quot;</span></span><br></pre></td></tr></table></figure>
+<p>在 KIND 群集其他节点配置中，包括 worker 或者 control-plane (in HA mode), KIND 运行 <code>kubeadm join</code> 命令参数，可以通过 <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-join/#config-file">JoinConfiguration</a> (<a target="_blank" rel="noopener" href="https://godoc.org/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1beta2#JoinConfiguration">spec</a>) 进行自定义配置。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">worker</span></span><br><span class="line">  <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">    kind: JoinConfiguration</span></span><br><span class="line"><span class="string">    nodeRegistration:</span></span><br><span class="line"><span class="string">      kubeletExtraArgs:</span></span><br><span class="line"><span class="string">        node-labels: &quot;my-label2=true&quot;</span></span><br><span class="line"><span class="string"></span><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">    kind: JoinConfiguration</span></span><br><span class="line"><span class="string">    nodeRegistration:</span></span><br><span class="line"><span class="string">      kubeletExtraArgs:</span></span><br><span class="line"><span class="string">        node-labels: &quot;my-label3=true&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="7-部署-Dashboard"><a href="#7-部署-Dashboard" class="headerlink" title="7. 部署 Dashboard"></a>7. 部署 Dashboard</h2><p>直接部署 Dashboard，运行命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml</span><br></pre></td></tr></table></figure>
+<p>验证：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po,svc -n kubernetes-dashboard</span><br><span class="line">NAME                                             READY   STATUS    RESTARTS   AGE</span><br><span class="line">pod/dashboard-metrics-scraper-7b59f7d4df-f7j7h   1/1     Running   0          90s</span><br><span class="line">pod/kubernetes-dashboard-74d688b6bc-s9wts        1/1     Running   0          89s</span><br><span class="line"></span><br><span class="line">NAME                                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE</span><br><span class="line">service/dashboard-metrics-scraper   ClusterIP   10.96.228.22   &lt;none&gt;        8000/TCP   90s</span><br><span class="line">service/kubernetes-dashboard        ClusterIP   10.96.160.22   &lt;none&gt;        443/TCP    91s</span><br></pre></td></tr></table></figure>
+<p>创建 <code>ClusterRoleBinding</code> 获得群集 admin 访问权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl create clusterrolebinding default-admin --clusterrole cluster-admin --serviceaccount=default:default</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">提示：</span></span><br><span class="line">clusterrolebinding.rbac.authorization.k8s.io/default-admin created</span><br></pre></td></tr></table></figure>
+<p>创建登录 Dashboard 的 token：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">token=$(kubectl get secrets -o jsonpath=&quot;&#123;.items[?(@.metadata.annotations[&#x27;kubernetes\.io/service-account\.name&#x27;]==&#x27;default&#x27;)].data.token&#125;&quot;|base64 --decode)</span><br></pre></td></tr></table></figure>
+<p>使用 <code>echo</code> 显示 token：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $token</span><br></pre></td></tr></table></figure>
+<p>记得保存一下 token</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $token &gt; dashboard-token.txt</span><br><span class="line">cat dashboard-token.txt</span><br></pre></td></tr></table></figure>
+<p>使用 kubectl 命令访问 Dashboard，命令如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl proxy</span><br><span class="line"></span><br><span class="line">Starting to serve on 127.0.0.1:8001</span><br></pre></td></tr></table></figure>
+<p>点击 <a target="_blank" rel="noopener" href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/">Kubernetes Dashboard</a> 使用上述 token 登录 Dashboard</p>
+<p>也可以通过 ingress 来访问 Dashboard。</p>
+<h2 id="8-部署-ingress"><a href="#8-部署-ingress" class="headerlink" title="8. 部署 ingress"></a>8. 部署 ingress</h2><p>在创建群集时，需要使用 KIND 的 extraPortMapping 配置选项将端口从主机转发到运行在节点上的入口控制器。</p>
+<p>然后部署一个 Ingress controller，已知以下几个 ingress controllers 可以支持 kind：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://kind.sigs.k8s.io/docs/user/ingress/#ambassador">Ambassador</a></li>
+<li><a target="_blank" rel="noopener" href="https://kind.sigs.k8s.io/docs/user/ingress/#contour">Contour</a></li>
+<li><a target="_blank" rel="noopener" href="https://kind.sigs.k8s.io/docs/user/ingress/#ingress-nginx">Ingress NGINX</a></li>
+</ul>
+<p>这里以 ingress-nginx 为例：</p>
+<h3 id="创建一个群集"><a href="#创建一个群集" class="headerlink" title="创建一个群集"></a>创建一个群集</h3><p>使用 extraPortMappings 和 node-labels 配置选项创建一个群集。</p>
+<ul>
+<li><strong>extraPortMappings</strong> 允许本地主机转发请求到 Ingress controller 的 80/443 端口</li>
+<li><strong>node-labels</strong> 允许 ingress controller 运行在指定的 node 上</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF | kind create cluster --config=-</span><br><span class="line">kind: Cluster</span><br><span class="line">apiVersion: kind.x-k8s.io/v1alpha4</span><br><span class="line">nodes:</span><br><span class="line">- role: control-plane</span><br><span class="line">  kubeadmConfigPatches:</span><br><span class="line">  - |</span><br><span class="line">    kind: InitConfiguration</span><br><span class="line">    nodeRegistration:</span><br><span class="line">      kubeletExtraArgs:</span><br><span class="line">        node-labels: &quot;ingress-ready=true&quot;</span><br><span class="line">  extraPortMappings:</span><br><span class="line">  - containerPort: 80</span><br><span class="line">    hostPort: 80</span><br><span class="line">    protocol: TCP</span><br><span class="line">  - containerPort: 443</span><br><span class="line">    hostPort: 443</span><br><span class="line">    protocol: TCP</span><br><span class="line">- role: worker</span><br><span class="line">- role: worker</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<h3 id="Ingress-NGINX"><a href="#Ingress-NGINX" class="headerlink" title="Ingress NGINX"></a>Ingress NGINX</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O kind-ingress-nginx.yaml https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml</span><br><span class="line">kubectl apply -f kind-ingress-nginx.yaml</span><br></pre></td></tr></table></figure>
+<p>注意：image 来自 k8s.gcr.io，需要文明访问。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">image: k8s.gcr.io/ingress-nginx/controller:v0.35.0@sha256:fc4979d8b8443a831c9789b5155cded454cb7de737a8b727bc2ba0106d2eae8b</span></span><br><span class="line">image: scofield/ingress-nginx-controller:v0.35.0</span><br></pre></td></tr></table></figure>
+<p>执行如下命令等待部署完成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl wait --namespace ingress-nginx \</span><br><span class="line">  --for=condition=ready pod \</span><br><span class="line">  --selector=app.kubernetes.io/component=controller \</span><br><span class="line">  --timeout=90s</span><br></pre></td></tr></table></figure>
+<p>或者执行命令验证部署：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl get po,svc -n ingress-nginx</span><br><span class="line">kubectl get po,svc -n ingress-nginx -o wide</span><br></pre></td></tr></table></figure>
+<h3 id="测试-Ingress"><a href="#测试-Ingress" class="headerlink" title="测试 Ingress"></a>测试 Ingress</h3><p>使用官方提供的 http-echo 应用来测试，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">foo-app</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">foo</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">foo-app</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">hashicorp/http-echo:0.2.3</span></span><br><span class="line">    <span class="attr">args:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;-text=foo&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">foo-service</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">foo</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="comment"># Default port used by the image</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">5678</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">bar-app</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">bar</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">bar-app</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">hashicorp/http-echo:0.2.3</span></span><br><span class="line">    <span class="attr">args:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;-text=bar&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">bar-service</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">bar</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="comment"># Default port used by the image</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">5678</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">example-ingress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">http:</span></span><br><span class="line">      <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/foo</span></span><br><span class="line">        <span class="attr">backend:</span></span><br><span class="line">          <span class="attr">serviceName:</span> <span class="string">foo-service</span></span><br><span class="line">          <span class="attr">servicePort:</span> <span class="number">5678</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/bar</span></span><br><span class="line">        <span class="attr">backend:</span></span><br><span class="line">          <span class="attr">serviceName:</span> <span class="string">bar-service</span></span><br><span class="line">          <span class="attr">servicePort:</span> <span class="number">5678</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>直接应用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/usage.yaml</span><br></pre></td></tr></table></figure>
+<p>测试效果如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">should output <span class="string">&quot;foo&quot;</span></span></span><br><span class="line">curl localhost/foo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">should output <span class="string">&quot;bar&quot;</span></span></span><br><span class="line">curl localhost/bar</span><br></pre></td></tr></table></figure>
+<h3 id="ingress-dashboard"><a href="#ingress-dashboard" class="headerlink" title="ingress dashboard"></a>ingress dashboard</h3><p>本例使用受信任的 SSL 证书，通过 ingress 以 https 发布 Dashboard。</p>
+<p>部署受信任的 SSL 证书</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 secret，在 ingress 不能直接使用证书需要转换为 secret 才能使用</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">key 和 cert 都为 PEM 格式，cert 包含证书文件和证书链部分</span></span><br><span class="line">kubectl create secret tls dashboard-ingress-tls --key dashboard-ingress.key --cert dashboard-ingress.crt -n kubernetes-dashboard</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 secret 内容</span></span><br><span class="line">kubectl get secret dashboard-ingress-tls -n kubernetes-dashboard -o yaml</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除命令</span></span><br><span class="line">kubectl delete secret dashboard-ingress-tls -n kubernetes-dashboard</span><br></pre></td></tr></table></figure>
+<p>配置 ingress 转发文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi dashboard-ingress.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">annotations:</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/ingress.class:</span> <span class="string">&quot;nginx&quot;</span></span><br><span class="line">    <span class="attr">nginx.ingress.kubernetes.io/backend-protocol:</span> <span class="string">&quot;HTTPS&quot;</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">kubernetes-dashboard-ingress</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">tls:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">secretName:</span> <span class="string">dashboard-ingress-tls</span> <span class="comment">#上述创建的secret</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">host:</span> <span class="string">k8s.sysin.org</span> <span class="comment">#域名</span></span><br><span class="line">      <span class="attr">http:</span></span><br><span class="line">        <span class="attr">paths:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">/</span></span><br><span class="line">          <span class="attr">backend:</span></span><br><span class="line">            <span class="attr">serviceName:</span> <span class="string">kubernetes-dashboard</span></span><br><span class="line">            <span class="attr">servicePort:</span> <span class="number">443</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>host: 对应的域名<br>path: url上下文<br>backend: 后向转发到对应的 serviceName: 和 servicePort:</p>
+</blockquote>
+<p>注意，dashboard 默认使用 https 提供服务，ingress 默认 backend-protocol 使用 http，这里发布成功的关键是要添加 annotations 参数：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">annotations:</span><br><span class="line">  nginx.ingress.kubernetes.io/ingress.class: &quot;nginx&quot;</span><br><span class="line">  nginx.ingress.kubernetes.io/backend-protocol: &quot;HTTPS&quot;</span><br></pre></td></tr></table></figure>
+<p>部署：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f dashboard-ingress.yaml</span><br></pre></td></tr></table></figure>
+<p>部署成功后可以通过域名访问：<a target="_blank" rel="noopener" href="https://k8s.sysin.org">https://k8s.sysin.org</a></p>
+<h2 id="9-Istio"><a href="#9-Istio" class="headerlink" title="9. Istio"></a>9. Istio</h2><p>准备群集：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">cat</span> <span class="string">&lt;&lt;EOF</span> <span class="string">|</span> <span class="string">kind</span> <span class="string">create</span> <span class="string">cluster</span> <span class="string">--config=-</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kind.x-k8s.io/v1alpha4</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Cluster</span></span><br><span class="line"><span class="attr">networking:</span></span><br><span class="line">  <span class="attr">apiServerAddress:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">  <span class="attr">apiServerPort:</span> <span class="number">6443</span></span><br><span class="line">  <span class="attr">podSubnet:</span> <span class="string">&quot;10.218.0.0/16&quot;</span> <span class="comment">#default: &quot;10.244.0.0/16&quot;</span></span><br><span class="line">  <span class="attr">serviceSubnet:</span> <span class="string">&quot;10.1.0.0/16&quot;</span> <span class="comment">#default: &quot;10.96.0.0/12&quot;</span></span><br><span class="line">  <span class="comment">#disableDefaultCNI: true</span></span><br><span class="line"><span class="attr">nodes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">role:</span> <span class="string">control-plane</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">kindest/node:latest</span></span><br><span class="line">  <span class="attr">kubeadmConfigPatches:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">|</span></span><br><span class="line"><span class="string">    kind: InitConfiguration</span></span><br><span class="line"><span class="string">    nodeRegistration:</span></span><br><span class="line"><span class="string">      kubeletExtraArgs:</span></span><br><span class="line"><span class="string">        node-labels: &quot;ingress-ready=true&quot;</span></span><br><span class="line"><span class="string"></span>  <span class="attr">extraPortMappings:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">30000</span></span><br><span class="line">    <span class="attr">hostPort:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">listenAddress:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">30001</span></span><br><span class="line">    <span class="attr">hostPort:</span> <span class="number">443</span></span><br><span class="line">    <span class="attr">listenAddress:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">30002</span></span><br><span class="line">    <span class="attr">hostPort:</span> <span class="number">15021</span></span><br><span class="line">    <span class="attr">listenAddress:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<p>继续</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Calico</span></span><br><span class="line">curl https://docs.projectcalico.org/manifests/calico.yaml | kubectl apply -f -</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CoreDNS</span></span><br><span class="line">kubectl scale deployment --replicas 1 coredns --namespace kube-system</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Metrics Server</span></span><br><span class="line">helm repo add stable https://kubernetes-charts.storage.googleapis.com</span><br><span class="line">helm repo update</span><br><span class="line">helm upgrade metrics-server --install --set &quot;args=&#123;--kubelet-insecure-tls, --kubelet-preferred-address-types=InternalIP&#125;&quot; stable/metrics-server --namespace kube-system</span><br></pre></td></tr></table></figure>
+<p>下载当前版本 istio：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://istio.io/downloadIstio | sh -</span><br></pre></td></tr></table></figure>
+<p>下载指定版本 istio：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.8.0 TARGET_ARCH=x86_64 sh -</span><br></pre></td></tr></table></figure>
+<p>切换到 istio 目录，这里是 `istio-1.8.0:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd istio-1.8.0</span><br></pre></td></tr></table></figure>
+<p>添加 <code>istioctl</code> 到环境变量 (Linux or macOS):</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PWD/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>默认安装：</p>
+<p>例如使用 <code>demo</code> <a target="_blank" rel="noopener" href="https://istio.io/latest/docs/setup/additional-setup/config-profiles/">configuration profile</a> 安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">istioctl install --set profile=demo</span><br><span class="line"></span><br><span class="line">✔ Istio core installed</span><br><span class="line">✔ Istiod installed</span><br><span class="line">✔ Egress gateways installed</span><br><span class="line">✔ Ingress gateways installed</span><br><span class="line">✔ Installation complete</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>由于 kind 的特殊性，需要特定的配置文件来运行 Istio。</p>
+</blockquote>
+<p>定制安装：</p>
+<p>创建配置文件：istio-demo-kind.yaml</p>
+<blockquote>
+<p>对于 istiod 组件，将 HPA maxReplicas 设置为 1，以保证有足够的备用容量来处理工作负载。</p>
+<p>然后需要使用 overlay 覆盖 PodDisruptionBudget 并将其设置为 0。否则，由于不满足 PodDisruptionBudget，Istio 升级将不会成功。</p>
+<p>此外，指定一个 nodeSelector，以确保在 Kind 多节点群集的情况下，Istio 入口网关始终在特定节点上运行。</p>
+<p>默认情况下，入口网关使用服务类型 LoadBalancer，该服务类型在 Kind 上不起作用，因为缺少 SLB（软件负载平衡器）实现。</p>
+<p>因此，我们必须切换到 NodePort 类型，以在 localhost / 主机接口上暴露 ingress gateway。</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">install.istio.io/v1alpha1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">IstioOperator</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">addonComponents:</span></span><br><span class="line">    <span class="attr">grafana:</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">kiali:</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">prometheus:</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">components:</span></span><br><span class="line">    <span class="attr">base:</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">cni:</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ingressGateways:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">k8s:</span></span><br><span class="line">        <span class="attr">hpaSpec:</span></span><br><span class="line">          <span class="attr">maxReplicas:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">nodeSelector:</span></span><br><span class="line">          <span class="attr">ingress-ready:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line">        <span class="attr">service:</span></span><br><span class="line">          <span class="attr">type:</span> <span class="string">NodePort</span></span><br><span class="line">        <span class="attr">overlays:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line">          <span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">istio-ingressgateway</span></span><br><span class="line">          <span class="attr">patches:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">spec.ports</span></span><br><span class="line">            <span class="attr">value:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">status-port</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">15021</span></span><br><span class="line">              <span class="attr">targetPort:</span> <span class="number">15021</span></span><br><span class="line">              <span class="attr">nodePort:</span> <span class="number">30002</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">http2</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line">              <span class="attr">targetPort:</span> <span class="number">8080</span></span><br><span class="line">              <span class="attr">nodePort:</span> <span class="number">30000</span></span><br><span class="line">            <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">https</span></span><br><span class="line">              <span class="attr">port:</span> <span class="number">443</span></span><br><span class="line">              <span class="attr">targetPort:</span> <span class="number">8443</span></span><br><span class="line">              <span class="attr">nodePort:</span> <span class="number">30001</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">policy/v1beta1</span></span><br><span class="line">          <span class="attr">kind:</span> <span class="string">PodDisruptionBudget</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">istio-ingressgateway</span></span><br><span class="line">          <span class="attr">patches:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">spec.minAvailable</span></span><br><span class="line">            <span class="attr">value:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">pilot:</span></span><br><span class="line">      <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">k8s:</span></span><br><span class="line">        <span class="attr">hpaSpec:</span></span><br><span class="line">          <span class="attr">maxReplicas:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">overlays:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">apiVersion:</span> <span class="string">policy/v1beta1</span></span><br><span class="line">          <span class="attr">kind:</span> <span class="string">PodDisruptionBudget</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">istiod</span></span><br><span class="line">          <span class="attr">patches:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">spec.minAvailable</span></span><br><span class="line">            <span class="attr">value:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">meshConfig:</span></span><br><span class="line">    <span class="attr">accessLogFile:</span> <span class="string">&quot;/dev/stdout&quot;</span></span><br><span class="line">    <span class="attr">accessLogEncoding:</span> <span class="string">&quot;JSON&quot;</span></span><br><span class="line">  <span class="attr">values:</span></span><br><span class="line">    <span class="attr">global:</span></span><br><span class="line">      <span class="attr">controlPlaneSecurityEnabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">cni:</span></span><br><span class="line">      <span class="attr">excludeNamespaces:</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">istio-system</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">kube-system</span></span><br><span class="line">    <span class="attr">gateways:</span></span><br><span class="line">      <span class="attr">istio-ingressgateway:</span></span><br><span class="line">        <span class="attr">sds:</span></span><br><span class="line">          <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">sidecarInjectorWebhook:</span></span><br><span class="line">      <span class="attr">rewriteAppHTTPProbe:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">istioctl install -f istio-demo-kind.yaml</span><br></pre></td></tr></table></figure>
+<p>限于篇幅和 Istio 的复杂度，后续考虑用单独文章描述该内容。</p>
+<h2 id="10-限制"><a href="#10-限制" class="headerlink" title="10. 限制"></a>10. 限制</h2><p>kind 部署 kubernetes 群集相当方便，可以快速部署多个群集。但在群集的配置和更新上有明显弊端，只能通过重新创建群集来配置和更新群集。所以在初始化群集的时候需要考虑好配置选项。当然我们只是用于测试环境，也无大碍。</p>
+<h2 id="11-云主机推荐"><a href="#11-云主机推荐" class="headerlink" title="11. 云主机推荐"></a>11. 云主机推荐</h2><p><a target="_blank" rel="noopener" href="https://www.aliyun.com/1111/new?userCode=ne0pli3k">阿里云 云服务器新用户专享 1核2G ￥96.90/年起</a>（具体活动可能有所变动，官网显示为准）</p>
+<p><a target="_blank" rel="noopener" href="https://www.aliyun.com/1111/new?userCode=ne0pli3k"><img src="aliyun.webp" alt="阿里云促销"></a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://curl.qcloud.com/IQz7k8Kc">【腾讯云】云产品限时秒杀，爆款1核2G云服务器，首年99元</a>（具体活动可能有所变动，官网显示为准）</p>
+<p><a target="_blank" rel="noopener" href="https://curl.qcloud.com/IQz7k8Kc"><img src="qcloud.webp" alt="腾讯云秒杀"></a></p>
+<hr>
+<p>使用体验：</p>
+<ul>
+<li>在 CPU、内存和磁盘性能上两家并无明显体验差别。</li>
+<li>在带宽上，最低都是 1Mbps，根据官方说明不足 10Mbps 的带宽，入站带宽都是10Mbps，出站带宽是实际购买带宽（个人使用一台腾讯云，下载带宽可大 100Mbps）。</li>
+</ul>
+<p>两家有什么区别？</p>
+<ul>
+<li><p>阿里云详细规则页面有提示不支持退订，但可以特殊申请退订。腾讯云上述产品不满意可以直接退款。</p>
+</li>
+<li><p>阿里云基于个人身份识别（比如身份证），一个身份限购一台，新注册账号无效，腾讯云基于账号识别，一个身份可以新注册账号另外在购买一台。</p>
+</li>
+</ul>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/vmware-vsphere-bitfusion-3-5/" data-toggle="tooltip" data-placement="top" title="VMware vSphere Bitfusion 3.5 - 面向 AI 和 ML 应用提供弹性基础架构">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/disable-macos-big-sur-update/" data-toggle="tooltip" data-placement="top" title="如何彻底禁止 macOS Big Sur 自动更新，去除更新标记和通知">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和测试使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://npm.onmicrosoft.cn/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://comment.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/kind/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，QQ、微博等联合登录已关闭，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-kind-%E6%9E%B6%E6%9E%84"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. kind 架构</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%AE%89%E8%A3%85-Kind"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 安装 Kind</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E6%93%8D%E4%BD%9C%E5%85%A5%E9%97%A8"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 操作入门</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">创建群集</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%A0%E9%99%A4%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">删除群集</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B0%86%E9%95%9C%E5%83%8F%E5%8A%A0%E8%BD%BD%E5%88%B0-kind-%E7%BE%A4%E9%9B%86%E4%B8%AD"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">将镜像加载到 kind 群集中</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E9%85%8D%E7%BD%AE-kind-%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 配置 kind 群集</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Multi-node-clusters"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Multi-node clusters</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Control-plane-HA"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">Control-plane HA</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B0%86-node-%E7%9A%84%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E5%88%B0%E4%B8%BB%E6%9C%BA"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">将 node 的端口映射到主机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8C%87%E5%AE%9A-Kubernetes-%E7%9A%84%E7%89%88%E6%9C%AC"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">指定 Kubernetes 的版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#IPv6-clusters"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">IPv6 clusters</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AF%BC%E5%87%BA-Cluster-%E6%97%A5%E5%BF%97"><span class="toc-nav-number">5.6.</span> <span class="toc-nav-text">导出 Cluster 日志</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E9%85%8D%E7%BD%AE%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 配置概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-1-%E5%85%A5%E9%97%A8"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">6.1 入门</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-2-Cluster-Wide-%E9%80%89%E9%A1%B9"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">6.2 Cluster-Wide 选项</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Networking"><span class="toc-nav-number">6.2.1.</span> <span class="toc-nav-text">Networking</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#IP-Family"><span class="toc-nav-number">6.2.1.1.</span> <span class="toc-nav-text">IP Family</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#API-Server"><span class="toc-nav-number">6.2.1.2.</span> <span class="toc-nav-text">API Server</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Pod-Subnet"><span class="toc-nav-number">6.2.1.3.</span> <span class="toc-nav-text">Pod Subnet</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Service-Subnet"><span class="toc-nav-number">6.2.1.4.</span> <span class="toc-nav-text">Service Subnet</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E9%BB%98%E8%AE%A4-CNI"><span class="toc-nav-number">6.2.1.5.</span> <span class="toc-nav-text">禁用默认 CNI</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#kube-proxy-mode"><span class="toc-nav-number">6.2.1.6.</span> <span class="toc-nav-text">kube-proxy mode</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Nodes"><span class="toc-nav-number">6.2.2.</span> <span class="toc-nav-text">Nodes</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-3-Per-Node-%E9%80%89%E9%A1%B9"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">6.3 Per-Node 选项</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Extra-Mounts"><span class="toc-nav-number">6.3.1.</span> <span class="toc-nav-text">Extra Mounts</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Extra-Port-Mappings"><span class="toc-nav-number">6.3.2.</span> <span class="toc-nav-text">Extra Port Mappings</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Kubeadm-Config-Patches"><span class="toc-nav-number">6.3.3.</span> <span class="toc-nav-text">Kubeadm Config Patches</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E9%83%A8%E7%BD%B2-Dashboard"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 部署 Dashboard</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E9%83%A8%E7%BD%B2-ingress"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">8. 部署 ingress</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">8.1.</span> <span class="toc-nav-text">创建一个群集</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ingress-NGINX"><span class="toc-nav-number">8.2.</span> <span class="toc-nav-text">Ingress NGINX</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B5%8B%E8%AF%95-Ingress"><span class="toc-nav-number">8.3.</span> <span class="toc-nav-text">测试 Ingress</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ingress-dashboard"><span class="toc-nav-number">8.4.</span> <span class="toc-nav-text">ingress dashboard</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-Istio"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">9. Istio</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-%E9%99%90%E5%88%B6"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">10. 限制</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-%E4%BA%91%E4%B8%BB%E6%9C%BA%E6%8E%A8%E8%8D%90"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">11. 云主机推荐</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+            
+            <a class="tag" href="/tags/#Docker" title="Docker">Docker</a>
+            
+            <a class="tag" href="/tags/#kind" title="kind">kind</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://sysin.blog.csdn.net/" target="_blank">CSDN博客</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云•云小站</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://sysin.blog.csdn.net/">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">C</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa  fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
