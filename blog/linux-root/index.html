@@ -492,29 +492,36 @@
 <p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="unix-linux.webp" alt="unix-linux"></p>
-<h2 id="为什么-root-用户所在的群组叫-wheel"><a href="#为什么-root-用户所在的群组叫-wheel" class="headerlink" title="为什么 root 用户所在的群组叫 wheel?"></a>为什么 root 用户所在的群组叫 wheel?</h2><h3 id="在-Unix-中-root-用户所属组就是-wheel"><a href="#在-Unix-中-root-用户所属组就是-wheel" class="headerlink" title="在 Unix 中 root 用户所属组就是 wheel"></a>在 Unix 中 root 用户所属组就是 wheel</h3><p>在 Unix 系统（例如：常见的 macOS 和 FreeBSD），<code>root</code> 用户所在的组称之为 <code>wheel</code>：</p>
+<h2 id="为什么-root-用户所在的群组叫-wheel">为什么 root 用户所在的群组叫 wheel?</h2>
+<h3 id="在-Unix-中-root-用户所属组就是-wheel">在 Unix 中 root 用户所属组就是 wheel</h3>
+<p>在 Unix 系统（例如：常见的 macOS 和 FreeBSD），<code>root</code> 用户所在的组称之为 <code>wheel</code>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id root</span><br><span class="line">uid=0(root) gid=0(wheel) groups=0(wheel)</span><br></pre></td></tr></table></figure>
 <p>Wheel 来源于 “big wheel” 这个俚语，指有强大 “威力” 或 “影响力” 的人。随之而来的就是 TENEX 操作系统发明了 wheel bit，一个允许处理器做一些限制性的操作的“特权 bit”。Unix 操作系统则在上世纪八十年代引入 wheel，这就是为什么 root 用户所在的组称之为 wheel 的来历。</p>
-<p>参考资料：<br>  <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wheel_(computing">Wheel (computing)</a>)。</p>
-<h3 id="Wheel-组概念"><a href="#Wheel-组概念" class="headerlink" title="Wheel 组概念"></a>Wheel 组概念</h3><p>Wheel 组是 Unix 系统一个遗留物。当服务器需要做比日常例行维护更高级的工作的时候，就经常需要用到 root 权限了。而这个 wheel 组就是建立用来归纳一些特殊的系统用户用的，这其中的用户都或多或少地拥有 root 的部分功能和权限。也就是说如果你不是 wheel 组成员，那就没有 root 身上任何的特权。也因为这样，使用 wheel 组成员用户的话，会尽量减少对系统 “摧毁性” 破坏的概率和风险。如今大多数的 Linux 发行版本中 (sysin)，仍然保留了 wheel 这个组，虽然它已经不像当初设计出来的那样必要了，但是有些老玩家还是忠于这种旧式经典风格的，所以他们经常还是依旧让 wheel 组发挥着以往的作用。他们是这样做的：在建立他们自己的用户时，将其添加入 wheel 组中（用 wheel 组作为用户的主组），或者使用 vigr 来编辑 /etc/group 文件，将他们的用户名追加到 wheel 组那行的末尾。</p>
+<p>参考资料：<br>
+<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wheel_(computing)">Wheel (computing)</a>。</p>
+<h3 id="Wheel-组概念">Wheel 组概念</h3>
+<p>Wheel 组是 Unix 系统一个遗留物。当服务器需要做比日常例行维护更高级的工作的时候，就经常需要用到 root 权限了。而这个 wheel 组就是建立用来归纳一些特殊的系统用户用的，这其中的用户都或多或少地拥有 root 的部分功能和权限。也就是说如果你不是 wheel 组成员，那就没有 root 身上任何的特权。也因为这样，使用 wheel 组成员用户的话，会尽量减少对系统 “摧毁性” 破坏的概率和风险。如今大多数的 Linux 发行版本中 (sysin)，仍然保留了 wheel 这个组，虽然它已经不像当初设计出来的那样必要了，但是有些老玩家还是忠于这种旧式经典风格的，所以他们经常还是依旧让 wheel 组发挥着以往的作用。他们是这样做的：在建立他们自己的用户时，将其添加入 wheel 组中（用 wheel 组作为用户的主组），或者使用 vigr 来编辑 /etc/group 文件，将他们的用户名追加到 wheel 组那行的末尾。</p>
 <p>但是在 Linux 各发行版中有所差异。</p>
 <p>实际上 Debian 系发行版，包括 Ubuntu 等，并没有 wheel 组。wheel 组主要存在与 Redhat 系发行版（RHEL/Fedora/CentOS）中。</p>
 <p>简单的说，在 Linux 上 root 账号所属的组是 root，并不是 wheel，部分 Linux 发行版使用 wheel 组获取 root 权限是通过 sudo 配置实现的，以下会有详细描述。</p>
-<h3 id="CentOS-中的-wheel-组"><a href="#CentOS-中的-wheel-组" class="headerlink" title="CentOS 中的 wheel 组"></a>CentOS 中的 wheel 组</h3><blockquote>
+<h3 id="CentOS-中的-wheel-组">CentOS 中的 wheel 组</h3>
+<blockquote>
 <p>注：这里的 CentOS 也适用于其他 Redhat 发行版，下同。</p>
 </blockquote>
 <p>root GID 为 0，Wheel GID 为 10，不同于 Unix 中 Wheel GID 为 0.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id root</span><br><span class="line">uid=0(root) gid=0(root) groups=0(root)</span><br><span class="line"></span><br><span class="line">cat /etc/group | grep wheel</span><br><span class="line">wheel:x:10</span><br></pre></td></tr></table></figure>
 <p>将新建用户加入到 wheel 组中即可获得 root 权限，即通过 sudo 命令执行 root 权限的操作（默认需要输入当前用户的密码）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -G wheel sysin  #一般使用 -G 修改附加数组即可</span><br></pre></td></tr></table></figure>
-<h3 id="Ubuntu-中没有-wheel-组"><a href="#Ubuntu-中没有-wheel-组" class="headerlink" title="Ubuntu 中没有 wheel 组"></a>Ubuntu 中没有 wheel 组</h3><blockquote>
+<h3 id="Ubuntu-中没有-wheel-组">Ubuntu 中没有 wheel 组</h3>
+<blockquote>
 <p>注：这里的 Ubuntu 也适用于其他 Debian 系发行版，例如 KALI 等。</p>
 </blockquote>
 <p>Ubuntu 中并没有 wheel 组，使用 sudo 组替代（可以理解为），GID 为 27。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/group | grep sudo</span><br><span class="line">sudo:x:27:</span><br></pre></td></tr></table></figure>
 <p>将新建用户加入到 sudo 组中即可获得 root 权限，即通过 sudo 命令执行 root 权限的操作（默认需要输入当前用户的密码）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -G sudo sysin  #一般使用 -G 修改附加数组即可</span><br></pre></td></tr></table></figure>
-<h2 id="创建管理员账号的正确姿势（默认配置）"><a href="#创建管理员账号的正确姿势（默认配置）" class="headerlink" title="创建管理员账号的正确姿势（默认配置）"></a>创建管理员账号的正确姿势（默认配置）</h2><p>在 visudo (/etc/sudoers）默认配置下，创建管理员账号的命令如下：</p>
+<h2 id="创建管理员账号的正确姿势（默认配置）">创建管理员账号的正确姿势（默认配置）</h2>
+<p>在 visudo (/etc/sudoers）默认配置下，创建管理员账号的命令如下：</p>
 <p>CentOS：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -s /bin/bash -G wheel sysin  #sysin 为用户名</span><br><span class="line">passwd sysin  #为 sysin 设置密码</span><br></pre></td></tr></table></figure>
 <p>Ubuntu：</p>
@@ -523,11 +530,13 @@
 <p>-m 创建同名 home 目录</p>
 <p>-s 指定 shell</p>
 <p>-G 修改附加属组</p>
-<h2 id="Linux-添加-root-权限用户的方法详解"><a href="#Linux-添加-root-权限用户的方法详解" class="headerlink" title="Linux 添加 root 权限用户的方法详解"></a>Linux 添加 root 权限用户的方法详解</h2><p>测试环境：CentOS 8，Ubuntu 20.04</p>
+<h2 id="Linux-添加-root-权限用户的方法详解">Linux 添加 root 权限用户的方法详解</h2>
+<p>测试环境：CentOS 8，Ubuntu 20.04</p>
 <p>添加用户，首先用 adduser 命令添加一个普通用户，命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">adduser sysin #添加一个名为 sysin 的用户，交互提示</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 或者使用 useradd 命令</span></span></span><br><span class="line">useradd -m -s /bin/bash sysin</span><br><span class="line">passwd sysin</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-m：自动建立用户的登入目录</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-s：指定用户登入后所使用的 shell</span></span><br></pre></td></tr></table></figure>
 <p>赋予 root 权限可以分别使用以下方法：</p>
-<h3 id="方法一：使用系统默认组权限（推荐）"><a href="#方法一：使用系统默认组权限（推荐）" class="headerlink" title="方法一：使用系统默认组权限（推荐）"></a>方法一：使用系统默认组权限（推荐）</h3><p>wheel 组适用于 CentOS，Ubuntu 中并没有 Wheel 组。</p>
+<h3 id="方法一：使用系统默认组权限（推荐）">方法一：使用系统默认组权限（推荐）</h3>
+<p>wheel 组适用于 CentOS，Ubuntu 中并没有 Wheel 组。</p>
 <ul>
 <li>CentOS</li>
 </ul>
@@ -556,7 +565,8 @@
 <p>修改完毕，现在可以用 sysin 帐号登录，然后用 sudo + 命令，即可获得 root 权限进行操作。</p>
 <p>sudo 不需要密码请修改如下（也可以直接新增一行如下）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Allow members of group sudo to execute any <span class="built_in">command</span></span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">sudo   ALL=(ALL:ALL) NOPASSWD: ALL</span></span><br></pre></td></tr></table></figure>
-<h3 id="方法二：添加用户权限"><a href="#方法二：添加用户权限" class="headerlink" title="方法二：添加用户权限"></a>方法二：添加用户权限</h3><p>该方法在 Linux 中通用。</p>
+<h3 id="方法二：添加用户权限">方法二：添加用户权限</h3>
+<p>该方法在 Linux 中通用。</p>
 <p>修改 /etc/sudoers 文件（visudo），找到下面一行，在 root 下面添加一行。</p>
 <p>也可以在文件尾部添加（比如用 shell 处理的时候）。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Allow root to run any commands anywhere</span></span></span><br><span class="line">root ALL=(ALL) ALL</span><br><span class="line">sysin ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
@@ -565,14 +575,17 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysin   ALL=(ALL)   NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
 <p>直接切换：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
-<h3 id="方法三：修改用户-ID（UID）（不推荐）"><a href="#方法三：修改用户-ID（UID）（不推荐）" class="headerlink" title="方法三：修改用户 ID（UID）（不推荐）"></a>方法三：修改用户 ID（UID）（不推荐）</h3><p>该方法在 Linux 中通用。</p>
+<h3 id="方法三：修改用户-ID（UID）（不推荐）">方法三：修改用户 ID（UID）（不推荐）</h3>
+<p>该方法在 Linux 中通用。</p>
 <p>修改 /etc/passwd 文件，找到如下行，把用户 ID 修改为 0</p>
 <p>因为 UID 与 root 相同，无法区分用户，等同于使用 root 账号的效果。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysin:x:500:500:sysin:/home/sysin:/bin/bash</span><br></pre></td></tr></table></figure>
 <p>修改后如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysin:x:0:500:sysin:/home/sysin:/bin/bash</span><br></pre></td></tr></table></figure>
 <p>保存，用 sysin 账户登录后，直接获取的就是 root 帐号的权限，不需要使用 sudo 命令。</p>
-<h2 id="sudo-和-su"><a href="#sudo-和-su" class="headerlink" title="sudo 和 su"></a>sudo 和 su</h2><h3 id="sudo-简介"><a href="#sudo-简介" class="headerlink" title="sudo 简介"></a>sudo 简介</h3><p>sudo：SuperUser DO，以超级用户（root）执行指令。</p>
+<h2 id="sudo-和-su">sudo 和 su</h2>
+<h3 id="sudo-简介">sudo 简介</h3>
+<p>sudo：SuperUser DO，以超级用户（root）执行指令。</p>
 <p>来源：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/sudo/7337623">百度百科</a></p>
 <p>sudo 是 Linux 系统管理指令，是允许系统管理员让普通用户执行一些或者全部的 root 命令的一个工具，如 halt，reboot，su 等等。这样不仅减少了 root 用户的登录 和管理时间，同样也提高了安全性。sudo 不是对 shell 的一个代替，它是面向每个命令的。</p>
 <p>它的特性主要有这样几点：</p>
@@ -584,7 +597,8 @@
 </ul>
 <p>在 sudo 于 1980 年前后被写出之前，一般用户管理系统的方式是利用 su 切换为超级用户。但是使用 su 的缺点之一在于必须要先告知超级用户的密码</p>
 <p>由于不需要超级用户的密码，部分类 Unix 系统甚至利用 sudo 使一般用户取代超级用户作为管理帐号，例如 macOS、Ubuntu等。</p>
-<h3 id="修改-sudo-输入密码时间限制"><a href="#修改-sudo-输入密码时间限制" class="headerlink" title="修改 sudo 输入密码时间限制"></a>修改 sudo 输入密码时间限制</h3><p>在 Linux 系统，sudo 会话时间限制，比如 Ubuntu 为 15 分钟（CentOS 据说是 5 分钟），即超过这个时间执行 sudo 指令需要重新输入密码，可以修改时间：</p>
+<h3 id="修改-sudo-输入密码时间限制">修改 sudo 输入密码时间限制</h3>
+<p>在 Linux 系统，sudo 会话时间限制，比如 Ubuntu 为 15 分钟（CentOS 据说是 5 分钟），即超过这个时间执行 sudo 指令需要重新输入密码，可以修改时间：</p>
 <p><code>sudo visudo</code> 或者 <code>sudo vi /etc/sudoers</code> (当然 root 账号无需 sudo)</p>
 <p>找到 Defaults env_reset</p>
 <p>修改为</p>
@@ -596,18 +610,28 @@
 <blockquote>
 <p>sudo 不需要密码配置上述部分有所描述。</p>
 </blockquote>
-<h3 id="su-简介"><a href="#su-简介" class="headerlink" title="su 简介"></a>su 简介</h3><p>su：su（英文：switch user，中译：切换用户)，普通用户切换至超级用户、其他用户或临时拥有切换用户的权限，切换需要输入密码；超级用户也可切换至普通用户，以临时低权限身份处理事务，此时无需输入密码。</p>
-<h3 id="sudo-su-用法"><a href="#sudo-su-用法" class="headerlink" title="sudo su 用法"></a>sudo su 用法</h3><ul>
-<li><code>su 用户名</code>：输入密码后切换到该用户但是 pwd 目录不变（root 切换到其他用户无需输入密码）</li>
-<li><p><code>su - 用户名</code>：输入密码后切换该用户但是 pwd 目录变为该用户的 home 目录（root 切换到其他用户无需输入密码）</p>
+<h3 id="su-简介">su 简介</h3>
+<p>su：su（英文：switch user，中译：切换用户)，普通用户切换至超级用户、其他用户或临时拥有切换用户的权限，切换需要输入密码；超级用户也可切换至普通用户，以临时低权限身份处理事务，此时无需输入密码。</p>
+<h3 id="sudo-su-用法">sudo su 用法</h3>
+<ul>
+<li>
+<p><code>su 用户名</code>：输入密码后切换到该用户但是 pwd 目录不变（root 切换到其他用户无需输入密码）</p>
 </li>
-<li><p><code>sudo 要执行的命令</code>：输入密码后执行要求 root 权限的命令</p>
+<li>
+<p><code>su - 用户名</code>：输入密码后切换该用户但是 pwd 目录变为该用户的 home 目录（root 切换到其他用户无需输入密码）</p>
 </li>
-<li><p><code>sudo -i</code>：为了频繁的执行某些只有超级用户才能执行的权限，而不用每次输入密码，可以使用该命令。提示输入密码时该密码为当前账户的密码。没有时间限制。执行该命令后提示符变为“#”而不是“$”。想退回普通账户时可以执行“exit”或“logout”。要求执行该命令的用户必须在sudoers中。与 <code>sudo -i root</code>，<code>sudo - root</code>，<code>sudo -</code>，<code>sudo root</code> 效果相同。</p>
+<li>
+<p><code>sudo 要执行的命令</code>：输入密码后执行要求 root 权限的命令</p>
 </li>
-<li><p><code>sudo su</code> 等于 <code>su root</code>，运行 sudo 命令给 su 命令提权，运行 su 命令。要求执行该命令的用户必须在 sudoers 中才可以。sudo su 运行结果 PWD=/home/用户名（当前用户主目录）。</p>
+<li>
+<p><code>sudo -i</code>：为了频繁的执行某些只有超级用户才能执行的权限，而不用每次输入密码，可以使用该命令。提示输入密码时该密码为当前账户的密码。没有时间限制。执行该命令后提示符变为“#”而不是“$”。想退回普通账户时可以执行“exit”或“logout”。要求执行该命令的用户必须在sudoers中。与 <code>sudo -i root</code>，<code>sudo - root</code>，<code>sudo -</code>，<code>sudo root</code> 效果相同。</p>
 </li>
-<li><code>sudo su -</code> 等于 <code>su - root</code>，其实也就是 <code>sudo -i</code>，有点绕了。。。。。。</li>
+<li>
+<p><code>sudo su</code> 等于 <code>su root</code>，运行 sudo 命令给 su 命令提权，运行 su 命令。要求执行该命令的用户必须在 sudoers 中才可以。sudo su 运行结果 PWD=/home/用户名（当前用户主目录）。</p>
+</li>
+<li>
+<p><code>sudo su -</code> 等于 <code>su - root</code>，其实也就是 <code>sudo -i</code>，有点绕了。。。。。。</p>
+</li>
 </ul>
 
 

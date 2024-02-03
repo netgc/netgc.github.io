@@ -405,7 +405,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">350</span> In Total
+              Words <span class="post-count">352</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -489,14 +489,19 @@
 <hr>
 <p>近日偶然看到一些升级 Hexo 的文章，本站还是基于古老的 Hexo 4 和 Node 12，笔者追随 Zero day 的步伐从未停息，怎可就此止步😄</p>
 <p>以下为简明步骤：</p>
-<h2 id="1-备份当前项目"><a href="#1-备份当前项目" class="headerlink" title="1. 备份当前项目"></a>1. 备份当前项目</h2><p>升级会存在兼容性问题，比如某些插件，特别是模板与新版本不匹配普遍存在。备份以防不时之需。</p>
-<h2 id="2-升级-Node"><a href="#2-升级-Node" class="headerlink" title="2. 升级 Node"></a>2. 升级 Node</h2><p>Hexo 6 支持 Node 当前的 LTS 版本 16，首先升级 Node：</p>
+<h2 id="1-备份当前项目">1. 备份当前项目</h2>
+<p>升级会存在兼容性问题，比如某些插件，特别是模板与新版本不匹配普遍存在。备份以防不时之需。</p>
+<h2 id="2-升级-Node">2. 升级 Node</h2>
+<p>Hexo 6 支持 Node 当前的 LTS 版本 16，首先升级 Node：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">n 是交互式 node.js 版本管理工具</span></span><br><span class="line">sudo npm install -g n</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新到 node 16 LTS</span></span><br><span class="line">sudo n 16</span><br></pre></td></tr></table></figure>
-<h2 id="3-升级-Hexo"><a href="#3-升级-Hexo" class="headerlink" title="3. 升级 Hexo"></a>3. 升级 Hexo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 npm-check 和 npm-upgrade</span></span><br><span class="line">npm install -g npm-check npm-upgrade</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查本地插件版本</span></span><br><span class="line">npm-check</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">交互式升级，根据提示即可完成升级</span></span><br><span class="line">npm-upgrade</span><br></pre></td></tr></table></figure>
+<h2 id="3-升级-Hexo">3. 升级 Hexo</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 npm-check 和 npm-upgrade</span></span><br><span class="line">npm install -g npm-check npm-upgrade</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查本地插件版本</span></span><br><span class="line">npm-check</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">交互式升级，根据提示即可完成升级</span></span><br><span class="line">npm-upgrade</span><br></pre></td></tr></table></figure>
 <p>现在 Hexo 及插件已经升级成功，执行 <code>hexo version</code> 查看版本。</p>
-<h2 id="4-external-link-配置报错"><a href="#4-external-link-配置报错" class="headerlink" title="4. external_link 配置报错"></a>4. external_link 配置报错</h2><p>这是最常见的错误，参看 <a target="_blank" rel="noopener" href="https://hexo.io/news/2020/07/29/hexo-5-released/">Hexo 5.0.0 Released</a></p>
+<h2 id="4-external-link-配置报错">4. external_link 配置报错</h2>
+<p>这是最常见的错误，参看 <a target="_blank" rel="noopener" href="https://hexo.io/news/2020/07/29/hexo-5-released/">Hexo 5.0.0 Released</a></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">_config.yml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deprecated</span></span><br><span class="line"><span class="attr">external_link:</span> <span class="literal">true</span><span class="string">|false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># New option</span></span><br><span class="line"><span class="attr">external_link:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span><span class="string">|false</span></span><br></pre></td></tr></table></figure>
-<h2 id="5-修复模板兼容性"><a href="#5-修复模板兼容性" class="headerlink" title="5. 修复模板兼容性"></a>5. 修复模板兼容性</h2><p>搜索网上文章，一般都是模板出问题较多，这是重点和难点，需要根据模板具体处理，笔者不是前端开发者，颇费周折，好在折腾了一天多终于修复了。</p>
+<h2 id="5-修复模板兼容性">5. 修复模板兼容性</h2>
+<p>搜索网上文章，一般都是模板出问题较多，这是重点和难点，需要根据模板具体处理，笔者不是前端开发者，颇费周折，好在折腾了一天多终于修复了。</p>
 
 
         <hr>
