@@ -401,11 +401,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">10</span> Minutes
+              Estimated Reading Time <span class="post-count">11</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">2.5k</span> In Total
+              Words <span class="post-count">2.6k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -553,16 +553,20 @@
 <li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NbMpztGJbH5oU0tDtnBKTA?pwd=ps1d">https://pan.baidu.com/s/1NbMpztGJbH5oU0tDtnBKTA?pwd=ps1d</a></li>
 </ul>
 <blockquote>
-<p>如果无法正常运行，打开 “终端” 执行：<code>xattr -cr /Applications/Microsoft\ Edge.app</code> 即可。</p>
+<p>如果无法正常运行，参看：<a href="/blog/macos-if-crashes-when-opening/" title="macOS 提示：“应用程序” 已损坏，无法打开的解决方法总结">macOS 提示：“应用程序” 已损坏，无法打开的解决方法总结</a>。</p>
 </blockquote>
 <p>下面我们来看看 Microsoft Edge 是如何自动更新的，以及如何屏蔽。</p>
 <p>在 macOS 中 Microsoft Edge 使用 <code>Microsoft AutoUpdate.app</code>（简称 MAU）和（或者）<code>EdgeUpdater.app</code> 进行自动更新。</p>
-<p>一般从网上下载安装的 pkg 格式的 Microsoft Edge，使用 <code>Microsoft AutoUpdate.app</code>（简称 MAU）进行自动更新，只需要取消加载项、移除其执行权限（或者删除）即可。</p>
+<p>一般从网上下载安装的 pkg 格式的 Microsoft Edge，使用 <code>Microsoft AutoUpdate.app</code>（简称 MAU）进行自动更新，只需要取消加载项、移除其执行权限（或者删除）即可。后来内置了 EdgeUpdater 进行自动更新。总之版本更新一直有所变化。</p>
 <blockquote>
 <p>注意：MAU 是 Microsoft 公用更新程序，安装了 Microsoft 其他应用如 Office，会重新启用该程序，需要再次如下操作。</p>
 </blockquote>
 <p>打开 “终端”，执行如下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">禁止 MAU 自动运行：</span></span><br><span class="line">sudo launchctl remove /Library/LaunchAgents/com.microsoft.update.agent.plist</span><br><span class="line">sudo launchctl unload -w /Library/LaunchDaemons/com.microsoft.autoupdate.helper.plist</span><br><span class="line">sudo chmod -R 644 /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者同时除文件，更加彻底：</span></span><br><span class="line">sudo rm -rf /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app</span><br><span class="line">sudo rm -rf /Library/LaunchAgents/com.microsoft.update.agent.plist</span><br><span class="line">sudo rm -rf /Library/LaunchDaemons/com.microsoft.autoupdate.helper.plist</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：以下文件因版本不同可能不存在或者更改名称，如报错请忽略。</p>
+<p>此操作的目的是删除带有 update 的文件或者文件夹，如有名称变更请反馈，谢谢。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">禁止 MAU 自动运行（可选）：</span></span><br><span class="line">sudo launchctl remove /Library/LaunchAgents/com.microsoft.update.agent.plist</span><br><span class="line">sudo launchctl unload -w /Library/LaunchDaemons/com.microsoft.autoupdate.helper.plist</span><br><span class="line">sudo chmod -R 644 /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除文件，更加彻底：</span></span><br><span class="line">sudo rm -rf /Library/Application\ Support/Microsoft/EdgeUpdater</span><br><span class="line">sudo rm -rf /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app</span><br><span class="line">sudo rm -rf /Library/LaunchAgents/com.microsoft.update.agent.plist</span><br><span class="line">sudo rm -rf /Library/LaunchDaemons/com.microsoft.autoupdate.helper.plist</span><br><span class="line">sudo rm -rf /Library/LaunchDaemons/com.microsoft.EdgeUpdater.*.plist</span><br></pre></td></tr></table></figure>
 <p>如果没有 MAU，Microsoft Edge 将调用内置的 EdgeUpdater 进行自动更新，比如通过 <code>brew install microsoft-edge</code> 安装的版本。另外在删除了 MAU 后也可能直接调用 EdgeUpdater，所以必须同时删除该程序。</p>
 <p>打开 “终端” 执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除内置的 EdgeUpdater.app</span></span><br><span class="line">EDGEVERSION=$(defaults read /Applications/Microsoft\ Edge.app/Contents/Info.plist CFBundleShortVersionString)</span><br><span class="line">sudo rm -rf /Applications/Microsoft\ Edge.app/Contents/Frameworks/Microsoft\ Edge\ Framework.framework/Versions/&quot;$EDGEVERSION&quot;/Helpers/EdgeUpdater.app</span><br></pre></td></tr></table></figure>
@@ -584,6 +588,9 @@
 <ul>
 <li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NbMpztGJbH5oU0tDtnBKTA?pwd=ps1d">https://pan.baidu.com/s/1NbMpztGJbH5oU0tDtnBKTA?pwd=ps1d</a></li>
 </ul>
+<blockquote>
+<p>如果无法正常运行，参看：<a href="/blog/macos-if-crashes-when-opening/" title="macOS 提示：“应用程序” 已损坏，无法打开的解决方法总结">macOS 提示：“应用程序” 已损坏，无法打开的解决方法总结</a>。</p>
+</blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/deployedge/configure-microsoft-edge">Microsoft Edge 策略配置</a></p>
 <p><a target="_blank" rel="noopener" href="https://aka.ms/EdgeEnterprise">Microsoft Edge 下载 (sysin)</a></p>
 <ul>
