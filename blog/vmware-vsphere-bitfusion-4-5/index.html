@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> VMware vSphere Bitfusion 4.5 - 面向 AI 和 ML 应用提供弹性基础架构 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" VMware vSphere Bitfusion 4.5 - 面向 AI 和 ML 应用提供弹性基础架构 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> VMware vSphere Bitfusion 4.5 - 面向 AI 和 ML 应用提供弹性基础架构 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware vSphere Bitfusion 4.5 - 面向 AI 和 ML 应用提供弹性基础架构 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" VMware vSphere Bitfusion 4.5 - 面向 AI 和 ML 应用提供弹性基础架构 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/vmware-vsphere-bitfusion-4-5/">
+  <link rel="canonical" href="https://sysin.org/blog/vmware-vsphere-bitfusion-4-5/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -403,11 +401,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">3</span> Minutes
+              Estimated Reading Time <span class="post-count">2</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">711</span> In Total
+              Words <span class="post-count">661</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -487,14 +485,12 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/vmware-vsphere-bitfusion-4-5/" title="VMware vSphere Bitfusion 4.5 - 面向 AI 和 ML 应用提供弹性基础架构">VMware vSphere Bitfusion 4.5 - 面向 AI 和 ML 应用提供弹性基础架构</a>，查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>VMware vSphere Bitfusion 4.5 | 23 NOV 2021 | Build 4</p>
 <p><img src="https://docs.vmware.com/en/VMware-vSphere-Bitfusion/4.0/User-Guide/images/GUID-7D2E29ED-4E92-4A82-96ED-2F32F8FAC4FE-high.png" alt="Bitfusion"></p>
-<h2 id="关于-vSphere-Bitfusion-3">关于 vSphere Bitfusion</h2>
-<p>VMware vSphere Bitfusion 共享图形处理单元 (GPU) 等加速器以提供共享网络可访问资源池，从而支持资源密集型人工智能 (AI) 和机器学习 (ML) 工作负载。vSphere Bitfusion 可在 AI 框架、云站点、网络以及虚拟机、容器和笔记本等环境中运行。</p>
-<h2 id="vSphere-Bitfusion-的工作原理是什么？-4">vSphere Bitfusion 的工作原理是什么？</h2>
-<p>Bitfusion 要解决的是以下问题：</p>
+<h2 id="关于-vSphere-Bitfusion"><a href="#关于-vSphere-Bitfusion" class="headerlink" title="关于 vSphere Bitfusion"></a>关于 vSphere Bitfusion</h2><p>VMware vSphere Bitfusion 共享图形处理单元 (GPU) 等加速器以提供共享网络可访问资源池，从而支持资源密集型人工智能 (AI) 和机器学习 (ML) 工作负载。vSphere Bitfusion 可在 AI 框架、云站点、网络以及虚拟机、容器和笔记本等环境中运行。</p>
+<h2 id="vSphere-Bitfusion-的工作原理是什么？"><a href="#vSphere-Bitfusion-的工作原理是什么？" class="headerlink" title="vSphere Bitfusion 的工作原理是什么？"></a>vSphere Bitfusion 的工作原理是什么？</h2><p>Bitfusion 要解决的是以下问题：</p>
 <ul>
 <li>有些团队在利用机器学习进行研究时没有 GPU 可以用来加速学习速度 (sysin)；</li>
 <li>而另一些团队已经拥有了 GPU，但是他们没有完全利用 GPU 的处理能力，很多 GPU 资源在白白闲置。</li>
@@ -504,80 +500,22 @@
 <li><strong>Bitfusion 服务器</strong>：把 GPU 安装在 vSphere 服务器上 (要求 vSphere 7 以上版本)，然后在上面运行 Bitfusion Server (以 OVA 格式提供的 virtual appliance)，Bitfusion Server 可以把物理 GPU 资源虚拟化，共享给多个用户使用。</li>
 <li><strong>Bitfusion 客户机</strong>：Bitfusion Client 是运行在其他 vSphere 服务器上的 Linux 虚机 (要求 vSphere 6.7 以上版本)，机器学习 ML (Machine Learning) 工作负载运行在这些虚拟机上 (sysin)，Bitfusion 会把它们对于GPU 的服务请求通过网络传输给 Bitfusion Server，计算完成后再返回结果。对于 ML 工作负载来说，远程 GPU 是完全透明的，它就像是在使用本地的 GPU 硬件。</li>
 </ul>
-<h2 id="vSphere-Bitfusion-4-5-的新增功能">vSphere Bitfusion 4.5 的新增功能</h2>
-<p>详见：<a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-vSphere-Bitfusion/4.5/rn/vmware-vsphere-bitfusion-45-release-notes/index.html">VMware vSphere Bitfusion 4.5 Release Notes</a></p>
-<h2 id="下载地址-445">下载地址</h2>
-<p>文件描述：</p>
+<h2 id="vSphere-Bitfusion-4-5-的新增功能"><a href="#vSphere-Bitfusion-4-5-的新增功能" class="headerlink" title="vSphere Bitfusion 4.5 的新增功能"></a>vSphere Bitfusion 4.5 的新增功能</h2><p>详见：<a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-vSphere-Bitfusion/4.5/rn/vmware-vsphere-bitfusion-45-release-notes/index.html">VMware vSphere Bitfusion 4.5 Release Notes</a></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>文件描述：</p>
 <ul>
-<li>
-<p><strong>Bitfusion Server</strong><br>
-File size: 774.42 MB<br>
-File type: ova<br>
-Name: bitfusion-server-4.5.0-4.ova<br>
-Release Date: 2021-11-23<br>
-MD5SUM: aa4a652bb70c1195a71c047271813f94<br>
-SHA1SUM: 24d66d972c00f41d29a7f433880591a6c268de86<br>
-SHA256SUM: 99b4f08c855ff2bab72516e3491096d460cd8ed19895b2c792afadb29c17d1da</p>
+<li><p><strong>Bitfusion Server</strong><br>File size: 774.42 MB<br>File type: ova<br>Name: bitfusion-server-4.5.0-4.ova<br>Release Date: 2021-11-23<br>MD5SUM: aa4a652bb70c1195a71c047271813f94<br>SHA1SUM: 24d66d972c00f41d29a7f433880591a6c268de86<br>SHA256SUM: 99b4f08c855ff2bab72516e3491096d460cd8ed19895b2c792afadb29c17d1da</p>
 </li>
-<li>
-<p>Bitfusion Client - VM Starter Script<br>
-File size: 19.39 KB<br>
-File type: sh<br>
-Name: client_vm_starter.sh<br>
-Release Date: 2021-11-23<br>
-MD5SUM: 1a887535061dd2f2b5c96902a5687eb8<br>
-SHA1SUM: 1df7c285cbf8ba7008c622df7a211920435b529e<br>
-SHA256SUM: ae53d3900a2cc1f05479630ace8841ce7d9efa0e46032e434130d9662b9eb020</p>
+<li><p>Bitfusion Client - VM Starter Script<br>File size: 19.39 KB<br>File type: sh<br>Name: client_vm_starter.sh<br>Release Date: 2021-11-23<br>MD5SUM: 1a887535061dd2f2b5c96902a5687eb8<br>SHA1SUM: 1df7c285cbf8ba7008c622df7a211920435b529e<br>SHA256SUM: ae53d3900a2cc1f05479630ace8841ce7d9efa0e46032e434130d9662b9eb020</p>
 </li>
-<li>
-<p><strong>Bitfusion Client</strong> - RHEL/CentOS 7<br>
-File size: 26.80 MB<br>
-File type: rpm<br>
-Name: bitfusion-client-centos7-4.5.0-4.x86_64.rpm<br>
-Release Date: 2021-11-23<br>
-MD5SUM: 08a2184aa4c078e1187783487f274e4d<br>
-SHA1SUM: d3dec3c351bdcaf861790af43e5c6dcd553b1252<br>
-SHA256SUM: 54000dae249985207e58933f6f61c3b805f533ae3278ac7ace6a51dfd4b15753</p>
+<li><p><strong>Bitfusion Client</strong> - RHEL/CentOS 7<br>File size: 26.80 MB<br>File type: rpm<br>Name: bitfusion-client-centos7-4.5.0-4.x86_64.rpm<br>Release Date: 2021-11-23<br>MD5SUM: 08a2184aa4c078e1187783487f274e4d<br>SHA1SUM: d3dec3c351bdcaf861790af43e5c6dcd553b1252<br>SHA256SUM: 54000dae249985207e58933f6f61c3b805f533ae3278ac7ace6a51dfd4b15753</p>
 </li>
-<li>
-<p><strong>Bitfusion Client</strong> - RHEL/CentOS 8<br>
-File size: 27.17 MB<br>
-File type: rpm<br>
-Name: bitfusion-client-centos8-4.5.0-4.x86_64.rpm<br>
-Release Date: 2021-11-23<br>
-MD5SUM: 712b13310b0967293840fb3e2e65a264<br>
-SHA1SUM: 779996d2f0acfde71a367cf2d0fa3ce461d3a71c<br>
-SHA256SUM: 8edc1e224bc5f999777b23f70f1080a2fd799838968f7b8ee65653e9378f73f0</p>
+<li><p><strong>Bitfusion Client</strong> - RHEL/CentOS 8<br>File size: 27.17 MB<br>File type: rpm<br>Name: bitfusion-client-centos8-4.5.0-4.x86_64.rpm<br>Release Date: 2021-11-23<br>MD5SUM: 712b13310b0967293840fb3e2e65a264<br>SHA1SUM: 779996d2f0acfde71a367cf2d0fa3ce461d3a71c<br>SHA256SUM: 8edc1e224bc5f999777b23f70f1080a2fd799838968f7b8ee65653e9378f73f0</p>
 </li>
-<li>
-<p><strong>Bitfusion Client</strong> - Ubuntu 18.04<br>
-File size: 26.97 MB<br>
-File type: deb<br>
-Name: bitfusion-client-ubuntu1804_4.5.0-4_amd64.deb<br>
-Release Date: 2021-11-23<br>
-MD5SUM: e3f78757ca316835ca8dd4f05a9a1aa2<br>
-SHA1SUM: fb3b670ae6861afa5b4f394f0819c1634cbba352<br>
-SHA256SUM: db3a061fc2e75df18a8a7fe861f1b2563db3e358bdc19d66920e5e96c835dc1a</p>
+<li><p><strong>Bitfusion Client</strong> - Ubuntu 18.04<br>File size: 26.97 MB<br>File type: deb<br>Name: bitfusion-client-ubuntu1804_4.5.0-4_amd64.deb<br>Release Date: 2021-11-23<br>MD5SUM: e3f78757ca316835ca8dd4f05a9a1aa2<br>SHA1SUM: fb3b670ae6861afa5b4f394f0819c1634cbba352<br>SHA256SUM: db3a061fc2e75df18a8a7fe861f1b2563db3e358bdc19d66920e5e96c835dc1a</p>
 </li>
-<li>
-<p><strong>Bitfusion Client</strong> - Ubuntu 20.04<br>
-File size: 27.20 MB<br>
-File type: deb<br>
-Name: bitfusion-client-ubuntu2004_4.5.0-4_amd64.deb<br>
-Release Date: 2021-11-23<br>
-MD5SUM: bde1bd1e18eeba43cbeedc132ddca164<br>
-SHA1SUM: fe57730584ea198909e9a6ea6a41e14303790883<br>
-SHA256SUM: 8233430147a49b2ba39104f98085c72bf34c3b0090edbaa7836a820963154aad</p>
+<li><p><strong>Bitfusion Client</strong> - Ubuntu 20.04<br>File size: 27.20 MB<br>File type: deb<br>Name: bitfusion-client-ubuntu2004_4.5.0-4_amd64.deb<br>Release Date: 2021-11-23<br>MD5SUM: bde1bd1e18eeba43cbeedc132ddca164<br>SHA1SUM: fe57730584ea198909e9a6ea6a41e14303790883<br>SHA256SUM: 8233430147a49b2ba39104f98085c72bf34c3b0090edbaa7836a820963154aad</p>
 </li>
-<li>
-<p>**Bitfusion Client - Package Signature Verification Public Key<br>
-File size: 1.74 KB<br>
-File type: key<br>
-Name: vmware.bitfusion.key<br>
-Release Date: 2020-07-09<br>
-MD5SUM: de7e85da03f124f21d1c390d0b1e0c3c<br>
-SHA1SUM: c7dfc7233400da124b57ee509785661a02f78e96<br>
-SHA256SUM: ff909b0de41045adee4fb062d6a57259ba3ddca02a3d3e636e6591c7ce9e52c5</p>
+<li><p>**Bitfusion Client - Package Signature Verification Public Key<br>File size: 1.74 KB<br>File type: key<br>Name: vmware.bitfusion.key<br>Release Date: 2020-07-09<br>MD5SUM: de7e85da03f124f21d1c390d0b1e0c3c<br>SHA1SUM: c7dfc7233400da124b57ee509785661a02f78e96<br>SHA256SUM: ff909b0de41045adee4fb062d6a57259ba3ddca02a3d3e636e6591c7ce9e52c5</p>
 </li>
 </ul>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1ZdfMg8mw8ukLcWp9p6P1mQ">https://pan.baidu.com/s/1ZdfMg8mw8ukLcWp9p6P1mQ</a>  提取码：v821</p>
@@ -765,7 +703,7 @@ SHA256SUM: ff909b0de41045adee4fb062d6a57259ba3ddca02a3d3e636e6591c7ce9e52c5</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-vSphere-Bitfusion-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 vSphere Bitfusion</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-4"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere Bitfusion 的工作原理是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-4-5-%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">vSphere Bitfusion 4.5 的新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-445"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-vSphere-Bitfusion"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 vSphere Bitfusion</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere Bitfusion 的工作原理是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-4-5-%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">vSphere Bitfusion 4.5 的新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
@@ -1016,7 +954,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
