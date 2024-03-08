@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> DNSSEC 实战 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" DNSSEC 实战 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> DNSSEC 实战 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" DNSSEC 实战 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" DNSSEC 实战 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/dnssec/">
+  <link rel="canonical" href="https://sysin.org/blog/dnssec/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -487,7 +485,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/dnssec/" title="DNSSEC 实战">DNSSEC 实战</a>，查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <h2 id="1-DNS-欺骗和缓存污染"><a href="#1-DNS-欺骗和缓存污染" class="headerlink" title="1. DNS 欺骗和缓存污染"></a>1. DNS 欺骗和缓存污染</h2><p>客户端（PC 等）发起域名请求的时候（例如访问：www.baidu.com），如果在本地缓存没有的情况下，会往递归服务器发送域名查询请求（我们也称之为 localdns），递归服务器再一层层递归从 . 到 com. 再到 baidu.com.（即到 . 的权威服务器 —&gt; com. 的权威服务器 —&gt; baidu.com. 的权威服务器)，最终取到 www.baidu.com. 对应的解析 A 记录返回给客户端。在整个查询过程中，攻击者可以假冒任何一个应答方：递归服务器 —&gt; . 的权威服务器 —&gt; com. 的权威服务器 —&gt; baidu.com. 的权威服务器，给请求方发送一个伪造的响应（UDP 包极其容易伪造），其中响应的解析记录给了一个错误的 IP 地址或者其他类型的解析记录（比如 NXDomain、ServFail 或者 cname 到错误的域名地址去等）。客户端或者是解析服务器在没有经过数据来源正确性校验的情况下接受了伪造的应答，直接将导致客户端无法正常访问网站或者其他资源或者客户端请求重定向到了伪造的网站上去 (sysin)。另外由于 DNS 当中存在着缓存，这种错误的记录将随着攻击者设定的 TTL 进行存活缓存，如果是递归服务器受到 DNS 欺骗那将会导致自身以及大面积的客户端缓存了错误的解析记录（可以通过清除缓存解决）。</p>
 <h2 id="2-DNSSEC-简介"><a href="#2-DNSSEC-简介" class="headerlink" title="2. DNSSEC 简介"></a>2. DNSSEC 简介</h2><p>DNSSEC 全称 Domain Name System Security Extensions，即 DNS 安全扩展，是由 IETF 提供的一系列 DNS 安全认证的机制（可参考 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2535">RFC2535</a>）。它提供一种可以验证应答信息真实性和完整性的机制，利用密码技术，使得域名解析服务器可以验证它所收到的应答（包括域名不存在的应答）是否来自于真实的服务器，或者是否在传输过程中被篡改过。</p>
@@ -993,7 +991,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
