@@ -495,18 +495,23 @@
 <p>很重要的一点，zsh 完全兼容 bash，如果你的 bash 脚本开头是以 <code>!#/bin/bash</code> 的话，在 zsh 下还是完全兼容 bash 的。</p>
 <p>Mac 系统内置了几种 shell：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">List of acceptable shells <span class="keyword">for</span> chpass(1).</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ftpd will not allow <span class="built_in">users</span> to connect <span class="built_in">who</span> are not using</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">one of these shells.</span></span><br><span class="line"></span><br><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/dash</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
-<h2 id="1-使用-zsh-作为默认-shell"><a href="#1-使用-zsh-作为默认-shell" class="headerlink" title="1. 使用 zsh 作为默认 shell"></a>1. 使用 zsh 作为默认 shell</h2><p>从 macOS Catalina 版开始，您的 Mac 将使用 zsh 作为默认登录 Shell 和交互式 Shell。您还可以在较低版本的 macOS 中将 zsh 设置为默认 Shell。</p>
+<h2 id="1-使用-zsh-作为默认-shell">1. 使用 zsh 作为默认 shell</h2>
+<p>从 macOS Catalina 版开始，您的 Mac 将使用 zsh 作为默认登录 Shell 和交互式 Shell。您还可以在较低版本的 macOS 中将 zsh 设置为默认 Shell。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
 <p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208050">在 Mac 上将 zsh 用作默认 Shell</a></p>
-<h2 id="2-安装-oh-my-zsh"><a href="#2-安装-oh-my-zsh" class="headerlink" title="2. 安装 oh-my-zsh"></a>2. 安装 oh-my-zsh</h2><h3 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装-oh-my-zsh">2. 安装 oh-my-zsh</h2>
+<h3 id="自动安装">自动安装</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
 <p>也可以手动安装：</p>
-<h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><p>下载 oh-my-zsh</p>
+<h3 id="手动安装">手动安装</h3>
+<p>下载 oh-my-zsh</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh</span><br></pre></td></tr></table></figure>
 <p>备份原有 ~/.zshrc（如果有）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ~/.zshrc ~/.zshrc.bak</span><br></pre></td></tr></table></figure>
 <p>从模板创建 zsh 配置文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h2 id="3-更改-zsh-主题"><a href="#3-更改-zsh-主题" class="headerlink" title="3. 更改 zsh 主题"></a>3. 更改 zsh 主题</h2><p>主题样式 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">这里</a> 查看。</p>
+<h2 id="3-更改-zsh-主题">3. 更改 zsh 主题</h2>
+<p>主题样式 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">这里</a> 查看。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">找到</span></span><br><span class="line">ZSH_THEME=&quot;robbyrussell&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">例如修改为</span></span><br><span class="line">ZSH_THEME=&quot;ys&quot;</span><br></pre></td></tr></table></figure>
 <p>快速修改：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;/^ZSH_THEME=.*/c ZSH_THEME=&quot;ys&quot;&#x27; ~/.zshrc</span><br></pre></td></tr></table></figure>
@@ -514,29 +519,37 @@
 <blockquote>
 <p>修改配置后，通过 <code>source ~/.zshrc</code> 或者退出重新登录使配置生效 (sysin)。</p>
 </blockquote>
-<h2 id="4-别名-alias"><a href="#4-别名-alias" class="headerlink" title="4. 别名 alias"></a>4. 别名 alias</h2><p>我们看下 git 的别名：</p>
+<h2 id="4-别名-alias">4. 别名 alias</h2>
+<p>我们看下 git 的别名：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"></span><br><span class="line">alias g=&#x27;git&#x27;</span><br><span class="line"></span><br><span class="line">alias ga=&#x27;git add&#x27;</span><br><span class="line">alias gaa=&#x27;git add --all&#x27;</span><br><span class="line">alias gapa=&#x27;git add --patch&#x27;</span><br><span class="line">alias gau=&#x27;git add --update&#x27;</span><br><span class="line">alias gav=&#x27;git add --verbose&#x27;</span><br><span class="line">alias gap=&#x27;git apply&#x27;</span><br><span class="line">alias gapt=&#x27;git apply --3way&#x27;</span><br><span class="line"></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 <p>自定义别名，在 <code>~/.zshrc</code> 中，最下面直接写即可。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Example aliases</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">alias</span> zshconfig=<span class="string">&quot;mate ~/.zshrc&quot;</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">alias</span> ohmyzsh=<span class="string">&quot;mate ~/.oh-my-zsh&quot;</span></span></span><br><span class="line">alias ll=&#x27;ls -lahFT&#x27;</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接命令加入</span></span><br><span class="line">echo &#x27;alias ll=&quot;ls -lahFT&quot;&#x27; &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>更强大的 alias 命令，比如下面命令，当你在 zsh 环境下输入 hello.py 即可直接用 vim 打开文件编辑，一个 tgz 的文件即可自动解压缩。</p>
+<p>更强大的 alias 命令，比如下面命令，当你在 zsh 环境下输入 <a target="_blank" rel="noopener" href="http://hello.py">hello.py</a> 即可直接用 vim 打开文件编辑，一个 tgz 的文件即可自动解压缩。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias -s py=vim</span><br><span class="line">alias -s conf=vim</span><br><span class="line">alias -s tgz=&#x27;tar zxvf&#x27;</span><br></pre></td></tr></table></figure>
-<h2 id="5-命令自动补全"><a href="#5-命令自动补全" class="headerlink" title="5. 命令自动补全"></a>5. 命令自动补全</h2><h3 id="内置自动补全功能"><a href="#内置自动补全功能" class="headerlink" title="内置自动补全功能"></a>内置自动补全功能</h3><p><strong>默认 oh-my-zsh 命令自动补全功能如下</strong>：</p>
+<h2 id="5-命令自动补全">5. 命令自动补全</h2>
+<h3 id="内置自动补全功能-2">内置自动补全功能</h3>
+<p><strong>默认 oh-my-zsh 命令自动补全功能如下</strong>：</p>
 <ul>
-<li><p>自动列出目录</p>
+<li>
+<p>自动列出目录</p>
 <p>输入 cd 按 tab 键，目录将自动列出，在按 tab 可以切换</p>
 </li>
-<li><p>自动目录名简写补全</p>
+<li>
+<p>自动目录名简写补全</p>
 <p>要访问 <code>/usr/local/bin</code> 这个长路径，只需要 <code>cd /u/l/b</code> 按 tab 键自动补全</p>
 </li>
-<li><p>自动大小写更正 (sysin)</p>
-<p>要访问 Desktop 文件夹，只需要 <code>cd de</code> 按 tab 键自动补全，或者查看 README.md，只需要 <code>cat rea</code> 自动更正补全</p>
+<li>
+<p>自动大小写更正 (sysin)</p>
+<p>要访问 Desktop 文件夹，只需要 <code>cd de</code> 按 tab 键自动补全，或者查看 <a target="_blank" rel="noopener" href="http://README.md">README.md</a>，只需要 <code>cat rea</code> 自动更正补全</p>
 </li>
-<li><p>自动命令补全</p>
+<li>
+<p>自动命令补全</p>
 <p>输入 <code>kubectl</code> 按 tab 键即可看到可用命令</p>
 </li>
-<li><p>自动补全命令参数</p>
+<li>
+<p>自动补全命令参数</p>
 <p>输入 <code>kill</code> 按 tab 键会自动显示出进程的 process id</p>
 </li>
 </ul>
@@ -544,13 +557,16 @@
 <p>可以忽略 <code>cd</code> 命令，输入 <code>..</code> 或者 <code>...</code> 和当前目录名都可以跳转。</p>
 <p>上述功能不需要额外的插件。</p>
 <p>另外还有一些插件来增强命令补全，可根据需要启用：</p>
-<h3 id="zsh-completions"><a href="#zsh-completions" class="headerlink" title="zsh-completions"></a><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions">zsh-completions</a></h3><p>额外的自动补全功能，用于补充 zsh 中尚不支持的命令补全，该项目将在完善时合并到 zsh。</p>
+<h3 id="zsh-completions-3"><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions">zsh-completions</a></h3>
+<p>额外的自动补全功能，用于补充 zsh 中尚不支持的命令补全，该项目将在完善时合并到 zsh。</p>
 <p>比如 Homebrew 的补全功能：可以解决 brew 及 brew 安装的（部分）指令仍然没有补全功能的问题。</p>
 <ul>
-<li><p>Clone the repository inside your oh-my-zsh repo:</p>
+<li>
+<p>Clone the repository inside your oh-my-zsh repo:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-completions $&#123;ZSH_CUSTOM:-$&#123;ZSH:-~/.oh-my-zsh&#125;/custom&#125;/plugins/zsh-completions</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Add it to <code>FPATH</code> in your <code>.zshrc</code> by adding the following line before <code>source &quot;$ZSH/oh-my-zsh.sh&quot;</code>:</p>
+<li>
+<p>Add it to <code>FPATH</code> in your <code>.zshrc</code> by adding the following line before <code>source &quot;$ZSH/oh-my-zsh.sh&quot;</code>:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fpath+=$&#123;ZSH_CUSTOM:-$&#123;ZSH:-~/.oh-my-zsh&#125;/custom&#125;/plugins/zsh-completions/src</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -558,25 +574,29 @@
 <p>手动下载安装的应用程序如果提供了补全文件，复制到上述 src 目录下即可生效。</p>
 <p>或者也可以通过 brew 安装：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">brew install zsh-completions</span></span><br><span class="line">==&gt; Downloading https://ghcr.io/v2/homebrew/core/zsh-completions/manifests/0.33.</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">####################################################################### 100.0%</span></span></span><br><span class="line">==&gt; Downloading https://ghcr.io/v2/homebrew/core/zsh-completions/blobs/sha256:ea</span><br><span class="line">==&gt; Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sh</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">####################################################################### 100.0%</span></span></span><br><span class="line">==&gt; Pouring zsh-completions--0.33.0_1.all.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">To activate these completions, add the following to your .zshrc:</span><br><span class="line"></span><br><span class="line">  if type brew &amp;&gt;/dev/null; then</span><br><span class="line">    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH</span><br><span class="line"></span><br><span class="line">    autoload -Uz compinit</span><br><span class="line">    compinit</span><br><span class="line">  fi</span><br><span class="line"></span><br><span class="line">You may also need to force rebuild `zcompdump`:</span><br><span class="line"></span><br><span class="line">  rm -f ~/.zcompdump; compinit</span><br><span class="line"></span><br><span class="line">Additionally, if you receive &quot;zsh compinit: insecure directories&quot; warnings when attempting</span><br><span class="line">to load these completions, you may need to run this:</span><br><span class="line"></span><br><span class="line">  chmod -R go-w &#x27;/usr/local/share/zsh&#x27;</span><br></pre></td></tr></table></figure>
-<h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></h3><p>作用是根据历史输入命令的记录即时的提示（建议补全），然后按 → 键即可补全。</p>
+<h3 id="zsh-autosuggestions-3"><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></h3>
+<p>作用是根据历史输入命令的记录即时的提示（建议补全），然后按 → 键即可补全。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $&#123;ZSH_CUSTOM:-$&#123;ZSH:-~/.oh-my-zsh&#125;/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
 <p>编辑 <code>~/.zshrc</code>，找到 plugins=(git) 这一行，修改为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">    git</span><br><span class="line">    # other plugins...</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h3 id="Incremental-completion-on-zsh"><a href="#Incremental-completion-on-zsh" class="headerlink" title="Incremental completion on zsh"></a><a target="_blank" rel="noopener" href="https://mimosa-pudica.net/zsh-incremental.html">Incremental completion on zsh</a></h3><p>增强的实时自动命令补全插件：<a target="_blank" rel="noopener" href="https://mimosa-pudica.net/zsh-incremental.html">Incremental completion on zsh</a></p>
+<h3 id="Incremental-completion-on-zsh-3"><a target="_blank" rel="noopener" href="https://mimosa-pudica.net/zsh-incremental.html">Incremental completion on zsh</a></h3>
+<p>增强的实时自动命令补全插件：<a target="_blank" rel="noopener" href="https://mimosa-pudica.net/zsh-incremental.html">Incremental completion on zsh</a></p>
 <blockquote>
 <p>该插件对性能似乎有一点点影响，请根据需要启用。</p>
 </blockquote>
 <p>作用如图：</p>
 <p><img src="https://mimosa-pudica.net/img/zsh.gif" alt="incr"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir $ZSH_CUSTOM/plugins/incr</span><br><span class="line">curl -fsSL https://mimosa-pudica.net/src/incr-0.2.zsh -o $ZSH_CUSTOM/plugins/incr/incr.zsh</span><br><span class="line">echo &#x27;source $ZSH_CUSTOM/plugins/incr/incr.zsh&#x27; &gt;&gt; ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h2 id="6-语法高亮插件"><a href="#6-语法高亮插件" class="headerlink" title="6. 语法高亮插件"></a>6. 语法高亮插件</h2><p>插件名称：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></p>
+<h2 id="6-语法高亮插件">6. 语法高亮插件</h2>
+<p>插件名称：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></p>
 <p>作用：命令错误会显示红色，直到你输入正确才会变绿色，另外路径正确会显示下划线 (sysin)。</p>
 <p>安装：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
 <p>配置启用插件：</p>
 <p>编辑 <code>~/.zshrc</code>，以下部分添加插件的名字</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=([plugins...] zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
-<h2 id="7-相关网站"><a href="#7-相关网站" class="headerlink" title="7. 相关网站"></a>7. 相关网站</h2><ul>
+<h2 id="7-相关网站">7. 相关网站</h2>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://www.zsh.org/">Zsh 官网</a></li>
 <li><a target="_blank" rel="noopener" href="https://ohmyz.sh/">oh-my-zsh 官网</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">oh-my-zsh github</a></li>
@@ -765,7 +785,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%BD%BF%E7%94%A8-zsh-%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4-shell"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 使用 zsh 作为默认 shell</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%AE%89%E8%A3%85-oh-my-zsh"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 安装 oh-my-zsh</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">自动安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">手动安装</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E6%9B%B4%E6%94%B9-zsh-%E4%B8%BB%E9%A2%98"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 更改 zsh 主题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%88%AB%E5%90%8D-alias"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 别名 alias</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 命令自动补全</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%86%85%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">内置自动补全功能</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#zsh-completions"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">zsh-completions</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#zsh-autosuggestions"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">zsh-autosuggestions</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Incremental-completion-on-zsh"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">Incremental completion on zsh</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 语法高亮插件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 相关网站</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%BD%BF%E7%94%A8-zsh-%E4%BD%9C%E4%B8%BA%E9%BB%98%E8%AE%A4-shell"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 使用 zsh 作为默认 shell</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%AE%89%E8%A3%85-oh-my-zsh"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 安装 oh-my-zsh</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">自动安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">手动安装</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E6%9B%B4%E6%94%B9-zsh-%E4%B8%BB%E9%A2%98"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 更改 zsh 主题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%88%AB%E5%90%8D-alias"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 别名 alias</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 命令自动补全</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%86%85%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E5%8A%9F%E8%83%BD-2"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">内置自动补全功能</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#zsh-completions-3"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">zsh-completions</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#zsh-autosuggestions-3"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">zsh-autosuggestions</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Incremental-completion-on-zsh-3"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">Incremental completion on zsh</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%8F%92%E4%BB%B6"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 语法高亮插件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 相关网站</span></a></li></ol>
         
         </div>
       </aside>

@@ -405,7 +405,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">825</span> In Total
+              Words <span class="post-count">826</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -488,33 +488,42 @@
 <p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>Apple silicon Mac App = Mac App + iOS App + Unix-like App + Windows App</p>
-<h2 id="1、Universal-App，通用应用"><a href="#1、Universal-App，通用应用" class="headerlink" title="1、Universal App，通用应用"></a>1、Universal App，通用应用</h2><p>利用 Xcode 12 创建 Universal 2 应用软件二进制文件 (sysin)，一套 app 同时运行在 Apple 芯片和 Intel 处理器 Mac 上。</p>
+<h2 id="1、Universal-App，通用应用">1、Universal App，通用应用</h2>
+<p>利用 Xcode 12 创建 Universal 2 应用软件二进制文件 (sysin)，一套 app 同时运行在 Apple 芯片和 Intel 处理器 Mac 上。</p>
 <p>这是 Apple silicon Mac 的原生应用。</p>
 <p>已经有部分 App 开始提供 Universal App 版本，主流软件开发商都在跟进。</p>
 <p>笔者将跟进一些主流或者（笔者）常用的 Universal App 发布情况，<a href="https://sysin.org/blog/apple-silicon-universal-app/">【点击查看】</a>。</p>
-<h2 id="2、利用-Rosetta-2-的转译技术，用户将能够运行尚未更新的现有-Mac-App（性能有所下降）"><a href="#2、利用-Rosetta-2-的转译技术，用户将能够运行尚未更新的现有-Mac-App（性能有所下降）" class="headerlink" title="2、利用 Rosetta 2 的转译技术，用户将能够运行尚未更新的现有 Mac App（性能有所下降）"></a>2、利用 Rosetta 2 的转译技术，用户将能够运行尚未更新的现有 Mac App（性能有所下降）</h2><p>对于未更新的 App，系统会提示先安装 Rosseta，转换之后就可以正常使用，例如百度网盘：</p>
+<h2 id="2、利用-Rosetta-2-的转译技术，用户将能够运行尚未更新的现有-Mac-App（性能有所下降）">2、利用 Rosetta 2 的转译技术，用户将能够运行尚未更新的现有 Mac App（性能有所下降）</h2>
+<p>对于未更新的 App，系统会提示先安装 Rosseta，转换之后就可以正常使用，例如百度网盘：</p>
 <p><img src="rosetta-baidu-netdisk.webp" alt="baidu-netdisk"></p>
 <p>第三方评测者表示，由于 M1 芯片的超高性能，性能缺失几乎是没有感觉的。</p>
 <p>在以下三种情况下，它无法对X86指令进行翻译。</p>
 <ul>
-<li><p>内核扩展，也就是涉及到操作系统内核模块的指令没法翻译；</p>
+<li>
+<p>内核扩展，也就是涉及到操作系统内核模块的指令没法翻译；</p>
 </li>
-<li><p>虚拟化 X86_64 平台的虚拟机，当前 M1 上并没有对应的虚拟化指令；</p>
+<li>
+<p>虚拟化 X86_64 平台的虚拟机，当前 M1 上并没有对应的虚拟化指令；</p>
 </li>
-<li><p>涉及 AVX、AVX2、AVX512 的指令，ARM 上没有对应的指令集，因此用到相关指令集的 X86 软件没法翻译。</p>
+<li>
+<p>涉及 AVX、AVX2、AVX512 的指令，ARM 上没有对应的指令集，因此用到相关指令集的 X86 软件没法翻译。</p>
 <p>大部分 X86 软件并不会涉及以上内容，只用到普通的 SSE 系指令集。不过某些开发工具会涉及内核，某些高性能计算工具会使用 AVX 系指令集，因此如果想要用 M1 版 MacBook 作生产力工具，兼容性问题还是需要慎重考虑的。</p>
 </li>
 </ul>
-<h2 id="3、在-Mac-上运行-iOS-和-iPadOS-App"><a href="#3、在-Mac-上运行-iOS-和-iPadOS-App" class="headerlink" title="3、在 Mac 上运行 iOS 和 iPadOS App"></a>3、在 Mac 上运行 iOS 和 iPadOS App</h2><p>多数 iPhone 与 iPadOS App 都可以在搭载 M1 芯片的 Mac 上运行 (sysin)，但一些 App 可能因为需要 iPhone 或 iPad 的独有功能而无法在 Mac 上运行。开发者也可以选择不让自己的 App 在 Mac 上运行。当然一些 App 需要开发者适配才能发挥全部功能。</p>
+<h2 id="3、在-Mac-上运行-iOS-和-iPadOS-App">3、在 Mac 上运行 iOS 和 iPadOS App</h2>
+<p>多数 iPhone 与 iPadOS App 都可以在搭载 M1 芯片的 Mac 上运行 (sysin)，但一些 App 可能因为需要 iPhone 或 iPad 的独有功能而无法在 Mac 上运行。开发者也可以选择不让自己的 App 在 Mac 上运行。当然一些 App 需要开发者适配才能发挥全部功能。</p>
 <p>在 Mac App Store 搜索 App，会出现两个类别，一个是专门为 Mac 开发的 Mac App，而另一个则显示 iPhone 与 iPad App，你可以直接下载到你的 Mac 里运行。</p>
 <p><strong>未在 Mac App Store 上架的 iOS/iPadOS 应用程序</strong>，可以导出或者下载 ipa 文件直接双击运行！！！</p>
-<h2 id="4、虚拟化支持"><a href="#4、虚拟化支持" class="headerlink" title="4、虚拟化支持"></a>4、虚拟化支持</h2><p>目前支持虚拟化运行 Linux。</p>
+<h2 id="4、虚拟化支持">4、虚拟化支持</h2>
+<p>目前支持虚拟化运行 Linux。</p>
 <p><a target="_blank" rel="noopener" href="https://www.parallels.com/blogs/parallels-desktop-apple-silicon-mac/">Parallels Desktop 即将发布 Universal App</a>。</p>
 <p>VMware Fusion 已宣布支持 Apple silicon，发布时间待定。</p>
 <p>Windows 10 on ARM 理论上可以运行，目前只对 OEM 厂商开放，等待微软更新。</p>
-<h2 id="5、在-Mac-上运行-Windows-x86-应用"><a href="#5、在-Mac-上运行-Windows-x86-应用" class="headerlink" title="5、在 Mac 上运行 Windows x86 应用"></a>5、在 Mac 上运行 Windows x86 应用</h2><p><a target="_blank" rel="noopener" href="https://www.codeweavers.com/blog/jwhite/2020/11/18/okay-im-on-the-bandwagon-apple-silicon-is-officially-cool">CrossOver 20 已发布可以运行在 Apple M1 上</a>，可以直接运行 Windows 32 位和 64 位应用程序，当然不是任何应用都可以，参看<a target="_blank" rel="noopener" href="https://www.codeweavers.com/compatibility">官方兼容性列表</a>。</p>
+<h2 id="5、在-Mac-上运行-Windows-x86-应用">5、在 Mac 上运行 Windows x86 应用</h2>
+<p><a target="_blank" rel="noopener" href="https://www.codeweavers.com/blog/jwhite/2020/11/18/okay-im-on-the-bandwagon-apple-silicon-is-officially-cool">CrossOver 20 已发布可以运行在 Apple M1 上</a>，可以直接运行 Windows 32 位和 64 位应用程序，当然不是任何应用都可以，参看<a target="_blank" rel="noopener" href="https://www.codeweavers.com/compatibility">官方兼容性列表</a>。</p>
 <p>CrossOver 是开源项目 Wine 的商业版，相比 Wine 更加简单易用，并且提供商业支持。</p>
-<h2 id="6、在-Mac-上运行-Unix-like-命令行-App"><a href="#6、在-Mac-上运行-Unix-like-命令行-App" class="headerlink" title="6、在 Mac 上运行 Unix-like 命令行 App"></a>6、在 Mac 上运行 Unix-like 命令行 App</h2><p>macOS 是一套正统的 Unix 系统，在 shell 世界中，Linux 命令行 App 通常都有 macOS 的 Darwin 版本。</p>
+<h2 id="6、在-Mac-上运行-Unix-like-命令行-App">6、在 Mac 上运行 Unix-like 命令行 App</h2>
+<p>macOS 是一套正统的 Unix 系统，在 shell 世界中，Linux 命令行 App 通常都有 macOS 的 Darwin 版本。</p>
 <p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
 
 
