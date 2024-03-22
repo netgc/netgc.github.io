@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Ubuntu 20.04 LTS (Focal Fossa) 安装笔记 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/ubuntu-2004-install/">
+  <link rel="canonical" href="https://sysin.org/blog/ubuntu-2004-install/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -487,18 +485,15 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/ubuntu-2004-install/" title="Ubuntu 20.04 LTS (Focal Fossa) 安装笔记">Ubuntu 20.04 LTS (Focal Fossa) 安装笔记</a>，查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="Ubuntu-20-04-新特性">Ubuntu 20.04 新特性</h2>
-<h3 id="Updated-Packages">Updated Packages</h3>
-<p><strong>Linux Kernel 5.4.</strong></p>
+<h2 id="Ubuntu-20-04-新特性"><a href="#Ubuntu-20-04-新特性" class="headerlink" title="Ubuntu 20.04 新特性"></a>Ubuntu 20.04 新特性</h2><h3 id="Updated-Packages"><a href="#Updated-Packages" class="headerlink" title="Updated Packages"></a>Updated Packages</h3><p><strong>Linux Kernel 5.4.</strong></p>
 <p><strong>Toolchain Upgrades 🛠️:</strong></p>
-<p>Ubuntu 20.04 LTS comes with refreshed state-of-the-art toolchain including new upstream releases of glibc 2.31, ☕ OpenJDK 11, rustc 1.41, GCC 9.3, 🐍 Python 3.8.2, 💎 ruby 2.7.0, php 7.4, 🐪 perl 5.30, golang 1.13.</p>
+<p>  Ubuntu 20.04 LTS comes with refreshed state-of-the-art toolchain including new upstream releases of glibc 2.31, ☕ OpenJDK 11, rustc 1.41, GCC 9.3, 🐍 Python 3.8.2, 💎 ruby 2.7.0, php 7.4, 🐪 perl 5.30, golang 1.13.</p>
 <p><strong>Ubuntu Desktop:</strong></p>
 <ul>
 <li>New graphical boot splash (integrates with the system BIOS logo).</li>
-<li>Refreshed <a target="_blank" rel="noopener" href="https://ubuntu.com/blog/new-ubuntu-theme-in-development-for-20-04">Yaru theme</a> 🎨
-<ul>
+<li>Refreshed <a target="_blank" rel="noopener" href="https://ubuntu.com/blog/new-ubuntu-theme-in-development-for-20-04">Yaru theme</a> 🎨<ul>
 <li><a target="_blank" rel="noopener" href="https://twitter.com/m_wimpress/status/1232246572479590401">Light/Dark theme switching</a></li>
 </ul>
 </li>
@@ -510,134 +505,92 @@
 <li><a target="_blank" rel="noopener" href="https://www.thunderbird.net/en-US/thunderbird/68.7.0/releasenotes/">Thunderbird 68.7.0</a></li>
 <li><a target="_blank" rel="noopener" href="https://wiki.documentfoundation.org/ReleaseNotes/6.4">LibreOffice 6.4</a></li>
 </ul>
-<h3 id="Network-configuration">Network configuration</h3>
-<p>With this Ubuntu release, <a target="_blank" rel="noopener" href="https://netplan.io/">netplan.io</a> has grown multiple new features, some of which are:</p>
+<h3 id="Network-configuration"><a href="#Network-configuration" class="headerlink" title="Network configuration"></a>Network configuration</h3><p>With this Ubuntu release, <a target="_blank" rel="noopener" href="https://netplan.io/">netplan.io</a> has grown multiple new features, some of which are:</p>
 <ul>
-<li>Basic support for configuring SR-IOV network devices. Starting with  <a target="_blank" rel="noopener" href="http://netplan.io">netplan.io</a> 0.99, users can declare Virtual Functions for every SR-IOV  Physical Function, configure those as any other networking device and  set hardware VLAN VF filtering on them.</li>
+<li>Basic support for configuring SR-IOV network devices. Starting with  netplan.io 0.99, users can declare Virtual Functions for every SR-IOV  Physical Function, configure those as any other networking device and  set hardware VLAN VF filtering on them.</li>
 <li>Support for GSM modems via the <a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/NetworkManager">NetworkManager</a> backend via the <code>modems</code> section.</li>
 <li>Adding <a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/WiFi">WiFi</a> flags for <code>bssid</code>/<code>band</code>/<code>channel</code> settings.</li>
 <li>Adding ability to set <code>ipv6-address-generation</code> for the <a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/NetworkManager">NetworkManager</a> backend and <code>emit-lldp</code> for networkd.</li>
 </ul>
-<h3 id="Storage-File-Systems">Storage/File Systems</h3>
-<p>ZFS 0.8.3</p>
-<h3 id="Other-base-system-changes-since-18-04-LTS">Other base system changes since 18.04 LTS</h3>
-<ul>
-<li>
-<p>Python3 by default（Python 3.8.  Python 2.7 已经移除）</p>
+<h3 id="Storage-File-Systems"><a href="#Storage-File-Systems" class="headerlink" title="Storage/File Systems"></a>Storage/File Systems</h3><p>ZFS 0.8.3</p>
+<h3 id="Other-base-system-changes-since-18-04-LTS"><a href="#Other-base-system-changes-since-18-04-LTS" class="headerlink" title="Other base system changes since 18.04 LTS"></a>Other base system changes since 18.04 LTS</h3><ul>
+<li><p>Python3 by default（Python 3.8.  Python 2.7 已经移除）</p>
 </li>
-<li>
-<p>Snap Store replaces ubuntu-software</p>
+<li><p>Snap Store replaces ubuntu-software</p>
 </li>
 </ul>
-<h3 id="Ubuntu-Server-2">Ubuntu Server</h3>
-<ul>
-<li>
-<p>Installer</p>
-<p>The live server installer is now the preferred media to install Ubuntu Server on all architectures.</p>
+<h3 id="Ubuntu-Server"><a href="#Ubuntu-Server" class="headerlink" title="Ubuntu Server"></a>Ubuntu Server</h3><ul>
+<li><p>Installer</p>
+<p>  The live server installer is now the preferred media to install Ubuntu Server on all architectures.</p>
 </li>
-<li>
-<p>QEMU</p>
-<p>QEMU was updated to 4.2 release.</p>
+<li><p>QEMU</p>
+<p>  QEMU was updated to 4.2 release.</p>
 </li>
-<li>
-<p>libvirt</p>
-<p>libvirt was updated to version 6.0.</p>
+<li><p>libvirt</p>
+<p>  libvirt was updated to version 6.0.</p>
 </li>
-<li>
-<p>dpdk</p>
-<p>Ubuntu 20.04 LTS includes the latest stable release 19.11.1 of the latest LTS series 19.11.x. The very latest (non-stable) version being 20.02 was not chosen for  downstream projects of DPDK (like Open vSwitch) not being compatible  yet.</p>
+<li><p>dpdk</p>
+<p>  Ubuntu 20.04 LTS includes the latest stable release 19.11.1 of the latest LTS series 19.11.x. The very latest (non-stable) version being 20.02 was not chosen for  downstream projects of DPDK (like Open vSwitch) not being compatible  yet.</p>
 </li>
-<li>
-<p>Open vSwitch</p>
-<p>Open vSwitch has been updated to 2.13.</p>
+<li><p>Open vSwitch</p>
+<p>  Open vSwitch has been updated to 2.13.</p>
 </li>
-<li>
-<p>Chrony</p>
-<p>Chrony been updated to <a target="_blank" rel="noopener" href="https://chrony.tuxfamily.org/news.html">version 3.5</a>.</p>
+<li><p>Chrony</p>
+<p>  Chrony been updated to <a target="_blank" rel="noopener" href="https://chrony.tuxfamily.org/news.html">version 3.5</a>.</p>
 </li>
-<li>
-<p>cloud-init</p>
-<p>Cloud-init was updated to version 20.1-10.</p>
+<li><p>cloud-init</p>
+<p>  Cloud-init was updated to version 20.1-10.</p>
 </li>
-<li>
-<p>PHP 7.4</p>
+<li><p>PHP 7.4</p>
 </li>
-<li>
-<p>Ruby 2.7</p>
+<li><p>Ruby 2.7</p>
 </li>
-<li>
-<p>Ruby on Rails 5.2.3</p>
+<li><p>Ruby on Rails 5.2.3</p>
 </li>
-<li>
-<p>Ubuntu HA/Clustering</p>
-<p>Kronosnet<br>
-Corosync 3.0<br>
-Pacemaker 2.0<br>
-Resource Agents<br>
-Fence Agents<br>
-keepalived</p>
+<li><p>Ubuntu HA/Clustering</p>
+<p>  Kronosnet<br>  Corosync 3.0<br>  Pacemaker 2.0<br>  Resource Agents<br>  Fence Agents<br>  keepalived</p>
 </li>
-<li>
-<p>isc-kea 1.6 stable track（dhcp server）</p>
+<li><p>isc-kea 1.6 stable track（dhcp server）</p>
 </li>
-<li>
-<p>Bind 9.16</p>
+<li><p>Bind 9.16</p>
 </li>
-<li>
-<p>OpenSSH updates with U2F Support</p>
+<li><p>OpenSSH updates with U2F Support</p>
 </li>
-<li>
-<p>HAProxy 2.0</p>
+<li><p>HAProxy 2.0</p>
 </li>
-<li>
-<p>Apache, TLSv1.3, client cert auth</p>
+<li><p>Apache, TLSv1.3, client cert auth</p>
 </li>
-<li>
-<p>Samba 4.11</p>
+<li><p>Samba 4.11</p>
 </li>
-<li>
-<p>PostgreSQL 12</p>
+<li><p>PostgreSQL 12</p>
 </li>
-<li>
-<p>nginx</p>
-<p>Starting in Focal Fossa, nginx-core no longer ships with the legacy geoip module enabled by default. If you are using the legacy geoip module in nginx,  you may run into upgrade issues if you do not deactivate the geoip  module in your configuration. This was done as part of the deprecation  of GeoIP legacy support.</p>
+<li><p>nginx</p>
+<p>  Starting in Focal Fossa, nginx-core no longer ships with the legacy geoip module enabled by default. If you are using the legacy geoip module in nginx,  you may run into upgrade issues if you do not deactivate the geoip  module in your configuration. This was done as part of the deprecation  of GeoIP legacy support.</p>
 </li>
-<li>
-<p>Squid 4.x</p>
+<li><p>Squid 4.x</p>
 </li>
-<li>
-<p>s390x</p>
+<li><p>s390x</p>
 </li>
-<li>
-<p>OpenStack Ussuri</p>
+<li><p>OpenStack Ussuri</p>
 </li>
-<li>
-<p>Ceph was updated to the 15.2.1 release</p>
+<li><p>Ceph was updated to the 15.2.1 release</p>
 </li>
 </ul>
 <p><strong>完整更新内容请查阅发行说明</strong>：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/FocalFossa/ReleaseNotes">https://wiki.ubuntu.com/FocalFossa/ReleaseNotes</a></li>
 </ul>
-<h2 id="1-安装摘要">1. 安装摘要</h2>
-<p>18.04：安装界面变化比较大，参看截图，默认 SSH Server 已经安装（测试 18.04.3 修改为需要手动勾选），没有时区选择界面</p>
+<h2 id="1-安装摘要"><a href="#1-安装摘要" class="headerlink" title="1. 安装摘要"></a>1. 安装摘要</h2><p>18.04：安装界面变化比较大，参看截图，默认 SSH Server 已经安装（测试 18.04.3 修改为需要手动勾选），没有时区选择界面</p>
 <p>20.04：安装界面少了步骤的数字提示，参看截图，SSH Server 需要勾选安装，没有时区选择界面</p>
 <p>注意：分区如果选择 LVM，默认 / 目录只使用了 4G，需要编辑使用全部容量</p>
-<h2 id="2-格式化网卡名称">2. 格式化网卡名称</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">类似 CentOS 7，及 Ubuntu 16.04 开始，安装好后网卡名称变成 ens160 类似名称了</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑 grub 配置文件</span></span><br><span class="line">sudo vi /etc/default/grub</span><br><span class="line">修改 GRUB_CMDLINE_LINUX=&quot;&quot;为 GRUB_CMDLINE_LINUX=&quot;net.ifnames=0 biosdevname=0&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接使用 sed 编辑</span></span><br><span class="line">sudo sed -i &quot;/^GRUB_CMDLINE_LINUX=&quot;&quot;/c GRUB_CMDLINE_LINUX=\&quot;net.ifnames=0 biosdevname=0\&quot;&quot; /etc/default/grub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新 grub 配置文件</span></span><br><span class="line">sudo update-grub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后下一节编辑配置文件并重启生效</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-网络配置">3. 网络配置</h2>
-<p>查看 IP 地址信息</p>
+<h2 id="2-格式化网卡名称"><a href="#2-格式化网卡名称" class="headerlink" title="2. 格式化网卡名称"></a>2. 格式化网卡名称</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">类似 CentOS 7，及 Ubuntu 16.04 开始，安装好后网卡名称变成 ens160 类似名称了</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑 grub 配置文件</span></span><br><span class="line">sudo vi /etc/default/grub</span><br><span class="line">修改 GRUB_CMDLINE_LINUX=&quot;&quot;为 GRUB_CMDLINE_LINUX=&quot;net.ifnames=0 biosdevname=0&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接使用 sed 编辑</span></span><br><span class="line">sudo sed -i &quot;/^GRUB_CMDLINE_LINUX=&quot;&quot;/c GRUB_CMDLINE_LINUX=\&quot;net.ifnames=0 biosdevname=0\&quot;&quot; /etc/default/grub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新 grub 配置文件</span></span><br><span class="line">sudo update-grub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后下一节编辑配置文件并重启生效</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-网络配置"><a href="#3-网络配置" class="headerlink" title="3. 网络配置"></a>3. 网络配置</h2><p>查看 IP 地址信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip address</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">简写 ip a</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ifconfig 也支持</span></span><br></pre></td></tr></table></figure>
 <p>通过 netplan 管理网络</p>
 <blockquote>
-<p>18.04:<br>
-cat /etc/network/interfaces<br>
-ifupdown has been replaced by netplan<br>
-默认使用 netplan 管理网络</p>
+<p>18.04:<br>cat /etc/network/interfaces<br>ifupdown has been replaced by netplan<br>默认使用 netplan 管理网络</p>
 <p>18.04 默认配置文件：/etc/netplan/50-cloud-init.yaml</p>
-<p>20.04:<br>
-cat /etc/network/interfaces<br>
-cat: /etc/network/interfaces: No such file or directory</p>
+<p>20.04:<br>cat /etc/network/interfaces<br>cat: /etc/network/interfaces: No such file or directory</p>
 <p>20.04 默认配置文件：/etc/netplan/00-installer-config.yaml</p>
 </blockquote>
 <p>配置静态 IP 地址</p>
@@ -652,34 +605,26 @@ cat: /etc/network/interfaces: No such file or directory</p>
 <p>缩进建议使用 2 个空格，使用短横线 “-” 表示列表时，”- “后面的条目需要对齐，如果使用超过 2 个空格缩进，格式将有误。</p>
 <p>配置静态路由示例</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">network:</span><br><span class="line">  version: 2</span><br><span class="line">  ethernets:</span><br><span class="line">    eth0:</span><br><span class="line">      addresses:</span><br><span class="line">        - 10.19.190.5/24</span><br><span class="line">      #gateway4: 10.19.190.254</span><br><span class="line">      nameservers:</span><br><span class="line">        addresses:</span><br><span class="line">          - 10.19.190.11</span><br><span class="line">          - 10.19.190.12</span><br><span class="line">        search:</span><br><span class="line">          - sysin.org</span><br><span class="line">      routes:</span><br><span class="line">        - to: 0.0.0.0/0</span><br><span class="line">          via: 10.19.190.254</span><br><span class="line">          metric: 100</span><br><span class="line">        - to: 10.19.177.0/24</span><br><span class="line">          via: 10.19.190.1</span><br><span class="line">          metric: 100</span><br></pre></td></tr></table></figure>
-<h2 id="4-修改主机名-2">4. 修改主机名</h2>
-<p>设置主机名</p>
+<h2 id="4-修改主机名"><a href="#4-修改主机名" class="headerlink" title="4. 修改主机名"></a>4. 修改主机名</h2><p>设置主机名</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改为主机名 ubuntu01</span></span><br><span class="line">ubuntu01</span><br></pre></td></tr></table></figure>
 <p>添加 domain name</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加一行</span></span><br><span class="line">127.0.0.1  ubuntu01.sysin.org ubuntu01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意这里的格式，IP 后面先写 FQDN 再写主机名，与 CentOS 相同</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先写主机名后写 FQDN 不影响解析，但是<span class="string">&#x27;hostname -f&#x27;</span>命令无法只能显示主机名</span></span><br></pre></td></tr></table></figure>
 <p>查看 FQDN</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hostname -f</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">正确显示如下</span></span><br><span class="line">ubuntu01.sysin.org</span><br></pre></td></tr></table></figure>
-<h2 id="5-设置时区">5. 设置时区</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
-<h2 id="6-修改国内镜像源">6. 修改国内镜像源</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">模板使用 aliyun</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">替换为阿里云镜像源</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.aliyun.com/&#x27; /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">提示：-i 写入文件，s 替换命令</span></span><br><span class="line"></span><br><span class="line">选择时区后镜像地址为 cn.archive.ubuntu.com，注意修改替换命令</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据实际网络情况选择镜像，可以 Ping 镜像地址查看延迟</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">网易 163</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.163.com/&#x27; /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">中科大</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.ustc.edu.cn/&#x27; /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清华</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/&#x27; /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+<h2 id="5-设置时区"><a href="#5-设置时区" class="headerlink" title="5. 设置时区"></a>5. 设置时区</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<h2 id="6-修改国内镜像源"><a href="#6-修改国内镜像源" class="headerlink" title="6. 修改国内镜像源"></a>6. 修改国内镜像源</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">模板使用 aliyun</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">替换为阿里云镜像源</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.aliyun.com/&#x27; /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">提示：-i 写入文件，s 替换命令</span></span><br><span class="line"></span><br><span class="line">选择时区后镜像地址为 cn.archive.ubuntu.com，注意修改替换命令</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据实际网络情况选择镜像，可以 Ping 镜像地址查看延迟</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">网易 163</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.163.com/&#x27; /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">中科大</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.ustc.edu.cn/&#x27; /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清华</span></span><br><span class="line">sudo sed -i &#x27;s/cn.archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/&#x27; /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <p>更新</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update #更新源</span><br><span class="line">sudo apt upgrade #更新已安装的包</span><br><span class="line">sudo apt dist-upgrade #升级系统</span><br><span class="line">sudo apt clean &amp;&amp; sudo apt autoclean #清理下载文件的存档</span><br></pre></td></tr></table></figure>
-<h2 id="7-安装-SNMP（模板未配置）">7. 安装 SNMP（模板未配置）</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install snmpd snmp</span><br></pre></td></tr></table></figure>
-<h2 id="8-配置-NTP">8. 配置 NTP</h2>
-<p><strong>(1) 默认使用 systemd-timesyncd（NTP Client）进行时间同步</strong>：</p>
+<h2 id="7-安装-SNMP（模板未配置）"><a href="#7-安装-SNMP（模板未配置）" class="headerlink" title="7. 安装 SNMP（模板未配置）"></a>7. 安装 SNMP（模板未配置）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install snmpd snmp</span><br></pre></td></tr></table></figure>
+<h2 id="8-配置-NTP"><a href="#8-配置-NTP" class="headerlink" title="8. 配置 NTP"></a>8. 配置 NTP</h2><p><strong>(1) 默认使用 systemd-timesyncd（NTP Client）进行时间同步</strong>：</p>
 <p>适用于 Ubuntu 18.04、20.04 和 22.04。</p>
-<p>配置文件默认如下：<br>
-<code>vi /etc/systemd/timesyncd.conf</code></p>
+<p>配置文件默认如下：<br><code>vi /etc/systemd/timesyncd.conf</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Time]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">NTP=</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">FallbackNTP=ntp.ubuntu.com</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">RootDistanceMaxSec=5</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PollIntervalMinSec=32</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PollIntervalMaxSec=2048</span></span><br></pre></td></tr></table></figure>
-<p>默认 NTP 服务器使用 <a target="_blank" rel="noopener" href="http://ntp.ubuntu.com">ntp.ubuntu.com</a></p>
+<p>默认 NTP 服务器使用 ntp.ubuntu.com</p>
 <p>如果使用其他的服务器，增加一行，多个地址用空格分隔：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NTP=ntp1.aliyun.com ntp2.aliyun.com</span><br></pre></td></tr></table></figure>
-<p>重启服务生效：<br>
-<code>systemctl restart systemd-timesyncd</code></p>
-<p>手动同步（<code>sudo atp install ntpdate</code>）：<br>
-<code>ntpdate -s ntp1.aliyun.com</code></p>
+<p>重启服务生效：<br><code>systemctl restart systemd-timesyncd</code></p>
+<p>手动同步（<code>sudo atp install ntpdate</code>）：<br><code>ntpdate -s ntp1.aliyun.com</code></p>
 <p>查看同步状态：</p>
 <p><code>timedatectl timesync-status</code></p>
 <p><strong>(2) 配置使用 chrony</strong>：</p>
@@ -688,12 +633,9 @@ cat: /etc/network/interfaces: No such file or directory</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install chrony</span><br><span class="line"></span><br><span class="line">sudo systemctl enable chrony</span><br><span class="line">sudo systemctl start chrony</span><br><span class="line">sudo systemctl status chrony</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看配置文件，暂使用默认配置</span></span><br><span class="line">cat /etc/chrony/chrony.conf</span><br></pre></td></tr></table></figure>
 <p>chrony 自带一个交互式工具 chronyc，在配置文件中指定了时间服务器之后，如果想查看同步状态，可以进入这个交互式工具的交互界面。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chronyc 有很多的子命令，可以输入 help 来查看</span><br><span class="line"><span class="meta prompt_">chronyc&gt; </span><span class="language-bash"><span class="built_in">help</span></span></span><br><span class="line">    选项：</span><br><span class="line">    sources [-v]    显示关于当前来源的信息</span><br><span class="line">    sourcestats [-v]      显示时间同步状态（如时间偏移了多少之类）</span><br></pre></td></tr></table></figure>
-<h2 id="9-虚机安装-VMware-Tools">9. 虚机安装 VMware Tools</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 16.04 在 ESXi 中安装系统时已经自动安装了 vm-tools（18.04、20.04 相同）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">20.04 自带 vm-tools 版本为 11.0.5，与 ESXi 7.0.0 匹配</span></span><br><span class="line">sudo apt install open-vm-tools</span><br></pre></td></tr></table></figure>
-<h2 id="10-安装必备工具">10. 安装必备工具</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zip unzip</span><br><span class="line">sudo apt install lrzsz</span><br><span class="line">sudo apt install htop #20.04 已默认安装（18.04 已默认安装）</span><br><span class="line">sudo apt install lnav</span><br><span class="line">sudo apt install fd-find #fd 命令，20.04 已经收录</span><br><span class="line">sudo apt install ripgrep #rg 命令，20.04 已经收录</span><br><span class="line">sudo apt install tree</span><br><span class="line">sudo apt install build-essential #Following command will install essential commands like gcc, make etc.</span><br><span class="line">sudo apt install net-tools #ifconfig、netstat、route 等命令集</span><br><span class="line">sudo apt install ntp ntpdate ntpstat #可选，模板未安装</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc lsof pstree 系统自带 (sysin)</span></span><br></pre></td></tr></table></figure>
-<h2 id="11-开启-root-账号登录">11. 开启 root 账号登录</h2>
-<p>Ubuntu 默认禁用 root SSH 密码登录（Pubkey 认证不受此限，默认启用），安装时候创建特定用户作为管理员帐号（通过 sudo 执行特权命令），启用 root 用户步骤如下：</p>
+<h2 id="9-虚机安装-VMware-Tools"><a href="#9-虚机安装-VMware-Tools" class="headerlink" title="9. 虚机安装 VMware Tools"></a>9. 虚机安装 VMware Tools</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 16.04 在 ESXi 中安装系统时已经自动安装了 vm-tools（18.04、20.04 相同）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">20.04 自带 vm-tools 版本为 11.0.5，与 ESXi 7.0.0 匹配</span></span><br><span class="line">sudo apt install open-vm-tools</span><br></pre></td></tr></table></figure>
+<h2 id="10-安装必备工具"><a href="#10-安装必备工具" class="headerlink" title="10. 安装必备工具"></a>10. 安装必备工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zip unzip</span><br><span class="line">sudo apt install lrzsz</span><br><span class="line">sudo apt install htop #20.04 已默认安装（18.04 已默认安装）</span><br><span class="line">sudo apt install lnav</span><br><span class="line">sudo apt install fd-find #fd 命令，20.04 已经收录</span><br><span class="line">sudo apt install ripgrep #rg 命令，20.04 已经收录</span><br><span class="line">sudo apt install tree</span><br><span class="line">sudo apt install build-essential #Following command will install essential commands like gcc, make etc.</span><br><span class="line">sudo apt install net-tools #ifconfig、netstat、route 等命令集</span><br><span class="line">sudo apt install ntp ntpdate ntpstat #可选，模板未安装</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc lsof pstree 系统自带 (sysin)</span></span><br></pre></td></tr></table></figure>
+<h2 id="11-开启-root-账号登录"><a href="#11-开启-root-账号登录" class="headerlink" title="11. 开启 root 账号登录"></a>11. 开启 root 账号登录</h2><p>Ubuntu 默认禁用 root SSH 密码登录（Pubkey 认证不受此限，默认启用），安装时候创建特定用户作为管理员帐号（通过 sudo 执行特权命令），启用 root 用户步骤如下：</p>
 <ul>
 <li>修改 root 密码（控制台可以登录）</li>
 </ul>
@@ -712,11 +654,9 @@ cat: /etc/network/interfaces: No such file or directory</p>
 <li>重启服务生效</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
-<h2 id="下载-OVF-3">下载 OVF</h2>
-<p>虚拟机模板下载：</p>
+<h2 id="下载-OVF"><a href="#下载-OVF" class="headerlink" title="下载 OVF"></a>下载 OVF</h2><p>虚拟机模板下载：</p>
 <ul>
-<li>
-<a href="/blog/ubuntu-2004-ovf/" title="Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板">Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板</a>
+<li><a href="/blog/ubuntu-2004-ovf/" title="Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板">Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板</a>
 </li>
 </ul>
 
@@ -902,7 +842,7 @@ cat: /etc/network/interfaces: No such file or directory</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Ubuntu-20-04-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu 20.04 新特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Updated-Packages"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Updated Packages</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Network-configuration"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Network configuration</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Storage-File-Systems"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Storage&#x2F;File Systems</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Other-base-system-changes-since-18-04-LTS"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Other base system changes since 18.04 LTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ubuntu-Server-2"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">Ubuntu Server</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%AE%89%E8%A3%85%E6%91%98%E8%A6%81"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1. 安装摘要</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%BD%91%E5%8D%A1%E5%90%8D%E7%A7%B0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2. 格式化网卡名称</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3. 网络配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D-2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">4. 修改主机名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">5. 设置时区</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E4%BF%AE%E6%94%B9%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">6. 修改国内镜像源</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E5%AE%89%E8%A3%85-SNMP%EF%BC%88%E6%A8%A1%E6%9D%BF%E6%9C%AA%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">7. 安装 SNMP（模板未配置）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E9%85%8D%E7%BD%AE-NTP"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">8. 配置 NTP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-%E8%99%9A%E6%9C%BA%E5%AE%89%E8%A3%85-VMware-Tools"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">9. 虚机安装 VMware Tools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-%E5%AE%89%E8%A3%85%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">10. 安装必备工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-%E5%BC%80%E5%90%AF-root-%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">11. 开启 root 账号登录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD-OVF-3"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">下载 OVF</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Ubuntu-20-04-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu 20.04 新特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Updated-Packages"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Updated Packages</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Network-configuration"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Network configuration</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Storage-File-Systems"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Storage&#x2F;File Systems</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Other-base-system-changes-since-18-04-LTS"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Other base system changes since 18.04 LTS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ubuntu-Server"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">Ubuntu Server</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%AE%89%E8%A3%85%E6%91%98%E8%A6%81"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1. 安装摘要</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%BD%91%E5%8D%A1%E5%90%8D%E7%A7%B0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2. 格式化网卡名称</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3. 网络配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">4. 修改主机名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">5. 设置时区</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E4%BF%AE%E6%94%B9%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">6. 修改国内镜像源</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E5%AE%89%E8%A3%85-SNMP%EF%BC%88%E6%A8%A1%E6%9D%BF%E6%9C%AA%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">7. 安装 SNMP（模板未配置）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E9%85%8D%E7%BD%AE-NTP"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">8. 配置 NTP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-%E8%99%9A%E6%9C%BA%E5%AE%89%E8%A3%85-VMware-Tools"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">9. 虚机安装 VMware Tools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-%E5%AE%89%E8%A3%85%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">10. 安装必备工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-%E5%BC%80%E5%90%AF-root-%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">11. 开启 root 账号登录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD-OVF"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">下载 OVF</span></a></li></ol>
         
         </div>
       </aside>
@@ -1153,7 +1093,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
