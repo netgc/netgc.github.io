@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何将 Windows 10、11 的恢复分区（Recovery Partition）移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 如何将 Windows 10、11 的恢复分区（Recovery Partition）移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 如何将 Windows 10、11 的恢复分区（Recovery Partition）移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 如何将 Windows 10、11 的恢复分区（Recovery Partition）移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 如何将 Windows 10、11 的恢复分区（Recovery Partition）移动到 C 盘之前，恢复 C 盘容量调整功能 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/windows-10-recovery-partition/">
+  <link rel="canonical" href="https://sysin.cn/blog/windows-10-recovery-partition/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -236,8 +238,6 @@
 
           
           
-          
-          
           <li>
             <a href="/about/">
               
@@ -246,6 +246,8 @@
               
             </a>
           </li>
+          
+          
           
           
           
@@ -485,9 +487,10 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/windows-10-recovery-partition/" title="如何将 Windows 10、11 的恢复分区（Recovery Partition）移动到 C 盘之前，恢复 C 盘容量调整功能">如何将 Windows 10、11 的恢复分区（Recovery Partition）移动到 C 盘之前，恢复 C 盘容量调整功能</a>，查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
-<p>笔者这几天在制作 <a href="https://sysin.org/blog/windows-server-2022-ovf/">Windows Server 2022 OVF</a> 的时候，发现 C 盘不能扩展容量了（虽然可以压缩，但是压缩的未分配空间无法合并到其他分区），在这虚拟化或者云环境中是非常糟糕的事情。本文提供了将 Windows 10（包含 Windows Server 2022）和 Windows 11 分区恢复到正常模式的方法，恢复正常调整 C 盘容量大小的功能。</p>
+<p><strong>无耻抄袭者 Yu Tao，请立滚</strong>！！！</p>
+<p>笔者这几天在制作 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022-ovf/">Windows Server 2022 OVF</a> 的时候，发现 C 盘不能扩展容量了（虽然可以压缩，但是压缩的未分配空间无法合并到其他分区），在这虚拟化或者云环境中是非常糟糕的事情。本文提供了将 Windows 10（包含 Windows Server 2022）和 Windows 11 分区恢复到正常模式的方法，恢复正常调整 C 盘容量大小的功能。</p>
 <h2 id="Windows-Server-2022-磁盘分区新变化">Windows Server 2022 磁盘分区新变化</h2>
 <p>在 Windows Server 2022 中，再次调整了系统分区的容量，甚至将恢复分区移动了 C 盘（操作系统分区）之后，安装后是这样的：System Reserve 100M（如果使用 EFI 引导，则该 100M 为 EFI System Partition），C 盘后增加了一个 523M 的 Recovery partition（恢复分区），导致无法调节 C 盘容量。</p>
 <p><img src="windows-2022-recovery-partition.webp" alt="windows-2022-recovery-partition"></p>
@@ -1088,7 +1091,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
