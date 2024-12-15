@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> VisualEther Protocol Analyzer 7.2 (Windows) - 使用序列图可视化 Wireshark 追踪 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" VisualEther Protocol Analyzer 7.2 (Windows) - 使用序列图可视化 Wireshark 追踪 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> VisualEther Protocol Analyzer 7.2 (Windows) - 使用序列图可视化 Wireshark 追踪 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" VisualEther Protocol Analyzer 7.2 (Windows) - 使用序列图可视化 Wireshark 追踪 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" VisualEther Protocol Analyzer 7.2 (Windows) - 使用序列图可视化 Wireshark 追踪 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/visualether-7/">
+  <link rel="canonical" href="https://sysin.cn/blog/visualether-7/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,12 +487,11 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/visualether-7/" title="VisualEther Protocol Analyzer 7.2 (Windows) - 使用序列图可视化 Wireshark 追踪">VisualEther Protocol Analyzer 7.2 (Windows) - 使用序列图可视化 Wireshark 追踪</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>VisualEther 协议分析器</p>
 <p>​<img src="https://www.eventhelix.com/images/wireshark-to-sequence-diagram-conversion.png" alt="Wireshark 窗口和生成的 PDF 序列图并排显示"></p>
-<h2 id="可视化调试协议交互">可视化调试协议交互</h2>
-<p>生成序列图和 <a target="_blank" rel="noopener" href="https://www.eventhelix.com/visualether/tutorial#generate-a-sequence-diagram-from-wireshark">来自 Wireshark 的调用流程图输</a> 序列图提供了之间数据包流的可视化跟踪不同的节点：</p>
+<h2 id="可视化调试协议交互"><a href="#可视化调试协议交互" class="headerlink" title="可视化调试协议交互"></a>可视化调试协议交互</h2><p>生成序列图和 <a target="_blank" rel="noopener" href="https://www.eventhelix.com/visualether/tutorial#generate-a-sequence-diagram-from-wireshark">来自 Wireshark 的调用流程图输</a> 序列图提供了之间数据包流的可视化跟踪不同的节点：</p>
 <ul>
 <li>在 IP 地址或端口级别生成序列图</li>
 <li>从 GTP 隧道中提取消息 (sysin)</li>
@@ -499,26 +500,20 @@
 <p>使用 <a target="_blank" rel="noopener" href="https://www.eventhelix.com/visualether/tutorial#automate-wireshark-protocol-diagnostics">正则表达式来识别和标记错误场景</a>。报告会话失败的消息可以在 PDF 文件中添加书签，因此让您快速了解故障原因。协议专家可以提前识别错误场景以加快协议调试。</p>
 <p>​<img src="https://www.eventhelix.com/images/sequence-diagram-wireshark-large.png" alt="从 VisualEther 生成的序列图显示在 PDF 阅读"></p>
 <p>​<img src="https://www.eventhelix.com/images/wireshark-extraction-template-large.png" alt="器编辑器窗口中，显示了为序列图提取定义过滤器的 FXT 文件。"></p>
-<h2 id="汇总-Wireshark-输出">汇总 Wireshark 输出</h2>
-<p>定义模板以选择消息和要包含在其中的字段生成的图表。VisualEther 分析 Wireshark 输出以生成与定义的模板匹配的文档。这模板被定义为一个简单的 XML 文件。</p>
+<h2 id="汇总-Wireshark-输出"><a href="#汇总-Wireshark-输出" class="headerlink" title="汇总 Wireshark 输出"></a>汇总 Wireshark 输出</h2><p>定义模板以选择消息和要包含在其中的字段生成的图表。VisualEther 分析 Wireshark 输出以生成与定义的模板匹配的文档。这模板被定义为一个简单的 XML 文件。</p>
 <p>内置对 IPv4、IPv6、以太网和 Wifi 的支持。TCP、UDP 和 SCTP 传输层支持也是开箱即用的 (sysin)。</p>
 <p>你可以为任何具有 Wireshark 的协议自定义模板解剖器。任何自定义源地址和目标地址都可用于定义序列图实例轴。</p>
-<h2 id="同时保持完整的消息详细信息">同时保持完整的消息详细信息</h2>
-<p>单击 PDF 序列图中的 <strong>任何</strong> 消息。VisualEther 向您显示完整的字段级别在浏览器窗口中显示该消息的详细信息。</p>
+<h2 id="同时保持完整的消息详细信息"><a href="#同时保持完整的消息详细信息" class="headerlink" title="同时保持完整的消息详细信息"></a>同时保持完整的消息详细信息</h2><p>单击 PDF 序列图中的 <strong>任何</strong> 消息。VisualEther 向您显示完整的字段级别在浏览器窗口中显示该消息的详细信息。</p>
 <p>消息节点可以展开和折叠。这样您就可以专注于消息中。</p>
 <p>​<img src="https://www.eventhelix.com/images/wireshark-to-sequence-diagram-cropped.gif" alt="显示单击 Wireshark 生成的序列图并显示消息详细信息的动画。"></p>
 <p>​<img src="https://www.eventhelix.com/images/reverse-engineer-design-from-wireshark-large.png" alt="显示生成的 FDL 文件内容的 Vscode。"></p>
-<h2 id="逆向工程系统设计">逆向工程系统设计</h2>
-<p>通过分析逆向工程系统设计操作系统中的消息流。设计文档是从 Wireshark 跟踪生成的。生成的文档可以使用编辑和重新格式化 <a target="_blank" rel="noopener" href="https://www.eventhelix.com/EventStudio">EventStudio 系统设计师</a>。</p>
-<h2 id="从-wireshark-pcap-自动生成图表">从 wireshark pcap 自动生成图表</h2>
-<p>使用 tshark 自动抓取 Wireshark 日志，然后使用 VisualEther 命令行方式生成序列图和上下文图 (sysin)。</p>
+<h2 id="逆向工程系统设计"><a href="#逆向工程系统设计" class="headerlink" title="逆向工程系统设计"></a>逆向工程系统设计</h2><p>通过分析逆向工程系统设计操作系统中的消息流。设计文档是从 Wireshark 跟踪生成的。生成的文档可以使用编辑和重新格式化 <a target="_blank" rel="noopener" href="https://www.eventhelix.com/EventStudio">EventStudio 系统设计师</a>。</p>
+<h2 id="从-wireshark-pcap-自动生成图表"><a href="#从-wireshark-pcap-自动生成图表" class="headerlink" title="从 wireshark pcap 自动生成图表"></a>从 wireshark pcap 自动生成图表</h2><p>使用 tshark 自动抓取 Wireshark 日志，然后使用 VisualEther 命令行方式生成序列图和上下文图 (sysin)。</p>
 <p>​<img src="https://www.eventhelix.com/images/wireshark-to-sequence-diagram-script-large.png" alt="自动化使用脚本生成的序列图。"></p>
-<h2 id="探索更多">探索更多</h2>
-<p>VisualEther <a target="_blank" rel="noopener" href="https://www.eventhelix.com/visualether/VisualEther_Protocol_Analyzer.pdf">用户手册</a> 让您快速入门 Wireshark 自动化。</p>
+<h2 id="探索更多"><a href="#探索更多" class="headerlink" title="探索更多"></a>探索更多</h2><p>VisualEther <a target="_blank" rel="noopener" href="https://www.eventhelix.com/visualether/VisualEther_Protocol_Analyzer.pdf">用户手册</a> 让您快速入门 Wireshark 自动化。</p>
 <p>​<img src="https://www.eventhelix.com/visualether/images/wireshark-to-sequence-diagram-user-manual.png" alt="PDF 阅读器中显示的 VisualEther 手册。"></p>
 <p>观看 <a target="_blank" rel="noopener" href="https://www.eventhelix.com/visualether/tutorial">视频教程</a> 以了解如何定义自定义序列图转换模板。这视频还包括选择 Wireshark 字段的分步指南并将它们映射到序列图元素。</p>
-<h2 id="下载地址-422">下载地址</h2>
-<p>VisualEther Protocol Analyzer 7.2 Professional Edition for Windows</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>VisualEther Protocol Analyzer 7.2 Professional Edition for Windows</p>
 <ul>
 <li>百度网盘链接：<code>[EoD]</code></li>
 </ul>
@@ -648,7 +643,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -711,7 +706,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B0%83%E8%AF%95%E5%8D%8F%E8%AE%AE%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">可视化调试协议交互</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B1%87%E6%80%BB-Wireshark-%E8%BE%93%E5%87%BA"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">汇总 Wireshark 输出</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%90%8C%E6%97%B6%E4%BF%9D%E6%8C%81%E5%AE%8C%E6%95%B4%E7%9A%84%E6%B6%88%E6%81%AF%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">同时保持完整的消息详细信息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">逆向工程系统设计</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%8E-wireshark-pcap-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E8%A1%A8"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">从 wireshark pcap 自动生成图表</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8E%A2%E7%B4%A2%E6%9B%B4%E5%A4%9A"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">探索更多</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-422"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E8%B0%83%E8%AF%95%E5%8D%8F%E8%AE%AE%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">可视化调试协议交互</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B1%87%E6%80%BB-Wireshark-%E8%BE%93%E5%87%BA"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">汇总 Wireshark 输出</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%90%8C%E6%97%B6%E4%BF%9D%E6%8C%81%E5%AE%8C%E6%95%B4%E7%9A%84%E6%B6%88%E6%81%AF%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">同时保持完整的消息详细信息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">逆向工程系统设计</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%8E-wireshark-pcap-%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%9B%BE%E8%A1%A8"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">从 wireshark pcap 自动生成图表</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8E%A2%E7%B4%A2%E6%9B%B4%E5%A4%9A"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">探索更多</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
@@ -953,7 +948,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
