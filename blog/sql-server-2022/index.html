@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> SQL Server 2022 RTM Cumulative Update 15 发布下载 (累积更新包) - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" SQL Server 2022 RTM Cumulative Update 15 发布下载 (累积更新包) - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" SQL Server 2022 RTM Cumulative Update 15 发布下载 (累积更新包) "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/sql-server-2022/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+              
+              <a class="tag" href="/tags/#Microsoft" title="Microsoft">Microsoft</a>
+              
+              <a class="tag" href="/tags/#Server" title="Server">Server</a>
+              
+              <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+              
+            </div>
+            <h1>SQL Server 2022 RTM Cumulative Update 15 发布下载 (累积更新包)</h1>
+            <h2 class="subheading">最新的累积更新 (CU) 下载，包含自 SQL Server 2022 RTM 发布以来的所有更新。</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-09-25
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">14</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Wed Sep 25 2024 10:20:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/sql-server-2022/" title="SQL Server 2022 RTM Cumulative Update 15 发布下载 (累积更新包)">SQL Server 2022 RTM Cumulative Update 15 发布下载 (累积更新包)</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>SQL Server 2022</p>
+<p><img src="/blog/sql-server/sql-server-logo.webp" alt="SQL-Server-sysin"></p>
+<h2 id="SQL-Server-2022-现已普遍可用">SQL Server 2022 现已普遍可用</h2>
+<p>2022 年 11 月 16 日，巨硬宣布正式发布 SQL Server 2022，这是迄今为止支持 Azure 最多的 SQL Server 版本，并在性能、安全性和可用性方面不断创新。这标志着 SQL Server 30 多年历史上的最新里程碑。</p>
+<p>SQL Server 2022 是 Microsoft 智能数据平台的核心元素。该平台无缝集成了运营数据库、分析和数据治理。这使客户能够实时适应，为他们的应用程序添加智能层，解锁快速和预测性的洞察力 (sysin)，并管理他们的数据——无论数据位于何处。</p>
+<p><img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Blade006_Hybrid_798x402_2x?resMode=sharp2&amp;op_usm=1.5,0.65,15,0&amp;wid=3840&amp;qlt=100&amp;fmt=png-alpha&amp;fit=constrain" alt="显示 SQL Server 2022 功能的图像。"></p>
+<p>SQL Server 2022 与 Azure 的连接（包括 Azure Synapse Link 和 Microsoft Purview）使客户更容易从他们的数据中大规模地获得更深入的洞察、预测和治理 (sysin)。Azure 集成还包括到 Azure SQL 托管实例的托管灾难恢复 (DR)，以及近乎实时的分析，使数据库管理员能够以更大的灵活性和对最终用户的最小影响来管理他们的数据资产。</p>
+<p>通过内置查询智能自动增强性能和可扩展性。安全创新基于 SQL Server 在过去 10 年中作为最不易受攻击的数据库的记录，继续使用 Ledger for SQL Server，它使用区块链创建数据库所有更改时间的防篡改跟踪记录。</p>
+<h3 id="支持-Azure-的功能">支持 Azure 的功能</h3>
+<p><strong>Azure SQL 托管实例的链接功能</strong> 完全集成：为确保正常运行时间，SQL Server 2022 与Azure SQL 托管实例中的新链接功能。借助这一新功能，您可以从应用于灾难恢复的 PaaS 环境中获益——即使与 IaaS 环境相比，您也可以在设置和管理上花费更少的时间。这通过使用内置的分布式可用性组 (DAG) 将数据复制到以前部署的 Azure SQL 托管实例作为 DR 副本站点来实现 (sysin)。该实例已准备就绪，随时待命——无需冗长的配置或维护。您还可以在读取扩展方案中使用此链接功能来卸载可能会影响数据库性能的繁重请求。巨硬正在努力构建更多功能来支持在线灾难恢复。</p>
+<p><strong>Azure Synapse Link for SQL</strong>：以前，将数据从本地数据库（如 SQL Server）移动到 Synapse 需要使用提取、转换和加载 (ETL)。配置和运行 ETL 管道非常耗时，而且洞察力往往滞后于任何时刻正在发生的事情。适用于 SQL Server 2022 的 Azure Synapse Link 提供自动更改源以捕获 SQL Server 中的更改并将它们提供给 Azure Synapse Analytics。Synapse Link 提供近乎实时的分析以及混合事务和分析处理，对操作系统的影响最小 (sysin)。数据进入 Synapse 后，您可以将其与许多不同的数据源结合，无论它们的大小、规模或格式如何，并使用您选择的 Azure 机器学习、Spark 或 Power BI 对所有数据运行强大的分析。由于自动更改源仅推送新的或不同的内容，因此数据传输速度更快，并允许获得近乎实时的洞察力，所有这些都对 SQL Server 2022 中源数据库的性能影响最小。</p>
+<p><strong>Microsoft Purview 集成</strong> ：Microsoft Purview 是一个统一的数据治理和管理服务。巨硬很高兴地强调，SQL Server 还与 Microsoft Purview 集成，以实现更好的数据发现，让您打破数据孤岛。通过此集成，您将能够：</p>
+<ul>
+<li>免费自动扫描本地 SQL Server 以捕获元数据。</li>
+<li>使用内置和自定义分类器以及 Microsoft 信息保护敏感度标签对数据进行分类。</li>
+<li>设置和控制对 SQL Server 的特定访问权限。</li>
+</ul>
+<p><strong>与 Azure 连接的其他功能：</strong> SQL Server 2022 具有许多支持 Azure 的其他功能。与 Azure Arc 代理的简单连接是 SQL Server 2022 默认设置过程的一部分 (sysin)，可启用其他功能，包括：</p>
+<ul>
+<li>在本地、Azure 和其他云中部署的所有 SQL Server 的<strong>单一视图</strong>。</li>
+<li><strong>完全自动化</strong> 的 SQL Server 技术评估，无需额外费用，可帮助您优化数据库的性能、可伸缩性、安全性、业务连续性等。</li>
+<li><strong>使用Microsoft Defender</strong> for Cloud 保护本地数据。</li>
+<li><strong>使用单点登录</strong> 和 <strong>Azure Active Directory</strong> 保护身份。</li>
+<li><strong>按需付费</strong>。</li>
+</ul>
+<h3 id="对核心-SQL-Server-引擎的持续创新">对核心 SQL Server 引擎的持续创新</h3>
+<p><strong>性能</strong>： 性能至关重要。在 SQL Server 工程团队中，巨硬的核心引擎功能原则是：不造成伤害，无需更改应用程序。使用 SQL Server 2022，性能增强无需最终用户更改代码。</p>
+<p>根据独立的事务处理性能委员会，SQL Server 继续提供差异化性能，在 1TB、3TB、10TB 和 30TB 上，OLTP 性能排名第一，非集群 DW 性能排名第一。在 SQL Server 2022 中：</p>
+<ul>
+<li>通过查询存储，巨硬正在添加对只读副本的支持并启用查询提示以提高性能并快速缓解问题，而无需更改源 T-SQL。</li>
+<li>借助智能查询处理，巨硬正在根据常见的客户问题扩展更多场景 (sysin)。例如，“参数敏感计划”问题指的是参数化查询的单个缓存计划对于所有可能的传入参数值都不是最优的。借助 SQL Server 2022 的参数敏感计划优化功能，巨硬可以为单个参数化语句自动启用多个活动缓存计划的生成。这些缓存的执行计划将根据提供的运行时参数值适应不同的数据大小。</li>
+</ul>
+<p><strong>安全性：</strong> 在过去十年中，SQL Server 几乎没有漏洞。在此基础上，新的 Ledger for SQL Server 功能创建了随时间变化的数据修改的防篡改跟踪记录。这可以检测恶意行为者的篡改，有利于内部和外部审计等场景。</p>
+<p><strong>可用性：</strong> 使用包含的可用性组，您可以创建一个 Always On 可用性组，除了具有包含的可用性组的实例级别之外，它还可以在可用性组级别管理自己的元数据对象（用户、登录名、权限）。此外，当您拥有跨多个位置的用户时，它可以使多写入环境平稳运行。在 SQL Server 2022 中，巨硬正在自动执行最后写入者获胜规则，以确保在检测到冲突时，将选择最近的修改时间保留在所有副本上。</p>
+<h3 id="新的即用即付-SQL-Server-计费模型，由-Azure-Arc-启用">新的即用即付 SQL Server 计费模型，由 Azure Arc 启用</h3>
+<p>今天，巨硬也很高兴地宣布推出一种新的计费模式，该模式提供了快速创新和与您一样快速移动的灵活性。</p>
+<p>通过与 Azure Arc 的简单连接（SQL Server 2022 设置过程的默认部分），您现在可以访问 SQL Server 的新的支持云的计费模型，从而为您提供仅按使用量付费的成本效益。按小时支付消费高峰和临时使用费用，无需前期投资。中了解更多在公告博客文章信息。</p>
+<h3 id="Azure-SQL-迁移优惠">Azure SQL 迁移优惠</h3>
+<p>如果您已准备好开始您的云之旅，Microsoft 可以提供帮助。今天，巨硬宣布推出一项新服务，即 SQL + Apps Migration Factory。该计划可以免费评估合格的低复杂性 SQL Server 应用程序和数据库并将其迁移到 Azure SQL。与您的 Microsoft 客户团队联系或立即在 <code>aka.ms/SQLAppsMigrationFactory</code> 申请开始。</p>
+<h3 id="SQL-Server-IoT-2022">SQL Server IoT 2022</h3>
+<p>巨硬还发布了 SQL Server IoT 2022，它专为固定功能用例而设计，并通过 OEM 渠道获得特殊专用使用权许可 (sysin)。您可以阅读有关 SQL Server IoT 2022 的更多信息。</p>
+<h3 id="了解更多信息并立即开始使用-SQL-Server-2022">了解更多信息并立即开始使用 SQL Server 2022</h3>
+<ul>
+<li>上了解有关 SQL Server 2022 的更多信息 <a target="_blank" rel="noopener" href="https://passdatacommunitysummit.com/about/online?utm_source=microsoft&amp;utm_medium=referral&amp;utm_campaign=summit&amp;utm_content=sqlserver2022gablog&amp;utm_term=16nov">在PASS 数据社区峰会</a>，包括 Microsoft 和社区提供的主题演讲和一般会议。</li>
+<li>访问 <a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/sql-server/sql-server-2022">SQL Server 2022 网站</a>。<br>
+-，为 SQL Server 2022 做好准备 <a target="_blank" rel="noopener" href="https://aka.ms/sqlserver2022docs">阅读文档</a>并观看 <a target="_blank" rel="noopener" href="http://aka.ms/dataexposed-sqlserver2022">SQL Server 2022 Data Exposed 视频系列</a>。</li>
+<li>试用 Microsoft Learn <a target="_blank" rel="noopener" href="https://aka.ms/learnsqlserver2022">SQL Server 2022 模块</a>和 <a target="_blank" rel="noopener" href="https://aka.ms/sql2022workshop">SQL Server 2022 研讨会</a>。</li>
+<li>立即开始 <a target="_blank" rel="noopener" href="https://ms.portal.azure.com/#create/Microsoft.AzureSQL">在 Azure 中部署</a>！</li>
+<li>如果您有任何想法或反馈，请通过巨硬的 <a target="_blank" rel="noopener" href="https://aka.ms/sqlfeedback">SQL Server 反馈门户</a>告诉巨硬。</li>
+</ul>
+<h3 id="了解有关-Azure-SQL-托管实例的更多信息">了解有关 Azure SQL 托管实例的更多信息</h3>
+<ul>
+<li>上了解 <a target="_blank" rel="noopener" href="https://aka.ms/SQLMINov22">2022 年 11 月的功能</a><a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/azure-sql-blog/join-azure-sql-managed-instance-product-group-at-pass-summit/ba-p/3670944"></a><a target="_blank" rel="noopener" href="https://aka.ms/SQLMINov22">波</a>和其他公告 <a target="_blank" rel="noopener" href="https://passdatacommunitysummit.com/about/online?utm_source=microsoft&amp;utm_medium=referral&amp;utm_campaign=summit&amp;utm_content=sqlserver2022gablog&amp;utm_term=16nov">在PASS 数据社区峰会</a>。</li>
+<li>访问 <a target="_blank" rel="noopener" href="https://azure.microsoft.com/products/azure-sql/managed-instance/">Azure SQL 托管实例网站</a>。</li>
+</ul>
+<p>SQL Server 2022 免费版（开发版、速成版）从今天开始可供下载。SQL Server 2022 付费版（企业版、标准版）将从今天开始在批量许可（企业协议、企业协议订阅）客户中提供，这代表了大多数 SQL Server 客户。通过 CSP、OEM 和 SPLA 购买的客户可以在 2023 年 1 月开始购买 SQL Server 2022。</p>
+<h2 id="系统要求-91">系统要求</h2>
+<p>SQL Server 2022: Hardware and software requirements</p>
+<h3 id="Hardware-requirements-2">Hardware requirements</h3>
+<p>The following memory and processor requirements apply to all editions of SQL Server:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage</td>
+<td>SQL Server requires a minimum of 6 GB of available hard drive space.  Disk space requirements will vary with the SQL Server SQL Server components you install. For more information, see <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server?view=sql-server-ver16#HardDiskSpace">Hard Disk Space Requirements</a> later in this article. For information on supported storage types for data files, see <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server?view=sql-server-ver16#StorageTypes">Storage Types for Data Files</a>.</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td>SQL Server requires Super-VGA (800x600) or higher resolution monitor.</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>Internet functionality requires Internet access (fees may apply).</td>
+</tr>
+<tr>
+<td>Memory1</td>
+<td><strong>Minimum:</strong>  Express Editions: 512 MB  All other editions: 1 GB  <strong>Recommended:</strong>  Express Editions: 1 GB  All other editions: At least 4 GB and should be increased as database size increases to ensure optimal performance.</td>
+</tr>
+<tr>
+<td>Processor Speed</td>
+<td><strong>Minimum:</strong> x64 Processor: 1.4 GHz  <strong>Recommended:</strong> 2.0 GHz or faster</td>
+</tr>
+<tr>
+<td>Processor Type</td>
+<td>x64 Processor: AMD Opteron, AMD Athlon 64, Intel Xeon with Intel EM64T support, Intel Pentium IV with EM64T support</td>
+</tr>
+</tbody>
+</table>
+<p>Note</p>
+<p>Installation of SQL Server is supported on x64 processors only. It is no longer supported on x86 processors.</p>
+<h3 id="Software-requirements">Software requirements</h3>
+<p>The following requirements apply to all installations:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating system</td>
+<td>Windows 10 TH1 1507 or greater  Windows Server 2016 or greater.</td>
+</tr>
+<tr>
+<td>.NET Framework</td>
+<td>Minimum operating systems include minimum .NET framework.</td>
+</tr>
+<tr>
+<td>Network Software</td>
+<td>Supported operating systems for SQL Server have built-in network  software. Named and default instances of a stand-alone installation  support the following network protocols: Shared memory, Named Pipes, and TCP/IP.</td>
+</tr>
+</tbody>
+</table>
+<p>SQL Server Setup installs the following software components required by the product:</p>
+<ul>
+<li>SQL Server Native Client</li>
+<li>SQL Server Setup support files</li>
+</ul>
+<p>Important</p>
+<p>There are additional hardware and software requirements for the PolyBase feature. For more information, see <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver16">Get started with PolyBase</a>.</p>
+<h3 id="Operate-system-support">Operate system support</h3>
+<p>The following table shows which editions of SQL Server 2022 (16.x) are compatible with which versions of Windows:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SQL Server edition:</th>
+<th style="text-align:left">Enterprise</th>
+<th style="text-align:left">Developer</th>
+<th style="text-align:left">Standard</th>
+<th style="text-align:left">Web</th>
+<th style="text-align:left">Express</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Windows Server 2022 Datacenter</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2022 Datacenter: Azure Edition</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2022 Standard</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2019 Datacenter</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2019 Standard</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2019 Essentials</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2016 Datacenter</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2016 Standard</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows Server 2016 Essentials</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 11 IoT Enterprise</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 11 Enterprise</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 11 Professional</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 11 Home</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 10 IoT Enterprise</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 10 Enterprise</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 10 Professional</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left">Windows 10 Home</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">Yes</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Server Core support</p>
+<p>Installing SQL Server 2022 (16.x) on Server Core mode is supported by the following editions of Windows Server:</p>
+<p>Windows Server 2022 Core</p>
+<p>Windows Server 2019 Core</p>
+<p>Windows Server 2016 Core</p>
+<h2 id="下载地址-371">下载地址</h2>
+<p>SQL Server 2022 Enterprise Edition 64 Bit Chinese Simplified 简体中文版</p>
+<ul>
+<li>SW_DVD9_NTRL_SQL_Svr_Ent_Core_2022_64Bit_ChnSimp_OEM_VL_X23-28403.ISO</li>
+<li>SW_DVD9_SQL_Svr_Enterprise_Edtn_2022_64Bit_ChnSimp_MLF_X23-28422.ISO</li>
+</ul>
+<p>SQL Server 2022 Enterprise Edition 64 Bit Chinese Traditional 繁體中文版</p>
+<ul>
+<li>SW_DVD9_NTRL_SQL_Svr_Ent_Core_2022_64Bit_ChnTrad_OEM_VL_X23-28412.ISO</li>
+<li>SW_DVD9_SQL_Svr_Enterprise_Edtn_2022_64Bit_ChnTrad_MLF_X23-28420.ISO</li>
+</ul>
+<p>SQL Server 2022 Enterprise Edition 64 Bit English 英文版</p>
+<ul>
+<li>SW_DVD9_NTRL_SQL_Svr_Ent_Core_2022_64Bit_English_OEM_VL_X23-28404.ISO</li>
+<li>SW_DVD9_SQL_Svr_Enterprise_Edtn_2022_64Bit_English_MLF_X23-28423.ISO</li>
+</ul>
+<p>文件名对应版本：</p>
+<ul>
+<li>
+<p>SQL Server 2022 Enterprise Edition - Per Core</p>
+</li>
+<li>
+<p>SQL Server 2022 Enterprise Edition - Server/CAL</p>
+</li>
+<li>
+<p>百度网盘链接：<code>[EoD]</code></p>
+</li>
+</ul>
+<p><strong>Security Update for SQL Server</strong> 2022 RTM GDR</p>
+<p>The Security Update for SQL Server 2022 RTM GDR is now available for download at the Microsoft Download Center and Microsoft Update Catalog sites. This package cumulatively includes all previous security fixes for SQL Server 2022 RTM, plus it includes the new security fixes detailed in the KB Article.</p>
+<ul>
+<li>Security Bulletins:
+<ul>
+<li><a target="_blank" rel="noopener" href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-37335">CVE-2024-37335 - Security Update Guide - Microsoft - Microsoft SQL Server Native Scoring Remote Code…</a></li>
+</ul>
+</li>
+<li>Security Update of SQL Server 2022 RTM GDR KB Article: <a target="_blank" rel="noopener" href="https://support.microsoft.com/kb/5042211">KB5042211</a></li>
+<li>Microsoft Download Center: <a target="_blank" rel="noopener" href="https://www.microsoft.com/download/details.aspx?familyid=b6de42f6-dec1-4212-80fd-820f30b5b9ac">https://www.microsoft.com/download/details.aspx?familyid=b6de42f6-dec1-4212-80fd-820f30b5b9ac</a></li>
+<li>Microsoft Update Catalog: <a target="_blank" rel="noopener" href="https://www.catalog.update.microsoft.com/Search.aspx?q=5042211">https://www.catalog.update.microsoft.com/Search.aspx?q=5042211</a></li>
+<li>Latest Updates for Microsoft SQL Server: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/troubleshoot/sql/releases/download-and-install-latest-updates">https://learn.microsoft.com/en-us/troubleshoot/sql/releases/download-and-install-latest-updates</a></li>
+</ul>
+<p><strong>Security Update for SQL Server</strong> 2022 RTM CU14</p>
+<p>The Security Update for SQL Server 2022 RTM CU14 is now available for download at the Microsoft Download Center and Microsoft Update Catalog sites. This package cumulatively includes all previous security fixes for SQL Server 2022 RTM CU14, plus it includes the new security fixes detailed in the KB Article.</p>
+<ul>
+<li>Security Bulletins:
+<ul>
+<li><a target="_blank" rel="noopener" href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-37335">CVE-2024-37335 - Security Update Guide - Microsoft - Microsoft SQL Server Native Scoring Remote Code…</a></li>
+</ul>
+</li>
+<li>Security Update of SQL Server 2022 RTM CU14 KB Article: <a target="_blank" rel="noopener" href="https://support.microsoft.com/kb/5042578">KB5042578</a></li>
+<li>Microsoft Download Center: <a target="_blank" rel="noopener" href="https://www.microsoft.com/download/details.aspx?familyid=a2449ad4-3be2-407b-9e56-c109d321a5b9">https://www.microsoft.com/download/details.aspx?familyid=a2449ad4-3be2-407b-9e56-c109d321a5b9</a></li>
+<li>Microsoft Update Catalog: <a target="_blank" rel="noopener" href="https://www.catalog.update.microsoft.com/Search.aspx?q=5042578">https://www.catalog.update.microsoft.com/Search.aspx?q=5042578</a></li>
+<li>Latest Updates for Microsoft SQL Server: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/troubleshoot/sql/releases/download-and-install-latest-updates">https://learn.microsoft.com/en-us/troubleshoot/sql/releases/download-and-install-latest-updates</a></li>
+</ul>
+<p><strong>Cumulative Update #15</strong> for SQL Server 2022 RTM</p>
+<p>The 15th cumulative update release for SQL Server 2022 RTM is now available for download at the Microsoft Downloads site. Please note that registration is no longer required to download Cumulative updates.<br>
+To learn more about the release or servicing model, please visit:</p>
+<ul>
+<li>CU15 KB Article: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate15">https://learn.microsoft.com/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate15</a></li>
+</ul>
+<p>Starting with SQL Server 2017, we adopted a new modern servicing model. Please refer to our blog for more details on <a target="_blank" rel="noopener" href="https://techcommunity.microsoft.com/t5/sql-server-blog/announcing-the-modern-servicing-model-for-sql-server/ba-p/385594">Modern Servicing Model</a> for SQL Server</p>
+<ul>
+<li>Microsoft® SQL Server® 2022 RTM Latest Cumulative Update: <a target="_blank" rel="noopener" href="https://www.microsoft.com/download/details.aspx?id=105013">https://www.microsoft.com/download/details.aspx?id=105013</a></li>
+<li>Update Center for Microsoft SQL Server: <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/troubleshoot/sql/releases/download-and-install-latest-updates">https://learn.microsoft.com/en-us/troubleshoot/sql/releases/download-and-install-latest-updates</a></li>
+</ul>
+<p>索引页面：</p>
+<ul>
+<li>
+<a href="/blog/sql-server/" title="Microsoft SQL Server 下载汇总">Microsoft SQL Server 下载汇总</a>
+</li>
+</ul>
+<p>更多：<a href="/blog/windows/" title="Windows 下载汇总">Windows 下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/cisco-firepower-1000/" data-toggle="tooltip" data-placement="top" title="Cisco Firepower 1000 Series FTD Software 7.6.0 & ASA Software 9.22.1">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/cisco-asav/" data-toggle="tooltip" data-placement="top" title="Cisco ASAv 9.22.1 - 思科自适应安全虚拟设备 (ASAv)">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/sql-server-2022/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SQL-Server-2022-%E7%8E%B0%E5%B7%B2%E6%99%AE%E9%81%8D%E5%8F%AF%E7%94%A8"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">SQL Server 2022 现已普遍可用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81-Azure-%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">支持 Azure 的功能</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AF%B9%E6%A0%B8%E5%BF%83-SQL-Server-%E5%BC%95%E6%93%8E%E7%9A%84%E6%8C%81%E7%BB%AD%E5%88%9B%E6%96%B0"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">对核心 SQL Server 引擎的持续创新</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%96%B0%E7%9A%84%E5%8D%B3%E7%94%A8%E5%8D%B3%E4%BB%98-SQL-Server-%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%9E%8B%EF%BC%8C%E7%94%B1-Azure-Arc-%E5%90%AF%E7%94%A8"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">新的即用即付 SQL Server 计费模型，由 Azure Arc 启用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Azure-SQL-%E8%BF%81%E7%A7%BB%E4%BC%98%E6%83%A0"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Azure SQL 迁移优惠</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SQL-Server-IoT-2022"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">SQL Server IoT 2022</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF%E5%B9%B6%E7%AB%8B%E5%8D%B3%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-SQL-Server-2022"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">了解更多信息并立即开始使用 SQL Server 2022</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%86%E8%A7%A3%E6%9C%89%E5%85%B3-Azure-SQL-%E6%89%98%E7%AE%A1%E5%AE%9E%E4%BE%8B%E7%9A%84%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">了解有关 Azure SQL 托管实例的更多信息</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82-91"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">系统要求</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hardware-requirements-2"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Hardware requirements</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Software-requirements"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Software requirements</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Operate-system-support"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Operate system support</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-371"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+            
+            <a class="tag" href="/tags/#Microsoft" title="Microsoft">Microsoft</a>
+            
+            <a class="tag" href="/tags/#Server" title="Server">Server</a>
+            
+            <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

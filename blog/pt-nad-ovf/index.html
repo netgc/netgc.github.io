@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR/NTA) 系统 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR/NTA) 系统 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR/NTA) 系统 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/pt-nad-ovf/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+              <a class="tag" href="/tags/#Security" title="Security">Security</a>
+              
+            </div>
+            <h1>PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR/NTA) 系统</h1>
+            <h2 class="subheading">PT NAD (网络攻击发现) OVF for VMware</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-02-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">10</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.6k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Thu Feb 01 2024 09:06:56 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/pt-nad-ovf/" title="PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="/blog/pt-network-attack-discovery/pt-logo-small.png" alt="Positive Technologies"><br>
+<em>Positive Technologies</em></p>
+<h2 id="什么是-PT-NAD">什么是 PT NAD</h2>
+<p><strong>PT Network Attack Discovery</strong> 是一种网络检测和响应 (NDR/NTA) 系统，用于检测网络外围和内部的攻击。该系统使隐藏的威胁可见，即使在加密流量中也能检测可疑活动，并帮助调查事件。</p>
+<p>详细介绍参看：<a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a></p>
+<p><img src="https://www.ptsecurity.com/upload/corporate/ww-en/images/nad/V.png" alt="攻击检测"></p>
+<h2 id="部署截图及说明-11">部署截图及说明</h2>
+<p>Debian GNU/Linux 10 (bullseye) (Linux debian 4.19.0-26-amd64)</p>
+<p><img src="/blog/debian-11-ovf/debian-11-ovf-02.webp" alt="debian-11-ovf"></p>
+<p><img src="/blog/debian-11-ovf/debian-11-ovf-03.webp" alt="debian-11-ovf"></p>
+<p><img src="/blog/debian-11-ovf/debian-11-ovf-04.webp" alt="debian-11-ovf"></p>
+<p>自定义 OVF 属性填写说明：</p>
+<ul>
+<li>
+<ol>
+<li>root User Configuration</li>
+</ol>
+<ul>
+<li>1.1. Enable root SSH login with password 可选启用 root 账号 SSH 密码登录，Debian/Ubuntu 系列默认禁用</li>
+<li>1.2. User root Password 必填项，8-128 个字符，建议使用复杂密码，未强制要求</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li>New Admin User Configuration 新建一个管理员账号，必填项</li>
+</ol>
+<ul>
+<li>2.1. New User Name</li>
+<li>2.2. New User Password</li>
+<li>2.3. sudo doesn’t need a password 默认不勾选</li>
+</ul>
+</li>
+<li>
+<ol start="3">
+<li>Networking Properties 选填</li>
+</ol>
+<ul>
+<li>3.1. Network IP Address 3.1 - 3.4 要么全部填写，要么全部留空</li>
+<li>3.2. Network Netmask 子网掩码，格式如 255.255.255.0</li>
+<li>3.3. Default Gateway</li>
+<li>3.4.1 DNS 1</li>
+<li>3.4.2 DNS 2</li>
+<li>3.5. Hostname 主机名可以单独填写（无论是否使用固定 IP），建议填写，系统无默认值，这里默认设置为 debian</li>
+<li>3.6. Domain Name 选填，格式如 <a href="http://sysin.org">sysin.org</a>，系统无默认值</li>
+</ul>
+</li>
+</ul>
+<p>Debian/Ubuntu 系列发行版部署完毕后系统将自动重启。</p>
+<h2 id="OVF-特性-12">OVF 特性</h2>
+<h3 id="1-OVF-版本-9">1. OVF 版本</h3>
+<p>默认 VM 硬件版本 13（GuestOS ID 最低要求，可升级至最新版）；<br>
+兼容 ESXi 6.5、Fusion 10.x、Workstation 14.x 及更新版本；<br>
+启用 CPU、内存热插拔。</p>
+<h3 id="2-系统账号-9">2. 系统账号</h3>
+<p>部署时可以选择是否启用 root SSH 密码登录并设置密码。<br>
+部署时可以选择是否创建新的管理员账号并设置密码 (sysin)。</p>
+<h3 id="3-分区-9">3. 分区</h3>
+<p>标准分区</p>
+<p>NAME     FILESYSTEM  SIZE  TYPE  MOUNTPOINT<br>
+sda      Linux        80G  disk<br>
+├─sda1   ext4          2G  part  /boot<br>
+└─sda2   ext4         158G  part  /<br>
+[SWAP]  /swap.img  4G (此版本专为特定应用创建，禁用了 SWAP)</p>
+<p>分区扩容请参看：<a href="/blog/linux-partition-expansion/" title="Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）">Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）</a></p>
+<h3 id="4-系统配置-9">4. 系统配置</h3>
+<ul>
+<li>格式化网卡命名为 eth0</li>
+<li>配置 sudo</li>
+<li>更换国内镜像：ustc</li>
+<li>安装一些必备工具：<br>
+zip unzip, lrzsz, htop, lnav, fd, rg，tree, pstree, net-tools (ifconfig、netstat、route), ntpdate, resolvconf, ncdu, dstat, screen, tmux, exa, duf, expect</li>
+<li>开发者工具：git, build-essential</li>
+<li>NTP：systemd-timesyncd</li>
+<li>SNMP：仅安装默认配置</li>
+<li>VMware Tools：open-vm-tools</li>
+<li>Zsh 作为默认 Shell<br>
+参看：<a href="/blog/linux-zsh-all/" title="Linux 全局安装配置 zsh + oh-my-zsh">Linux 全局安装配置 zsh + oh-my-zsh</a></li>
+</ul>
+<p>参看：<a href="/blog/debian-11-install/" title="Debian 11 “bullseye” 安装笔记">Debian 11 “bullseye” 安装笔记</a></p>
+<h2 id="适用的-VMware-软件下载-20">适用的 VMware 软件下载</h2>
+<p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
+<ul>
+<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+</ul>
+<h2 id="OVF-版本兼容性和部署方式-11">OVF 版本兼容性和部署方式</h2>
+<p>默认 VM 硬件版本 13（GuestOS ID 最低要求，可升级至最新版）；兼容 ESXi 6.5、Fusion 10.x、Workstation 14.x 及更新版本。</p>
+<p>支持通过以下客户端部署（推荐版本，非最低要求）：</p>
+<ul>
+<li>VMware Fusion for Mac：12、13 及更新版本（推荐版本 13）</li>
+<li>VMware Workstation for Windows &amp; Linux：16、17 及更新版本（推荐版本 17）</li>
+<li>VMware vSphere（vSphere Client）：7.0U3、8.0 及更新版本</li>
+<li>ESXi Host Client：内置于 ESXi 7.0U3、8.0 及更新版本，推荐版本 2.10.1 及以上</li>
+</ul>
+<blockquote>
+<p>部分已经废弃的客户端如 vSphere Web Cleint（Flash），以及上述客户端旧版不建议使用。</p>
+</blockquote>
+<p>客户端系统和软件要求：</p>
+<ul>
+<li>
+<p>支持的客户端操作系统</p>
+<ul>
+<li>macOS（推荐 <a href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a>、<a href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a>、<a href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a>）</li>
+<li>Windows 32-bit and 64-bit（推荐 <a href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）</li>
+</ul>
+<blockquote>
+<p>主流 Linux 桌面发行版理论上支持，未经官方验证。</p>
+</blockquote>
+</li>
+<li>
+<p>支持以下浏览器版本【<a href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
+<ul>
+<li>Google Chrome 89 or later</li>
+<li>Mozilla Firefox 80 or later</li>
+<li>Apple Safari 9.0 or later (仅限 Host Client)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Positive-Technologies-产品和服务-2">Positive Technologies 产品和服务</h2>
+<p>Positive Technologies 是注重结果的网络安全领域的行业领导者，也是信息安全解决方案的主要全球提供商。我们的使命是保护企业和整个行业免受网络攻击和不可容忍的损害。全球有超过 3,300 个组织使用我们公司开发的技术和服务。</p>
+<p>Positive Technologies 是俄罗斯第一家也是唯一一家在莫斯科交易所上市的网络安全公司（MOEX：POSI），拥有 180,000 名股东，而且还在不断增加。</p>
+<p>我们的新型解决方案——元产品——专注于以结果为导向的网络安全方法。Positive Technologies 的首款元产品 MaxPatrol O2 可以在对公司造成不可容忍的损害之前自动检测并阻止攻击 (sysin)。MaxPatrol O2 可以替代安防监控中心的整个团队，并且只需要一个人来管理。该保护系统只需要专家最少的知识和精力。</p>
+<p>为了证明以结果为导向的信息安全方法确实有效，我们进行了网络演习（在我们自己的基础设施以及其他基础设施上）并公开测试我们的产品。我们的解决方案基于数百名信息安全专家 20 年的研究经验和专业知识。</p>
+<p><strong>Positive Technologies 的产品和服务有助于</strong>：</p>
+<ul>
+<li>​只需一个人的帮助即可以自动模式停止攻击。</li>
+<li>监控安全并快速检测基础设施中的漏洞。</li>
+<li>检测任何规模的基础设施（包括工业系统）中的安全事件。</li>
+<li>检测内部和外部流量中的攻击。</li>
+<li>保护 Web 应用程序免受 APT 攻击。</li>
+<li>检测应用程序中的漏洞和错误 (sysin)，并支持安全开发流程。</li>
+<li>检测并反击涉及现代恶意软件的有针对性的大规模攻击。</li>
+<li>响应端点和基础设施内部的网络威胁，利用多个信息安全系统的事件和上下文来验证攻击。</li>
+</ul>
+<p>我们在莫斯科、圣彼得堡、下诺夫哥罗德、萨马拉、新西伯利亚、阿卡德姆哥罗多克和托木斯克设有七个俄罗斯办事处，并在哈萨克斯坦设有一个办事处。该团队拥有 1,800 多名员工，其中包括专门从事 SCADA 和 ERP 系统、银行和电信以及移动和 Web 应用程序保护的世界级专家。</p>
+<p>Positive Technologies 受到国际分析机构的高度评价：该公司曾三度获得 Gartner Web 应用程序防火墙 (WAF) 魔力象限中的远见者地位。</p>
+<p><strong>我们为以下活动提供了网络安全</strong>：</p>
+<ul>
+<li>2013 年喀山夏季世界大学生运动会</li>
+<li>2014 年索契奥运会</li>
+<li>2018 年世界杯</li>
+<li>2018 年俄罗斯总统选举</li>
+<li>2019 年克拉斯诺亚尔斯克冬季世界大学生运动会</li>
+<li>2020 年俄罗斯宪法公投</li>
+<li>2021 年俄罗斯国家杜马选举</li>
+</ul>
+<p>Positive Technologies 被誉为全球道德安全研究领域的远见者和领导者。每年，我们的专家都会在各种类别和类型的 IT 系统中发现数百个零日漏洞，其中包括 Cisco、Citrix、IBM、Intel、Microsoft 和 VMware 的产品。为了检测危险漏洞，我们的专家已被列入 Adobe、Apple、AT&amp;T、GitLab、Google、IBM、Mastercard、Microsoft、PayPal、VK 和 Yandex 等公司的名人堂。作为负责任的披露政策的一部分 (sysin)，所有检测到的漏洞都会报告给软件供应商，并且在供应商发布所需更新之前不会发布。</p>
+<p><strong>我们乐意分享我们对信息安全的了解</strong>：</p>
+<ul>
+<li>12 年来，我们一直在举办自己的研究和实践论坛 Positive Hack Days。作为俄罗斯和独联体国家最大的信息安全活动之一，成千上万关心网络安全的人士参加了此次活动：IT 和信息安全专家、企业和政府代表、安全研究人员和白帽人士、小学生和学生。在 Positive Hack Days 期间，举办了数百场讲座和研讨会，涵盖信息安全中最有趣的主题，而竞赛则为工业控制系统、银行和移动服务以及网络应用程序的保护分析增添了乐趣。2023 年，该论坛首次以开放网络安全节的形式举办，云集了信息安全专家、技术开发人员以及莫斯科居民和嘉宾。</li>
+<li>我们积极为一流大学制定教育计划，帮助学生做好职业准备，在职业生涯中取得领先地位：由我们公司专家编写的积极教育材料已在超过 65 所大学使用。</li>
+<li>我们举行了世界上最大的网络战 “对峙”，它汇集了进攻性和防御性网络安全方面最优秀的俄罗斯和外国专家。该网络靶场包含不同行业典型的生产链、业务场景和技术景观的全保真复制品。专家分析了引发不可容忍事件的可能性以及预防方法。</li>
+</ul>
+<h2 id="PT-NAD-相关信息">PT NAD 相关信息</h2>
+<p>部署模式：A11-in-one PT NAD</p>
+<p>系统账号：全部默认（参看 OVF 文件，部署时提示）</p>
+<p>界面语言默认使用英文。</p>
+<p>许可方式：包含全功能试用许可证。</p>
+<p>其他注意事项：通常新部署会修改计算机名，这将导致 Sensors 中的本机实例不可用，将其删除，重启系统后将恢复正常。</p>
+<h2 id="下载地址-332">下载地址</h2>
+<p><strong>PT Network Attack Discovery</strong> 11.0 based on Debian 10.13 OVF<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1t1bkAvbvpiVGcMhJudiapw?pwd=">https://pan.baidu.com/s/1t1bkAvbvpiVGcMhJudiapw?pwd=</a> &lt;专享&gt;</p>
+<p>同时随附原版：<a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a></p>
+<p>相关产品：</p>
+<ul>
+<li>
+<a href="/blog/pt-application-inspector/" title="PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试">PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试</a>
+</li>
+<li>
+<a href="/blog/pt-maxpatrol/" title="MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统">MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统</a>
+</li>
+<li>
+<a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
+</li>
+<li>
+<a href="/blog/pt-nad-ovf/" title="PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
+</li>
+</ul>
+<p>更多：<a href="/blog/http/" title="HTTP 协议与安全">HTTP 协议与安全</a></p>
+<hr>
+<p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/vmware-vsphere-essentials-plus-kit/" data-toggle="tooltip" data-placement="top" title="VMware vSphere Essentials Plus Kit (VVEP) - 面向小型企业的工作负载平台">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/how-to-change-file-date/" data-toggle="tooltip" data-placement="top" title="如何修改文件的 “创建时间” 和 “修改时间” (macOS, Linux, Windows)">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/pt-nad-ovf/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-PT-NAD"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是 PT NAD</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E-11"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7-12"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC-9"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E8%B4%A6%E5%8F%B7-9"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 系统账号</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%88%86%E5%8C%BA-9"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-9"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 系统配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD-20"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F-11"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Positive-Technologies-%E4%BA%A7%E5%93%81%E5%92%8C%E6%9C%8D%E5%8A%A1-2"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Positive Technologies 产品和服务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PT-NAD-%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">PT NAD 相关信息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-332"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+            <a class="tag" href="/tags/#Security" title="Security">Security</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

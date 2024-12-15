@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/pan-os-10/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+              <a class="tag" href="/tags/#OVF" title="OVF">OVF</a>
+              
+              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+              
+              <a class="tag" href="/tags/#PAN-OS" title="PAN-OS">PAN-OS</a>
+              
+            </div>
+            <h1>Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙</h1>
+            <h2 class="subheading">Palo Alto Networks PAN-OS 10: World&#39;s First ML-Powered NGFW</h2>
+            <span class="meta">
+              Posted by sysin on
+              2020-08-03
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">17</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">4.1k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Mon Aug 03 2020 10:10:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/pan-os-10/" title="Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙">Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="pan-logo-dark.png" alt="Palo Alto Logo"></p>
+<p><strong>Palo Alto Networks PAN-OS 10: World’s First ML-Powered NGFW.</strong></p>
+<hr>
+<h2 id="Palo-Alto-新一代防火墙-4">Palo Alto 新一代防火墙</h2>
+<p>传统防火墙安全解决方案只能被动应对新的威胁。智能网络安全解决方案可以保持对攻击者的技术优势 (sysin)，提高您的业务灵活性。我们业界领先的新一代防火墙系列是第一个利用机器学习实现主动实时和内联零日保护的产品。</p>
+<ul>
+<li>
+<p>8 年来一直是网络防火墙领导者</p>
+<p><a target="_blank" rel="noopener" href="https://start.paloaltonetworks.cn/2019-gartner-mq-for-firewalls.html">2019 年 Gartner 网络防火墙魔力象限</a></p>
+</li>
+<li>
+<p>100% 阻截规避，安全有效性评分最高</p>
+<p><a target="_blank" rel="noopener" href="https://start.paloaltonetworks.cn/nss-labs-highest-security-effectiveness-rating.html">2019 NSS 实验室新一代防火墙评测报告</a></p>
+</li>
+<li>
+<p>2 年来一直位居零信任领导力榜首</p>
+<p><a target="_blank" rel="noopener" href="https://start.paloaltonetworks.cn/we-are-a-zero-trust-leader.html">Forrester Wave™: ZTX 生态系统提供商报告</a></p>
+</li>
+<li>
+<p>到 2025 年联网设备将多达 416 亿*</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/resources/whitepapers/13-things-your-next-firewall-must-do">重新考虑您的策略</a></p>
+<p>联网设备数量暴增；IDC 预测到 2025 年将会达到 416 亿。随着数据分布的范围越来越广，受到攻击的可能性也越来越大；传统安全系统变得过于复杂，难以管理。我们基于防御的架构通过具有如下特性的集成解决方案简化了组织的安全管理：</p>
+<ul>
+<li>通过紧密集成创新技术确保您的网络永不过时</li>
+<li>通过自动化和分析协助即时采取有效措施</li>
+<li>通过针对各个位置提供全面可视性，提供一致的安全性</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.idc.com/getdoc.jsp?containerId=US45066919">*2019-2023 年全球数据圈物联网设备和数据预测</a></p>
+<ul>
+<li>
+<p>我们新一代防火墙系列简介</p>
+<ul>
+<li>物理设备</li>
+</ul>
+<p>我们的新一代防火墙物理设备种类齐全，易于部署到组织网络中，其经过专门设计，简单易用、可自动化且可集成。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/network-security/pa-series">PA-Series</a></p>
+<ul>
+<li>虚拟化防火墙</li>
+</ul>
+<p>我们的虚拟新一代防火墙通过分段和威胁防御，帮助您保护私有云和公有云部署的安全。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/prisma/vm-series">VM-Series</a></p>
+<ul>
+<li>容器防火墙</li>
+</ul>
+<p>对容器信任区域和其他工作负载类型之间的入站、出站和东西向流量提供威胁防护，同时不拖慢开发速度。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/network-security/cn-series">CN-Series</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="PAN-OS-10：全球首个基于机器学习的新一代防火墙-4">PAN-OS 10：全球首个基于机器学习的新一代防火墙</h2>
+<p>现在是时候迎接新的网络安全模式了。欢迎来到智能网络安全的时代。全球首个基于机器学习的新一代防火墙的核心是新的 PAN-OS 10.0，它使您能够有效应对未知威胁 (sysin)，掌握全局的状况，包括物联网的状况，并通过自动策略建议减少错误。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/resources/datasheets/firewall-feature-overview-datasheet">查看新功能</a></p>
+<ul>
+<li>
+<p>95%</p>
+<p>95% 的常见文件和基于 Web 的威胁可以内联防御，让您可以立即阻止大多数新的威胁。</p>
+</li>
+<li>
+<p>&lt;10</p>
+<p>签名的递送时间 &lt;10 秒，将系统受感染的几率降低 99.5%。立即获得实时保护与计划的更新。</p>
+</li>
+<li>
+<p>3倍</p>
+<p>检测的物联网设备数量达到 3 倍，将可视性和安全性扩展到所有设备，包括未托管的物联网设备，且无需部署额外的传感器。</p>
+</li>
+</ul>
+<p>适合您所有环境的智能网络安全</p>
+<p>以机器学习 (ML) 和分析为核心的新型防火墙，能够主动识别新的威胁、设备等。</p>
+<ul>
+<li>
+<p>IoT Security</p>
+<p>新一代防火墙首次以机器学习为基础并集成了 IoT Security，可以保护您未受管的物联网和 OT 设备。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/network-security/iot-security">探索更多内容</a></p>
+</li>
+<li>
+<p>以内联机器学习技术阻止未知威胁</p>
+<p>基于内联机器学习的恶意软件和网络钓鱼防御，可以阻止最不为人知的攻击。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/resources/techbriefs/inline-machine-learning">了解更多</a></p>
+</li>
+<li>
+<p>容器新一代防火墙</p>
+<p>业界首创的基于机器学习的 CN-Series 新一代防火墙，适用于保护您的 Kubernetes 容器环境。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/network-security/cn-series">了解更多内容</a></p>
+</li>
+<li>
+<p>简化解密</p>
+<p>轻松部署和维护 TLS 解密。现在支持 TLS 1.3 且性能最高提升 2 倍。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/resources/whitepapers/decryption-why-where-and-how">查看详细信息</a></p>
+</li>
+<li>
+<p>为物联网设备提供全面的安全防护</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/resources/datasheets/iot-security">阅读解决方案简报</a></p>
+<p>业界唯一的基于机器学习的全面型 IoT Security 产品，它可以发现并保护网络中的每个未托管设备。</p>
+<p>获得全面的设备可视性、基于风险的策略建议，以及内置的实施和防御功能，完全不需要额外的基础架构。直接启用 IoT Security 云订阅即可。</p>
+</li>
+<li>
+<p>通过内联机器学习防御未知威胁</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/resources/techbriefs/inline-machine-learning">阅读解决方案简报</a></p>
+<p>传统安全工具需要签名来识别和阻止新的威胁，以及识别新的设备。</p>
+<p>现在是有史以来第一次，您可以通过内联机器学习来主动阻止新的威胁。这种无签名的方法可以在不影响企业生产力的情况下阻止武器化文件、凭证网络钓鱼和恶意脚本。</p>
+</li>
+<li>
+<p>面向 Kubernetes 的基于机器学习的新一代防火墙</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/resources/ebooks/cn-series-container-firewalls-for-kubernetes">阅读电子书</a></p>
+<p>拥有大型基础架构的企业中有超过 60% 已经采用或是正在尝试使用容器，其中超过一半的环境使用了协调程序，如 Kubernetes。</p>
+<p>容器需要与其他工作负载相同的网络安全级别来防御高级攻击。CN-Series 部署在 Kubernetes 本地，将基于机器学习的新一代防火墙功能直接集成到容器化环境中，以保护任务关键型应用。</p>
+</li>
+<li>
+<p>对于加密流量的完整可视性</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/resources/whitepapers/decryption-why-where-and-how">阅读白皮书</a></p>
+<p>如今几乎所有的企业流量都经过加密，超过 70% 的恶意软件使用加密来隐藏恶意活动和规避安全措施。</p>
+<p>过去 12 年来，我们一直在帮助客户解密流量。借助该版本，您可以更轻松地部署和维护解密。借助专门构建的故障排除和可视性工具，保护使用 TLS 1.3 和 HTTP/2 等协议的流量，缓解安全风险，迅速而便捷地保护 SaaS 和公共应用。</p>
+</li>
+</ul>
+<p>选择 PAN-OS 10.0 的更多原因</p>
+<ul>
+<li>
+<p>实时签名串流</p>
+<p>对于无法内联防御的未知威胁，WildFire 可在云分析后实时提供保护，提供零延迟签名更新，快速防御威胁。</p>
+</li>
+<li>
+<p>SNORT 支持</p>
+<p>通过针对 SNORT 和 Suricata 签名的 UI 和 API 支持，快速防范新发现的漏洞。</p>
+</li>
+<li>
+<p>最快的新一代防火墙</p>
+<p>新的数据处理卡使您的进程密集型操作（如解密）以更快的速度运行，让 PA-7000 Series 成为无可争议的、最快的新一代防火墙。</p>
+</li>
+<li>
+<p>随环境不断扩展的简化安全操作</p>
+<p>利用高可用性 (HA) 集群，您可以灵活地扩展安全性能和容量，以支持应用的需求。</p>
+</li>
+<li>
+<p>自动设备隔离以增强安全性</p>
+<p>GlobalProtect 设备隔离能够可靠并自动地识别遭到入侵的设备，并限制其网络访问，以防止其他用户和设备受到感染。</p>
+</li>
+<li>
+<p>灵活监控 SaaS 应用</p>
+<p>监控并衡量分支机构与 SaaS 应用服务器之间的端到端应用健康状况，以提供更好的用户体验。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/content/pan/zh_CN/company/contact">联系我们</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/company/request-demo">申请演示</a></p>
+<h2 id="Panorama-网络安全管理-4">Panorama 网络安全管理</h2>
+<p>安全部署涉及复杂的安全规则以及多个来源的数据，会使 IT 团队不堪负荷。Panorama 具有易于实施的集中管理功能，使您能够了解网络流量和威胁，并能在任何地方管理防火墙。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.cn/resources/datasheets/panorama-centralized-management-datasheet">获取详细信息</a></p>
+<p>卓越的管理、 洞察和威胁关联</p>
+<ul>
+<li>
+<p>策略管理</p>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/icon-library/policy-management.svg" alt="Palo Alto Networks"></p>
+<p>部署和管理一致且可重用的策略。</p>
+</li>
+<li>
+<p>简化了策略控制</p>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/icon-library/policy-control.svg" alt="Palo Alto Networks"></p>
+<p>将您的旧规则库转换成直观的策略，增强安全性并减少管理时间。</p>
+</li>
+<li>
+<p>网络安全洞察</p>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/icon-library/security-insights.svg" alt="Palo Alto Networks"></p>
+<p>由于网络和端点设备上的事件自动关联，因此可以发现原本可能隐藏在网络中的严重威胁。</p>
+</li>
+<li>
+<p>自动响应威胁</p>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/network-security/icons/threat-response.svg" alt="Palo Alto Networks"></p>
+<p>通过基于策略的措施以及与第三方系统进行基于 API 的集成，即时响应安全事件，并减少分析师的手动操作。</p>
+</li>
+<li>
+<p>设备管理和软件许可证部署</p>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/icon-library/device-management.svg" alt="Palo Alto Networks"></p>
+<p>从一个中心位置管理设备、软件和许可证。</p>
+<p><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/resources/whitepapers/migrating-to-panorama">获取详细信息</a></p>
+</li>
+</ul>
+<p>提供无与伦比的可扩展性，支持灵活部署</p>
+<p>通过 Panorama，可以获得终极部署灵活性</p>
+<ul>
+<li>在本地用作硬件</li>
+</ul>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/icon-library/panorama.svg" alt="Palo Alto Networks"></p>
+<ul>
+<li>VMware ESXi™ 上的虚拟设备</li>
+</ul>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/icon-library/panorama-virtual.svg" alt="Palo Alto Networks"></p>
+<ul>
+<li>
+<p>在公有云环境中</p>
+<p>​<img src="https://www.paloaltonetworks.cn/content/dam/pan/en_US/images/icon-library/cloud-environments.svg" alt="Palo Alto Networks"></p>
+</li>
+</ul>
+<hr>
+<h2 id="新增功能-18">新增功能</h2>
+<p>10.0 Feature Highlights (功能亮点)</p>
+<ul>
+<li>
+<p>SSL Decryption Support for TLSv1.3</p>
+</li>
+<li>
+<p>Inline ML for Web-Based Attacks</p>
+</li>
+<li>
+<p>Secure Kubernetes Environments with the CN-Series NGFW</p>
+</li>
+<li>
+<p>IoT Security</p>
+</li>
+</ul>
+<p>参看：<a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/pan-os/10-0/pan-os-new-features.html">PAN-OS ® New Features Guide</a></p>
+<p>10.1 Feature Highlights (功能亮点)</p>
+<ul>
+<li>Cloud Identity Engine</li>
+</ul>
+<p>​         <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-1/pan-os-new-features/identity-features/cloud-identity-engine.html">Read Now</a></p>
+<ul>
+<li>PAN-OS OpenConfig Support</li>
+</ul>
+<p>​         <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-1/pan-os-new-features/management-features/about-pan-os-openconfig-support.html">Learn More</a></p>
+<ul>
+<li>CN-Series Firewall as a k8s Service</li>
+</ul>
+<p>​         <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-1/pan-os-new-features/virtualization-features/deploy-the-cn-series-as-a-kubernetes-service.html">View Now</a></p>
+<ul>
+<li>Network Packet Broker</li>
+</ul>
+<p>​         <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-1/pan-os-new-features/networking-features/network-packet-broker.html">See More</a></p>
+<p>10.2 Feature Highlights (功能亮点)</p>
+<ul>
+<li>
+<p>Administrator-Level Push</p>
+<p>Push just the configuration changes made by the Panorama administrator to managed firewalls.</p>
+</li>
+</ul>
+<p>​        <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-new-features/panorama-features/administrator-level-push.html">Read Now</a></p>
+<ul>
+<li>
+<p>Multiple Certificate Support for SSL Inbound Inspection</p>
+<p>You can add a new or updated certificate for an internal server to your SSL Inbound Inspection decryption rule before you load the web server with the latest certificate.</p>
+</li>
+</ul>
+<p>​        <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-new-features/decryption-features/multiple-certificate-support-for-ssl-inbound-inspection.html">Read Now</a></p>
+<ul>
+<li>
+<p>Simplified IoT Security Onboarding</p>
+<p>Use a simplified workflow to add a Log Forwarding profile to the Security policy rules on your firewall.</p>
+</li>
+</ul>
+<p>​        <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-new-features/iot-security-features/simplified-iot-security-onboarding.html">Read Now</a></p>
+<ul>
+<li>
+<p>Advanced Routing Engine</p>
+<p>Enable the Advanced Routing Engine for an industry-standard configuration methodology.</p>
+</li>
+</ul>
+<p>​        <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/pan-os/10-2/pan-os-new-features/networking-features/advanced-routing-engine.html">Read Now</a></p>
+<hr>
+<h2 id="虚拟化版本系统要求-4">虚拟化版本系统要求</h2>
+<p>VM-Series Firewall Hypervisor Support</p>
+<ul>
+<li>VM-Series for VMware vSphere Hypervisor (ESXi)</li>
+<li>VM-Series for VMware NSX-V</li>
+<li>VM-Series for VMware NSX-T</li>
+<li>VM-Series for KVM</li>
+<li>VM-Series for Nutanix</li>
+<li>VM-Series for Hyper-V</li>
+<li>VM-Series for OpenStack</li>
+<li>Cisco ACI: Hardware and VM-Series Firewalls in Cisco ACI</li>
+</ul>
+<p>VM-Series for VMware vSphere Hypervisor (ESXi)</p>
+<table>
+<thead>
+<tr>
+<th>PAN-OS Version Support(<code>Minimum</code>)</th>
+<th>VMware ESXi Version Support</th>
+<th>VMware Virtual Machine Hardware Version</th>
+<th>I/O Enhancement Support</th>
+<th>Base Image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAN-OS 9.1.x (<code>9.1.0</code>), PAN-OS 10.0.x (<code>10.0.0</code>)</td>
+<td>6.5, 6.7</td>
+<td>vmx-10</td>
+<td>SR-IOV, DPDK</td>
+<td>PA-VM-ESX-9.1.0.ova, PA-VM-ESX-10.0.0.ova</td>
+</tr>
+<tr>
+<td>PAN-OS 9.1.x (<code>9.1.0</code>), PAN-OS 10.0.x (<code>10.0.0</code>), PAN-OS 10.1.x (<code>10.1.0</code>)</td>
+<td>7.0</td>
+<td>vmx-10</td>
+<td>SR-IOV, DPDK</td>
+<td>PA-VM-ESX-9.1.0.ova, PA-VM-ESX-10.0.0.ova, PA-VM-ESX-10.1.0.ova</td>
+</tr>
+<tr>
+<td>PAN-OS 10.2.x (<code>10.2.0</code>)</td>
+<td>7.0</td>
+<td>vmx-13</td>
+<td>SR-IOV, DPDK</td>
+<td>PA-VM-ESX-10.2.0.ova</td>
+</tr>
+</tbody>
+</table>
+<p>VM-Series for KVM</p>
+<table>
+<thead>
+<tr>
+<th>PAN-OS Version Support (<code>Minimum</code>)</th>
+<th>VM-Series for KVM Version Support (<code>Minimum</code>)</th>
+<th>I/O Enhancement Support</th>
+<th><strong>PAN-OS for VM-Series KVM Base Images</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAN-OS 9.1.x (<code>9.1.0</code>), PAN-OS 10.0.x (<code>10.0.0</code>), PAN-OS 10.1.x (<code>10.1.0</code>)</td>
+<td>CentOS/Red Hat Enterprise Linux: 7.x.x (<code>7.6.x</code>)8.x.x (<code>8.0.x</code>)</td>
+<td>DPDK with SR-IOVDPDK with Virtio</td>
+<td>PA-VM-KVM-9.1.x.qcow2, PA-VM-KVM-10.0.x.qcow2, PA-VM-KVM-10.1.x.qcow2</td>
+</tr>
+<tr>
+<td>PAN-OS 9.1.x (<code>9.1.0</code>), PAN-OS 10.0.x (<code>10.0.0</code>), PAN-OS 10.1.x (<code>10.1.0</code>)</td>
+<td>Ubuntu 18.04</td>
+<td>DPDK with SR-IOVDPDK with Virtio</td>
+<td>PA-VM-KVM-9.1.x.qcow2, PA-VM-KVM-10.0.x.qcow2, PA-VM-KVM-10.1.x.qcow2</td>
+</tr>
+<tr>
+<td>PAN-OS 10.0.x (<code>10.0.3</code>), PAN-OS 10.1.x (<code>10.1.0</code>)</td>
+<td>Ubuntu 20.04</td>
+<td>DPDK with SR-IOVDPDK with Virtio</td>
+<td>PA-VM-KVM-10.0.x.qcow2, PA-VM-KVM-10.1.x.qcow2</td>
+</tr>
+<tr>
+<td>PAN-OS 10.0.x (<code>10.0.3</code>), PAN-OS 10.1.x (<code>10.1.0</code>)</td>
+<td>SUSE Enterprise Server 15 with QEMU 3.1.1</td>
+<td>MacVTapVirtio</td>
+<td>PA-VM-KVM-10.0.x.qcow2, PA-VM-KVM-10.1.x.qcow2</td>
+</tr>
+</tbody>
+</table>
+<p>Panorama Hypervisor Support</p>
+<table>
+<thead>
+<tr>
+<th>Panorama Version</th>
+<th>VMware ESXi Compatibility</th>
+<th>KVM Compatibility</th>
+<th>Hyper-V Compatibility</th>
+<th>Nutanix AHV Compatibility</th>
+<th>Public Cloud/Partner Integra Compatibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAN-OS 10.2</td>
+<td>64-bit kernel-based VMware ESXi 6.0, 6.5, 6.7, or 7.0. The supported version of the virtual hardware family type (also known as the VMware virtual hardware version) on the ESXi server is vmx-10.ESXi 6.0 and later versions supports one disk of up to 8TB. Earlier ESXi versions support one disk of up to 2TB.</td>
+<td>Ubuntu 18.04Ubuntu 16.04CentOS/RHEL 7CentOS/RHEL 8</td>
+<td>Windows Server 2019 with Hyper-V role or Hyper-V 2019Windows Server 2016 with Hyper-V role or Hyper-V 2016</td>
+<td>Nutanix AOS Version—5.10 and laterNutanix AHV Version—20170830.185To manage VM-Series firewalls running supported versions of AHV. See <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/compatibility-matrix/vm-series-firewalls/vms-series-hypervisor-support.html#ida171dac5-7ebf-40a0-a6d6-4e2c35329211_idbb1ac99a-269a-4b09-aeb2-1cb5b6ef272b">VM-Series for Nutanix</a>.</td>
+<td>Alibaba CloudAmazon AWSMicrosoft AzureGoogle Cloud Platform Amazon AWS GovCloud Oracle Cloud Infrastructure (OCI)</td>
+</tr>
+<tr>
+<td>PAN-OS 10.1</td>
+<td>64-bit kernel-based VMware ESXi 6.0, 6.5, 6.7, or 7.0. The supported version of the virtual hardware family type (also known as the VMware virtual hardware version) on the ESXi server is vmx-10.ESXi 6.0 and later versions supports one disk of up to 8TB. Earlier ESXi versions support one disk of up to 2TB.</td>
+<td>Ubuntu 18.04Ubuntu 16.04CentOS/RHEL 7CentOS/RHEL 8</td>
+<td>Windows Server 2019 with Hyper-V role or Hyper-V 2019Windows Server 2016 with Hyper-V role or Hyper-V 2016</td>
+<td>Nutanix AOS Version—5.10 and laterNutanix AHV Version—20170830.185To manage VM-Series firewalls running supported versions of AHV. See <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/compatibility-matrix/vm-series-firewalls/vms-series-hypervisor-support.html#ida171dac5-7ebf-40a0-a6d6-4e2c35329211_idbb1ac99a-269a-4b09-aeb2-1cb5b6ef272b">VM-Series for Nutanix</a>.</td>
+<td>Alibaba CloudAmazon AWSMicrosoft AzureGoogle Cloud Platform Amazon AWS GovCloud Oracle Cloud Infrastructure (OCI)</td>
+</tr>
+<tr>
+<td>PAN-OS 10.0</td>
+<td>64-bit kernel-based VMware ESXi 6.0, 6.5, 6.7, or 7.0. The supported version of the virtual hardware family type (also known as the VMware virtual hardware version) on the ESXi server is vmx-10.ESXi 6.0 and later versions supports one disk of up to 8TB. Earlier ESXi versions support one disk of up to 2TB.</td>
+<td>Ubuntu 18.04Ubuntu 16.04CentOS/RHEL 7CentOS/RHEL 8</td>
+<td>Windows Server 2019 with Hyper-V role or Hyper-V 2019Windows Server 2016 with Hyper-V role or Hyper-V 2016</td>
+<td>Nutanix AOS Version—5.10 and laterNutanix AHV Version—20170830.185To manage VM-Series firewalls running supported versions of AHV. See <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/compatibility-matrix/vm-series-firewalls/vms-series-hypervisor-support.html#ida171dac5-7ebf-40a0-a6d6-4e2c35329211_idbb1ac99a-269a-4b09-aeb2-1cb5b6ef272b">VM-Series for Nutanix</a>.</td>
+<td>Alibaba CloudAmazon AWSMicrosoft AzureGoogle Cloud Platform Amazon AWS GovCloud Oracle Cloud Infrastructure (OCI)</td>
+</tr>
+<tr>
+<td>PAN-OS 9.1</td>
+<td>64-bit kernel-based VMware ESXi 6.0, 6.5, 6.7, or 7.0. The supported version of the virtual hardware family type (also known as the VMware virtual hardware version) on the ESXi server is vmx-10.ESXi 6.0 and later versions supports one disk of up to 8TB. Earlier ESXi versions support one disk of up to 2TB.</td>
+<td>Ubuntu 18.04Ubuntu 16.04CentOS/RHEL 7CentOS/RHEL 8</td>
+<td>Windows Server 2019 with Hyper-V role or Hyper-V 2019Windows Server 2016 with Hyper-V role or Hyper-V 2016</td>
+<td>Nutanix AOS Version—5.10 and laterNutanix AHV Version—20170830.185To manage VM-Series firewalls running supported versions of AHV. See <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/content/techdocs/en_US/compatibility-matrix/vm-series-firewalls/vms-series-hypervisor-support.html#ida171dac5-7ebf-40a0-a6d6-4e2c35329211_idbb1ac99a-269a-4b09-aeb2-1cb5b6ef272b">VM-Series for Nutanix</a>.</td>
+<td>Amazon AWSMicrosoft AzureGoogle Cloud Platform Amazon AWS GovCloud</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="下载地址-319">下载地址</h2>
+<p>用于学习和评估？推荐版本：<a href="/blog/pan-os-10-vm-series-trial/" title="Palo Alto PAN-OS 10.2.5 for ESXi &amp; KVM 全功能试用版 (包含 TP URL WF 等高级订阅许可)">Palo Alto PAN-OS 10.2.5 for ESXi &amp; KVM 全功能试用版 (包含 TP URL WF 等高级订阅许可)</a></p>
+<p>for ESXi</p>
+<ul>
+<li>Palo Alto PAN-OS 10.0 VM-Series for ESXi
+<ul>
+<li>Palo Alto Panorama 10.0 ESXi</li>
+</ul>
+</li>
+</ul>
+<p>或者 for KVM</p>
+<ul>
+<li>
+<p>Palo Alto PAN-OS 10.0 VM-Series for KVM</p>
+</li>
+<li>
+<p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1jYjuTa2KOO3ae2TXvTP6-A?pwd=">https://pan.baidu.com/s/1jYjuTa2KOO3ae2TXvTP6-A?pwd=</a> &lt;限时分享，过期专享&gt;</p>
+</li>
+</ul>
+<p><strong>✅ 公布获取此专享资源的正确方式：</strong></p>
+<p>为保证本站持续发展，该资源通过<code>捐赠</code>获取，捐赠是一种可以附加条件的行为，按照下面<code>指定方式</code>捐赠即可获得该项下载。</p>
+<ul>
+<li>点击 💙<a href="https://sysin.org/img/alipay28.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay28.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言</code>（以便发送链接，<strong>在其他平台留言恕无法处理</strong>）。24 小时内处理，白天会尽量及时，谢谢。</li>
+</ul>
+<p>捐赠者请知悉：</p>
+<ul>
+<li>笔者耗费了大量的时间和精力来分享产品和知识，网站运行也需要成本，捐赠是对本站提供下载服务的回报。</li>
+<li>捐赠获取的软件皆为官方原版或包含了使用方法或分享了技术心得，捐赠是对笔者行业知识的认同和回馈。</li>
+<li>下载的软件仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</li>
+<li>如果需要购买产品，请联系开发者和厂商。</li>
+<li>笔者乐意解答技术问题，但限于时间和知识，如您未能获得满意答案请见谅，捐赠并不包含其他服务。</li>
+<li><strong>未承诺提供版本更新服务</strong>。</li>
+<li>默认发送当前最新版，如有版本要求请指定。</li>
+<li><strong>如果不认同上述条款，请勿捐赠，谢谢。</strong></li>
+</ul>
+<p>感谢无私捐助者！当然无需任何捐助或者捐赠，您仍然能获得本站 15T+ 的免费资源和技术分享。</p>
+<p>⚠️ <strong>当前捐赠仅限 10.0 版本，以下版本请访问对应页面获取。</strong></p>
+<hr>
+<p>Palo Alto PAN-OS 10.1 VM-Series for ESXi<br>
+Palo Alto PAN-OS 10.1 VM-Series for KVM<br>
+Palo Alto Panorama 10.1 for ESXi</p>
+<ul>
+<li>请访问：<a href="/blog/pan-os-10-1/" title="Palo Alto PAN-OS 10.1 for ESXi &amp; KVM - 基于机器学习的新一代防火墙">Palo Alto PAN-OS 10.1 for ESXi &amp; KVM - 基于机器学习的新一代防火墙</a></li>
+</ul>
+<hr>
+<p>Palo Alto PAN-OS 10.2.3 VM-Series for KVM<br>
+Palo Alto Panorama 10.2.3 for KVM</p>
+<ul>
+<li>请访问：<a href="/blog/pan-os-10-2/" title="Palo Alto PAN-OS 10.2.3 for KVM - 基于机器学习的新一代防火墙">Palo Alto PAN-OS 10.2.3 for KVM - 基于机器学习的新一代防火墙</a></li>
+</ul>
+<hr>
+<p>Palo Alto PAN-OS 11.0 VM-Series for ESXi<br>
+Palo Alto PAN-OS 11.0 VM-Series for KVM</p>
+<ul>
+<li>请访问：<a href="/blog/pan-os-11/" title="Palo Alto PAN-OS 11.0 for ESXi &amp; KVM - ML 驱动的 NGFW">Palo Alto PAN-OS 11.0 for ESXi &amp; KVM - ML 驱动的 NGFW</a></li>
+</ul>
+<p>更多：<a href="/blog/firewall/" title="Firewall 产品链接汇总">Firewall 产品链接汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/cisco-nx-os-9/" data-toggle="tooltip" data-placement="top" title="Cisco Nexus 9000v Switch，NX-OS 9.3.5 Download">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/cisco-firepower-6/" data-toggle="tooltip" data-placement="top" title="Cisco Firepower NGFW Virtual (NGFWv) 6.5 下载">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/pan-os-10/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Palo-Alto-%E6%96%B0%E4%B8%80%E4%BB%A3%E9%98%B2%E7%81%AB%E5%A2%99-4"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Palo Alto 新一代防火墙</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PAN-OS-10%EF%BC%9A%E5%85%A8%E7%90%83%E9%A6%96%E4%B8%AA%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%B0%E4%B8%80%E4%BB%A3%E9%98%B2%E7%81%AB%E5%A2%99-4"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">PAN-OS 10：全球首个基于机器学习的新一代防火墙</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Panorama-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86-4"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Panorama 网络安全管理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD-18"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%99%9A%E6%8B%9F%E5%8C%96%E7%89%88%E6%9C%AC%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82-4"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">虚拟化版本系统要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-319"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+            <a class="tag" href="/tags/#OVF" title="OVF">OVF</a>
+            
+            <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+            
+            <a class="tag" href="/tags/#PAN-OS" title="PAN-OS">PAN-OS</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> FreeBSD 全局安装配置 zsh + oh-my-zsh - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" FreeBSD 全局安装配置 zsh + oh-my-zsh - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" FreeBSD 全局安装配置 zsh + oh-my-zsh "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/freebsd-zsh-all/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+              
+              <a class="tag" href="/tags/#BSD" title="BSD">BSD</a>
+              
+              <a class="tag" href="/tags/#FreeBSD" title="FreeBSD">FreeBSD</a>
+              
+              <a class="tag" href="/tags/#zsh" title="zsh">zsh</a>
+              
+            </div>
+            <h1>FreeBSD 全局安装配置 zsh + oh-my-zsh</h1>
+            <h2 class="subheading">The Power To Serve</h2>
+            <span class="meta">
+              Posted by sysin on
+              2022-06-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">11</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.4k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Wed Jun 01 2022 18:12:28 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/freebsd-zsh-all/" title="FreeBSD 全局安装配置 zsh + oh-my-zsh">FreeBSD 全局安装配置 zsh + oh-my-zsh</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="https://ohmyz.sh/img/OMZLogo_BnW.png" alt="OMZLogo"></p>
+<p>FreeBSD 使用 <a target="_blank" rel="noopener" href="https://www.FreeBSD.org/cgi/man.cgi?query=tcsh&amp;sektion=1&amp;manpath=freebsd-release-ports">tcsh(1)</a> 作为自己的默认 Shell。zsh 作为终极 Shell，在 FreeBSD 下也是适用的。使用 <a href="https://sysin.org/blog/linux-zsh/">oh-my-zsh</a> 配置 zsh 默认仅对当前用户有效，新建或者切换用户后，仍然恢复到了默认的 shell，重新配置新用户略嫌繁琐。本文描述全局配置的方法，新用户将默认使用 zsh 并加载统一的配置文件。</p>
+<blockquote>
+<p>本文内容基于 FreeBSD 13，其他版本理论上也适用。</p>
+</blockquote>
+<h2 id="准备-zsh">准备 zsh</h2>
+<ul>
+<li>
+<p>查看当前 shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+<p>返回结果:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/csh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意：以下全局配置相关命令需要 root 权限，请切换到 root 账号，或者使用 sudo（需手动安装配置）。</p>
+</blockquote>
+<ul>
+<li>
+<p>安装 zsh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install zsh</span><br></pre></td></tr></table></figure>
+<p>提示消息：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Message from zsh-5.8:</span><br><span class="line"></span><br><span class="line">--</span><br><span class="line">==========================================================</span><br><span class="line"></span><br><span class="line">By default, zsh looks for system-wide defaults in</span><br><span class="line">/usr/local/etc.</span><br><span class="line"></span><br><span class="line">If you previously set up /etc/zprofile, /etc/zshenv, etc.,</span><br><span class="line">either move them to /usr/local/etc or rebuild zsh with the</span><br><span class="line">ETCDIR option enabled.</span><br><span class="line"></span><br><span class="line">==========================================================</span><br></pre></td></tr></table></figure>
+<p>注意：在 FreeBSD 中非系统自带 shell 安装路径如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">% </span><span class="language-bash"><span class="built_in">type</span> zsh</span></span><br><span class="line">zsh is /usr/local/bin/zsh</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置默认 shell</p>
+<p>根据 FreeBSD 安全建议，不要为 root 用户切换为非系统内置 shell，因为 FreeBSD 中 非内置 shell 安装路径为 <code>/usr/local/bin/</code>（不同于 Linux 安装在 <code>/bin/</code>），意外情况下可能导致文件系统无法挂载，root 用户无法访问自己的 shell。但是可以将 toor 账号配置使用 zsh 作为默认 shell。</p>
+<p>为非 root 用户切换默认 shell：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /usr/local/bin/zsh &lt;username&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;username&gt; 替换为实际用户名</span></span><br><span class="line">chsh -s /usr/local/bin/zsh toor</span><br></pre></td></tr></table></figure>
+<p>退出重新登录生效。</p>
+</li>
+<li>
+<p>安装 git</p>
+<p>执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install git</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="全局配置-zsh">全局配置 zsh</h2>
+<p>在 FreeBSD 中，用户安装的程序都是放在 <code>/usr/local</code> 下，配置文件在 <code>/usr/local/etc</code> 目录下。不同于 Linux 各发行版有自己的安装程序路径规则，BSD 系统都使用统一的规范来管理。我们将 oh-my-zsh 主目录放置在 <code>/usr/local/etc</code> 目录下。</p>
+<ul>
+<li>
+<p>使用 GNU sed 替代 BSD sed</p>
+<p>以下 sed 命令部分请用 gsed 替代，或者使用 alias。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pkg install gsed #FreeBSD</span><br><span class="line">gsed --v #安装后命令都是 gsed</span><br><span class="line">alias sed=gsed #可用别名替代 BSD sed</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>切换成 root</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su #切换到 root 账号，pwd 不变</span><br><span class="line">su - #切换到 root 账号，pwd 同时变为 root 主目录</span><br><span class="line">sudo -i #同上</span><br><span class="line">alias sed=gsed #用 GNU sed 替代 BSD sed</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>全局安装 zsh 到 <code>/usr/local/etc/</code> 目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git /usr/local/etc/oh-my-zsh</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>从模板文件复制 .zshrc 创建默认配置文件（新用户将使用该配置文件）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/etc/oh-my-zsh/templates/zshrc.zsh-template /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
+<p>FreeBSD 用户默认配置文件目录是 <code>/usr/share/skel/</code>，Linux 默认为 <code>/etc/skel/</code></p>
+<p>注意：<code>/usr/share/skel/</code> 中点开头的文件和文件夹（隐藏属性）都加上 dot，非隐藏文件和文件夹命名不变。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">ls</span> -ahlFTo</span></span><br><span class="line">total 49</span><br><span class="line">drwxr-xr-x   2 root  wheel  uarch   10B Sep  7 04:38:19 2022 ./</span><br><span class="line">drwxr-xr-x  32 root  wheel  uarch   32B May 12 16:15:22 2022 ../</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  962B May 12 16:29:31 2022 dot.cshrc</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  323B May 12 16:29:31 2022 dot.login</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch   91B May 12 16:29:31 2022 dot.login_conf</span><br><span class="line">-rw-------   1 root  wheel  uarch  301B May 12 16:29:31 2022 dot.mail_aliases</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  267B May 12 16:29:31 2022 dot.mailrc</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  978B May 12 16:29:31 2022 dot.profile</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  695B May 12 16:29:31 2022 dot.shrc</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  3.8K Sep  7 04:38:19 2022 dot.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改 on-my-zsh 的安装目录 <code>export ZSH=$HOME/.oh-my-zsh</code> 为 <code>export ZSH=/usr/local/etc/oh-my-zsh</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s|$HOME/.oh-my-zsh|/usr/local/etc/oh-my-zsh|g&#x27; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>为每个用户配置独立的 cache 目录</p>
+<p>编辑 <code>/usr/share/skel/dot.zshrc</code> 在 <code>export ZSH=/usr/local/etc/oh-my-zsh</code> 下添加一句：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ZSH_CACHE_DIR=&quot;$&#123;XDG_CACHE_HOME:-$HOME/.cache&#125;/oh-my-zsh&quot;</span><br></pre></td></tr></table></figure>
+<p>注意：必须在 <code>export ZSH=/usr/local/etc/oh-my-zsh</code> 之后 <code>source $ZSH/oh-my-zsh.sh</code> 之前添加，否则会混乱。</p>
+<p>在 <a target="_blank" rel="noopener" href="http://oh-my-zsh.sh">oh-my-zsh.sh</a> 中定义了 ZSH_CACHE_DIR 路径：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set ZSH_CACHE_DIR to the path <span class="built_in">where</span> cache files should be created</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">or <span class="keyword">else</span> we will use the default cache/</span></span><br><span class="line">if [[ -z &quot;$ZSH_CACHE_DIR&quot; ]]; then</span><br><span class="line">ZSH_CACHE_DIR=&quot;$ZSH/cache&quot;</span><br><span class="line">fi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Make sure <span class="variable">$ZSH_CACHE_DIR</span> is writable, otherwise use a directory <span class="keyword">in</span> <span class="variable">$HOME</span></span></span><br><span class="line">if [[ ! -w &quot;$ZSH_CACHE_DIR&quot; ]]; then</span><br><span class="line">ZSH_CACHE_DIR=&quot;$&#123;XDG_CACHE_HOME:-$HOME/.cache&#125;/oh-my-zsh&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>初始安装 “$ZSH/cache” 存在为空目录。<br>
+如果不添加上述语句，默认 root 用户对 “$ZSH/cache” 有写权限，会直接将 “$ZSH/cache” 作为 cache 目录。<br>
+如果在 <code>source $ZSH/oh-my-zsh.sh</code> 之后添加，root 在登录后先将 “$ZSH/cache” 作为 cache 目录，然后再更改为自定义路径。<br>
+对于普通用户，默认将使用 “${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh” 作为 cache 目录，经测试自定义其他路径无效。</p>
+</li>
+<li>
+<p>更改默认主题（默认 robbyrussell，推荐 ys）</p>
+<p>编辑 <code>/usr/share/skel/dot.zshrc</code> 文件修改：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;/^ZSH_THEME=*/c ZSH_THEME=&quot;ys&quot;&#x27; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>取消每周自动检查更新</p>
+<p>取消注释 <code>/usr/share/skel/dot.zshrc</code> 中的 “# DISABLE_AUTO_UPDATE=“true””</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/^#[ ]\(DISABLE_AUTO_UPDATE=&quot;true&quot;\)/\1/&#x27; /usr/share/skel/dot.zshrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-i 写入文件</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">&quot;&quot;</span> Unix sed 备份机制，直接引号表示不备份</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">s 替换指定字符</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">^ 匹配行开始</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[ ] 中括号中间有空格表示要替换的内容是一个空格，注意被替换的内容是空格用 <span class="string">&quot; &quot;</span>（双引号中间有空格）表示。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">\1 的意思就类似于前面的 (DISABLE_AUTO_UPDATE=<span class="string">&quot;true&quot;</span>\)，\1 就是复制这个位置的内容，</span></span><br></pre></td></tr></table></figure>
+<p>上述配置在 2022年6月仍有效，现在已经更新为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Uncomment one of the following lines to change the auto-update behavior</span></span><br><span class="line">zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">zstyle</span> <span class="string">&#x27;:omz:update&#x27;</span> mode auto      <span class="comment"># update automatically without asking</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">zstyle</span> <span class="string">&#x27;:omz:update&#x27;</span> mode reminder  <span class="comment"># just remind me to update when it&#x27;s time</span></span></span><br></pre></td></tr></table></figure>
+<p>手动更新：<code>omz update</code>（旧版命令：upgrade_oh_my_zsh）</p>
+</li>
+<li>
+<p>配置 ll 别名（可选）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;alias ll=&quot;ls -lahFTo&quot;&#x27; &gt;&gt; /usr/share/skel/dot.zshrc</span><br><span class="line">echo &#x27;alias sed=gsed&#x27; &gt;&gt; /usr/share/skel/dot.zshrc</span><br><span class="line">echo &#x27;alias vi=vim&#x27; &gt;&gt; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">alias</span></span></span><br><span class="line">alias ll=&quot;ls -lahFTo&quot;</span><br><span class="line">alias sed=gsed</span><br><span class="line">alias vi=vim</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ture off NOMATCH shell option <span class="built_in">set</span>, error like: <span class="string">&quot;zsh: no matches found&quot;</span></span></span><br><span class="line">unsetopt NOMATCH</span><br></pre></td></tr></table></figure>
+<h2 id="全局配置插件">全局配置插件</h2>
+<p>全局安装插件（安装到 <code>/usr/local/etc/oh-my-zsh/custom/plugins/</code>）</p>
+<ul>
+<li>
+<p><strong>zsh-syntax-highlighting：语法高亮插件。</strong></p>
+<p>作用：命令错误会显示红色，直到你输入正确才会变绿色，另外路径正确会显示下划线。</p>
+<p>安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/local/etc/oh-my-zsh/custom/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<p>配置启用插件：</p>
+<p>编辑 <code>/usr/share/skel/dot.zshrc</code>，以下部分添加插件的名字</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=([plugins...] zsh-syntax-highlighting)</span><br></pre></td></tr></table></figure>
+<p>另外一种写法，可以使用注释：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">    git</span><br><span class="line">    #zsh-autosuggestions</span><br><span class="line">    zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>快速修改：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;/^plugins=*/c plugins=(git zsh-syntax-highlighting)&#x27; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>，额外的自动补全。</strong></p>
+<p>额外的自动补全功能，用于补充 zsh 中尚不支持的命令补全，该项目将在完善时合并到 zsh。</p>
+<ul>
+<li>
+<p>Clone the repository inside your oh-my-zsh repo:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-completions /usr/local/etc/oh-my-zsh/custom/plugins/zsh-completions</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Add it to <code>FPATH</code> in your <code>.zshrc</code> by adding the following line before <code>source &quot;$ZSH/oh-my-zsh.sh&quot;</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fpath+=$&#123;ZSH_CUSTOM:-$&#123;ZSH:-~/.oh-my-zsh&#125;/custom&#125;/plugins/zsh-completions/src</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Note: adding it as a regular Oh My ZSH! plugin will not work properly (see <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions/issues/603">#603</a>).</p>
+</li>
+<li>
+<p><strong>zsh-autosuggestions：作用是根据历史输入命令的记录即时的提示（建议补全），然后按 → 键即可补全。</strong></p>
+<p>下载：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git /usr/local/etc/oh-my-zsh/custom/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<p>编辑 <code>/usr/share/skel/dot.zshrc</code>，找到 plugins=(git) 这一行，修改为：</p>
+<p>plugins=(git zsh-autosuggestions)</p>
+</li>
+<li>
+<p><strong>增强的实时自动命令补全插件：<a target="_blank" rel="noopener" href="https://mimosa-pudica.net/zsh-incremental.html">Incremental completion on zsh</a>。</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>该插件对性能似乎有一点点影响，请根据需要启用。</p>
+</blockquote>
+<p>作用如图：</p>
+<p><img src="https://mimosa-pudica.net/img/zsh.gif" alt="incr"></p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/etc/oh-my-zsh/custom/plugins/incr</span><br><span class="line">curl -fsSL https://mimosa-pudica.net/src/incr-0.2.zsh -o /usr/local/etc/oh-my-zsh/custom/plugins/incr/incr.zsh</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启用该功能</span></span><br><span class="line">echo &quot;source $ZSH_CUSTOM/plugins/incr/incr.zsh&quot; &gt;&gt; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
+<h2 id="使用用户配置文件">使用用户配置文件</h2>
+<ul>
+<li>
+<p>改变新建用户的默认 shell 行为（可选）</p>
+<p>FreeBSD 中可以修改 adduser 命令默认 shell</p>
+<p>编辑 <code>/usr/sbin/adduser</code></p>
+<p>将 “DEFAULTSHELL=/bin/sh” 修改为 “DEFAULTSHELL=/usr/local/bin/zsh”</p>
+<p><strong>以下是 Linux 中的方法，备忘。</strong></p>
+<p><code>vi /etc/default/useradd</code></p>
+<p>将 SHELL= * (比如 SHELL=/bin/sh) 改成 SHELL=/bin/zsh</p>
+<p>修改后，使用 <code>useradd</code> 命令无需 <code>-s /bin/zsh</code>，用户默认使用 zsh，当然也可以不修改此项，<code>useradd</code> 命令继续追加 <code>-s /bin/zsh</code> 参数。</p>
+<p>新用户登录后，将自动复制 .zshrc 和上述 cache 目录到用户主目录下，并自动加载 zsh 配置。</p>
+</li>
+<li>
+<p>针对现有用户</p>
+<p>直接复制 <code>/usr/share/skel/dot.zshrc</code> 到 <code>~/</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/skel/dot.zshrc ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>新建一个用户并指定 zsh 为默认 Shell</p>
+<p>FreeBSD 安装 sudo 后，并且配置 wheel 组获得 sudo 权限，新建一个管理员账号并使用 zsh 作为默认 shell：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pw useradd -n &lt;username&gt; -G wheel -s /usr/local/bin/zsh -m &amp;&amp; passwd &lt;username&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;username&gt; 替换为实际用户名</span></span><br></pre></td></tr></table></figure>
+<p>以下是 Linux 中的配置，备忘：</p>
+<p>在 visudo (/etc/sudoers）默认配置下，创建管理员账号的命令如下：</p>
+<p>CentOS：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -s /bin/zsh -G wheel sysin  #sysin 为用户名</span><br><span class="line">passwd sysin  #为 sysin 设置密码</span><br></pre></td></tr></table></figure>
+<p>Ubuntu：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -s /bin/zsh -G sudo sysin  #sysin 为用户名</span><br><span class="line">passwd sysin  #为 sysin 设置密码</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>备注：</p>
+<p>-m 创建同名 home 目录</p>
+<p>-s 指定 shell</p>
+<p>-G 修改附加属组</p>
+</blockquote>
+</li>
+</ul>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/macOS-Ventura-anounced/" data-toggle="tooltip" data-placement="top" title="macOS Ventura 发布，新增强大生产力工具、全新连续互通功能，让 Mac 体验更胜以往">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/linux-zsh-all/" data-toggle="tooltip" data-placement="top" title="Linux 全局安装配置 zsh + oh-my-zsh">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/freebsd-zsh-all/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87-zsh"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">准备 zsh</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-zsh"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">全局配置 zsh</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E6%8F%92%E4%BB%B6"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">全局配置插件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">使用用户配置文件</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+            
+            <a class="tag" href="/tags/#BSD" title="BSD">BSD</a>
+            
+            <a class="tag" href="/tags/#FreeBSD" title="FreeBSD">FreeBSD</a>
+            
+            <a class="tag" href="/tags/#zsh" title="zsh">zsh</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

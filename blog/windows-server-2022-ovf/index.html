@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/windows-server-2022-ovf/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+              
+              <a class="tag" href="/tags/#OVF" title="OVF">OVF</a>
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#Microsoft" title="Microsoft">Microsoft</a>
+              
+            </div>
+            <h1>Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板</h1>
+            <h2 class="subheading">Windows Server 2022 Datacenter 64 Bit OVF, updated Oct 2024 (sysin)</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-10-23
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">12</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Wed Oct 23 2024 09:05:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/windows-server-2022-ovf/" title="Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>现在都是自动 sysprep 的版本，版本同步更新。</p>
+<p>Windows Server 2022 Datacenter 64 Bit Chinese Simplified / English<br>
+Version 21H2, updated Oct 2024, Build 20348.2762</p>
+<p>Windows Server 2022 Datacenter 64 Bit Chinese Simplified / English<br>
+Version 21H2, updated Aug 2024, Build 20348.2655</p>
+<p>Windows Server 2022 Datacenter 64 Bit Chinese Simplified / English<br>
+Version 21H2, updated Jun 2024, Build 20348.2527</p>
+<p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" alt="Microsoft"> Windows Server 2022</p>
+<p><img src="windows-server-2022-ovf.webp" alt="Windows Server 2022 OVF"></p>
+<h2 id="部署截图及说明-21">部署截图及说明</h2>
+<p><img src="windows-server-2022-ovf-02.webp" alt="计算资源选项"></p>
+<p>CPU 和内存配置选项，可以部署完毕后任意编辑</p>
+<p><img src="windows-server-2022-ovf-03.webp" alt="用户账号和网络配置"></p>
+<p>注：<em>本例截图来自 Fusion，在 vSphere 和 Workstation 中展现样式略有差异，内容相同。</em></p>
+<p>请注意：</p>
+<p>1.1 此处密码必须符合复杂性要求（系统默认值）</p>
+<p>密码必须符合下列最低要求：</p>
+<ul>
+<li>不能包含用户的帐户名，不能包含用户姓名中超过两个连续字符的部分</li>
+<li>至少有六个字符长</li>
+<li>包含以下四类字符中的三类字符：
+<ul>
+<li>英文大写字母 (A 到 Z)</li>
+<li>英文小写字母 (a 到 z)</li>
+<li>10 个基本数字 (0 到 9)</li>
+<li>非字母字符 (例如 !、$、#、%)</li>
+</ul>
+</li>
+<li>在更改或创建密码时执行复杂性要求</li>
+</ul>
+<p><s>1.2 删除内置的 sysadmin 账号（此项设置已经不存在，无任何其他非默认账号）</s></p>
+<p>2.2 子网掩码前缀使用 CIDR 表示法，例如掩码 255.255.255.0 填写 24</p>
+<p>2.5 Hostname：计算机名称</p>
+<blockquote>
+<p>因部分读者不知道计算机名称怎么填写而报错，这里增加一个计算机名称的描述。</p>
+</blockquote>
+<p>计算机名称包括 NetBIOS 名称和 DNS 名称，MS 官方规则稍显复杂，这里简单概括或者建议使用如下规则：</p>
+<ul>
+<li>长度 1-15 个字符</li>
+<li>字符使用三种类型或其组合：字母字符 (A-Z，不区分大小写) 、数字字符 (0-9) 、减号或称连字符 (-)</li>
+<li>推荐 3 种示例：全部字母，字母和数字组合，字母-数字或者数字-字母（中间允许多个-）</li>
+<li>不要全部用数字（NetBIOS 名称可以支持，但 DNS 名称不允许）</li>
+</ul>
+<p>如果使用 DHCP 配置，计算机名称将自动随机生成格式如 WIN-xxxxxxxxxxx。</p>
+<h2 id="OVF-特性-22">OVF 特性</h2>
+<h3 id="1-OVF-版本-19">1. OVF 版本</h3>
+<ol>
+<li>默认 VM 硬件版本 11（GuestOS ID 最低要求 10，可升级至最新版），兼容 ESXi 6.0、Fusion 7、Workstation 11 及以上；</li>
+<li>启用 CPU、内存热插拔 (sysin)</li>
+<li>VM-Tools 版本：12.5.0（当前）✝️➕ 版本更新</li>
+</ol>
+<h3 id="2-系统配置-4">2. 系统配置</h3>
+<ol>
+<li>时间和货币格式：Chinese (Simplified, China)，默认键盘和输入方法：简体中文 - 美式键盘（US）</li>
+<li>系统版本：Windows Server 2022 Datacenter, with DesktopExperience</li>
+<li>分区：System Reserve（100M），<strong><a href="https://sysin.org/blog/windows-10-recovery-partition/">Recovery Partition（550M）移到 C 盘之前</a></strong>，C 盘 40G 整数分区（可自由调整），2022年6月及以后的版本已删除该分区</li>
+<li>启用远程桌面 (sysin)</li>
+<li>启用 ICMPv4 防火墙规则</li>
+<li><s>早期版本添加了名为 sysadmin 的管理员账号，现在已经取消该项配置</s></li>
+<li>添加了 “Command Prompt” 和 “PowerShell” 右键快捷命令菜单（增加图标）</li>
+<li>修改 Windows Update 为手动（可通过 sconfig 恢复，禁用或者启用服务无效）</li>
+<li>添加了 “FileHash” 右键快捷命令菜单（内置 PowerShell 命令实现）</li>
+<li>关闭 Telemetry（遥测）</li>
+<li>设置 Administrator 账号密码永不过期（默认 sysprep 后密码会过期）✝️➕ 新增</li>
+<li>禁用 “Azure Arc Setup” 自动运行 ✝️➕ 新增</li>
+<li>已禁用 Windows Update，通过 Windows Update Blocker ✝️➕ 新增</li>
+</ol>
+<h3 id="3-简体中文界面支持-3">3. 简体中文界面支持</h3>
+<p><s>本次英文版添加了简体中文界面语言支持，切换方法如下：</s></p>
+<p><s>Settings &gt; Time &amp; Language &gt; Language, Windows Display Languages 下拉勾选 ”Chinese (Simplified, China)”</s></p>
+<p><s>注销登录或者重启生效。</s></p>
+<p>另外，如果再次运行 sysprep，欢迎画面也会提示选择语言（“English” 或者 “中文(简体)”）。</p>
+<p><strong>重要更新</strong>：</p>
+<p>2023 年 6 月更新开始，将提供英文版和简体中文版两个独立版本，根据近期的用户反馈，发现了官方产品存在重大 bug：系统文件每月都有一定的更新，但是语言包从未更新（或未同步更新），无论是<strong>在线更新语言包</strong>或者离线从 iso 安装。这将导致切换到简体中文界面语言后，系统及其自带的应用程序（部分）或报错或功能异常。</p>
+<h3 id="4-OEM-BIOS-支持-3">4. OEM BIOS 支持</h3>
+<p>支持 Dell OEM 2.6 及以上版本的 BIOS。</p>
+<h3 id="5-系统组件-3">5. 系统组件</h3>
+<ol>
+<li>添加组件：Telnet Client、SNMP-Service、Windows Backup</li>
+<li>添加组件：.NETFX 3.5 (启用此组件需要系统 iso 镜像，这里预先配置)</li>
+</ol>
+<h3 id="6-远程桌面性能优化-3">6. 远程桌面性能优化</h3>
+<ol>
+<li>
+<p>禁用 Logon Backgroud</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 个性化设置：禁用登录背景 Logon Image</span><br><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System&quot; /v DisableLogonBackgroundImage /t REG_DWORD /d <span class="number">1</span> /f</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>更换 Lock Screen 为默认蓝色</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 个性化设置：禁用设置中 Lock Screen 功能</span><br><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization&quot; /v NoLockScreen /t REG_DWORD /d <span class="number">1</span> /f</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>替换 Desktop Backgroud 为灰色</p>
+</li>
+</ol>
+<h3 id="7-应用软件-3">7. 应用软件</h3>
+<ol>
+<li>AutoRuns 14.0、7-Zip 22.00、Unlocker 1.9.2（全部为免费软件）</li>
+<li>浏览器：Firefox 130，通过策略禁用自动更新，默认为所有用户添加开始菜单和桌面快捷方式 ✝️➕ 版本更新</li>
+<li>Defender Control，可以快速禁用 Windows Defender（快捷方式在开始菜单）✝️➕ 新增</li>
+<li>Windows Update Blocker，可以快速禁用系统自动更新（快捷方式在开始菜单）✝️➕ 新增</li>
+</ol>
+<blockquote>
+<p>说明：以上软件版本描述的是更新版本，旧版 OVF 包含的版本可能略低。</p>
+</blockquote>
+<h3 id="8-个性化配置-3">8. 个性化配置</h3>
+<ol>
+<li>
+<p>用户配置（此项配置 sysprep 后无效）</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 个性化配置：标题栏显示颜色（仅针对当前用户有效，针对计算机设置无效）（此项可通过 Load Hive 预先配置）</span><br><span class="line">reg add &quot;HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM&quot; /v ColorPrevalence /t REG_DWORD /d <span class="number">1</span> /f</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>几个关于隐私和使用记录的配置，通过 HKEY_LOCAL_MACHINE 预先配置</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 个性化配置：Turn off to Show recently opened items <span class="keyword">in</span> Jump Lists on <span class="built_in">Start</span> or the taskbar</span><br><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced&quot; /v Start_TrackDocs /t REG_DWORD /d <span class="number">0</span> /f</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Folder Options：Open File Explorer to: This PC</span><br><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced&quot; /v LaunchTo /t REG_DWORD /d <span class="number">1</span> /f</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Folder Options：Turn off to Show recently used files <span class="keyword">in</span> Quick access</span><br><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer&quot; /v ShowRecent /t REG_DWORD /d <span class="number">0</span> /f</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Folder Options：Turn off to Show frequently used folders <span class="keyword">in</span> Quick access</span><br><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer&quot; /v ShowFrequent /t REG_DWORD /d <span class="number">0</span> /f</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="9-关于-GuestOS-ID-3">9. 关于 GuestOS ID</h3>
+<p>GuestOS ID 默认为 Microsoft Windows Server 2016 or later (64-bit)，因为需要兼容低版本的 VM Hardware，否则将无法识别 GuestOS，对于支持高版本 VM Hardware 的环境，可以在导入后手动选择。当然也可以忽略，因为目前为止 Windows Server 2016、2019、2022 实际都是 windows9Server64Guest（Windows 10 Server）。</p>
+<h3 id="10-sysprep-3">10. sysprep</h3>
+<p>✝️➕ 新特性</p>
+<p>本次更新开始将自动运行 sysprep，生成新的 sid。如果手动配置计算机名称和 IP 地址，系统初始化将重启两次。如果使用 DHCP 配置，计算机名称将自动随机生成格式如 WIN-xxxxxxxxxxx。</p>
+<h2 id="适用的-VMware-软件下载-39">适用的 VMware 软件下载</h2>
+<p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
+<ul>
+<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+</ul>
+<h2 id="OVF-版本兼容性和部署方式-21">OVF 版本兼容性和部署方式</h2>
+<p>现已支持 ESXi Host Client 2.5 及以上版本部署，即无需 vCenter Server（vSphere Client）也可以正常部署。具体要求如下：</p>
+<ul>
+<li>ESXi 8.0 及以上任意版本，推荐使用本站定制版启用完整功能：
+<ul>
+<li>
+<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+<li>
+<a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+</li>
+</ul>
+</li>
+<li>ESXi 7.0U3o 及更新版本，推荐使用本站定制版启用完整功能：
+<ul>
+<li>
+<a href="/blog/vmware-esxi-7-u3-oem/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+<li>
+<a href="/blog/vmware-esxi-7-u3-sysin/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+</li>
+</ul>
+</li>
+<li>ESXi 6.7U3 本站定制版，不支持其他版本：
+<ul>
+<li>
+<a href="/blog/vmware-esxi-6-oem/" title="VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+<li>
+<a href="/blog/vmware-esxi-6-sysin/" title="VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 集成 Realtek 网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 集成 Realtek 网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+</li>
+</ul>
+</li>
+</ul>
+<p>默认使用 VM 硬件版本 11（GuestOS ID 最低要求 10，可升级至最新版），兼容 ESXi 6.0、Fusion 7、Workstation 11、Player 7 及以上版本。</p>
+<p>支持通过以下客户端部署：</p>
+<ul>
+<li>VMware Fusion for Mac：12、13 及更新版本（推荐版本 13）</li>
+<li>VMware Workstation for Windows &amp; Linux：16、17 及更新版本（推荐版本 17）</li>
+<li>VMware vSphere（vSphere Client）：7.0、8.0 及更新版本（推荐 7.0U3 及以上）</li>
+<li>ESXi Host Client：内置于 ESXi 6.7U3、7.0U3、8.0 及更新版本，推荐版本 2.10.1 及以上</li>
+</ul>
+<blockquote>
+<p>部分已经废弃的客户端如 vSphere Web Cleint（Flash），以及上述客户端旧版不建议使用。</p>
+</blockquote>
+<p>客户端系统和软件要求：</p>
+<ul>
+<li>
+<p>支持的客户端操作系统</p>
+<ul>
+<li>macOS（推荐 <a href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a>、<a href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a>、<a href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a>）</li>
+<li>Windows 32-bit and 64-bit（推荐 <a href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）</li>
+</ul>
+<blockquote>
+<p>主流 Linux 桌面发行版理论上支持，未经官方验证。</p>
+</blockquote>
+</li>
+<li>
+<p>支持以下浏览器版本【<a href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
+<ul>
+<li>Google Chrome 89 or later</li>
+<li>Mozilla Firefox 80 or later</li>
+<li>Apple Safari 9.0 or later (仅限 Host Client)</li>
+</ul>
+</li>
+</ul>
+<h2 id="下载地址-571">下载地址</h2>
+<p>保留最近三个版本。</p>
+<p>Windows Server 2022 LTSC 64Bit Chinese Simplified / English (updated Jun 2024)，现在自动运行 sysprep<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1RS3CPzXWlsHlqLc-HkPHzg?pwd=">https://pan.baidu.com/s/1RS3CPzXWlsHlqLc-HkPHzg?pwd=</a>&lt;专享已公布&gt;<br>
+SHA256SUM: 自动校验<br>
+文件大小：约 6GB</p>
+<p>Windows Server 2022 LTSC 64Bit Chinese Simplified / English (updated Aug 2024)，现在自动运行 sysprep<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1RS3CPzXWlsHlqLc-HkPHzg?pwd=">https://pan.baidu.com/s/1RS3CPzXWlsHlqLc-HkPHzg?pwd=</a>&lt;专享已公布&gt;<br>
+SHA256SUM: 自动校验<br>
+文件大小：约 6GB</p>
+<p>Windows Server 2022 LTSC 64Bit Chinese Simplified (<strong>updated Oct 2024</strong>)，现在自动运行 sysprep<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1RS3CPzXWlsHlqLc-HkPHzg?pwd=">https://pan.baidu.com/s/1RS3CPzXWlsHlqLc-HkPHzg?pwd=</a>&lt;专享已公布&gt;<br>
+SHA256SUM: 自动校验<br>
+文件大小：约 6GB</p>
+<p>2023 年 7 月（或之后）更新的 Windows Server 2022 简体中文 (ZH-CN) 语言介质包含更新的中文字体文件和输入法编辑器 (IME)，以支持 GB18030-2022 标准。</p>
+<p><strong>✅ 公布获取此专享资源的正确方式：</strong></p>
+<p>为保证本站持续发展，该资源通过<code>捐赠</code>获取，捐赠是一种可以附加条件的行为，按照下面<code>指定方式</code>捐赠即可获得该项下载。</p>
+<ul>
+<li>点击 💙<a href="https://sysin.org/img/alipay28.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay28.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言</code>（以便发送链接，<strong>在其他平台留言恕无法处理</strong>）。24 小时内处理，白天会尽量及时，谢谢。</li>
+</ul>
+<p>捐赠者请知悉：</p>
+<ul>
+<li>笔者耗费了大量的时间和精力来分享产品和知识，网站运行也需要成本，捐赠是对本站提供下载服务的回报。</li>
+<li>捐赠获取的软件皆为官方原版或包含了使用方法或分享了技术心得，捐赠是对笔者行业知识的认同和回馈。</li>
+<li>下载的软件仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</li>
+<li>如果需要购买产品，请联系开发者和厂商。</li>
+<li>笔者乐意解答技术问题，但限于时间和知识，如您未能获得满意答案请见谅，捐赠并不包含其他服务。</li>
+<li><strong>未承诺提供版本更新服务</strong>，但是当前页面发布的更新版可留言获取。</li>
+<li>默认发送当前最新版，如有版本要求请指定。</li>
+<li><strong>如果不认同上述条款，请勿捐赠，谢谢。</strong></li>
+</ul>
+<p>感谢无私捐助者！当然无需任何捐助或者捐赠，您仍然能获得本站 15T+ 的免费资源和技术分享。</p>
+<hr>
+<p>原版下载：<a href="/blog/windows-server-2022/" title="Windows Server 2022 中文版、英文版下载 (2024 年 11 月更新)">Windows Server 2022 中文版、英文版下载 (2024 年 11 月更新)</a></p>
+<p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/adobe-audition/" data-toggle="tooltip" data-placement="top" title="Adobe Audition 2025 v25.0 (macOS, Windows) - 音频录制和编辑软件">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/vmware-vcenter-8-u3/" data-toggle="tooltip" data-placement="top" title="VMware vCenter Server 8.0U3d - 集中管理 vSphere 环境">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/windows-server-2022-ovf/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E-21"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7-22"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC-19"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-4"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E7%95%8C%E9%9D%A2%E6%94%AF%E6%8C%81-3"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 简体中文界面支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-OEM-BIOS-%E6%94%AF%E6%8C%81-3"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. OEM BIOS 支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6-3"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 系统组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-3"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 远程桌面性能优化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6-3"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. 应用软件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE-3"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">8. 个性化配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-%E5%85%B3%E4%BA%8E-GuestOS-ID-3"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">9. 关于 GuestOS ID</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#10-sysprep-3"><span class="toc-nav-number">2.10.</span> <span class="toc-nav-text">10. sysprep</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD-39"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F-21"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-571"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+            
+            <a class="tag" href="/tags/#OVF" title="OVF">OVF</a>
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#Microsoft" title="Microsoft">Microsoft</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

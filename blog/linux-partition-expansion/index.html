@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录） - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录） - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录） "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/linux-partition-expansion/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header_l.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header_l.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header_l.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header_l.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header_l.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+            </div>
+            <h1>Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2021-08-27
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">38</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">7.4k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Fri Aug 27 2021 09:53:33 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/linux-partition-expansion/" title="Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）">Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>Linux 系统在运行过程中，出现磁盘空间不足，需要扩容该如何处理？本文描述了常见的扩容场景，包括根分区、SWAP 分区以及扩容某个目录。</p>
+<p>目录</p>
+<ul>
+<li>
+<ol>
+<li>根分区扩容</li>
+</ol>
+<ul>
+<li>1.1 标准分区扩容（本站 OVF 默认）</li>
+<li>1.2 LVM 分区扩容</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li>SWAP 分区扩容</li>
+</ol>
+<ul>
+<li>2.1 创建文件作为 SWAP 分区（本站 OVF 默认）</li>
+<li>2.2 标准分区 SWAP 扩容</li>
+<li>2.3 LVM SWAP 扩容</li>
+</ul>
+</li>
+<li>
+<ol start="3">
+<li>挂载新的磁盘到新的分区</li>
+</ol>
+<ul>
+<li>3.1 将磁盘挂载为新的目录</li>
+<li>3.2 将磁盘挂载原有目录</li>
+</ul>
+</li>
+<li>
+<ol start="4">
+<li>小结</li>
+</ol>
+</li>
+</ul>
+<h2 id="1-根分区扩容">1. 根分区扩容</h2>
+<h3 id="1-1-标准分区扩容（本站-OVF-默认）">1.1 标准分区扩容（本站 OVF 默认）</h3>
+<p>本例为 CentOS 8 虚机，两块磁盘，磁盘 1 容量 60G 用于根目录（包含 <code>/boot</code>），磁盘 2 容量 4G 用于 SWAP。</p>
+<p>（1）扩容前状态如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@sysin-c8 ~]# lsblk</span><br><span class="line">NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda      8:0    0   60G  0 disk</span><br><span class="line">└─sda1   8:1    0   60G  0 part /</span><br><span class="line">sdb      8:16   0    4G  0 disk</span><br><span class="line">└─sdb1   8:17   0    4G  0 part [SWAP]</span><br><span class="line">sr0     11:0    1 1024M  0 rom</span><br><span class="line"></span><br><span class="line">[root@sysin-c8 ~]# df -Th</span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs       devtmpfs  386M     0  386M   0% /dev</span><br><span class="line">tmpfs          tmpfs     400M     0  400M   0% /dev/shm</span><br><span class="line">tmpfs          tmpfs     400M   11M  389M   3% /run</span><br><span class="line">tmpfs          tmpfs     400M     0  400M   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1      xfs        60G  1.8G   59G   3% /</span><br><span class="line">tmpfs          tmpfs      80M     0   80M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+<p>（2）将虚机中将磁盘 1 容量扩展为 100G，这个过程就不截图了。</p>
+<p>若支持在线添加，可通过命令刷新磁盘状态：<code>partprobe /dev/sda</code></p>
+<p>（3）开始扩容根目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@sysin-c8 ~]# fdisk /dev/sda</span><br><span class="line"></span><br><span class="line">Welcome to fdisk (util-linux 2.32.1).</span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br></pre></td></tr></table></figure>
+<p>（4）可以按 m 查看一下帮助：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): m</span><br><span class="line"></span><br><span class="line">Help:</span><br><span class="line"></span><br><span class="line">  DOS (MBR)</span><br><span class="line">   a   toggle a bootable flag</span><br><span class="line">   b   edit nested BSD disklabel</span><br><span class="line">   c   toggle the dos compatibility flag</span><br><span class="line"></span><br><span class="line">  Generic</span><br><span class="line">   d   delete a partition</span><br><span class="line">   F   list free unpartitioned space</span><br><span class="line">   l   list known partition types</span><br><span class="line">   n   add a new partition</span><br><span class="line">   p   print the partition table</span><br><span class="line">   t   change a partition type</span><br><span class="line">   v   verify the partition table</span><br><span class="line">   i   print information about a partition</span><br><span class="line"></span><br><span class="line">  Misc</span><br><span class="line">   m   print this menu</span><br><span class="line">   u   change display/entry units</span><br><span class="line">   x   extra functionality (experts only)</span><br><span class="line"></span><br><span class="line">  Script</span><br><span class="line">   I   load disk layout from sfdisk script file</span><br><span class="line">   O   dump disk layout to sfdisk script file</span><br><span class="line"></span><br><span class="line">  Save &amp; Exit</span><br><span class="line">   w   write table to disk and exit</span><br><span class="line">   q   quit without saving changes</span><br><span class="line"></span><br><span class="line">  Create a new label</span><br><span class="line">   g   create a new empty GPT partition table</span><br><span class="line">   G   create a new empty SGI (IRIX) partition table</span><br><span class="line">   o   create a new empty DOS partition table</span><br><span class="line">   s   create a new empty Sun partition table</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br></pre></td></tr></table></figure>
+<p>（5）按 p 查看当前磁盘下的分区：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): p</span><br><span class="line">Disk /dev/sda: 100 GiB, 107374182400 bytes, 209715200 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x7bb4c495</span><br><span class="line"></span><br><span class="line">Device     Boot Start       End   Sectors Size Id Type</span><br><span class="line">/dev/sda1  *     2048 125829119 125827072  60G 83 Linux</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">本例该磁盘仅仅一个分区，Boot 下面有个可启动标记 *，/boot 没有独立分区</span></span><br></pre></td></tr></table></figure>
+<p>（6）按 d 删除 / 分区：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): d</span><br><span class="line">Selected partition 1</span><br><span class="line">Partition 1 has been deleted.</span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">本例中只有一个分区，所以直接删除了，如果是有多个分区，会提示输入数字选择</span></span><br></pre></td></tr></table></figure>
+<p>（7）按 n 创建新分区：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): n</span><br><span class="line">Partition type</span><br><span class="line">   p   primary (0 primary, 0 extended, 4 free)</span><br><span class="line">   e   extended (container for logical partitions)</span><br><span class="line">Select (default p): p  #选择 p primary</span><br><span class="line">Partition number (1-4, default 1):  #直接回车默认 1 即 sda1</span><br><span class="line">First sector (2048-209715199, default 2048):  #直接回车默认值 (sysin)</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (2048-209715199, default 209715199): #直接回车默认值，使用全部剩余空间</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of type &#x27;Linux&#x27; and of size 100 GiB.</span><br><span class="line">Partition #1 contains a xfs signature.</span><br><span class="line"></span><br><span class="line">Do you want to remove the signature? [Y]es/[N]o: N  #按 N 保留 xfs 签名，移除的话分区的 UUID 会变更。</span><br><span class="line"></span><br><span class="line">The signature will be removed by a write command.</span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br></pre></td></tr></table></figure>
+<p>（8）按 p 再次查看状态：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): p</span><br><span class="line">Disk /dev/sda: 100 GiB, 107374182400 bytes, 209715200 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x6a72cc03</span><br><span class="line"></span><br><span class="line">Device     Boot Start       End   Sectors  Size Id Type</span><br><span class="line">/dev/sda1        2048 209715199 209713152  100G 83 Linux</span><br><span class="line"></span><br><span class="line">Filesystem/RAID signature on partition 1 will be wiped.</span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br></pre></td></tr></table></figure>
+<p>（9）重要步骤：按 a 设置可引导：</p>
+<p>本例 <code>/boot</code> 没有独立分区，需要需要设置 boot flag 即将分区设置为可引导：</p>
+<p><code>/boot</code> 独立分区的不需要此步骤。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): a</span><br><span class="line">Selected partition 1</span><br><span class="line">The bootable flag on partition 1 is enabled now.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">按 p 再次确认，Boot 下面有了 * 符号</span></span><br><span class="line">Command (m for help): p</span><br><span class="line">Disk /dev/sda: 100 GiB, 107374182400 bytes, 209715200 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x6a72cc03</span><br><span class="line"></span><br><span class="line">Device     Boot Start       End   Sectors  Size Id Type</span><br><span class="line">/dev/sda1  *     2048 209715199 209713152  100G 83 Linux</span><br><span class="line"></span><br><span class="line">Filesystem/RAID signature on partition 1 will be wiped.</span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br></pre></td></tr></table></figure>
+<p>（10）按 w 保存：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Command (m for help): w</span><br><span class="line">The partition table has been altered.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+<p>（11）重要步骤：同步文件系统中的容量。</p>
+<p>CentOS 7 开始默认使用 xfs 文件系统，使用 xfs_growfs 命令同步文件系统容量。</p>
+<p>如果是 Ext4（包括 2、3），使用 resize2fs 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xfs_growfs /</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意 xfs_growfs 使用 mountpoint</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">resize2fs /dev/sda1</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">resize2fs 则使用 device</span></span><br></pre></td></tr></table></figure>
+<p>（12）确认分区结果，可以重启一下系统确认是否正常</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@sysin-c8 ~]# lsblk</span><br><span class="line">NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda      8:0    0  100G  0 disk</span><br><span class="line">└─sda1   8:1    0  100G  0 part /</span><br><span class="line">sdb      8:16   0    4G  0 disk</span><br><span class="line">└─sdb1   8:17   0    4G  0 part [SWAP]</span><br><span class="line">sr0     11:0    1 1024M  0 rom</span><br><span class="line">[root@sysin-c8 ~]# df -Th</span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs       devtmpfs  386M     0  386M   0% /dev</span><br><span class="line">tmpfs          tmpfs     400M     0  400M   0% /dev/shm</span><br><span class="line">tmpfs          tmpfs     400M   11M  389M   3% /run</span><br><span class="line">tmpfs          tmpfs     400M     0  400M   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1      xfs       100G  2.1G   98G   3% /</span><br><span class="line">tmpfs          tmpfs      80M     0   80M   0% /run/user/0</span><br><span class="line">[root@sysin-c8 ~]#</span><br></pre></td></tr></table></figure>
+<p>至此扩容成功完成。</p>
+<h3 id="1-2-LVM-分区扩容">1.2 LVM 分区扩容</h3>
+<p>LVM 名词解释：</p>
+<p>LVM (logical volume manager) 逻辑卷管理器</p>
+<p>其中主要分为这几个概念：</p>
+<ul>
+<li>
+<p>物理卷 - Physical volume 简称 PV</p>
+<p>物理卷在逻辑卷管理器中属于最底层的，任何的逻辑卷和卷组都必需依靠物理卷来建立，物理卷可以是一个完整的硬盘，也可以是硬盘中的莫一个分区。</p>
+</li>
+<li>
+<p>卷组 - Volume group 简称 VG</p>
+<p>卷组是建立在物理卷之上，一个卷组中可以包含一个或者多个物理卷。</p>
+</li>
+<li>
+<p>逻辑卷 - Logical volume 简称 LV</p>
+<p>逻辑卷类似于非 LVM 系统中的硬盘分区，在逻辑卷之上可以建立文件系统 (比如 <code>/home</code> 或者 <code>/usr</code> 等)。</p>
+</li>
+</ul>
+<p>一个建立逻辑卷的流程如下：PV -&gt; VG -&gt; LV，物理卷包含卷组，卷组包含逻辑卷。</p>
+<p>本例为 CentOS 7，一块磁盘，独立 <code>/boot</code> 分区，两个 LVM 分区，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [12:41:56]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  160G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0  159G  0 part</span><br><span class="line">  ├─centos-root 253:0    0  155G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    4G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [12:41:56]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">df</span> -Th</span></span><br><span class="line">Filesystem              Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root xfs       155G  1.5G  154G   1% /</span><br><span class="line">devtmpfs                devtmpfs  1.9G     0  1.9G   0% /dev</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /dev/shm</span><br><span class="line">tmpfs                   tmpfs     1.9G   12M  1.9G   1% /run</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               xfs      1014M  142M  873M  14% /boot</span><br><span class="line">tmpfs                   tmpfs     378M     0  378M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+<p>将该虚拟磁盘扩展到 260G。</p>
+<blockquote>
+<p>说明：也可以添加一块磁盘，可以模拟新增了物理磁盘，只是下面盘符对应修改 “/dev/sda=/dev/sdb”，“/dev/sda3=/dev/sdb1”。</p>
+</blockquote>
+<p>（1）创建分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">fdisk /dev/sda  <span class="comment">#对原磁盘 /dev/sda 分区</span></span></span><br><span class="line">Welcome to fdisk (util-linux 2.23.2).</span><br><span class="line"></span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Command (m for help): p  #p 查看当前分区</span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 279.2 GB, 279172874240 bytes, 545259520 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x000af364</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   335544319   166722560   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">Command (m for help): n  #n 新建分区</span><br><span class="line">Partition type:</span><br><span class="line">   p   primary (2 primary, 0 extended, 2 free)</span><br><span class="line">   e   extended</span><br><span class="line">Select (default p): p  #p 主分区</span><br><span class="line">Partition number (3,4, default 3):  #默认按顺序，直接回车</span><br><span class="line">First sector (335544320-545259519, default 335544320):  #默认直接回车</span><br><span class="line">Using default value 335544320</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (335544320-545259519, default 545259519):  #默认直接回车使用全部剩余空间</span><br><span class="line">Using default value 545259519</span><br><span class="line">Partition 3 of type Linux and of size 100 GiB is set</span><br><span class="line"></span><br><span class="line">Command (m for help): p  #p 再次查看分区</span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 279.2 GB, 279172874240 bytes, 545259520 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x000af364</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   335544319   166722560   8e  Linux LVM</span><br><span class="line">/dev/sda3       335544320   545259519   104857600   83  Linux</span><br><span class="line"></span><br><span class="line">Command (m for help): w  #w 保存</span><br><span class="line">The partition table has been altered!</span><br><span class="line"></span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line"></span><br><span class="line">WARNING: Re-reading the partition table failed with error 16: Device or resource busy.</span><br><span class="line">The kernel still uses the old table. The new table will be used at</span><br><span class="line">the next reboot or after you run partprobe(8) or kpartx(8)</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+<p>（2）刷新分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [13:31:00]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">partprobe /dev/sda</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [13:31:54]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  260G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">├─sda2            8:2    0  159G  0 part</span><br><span class="line">│ ├─centos-root 253:0    0  155G  0 lvm  /</span><br><span class="line">│ └─centos-swap 253:1    0    4G  0 lvm  [SWAP]</span><br><span class="line">└─sda3            8:3    0  100G  0 part</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br></pre></td></tr></table></figure>
+<p>（3）创建 PV</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pvcreate /dev/sda3</span></span><br><span class="line">  Physical volume &quot;/dev/sda3&quot; successfully created.</span><br></pre></td></tr></table></figure>
+<p>（4）查看 VG</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vgdisplay</span></span><br><span class="line">  --- Volume group ---</span><br><span class="line">  VG Name               centos</span><br><span class="line">  System ID</span><br><span class="line">  Format                lvm2</span><br><span class="line">  Metadata Areas        1</span><br><span class="line">  Metadata Sequence No  3</span><br><span class="line">  VG Access             read/write</span><br><span class="line">  VG Status             resizable</span><br><span class="line">  MAX LV                0</span><br><span class="line">  Cur LV                2</span><br><span class="line">  Open LV               2</span><br><span class="line">  Max PV                0</span><br><span class="line">  Cur PV                1</span><br><span class="line">  Act PV                1</span><br><span class="line">  VG Size               &lt;159.00 GiB</span><br><span class="line">  PE Size               4.00 MiB</span><br><span class="line">  Total PE              40703</span><br><span class="line">  Alloc PE / Size       40703 / &lt;159.00 GiB</span><br><span class="line">  Free  PE / Size       0 / 0</span><br><span class="line">  VG UUID               Aul9M5-OJu8-3RB5-DU9Y-yi5m-ngyd-QyIKLw</span><br></pre></td></tr></table></figure>
+<p>VG 名称为 centos</p>
+<p>（5）扩展 VG</p>
+<p>使用 /dev/sda3 PV 扩展到 centos VG 中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vgextend centos /dev/sda3</span></span><br><span class="line">  Volume group &quot;centos&quot; successfully extended</span><br></pre></td></tr></table></figure>
+<p>（6）查看 LV</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lvdisplay</span></span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/centos/root</span><br><span class="line">  LV Name                root</span><br><span class="line">  VG Name                centos</span><br><span class="line">  LV UUID                ntq8LZ-qivt-B6ij-AZWi-97a9-H2Q5-YxznfS</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time localhost, 2021-08-22 14:12:50 +0800</span><br><span class="line">  LV Status              available</span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">open                 1</span></span><br><span class="line">  LV Size                &lt;155.00 GiB</span><br><span class="line">  Current LE             39679</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:0</span><br><span class="line"></span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/centos/swap</span><br><span class="line">  LV Name                swap</span><br><span class="line">  VG Name                centos</span><br><span class="line">  LV UUID                jvNgUR-KUsk-1hD4-h383-w3pc-OhBT-ZFMpyi</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time localhost, 2021-08-22 14:12:51 +0800</span><br><span class="line">  LV Status              available</span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">open                 2</span></span><br><span class="line">  LV Size                4.00 GiB</span><br><span class="line">  Current LE             1024</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:1</span><br></pre></td></tr></table></figure>
+<p>需要扩展的根分区 LV 为 /dev/centos/root</p>
+<p>（7）将 VG 中的空闲空间扩展到根分区 LV</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lvextend -l +100%FREE /dev/centos/root</span></span><br><span class="line">  Size of logical volume centos/root changed from &lt;155.00 GiB (39679 extents) to 254.99 GiB (65278 extents).</span><br><span class="line">  Logical volume centos/root successfully resized.</span><br></pre></td></tr></table></figure>
+<p>（8）刷新根分区</p>
+<p>如果是 ext4 文件系统（包括 2、3），使用 resize2fs 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xfs_growfs /dev/centos/root</span><br></pre></td></tr></table></figure>
+<p>（9）验证结果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [13:39:53]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  260G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">├─sda2            8:2    0  159G  0 part</span><br><span class="line">│ ├─centos-root 253:0    0  255G  0 lvm  /</span><br><span class="line">│ └─centos-swap 253:1    0    4G  0 lvm  [SWAP]</span><br><span class="line">└─sda3            8:3    0  100G  0 part</span><br><span class="line">  └─centos-root 253:0    0  255G  0 lvm  /</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [13:39:53]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">df</span> -Th</span></span><br><span class="line">Filesystem              Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root xfs       255G  1.5G  254G   1% /</span><br><span class="line">devtmpfs                devtmpfs  1.9G     0  1.9G   0% /dev</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /dev/shm</span><br><span class="line">tmpfs                   tmpfs     1.9G   12M  1.9G   1% /run</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               xfs      1014M  142M  873M  14% /boot</span><br><span class="line">tmpfs                   tmpfs     378M     0  378M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+<p>可以看到根目录容量扩展成功。</p>
+<h2 id="2-SWAP-分区扩容">2. SWAP 分区扩容</h2>
+<h3 id="2-1-创建文件作为-SWAP-分区（本站-OVF-默认）">2.1 创建文件作为 SWAP 分区（本站 OVF 默认）</h3>
+<p>这是最简单的方式，直接在 / 目录下创建一个文件作为交换分区，可以非常灵活完美的启用和禁用 swap 并在线调整大小。</p>
+<p>（1）创建要作为 swap 分区的文件:</p>
+<p>增加 4GB 大小的交换分区，则命令写法如下，其中的 count 等于想要的块的数量（bs*count = 文件大小）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里定义为 /swap.img</span></span><br><span class="line">dd if=/dev/zero of=/swap.img bs=1M count=4096</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改权限</span></span><br><span class="line">chmod 600 /swap.img</span><br></pre></td></tr></table></figure>
+<p>（2）创建 SWAP 分区文件系统:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /swap.img #mkswap - set up a Linux swap area</span><br></pre></td></tr></table></figure>
+<p>（3）启用交换分区文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /swap.img #启用 swap 文件</span><br></pre></td></tr></table></figure>
+<p>此时使用 <code>free -m</code> 命令可以看到 Swap 的容量等于原有容量加上上述创建文件容量之和。</p>
+<p>（4）编辑 <code>/etc/fstab</code> 开机自动加载上述 swap 文件：</p>
+<p>增加如下一行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/swap.img    none    swap    defaults    0 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> 第二个字段在 CentOS 中默认使用 swap，两者并没有不一样。</span></span><br><span class="line">/swap.img    swap    swap    defaults    0 0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关于字段的风格，使用 tab 或者空格都可以，数量没有要求，通常为了对齐使用多个空格</span></span><br></pre></td></tr></table></figure>
+<p>直接命令添加：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c &quot;echo &#x27;/swap.img    none    swap    defaults    0 0&#x27; &gt;&gt; /etc/fstab&quot;</span><br></pre></td></tr></table></figure>
+<p>（5）取消 swap 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">swapoff /swap.img</span><br><span class="line">rm -r /swap.img</span><br></pre></td></tr></table></figure>
+<p>然后编辑 <code>/etc/fstab</code>，删除上述添加的一行即可。</p>
+<blockquote>
+<p>Ubuntu 20.04 中默认使用 <code>/swap.img</code> 文件作为 SWAP 分区，可以直接 swapoff 并删除原文件，然后重新创建同名文件来简单扩容。我们这里借鉴了 Ubuntu 的做法，并推荐使用该种方式。</p>
+</blockquote>
+<h3 id="2-2-标准分区-SWAP-扩容">2.2 标准分区 SWAP 扩容</h3>
+<p>本例为 CentOS 8 虚机，两块磁盘，磁盘 1 容量 60G 用于根目录（包含 <code>/boot</code>），磁盘 2 容量 4G 用于 SWAP。</p>
+<p>（1）扩容前状态如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@sysin-c8 ~]# lsblk</span><br><span class="line">NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda      8:0    0   60G  0 disk</span><br><span class="line">└─sda1   8:1    0   60G  0 part /</span><br><span class="line">sdb      8:16   0    4G  0 disk</span><br><span class="line">└─sdb1   8:17   0    4G  0 part [SWAP]</span><br><span class="line">sr0     11:0    1 1024M  0 rom</span><br><span class="line"></span><br><span class="line">[root@sysin-c8 ~]# df -Th</span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs       devtmpfs  386M     0  386M   0% /dev</span><br><span class="line">tmpfs          tmpfs     400M     0  400M   0% /dev/shm</span><br><span class="line">tmpfs          tmpfs     400M   11M  389M   3% /run</span><br><span class="line">tmpfs          tmpfs     400M     0  400M   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1      xfs        60G  1.8G   59G   3% /</span><br><span class="line">tmpfs          tmpfs      80M     0   80M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+<p>（2）将虚机中将磁盘 2 容量扩展为 16G，这个过程就不截图了。</p>
+<p>刷新磁盘状态：<code>partprobe /dev/sdb</code></p>
+<p>（3）关闭 swap</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff /dev/sdb1</span><br></pre></td></tr></table></figure>
+<p>(4) 重新创建 <code>/dev/sdb1</code> 分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">[root@sysin-c8 ~]# fdisk /dev/sdb  #选择 /dev/sdb</span><br><span class="line"></span><br><span class="line">Welcome to fdisk (util-linux 2.32.1).</span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Command (m for help): p  #查看当然分区</span><br><span class="line">Disk /dev/sdb: 16 GiB, 17179869184 bytes, 33554432 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x316023cd</span><br><span class="line"></span><br><span class="line">Device     Boot Start     End Sectors Size Id Type</span><br><span class="line">/dev/sdb1        2048 8388607 8386560   4G 82 Linux swap / Solaris</span><br><span class="line"></span><br><span class="line">Command (m for help): d  #删除分区，只有一个分区不会提示选择数字</span><br><span class="line">Selected partition 1</span><br><span class="line">Partition 1 has been deleted.</span><br><span class="line"></span><br><span class="line">Command (m for help): n  #新建分区</span><br><span class="line">Partition type</span><br><span class="line">   p   primary (0 primary, 0 extended, 4 free)</span><br><span class="line">   e   extended (container for logical partitions)</span><br><span class="line">Select (default p): p  #主分区，输入 P 或者直接回车</span><br><span class="line">Partition number (1-4, default 1):   #直接回车按顺序 1</span><br><span class="line">First sector (2048-33554431, default 2048):   #直接回车</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G,T,P&#125; (2048-33554431, default 33554431):   #直接回车使用全部可用空间</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of type &#x27;Linux&#x27; and of size 16 GiB.</span><br><span class="line">Partition #1 contains a swap signature.</span><br><span class="line"></span><br><span class="line">Do you want to remove the signature? [Y]es/[N]o: N  # 选择 N 不要移除 swap 签名，磁盘 UUID 不变</span><br><span class="line"></span><br><span class="line">The signature will be removed by a write command.</span><br><span class="line"></span><br><span class="line">Command (m for help): t  #更改分区类型</span><br><span class="line">Selected partition 1</span><br><span class="line">Hex code (type L to list all codes): L  #输入 L，查看可用代码</span><br><span class="line"></span><br><span class="line"> 0  Empty           24  NEC DOS         81  Minix / old Lin bf  Solaris</span><br><span class="line"> 1  FAT12           27  Hidden NTFS Win 82  Linux swap / So c1  DRDOS/sec (FAT-</span><br><span class="line"> 2  XENIX root      39  Plan 9          83  Linux           c4  DRDOS/sec (FAT-</span><br><span class="line"> 3  XENIX usr       3c  PartitionMagic  84  OS/2 hidden or  c6  DRDOS/sec (FAT-</span><br><span class="line"> 4  FAT16 &lt;32M      40  Venix 80286     85  Linux extended  c7  Syrinx</span><br><span class="line"> 5  Extended        41  PPC PReP Boot   86  NTFS volume set da  Non-FS data</span><br><span class="line"> 6  FAT16           42  SFS             87  NTFS volume set db  CP/M / CTOS / .</span><br><span class="line"> 7  HPFS/NTFS/exFAT 4d  QNX4.x          88  Linux plaintext de  Dell Utility</span><br><span class="line"> 8  AIX             4e  QNX4.x 2nd part 8e  Linux LVM       df  BootIt</span><br><span class="line"> 9  AIX bootable    4f  QNX4.x 3rd part 93  Amoeba          e1  DOS access</span><br><span class="line"> a  OS/2 Boot Manag 50  OnTrack DM      94  Amoeba BBT      e3  DOS R/O</span><br><span class="line"> b  W95 FAT32       51  OnTrack DM6 Aux 9f  BSD/OS          e4  SpeedStor</span><br><span class="line"> c  W95 FAT32 (LBA) 52  CP/M            a0  IBM Thinkpad hi ea  Rufus alignment</span><br><span class="line"> e  W95 FAT16 (LBA) 53  OnTrack DM6 Aux a5  FreeBSD         eb  BeOS fs</span><br><span class="line"> f  W95 Ext&#x27;d (LBA) 54  OnTrackDM6      a6  OpenBSD         ee  GPT</span><br><span class="line">10  OPUS            55  EZ-Drive        a7  NeXTSTEP        ef  EFI (FAT-12/16/</span><br><span class="line">11  Hidden FAT12    56  Golden Bow      a8  Darwin UFS      f0  Linux/PA-RISC b</span><br><span class="line">12  Compaq diagnost 5c  Priam Edisk     a9  NetBSD          f1  SpeedStor</span><br><span class="line">14  Hidden FAT16 &lt;3 61  SpeedStor       ab  Darwin boot     f4  SpeedStor</span><br><span class="line">16  Hidden FAT16    63  GNU HURD or Sys af  HFS / HFS+      f2  DOS secondary</span><br><span class="line">17  Hidden HPFS/NTF 64  Novell Netware  b7  BSDI fs         fb  VMware VMFS</span><br><span class="line">18  AST SmartSleep  65  Novell Netware  b8  BSDI swap       fc  VMware VMKCORE</span><br><span class="line">1b  Hidden W95 FAT3 70  DiskSecure Mult bb  Boot Wizard hid fd  Linux raid auto</span><br><span class="line">1c  Hidden W95 FAT3 75  PC/IX           bc  Acronis FAT32 L fe  LANstep</span><br><span class="line">1e  Hidden W95 FAT1 80  Old Minix       be  Solaris boot    ff  BBT</span><br><span class="line">Hex code (type L to list all codes): 82  #输入 82，更改为 SWAP</span><br><span class="line">Changed type of partition &#x27;Linux&#x27; to &#x27;Linux swap / Solaris&#x27;.</span><br><span class="line"></span><br><span class="line">Command (m for help): p  #再次查看分区，已经是 swap</span><br><span class="line">Disk /dev/sdb: 16 GiB, 17179869184 bytes, 33554432 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x316023cd</span><br><span class="line"></span><br><span class="line">Device     Boot Start      End  Sectors Size Id Type</span><br><span class="line">/dev/sdb1        2048 33554431 33552384  16G 82 Linux swap / Solaris</span><br><span class="line"></span><br><span class="line">Filesystem/RAID signature on partition 1 will be wiped.</span><br><span class="line"></span><br><span class="line">Command (m for help): w  #保存退出</span><br><span class="line">The partition table has been altered.</span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line">Re-reading the partition table failed.: Device or resource busy</span><br><span class="line"></span><br><span class="line">The kernel still uses the old table. The new table will be used at the next reboot or after you run partprobe(8) or kpartx(8).</span><br></pre></td></tr></table></figure>
+<p>最后提示需要重启或者运行 partprobe、kpartx 命令生效，这里执行命令：<code>partprobe /dev/sdb1</code>。</p>
+<blockquote>
+<p>笔者在一次测试中执行 partprobe 命令报错，可能是分区过程中选择移除了 swap 签名，分区的 UUID 变更，直接重启，要多等一会儿才能进入系统，但是不影响正常运行。</p>
+</blockquote>
+<p>(5) 创建 swap 文件系统</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkswap /dev/sdb1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">提示如下</span></span><br><span class="line">Setting up swapspace version 1, size = 16 GiB (17178816512 bytes)</span><br><span class="line">no label, UUID=df11dbb4-9665-4732-b865-03913713fa5e</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意这里的 UUID 变更，需要修改替换 /etc/fstab</span></span><br></pre></td></tr></table></figure>
+<p>(6) 打开 swap</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /dev/sdb1</span><br></pre></td></tr></table></figure>
+<p>（7）更改 <code>/etc/fstab</code></p>
+<p>如果在重新创建分区的过程中移除了 swap 签名，则磁盘 UUID 变更，需要编辑 <code>/etc/fstab</code> 做相应变更。</p>
+<p>即使没有移除 swap 签名，使用 mkswap 命令后 UUID 也变更了，也需要编辑 <code>/etc/fstab</code> 做相应变更。</p>
+<p>要查看分区的 UUID 使用命令 <code>blkid</code> 或者 <code>lsblk -f</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">UUID=c154479a-28e1-40b2-b10c-646b41693f51 swap                    swap    defaults        0 0 <span class="comment">#原有</span></span></span><br><span class="line">UUID=df11dbb4-9665-4732-b865-03913713fa5e swap                    swap    defaults        0 0</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当然也可以新建额外的分区作为增加的 swap 分区，原有 swap 分区不变，最后编辑 <code>/etc/fstab</code> 自动加载即可。</p>
+</blockquote>
+<p>（8）更改 <code>/etc/default/grub</code></p>
+<p>grub 配置文件中有个 resume 选项，指向 swap 分区，如果标准分区默认使用的是 swap 分区的 UUID。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/default/grub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">找到如下行</span></span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;crashkernel=auto resume=UUID=c154479a-28e1-40b2-b10c-646b41693f51 rhgb quiet&quot;  #原有</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改如下</span></span><br><span class="line">GRUB_CMDLINE_LINUX=&quot;crashkernel=auto resume=UUID=df11dbb4-9665-4732-b865-03913713fa5e rhgb quiet&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重建配置</span></span><br><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">UEFI boot mode:</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-LVM-SWAP-扩容">2.3 LVM SWAP 扩容</h3>
+<p>本例为 CentOS 7，一块磁盘，独立 <code>/boot</code> 分区，两个 LVM 分区，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [12:41:56]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  160G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0  159G  0 part</span><br><span class="line">  ├─centos-root 253:0    0  155G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    4G  0 lvm  [SWAP]</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [12:41:56]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">df</span> -Th</span></span><br><span class="line">Filesystem              Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root xfs       155G  1.5G  154G   1% /</span><br><span class="line">devtmpfs                devtmpfs  1.9G     0  1.9G   0% /dev</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /dev/shm</span><br><span class="line">tmpfs                   tmpfs     1.9G   12M  1.9G   1% /run</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               xfs      1014M  142M  873M  14% /boot</span><br><span class="line">tmpfs                   tmpfs     378M     0  378M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+<p>将该虚拟磁盘容量增加 12G。</p>
+<blockquote>
+<p>说明：也可以添加一块磁盘，可以模拟新增了物理磁盘，只是下面盘符对应修改 “/dev/sda=/dev/sdb”，“/dev/sda3=/dev/sdb1”。</p>
+</blockquote>
+<p>（1）关闭 swap</p>
+<p>查看 <code>/etc/fstab</code> 可以看到 swap 的 LV 名称：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /etc/fstab | grep swap</span></span><br><span class="line">/dev/mapper/centos-swap swap                    swap    defaults        0 0</span><br></pre></td></tr></table></figure>
+<p>将其关闭：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapoff /dev/mapper/centos-swap</span><br></pre></td></tr></table></figure>
+<p>（2）创建分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">fdisk /dev/sda  <span class="comment">#对原磁盘 /dev/sda 分区，也可以是新增的磁盘，按顺序使用 /dev/sdb 操作方法是一样的。</span></span></span><br><span class="line">Welcome to fdisk (util-linux 2.23.2).</span><br><span class="line"></span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Command (m for help): p  #查看当前分区</span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 184.7 GB, 184683593728 bytes, 360710144 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x000af364</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   335544319   166722560   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">Command (m for help): n  #新建分区</span><br><span class="line">Partition type:</span><br><span class="line">   p   primary (2 primary, 0 extended, 2 free)</span><br><span class="line">   e   extended</span><br><span class="line">Select (default p):  #直接回车，默认主分区</span><br><span class="line">Using default response p</span><br><span class="line">Partition number (3,4, default 3):   #直接回车默认按顺序 3</span><br><span class="line">First sector (335544320-360710143, default 335544320):   #直接回车</span><br><span class="line">Using default value 335544320</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (335544320-360710143, default 360710143):   #直接回车，使用全部剩余空间</span><br><span class="line">Using default value 360710143</span><br><span class="line">Partition 3 of type Linux and of size 12 GiB is set   #12G 没错</span><br><span class="line"></span><br><span class="line">Command (m for help): p  #再次查看分区</span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 184.7 GB, 184683593728 bytes, 360710144 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x000af364</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200   335544319   166722560   8e  Linux LVM</span><br><span class="line">/dev/sda3       335544320   360710143    12582912   83  Linux</span><br><span class="line"></span><br><span class="line">Command (m for help): w  #保存退出</span><br><span class="line">The partition table has been altered!</span><br><span class="line"></span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line"></span><br><span class="line">WARNING: Re-reading the partition table failed with error 16: Device or resource busy.</span><br><span class="line">The kernel still uses the old table. The new table will be used at</span><br><span class="line">the next reboot or after you run partprobe(8) or kpartx(8)</span><br><span class="line">Syncing disks.</span><br><span class="line">You have new mail.</span><br></pre></td></tr></table></figure>
+<p>（3）刷新分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [13:31:00]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">partprobe /dev/sda</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [13:31:54]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  172G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">├─sda2            8:2    0  159G  0 part</span><br><span class="line">│ ├─centos-root 253:0    0  155G  0 lvm  /</span><br><span class="line">│ └─centos-swap 253:1    0    4G  0 lvm</span><br><span class="line">└─sda3            8:3    0   12G  0 part</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br></pre></td></tr></table></figure>
+<p>（4）创建 PV</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pvcreate /dev/sda3</span></span><br><span class="line">  Physical volume &quot;/dev/sda3&quot; successfully created.</span><br></pre></td></tr></table></figure>
+<p>（5）查看 VG</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vgdisplay</span></span><br><span class="line">  --- Volume group ---</span><br><span class="line">  VG Name               centos</span><br><span class="line">  System ID</span><br><span class="line">  Format                lvm2</span><br><span class="line">  Metadata Areas        1</span><br><span class="line">  Metadata Sequence No  3</span><br><span class="line">  VG Access             read/write</span><br><span class="line">  VG Status             resizable</span><br><span class="line">  MAX LV                0</span><br><span class="line">  Cur LV                2</span><br><span class="line">  Open LV               2</span><br><span class="line">  Max PV                0</span><br><span class="line">  Cur PV                1</span><br><span class="line">  Act PV                1</span><br><span class="line">  VG Size               &lt;159.00 GiB</span><br><span class="line">  PE Size               4.00 MiB</span><br><span class="line">  Total PE              40703</span><br><span class="line">  Alloc PE / Size       40703 / &lt;159.00 GiB</span><br><span class="line">  Free  PE / Size       0 / 0</span><br><span class="line">  VG UUID               Aul9M5-OJu8-3RB5-DU9Y-yi5m-ngyd-QyIKLw</span><br></pre></td></tr></table></figure>
+<p>VG 名称为 centos</p>
+<p>（6）扩展 VG</p>
+<p>使用 /dev/sda3 PV 扩展到 centos VG 中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vgextend centos /dev/sda3</span></span><br><span class="line">  Volume group &quot;centos&quot; successfully extended</span><br></pre></td></tr></table></figure>
+<p>（7）查看 LV</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lvdisplay</span></span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/centos/root</span><br><span class="line">  LV Name                root</span><br><span class="line">  VG Name                centos</span><br><span class="line">  LV UUID                ntq8LZ-qivt-B6ij-AZWi-97a9-H2Q5-YxznfS</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time localhost, 2021-08-22 14:12:50 +0800</span><br><span class="line">  LV Status              available</span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">open                 1</span></span><br><span class="line">  LV Size                &lt;155.00 GiB</span><br><span class="line">  Current LE             39679</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:0</span><br><span class="line"></span><br><span class="line">  --- Logical volume ---</span><br><span class="line">  LV Path                /dev/centos/swap</span><br><span class="line">  LV Name                swap</span><br><span class="line">  VG Name                centos</span><br><span class="line">  LV UUID                jvNgUR-KUsk-1hD4-h383-w3pc-OhBT-ZFMpyi</span><br><span class="line">  LV Write Access        read/write</span><br><span class="line">  LV Creation host, time localhost, 2021-08-22 14:12:51 +0800</span><br><span class="line">  LV Status              available</span><br><span class="line"><span class="meta prompt_">  # </span><span class="language-bash">open                 2</span></span><br><span class="line">  LV Size                4.00 GiB</span><br><span class="line">  Current LE             1024</span><br><span class="line">  Segments               1</span><br><span class="line">  Allocation             inherit</span><br><span class="line">  Read ahead sectors     auto</span><br><span class="line">  - currently set to     8192</span><br><span class="line">  Block device           253:1</span><br></pre></td></tr></table></figure>
+<p>需要扩展的根分区 LV 为 /dev/centos/swap</p>
+<p>（8）将 VG 中的空闲空间扩展到根分区 LV</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lvextend -l +100%FREE /dev/centos/swap</span></span><br><span class="line">  Size of logical volume centos/swap changed from 4.00 GiB (1024 extents) to &lt;16.00 GiB (4095 extents).</span><br><span class="line">  Logical volume centos/swap successfully resized.</span><br></pre></td></tr></table></figure>
+<p>（9）刷新 swap 分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">partprobe /dev/centos/swap</span><br></pre></td></tr></table></figure>
+<p>（10）验证结果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [15:54:13]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0  172G  0 disk</span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">├─sda2            8:2    0  159G  0 part</span><br><span class="line">│ ├─centos-root 253:0    0  155G  0 lvm  /</span><br><span class="line">│ └─centos-swap 253:1    0   16G  0 lvm</span><br><span class="line">└─sda3            8:3    0   12G  0 part</span><br><span class="line">  └─centos-swap 253:1    0   16G  0 lvm</span><br><span class="line">sr0              11:0    1 1024M  0 rom</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">root @ C7-SYSIN <span class="keyword">in</span> ~ [15:54:13]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">df</span> -Th</span></span><br><span class="line">Filesystem              Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root xfs       155G  1.5G  154G   1% /</span><br><span class="line">devtmpfs                devtmpfs  1.9G     0  1.9G   0% /dev</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /dev/shm</span><br><span class="line">tmpfs                   tmpfs     1.9G   12M  1.9G   1% /run</span><br><span class="line">tmpfs                   tmpfs     1.9G     0  1.9G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               xfs      1014M  142M  873M  14% /boot</span><br><span class="line">tmpfs                   tmpfs     378M     0  378M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+<p>可以看到根目录容量扩展成功。</p>
+<p>（11）创建 swap 文件系统</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mkswap /dev/mapper/centos-swap</span></span><br><span class="line">mkswap: /dev/mapper/centos-swap: warning: wiping old swap signature.</span><br><span class="line">Setting up swapspace version 1, size = 16773116 KiB</span><br><span class="line">no label, UUID=fb85ef4d-59aa-4554-a3bd-b4cc37746c51</span><br></pre></td></tr></table></figure>
+<p>（12）开启 swap</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /dev/mapper/centos-swap</span><br></pre></td></tr></table></figure>
+<p>使用 <code>free -m</code> 可以查看 swap 分区容量成功变为 16G，<code>/etc/fstab</code> 无需修改。</p>
+<h2 id="3-挂载新的磁盘到新的分区">3. 挂载新的磁盘到新的分区</h2>
+<p>本例使用 Ubuntu 20.04，分区如下，我们新增一块 100G 的磁盘，挂载为 <code>/data</code> ，同时新增一块 100G 的磁盘，用来替换原有的 <code>/var</code> 目录（假定原有磁盘分区不够用）。当然我们也可以直接扩容根分区参看本文上述描述。这里我们分别创建独立的 <code>/data</code> 和 <code>/var</code> 分区。</p>
+<blockquote>
+<p>创建独立的 <code>/data</code> 和 <code>/var</code> 分区也可以使用 LVM 的方式，具体操作不同但是逻辑步骤是一样的，可以参看其他文章。本文使用标准分区。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda                         8:0    0  160G  0 disk</span><br><span class="line">├─sda1                      8:1    0    1M  0 part</span><br><span class="line">├─sda2                      8:2    0    1G  0 part /boot</span><br><span class="line">└─sda3                      8:3    0  159G  0 part</span><br><span class="line">  └─ubuntu--vg-ubuntu--lv 253:0    0  159G  0 lvm  /</span><br><span class="line">sr0                        11:0    1 1024M  0 rom</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sa @ U20 <span class="keyword">in</span> ~ [16:14:05]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">df</span> -Th</span></span><br><span class="line">Filesystem                        Type      Size  Used Avail Use% Mounted on</span><br><span class="line">udev                              devtmpfs  1.9G     0  1.9G   0% /dev</span><br><span class="line">tmpfs                             tmpfs     391M  1.1M  390M   1% /run</span><br><span class="line">/dev/mapper/ubuntu--vg-ubuntu--lv ext4      156G  6.0G  142G   5% /</span><br><span class="line">tmpfs                             tmpfs     2.0G     0  2.0G   0% /dev/shm</span><br><span class="line">tmpfs                             tmpfs     5.0M     0  5.0M   0% /run/lock</span><br><span class="line">tmpfs                             tmpfs     2.0G     0  2.0G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda2                         ext4      976M  103M  806M  12% /boot</span><br><span class="line">tmpfs                             tmpfs     391M     0  391M   0% /run/user/1000</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Ubuntu 比较特别的，这里有个 1M 的分区为 bios_grub，无论使用 LVM 或是标准分区都会自动创建。可能参看<a target="_blank" rel="noopener" href="https://forum.ubuntu.com.cn/viewtopic.php?t=464760">这里的讨论</a>。</p>
+</blockquote>
+<p>新增硬盘后，如下，如果看不到新增磁盘需要重启或者执行 partprobe 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsblk</span></span><br><span class="line">NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda                         8:0    0  160G  0 disk</span><br><span class="line">├─sda1                      8:1    0    1M  0 part</span><br><span class="line">├─sda2                      8:2    0    1G  0 part /boot</span><br><span class="line">└─sda3                      8:3    0  159G  0 part</span><br><span class="line">  └─ubuntu--vg-ubuntu--lv 253:0    0  159G  0 lvm  /</span><br><span class="line">sdb                         8:16   0  100G  0 disk</span><br><span class="line">sdc                         8:32   0  100G  0 disk</span><br><span class="line">sr0                        11:0    1 1024M  0 rom</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-将磁盘挂载为新的目录">3.1 将磁盘挂载为新的目录</h3>
+<p>（1）创建分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sa @ U20 <span class="keyword">in</span> ~ [16:23:43] C:1</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo fdisk /dev/sdb  <span class="comment">#将 /dev/sdb 创建分区</span></span></span><br><span class="line">[sudo] password for sa:</span><br><span class="line"></span><br><span class="line">Welcome to fdisk (util-linux 2.34).</span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line">Device does not contain a recognized partition table.</span><br><span class="line">Created a new DOS disklabel with disk identifier 0x9a7ae73a.</span><br><span class="line"></span><br><span class="line">Command (m for help): n  #n 新建分区</span><br><span class="line">Partition type</span><br><span class="line">   p   primary (0 primary, 0 extended, 4 free)</span><br><span class="line">   e   extended (container for logical partitions)</span><br><span class="line">Select (default p):   #直接回车，主分区</span><br><span class="line"></span><br><span class="line">Using default response p.</span><br><span class="line">Partition number (1-4, default 1):   #直接回车，按顺序编号 1</span><br><span class="line">First sector (2048-209715199, default 2048):   #直接回车</span><br><span class="line">Last sector, +/-sectors or +/-size&#123;K,M,G,T,P&#125; (2048-209715199, default 209715199):   #直接回车，使用全部可用空间</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of type &#x27;Linux&#x27; and of size 100 GiB.</span><br><span class="line"></span><br><span class="line">Command (m for help): p  #查看分区</span><br><span class="line">Disk /dev/sdb: 100 GiB, 107374182400 bytes, 209715200 sectors</span><br><span class="line">Disk model: VMware Virtual S</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x9a7ae73a</span><br><span class="line"></span><br><span class="line">Device     Boot Start       End   Sectors  Size Id Type</span><br><span class="line">/dev/sdb1        2048 209715199 209713152  100G 83 Linux</span><br><span class="line"></span><br><span class="line">Command (m for help): w  #保存退出</span><br><span class="line">The partition table has been altered.</span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+<p>（2）创建文件系统（格式化分区）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs -t ext4 /dev/sdb1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上述使用 ext4，也可以使用 xfs</span></span><br></pre></td></tr></table></figure>
+<p>（3）挂载到 <code>/data</code> 目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /data</span><br><span class="line">sudo mount /dev/sdb1  /data</span><br></pre></td></tr></table></figure>
+<p>（4）开机自动加载</p>
+<p>编辑 <code>/etc/fstab</code> ，添加如下一行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1 /data ext4 defaults 0 0</span><br></pre></td></tr></table></figure>
+<p>（5）验证</p>
+<p>重启后查看是否正确加载了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">df</span> -Th</span></span><br><span class="line">Filesystem                        Type      Size  Used Avail Use% Mounted on</span><br><span class="line">udev                              devtmpfs  1.9G     0  1.9G   0% /dev</span><br><span class="line">tmpfs                             tmpfs     391M  1.2M  390M   1% /run</span><br><span class="line">/dev/mapper/ubuntu--vg-ubuntu--lv ext4      156G  6.0G  142G   5% /</span><br><span class="line">tmpfs                             tmpfs     2.0G     0  2.0G   0% /dev/shm</span><br><span class="line">tmpfs                             tmpfs     5.0M     0  5.0M   0% /run/lock</span><br><span class="line">tmpfs                             tmpfs     2.0G     0  2.0G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda2                         ext4      976M  103M  806M  12% /boot</span><br><span class="line">tmpfs                             tmpfs     391M     0  391M   0% /run/user/1000</span><br><span class="line">/dev/sdb1                         ext4       98G   61M   93G   1% /data</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-将磁盘挂载原有目录">3.2 将磁盘挂载原有目录</h3>
+<p>（1）创建分区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sa @ U20 <span class="keyword">in</span> ~ [16:23:43] C:1</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo fdisk /dev/sdc  <span class="comment">#将 /dev/sdc 创建分区</span></span></span><br><span class="line">[sudo] password for sa:</span><br><span class="line"></span><br><span class="line">Welcome to fdisk (util-linux 2.34).</span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line">Device does not contain a recognized partition table.</span><br><span class="line">Created a new DOS disklabel with disk identifier 0x9a7ae73a.</span><br><span class="line"></span><br><span class="line">Command (m for help): n  #n 新建分区</span><br><span class="line">Partition type</span><br><span class="line">   p   primary (0 primary, 0 extended, 4 free)</span><br><span class="line">   e   extended (container for logical partitions)</span><br><span class="line">Select (default p):   #直接回车，主分区</span><br><span class="line"></span><br><span class="line">Using default response p.</span><br><span class="line">Partition number (1-4, default 1):   #直接回车，按顺序编号 1</span><br><span class="line">First sector (2048-209715199, default 2048):   #直接回车</span><br><span class="line">Last sector, +/-sectors or +/-size&#123;K,M,G,T,P&#125; (2048-209715199, default 209715199):   #直接回车，使用全部可用空间</span><br><span class="line"></span><br><span class="line">Created a new partition 1 of type &#x27;Linux&#x27; and of size 100 GiB.</span><br><span class="line"></span><br><span class="line">Command (m for help): p  #查看分区</span><br><span class="line">Disk /dev/sdc: 100 GiB, 107374182400 bytes, 209715200 sectors</span><br><span class="line">Disk model: VMware Virtual S</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel type: dos</span><br><span class="line">Disk identifier: 0x9a7ae73a</span><br><span class="line"></span><br><span class="line">Device     Boot Start       End   Sectors  Size Id Type</span><br><span class="line">/dev/sdc1        2048 209715199 209713152  100G 83 Linux</span><br><span class="line"></span><br><span class="line">Command (m for help): w  #保存退出</span><br><span class="line">The partition table has been altered.</span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+<p>（2）创建文件系统（格式化分区）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs -t xfs /dev/sdc1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上述使用 xfs，也可以使用 ext4</span></span><br></pre></td></tr></table></figure>
+<p>（3）挂载到 <code>/varnew</code> 目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /varnew</span><br><span class="line">sudo mount /dev/sdc1  /varnew</span><br></pre></td></tr></table></figure>
+<p>（4）关键步骤：拷贝 <code>/var</code> 下的所有内容到新的硬盘</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -a /var/** /varnew</span><br></pre></td></tr></table></figure>
+<p>释义：</p>
+<p>“-a” 选项相当于 “-d、-p、-r” 选项，使用 “-a” 选项时，目标文件和源文件的所有属性都一致，包括源文件的所有者，所属组、时间和软链接性。</p>
+<p>这里使用了两个 “**”，确保如果 Bash 开启了 <a target="_blank" rel="noopener" href="https://www.linuxjournal.com/content/globstar-new-bash-globbing-option">Globstar</a> 选项后可以复制所有文件。</p>
+<p>（5）重命名当前 <code>/var</code> 目录（可选，也可以直接删除）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /var /varold</span><br></pre></td></tr></table></figure>
+<p>（6）重新挂载硬盘到 <code>/var</code> 目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /dev/sdc1</span><br><span class="line">sudo mkdir /var</span><br><span class="line">sudo mount /dev/sdc1 /var</span><br></pre></td></tr></table></figure>
+<p>（7）设置开机启动自动挂载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo vi /etc/fstab</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在文件的最后增加一行</span></span><br><span class="line">/dev/sdc1 /var xfs defaults 0 0</span><br></pre></td></tr></table></figure>
+<p>（8）删除原有 <code>/var</code> 目录</p>
+<p>经过确认没有问题后，彻底删除原有 <code>/var</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /varold</span><br></pre></td></tr></table></figure>
+<h2 id="4-小结">4. 小结</h2>
+<p>使用标准分区扩容相比 LVM 似乎要简单一些，特别是在虚机环境中，虚拟磁盘是可以直接扩展容量的，并不需要使用 LVM 的特性。</p>
+<p>而在物理机环境中，新增物理磁盘扩容，使用 LVM 就发挥了优势。</p>
+<p>所以推荐在虚机或者云环境中使用标准分区（独立 swap 虚拟磁盘或者使用 swap 文件更便捷），物理机特别是数据量大的应用场景，可以考虑优先使用 LVM。</p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/erase-or-wipe-disk-data/" data-toggle="tooltip" data-placement="top" title="快速擦除硬盘数据的一种方法">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/linux-boot-partition/" data-toggle="tooltip" data-placement="top" title="Linux “/boot” 分区释疑">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/linux-partition-expansion/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E6%A0%B9%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 根分区扩容</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-1-%E6%A0%87%E5%87%86%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9%EF%BC%88%E6%9C%AC%E7%AB%99-OVF-%E9%BB%98%E8%AE%A4%EF%BC%89"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.1 标准分区扩容（本站 OVF 默认）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-LVM-%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">1.2 LVM 分区扩容</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-SWAP-%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. SWAP 分区扩容</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1-%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BA-SWAP-%E5%88%86%E5%8C%BA%EF%BC%88%E6%9C%AC%E7%AB%99-OVF-%E9%BB%98%E8%AE%A4%EF%BC%89"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 创建文件作为 SWAP 分区（本站 OVF 默认）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2-%E6%A0%87%E5%87%86%E5%88%86%E5%8C%BA-SWAP-%E6%89%A9%E5%AE%B9"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 标准分区 SWAP 扩容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-3-LVM-SWAP-%E6%89%A9%E5%AE%B9"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">2.3 LVM SWAP 扩容</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E6%8C%82%E8%BD%BD%E6%96%B0%E7%9A%84%E7%A3%81%E7%9B%98%E5%88%B0%E6%96%B0%E7%9A%84%E5%88%86%E5%8C%BA"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 挂载新的磁盘到新的分区</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E4%B8%BA%E6%96%B0%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 将磁盘挂载为新的目录</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%8E%9F%E6%9C%89%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 将磁盘挂载原有目录</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%B0%8F%E7%BB%93"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 小结</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况（2021版） - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况（2021版） - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况（2021版） "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/tlsv1-3-support/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+              
+              <a class="tag" href="/tags/#F5" title="F5">F5</a>
+              
+              <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+              
+              <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+              
+              <a class="tag" href="/tags/#Apache" title="Apache">Apache</a>
+              
+              <a class="tag" href="/tags/#IIS" title="IIS">IIS</a>
+              
+            </div>
+            <h1>TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况（2021版）</h1>
+            <h2 class="subheading">关于主流 Web 客户端和服务端对 TLSv1.3 的支持情况 2021 年更新</h2>
+            <span class="meta">
+              Posted by sysin on
+              2021-11-26
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">15</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Fri Nov 26 2021 13:27:16 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/tlsv1-3-support/" title="TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况（2021版）">TLSv1.3 Support：主流 Web 客户端和服务端对 TLSv1.3 的支持情况（2021版）</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<blockquote>
+<p>2021 年 8 月发布的 <a href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a> 正式支持 QUIC 和 TLS 1.3 相关特性。至此，主流产品已经全部支持 TLSv1.3 协议。</p>
+</blockquote>
+<p><img src="https://www.ietf.org/media/images/TLS1.3-Badge-Horizontal-Color-1024px.original.png" alt="TLS 1.3 Badge"></p>
+<p><a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/rfc8446/">TLS 1.3</a> 由 IETF 于 2018 年 8 月正式发布。</p>
+<h2 id="1-为什么要使用-TLSv1-3">1. 为什么要使用 TLSv1.3</h2>
+<p>SSL：Secure Sockets Layer 安全套接字层。</p>
+<p>TLS：Transport Layer Security，传输层安全。</p>
+<p>TLS 是 IETF 在 <strong>SSL3.0</strong> 基础上设计的协议，实际上相当于 SSL 的后续版本。</p>
+<p>TLS（Transport Layer Security）是一种加密协议，旨在通过 IP 网络提供安全通信。它是当今非常常见的协议，用于保护 Web 浏览器和 Web 服务器之间的 HTTP 通信。当使用 TLS 保护 HTTP 时，它通常被称为 HTTPS（HTTP Secure）。TLS/SSL 是安全传输层协议，是介于 TCP 和 HTTP 之间的一层安全协议，不影响原有的 TCP 协议和 HTTP 协议。</p>
+<p>TLS 1.3 是时隔九年对 TLS 1.2 等之前版本的新升级，也是迄今为止改动最大的一次。针对目前已知的安全威胁，IETF（Internet Engineering Task Force，互联网工程任务组）制定 TLS 1.3 的新标准，使其有望成为有史以来最安全，但也最复杂的 TLS 协议。</p>
+<p>TLS 1.3 与之前的协议有较大差异，主要在于：</p>
+<ul>
+<li>相比过去的的版本，引入了新的密钥协商机制 — PSK</li>
+<li>支持 0-RTT 数据传输，在建立连接时节省了往返时间</li>
+<li>废弃了 3DES、RC4、AES-CBC 等加密组件，废弃了 SHA1、MD5 等哈希算法</li>
+<li>ServerHello 之后的所有握手消息采取了加密操作，可见明文大大减少</li>
+<li>不再允许对加密报文进行压缩、不再允许双方发起重协商</li>
+<li>DSA 证书不再允许在 TLS 1.3 中使用</li>
+</ul>
+<p>对比旧协议中的不足，TLS 1.3 确实可以称得上是向前迈了一大步。既避免之前版本出现的缺陷，也减少了 TLS 握手的时间。</p>
+<p>总结一下，TLS 1.3 与以前的版本相比具有如下两个大的优势：更快的访问速度和更强的安全性！</p>
+<p><strong>TLS 1.0 和 TLS 1.1 是分别于 1996 年和 2006 年发布的老版协议，使用的是弱加密算法和系统</strong>。比如 SHA-1 和 MD5，这些算法和系统十分脆弱，存在重大安全漏洞，容易受到降级攻击的严重影响，而在 2008 年和 2017 年分别发布了协议的新版本，即 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc5246">TLS 1.2</a> 和 <a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/rfc8446/">TLS 1.3</a>，无疑更优于旧版本，使用起来也更安全。</p>
+<p>2018 年，在春季 TLS 1.3 版本发布之后，苹果、谷歌、Mozilla 和微软四大浏览器制造商于 2018 年 10 月联合宣布计划在 2020 年初取消对 TLS 1.0 和 TLS 1.1 的支持。</p>
+<p>主流浏览器客户端都提供了禁用 TLS 1.0 和 TLS 1.1 协议的大致期限：</p>
+<table>
+<thead>
+<tr>
+<th><strong>Browser Name</strong></th>
+<th><strong>Date</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft IE and Edge</td>
+<td>First half of 2020</td>
+</tr>
+<tr>
+<td>Mozilla Firefox</td>
+<td>March 2020</td>
+</tr>
+<tr>
+<td>Safari/Webkit</td>
+<td>March 2020</td>
+</tr>
+<tr>
+<td>Google Chrome</td>
+<td>January 2020</td>
+</tr>
+</tbody>
+</table>
+<p>备注：由于受 COVID-19 影响，浏览器厂商推迟了 TLS 1.0 和 1.1 版本协议的淘汰时间。</p>
+<p>参考：</p>
+<ul>
+<li>Modernizing TLS connections in Microsoft Edge and Internet Explorer 11 : <a target="_blank" rel="noopener" href="https://blogs.windows.com/msedgedev/2018/10/15/modernizing-tls-edge-ie11/">https://blogs.windows.com/msedgedev/2018/10/15/modernizing-tls-edge-ie11/</a></li>
+<li>Removing Old Versions of TLS : <a target="_blank" rel="noopener" href="https://blog.mozilla.org/security/2018/10/15/removing-old-versions-of-tls/">https://blog.mozilla.org/security/2018/10/15/removing-old-versions-of-tls/</a></li>
+<li>Deprecation of Legacy TLS 1.0 and 1.1 Versions: <a target="_blank" rel="noopener" href="https://webkit.org/blog/8462/deprecation-of-legacy-tls-1-0-and-1-1-versions/">https://webkit.org/blog/8462/deprecation-of-legacy-tls-1-0-and-1-1-versions/</a></li>
+<li>Modernizing Transport Security: <a target="_blank" rel="noopener" href="https://security.googleblog.com/2018/10/modernizing-transport-security.html">https://security.googleblog.com/2018/10/modernizing-transport-security.html</a></li>
+<li>Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS): <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7525">https://tools.ietf.org/html/rfc7525</a></li>
+</ul>
+<h2 id="2-客户端支持">2. 客户端支持</h2>
+<h3 id="2-1-浏览器（Chrome、Firefox、Safari）">2.1 浏览器（Chrome、Firefox、Safari）</h3>
+<p>现代主流操作系统（Unix、Linux、Windows，包括移动操作系统 Andriod 和 iOS）中的浏览器及相关组件都可以支持 TLS 1.3。</p>
+<p>最低版本要求如下：</p>
+<p><strong>Modern</strong>: Modern clients that support TLS 1.3, with no need for backwards compatibility</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Firefox</th>
+<th>Android</th>
+<th>Chrome</th>
+<th>Edge</th>
+<th>Internet Explorer</th>
+<th>Java</th>
+<th>OpenSSL</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modern</strong></td>
+<td>63</td>
+<td>10.0</td>
+<td>70</td>
+<td>75</td>
+<td>–</td>
+<td>11</td>
+<td>1.1.1</td>
+<td>57</td>
+<td>12.1</td>
+</tr>
+</tbody>
+</table>
+<p>参看：<a target="_blank" rel="noopener" href="https://wiki.mozilla.org/Security/Server_Side_TLS">https://wiki.mozilla.org/Security/Server_Side_TLS</a></p>
+<blockquote>
+<p>Microsoft Internet Explorer 不支持 TLS 1.3，其替代产品 Microsoft Edge 沿袭 Google Chrome 相关特性。</p>
+</blockquote>
+<h3 id="2-2-curl">2.2 curl</h3>
+<p>curl 是请求访问 Web 服务器的命令行工具，7.52.0 &amp; + 版本支持 TLSv1.3。</p>
+<blockquote>
+<p>7.52.0 - December 21 2016，curl: introduce the --tlsv1.3 option to force TLS 1.3</p>
+</blockquote>
+<p>使用参数 <code>--tlsv1.3</code>，可以通过 <code>curl --help</code> 查看是否支持该参数</p>
+<h2 id="3-服务端支持">3. 服务端支持</h2>
+<h3 id="3-1-F5-BIG-IP">3.1 F5 BIG-IP</h3>
+<p>BIG-IP® 系统是一组应用交付产品，它们协同工作以确保高可用性、改进的性能、应用安全和访问控制。BIG-IP 系统的主要功能之一是将不同类型的协议和应用程序流量定向到适当的目标服务器。系统通过其 Local Traffic Manager™ 模块实现这一点，该模块可以将流量直接转发到负载平衡服务器池，或将流量发送到下一跳路由器、路由器池或直接发送到网络上的选定节点。BIG-IP 系统上可用的其他模块提供关键功能，例如将安全策略应用于网络流量、加速 HTTP 连接以及优化广域网中的连接。</p>
+<p><strong>F5 BIG-IP 当前 LTS 版本 14.1.0、15.1.0、16.1.0 及以上版本都可以完整支持 TLSv1_3。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://support.f5.com/csp/article/K10251520">BIG-IP v14 开始支持 TLSv1_3</a>（In BIG-IP 14.0.0, the BIG-IP system adds limited support for Transport Layer Security (TLS) 1.3. Starting in BIG-IP 14.1.0.1 and later, this support was updated to provide production level support for TLS 1.3.）</p>
+<p>By default, TLS 1.3 is disabled. To enable TLS 1.3, you must remove the <strong>No TLSv1.3</strong> option from the <strong>Enabled Options</strong> list in the Configuration utility for the Client SSL and Server SSL profiles</p>
+<p>You can view a list of TLS 1.3 supported ciphers and groups using the following TMOS Shell (<strong>tmsh</strong>) commands:</p>
+<ul>
+<li>
+<p>To view the supported client-side ciphers, use the following command:</p>
+<p>tmsh run util clientssl-ciphers TLSv1_3</p>
+</li>
+<li>
+<p>To view the supported server-side ciphers, use the following command:</p>
+<p>tmsh run util serverssl-ciphers TLSv1_3</p>
+</li>
+</ul>
+<p><strong>配置启用 TLSv1_3 的步骤如下</strong>：</p>
+<p>编辑 ClientSSL Profle：</p>
+<p>Ciphers：选择 Cipher Group，下拉选择 f5-secure</p>
+<p>Options：Options List…</p>
+<p>Enabled Options，</p>
+<p>Disable No TLSv1.3</p>
+<p>添加，No TLSv1 和 TLSv1.1，保留默认的 “Don’t insert empty fragments”</p>
+<blockquote>
+<p>注意：TLSv1_3 是 F5 产品中的写法，与其他开源产品中的 TLSv1.3 不同。</p>
+</blockquote>
+<h3 id="3-2-Windows-IIS">3.2 Windows &amp; IIS</h3>
+<p>Windows® Server 的 Internet 信息服务 (IIS) 是一种灵活、安全且可管理的 Web 服务器，用于托管 Web 上的任何内容。从媒体流到 Web 应用程序，IIS 的可扩展和开放架构已准备好处理最苛刻的任务。</p>
+<p>2021 年 8 月发布的 <a href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a> 正式支持 HTTP/3、QUIC 和 TLS 1.3 相关特性。</p>
+<p>在 <a href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a> 中的 IIS 新建一个站点将默认启用 TLS 1.3 以及 QUIC，除非手动勾选禁用。</p>
+<p><img src="windows-2022-iis.webp" alt="Windows Server 2022 IIS"></p>
+<blockquote>
+<p>备注：IIS 10 &amp; Windows Server 2019 以及之前版本无法支持，<a target="_blank" rel="noopener" href="https://forums.iis.net/t/1250687.aspx?IIS+10+TLS+1+3+support">参看</a>。</p>
+</blockquote>
+<h3 id="3-3-Nginx">3.3 Nginx</h3>
+<p>nginx [engine x] 是一个 HTTP 和反向代理服务器，邮件代理服务器，和一个通用的 TCP/UDP 代理服务器，最初由 <a target="_blank" rel="noopener" href="http://sysoev.ru/en/">Igor Sysoev</a> 编写。在许多负载很重的俄罗斯网站上运行了很久，包括 <a target="_blank" rel="noopener" href="http://www.yandex.ru">Yandex</a>、<a target="_blank" rel="noopener" href="http://mail.ru">Mail.Ru</a>、<a target="_blank" rel="noopener" href="http://vk.com">VK</a> 和 <a target="_blank" rel="noopener" href="http://www.rambler.ru">Rambler</a>。根据 Netcraft 的说法，nginx 服务或代理 <a target="_blank" rel="noopener" href="https://news.netcraft.com/archives/2021/11/23/november-2021-web-server-survey.html">22.36% 最繁忙的网站 (2021 年 11 月)</a>。<br>
+以下是一些成功案例：<a target="_blank" rel="noopener" href="https://blogs.dropbox.com/tech/2017/09/optimizing-web-servers-for-high-throughput-and-low-latency/">Dropbox</a>、<a target="_blank" rel="noopener" href="https://openconnect.netflix.com/en/software/">Netflix</a>、<a target="_blank" rel="noopener" href="https://www.nginx.com/case-studies/nginx-wordpress-com/">Wordpress.com</a>、<a target="_blank" rel="noopener" href="http://blog.fastmail.fm/2007/01/04/webimappop-frontend-proxies-changed-to-nginx/">FastMail.FM</a>。</p>
+<p>Nginx 1.13.0 开始支持 TLSv1.3（2017-04-25 nginx-1.13.0 mainline version has been released. ）。</p>
+<ul>
+<li>The <code>TLSv1.1</code> and <code>TLSv1.2</code> parameters (1.1.13, 1.0.12) work only when OpenSSL 1.0.1 or higher is used.</li>
+<li>The <code>TLSv1.3</code> parameter (1.13.0) works only when OpenSSL 1.1.1 built with TLSv1.3 support is used.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://wiki.nginx.org/HttpSslModule#ssl_protocols">More info on the NGINX documentation</a></p>
+<p>参考配置：启用 HTTP/2、TLSv1.3、推荐的 Ciphers、HSTS</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       443 ssl http2; # HTTP/2 Enable</span><br><span class="line">    server_name  www.sysin.org;</span><br><span class="line">    ssl_certificate     www.sysin.org.crt;</span><br><span class="line">    ssl_certificate_key www.sysin.org.key;</span><br><span class="line">    ssl_protocols       TLSv1.2 TLSv1.3; # Requires nginx &gt;= 1.13.0 else use TLSv1.2</span><br><span class="line">    ssl_ciphers  ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;</span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=31536000; includeSubdomains; preload&quot;;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>NGINX 1.21.4 引入了 Kernel TLS 特性 （<a target="_blank" rel="noopener" href="https://hg.nginx.org/nginx/rev/65946a191197">introduces support for kTLS</a> ）大幅提高了 TLS 传输性能，要求 OpenSSL 3.0 + FreeBSD 13/Linux Kernel 4.17+，详见：<a target="_blank" rel="noopener" href="https://www.nginx.com/blog/improving-nginx-performance-with-kernel-tls/">Improving NGINX Performance with Kernel TLS and SSL_sendfile( )</a>。</p>
+<h3 id="3-4-Apache-httpd">3.4 Apache httpd</h3>
+<p>Apache HTTP Server 项目致力于开发和维护一个用于现代操作系统的开源 HTTP 服务器，包括 UNIX 和 Windows。该项目的目标是提供一个安全、高效和提供与当前 HTTP 同步的 HTTP 服务的可扩展服务器标准。</p>
+<p>Apache HTTP 服务器（“httpd”）于 1995 年推出，自 1995 年以来一直是 Internet 上最受欢迎的 Web 服务器。1996 年 4 月。它在 2020 年 2 月庆祝了它作为一个项目的 25 岁生日。</p>
+<p><strong>版本要求</strong>：</p>
+<ul>
+<li>Apache version <code>2.4.36</code> or greater. (搜索网上文章传言 2.4.38 有误！)</li>
+<li>OpenSSL version <code>1.1.1</code> or greater.</li>
+</ul>
+<p>CentOS 8 和 Ubuntu 20.04 自带软件包满足要求，低版本需要编译安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@c8 ~]# openssl version</span><br><span class="line">OpenSSL 1.1.1c FIPS  28 May 2019</span><br><span class="line"></span><br><span class="line">[root@c8 ~]# dnf list httpd</span><br><span class="line">Installed Packages</span><br><span class="line">httpd.x86_64        2.4.37-21.module_el8.2.0+382+15b0afa8        @AppStream</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@u20:~# openssl version</span><br><span class="line">OpenSSL 1.1.1f  31 Mar 2020</span><br><span class="line"></span><br><span class="line">root@u20:~# apt list apache2</span><br><span class="line">Listing... Done</span><br><span class="line">apache2/focal 2.4.41-4ubuntu3 amd64</span><br></pre></td></tr></table></figure>
+<p><strong>启用 TLS 1.3 和 1.2</strong>：</p>
+<p>The Apache version 2.4.36 or higher versions support TLS v1.3. You must upgrade Apache packages before enabled TLS 1.3 in SSL settings.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSLProtocol -all +TLSv1.2 +TLSv1.3</span><br></pre></td></tr></table></figure>
+<p>配置项如下所示:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:443&gt;</span><br><span class="line">    ServerName www.sysin.org</span><br><span class="line">    DocumentRoot /var/www/html</span><br><span class="line"></span><br><span class="line">    SSLEngine on</span><br><span class="line">    SSLProtocol -all +TLSv1.2 +TLSv1.3</span><br><span class="line">    SSLCertificateFile &quot;/path/to/www.sysin.org.cert&quot;</span><br><span class="line">    SSLCertificateKeyFile &quot;/path/to/www.sysin.org.key&quot;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<p>记得重启 Apache 服务才能生效。</p>
+<h3 id="3-5-Apache-Tomcat">3.5 Apache Tomcat</h3>
+<p>Apache Tomcat® 软件是 Jakarta Servlet、Jakarta Server Pages、Jakarta Expression Language、Jakarta WebSocket、Jakarta Annotations 和 Jakarta Authentication 规范的开源实现。这些规范是 Jakarta EE 平台的一部分。Jakarta EE 平台是 Java EE 平台的演变。Tomcat 10 及更高版本实现了作为 Jakarta EE 一部分开发的规范。Tomcat 9 及更早版本实现了作为 Java EE 一部分开发的规范。</p>
+<p>当前最新的 Tomcat 7.0+ Release 都可以支持 TLSv1.3，具体版本如下：</p>
+<p>2018-11-15 Tomcat 7.0.92 Released</p>
+<ul>
+<li>Support for TLSv1.3 when used with a JRE or OpenSSL version that supports it</li>
+</ul>
+<p>2018-11-07 Tomcat 8.5.35 Released</p>
+<ul>
+<li>support for TLSv1.3 when used with a JRE or OpenSSl version that supports it</li>
+</ul>
+<p>2018-11-07 Tomcat 9.0.13 Released</p>
+<ul>
+<li>support for TLSv1.3 when used with a JRE or OpenSSL version that supports it</li>
+</ul>
+<p>Tomcat 10.0 当然支持（最早发布的版本：2020-02-20 Tomcat 10.0.0-M1 (markt)）。</p>
+<p>请注意，只有在使用实现 TLSv1.3 的 JVM 时，JSSE 才支持 TLSv1.3。</p>
+<p>配置示例：</p>
+<p>编辑 <strong>server.xml</strong> 配置文件，<code>SSLHostConfig protocols=</code> 字段如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Define an SSL/TLS HTTP/1.1 Connector on port 443 with HTTP/2</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;443&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">maxThreads</span>=<span class="string">&quot;150&quot;</span> <span class="attr">SSLEnabled</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">UpgradeProtocol</span> <span class="attr">className</span>=<span class="string">&quot;org.apache.coyote.http2.Http2Protocol&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">SSLHostConfig</span> <span class="attr">protocols</span>=<span class="string">&quot;TLSv1.2+TLSv1.3&quot;</span></span></span><br><span class="line"><span class="tag">                   <span class="attr">ciphers</span>=<span class="string">&quot;HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA&quot;</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Certificate</span> <span class="attr">certificateKeystoreFile</span>=<span class="string">&quot;conf/k8s.sysin.org.pfx&quot;</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">certificateKeystoreType</span>=<span class="string">&quot;PKCS12&quot;</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">certificateKeystorePassword</span>=<span class="string">&quot;your-pfx-password&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">SSLHostConfig</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Connector</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 默认参数如下：</span></span><br><span class="line"><span class="comment">        hostName= default:`_default_`</span></span><br><span class="line"><span class="comment">        ciphers= default:`HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!kRSA`</span></span><br><span class="line"><span class="comment">        protocols= default:`all`</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>重启 Tomcat 生效。</p>
+<p>protocols 写法：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">The names of the protocols to support when communicating with clients. This should be a list of any combination of the following:</span><br><span class="line"></span><br><span class="line">    SSLv2Hello</span><br><span class="line">    SSLv3</span><br><span class="line">    TLSv1</span><br><span class="line">    TLSv1.1</span><br><span class="line">    TLSv1.2</span><br><span class="line">    TLSv1.3</span><br><span class="line">    all</span><br><span class="line"></span><br><span class="line">列表中的每个标记都可以以加号（“+”）或减号（“-”）为前缀。加号添加协议，减号将其从当前列表中删除。该列表是从一个空列表开始构建的。</span><br><span class="line"></span><br><span class="line">字符 all 是 SSLv2Hello,TLSv1,TLSv1.1,TLSv1.2,TLSv1.3 的别名。</span><br><span class="line"></span><br><span class="line">请注意，只有在使用实现 TLSv1.3 的 JVM 时，JSSE 才支持 TLSv1.3。</span><br><span class="line"></span><br><span class="line">请注意，对于基于 OpenSSL 的安全连接器，将忽略 SSLv2Hello。如果为基于 OpenSSL 的安全连接器指定了多个协议，它将始终支持 SSLv2Hello。如果指定了单个协议，它将不支持 SSLv2Hello。</span><br><span class="line"></span><br><span class="line">请注意，SSLv2 和 SSLv3 本质上是不安全的。</span><br><span class="line"></span><br><span class="line">如果未指定，则将使用 all 的默认值。</span><br></pre></td></tr></table></figure>
+<h3 id="3-6-HAProxy">3.6 HAProxy</h3>
+<p>HAProxy 是一种免费、快速且可靠的反向代理，可为基于 TCP 和 HTTP 的应用程序提供高可用性、负载平衡和代理。它特别适用于流量非常高的网站，并为世界上大部分访问量最大的网站提供支持。多年来，它已成为事实上的标准开源负载均衡器，现在随大多数主流 Linux 发行版一起提供，并且通常默认部署在云平台中。由于它不做广告，我们只知道它在管理员报告时被使用:-)</p>
+<p>要求：HAProxy 1.8.1 及以上，OpenSSL 1.1.1 及以上。</p>
+<p>参数：ssl-default-bind-ciphersuites，参看 <a href="https://sysin.org/blog/get-a-plus-rating-on-ssl-test/">https://sysin.org/blog/get-a-plus-rating-on-ssl-test/</a> SSL cipher 部分的描述。</p>
+<h3 id="3-7-Varnish-with-Hitch">3.7 Varnish with Hitch</h3>
+<p>Varnish Cache 是一种 web 应用程序加速器，同时以被用于缓存的 HTTP 反向代理而闻名。Varnish HTTP/2 前端通过 Hitch 代理实现。Hitch 是 Varnish Software 开发的基于 libev 的高性能 SSL/TLS 开源代理软件。</p>
+<p>笔者写了一篇文章描述了整个配置过程，访问这里查看：<a href="https://sysin.org/blog/varnish-with-hitch-http2/">Varnish with Hitch HTTP/2 implement on CentOS 8.0</a></p>
+<p><a href="https://sysin.org/blog/get-a-plus-rating-on-ssl-test/">hitch 参考配置：Ciphers，HTTP/2 和 TLSv1.3</a></p>
+<p>版本要求：</p>
+<ul>
+<li>Cache 5.0 开始实验性的支持 HTTP/2</li>
+<li>Varnish 6.0 完整支持 HTTP/2</li>
+<li>hitch 1.5 版本开始支持 TLS 1.3</li>
+</ul>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/vmware-vcda-4/" data-toggle="tooltip" data-placement="top" title="VMware Cloud Director Availability 4 | 灾难恢复和迁移 | DRaaS">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/get-a-plus-rating-on-ssl-test/" data-toggle="tooltip" data-placement="top" title="在 Qualys SSL Labs SSL 测试中获得 A+ 评级的秘技 2021 版">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/tlsv1-3-support/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-TLSv1-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 为什么要使用 TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%94%AF%E6%8C%81"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 客户端支持</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1-%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%88Chrome%E3%80%81Firefox%E3%80%81Safari%EF%BC%89"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 浏览器（Chrome、Firefox、Safari）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2-curl"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 curl</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%94%AF%E6%8C%81"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 服务端支持</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-F5-BIG-IP"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 F5 BIG-IP</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-Windows-IIS"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 Windows &amp; IIS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-3-Nginx"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3.3 Nginx</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-4-Apache-httpd"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3.4 Apache httpd</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-5-Apache-Tomcat"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">3.5 Apache Tomcat</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-6-HAProxy"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">3.6 HAProxy</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-7-Varnish-with-Hitch"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">3.7 Varnish with Hitch</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#HTTP" title="HTTP">HTTP</a>
+            
+            <a class="tag" href="/tags/#F5" title="F5">F5</a>
+            
+            <a class="tag" href="/tags/#TLS" title="TLS">TLS</a>
+            
+            <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+            
+            <a class="tag" href="/tags/#Apache" title="Apache">Apache</a>
+            
+            <a class="tag" href="/tags/#IIS" title="IIS">IIS</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

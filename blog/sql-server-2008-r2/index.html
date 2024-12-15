@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Microsoft SQL Server 2008 R2 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Microsoft SQL Server 2008 R2 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Microsoft SQL Server 2008 R2 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/sql-server-2008-r2/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+              
+              <a class="tag" href="/tags/#Microsoft" title="Microsoft">Microsoft</a>
+              
+              <a class="tag" href="/tags/#Server" title="Server">Server</a>
+              
+              <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+              
+            </div>
+            <h1>Microsoft SQL Server 2008 R2</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2021-09-29
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">12</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.1k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Wed Sep 29 2021 16:16:28 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/sql-server-2008-r2/" title="Microsoft SQL Server 2008 R2">Microsoft SQL Server 2008 R2</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>SQL Server 2008 R2</p>
+<p><img src="/blog/sql-server/sql-server-logo.webp" alt="SQL-Server-sysin"></p>
+<h2 id="SQL-Server-2008-R2-的硬件和软件要求">SQL Server 2008 R2 的硬件和软件要求</h2>
+<p>以下各部分列出了安装和运行 SQL Server 2008 R2 的最低硬件和软件要求。有关 SharePoint 集成模式下的 Analysis Services 的要求的详细信息，请参阅<a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ee210640(v=sql.105).aspx">硬件和软件要求 (PowerPivot for SharePoint)</a>。</p>
+<p>对于 SQL Server 2008 R2 的 32 位和 64 位版本，适用以下要求：</p>
+<ul>
+<li>SQL Server 2008 R2 Datacenter 有评估版可供使用，试用期为 180 天。有关详细信息，请参阅 <a target="_blank" rel="noopener" href="http://go.microsoft.com/fwlink/?LinkId=51646">SQL Server: How to Buy（SQL Server：如何购买）</a>网站。</li>
+<li>Microsoft 建议您在使用 NTFS 文件格式的计算机上运行 SQL Server 2008 R2。但针对升级到 SQL Server 2008 R2 的情况，不阻止使用 FAT32 文件系统。</li>
+<li>SQL Server 安装程序会阻止在只读或压缩驱动器上进行安装 (sysin)。</li>
+<li>有关使用 SQL Server 2008 R2 工具为升级到 SQL Server 2008 R2 做准备的信息，请参阅<a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms144256(v=sql.105).aspx">使用升级顾问来准备升级</a>。</li>
+<li>SQL Server 不安装 .NET Framework 3.5 软件开发工具包 (SDK)。但是，此 SDK 包含在将 .NET Framework 用于 SQL Server 开发时可以使用的工具。您可以从 <a target="_blank" rel="noopener" href="http://go.microsoft.com/fwlink/?LinkID=51069">.NET Framework</a> 网站下载 .NET Framework SDK。</li>
+<li>在 SQL Server 安装过程中重新启动计算机的要求：安装 .NET Framework 需要重新启动操作系统。如果安装  Windows Installer 也需要重新启动操作系统，则安装程序将等到 .NET Framework 和 Windows  Installer 组件安装完成后，才进行重新启动。</li>
+<li>有关 SQL Server 2008 R2 的功能的详细信息，请参阅以下主题：
+<ul>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms144275(v=sql.105).aspx">SQL Server 2008 R2 的版本和组件</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/cc645993(v=sql.105).aspx">SQL Server 2008 R2 各个版本支持的功能</a></li>
+</ul>
+</li>
+</ul>
+<p>硬件和软件要求</p>
+<p>以下要求适用于所有 SQL Server 2008 R2 安装：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>框架2</td>
+<td>SQL Server 安装程序安装该产品所需的以下软件组件：.NET Framework 3.5 SP11  SQL Server Native Client  SQL Server 安装程序支持文件</td>
+</tr>
+<tr>
+<td>软件2</td>
+<td>SQL Server 安装程序要求使用 Microsoft Windows Installer 4.5 或更高版本 安装了所需的组件后，SQL Server 安装程序将验证要安装 SQL Server 2008 R2 的计算机是否也满足成功安装所需的所有其他要求。有关详细信息，请参阅<a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143753(v=sql.105).aspx">系统配置检查器的检查参数</a>。</td>
+</tr>
+<tr>
+<td>网络软件</td>
+<td>SQL Server 2008 R2 64 位版本的网络软件要求与 32 位版本的要求相同。支持的操作系统都具有内置网络软件。独立的命名实例和默认实例支持以下网络协议：Shared memory  Named Pipes  TCP/IP  VIA  注意  故障转移群集不支持 Shared memory 和 VIA。<img src="http://i.technet.microsoft.com/areas/global/content/clear.gif" alt="注意"><strong>注意</strong> 不推荐使用 VIA 协议。后续版本的 Microsoft SQL Server 将删除该功能。请避免在新的开发工作中使用该功能，并着手修改当前还在使用该功能的应用程序。</td>
+</tr>
+<tr>
+<td>虚拟化</td>
+<td>在以 Windows Server 2008 SP2 Standard、Enterprise 和 Datacenter 版本中的  Hyper-V 角色运行的虚拟机环境中支持 SQL Server 2008 R2。虚拟机必须运行本主题稍后部分中列出的特定 SQL Server 2008 R2 版本所支持的操作系统。除了父分区所需的资源以外，还必须为每个虚拟机（子分区）的 SQL Server 2008 R2 实例提供足够的处理器资源、内存和磁盘资源。具体要求在本主题的稍后部分中列出。3 在 Windows Server 2008 SP2 上的 Hyper-V 角色中，最多可以为运行 Windows Server 2008  SP2 32 位或 64 位版本的虚拟机分配四个虚拟处理器。最多可以为运行 Windows Server 2003 32 位版本的虚拟计算机分配 2 个虚拟处理器。对于承载其他操作系统的虚拟计算机，最多可以为虚拟计算机分配一个虚拟处理器。注意：建议在关闭虚拟机之前先关闭 SQL Server 2008 R2。有关 Windows Server 2008 SP2 中 Hyper-V 角色的详细信息，请参阅 <a target="_blank" rel="noopener" href="http://go.microsoft.com/fwlink/?LinkId=120290">Windows Server 2008 网站</a>。在 SQL Server 2008 R2 中支持来宾故障转移群集。有关用于来宾故障转移群集的 SQL Server 和操作系统的支持版本的详细信息，请参阅 <a target="_blank" rel="noopener" href="http://go.microsoft.com/fwlink/?LinkId=151676">Support policy for Microsoft SQL Server products running in a hardware virtual environment</a>（针对在硬件虚拟环境中运行的 Microsoft SQL Server 产品的支持策略）。</td>
+</tr>
+<tr>
+<td>Internet 软件</td>
+<td>所有的 SQL Server 2008 R2 安装都需要使用 Microsoft Internet Explorer 6 SP1  或更高版本。Microsoft 管理控制台 (MMC)、SQL Server Management Studio、Business  Intelligence Development Studio、Reporting Services 的报表设计器组件和 HTML 帮助都需要  Internet Explorer 6 SP1 或更高版本。</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>磁盘空间要求将随所安装的 SQL Server 2008 R2 组件不同而发生变化。有关详细信息，请参阅本主题稍后部分中的<a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#HardDiskSpace">硬盘空间要求</a>。</td>
+</tr>
+<tr>
+<td>驱动器</td>
+<td>从磁盘进行安装时需要相应的 CD 或 DVD 驱动器。</td>
+</tr>
+<tr>
+<td>显示器</td>
+<td>SQL Server 2008 R2 图形工具需要使用 Super VGA 或更高分辨率：分辨率至少为 800x600 像素。</td>
+</tr>
+<tr>
+<td>其他设备</td>
+<td>指针设备：需要 Microsoft 鼠标或兼容的指针设备。</td>
+</tr>
+</tbody>
+</table>
+<p>1以下 .NET Framework 版本是必需的：</p>
+<ul>
+<li>Windows Server 2003（64 位）IA64 上的 SQL Server 2008 R2 - .NET Framework 2.0 SP2</li>
+<li>SQL Server Express - .NET Framework 2.0 SP2</li>
+<li>SQL Server 2008 R2 的所有其他版本 - .NET Framework 3.5 SP1</li>
+</ul>
+<p>安装 .NET Framework 需要重新启动操作系统 (sysin)。如果安装 Windows Installer 也需要重新启动操作系统，安装程序将等到 .NET Framework 和 Windows Installer 组件完成安装后才进行重新启动。</p>
+<table>
+<thead>
+<tr>
+<th><img src="http://i.technet.microsoft.com/areas/global/content/clear.gif" alt="注意"><strong>注意</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安装 .NET Framework 2.0 SP2：.NET Framework 2.0 SP2 不作为单独的下载提供。您需要安装其中包括 .NET Framework 2.0 SP2 的 .NET Framework 3.5 SP1。</td>
+</tr>
+</tbody>
+</table>
+<p>2 SQL Server 安装程序将不安装 SQL Server Express、SQL Server Express with Tools 和 SQL Server Express with Advanced Services  所需的以下组件。在运行 SQL Server 安装程序之前，必须手动安装这些组件：</p>
+<ul>
+<li>SQL Server Express - .NET Framework 2.0 SP2 和 Windows Installer 4.5。在 Windows Vista SP2 上，请使用 .NET Framework 3.5 SP1。</li>
+<li>SQL Server Express with Advanced Services - .NET Framework 3.5 SP1、Windows Installer 4.5 和 Windows PowerShell 1.0。</li>
+<li>SQL Server Express with Tools - .NET Framework 3.5 SP1、Windows Installer 4.5 和 Windows PowerShell 1.0。</li>
+</ul>
+<p>3与所有虚拟化技术一样，在 Windows Server 2008 SP2 Hyper-V 虚拟计算机上运行的 SQL Server 2008 R2 将比在具有相同物理资源的物理计算机上运行的慢。</p>
+<p>处理器、内存和操作系统要求</p>
+<ul>
+<li>
+<p>Reporting Services</p>
+<p>从 SQL Server 2008 R2 中开始，Reporting Services 组件不再支持运行 Windows Server  2003 或 Windows Server 2003 R2 的基于 Itanium 的服务器。Reporting Services 继续支持其他 64 位操作系统，包括 Windows Server°2008 for Itanium-Based Systems 和 Windows  Server°2008°R2 for Itanium-Based Systems。若要在 Windows Server 2003 或  Windows Server 2003 R2 的基于 Itanium 的系统版本上从具有 Reporting Services 的 SQL  Server 2008 安装升级到 SQL Server 2008 R2，您必须首先升级操作系统。</p>
+</li>
+<li>
+<p>WOW64</p>
+<p>WOW64 是 Windows 64 位版本中的一个功能，使用该功能可以以 32 位模式在本机运行 32 位应用程序。尽管基础操作系统在  64 位操作系统上运行，但应用程序以 32 位模式工作。仅对于 SQL Server 的独立实例才支持 WOW64。SQL Server  故障转移群集安装不支持 WOW64。</p>
+<p>对于在支持的 64 位操作系统上安装的 SQL Server 64 位版本，WOW64 中支持管理工具。有关支持的操作系统的详细信息，请在下面各节中选择 SQL Server 2008 R2 的版本。</p>
+<p>在支持的 64 位操作系统上，SQL Server 32 位版本安装可以安装到 64 位服务器的 Windows on Windows (WOW64) 32 位子系统中。</p>
+</li>
+<li>
+<p>其他操作系统备注</p>
+<p>Windows Server 2008 SP2 服务器核心或 Windows Server 2008 R2 服务器核心安装不支持 SQL Server 2008 R2。</p>
+<p>SQL Server Standard for Small Business 还支持在 SQL Server Standard 部分列出的操作系统。</p>
+<p>Windows Small Business Server 64 位 x64 版本还支持 Windows Server 2008 R2 64 位 x64 Standard 版本所支持的 SQL Server 版本。</p>
+</li>
+</ul>
+<p>若要查看系统要求，请在下面的各节中选择 SQL Server 2008 R2 的版本。</p>
+<h3 id="SQL-Server-2008-R2-的核心服务器安装">SQL Server 2008 R2 的核心服务器安装</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#DCIA64">SQL Server 2008 R2 Datacenter（64 位）IA64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#EEIA64">SQL Server 2008 R2 Enterprise（64 位）IA64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#DCx64">SQL Server 2008 R2 Datacenter（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#EEx64">SQL Server 2008 R2 Enterprise（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#SEx64">SQL Server 2008 R2 Standard（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#DC32">SQL Server 2008 R2 Datacenter（32 位）</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#EE32">SQL Server 2008 R2 Enterprise（32 位）</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#SE32">SQL Server 2008 R2 Standard（32 位）</a></li>
+</ul>
+<h3 id="SQL-Server-2008-R2-专业版">SQL Server 2008 R2 专业版</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#Developer64">SQL Server 2008 R2 Developer（64 位）IA64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#DEx64">SQL Server 2008 R2 Developer（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#Workgroup_x64">SQL Server 2008 R2 Workgroup（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#Web64">SQL Server 2008 R2 Web（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#SSE_x64">SQL Server 2008 R2 Express（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#SSETools_x64">SQL Server 2008 R2 Express with Tools（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#SSEAdvx64">SQL Server 2008 R2 Express Advanced（64 位）x64</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#Developer32">SQL Server 2008 R2 Developer（32 位）</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#Workgroup32">SQL Server 2008 R2 Workgroup（32 位）</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#Web32">SQL Server 2008 R2 Web（32 位）</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#Express32">SQL Server 2008 R2 Express、Express with Tools 和 Express with Advanced Services（32 位）</a></li>
+</ul>
+<p>本主题中的其他信息</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#HardDiskSpace">硬盘空间要求</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#CrossLanguageSupport">跨语言支持</a></li>
+<li><a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ms143506(v=sql.105).aspx#DC_Support">支持在域控制器上安装 SQL Server 2008 R2</a></li>
+</ul>
+<p>核心服务器版本（64 位和 32 位）</p>
+<h3 id="跨语言支持">跨语言支持</h3>
+<p>有关跨语言支持和以本地化语言安装 SQL Server 的注意事项的详细信息，请参阅<a target="_blank" rel="noopener" href="http://technet.microsoft.com/zh-cn/library/ee210665(v=sql.105).aspx">SQL Server 中的本地语言版本</a>。</p>
+<h3 id="扩展系统支持">扩展系统支持</h3>
+<p>SQL Server 2008 R2 64 位版本支持扩展系统，也称作 Windows on Windows (WOW64)。WOW64 是 Windows 64 位版本中的一个功能，使用该功能可以以 32 位模式在本机执行 32 位应用程序。尽管基础操作系统在 64  位操作系统上运行，但应用程序以 32 位模式工作。</p>
+<h3 id="硬盘空间要求（32-位和-64-位）">硬盘空间要求（32 位和 64 位）</h3>
+<p>在安装 SQL Server 2008 R2 的过程中，Windows Installer  会在系统驱动器中创建临时文件。在运行安装程序以安装或升级 SQL Server 之前，请检查系统驱动器中是否有至少 3.6 GB  的可用磁盘空间用来存储这些文件。即使在将 SQL Server 组件安装到非默认驱动器中时，此项要求也适用。</p>
+<p>实际硬盘空间需求取决于系统配置和您决定安装的功能。下表提供了 SQL Server 2008 R2 各组件对磁盘空间的要求：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>磁盘空间要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据库引擎和数据文件、复制以及全文搜索</td>
+<td>711 MB</td>
+</tr>
+<tr>
+<td>Analysis Services 和数据文件</td>
+<td>345 MB</td>
+</tr>
+<tr>
+<td>Reporting Services 和报表管理器</td>
+<td>304 MB</td>
+</tr>
+<tr>
+<td>Integration Services</td>
+<td>591 MB</td>
+</tr>
+<tr>
+<td>客户端组件（除联机丛书和 Integration Services 工具以外）</td>
+<td>1823 MB</td>
+</tr>
+<tr>
+<td>SQL Server 联机丛书</td>
+<td>157 MB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="在域控制器上安装-SQL-Server">在域控制器上安装 SQL Server</h3>
+<p>出于安全方面的考虑，Microsoft 建议您不要将 SQL Server 2008 R2 安装在域控制器上。SQL Server 安装程序不会阻止在作为域控制器的计算机上进行安装，但存在以下限制：</p>
+<ul>
+<li>在 Windows Server 2003 上，SQL Server 服务可在域帐户或本地系统帐户下运行。</li>
+<li>在域控制器上，无法在本地服务帐户或网络服务帐户下运行 SQL Server 服务。</li>
+<li>将 SQL Server 安装到计算机上之后，无法将此计算机从域成员更改为域控制器。必须先卸载 SQL Server，然后才能将主机计算机更改为域控制器。</li>
+<li>将 SQL Server 安装到计算机上之后，无法将此计算机从域控制器更改为域成员。必须先卸载 SQL Server，然后才能将主机计算机更改为域成员。</li>
+<li>在群集节点用作域控制器的情况下，不支持 SQL Server 故障转移群集实例。</li>
+<li>SQL Server 安装程序不能在只读域控制器上创建安全组或设置 SQL Server 服务帐户。在这种情况下，安装将失败。</li>
+</ul>
+<h3 id="支持的客户端（64-位）">支持的客户端（64 位）</h3>
+<p>在 Windows Server 2003（64 位）上，可以安装 SQL Server 2008 R2 64 位客户端组件。<a target="_blank" rel="noopener" href="https://support.microsoft.com/kb/321185">https://support.microsoft.com/kb/321185</a>)</p>
+<h2 id="下载地址-365">下载地址</h2>
+<p>Microsoft SQL Server 2008 R2 Enterprise Edition (x86, x64, ia64) 简体中文版和英文版</p>
+<ul>
+<li>
+<p>cn_sql_server_2008_r2_enterprise_x86_x64_ia64_dvd_522233.iso</p>
+</li>
+<li>
+<p>en_sql_server_2008_r2_enterprise_x86_x64_ia64_dvd_520517.iso</p>
+</li>
+<li>
+<p>百度网盘链接：<code>[EoD]</code></p>
+</li>
+</ul>
+<p>索引页面：</p>
+<ul>
+<li>
+<a href="/blog/sql-server/" title="Microsoft SQL Server 下载汇总">Microsoft SQL Server 下载汇总</a>
+</li>
+</ul>
+<p>更多：<a href="/blog/windows/" title="Windows 下载汇总">Windows 下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/sql-server-2012/" data-toggle="tooltip" data-placement="top" title="Microsoft SQL Server 2012 with SP4">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/run-nxos-on-macos/" data-toggle="tooltip" data-placement="top" title="在 macOS 上运行 Cisco Nexus 9000v (NX-OS 10)">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/sql-server-2008-r2/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SQL-Server-2008-R2-%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%BD%AF%E4%BB%B6%E8%A6%81%E6%B1%82"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">SQL Server 2008 R2 的硬件和软件要求</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SQL-Server-2008-R2-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">SQL Server 2008 R2 的核心服务器安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SQL-Server-2008-R2-%E4%B8%93%E4%B8%9A%E7%89%88"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">SQL Server 2008 R2 专业版</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B7%A8%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">跨语言支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%89%A9%E5%B1%95%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">扩展系统支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4%E8%A6%81%E6%B1%82%EF%BC%8832-%E4%BD%8D%E5%92%8C-64-%E4%BD%8D%EF%BC%89"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">硬盘空间要求（32 位和 64 位）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%8A%E5%AE%89%E8%A3%85-SQL-Server"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">在域控制器上安装 SQL Server</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%8864-%E4%BD%8D%EF%BC%89"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">支持的客户端（64 位）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-365"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Windows" title="Windows">Windows</a>
+            
+            <a class="tag" href="/tags/#Microsoft" title="Microsoft">Microsoft</a>
+            
+            <a class="tag" href="/tags/#Server" title="Server">Server</a>
+            
+            <a class="tag" href="/tags/#SQL" title="SQL">SQL</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

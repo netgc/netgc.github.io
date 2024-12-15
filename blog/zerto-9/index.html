@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Zerto 9.5 U1 过渡到 Linux 以减少攻击面 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Zerto 9.5 U1 过渡到 Linux 以减少攻击面 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Zerto 9.5 U1 过渡到 Linux 以减少攻击面 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/zerto-9/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#Backup" title="Backup">Backup</a>
+              
+            </div>
+            <h1>Zerto 9.5 U1 过渡到 Linux 以减少攻击面</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2022-07-14
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">8</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Thu Jul 14 2022 15:06:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/zerto-9/" title="Zerto 9.5 U1 过渡到 Linux 以减少攻击面">Zerto 9.5 U1 过渡到 Linux 以减少攻击面</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="https://www.zerto.com/wp-content/uploads/2021/09/HPEZerto_Logo_100x50.svg" alt="Zerto Logo"></p>
+<p>最新版本的 Zerto 9.5 U1 开始向更安全的 Linux 设备过渡。在第一个版本中过渡尚未完成 (sysin)，因此已经在使用 Zerto 的客户还不能迁移到 Linux。从 Windows 迁移将在即将发布的版本中提供。</p>
+<p>这个新版本还为客户门户网站、MyZerto 和 Zerto Analytics 带来了新的基于角色的访问控制 (RBAC) 和多因素身份验证 (MFA)，以及复制设备更新和对组件之间 SSH 通信的更精细控制。</p>
+<p>Zerto 的复制和备份解决方案与其他备份供应商有很大不同。它 <strong>不使用管理程序的快照</strong> 进行备份或复制。</p>
+<p><strong>Zerto 的设备 (VRA) 能够利用虚拟机的 IO 流，与传统的管理程序快照相比，不会导致开销或性能问题</strong>。它从特定 VM 捕获 IO 并将其复制到远程站点，日志系统将这些数据排序最多 30 天。</p>
+<p>Zerto 使用 Elastic Journal 允许您短期和长期保留您的虚拟机。弹性日志是一个连续的恢复点流，可从 7 秒到多年的任何时间点跨数据、文件或虚拟机进行搜索和恢复。</p>
+<h2 id="Zerto-9-5-U1-有什么新功能？">Zerto 9.5 U1 有什么新功能？</h2>
+<p>Zerto 是一款功能强大的 DR 解决方案，易于设置、测试和使用 (sysin)。您还可以使用 Zerto 在数据中心和云提供商之间迁移我们的虚拟机。</p>
+<p>免费保护 10 台虚拟机 - <strong><a target="_blank" rel="noopener" href="https://www.zerto.com/page/get-out-of-ransomware-jail">链接</a></strong>。</p>
+<ul>
+<li>
+<p>数据保护——本地持续备份和长期保留</p>
+<p><strong>增强的文件级还原体验</strong> ——您现在可以选择您的来源（期刊或存储库），选择一个时间点和要还原的虚拟机，然后浏览要还原的文件和文件夹，所有这些都来自一个统一的简化还原向导。</p>
+<p>适用于 Linux 的即时文件还原 - 您现在可以将 Linux 文件执行文件级还原到运行 Linux 的生产 VM。以前仅支持 Windows 文件和 VM 将文件还原到生产 VM。</p>
+<p>从复制中排除磁盘 - 现在可以通过 Zerto 连续数据保护将虚拟机磁盘卷从复制中排除。</p>
+</li>
+<li>
+<p>长期保留 - 存储库</p>
+<p>可以通过 REST API 创建和管理长期保留存储库。</p>
+<p><strong>新的不变性选项</strong> ——Microsoft Azure Blob 存储现在是用户直接从 Zerto 界面创建和管理不可变数据副本的目的地，以增加对修改或删除的保护。</p>
+<p>Zerto 正在扩展对第三方 S3 兼容存储的不变性的支持和管理。</p>
+<p><strong>Scratch Journal 设置</strong> - 由于 Journal 和 Scratch Journal 用于不同的目的并且有不同的要求，因此它们现在具有独立的设置。您现在可以选择专用数据存储并为暂存日志设置硬限制。</p>
+<p><strong>Zerto 登录横幅</strong> - 引入了自定义登录横幅，为组织提供可自定义的安全通知，以便在访问受限系统时提供指导。</p>
+<p><strong>恢复 VRA 弹性</strong> ——提高了在包含 VRA 的 ESXi 主机上发生硬件故障时的弹性，可以重新配置 Zerto 以继续在集群中幸存的 ESXi 主机上执行复制和数据保护任务。</p>
+<p><strong>Linux 网络管理器对 Re-IP 的</strong> 支持——为使用 bash 和网络管理器的较新版本的 Linux 添加了对 Re-IP 的支持，包括 Ubuntu、RedHat、CentOS、Debian、Suse 和 Oracle。</p>
+<p><strong>虚拟复制设备</strong> ——在 Debian 9 上运行的虚拟复制设备已升级到 Debian 11，其中包括安全合规性所需的安全补丁。</p>
+</li>
+</ul>
+<h2 id="Linux-设备常见问题解答">Linux 设备常见问题解答</h2>
+<p>由于 Linux 设备非常新，这里是 Zerto 网站的常见问题解答。</p>
+<ul>
+<li>
+<p>它是什么/正在发射什么？</p>
+<p>Zerto 正在启动一个 Zerto 虚拟管理器，它在安全的 Linux 操作系统而不是 Windows 上运行。</p>
+</li>
+<li>
+<p>我为什么在乎？</p>
+<p>Linux ZVM 允许客户最小化与 Zerto 相关的攻击面。该设备不运行其他服务，只需要公开 Zerto Web 界面。</p>
+</li>
+<li>
+<p>我该如何开始？</p>
+<p>如果您是 Zerto 的新客户，您只需下载 OVF 模板文件并通过 VMware 进行部署。对于现有客户，从 Windows 迁移到 Linux 上的 ZVM 将在即将发布的版本中提供。</p>
+</li>
+<li>
+<p>我是否需要熟悉 Linux 才能使用 Linux ZVM？</p>
+<p>Linux ZVM 不需要比 Linux vCenter Server Appliance 更多的工作。如果您熟悉 vCenter，您将能够管理 Linux ZVM。所有日常 Zerto 管理功能都通过 Web 界面实现。</p>
+</li>
+<li>
+<p>是否支持 Hyper-V？</p>
+<p>Linux ZVM 仅支持 VMware vSphere 7.0 和更新的环境。</p>
+</li>
+<li>
+<p>我可以将 Linux ZVM 与 Windows ZVM 或 Cloud ZCA 配对吗？</p>
+<p>目前不支持异构配对，但将在 Zerto 的未来版本中添加。Linux ZVM 9.5 U1 版本仅支持 Linux ZVM 到 Linux ZVM 站点配对。</p>
+</li>
+<li>
+<p>Linux ZVM 是否具有与 Windows ZVM 相同的功能？</p>
+<p>Linux ZVM 9.5 U1 版本具有部分功能。请参阅 <a target="_blank" rel="noopener" href="https://help.zerto.com/bundle/Linux.ZVM.HTML/page/Content/Intro/Book_in_Portal_-_Prerequisite_for_ZVM_Linux.htm">Linux 上的 ZVM：要求、支持的功能和配置</a>。</p>
+</li>
+</ul>
+<p>ESX 虚拟化博客上有关 Zerto 的更多信息</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.vladan.fr/zerto-virtual-replication-9-adds-immutability-and-instant-restore-from-long-term-retention-repository/">Zerto Virtual Replication 9 增加了从长期保留存储库中的不变性和即时还原</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.vladan.fr/zerto-7-5-with-elastic-journal-and-long-term-retention-restore-a-vm-20-years-old/">Zerto Elastic Journal 和长期保留 - 恢复 20 年前的虚拟机？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.vladan.fr/zerto-8-5-new-release-with-kubernetes-support/">支持 Kubernetes 的 Zerto 8.5 新版本</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.vladan.fr/what-is-zerto-elastic-journal/">什么是 Zerto 弹性期刊？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.vladan.fr/zerto-7-intelligent-index-and-search-capabilities/">Zerto 智能索引和搜索功能</a></li>
+</ul>
+<h2 id="保护您的所有数据。所有的时间">保护您的所有数据。所有的时间</h2>
+<p>一种针对本地和云的灾难恢复、备份和数据移动性的持续软件体验</p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-b51815179901fa171de88358f004fb98-105x38x0x0x105x38x1612401744.png" alt="sysin"></p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-8eef796a6507608bddfe31644612ab56-120x34x0x0x120x34x1612401744.png" alt="sysin"></p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-232677f43bea7a9b74be1826011892a3-123x27x0x0x123x27x1612401744.png" alt="sysin"></p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-bf05083bf746226b9e718b95c8a9233d-112x22x0x0x112x22x1612401744.png" alt="sysin"></p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-be71de9ab7c161745858e776bf37b5a4-113x36x0x0x113x36x1612401745.png" alt="sysin"></p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-39e9cff03350c3437a7fe2a0f72a9c3c-132x24x0x0x131x24x1612401745.png" alt="sysin"></p>
+<ul>
+<li>Zerto 在行动：用于 DR 和迁移的 CDP 技术概述</li>
+</ul>
+<p>在这个点播会议中， 深入了解 Zerto 的工作原理及其独特的功能，例如 CDP、日志技术等等！</p>
+<ul>
+<li>ESG：勒索软件防范的漫漫长路</li>
+</ul>
+<p>了解公司需要如何超越预防技术并着眼于更全面的备份保护。</p>
+<ul>
+<li>Zerto 发布：多云世界中的勒索软件恢复</li>
+</ul>
+<p><strong>新的！</strong> Zerto 通过恢复、安全和多平台支持的关键增强功能，将勒索软件的弹性提升到一个新的水平。在几分钟内大规模恢复。</p>
+<h2 id="让-IT-生活更轻松">让 IT 生活更轻松</h2>
+<p>自动化灾难恢复、备份和数据移动性，帮助您实现 IT 目标。</p>
+<ul>
+<li>
+<p>停机会给您造成多少损失？</p>
+</li>
+<li>
+<p>你能省多少钱？</p>
+</li>
+</ul>
+<p>时间</p>
+<p><strong>消除</strong> 恢复、迁移、故障转移和测试的手动流程。<strong>加快</strong> 您的 IT 计划并专注于业务需求。</p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-91432d2b0c7145fea62f5946a31cc16c-339x62x0x0x339x62x1612401746.png" alt="sysin"></p>
+<p>资源</p>
+<p><strong>自动化</strong> 和 <strong>简化</strong> 备份、灾难恢复和迁移操作， <strong>腾出时间</strong> 专注于组织的下一步工作。</p>
+<p>成本</p>
+<p><strong>整合</strong> 使用单一的纯软件平台 <strong>节省</strong> 高达 50% 的 TCO，最大限度地减少对硬件的需求，并轻松采用经济高效的云。</p>
+<h2 id="Zerto-平台：消除数据丢失和停机时间">Zerto 平台：消除数据丢失和停机时间</h2>
+<p>持续大规模地保护、移动和恢复企业应用程序和数据到任何云、从任何云中迁移和恢复。</p>
+<ul>
+<li>
+<p>持续数据保护</p>
+<p>最快的 RPO 和 RTO，具有永远在线的复制、应用程序恢复和基于日志的恢复。没有更多的快照。</p>
+</li>
+<li>
+<p>编排与自动化</p>
+<p>只需单击几下即可进行故障转移、移动和测试，而不会影响生产。自动化测试和合规性报告，并执行无缝迁移。</p>
+</li>
+<li>
+<p>分析</p>
+<p>为工作负载规划获得强大的监控和可见性。自信地监控恢复 SLA，同时预测未来对另一个站点或云的基础架构需求。</p>
+</li>
+</ul>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/HP_Homepage_GUI-920x940x0x0x920x940x1627922157.png" alt="sysin"></p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/Pills-easy-setup-252x47x0x1x252x46x1621258264.png" alt="sysin"></p>
+<h2 id="大规模的简单性">大规模的简单性</h2>
+<p>通过跨本地和云的一种体验和界面轻松实施、部署和管理数千个虚拟机。</p>
+<p>与关键平台集成</p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-93c599a1cc35ed10ce7ac13d6cd3e469-347x161x0x1x347x158x1612401750.png" alt="sysin"></p>
+<ul>
+<li>与您现有的基础设施轻松集成</li>
+</ul>
+<p>灵活地适应任何基础设施 <strong>纯软件方法</strong>。没有 <strong>供应商锁定</strong>，也不需要额外的硬件或设备。</p>
+<ul>
+<li>自动化、无中断</li>
+</ul>
+<p><strong>无中断</strong> DR 测试，并提供现成的 <strong>合规性</strong> 报告。</p>
+<ul>
+<li>私有云、混合云和多云</li>
+</ul>
+<p><strong>扩展</strong> 构建的 <strong>企业</strong> 架构具有无缝的基础架构移动性和自动化配置，旨在 <strong>最大限度地提高可用性</strong> 并最大限度地减少数据丢失。</p>
+<p>一个平台，多个用例</p>
+<p>灾难恢复、备份、数据移动和迁移。此外，Zerto 的平台在数据中心整合、云迁移和通过按需测试和开发沙箱重用数据方面是一流的。</p>
+<p>98%</p>
+<p>恢复时间的改善</p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-05f08883610465f0e425329c736e1d09-126x38x0x0x126x38x1612401752.png" alt="sysin"></p>
+<p>5分钟</p>
+<p>全面系统恢复</p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/Grey-County-111x49x0x0x111x49x1614048524.png" alt="sysin"></p>
+<p>50%</p>
+<p>节约成本</p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/MicrosoftTeams-image-56-170x42x0x0x170x41x1629757573.png" alt="sysin"></p>
+<p>50%</p>
+<p>减少 DR 测试的时间</p>
+<p><img src="https://www.zerto.com/wp-content/uploads/brizy/imgs/wp-bf05083bf746226b9e718b95c8a9233d-139x27x1x0x137x27x1612401744.png" alt="sysin"></p>
+<h2 id="下载地址-584">下载地址</h2>
+<blockquote>
+<p>官网当前提供的下载仍然是 Windows 解决方案，我们期待 Zerto 10 的发布，全面拥抱 Linux。</p>
+</blockquote>
+<p>Zerto 9.5</p>
+<p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1LnFZKwK-nWFSY7EtiZRmgQ?pwd=6tph">https://pan.baidu.com/s/1LnFZKwK-nWFSY7EtiZRmgQ?pwd=6tph</a></p>
+<p>已更新：<a href="/blog/zerto-10/" title="Zerto 10.0 U4 - 适用于本地、混合和多云环境的灾难恢复和数据保护">Zerto 10.0 U4 - 适用于本地、混合和多云环境的灾难恢复和数据保护</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/cisco-acisim-5/" data-toggle="tooltip" data-placement="top" title="Cisco ACI Simulator 5.2(5c) - ACI 模拟器">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/xiyouji/" data-toggle="tooltip" data-placement="top" title="86 版《西游记》25集 全集 4K 超高清修复版下载">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/zerto-9/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Zerto-9-5-U1-%E6%9C%89%E4%BB%80%E4%B9%88%E6%96%B0%E5%8A%9F%E8%83%BD%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Zerto 9.5 U1 有什么新功能？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-%E8%AE%BE%E5%A4%87%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Linux 设备常见问题解答</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BF%9D%E6%8A%A4%E6%82%A8%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E3%80%82%E6%89%80%E6%9C%89%E7%9A%84%E6%97%B6%E9%97%B4"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">保护您的所有数据。所有的时间</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%AE%A9-IT-%E7%94%9F%E6%B4%BB%E6%9B%B4%E8%BD%BB%E6%9D%BE"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">让 IT 生活更轻松</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Zerto-%E5%B9%B3%E5%8F%B0%EF%BC%9A%E6%B6%88%E9%99%A4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E5%92%8C%E5%81%9C%E6%9C%BA%E6%97%B6%E9%97%B4"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Zerto 平台：消除数据丢失和停机时间</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%A7"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">大规模的简单性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-584"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#Backup" title="Backup">Backup</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Sophos Firewall OS (SFOS) v20 MR2 发布 - 新增备份和恢复助手 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Sophos Firewall OS (SFOS) v20 MR2 发布 - 新增备份和恢复助手 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Sophos Firewall OS (SFOS) v20 MR2 发布 - 新增备份和恢复助手 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/sfos-20/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#OVF" title="OVF">OVF</a>
+              
+              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+              
+              <a class="tag" href="/tags/#Sophos" title="Sophos">Sophos</a>
+              
+              <a class="tag" href="/tags/#SFOS" title="SFOS">SFOS</a>
+              
+            </div>
+            <h1>Sophos Firewall OS (SFOS) v20 MR2 发布 - 新增备份和恢复助手</h1>
+            <h2 class="subheading">设备 • 云 • 虚拟</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-07-25
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">11</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.2k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Thu Jul 25 2024 08:10:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/sfos-20/" title="Sophos Firewall OS (SFOS) v20 MR2 发布 - 新增备份和恢复助手">Sophos Firewall OS (SFOS) v20 MR2 发布 - 新增备份和恢复助手</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>2024 年 7 月 23 日，Sophos Firewall OS v20 MR2 现已发布！</p>
+<p>Sophos Firewall v20 MR2 包括重要的增强功能，例如令人兴奋的新备份和恢复助手、Active Directory SSO 改进以及 Web 保护优化。<br>
+新的备份和恢复助手</p>
+<p>新的 Sophos Firewall 备份和恢复助手可以通过灵活的接口映射选项在不同的防火墙设备上轻松恢复防火墙配置备份 (sysin)。这使得将 Sophos Firewall XG 系列升级到 XGS 系列、将任何 XGS 系列型号升级到任何其他 XGS 系列型号、甚至在软件或虚拟设备之间迁移变得轻松。这也意味着您可以轻松地将接口迁移到新的或升级的防火墙上的更高速端口。</p>
+<p>您还可以发挥创意，从虚拟设备导出配置模板，然后在多个硬件或虚拟部署上恢复它，以简化重复配置。</p>
+<p>Sophos Firewall v20 MR2 的其他增强功能：</p>
+<ul>
+<li>Active Directory 单点登录添加了对通过 HTTP 或 HTTPS 执行 Kerberos/NTLM 握手的支持，以便在强制执行 HSTS 时提供更透明的 SSO 体验。</li>
+<li>Active Directory 单点登录现在为高可用性故障转移情况提供了改进的支持。</li>
+<li>通过减少实施安全搜索、YouTube 限制、Google App 登录域或 Azure AD 租户限制时的系统负载，增强了 Web 保护性能</li>
+<li>Web Protection 密码自定义现在使您能够在密码兼容性、安全性和审核合规性之间实现网络的最佳平衡</li>
+</ul>
+<p>解决了 45 多个重要的性能、可靠性、稳定性和安全修复。不再赘述，详见官方发行说明。</p>
+<p>2024 年 5 月 15 日，Sophos Firewall OS v20 MR1 现已发布！</p>
+<p>新增内容一览：</p>
+<p>防火墙安全和访问：</p>
+<ul>
+<li>设备访问更新可以更精细地控制 WAN 上可访问的服务，从而改善防火墙的安全状况（更多详细信息请参见下文）</li>
+<li>添加到本地 ACL 例外列表的新服务：AD SSO、强制门户、RADIUS SSO、客户端身份验证、Chromebook、无线、SMTP、RED 和 IPsec</li>
+<li>通过支持 FQDN 主机、主机组和 MAC 地址 (sysin)，增加了访问规则例外的灵活性</li>
+</ul>
+<p>OpenVPN 升级至 v2.6.0：</p>
+<ul>
+<li>Sophos Firewall 中的 OpenVPN 模块已升级至 v2.6.0，以增强 SSL VPN 的安全性和性能。</li>
+</ul>
+<p>SD-WAN 和 VPN 增强功能：</p>
+<ul>
+<li>在 HA 故障转移和设备重启事件期间，网关可用性时间缩短了 4 倍，从而将 SD-WAN 的流量中断降至最低</li>
+<li>远程访问 SSL VPN 现在提供 OpenVPN 3.0 客户端供用户从 VPN 门户下载</li>
+<li>IPsec Phase-1 IKEv2 支持 GCM 和 suite-B 密码，提供更好的互操作性和吞吐量</li>
+<li>DHCP Busybox 改进，默认租用时间为 30 秒 (sysin)，可消除 WAN 断开问题</li>
+</ul>
+<p>零接触部署：</p>
+<ul>
+<li>现在可以通过 Sophos Central 实现新防火墙的真正零接触部署，无需现场使用 USB 密钥资源（更多关于如何使用的信息请参见下文）</li>
+</ul>
+<p>其他增强功能：</p>
+<ul>
+<li>新的生成式人工智能助手可帮助您进行防火墙管理（请参见下面的示例）</li>
+<li>登录时根据浏览器语言选择自动检测本地化语言</li>
+<li>新的调试文件下载选项</li>
+<li>IP、MAC、FQDN 和服务对象的新描述字段</li>
+<li>改进的 IPv6 DHCP-PD 前缀更新</li>
+<li>新的 CLI 选项可在“任何”匹配条件的情况下绕过来自 IPsec 站点到站点 VPN 的系统生成的流量</li>
+<li>更新了新的 OpenVPN v2.6.0 和 StrongSwan v5.9.11</li>
+</ul>
+<p><img src="https://www.sophos.com/sites/default/files/styles/convert_webp/public/2023-10/firewall-appliance.png.webp" alt="Sophos firewall appliance"></p>
+<p>Sophos Firewall v20 (November 06, 2023) 现已推出。</p>
+<h2 id="SFOS-v20-新增功能">SFOS v20 新增功能</h2>
+<p>Sophos Firewall v20 现已推出，具有创新的主动威胁响应功能、多项网络增强功能、对保护远程员工安全的附加支持以及许多您最需要的功能。</p>
+<h3 id="主动威胁响应："><strong>主动威胁响应：</strong></h3>
+<ul>
+<li><strong>将同步安全性扩展到 MDR 和 XDR 为</strong> 安全分析师提供了与防火墙共享活动威胁信息的直接源，使其能够自动响应活动威胁，而无需创建任何防火墙规则。</li>
+<li><strong>动态威胁源</strong> 引入了易于扩展的新威胁源 API 框架。它使 Sophos X-Ops 团队、其他 Sophos 产品（例如 MDR 和 XDR），并在将来提供第三方威胁源 (sysin)。</li>
+<li><strong>Synchronized Security</strong> 现在将 Sophos Firewall 一贯具有的红色心跳自动响应功能扩展到 MDR/XDR 识别的威胁，以确保受感染的主机无法横向移动或向外通信，同时随时可以获得包括主机、用户和进程在内的详细信息以便后续跟进。同步安全性也得到了增强，增加了可扩展性，并减少了处于睡眠或休眠状态的设备的错误丢失心跳。</li>
+</ul>
+<p><img src="https://community.sophos.com/resized-image/__size/1600x900/__key/communityserver-blogs-components-weblogfiles/00-00-00-00-06/3276.pastedimage1699255716569v1.png" alt=" "></p>
+<p>观看 <strong><a target="_blank" rel="noopener" href="https://techvids.sophos.com/watch/kysi9dTRDCRHuPFgPi2AEr">主动威胁响应演示视频</a></strong>。</p>
+<h3 id="远程工作人员保护和-SASE："><strong>远程工作人员保护和 SASE：</strong></h3>
+<ul>
+<li><strong>ZTNA 网关集成</strong> 通过将 ZTNA 网关直接集成到防火墙中，使 ZTNA 部署变得更加容易。这意味着任何需要对防火墙后面托管的应用程序进行远程访问的组织都不需要在虚拟机上部署单独的网关，他们只需利用集成到防火墙中的网关即可。当与我们在远程设备上的单代理部署相结合时 (sysin)，ZTNA 不可能变得更加容易 - 它实际上是零接触零信任。</li>
+</ul>
+<p><img src="https://community.sophos.com/resized-image/__size/600x300/__key/communityserver-blogs-components-weblogfiles/00-00-00-00-06/5707.pastedimage1699255897667v3.png" alt="Sophos"></p>
+<ul>
+<li><strong>于第三方 SD-WAN 集成</strong> ，可以轻松将 SD-WAN 流量导入 Cloudflare、Akami 或 Azure 主干网络，以利用其庞大的基础设施、覆盖范围以及网络和安全服务。</li>
+<li><strong>Sophos DNS Protection</strong> 是我们新的云交付 Web 安全服务，很快将在早期访问中单独提供。它提供了新的 Sophos 托管域名解析服务 (DNS)，并具有 Sophos Firewall 完全支持的合规性和安全功能。该服务提供了额外的网络保护层，防止跨所有端口、协议或应用程序（未加密和加密）访问已知的受感染或恶意域。有关这项新服务的更多消息即将推出。</li>
+</ul>
+<h3 id="网络可扩展性和弹性增强："><strong>网络可扩展性和弹性增强：</strong></h3>
+<ul>
+<li><strong>新的 VPN 门户</strong> 提供了一个新的容器化、强化的自助服务门户，供最终用户下载 VPN 客户端和配置、自动配置和无客户端 VPN 书签。</li>
+</ul>
+<p><img src="https://community.sophos.com/resized-image/__size/1100x700/__key/communityserver-blogs-components-weblogfiles/00-00-00-00-06/5516.pastedimage1699256020642v4.png" alt="Sophos"></p>
+<ul>
+<li><strong>IPsec 增强功能</strong> 包括无缝 HA 故障转移、通过 SNMP 进行隧道状态监控、对相同本地和远程网关连接的独特 PSK 支持以及 DH Group 27-30 / RFC6954 支持。</li>
+<li><strong>SSL VPN 增强功能</strong> 包括对远程访问和站点到站点 SSL VPN 的 FQDN（完全限定域名）主机和组支持。</li>
+<li><strong>SD-WAN 可扩展性</strong> 将 SD-WAN 网关可扩展性提高了 3 倍 (sysin)，网关数量达到 3072 个，SD-WAN 配置文件数量增加到 1024 个。</li>
+<li><strong>IPv6 增强功能</strong> 包括 DHCP 前缀委派，可与您的 ISP 无缝集成，动态路由引擎的新增强功能现在支持 BGPv6，以改进 IPv6 互操作性。</li>
+</ul>
+<p>功能的视频概述 **<a target="_blank" rel="noopener" href="https://techvids.sophos.com/watch/bgUdBHwMBFLt8KnwgcFr7u">观看有关VPN 增强功能</a>**或 IPv6 **<a target="_blank" rel="noopener" href="https://techvids.sophos.com/watch/MoKbV1ZiLPBRFACaaeJSRs">BGPv6</a>**和 <strong><a target="_blank" rel="noopener" href="https://techvids.sophos.com/watch/LvQPWE7moUZJUHrXyF7Nhp">DHCP 前缀委派</a></strong>。</p>
+<h3 id="简化管理："><strong>简化管理：</strong></h3>
+<ul>
+<li><strong>接口启用/禁用</strong> 提供了一项最受欢迎的功能，可以轻松禁用或启用防火墙上的网络接口，而不会丢失任何配置。</li>
+<li><strong>对象引用查找</strong> 解决了另一个需求最高的功能，即查找给定主机或服务对象在规则、策略和路由中的使用位置。</li>
+<li><strong>高分辨率显示支持</strong> 为管理控制台增加了更高的水平可扩展性 (sysin)，以利用高分辨率显示器来减少水平滚动。</li>
+<li><strong>失败的固件更新自动回滚</strong> 可减少任何中断，包括高可用性部署。</li>
+<li><strong>备份和恢复</strong> 现在包括将备份从具有集成 Wi-Fi 的防火墙恢复到不带 Wi-Fi 的防火墙的选项。</li>
+<li><strong>适用于强制门户的 Azure AD SSO</strong> 添加了对使用 Azure AD 凭据在强制门户上进行用户身份验证的支持。</li>
+<li><strong>Azure 组导入和 RBAC</strong> 添加了对 Azure AD 组的新导入助手的支持以及对基于角色的管理更改的自动升级的支持。</li>
+</ul>
+<p>观看涵盖新 **<a target="_blank" rel="noopener" href="https://techvids.sophos.com/watch/daqv8rRYvfwJUYvzssjCkJ">管理功能和生活质量增强</a>**以及 <strong><a target="_blank" rel="noopener" href="https://techvids.sophos.com/watch/ZRfL8d1UXgJw6idbsSjn1k">Azure AD 功能的视频</a></strong></p>
+<h3 id="其他增强功能"><strong>其他增强功能</strong></h3>
+<ul>
+<li><strong>Web 应用程序防火墙 (WAF) 增强功能</strong> 包括地理 IP 策略实施、自定义密码配置和 TLS 版本设置，以及通过 HSTS 实施和 X-Content-Type-Options 实施提高安全性。</li>
+<li><strong>Azure 单臂部署支持</strong> 允许选择较小的实例大小，以节省基础设施成本并降低网络和操作复杂性。</li>
+</ul>
+<h2 id="强大的防护和性能-3">强大的防护和性能</h2>
+<p>设备 • 云 • 虚拟</p>
+<p><img src="https://www.sophos.com/sites/default/files/2022-03/firewall-xstream-banner.png" alt="sysin"></p>
+<h3 id="Xstream-防护-3">Xstream 防护</h3>
+<p>Sophos Firewall 的 Xstream 架构保护您的网络免受最新威胁，同时加快重要的 SaaS、SD-WAN 和云应用程序传输的速度。</p>
+<p><img src="https://www.sophos.com/sites/default/files/2021-10/xstream-technology.png" alt="sysin"></p>
+<ul>
+<li>
+<p>TLS 1.3 解密</p>
+<p>通过快速有效的智能 TLS 检查消除一个巨大盲点，支持最新标准提供丰富的例外和指向单击政策工具，方便您工作。</p>
+</li>
+<li>
+<p>深度数据包检查</p>
+<p>通过高性能流深度数据包检查阻止最新勒索软件和外泄，包括下一代 IPS、Web 防护和应用程序控制 (sysin)，以及 SophosLabs Intelix 支持的深度学习和沙箱。</p>
+</li>
+<li>
+<p>应用程序加速</p>
+<p>自动或通过您自己的政策加速您的 SaaS、SD-WAN 和云流量，如 VoIP、视频和其他受信任应用程序，放在 Xstream FastPath 上优化性能。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.sophos.com/zh-cn/products/next-gen-firewall/features">查看所有功能</a></p>
+<h3 id="Xstream-SD-WAN-2">Xstream SD-WAN</h3>
+<p>Sophos Firewall 的最新 SD-WAN 功能实现极佳网络性能、灵活性和弹性。</p>
+<ul>
+<li>
+<p>Xstream FastPath 加速</p>
+<p>加速 SD-WAN IPsec VPN 隧道流量，充分发挥 XGS Series 设备的硬件加密功能。</p>
+</li>
+<li>
+<p>基于性能的路由</p>
+<p>根据 WAN 链路性能（延迟、抖动、损失）实时优化流量的路由和重新路由，不造成任何影响。</p>
+</li>
+<li>
+<p>指向单击协作</p>
+<p>只需单击几次，轻松设置最复杂的辐射或全网格 SD-WAN 重叠网络，具有完整隧道冗余。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.sophos.com/zh-cn/products/next-gen-firewall/sd-wan">了解更多</a></p>
+<h3 id="强大性能-3">强大性能</h3>
+<p><img src="https://www.sophos.com/sites/default/files/2021-08/powerful-performance.png" alt="sysin"></p>
+<p>XGS 系列在所有价位提供 Xstream 性能，实现现代多样性、分布式和加密网络需要的防护 (sysin)。</p>
+<ul>
+<li>
+<p>Xstream 支持</p>
+<p>在硬件层面加速和卸荷重要 SaaS、SD-WAN 和云流量，通过集成的 Xstream Flow 处理器增加 TLS 和深度数据包检查的性能空间。</p>
+</li>
+<li>
+<p><strong>高速连接性</strong></p>
+<p>通过用于高速铜线、光纤、Power over Ethernet (PoE) 和 Wi-Fi 的丰富附加模块，定制防火墙已有的各种连接选项。</p>
+</li>
+<li>
+<p><strong>专门打造的性能</strong></p>
+<p>请放心，您的防火墙专门打造，包括核心的双处理器架构以处理要求最高工作，丰富内存配置，高性能固态存储。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.sophos.com/zh-cn/products/next-gen-firewall/tech-specs">型号对比</a></p>
+<h3 id="了解工作方式-2">了解工作方式</h3>
+<p><img src="https://www.sophos.com/sites/default/files/styles/popover/public/2021-12/video-thumb-how-it-works-1.png?itok=T0gRtd_T" alt="How it works Sophos Firewall"></p>
+<p><a target="_blank" rel="noopener" href="https://player.vimeo.com/video/144094496?portrait=0">Sophos Firewall - How it Works=</a></p>
+<h3 id="集中式云管理-2">集中式云管理</h3>
+<p>Sophos Central - 终极网络安全云管理平台。免费简单。</p>
+<ul>
+<li>
+<p>一个控制台管理全部内容</p>
+<p>Sophos Central 为所有 Sophos 产品提供一个云管理控制台，免费提供组防火墙管理 (sysin)。</p>
+</li>
+<li>
+<p>云报告</p>
+<p>Sophos Central 在云端维护防火墙日志数据，提供灵活报告工具，支持您分析并显示一段时间的网络情况。</p>
+</li>
+<li>
+<p>零接触部署</p>
+<p>Sophos Central 支持您从 Sophos Central 轻松部署新的 Sophos Firewall 设备，无需接触。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.sophos.com/zh-cn/products/next-gen-firewall/ecosystem-central">更多了解 Sophos Central</a></p>
+<p><a target="_blank" rel="noopener" href="https://player.vimeo.com/video/476040265?width=800&amp;height=450&amp;iframe=true&amp;portrait=0">观看影片</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.sophos.com/zh-cn/products/next-gen-firewall/free-trial">免费试用</a></p>
+<h2 id="下载地址-354">下载地址</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Download links for firmware and installers</th>
+<th>File information- -</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">- - -<strong>Hardware Devices</strong>- - -</td>
+<td>- - - - - -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - - - - - - - -</td>
+<td>ISO Installer- - -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - -XGS Series- - - -</td>
+<td>HW-20.0.0_GA-222.iso-</td>
+</tr>
+<tr>
+<td style="text-align:center">- -<strong>Virtual Appliances</strong>- -</td>
+<td>- - - - - -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - - - - - - - -</td>
+<td>Virtual Installer- -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - VMware - - - -</td>
+<td>VI-20.0.0_GA.VMW-222.zip</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - Hyper-V - - - -</td>
+<td>VI-20.0.0_GA.HYV-222.zip</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - - KVM - - - - -</td>
+<td>VI-20.0.0_GA.KVM-222.zip</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - - Xen - - - - -</td>
+<td>VI-20.0.0_GA.XEN-222.zip</td>
+</tr>
+<tr>
+<td style="text-align:center">- -<strong>Software Appliances</strong>- -</td>
+<td>- - - - - -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - - - - - - - -</td>
+<td>ISO Installer- - -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - -Software Appliance- - -</td>
+<td>SW-20.0.0_GA-222.iso-</td>
+</tr>
+<tr>
+<td style="text-align:center">-<strong>Appliances on AWS and Azure</strong>-</td>
+<td>- - - - - -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - - - - - - - -</td>
+<td>Firmware upgrade file-</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - - AWS - - - - -</td>
+<td>N/A- - - - -</td>
+</tr>
+<tr>
+<td style="text-align:center">- - - - Azure - - - - -</td>
+<td>N/A- - - - -</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sophos Firewall OS (SFOS) 20.0 GA</strong>：</p>
+<ul>
+<li>百度网盘链接：<code>[EoD]</code></li>
+</ul>
+<p><strong>Sophos Firewall OS (SFOS) 20.0 MR1</strong>：</p>
+<ul>
+<li>百度网盘链接：<code>[EoD]</code></li>
+</ul>
+<p><strong>Sophos Firewall OS (SFOS) 20.0 MR2</strong>：</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/18m7eNzXNXR7r2p3StWdCXQ?pwd=?">https://pan.baidu.com/s/18m7eNzXNXR7r2p3StWdCXQ?pwd=?</a>&lt;专享&gt;</li>
+<li>通过捐赠下载此版本：点击 💙<a href="https://sysin.org/img/alipay18.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay18.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言指定版本（默认当前最新版）</code>。</li>
+</ul>
+<p>更多：<a href="/blog/firewall/" title="Firewall 产品链接汇总">Firewall 产品链接汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/mac-os-x-lion/" data-toggle="tooltip" data-placement="top" title="Mac OS X Lion 10.7.5 (11G63) Boot ISO 原版可引导镜像">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/vmware-cloud-foundation-5/" data-toggle="tooltip" data-placement="top" title="VMware Cloud Foundation 5.2 - 领先的多云平台">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/sfos-20/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SFOS-v20-%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">SFOS v20 新增功能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BB%E5%8A%A8%E5%A8%81%E8%83%81%E5%93%8D%E5%BA%94%EF%BC%9A"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">主动威胁响应：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E4%BA%BA%E5%91%98%E4%BF%9D%E6%8A%A4%E5%92%8C-SASE%EF%BC%9A"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">远程工作人员保护和 SASE：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7%E5%92%8C%E5%BC%B9%E6%80%A7%E5%A2%9E%E5%BC%BA%EF%BC%9A"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">网络可扩展性和弹性增强：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%AE%80%E5%8C%96%E7%AE%A1%E7%90%86%EF%BC%9A"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">简化管理：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">其他增强功能</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BC%BA%E5%A4%A7%E7%9A%84%E9%98%B2%E6%8A%A4%E5%92%8C%E6%80%A7%E8%83%BD-3"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">强大的防护和性能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Xstream-%E9%98%B2%E6%8A%A4-3"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Xstream 防护</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Xstream-SD-WAN-2"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Xstream SD-WAN</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%BC%BA%E5%A4%A7%E6%80%A7%E8%83%BD-3"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">强大性能</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%86%E8%A7%A3%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F-2"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">了解工作方式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E4%BA%91%E7%AE%A1%E7%90%86-2"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">集中式云管理</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-354"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#OVF" title="OVF">OVF</a>
+            
+            <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+            
+            <a class="tag" href="/tags/#Sophos" title="Sophos">Sophos</a>
+            
+            <a class="tag" href="/tags/#SFOS" title="SFOS">SFOS</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

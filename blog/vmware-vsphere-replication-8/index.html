@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> VMware vSphere Replication 8.8 Update 3 - 虚拟机复制和数据保护 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware vSphere Replication 8.8 Update 3 - 虚拟机复制和数据保护 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" VMware vSphere Replication 8.8 Update 3 - 虚拟机复制和数据保护 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/vmware-vsphere-replication-8/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#Backup" title="Backup">Backup</a>
+              
+              <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+              
+            </div>
+            <h1>VMware vSphere Replication 8.8 Update 3 - 虚拟机复制和数据保护</h1>
+            <h2 class="subheading">vSphere Replication 8.8.0.3</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-02-09
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">13</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.2k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Fri Feb 09 2024 09:06:30 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/vmware-vsphere-replication-8/" title="VMware vSphere Replication 8.8 Update 3 - 虚拟机复制和数据保护">VMware vSphere Replication 8.8 Update 3 - 虚拟机复制和数据保护</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<h2 id="新增功能-60">新增功能</h2>
+<p>vSphere Replication 8.8.0.3 | 08 FEB 2024 | Build 23263438</p>
+<ul>
+<li>Updated VMware Postgres to version 14.10</li>
+<li>Updated the Tomcat server to version 9.0</li>
+</ul>
+<p>vSphere Replication 8.8.0.2 | 21 NOV 2023 | Build 22780283</p>
+<ul>
+<li>VMware vSphere Replication 8.8.0.2 Express Patch provides security and bug fixes.</li>
+<li>FIPS compliance for Site Recovery user interface and vSphere Client plug-in.</li>
+</ul>
+<p>vSphere Replication 8.8.0.1 | 17 OCT 2023 | Build 22602641</p>
+<ul>
+<li>Resolved Issues: Upgrade to vSphere Replication 8.8 fails with an error</li>
+</ul>
+<p>vSphere Replication 8.8 | 21 SEP 2023 | Build 22436165</p>
+<ul>
+<li>VMware vSphere Replication 8.8 与 VMware vSphere 8.0 Update 2 兼容。</li>
+</ul>
+<p>vSphere Replication 8.7.0.3 | 05 SEP 2023 | Build 22359474</p>
+<p>vSphere Replication 8.7 | 2023 年 4 月 18 日 | 内部版本 21591677</p>
+<p>vSphere Replication 配置导入/导出工具 8.7 | 2023 年 4 月 18 日 | 内部版本 21403189</p>
+<ul>
+<li>
+<p>VMware vSphere Replication 8.7 与 VMware vSphere 8.0 Update 1 兼容。</p>
+</li>
+<li>
+<p>数据网格用户界面增强功能：</p>
+<ul>
+<li>基于切换控件，每页显示更多的对象行。可灵活选择要显示的最大记录数。</li>
+<li>增加了根据数据自动调整列的选项。</li>
+<li>能够记住列大小调整。</li>
+</ul>
+</li>
+<li>
+<p>基于 ESXi 主机标记将 ESXi 主机排除在注册之外。</p>
+</li>
+<li>
+<p>从复制中排除磁盘时，在复制重新配置向导中增加了用于保留副本基础磁盘的选项。</p>
+</li>
+<li>
+<p>数据存储集群作为复制的目标。</p>
+</li>
+<li>
+<p>新增了用于配置 vSphere Replication 的 REST API。</p>
+<p>有关详细信息，请参见<a target="_blank" rel="noopener" href="https://core.vmware.com/blog/site-recovery-manager-rest-api-resource-page">博客</a>。</p>
+</li>
+<li>
+<p>新增了用于通过 VRMS 设备管理界面启动或重新启动 syslog 服务的选项。</p>
+</li>
+<li>
+<p>VMware Aria Operations Management Pack for vSphere Replication 8.7。有关该管理包的信息，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/vSphere-Replication/8.7/rn/vmware-aria-operations-management-pack-for-vsphere-replication-87-release-notes/index.html">VMware Aria Operations Management Pack for vSphere Replication 8.7 发行说明</a>。</p>
+</li>
+<li>
+<p>适用于 vSphere Replication 8.7 的 VMware Aria Automation Orchestrator Plug-In。有关新工作流的信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/vSphere-Replication/8.7/rn/vmware-aria-automation-orchestrator-plugin-for-vsphere-replication-87-release-notes/index.html">适用于 vSphere Replication 8.7 的 VMware Aria Automation Orchestrator Plug-In 发行说明</a>。</p>
+</li>
+</ul>
+<p>有关与 VMware vSphere 早期版本或更高版本的互操作性，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/vSphere-Replication/8.7/rn/vsphere-replication-compat-matrix-8-7.html">vSphere Replication 8.7 兼容性列表</a>。</p>
+<p>有关 vSphere 8.0 Update 1 功能的信息，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-vSphere/index.html">vSphere 8.0 Update 1 文档</a>。</p>
+<hr>
+<p>vSphere Replication 8.6 | 11 OCT 2022 | Build 20555483</p>
+<p>vSphere Replication Configuration Import/Export Tool 8.6 | 11 OCT 2022 | Build 20142180</p>
+<ul>
+<li>
+<p>VMware vSphere Replication 8.6 与 VMware vSphere 8.0 兼容。</p>
+</li>
+<li>
+<p>vSphere Replication 8.6 可以复制 vSAN Express Storage 数据存储上的虚拟机。</p>
+</li>
+<li>
+<p>vSphere Replication 8.6 可以复制数据集文件。</p>
+</li>
+<li>
+<p>vSphere Replication 8.6 可针对每个具有 vSphere 8.0 及更高版本和 VMware Cloud on AWS SDDC 1.20 版及更高版本的 vCenter Server 实例最多支持 4000 个复制虚拟机。</p>
+</li>
+<li>
+<p>vSphere Replication REST API 为 vSphere Replication 引入了端到端自动化：</p>
+<ul>
+<li>
+<p>配置和重新配置复制。</p>
+</li>
+<li>
+<p>用于监控复制、配对和状态的 REST API。</p>
+</li>
+<li>
+<p>能够管理 vSphere Replication - 启动/停止/暂停/恢复/删除，可选择保留副本磁盘。</p>
+</li>
+<li>
+<p>用于配置和管理 vSphere Replication 设备的全套 REST API。</p>
+<p>有关详细信息，请参见<a target="_blank" rel="noopener" href="https://core.vmware.com/blog/vsphere-replication-rest-api-resource-page">博客</a>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>vRealize Operations Management Pack for VMware vSphere Replication 8.6。有关管理包的信息，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/vSphere-Replication/8.6/rn/vmware-vrealize-operations-management-pack-for-vsphere-replication-86-release-notes/index.html">VMware vRealize Operations Management Pack for VMware vSphere Replication 8.6 发行说明</a>。</p>
+</li>
+<li>
+<p>适用于 VMware vSphere Replication 8.6 的 vRealize Orchestrator Plug-In。有关新工作流的信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/vSphere-Replication/8.6/rn/vmware-vrealize-orchestrator-plugin-for-vsphere-replication-86-release-notes/index.html">《适用于 VMware vSphere Replication 8.6 的 VMware vRealize Orchestrator Plug-In 发行说明》</a>。</p>
+</li>
+</ul>
+<hr>
+<p>VMware vSphere Replication 8.5.0.5 | 2022 年 8 月 16 日 | 内部版本 20268794</p>
+<p>VMware vSphere Replication 8.5.0.5 是次要产品修补程序版本，提供了重要的安全修复。<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/vSphere-Replication/8.5/rn/vsphere-replication-85-release-notes.html">VMware vSphere Replication 8.5 发行说明</a>和所有后续 8.5.0.x 修补程序发行说明的内容也适用于此版本。</p>
+<p>VMware vSphere Replication 8.5 | 2021 年 10 月 5 日 | 内部版本 18710774 | <a target="_blank" rel="noopener" href="https://customerconnect.vmware.com/cn/downloads/details?downloadGroup=VR850&amp;productId=974&amp;rPId=61571">下载</a></p>
+<p>VMware vSphere Replication 8.5 配置导入/导出工具 | 2021 年 10 月 5 日 | 内部版本 18712590 | <a target="_blank" rel="noopener" href="https://customerconnect.vmware.com/cn/downloads/details?downloadGroup=VR850-PLUGIN&amp;productId=974">下载</a></p>
+<p><img src="https://docs.vmware.com/en/vSphere-Replication/images/GUID-B94E99C8-49F1-4012-8710-F981844A0977-high.png" alt="How vSphere Replication works"></p>
+<p>请查看发行说明以了解新增内容及更新。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/vSphere-Replication/8.5/rn/vsphere-replication-85-release-notes.html">VMware vSphere Replication 8.5 发行说明</a></p>
+<h2 id="产品简介-13">产品简介</h2>
+<p>什么是 vSphere Replication 以及它如何帮助实现虚拟机灾难恢复？</p>
+<p>VMware vSphere Replication 是基于 Hypervisor 的异步复制解决方案，适用于 vSphere 虚拟机。它与 VMware vCenter Server 和 vSphere Web Client 全面集成。vSphere Replication 提供灵活、可靠和经济高效的复制功能 (sysin)，以支持环境中所有虚拟机的数据保护和灾难恢复。</p>
+<p>应用场景</p>
+<ul>
+<li>单一站点的本地数据保护</li>
+<li>两个站点间的灾难恢复和规避</li>
+<li>利用服务提供商的云进行灾难恢复和规避</li>
+<li>数据中心迁移</li>
+</ul>
+<p><strong>构建灵活配置</strong>：</p>
+<p>vSphere Replication 提供灵活的恢复选项，确保应用和虚拟机数据保持一致，并与 VMware 产品体系集成。使用 vSphere Replications 能够：</p>
+<ul>
+<li>自定义恢复点目标 (RPO)，从 5 分钟到 24 小时</li>
+<li>使用多时间点 (MPIT) 恢复，还原到上一已知状态</li>
+<li>在每个 vCenter Server 环境中保护多达 2,000 个虚拟机</li>
+<li>使用 Microsoft 卷影复制服务 (VSS)</li>
+<li>使用 Linux 文件系统静默 (sysin)</li>
+<li>利用 VMware Site Recovery Manager 实现跨站点灾难恢复的自动化</li>
+<li>保护和恢复 VMware vSAN 中的虚拟机</li>
+<li>保护和恢复 vSphere Virtual Volumes 数据存储中的虚拟机</li>
+</ul>
+<p><strong>消除存储限制</strong>：</p>
+<p>vSphere Replication 是基于 Hypervisor 的复制解决方案，在单个虚拟机磁盘 (VMDK) 级别运行，可以在 vSphere 支持的异构存储类型之间复制单个虚拟机。由于 vSphere Replication 独立于底层存储，因此适用于各种存储类型，包括 VMware vSAN、vSphere Virtual Volumes、传统 SAN、网络连接存储 (NAS) 和直连存储 (DAS)。您能够：</p>
+<ul>
+<li>在链接站点使用不同的存储技术，例如 SAN 到 vSAN 和光纤通道 (FC) 到 Internet 小型计算机系统接口 (iSCSI) 安排</li>
+<li>在恢复站点改变旧存储的用途，以降低成本</li>
+<li>仅对受保护虚拟机，而不是整个环境使用辅助存储</li>
+</ul>
+<p><strong>降低网络带宽</strong>：</p>
+<p>vSphere Replication 仅将改动的数据复制到恢复站点，以降低带宽使用，提升网络效率，与手动复制整个系统相比，RPO 时间更短。利用 vSphere Replication，您可以：</p>
+<ul>
+<li>利用虚拟机数据的“种子副本”进行最初同步，缩短创建初始副本所需的时间</li>
+<li>跟踪发生更改的磁盘区域，仅复制这些改动，确保高效利用网络</li>
+<li>还可选择启用数据压缩功能，进一步减少网络带宽消耗</li>
+</ul>
+<h2 id="工作方式">工作方式</h2>
+<p>vSphere Replication 的工作方式</p>
+<p>使用 vSphere Replication，您可以为虚拟机配置从源站点到目标站点的复制，监控和管理复制状态以及在目标站点恢复虚拟机。</p>
+<p>配置虚拟机进行复制时，vSphere Replication 代理会将虚拟机磁盘中更改的块从源站点发送到目标站点。更改的块将应用于虚拟机的副本。此过程不依赖于存储层。vSphere Replication 会对源虚拟机及其副本执行初始完全同步。您可以使用复制种子减少数据传输在初始完全同步期间生成的网络流量。</p>
+<p>在配置复制过程中，您可以设置一个恢复点目标 (RPO)，并可保留多个时间点 (MPIT) 的实例。</p>
+<p>作为管理员，您可以监控和管理复制的状态。您可以查看有关出站和入站复制、本地和远程站点状态、复制问题以及警告和错误的信息。</p>
+<p>手动恢复虚拟机时，vSphere Replication 会为虚拟机创建一个副本，该副本会连接到副本磁盘，但不会将任何虚拟网卡连接到端口组。您可以查看副本虚拟机的恢复和状态，并将其连接到网络。您可以恢复不同时间点（如上次已知的一致状态）的虚拟机。vSphere Replication 会将保留的实例呈现为可将虚拟机恢复到的普通虚拟机快照。</p>
+<p>vSphere Replication 会在其嵌入式数据库中存储复制配置数据。</p>
+<p>您可以在两个站点之间复制虚拟机。vSphere Replication 会同时安装在源站点和目标站点上。只能在每个 vCenter Server 上部署一个 vSphere Replication 设备。可以部署附加 vSphere Replication 服务器。</p>
+<p>在两个站点之间进行复制</p>
+<p>​<img src="https://docs.vmware.com/cn/vSphere-Replication/8.8/administration-guide/images/GUID-C7FB9E08-96AD-4243-A330-417CC083CDC9-high.png" alt="您可以在两个站点之间复制虚拟机。"></p>
+<p>您还可以在同一 vCenter Server 的数据存储之间复制虚拟机。在该拓扑中，一个 vCenter Server 管理源和目标上的主机。一个 vCenter Server 上仅部署一台 vSphere Replication 设备。您可以在一个 vCenter Server 中添加多个附加 vSphere Replication 服务器，以便将虚拟机复制到其他集群。</p>
+<p>要执行恢复，管理目标数据存储的 vCenter Server、vSphere Replication 设备以及管理复制的所有其他 vSphere Replication 服务器都必须启动且正在运行。</p>
+<p>在一个 vCenter Server 中进行复制</p>
+<p><img src="https://docs.vmware.com/cn/vSphere-Replication/8.8/administration-guide/images/GUID-FD0A7EBA-AEB7-47C5-8C41-A1D4C9FE0926-high.png" alt="您可以在单个 vCenter Server 中复制虚拟机。"></p>
+<p>您可以将虚拟机复制到共享目标站点。</p>
+<p>复制到共享目标站点</p>
+<p><img src="https://docs.vmware.com/cn/vSphere-Replication/8.8/administration-guide/images/GUID-2B1FB050-314D-43E3-B2E2-B5C5F7B7D3D3-high.png" alt="您可以将虚拟机复制到共享目标站点"></p>
+<h2 id="常见问题解答-6">常见问题解答</h2>
+<p><strong>​vSphere Replication 的工作原理是什么？</strong></p>
+<p>vSphere Replication 可通过灵活可靠的复制功能保护数据，并支持所有虚拟机的灾难恢复 (DR)。它与 vCenter Server 和 vSphere Web Client 完全集成，可提供基于主机的虚拟机异步复制。这是 vSphere 平台的一种功能特性，与 Site Recovery Manager 原生集成。</p>
+<p>vSphere Replication 基于每台虚拟机进行配置，从而可以精细控制要复制的虚拟机。这种复制可发生在主站点与辅助站点之间，单个站点中的两个集群之间，以及多个源站点与单个目标站点之间，而与底层存储阵列无关。</p>
+<p><strong>​vSphere 的哪些功能特性可与 vSphere Replication 配合使用？</strong></p>
+<p>vSphere Replication 是一种深度集成的 vSphere 组件，可与许多 vSphere 管理功能特性兼容，其中包括：</p>
+<ul>
+<li>vSphere vMotion</li>
+<li>vSphere Storage vMotion</li>
+<li>vSphere DRS、vSphere Storage DRS</li>
+<li>vSAN 数据存储</li>
+<li>vSphere Distributed Power Management</li>
+<li>vSphere Flash Read Cache</li>
+</ul>
+<p>其他 vSphere 功能特性（例如 vSphere Distributed Power Management）需要进行特殊配置才能与 vSphere Replication 配合使用。</p>
+<p><strong>​vSphere Replication 是否会保持虚拟机的快照层次结构？</strong></p>
+<p>不会。vSphere Replication 不会在目标站点复制虚拟机的快照层次结构。快照会在目标位置折叠为单一聚合虚拟机磁盘 (VMDK) 文件。也就是说，可以针对一个具有快照的虚拟机配置复制，但该虚拟机在目标位置恢复后将没有快照。</p>
+<p>注意：vSphere Replication 包含多时间点 (MPIT) 恢复。MPIT 恢复支持管理员在目标站点将虚拟机恢复为复制的最新副本，然后将其回滚至上一时间点。如果配置了 MPIT 恢复，在使用 vSphere Replication 恢复虚拟机时，这些恢复点将显示为目标位置的虚拟机快照。</p>
+<p><strong>vSphere Replication 的应用场景有哪些？</strong></p>
+<p>vSphere Replication 的主要应用场景包括：</p>
+<ul>
+<li>在单一站点中进行本地数据保护</li>
+<li>在两个站点间进行灾难恢复和规避</li>
+<li>利用服务提供商的云进行灾难恢复和规避</li>
+<li>数据中心迁移</li>
+</ul>
+<p>更具体地说，vSphere Replication 可用于复制一个或多个虚拟机：</p>
+<ul>
+<li>在一个 vSphere 集群中或在同一站点的多个 vSphere 集群之间进行本地数据保护、虚拟机迁移和灾难恢复</li>
+<li>在不同站点的多个 vSphere 集群之间进行跨站点数据保护、虚拟机迁移和灾难恢复</li>
+<li>从本地数据中心到 vCloud Hybrid Service 提供商，进行灾难恢复</li>
+<li>从一个数据中心到另一数据中心，与 vCenter Site Recovery Manager 配合使用</li>
+</ul>
+<h2 id="下载地址-549">下载地址</h2>
+<p>VMware vSphere Replication 8.1.0 <code>End Of Life (EOL)</code></p>
+<p>VMware vSphere Replication 8.2.0 <code>End Of Life (EOL)</code></p>
+<p>VMware vSphere Replication 8.3.0 <code>End Of Life (EOL)</code></p>
+<p>VMware vSphere Replication 8.4.0 <code>End Of Life (EOL)</code></p>
+<p>VMware vSphere Replication 8.5.0 <code>End Of Life (EOL)</code></p>
+<p><strong>VMware vSphere Replication 8.6.0</strong> Update 1：</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/11Xnl3GQEHis1izi5pRLBfA?pwd=p8c0">https://pan.baidu.com/s/11Xnl3GQEHis1izi5pRLBfA?pwd=p8c0</a></li>
+</ul>
+<p><strong>VMware vSphere Replication 8.7.0</strong> Update 4：</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1zfpOFf9iaqTYAFxJzFd8QQ?pwd=fur8">https://pan.baidu.com/s/1zfpOFf9iaqTYAFxJzFd8QQ?pwd=fur8</a></li>
+</ul>
+<p><strong>VMware vSphere Replication 8.8.0</strong> Update 3：</p>
+<ul>
+<li>
+<p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hKtoEz6cCfJqSSDtLe20wQ?pwd=97xi">https://pan.baidu.com/s/1hKtoEz6cCfJqSSDtLe20wQ?pwd=97xi</a></p>
+</li>
+<li>
+<p>VMware vSphere Replication 8.8.0 Appliance - *.iso disk image - <code>Deprecated</code><br>
+File size: 2.3 GB<br>
+Name: VMware-vSphere_Replication-8.8.0-22436165.iso<br>
+Release Date: 2023-09-21<br>
+SHA256SUM: f324a3f3186e63533832abcf410f9da448f6f65684f7a6286cb2d4484394e1a8</p>
+</li>
+<li>
+<p>VMware vSphere Replication 8.8.0.1 Appliance - *.iso disk image - <code>Deprecated</code><br>
+File size: 2.29 GB<br>
+Name: VMware-vSphere_Replication-8.8.0-22602641.iso<br>
+Release Date: 2023-10-17<br>
+SHA256SUM: bd984b028c387d3d5f1bd204ae8de93e9da75fb00e208f213ee4af01c32ba4da</p>
+</li>
+<li>
+<p>VMware vSphere Replication 8.8.0.2 Appliance - *.iso disk image - <code>Deprecated</code><br>
+File size: 2.2 GB<br>
+Name: VMware-vSphere_Replication-8.8.0-22795648.iso<br>
+Release Date: 2023-11-21<br>
+SHA256SUM: 333a4bf16d9e2d24ad16d81fc95c105b819bcf0f45a57835f0f7b7d3a689584c</p>
+</li>
+<li>
+<p><strong>VMware vSphere Replication 8.8.0.3 Appliance</strong> - *.iso disk image<br>
+File size: 2.24 GB<br>
+Name: VMware-vSphere_Replication-8.8.0-23263438.iso<br>
+Release Date: 2024-02-08<br>
+SHA256SUM: 6619a2c308c2718e5c314018bee8d5675398161bad101846948a30dcecd3ecd1</p>
+</li>
+</ul>
+<p><strong>配套组件</strong>：<a href="/blog/vmware-srm-8/" title="VMware Site Recovery Manager 8.8 Update 3 - 数据中心灾难恢复 (DR)">VMware Site Recovery Manager 8.8 Update 3 - 数据中心灾难恢复 (DR)</a></p>
+<h2 id="一图看懂-vSphere-Replication-兼容性">一图看懂 vSphere Replication 兼容性</h2>
+<p>如何选择版本？根据当前 vSphere 版本，下载最新兼容的版本即可。</p>
+<p><img src="/blog/vmware/vr-compatibility-w.webp" alt="vSphere Replication 兼容性"></p>
+<p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/debian-12/" data-toggle="tooltip" data-placement="top" title="Debian 12.5 “Bookworm” 发布，包含 68 个错误修复和 42 个安全更新">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/sonarqube/" data-toggle="tooltip" data-placement="top" title="SonarQube Server - 代码质量、安全与静态分析工具">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/vmware-vsphere-replication-8/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD-60"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A7%E5%93%81%E7%AE%80%E4%BB%8B-13"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">产品简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">工作方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94-6"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">常见问题解答</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-549"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载地址</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E5%9B%BE%E7%9C%8B%E6%87%82-vSphere-Replication-%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">一图看懂 vSphere Replication 兼容性</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#Backup" title="Backup">Backup</a>
+            
+            <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

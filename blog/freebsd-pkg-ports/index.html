@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> FreeBSD 应用程序和软件包管理：Packages 和 Ports - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" FreeBSD 应用程序和软件包管理：Packages 和 Ports - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" FreeBSD 应用程序和软件包管理：Packages 和 Ports "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/freebsd-pkg-ports/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+              
+              <a class="tag" href="/tags/#BSD" title="BSD">BSD</a>
+              
+              <a class="tag" href="/tags/#FreeBSD" title="FreeBSD">FreeBSD</a>
+              
+            </div>
+            <h1>FreeBSD 应用程序和软件包管理：Packages 和 Ports</h1>
+            <h2 class="subheading">The Power To Serve</h2>
+            <span class="meta">
+              Posted by sysin on
+              2021-06-10
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">24</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">6.2k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Thu Jun 10 2021 10:34:16 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/freebsd-pkg-ports/" title="FreeBSD 应用程序和软件包管理：Packages 和 Ports">FreeBSD 应用程序和软件包管理：Packages 和 Ports</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>名词说明：在英文文档中有 packages、package 和 ports、port 复数单数形式同时出现，官方中文文档中也有两种形式，所以两者是等价的。本文档试图将 Packages 和 Ports 作为专有名词来理解，所以统一使用复数形式，相关系统目录和网站目录都是默认使用了复数形式。</p>
+<h2 id="1-概述">1. 概述</h2>
+<p>FreeBSD 与丰富的系统工具集合捆绑在一起作为基本系统的一部分。此外 FreeBSD 提供了两种用于安装第三方软件的互补技术：FreeBSD Ports Collection 用于从源代码安装以及 Packages 用于从预先构建的二进制文件安装。这两种方法都可用于从本地媒体或网络安装软件。</p>
+<p>在 UNIX® 系统上安装第三方软件的典型步骤包括：</p>
+<ul>
+<li>
+<p>查找并下载可能以源代码格式或二进制形式分发的软件。</p>
+</li>
+<li>
+<p>从其分发格式中解压缩软件。这通常是使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=compress&amp;sektion=1&amp;format=html">compress(1)</a>, <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=gzip&amp;sektion=1&amp;format=html">gzip(1)</a>, <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=bzip2&amp;sektion=1&amp;format=html">bzip2(1)</a> 或者 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=xz&amp;sektion=1&amp;format=html">xz(1)</a> 等程序压缩的 tarball。</p>
+</li>
+<li>
+<p>在 INSTALL、README 或 doc/ 子目录中的某个文件中找到文档 并阅读有关如何安装该软件的信息。</p>
+</li>
+<li>
+<p>如果软件是以源格式分发的 请编译它。这可能涉及编辑 Makefile 或运行配置脚本。</p>
+</li>
+<li>
+<p>测试并安装软件。</p>
+</li>
+</ul>
+<p>FreeBSD Ports 是一组文件旨在自动化从源代码编译应用程序的过程。组成 Ports 的文件包含自动下载、提取、修补、编译和安装应用程序所需的所有信息 (sysin)。</p>
+<p>如果该软件尚未在 FreeBSD 上进行调整和测试，则源代码可能需要编辑才能正确安装和运行。</p>
+<p>然而已经有超过 36000 个第三方应用程序被移植到 FreeBSD。在可行的情况下 这些应用程序可以作为预编译 Packages 下载。</p>
+<p>可以使用 FreeBSD 包管理命令来操作 Packages。</p>
+<p>Packages 和 Ports 都理解依赖关系。如果某个 Packages 或 Ports 用于安装应用程序并且尚未安装依赖库则会自动先安装该库。</p>
+<p>FreeBSD Packages 包含应用程序所有命令的预编译副本以及任何配置文件和文档。可以使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=pkg&amp;sektion=8&amp;format=html">pkg(8)</a> 命令操作包 例如 pkg install。</p>
+<p>虽然这两种技术相似，但 Packages 和 Ports 各有其优势。请根据需要选择符合特定应用程序要求的技术来安装。</p>
+<p>Packages 优势</p>
+<ul>
+<li>
+<p>压缩包 tarball 通常小于包含应用程序源代码的压缩 tarball。</p>
+</li>
+<li>
+<p>Packages 不需要编译时间。对于大型应用程序 例如 Mozilla、KDE 或 GNOME，这在速度较慢的系统上可能很重要。</p>
+</li>
+<li>
+<p>Packages 不需要对在 FreeBSD 上编译软件所涉及的过程有任何了解。</p>
+</li>
+</ul>
+<p>Ports 优势</p>
+<ul>
+<li>
+<p>Packages 通常使用保守的选项编译，因为它们必须在最大数量的系统上运行。通过从 Ports 编译，可以更改编译选项。</p>
+</li>
+<li>
+<p>某些应用程序具有与安装哪些功能相关的编译时选项。例如，可以使用各种不同的内置选项配置 Apache。在某些情况下，同一应用程序将存在多个 Packages 以指定某些设置。例如 Ghostscript 可以作为 ghostscript Packages 和 ghostscript-nox11 Packages 使用，具体取决于是否安装了 Xorg。如果应用程序有一个或两个以上不同的编译时选项，则不可能快速创建多个 Packages。</p>
+</li>
+<li>
+<p>某些软件的许可条件禁止二进制分发。此类软件必须作为源代码分发，最终用户必须对其进行编译。</p>
+</li>
+<li>
+<p>有些人不信任二进制发行版, 或者更喜欢通读源代码以查找潜在问题。</p>
+</li>
+<li>
+<p>需要源代码才能应用自定义补丁。</p>
+</li>
+</ul>
+<h2 id="2-查找（搜索）软件">2. 查找（搜索）软件</h2>
+<p>Packages</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg search &lt;pkg-name&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg search -o  &lt;pkg-name&gt; #origin 列出每个包的来源</span><br></pre></td></tr></table></figure>
+<p>查看安装到哪里了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis &lt;pkg-name&gt;</span><br></pre></td></tr></table></figure>
+<p>Ports Collection</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make search name=lsof</span></span><br></pre></td></tr></table></figure>
+<p>显示更少的信息 请使用 <code>quicksearch</code> 功能:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make quicksearch name=lsof</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-pkg-二进制包管理">3. pkg 二进制包管理</h2>
+<p>pkg 是传统 FreeBSD 包管理工具的下一代替代品，提供了许多使处理二进制包更快、更容易的功能。对于希望只使用来自 FreeBSD 镜像的预构建二进制包的站点 (sysin)，使用 pkg 管理包就足够了。但是对于那些从源代码构建或使用自己的存储库的站点，将需要一个单独的 Ports 管理工具。由于 pkg 仅适用于二进制包，因此它不能替代此类工具。这些工具可用于从二进制包和 Ports Collection 安装软件，而 pkg 仅安装二进制包。</p>
+<h3 id="3-1-启动-pkg">3.1 启动 pkg</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pkg install git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果首次使用 pkg 会提示安装</span></span><br><span class="line">The package management tool is not yet installed on your system.</span><br><span class="line">Do you want to fetch and install it now? [y/N]:</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">该过程需要联网下载</span></span><br></pre></td></tr></table></figure>
+<p>如果首次使用 pkg 命令，会提示初始化，也可以手动启动初始化过程。</p>
+<p>FreeBSD 10.<em>X</em>. 及以上版本按如下两种方式开始使用 pkg：</p>
+<p>直接执行命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">/usr/sbin/pkg</span></span><br></pre></td></tr></table></figure>
+<p>如果安装了 Ports:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/ports-mgmt/pkg</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install clean</span></span><br></pre></td></tr></table></figure>
+<p>转换旧的 pkg 格式（如果从旧版系统升级）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg2ng</span></span><br></pre></td></tr></table></figure>
+<p>使用帮助：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">help</span> install</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">man pkg-install</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-Quarterly（季度）和-Latest（最新）分支">3.2 Quarterly（季度）和 Latest（最新）分支</h3>
+<p><code>Quarterly</code> 分支为用户提供了更可预测和更稳定的 Ports 和 Packages 安装和升级体验。这基本上是通过只允许非功能更新来完成的。季度分支旨在接收安全修复（可能是版本更新或提交的反向移植）、错误修复和 Ports 合规性或框架更改。Quarterly 分支在每个（年度）季度的 1 月、4 月、7 月和 10 月开始时从 HEAD 中删除。分支根据创建的年份（YYYY）和季度（Q1-4）命名。例如 2016 年 1 月创建的季度分支命名为 2016Q1。而 <code>Latest</code> 分支为用户提供最新版本的软件包。要从季度分支切换到最新分支请运行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">mkdir</span> -p /usr/local/etc/pkg/repos</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cp</span> /etc/pkg/FreeBSD.conf /usr/local/etc/pkg/repos/FreeBSD.conf</span></span><br></pre></td></tr></table></figure>
+<p>编辑 <code>/usr/local/etc/pkg/repos/FreeBSD.conf</code> 在  <code>url:</code>  这一行 将 <em>quarterly</em> 修改为 <em>latest</em>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FreeBSD: &#123;</span><br><span class="line">  url: &quot;pkg+http://pkg.FreeBSD.org/$&#123;ABI&#125;/latest&quot;,</span><br><span class="line">  mirror_type: &quot;srv&quot;,</span><br><span class="line">  signature_type: &quot;fingerprints&quot;,</span><br><span class="line">  fingerprints: &quot;/usr/share/keys/pkg&quot;,</span><br><span class="line">  enabled: yes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更新 latest repository metadata：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg update -f</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-获取-pkg-信息">3.3 获取 pkg 信息</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg info pkg</span></span><br><span class="line">pkg-1.1.4_1</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-安装和删除">3.4 安装和删除</h3>
+<p>安装 Packages：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg install packagename</span></span><br></pre></td></tr></table></figure>
+<p>示例，安装 curl:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg install curl</span></span><br><span class="line">Updating repository catalogue</span><br><span class="line">/usr/local/tmp/All/curl-7.31.0_1.txz          100% of 1181 kB 1380 kBps 00m01s</span><br><span class="line"></span><br><span class="line">/usr/local/tmp/All/ca_root_nss-3.15.1_1.txz   100% of  288 kB 1700 kBps 00m00s</span><br><span class="line"></span><br><span class="line">Updating repository catalogue</span><br><span class="line">The following 2 packages will be installed:</span><br><span class="line"></span><br><span class="line">-     Installing ca_root_nss: 3.15.1_1</span><br><span class="line">    -     Installing curl: 7.31.0_1</span><br><span class="line"></span><br><span class="line">The installation will require 3 MB more space</span><br><span class="line"></span><br><span class="line">0 B to be downloaded</span><br><span class="line"></span><br><span class="line">Proceed with installing packages [y/N]: y</span><br><span class="line">Checking integrity... done</span><br><span class="line">[1/2] Installing ca_root_nss-3.15.1_1... done</span><br><span class="line">[2/2] Installing curl-7.31.0_1... done</span><br><span class="line">Cleaning up cache files...Done</span><br></pre></td></tr></table></figure>
+<p>删除 Packages  <code>pkg delete</code>  例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg delete curl</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>pkg remove</code> 等价，常见的软件包管理工具都使用 remove 这个词汇，如 yum、apt 和 brew。</p>
+</blockquote>
+<h3 id="3-5-升级已经安装的-Packages">3.5 升级已经安装的 Packages</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg upgrade</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-6-对已经安装的-Packages-进行审计（检查是否有安全漏洞）">3.6 对已经安装的 Packages 进行审计（检查是否有安全漏洞）</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg audit -F</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-7-自动移除不在使用的-Packages">3.7 自动移除不在使用的 Packages</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg autoremove</span></span><br></pre></td></tr></table></figure>
+<p>作为依赖项安装的 Packages 称为 <em>automatic</em> Packages。非自动 Packages，即明确安装 的Packages 不是作为对另一个 Packages 的依赖项，可以使用以下方法列出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg prime-list</span></span><br><span class="line">nginx</span><br><span class="line">openvpn</span><br><span class="line">sudo</span><br></pre></td></tr></table></figure>
+<p><code>pkg prime-list</code> 是定义在 /usr/local/etc/pkg.conf 中的命令别名，其他命令如 <code>pkg prime-origins</code> 用于获取上述列表的源 Ports 目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg prime-origins</span></span><br><span class="line">www/nginx</span><br><span class="line">security/openvpn</span><br><span class="line">security/sudo</span><br></pre></td></tr></table></figure>
+<h3 id="3-8-恢复-Packages-Database">3.8 恢复 Packages Database</h3>
+<p>与传统的包管理系统不同 pkg 有自己的包数据库备份机制。默认情况下此功能启用。</p>
+<blockquote>
+<p>如果需要禁用该功能 在  <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=periodic.conf&amp;sektion=5&amp;format=html">periodic.conf</a>  中设置 <code>daily_backup_pkgdb_enable=&quot;NO&quot;</code></p>
+</blockquote>
+<p>从 Packages database 备份中恢复：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg backup -r /path/to/pkg.sql</span></span><br></pre></td></tr></table></figure>
+<p>手动备份 pkg database:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg backup -d /path/to/pkg.sql</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-9-删除陈旧的-Packages">3.9 删除陈旧的 Packages</h3>
+<p>默认情况下 pkg 将二进制包存储在 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=pkg.conf&amp;sektion=5&amp;format=html">pkg.conf</a> 定义的  <code>PKG_CACHEDIR</code> 中。仅保留最新安装的软件包的副本。旧版本的 pkg 保留了所有以前的软件包。要删除这些过时的二进制包，请运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg clean</span></span><br></pre></td></tr></table></figure>
+<p>清理整个缓存目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg clean -a</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-10-修改-Packages-元数据（Metadata）">3.10 修改 Packages 元数据（Metadata）</h3>
+<p>FreeBSD Ports Collection 中的软件可以进行主要版本号更改 (sysin)。为了解决这个问题 pkg 有一个内置命令来更新包来源。例如，如果 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php5/pkg-descr">lang/php5</a> 重命名为 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php53/pkg-descr">lang/php53</a> 这样 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php5/pkg-descr">lang/php5</a> 现在可以代表版本 <code>5.4</code>。</p>
+<p>示例:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">set</span> -o lang/php5:lang/php53</span></span><br></pre></td></tr></table></figure>
+<p>另外一个例子，升级 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/ruby18/pkg-descr">lang/ruby18</a> 到 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/ruby19/pkg-descr">lang/ruby19</a>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">set</span> -o lang/ruby18:lang/ruby19</span></span><br></pre></td></tr></table></figure>
+<p>作为最后一个示例，将 libglut 共享库的来源从 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/graphics/libglut/pkg-descr">graphics/libglut</a> 更改为 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/graphics/freeglut/pkg-descr">graphics /freeglut</a> 运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">set</span> -o graphics/libglut:graphics/freeglut</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-Ports-Collection">4. Ports Collection</h2>
+<p>Ports Collection 是一组 Makefile、补丁和描述文件。这些文件的每一组都用于在 FreeBSD 上编译和安装一个单独的应用程序，称为 Ports。</p>
+<p>默认情况下 Ports Collection 本身存储在 <code>/usr/ports</code> 的子目录中。</p>
+<blockquote>
+<p>在安装和使用 Ports Collection 之前，请注意 将 Ports Collection 与通过 pkg 提供的二进制包结合使用来安装软件通常是不明智的。默认情况下 pkg 跟踪 Ports 树的季度分支版本，而不是 HEAD。与季度分支版本中的对应项相比 HEAD 中的 Ports 的依赖项可能不同，这可能导致 pkg 安装的依赖项与 Ports Collection 中的依赖项之间发生冲突。如果必须将 Ports Collection 和 pkg 结合使用，那么请确保您的 Ports Collection 和 pkg 在 Ports 树的同一分支版本上。</p>
+</blockquote>
+<p>Ports Collection 包含软件类别的目录。每个类别内都有用于各个应用程序的子目录。每个应用程序子目录都包含一组文件，这些文件告诉 FreeBSD 如何编译和安装该程序，称为 Ports 框架（备注：英文 Ports skeleton）。每个 Ports 框架包括以下文件和目录：</p>
+<ul>
+<li>
+<p>Makefile：包含指定应如何编译应用程序及其组件应安装在何处的语句。</p>
+</li>
+<li>
+<p>distinfo：包含必须下载以构建 Ports 的文件的名称和校验和。</p>
+</li>
+<li>
+<p>files/：该目录包含程序在 FreeBSD 上编译和安装所需的任何补丁。该目录还可能包含用于构建 Ports 的其他文件。</p>
+</li>
+<li>
+<p>pkg-descr：提供更详细的程序描述。</p>
+</li>
+<li>
+<p>pkg-plist：Ports 将安装的所有文件的列表。它还告诉 Ports 系统在卸载时要删除哪些文件。</p>
+</li>
+</ul>
+<p>一些 Ports 包括 pkg-message 或其他文件来处理特殊情况。有关这些文件的更多详细信息以及 Ports 的一般信息 请参阅 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/en/books/porters-handbook/">FreeBSD Porter’s Handbook</a>。</p>
+<p>该 Ports 不包括实际的源代码 也称为 distfile。构建 Ports 的提取部分会自动将下载的源保存到 /usr/ports/distfiles。</p>
+<h3 id="4-1-安装-Ports-Collection">4.1 安装 Ports Collection</h3>
+<p><strong>步骤: Portsnap 方法</strong>：</p>
+<p>FreeBSD base system 包含 Portsnap。</p>
+<ol>
+<li>
+<p>下载 Ports Collection 的压缩 snapshot 到 /var/db/portsnap:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap fetch</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>解压 snapshot 到 /usr/ports:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap extract</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>上面是首次使用的步骤，也可以根据需要更新 /usr/ports 命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap fetch</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap update</span></span><br></pre></td></tr></table></figure>
+<p>这两个命令可以连续执行如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap fetch update</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>步骤: Git 方法</strong>：</p>
+<ol>
+<li>
+<p>使用 Ports 安装 git：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/devel/git</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install clean</span></span><br></pre></td></tr></table></figure>
+<p>使用 pkg 安装 git：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg install git</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>签出 Ports tree 的 HEAD 分支的副本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git <span class="built_in">clone</span> https://git.FreeBSD.org/ports.git /usr/ports</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>或者签出季度分支:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git <span class="built_in">clone</span> https://git.FreeBSD.org/ports.git -b 2020Q3 /usr/ports</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>根据需要在初始 Git 签出后更新 /usr/ports：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git -C /usr/ports pull</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>根据需要将 /usr/ports 切换到不同的季度分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git -C /usr/ports switch 2020Q4</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="4-2-安装-Ports">4.2 安装 Ports</h3>
+<p>使用 Ports Collection 假定 Internet 连接正常。它还需要超级用户权限。</p>
+<p>要编译和安装 Ports 请切换到要安装的 Ports 的目录 然后在提示符下键入 <code>make install</code>。消息将指示进度：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/sysutils/lsof</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install</span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt; lsof_4.88D.freebsd.tar.gz doesn<span class="string">&#x27;t seem to exist in /usr/ports/distfiles/.</span></span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash"><span class="string">&gt; Attempting to fetch from ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/.</span></span></span><br><span class="line">===&gt;  Extracting for lsof-4.88</span><br><span class="line">...</span><br><span class="line">[extraction output snipped]</span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash"><span class="string">&gt; Checksum OK for lsof_4.88D.freebsd.tar.gz.</span></span></span><br><span class="line">===&gt;  Patching for lsof-4.88.d,8</span><br><span class="line">===&gt;  Applying FreeBSD patches for lsof-4.88.d,8</span><br><span class="line">===&gt;  Configuring for lsof-4.88.d,8</span><br><span class="line">...</span><br><span class="line">[configure output snipped]</span><br><span class="line">...</span><br><span class="line">===&gt;  Building for lsof-4.88.d,8</span><br><span class="line">...</span><br><span class="line">[compilation output snipped]</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">===&gt;  Installing for lsof-4.88.d,8</span><br><span class="line">...</span><br><span class="line">[installation output snipped]</span><br><span class="line">...</span><br><span class="line">===&gt;   Generating temporary packing list</span><br><span class="line">===&gt;   Compressing manual pages for lsof-4.88.d,8</span><br><span class="line">===&gt;   Registering installation for lsof-4.88.d,8</span><br><span class="line">===&gt;  SECURITY NOTE:</span><br><span class="line">-   This port has installed the following binaries which execute with</span><br><span class="line">-   increased privileges.</span><br><span class="line">/usr/local/sbin/lsof</span><br><span class="line"><span class="meta prompt_">#</span></span><br></pre></td></tr></table></figure>
+<p>由于 <code>lsof</code> 是一个以更高权限运行的程序，因此在安装时会显示安全警告。安装完成后将返回提示。</p>
+<p>在安装期间会创建一个工作子目录，其中包含编译期间使用的所有临时文件。删除此目录可以节省磁盘空间并最大限度地减少以后升级到新版本 Ports 时出现问题的可能性：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make clean</span></span><br><span class="line">===&gt;  Cleaning for lsof-88.d,8</span><br><span class="line"><span class="meta prompt_">#</span></span><br></pre></td></tr></table></figure>
+<p>直接合并成一条命令执行即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install clean lsof</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-自定义-Ports-安装">4.3 自定义 Ports 安装</h3>
+<p>某些 Ports 提供构建选项，可用于启用或禁用应用程序组件、提供安全选项或允许其他自定义。示例包括 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/www/firefox/pkg-descr">www/firefox</a>、<a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/security/gpgme/pkg-descr">security/gpgme</a> 和 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/mail/sylpheed-claws/pkg-descr">mail/sylpheed-claws</a>。如果 Ports 依赖于具有可配置选项的其他 Ports 它可能会暂停几次以供用户交互，因为默认行为是提示用户从菜单中选择选项。为了避免这种情况并批量完成所有配置，请在 Ports 框架内运行 <code>make config-recursive</code>。然后 运行 <code>make install [clean]</code> 来编译和安装 ports。</p>
+<blockquote>
+<p>使用 <code>config-recursive</code> 时要配置的 Ports 列表由 <code>all-depends-list</code> 目标收集。建议运行 <code>make config-recursive</code> 直到定义了所有依赖 Ports 选项 并且不再出现 Ports 选项屏幕，以确保所有依赖选项都已配置。</p>
+</blockquote>
+<p>有多种方法可以重新访问 Ports 的构建选项菜单，以便在构建 Ports 后添加、删除或更改这些选项。一种方法是将 <code>cd</code> 放入包含 Ports 的目录并键入 <code>make config</code>。另一种选择是使用 <code>make showconfig</code>。另一种选择是执行 <code>make rmconfig</code> 它将删除所有选定的选项并允许您重新开始。所有这些选项以及其他选项在 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=ports&amp;sektion=7&amp;format=html">ports(7)</a> 中有详细解释。</p>
+<p>Ports 系统使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=fetch&amp;sektion=1&amp;format=html">fetch(1)</a> 下载源文件，支持各种环境变量。如果 FreeBSD 系统位于防火墙或 FTP/HTTP 代理之后 则可能需要设置 <code>FTP_PASSIVE_MODE</code>、<code>FTP_PROXY</code> 和 <code>FTP_PASSWORD</code> 变量。有关支持的变量的完整列表 请参阅 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=fetch&amp;sektion=3&amp;format=html">fetch(3)</a>。</p>
+<p>对于不能一直上网的用户，可以在 /usr/ports 中运行 <code>make fetch</code> 来获取所有的 distfiles 或者在一个类别中例如 /usr/ports/net 或者在特定的 ports 框架中。请注意，如果 Ports 有任何依赖项，在类别或 Ports 框架中运行此命令将 <em>不会</em> 从另一个类别获取 Ports 的 distfiles。相反，使用 <code>make fetch-recursive</code> 也可以获取 Ports 所有依赖项的 distfiles。</p>
+<p>在极少数情况下 例如当组织拥有本地 distfiles 存储库时，<code>MASTER_SITES</code> 变量可用于覆盖 Makefile 中指定的下载位置。使用时，指定备用位置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/directory</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make MASTER_SITE_OVERRIDE= \</span></span><br><span class="line"><span class="language-bash">ftp://ftp.organization.org/pub/FreeBSD/ports/distfiles/ fetch</span></span><br></pre></td></tr></table></figure>
+<p><code>WRKDIRPREFIX</code> 和 <code>PREFIX</code> 变量可以覆盖默认的工作目录和目标目录。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make WRKDIRPREFIX=/usr/home/example/ports install</span></span><br></pre></td></tr></table></figure>
+<p>将在 /usr/home/example/ports 中编译 Ports 并将所有内容安装在 /usr/local 下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make PREFIX=/usr/home/example/local install</span></span><br></pre></td></tr></table></figure>
+<p>将在 /usr/ports 中编译 Ports 并将其安装在 /usr/home/example/local 中。如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make WRKDIRPREFIX=../ports PREFIX=../local install</span></span><br></pre></td></tr></table></figure>
+<p>将两者结合。</p>
+<p>这些也可以设置为环境变量。有关如何设置环境变量的说明 请参阅 shell 的手册页。</p>
+<h3 id="4-4-移除安装的-Ports">4.4 移除安装的 Ports</h3>
+<p>安装的 Ports 可以使用 <code>pkg delete</code> 来删除 也可以在 Ports 目录下执行 <code>make deinstall</code> 命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/sysutils/lsof</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make deinstall</span></span><br><span class="line">===&gt;  Deinstalling for sysutils/lsof</span><br><span class="line">===&gt;   Deinstalling</span><br><span class="line">Deinstallation has been requested for the following 1 packages:</span><br><span class="line"></span><br><span class="line"> lsof-4.88.d,8</span><br><span class="line"></span><br><span class="line">The deinstallation will free 229 kB</span><br><span class="line">[1/1] Deleting lsof-4.88.d,8... done</span><br></pre></td></tr></table></figure>
+<h3 id="4-5-升级-Ports">4.5 升级 Ports</h3>
+<p>升级 Ports 前请先更新 Ports tree 参看上述 “安装 Ports Collection” 部分。FreeBSD 10 及以上版本使用 pkg 命令列出已经安装过期 Ports:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg version -l <span class="string">&quot;&lt;&quot;</span></span></span><br></pre></td></tr></table></figure>
+<p>FreeBSD 9.<em>X</em> 及以下版本使用以下命令出列已经安装的过期 Ports：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg_version -l <span class="string">&quot;&lt;&quot;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="4-5-1-升级和管理-Ports-的工具">4.5.1 升级和管理 Ports 的工具</h4>
+<p>过去大多数安装使用 Portmaster 或 Portupgrade。Synth 是一种较新的替代方案。</p>
+<h4 id="4-5-2-使用-Portmaster-升级-Ports">4.5.2 使用 Portmaster 升级 Ports</h4>
+<p><a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portmaster/pkg-descr">ports-mgmt/portmaster</a> 是一个非常小的实用程序，用于升级已安装的 ports。它旨在使用随 FreeBSD 基本系统安装的工具，而不依赖于其他 ports 或数据库。将此实用程序安装为 ports：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/ports-mgmt/portmaster</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install clean</span></span><br></pre></td></tr></table></figure>
+<p>Portmaster 定义了四类 Ports:</p>
+<ul>
+<li>根 Ports（Root orts）：没有依赖关系，也不是任何其他 Ports 的依赖关系。</li>
+<li>中继 Ports（Trunk ports）：没有依赖关系，但其他 Ports 依赖它。</li>
+<li>分支 Ports（Branch ports）：有依赖关系，其他 Ports 依赖它。</li>
+<li>叶 Ports（Leaf ports）：有依赖关系，但没有其他 Ports 依赖它。</li>
+</ul>
+<p>要列出这些类别并搜索更新：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portmaster -L</span></span><br><span class="line">===&gt;&gt;&gt; Root ports (No dependencies, not depended on)</span><br><span class="line">===&gt;&gt;&gt; ispell-3.2.06_18</span><br><span class="line">===&gt;&gt;&gt; screen-4.0.3</span><br><span class="line">-     ===&gt;&gt;&gt; New version available: screen-4.0.3_1</span><br><span class="line">===&gt;&gt;&gt; tcpflow-0.21_1</span><br><span class="line">===&gt;&gt;&gt; 7 root ports</span><br><span class="line">...</span><br><span class="line">===&gt;&gt;&gt; Branch ports (Have dependencies, are depended on)</span><br><span class="line">===&gt;&gt;&gt; apache22-2.2.3</span><br><span class="line">-     ===&gt;&gt;&gt; New version available: apache22-2.2.8</span><br><span class="line">...</span><br><span class="line">===&gt;&gt;&gt; Leaf ports (Have dependencies, not depended on)</span><br><span class="line">===&gt;&gt;&gt; automake-1.9.6_2</span><br><span class="line">===&gt;&gt;&gt; bash-3.1.17</span><br><span class="line">-     ===&gt;&gt;&gt; New version available: bash-3.2.33</span><br><span class="line">...</span><br><span class="line">===&gt;&gt;&gt; 32 leaf ports</span><br><span class="line"></span><br><span class="line">===&gt;&gt;&gt; 137 total installed ports</span><br><span class="line">-     ===&gt;&gt;&gt; 83 have new versions available</span><br></pre></td></tr></table></figure>
+<p>此命令用于升级所有过时的 Ports:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portmaster -a</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>默认情况下 Portmaster 会在删除现有 Ports 之前制作一个备份包。如果新版本安装成功 Portmaster 会删除备份。使用 <code>-b</code> 指示 Portmaster 不要自动删除备份。添加 <code>-i</code> 以交互模式启动 Portmaster 在升级每个 Ports 之前提示确认。许多其他选项可用。通读 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=portmaster&amp;sektion=8&amp;format=html">portmaster(8)</a> 的手册页以了解有关其用法的详细信息。</p>
+</blockquote>
+<p>如果升级过程中遇到错误，添加 <code>-f</code> 来升级和重建所有 port：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portmaster -af</span></span><br></pre></td></tr></table></figure>
+<p>Portmaster 还可用于在系统上安装新 ports，在构建和安装新 Ports 之前升级所有依赖项。要使用此功能，请在 Ports Collection 中指定 Ports 的位置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portmaster shells/bash</span></span><br></pre></td></tr></table></figure>
+<p>有关 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portmaster/pkg-descr">ports-mgmt/portmaster</a> 的更多信息可以在其 pkg-descr 中找到。</p>
+<h4 id="4-5-3-使用-Portupgrade-升级-Ports">4.5.3 使用 Portupgrade 升级 Ports</h4>
+<p><a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portupgrade/pkg-descr">ports-mgmt/portupgrade</a> 是另一个可用于升级 Ports 的实用程序。它安装了一套可用于管理 Ports 的应用程序。但是它依赖于 Ruby。安装此 ports：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/ports-mgmt/portupgrade</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install clean</span></span><br></pre></td></tr></table></figure>
+<p>在使用此实用程序执行升级之前，建议使用 <code>pkgdb -F</code> 扫描已安装 Ports 的列表并修复它报告的所有不一致之处。</p>
+<p>要升级系统上安装的所有过时 ports，请使用 <code>portupgrade -a</code>。或者包括 <code>-i</code> 以要求确认每个单独的升级：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portupgrade -ai</span></span><br></pre></td></tr></table></figure>
+<p>要仅升级指定的应用程序而不是所有可用的 ports，请使用 <code>portupgrade *pkgname*</code>。首先升级给定应用程序所需的所有 Ports 时，包含 “-R” 参数非常重要：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portupgrade -R firefox</span></span><br></pre></td></tr></table></figure>
+<p>如果包含 <code>-P</code> 参数，Portupgrade 会在 <code>PKG_PATH</code> 中列出的本地目录中搜索可用的 packages。如果本地没有可用的 packages，它就会从远程站点获取 packages。如果无法在本地找到或远程获取 packages，Portupgrade 将使用 ports。为避免完全使用 Ports 请指定 <code>-PP</code>。如果没有可用的 packages，最后一组选项告诉 Portupgrade 中止：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portupgrade -PP gnome3</span></span><br></pre></td></tr></table></figure>
+<p>如果指定了 <code>-P</code> 只获取 Ports distfiles 或 packages，而不构建或安装任何东西，请使用 <code>-F</code>。有关所有可用选项的更多信息，请参阅 “portupgrade” 的手册页。</p>
+<p>有关 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portupgrade/pkg-descr">ports-mgmt/portupgrade</a> 的更多信息可以在其 pkg-descr 中找到。</p>
+<h3 id="4-6-Ports-和磁盘空间">4.6 Ports 和磁盘空间</h3>
+<p>随着时间的推移，使用 Ports Collection 将耗尽磁盘空间。在构建和安装 Ports 后 在 Ports 框架内运行 <code>make clean</code> 将清理临时工作目录。如果使用 Portmaster 安装 Ports 除非指定了 <code>-K</code> 否则它会自动删除此目录。如果安装了 Portupgrade，以下命令将删除在 Ports 集合的本地副本中找到的所有工作目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsclean -C</span></span><br></pre></td></tr></table></figure>
+<p>此外 过时的源代码分发文件会随着时间的推移而堆积在 /usr/ports/distfiles 中。要使用 Portupgrade 删除不再被任何 Ports 引用的所有 distfiles：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsclean -D</span></span><br></pre></td></tr></table></figure>
+<p>Portupgrade 可以删除系统上当前安装的任何 Ports 未引用的所有 distfiles：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsclean -DD</span></span><br></pre></td></tr></table></figure>
+<p>如果安装了 Portmaster 使用如下命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portmaster --clean-distfiles</span></span><br></pre></td></tr></table></figure>
+<p>默认情况下 此命令是交互式的 并提示用户确认是否应删除 distfile。除了这些命令之外 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/pkg_cutleaves/pkg-descr">ports-mgmt/pkg_cutleaves</a> 自动执行删除不再需要的已安装 Ports 的任务。</p>
+<h2 id="5-使用-Poudriere-构建-Packages">5. 使用 Poudriere 构建 Packages</h2>
+<p>Poudriere 是一个 BSD 许可的实用程序 用于创建和测试 FreeBSD 软件包。它使用 FreeBSD jails 来设置隔离的编译环境。这些 jail 可用于为与安装它的系统不同的 FreeBSD 版本构建 Packages，如果主机是 amd64 系统，也可以为 i386 构建包。构建 P ackages 后，它们的布局与官方镜像相同。这些包可供 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=pkg&amp;sektion=8&amp;format=html">pkg(8)</a> 和其他包管理工具使用。</p>
+<p>Poudriere 是使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/poudriere/pkg-descr">ports-mgmt/poudriere</a> Packages 或 Ports 安装的。安装包括一个示例配置文件 /usr/local/etc/poudriere.conf.sample。将此文件复制到 /usr/local/etc/poudriere.conf。编辑复制的文件以适合本地配置。</p>
+<p>虽然在运行 poudriere 的系统上不需要 ZFS 但它是有益的。使用 ZFS 时 必须在 /usr/local/etc/poudriere.conf 中指定 ZPOOL 并将 FREEBSD_HOST 设置为附近的镜像。定义 CCACHE_DIR 可以使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/devel/ccache/pkg-descr">devel/ccache</a> 来缓存编译并减少频繁编译代码的构建时间。将 poudriere 数据集放在安装在 /poudriere 的孤立树中可能会很方便。其他配置值的默认值就足够了。</p>
+<p>检测到的处理器内核数用于定义并行运行的构建数量。提供足够的虚拟内存包括 RAM 或交换空间。如果虚拟内存耗尽，编译监狱将停止并被拆除，从而导致奇怪的错误消息。</p>
+<h2 id="6-安装后注意事项">6. 安装后注意事项</h2>
+<p>无论软件是从二进制 Packages 还是 Ports 安装的，大多数第三方应用程序在安装后都需要某种级别的配置。以下命令和位置可用于帮助确定与应用程序一起安装的内容。</p>
+<ul>
+<li>
+<p>大多数应用程序在 /usr/local/etc 中至少安装一个默认配置文件。在应用程序有大量配置文件的情况下，将创建一个子目录来保存它们。通常会安装以 .sample 等后缀结尾的示例配置文件。应审查并可能编辑配置文件以满足系统的需要。要编辑示例文件 ，请先复制它而不带 .sample 扩展名。</p>
+</li>
+<li>
+<p>提供文档的应用程序会将其安装到 /usr/local/share/doc 中，许多应用程序也会安装手册页。在继续之前应查阅此文档。</p>
+</li>
+<li>
+<p>某些应用程序运行的服务必须在启动应用程序之前添加到 /etc/rc.conf 中。这些应用程序通常在 /usr/local/etc/rc.d 中安装启动脚本。有关更多信息 请参阅 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/en/books/handbook/config/#configtuning-starting-services">Starting Services</a>。</p>
+</li>
+</ul>
+<blockquote>
+<p>按照设计，应用程序在安装时不会运行其启动脚本，也不会在卸载或升级时运行其停止脚本。这个决定留给个人系统管理员。</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=csh&amp;sektion=1&amp;format=html">csh(1)</a> 的用户应该运行 rehash 来重建 shells PATH 中的已知二进制列表。</li>
+</ul>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/devices-unsupported-in-esxi-7/" data-toggle="tooltip" data-placement="top" title="ESXi 7.0 中弃用和不支持的设备 (77304)">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/jingos/" data-toggle="tooltip" data-placement="top" title="JingOS v0.9 发布 - 全球首个 iPadOS 风格、专为平板打造的 Linux">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/freebsd-pkg-ports/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%9F%A5%E6%89%BE%EF%BC%88%E6%90%9C%E7%B4%A2%EF%BC%89%E8%BD%AF%E4%BB%B6"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 查找（搜索）软件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-pkg-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. pkg 二进制包管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E5%90%AF%E5%8A%A8-pkg"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 启动 pkg</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-Quarterly%EF%BC%88%E5%AD%A3%E5%BA%A6%EF%BC%89%E5%92%8C-Latest%EF%BC%88%E6%9C%80%E6%96%B0%EF%BC%89%E5%88%86%E6%94%AF"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 Quarterly（季度）和 Latest（最新）分支</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-3-%E8%8E%B7%E5%8F%96-pkg-%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3.3 获取 pkg 信息</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-4-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%A0%E9%99%A4"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3.4 安装和删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-5-%E5%8D%87%E7%BA%A7%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84-Packages"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">3.5 升级已经安装的 Packages</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-6-%E5%AF%B9%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84-Packages-%E8%BF%9B%E8%A1%8C%E5%AE%A1%E8%AE%A1%EF%BC%88%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E6%9C%89%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%EF%BC%89"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">3.6 对已经安装的 Packages 进行审计（检查是否有安全漏洞）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-7-%E8%87%AA%E5%8A%A8%E7%A7%BB%E9%99%A4%E4%B8%8D%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%84-Packages"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">3.7 自动移除不在使用的 Packages</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-8-%E6%81%A2%E5%A4%8D-Packages-Database"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">3.8 恢复 Packages Database</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-9-%E5%88%A0%E9%99%A4%E9%99%88%E6%97%A7%E7%9A%84-Packages"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">3.9 删除陈旧的 Packages</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-10-%E4%BF%AE%E6%94%B9-Packages-%E5%85%83%E6%95%B0%E6%8D%AE%EF%BC%88Metadata%EF%BC%89"><span class="toc-nav-number">3.10.</span> <span class="toc-nav-text">3.10 修改 Packages 元数据（Metadata）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-Ports-Collection"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. Ports Collection</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-1-%E5%AE%89%E8%A3%85-Ports-Collection"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">4.1 安装 Ports Collection</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-2-%E5%AE%89%E8%A3%85-Ports"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">4.2 安装 Ports</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-3-%E8%87%AA%E5%AE%9A%E4%B9%89-Ports-%E5%AE%89%E8%A3%85"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">4.3 自定义 Ports 安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-4-%E7%A7%BB%E9%99%A4%E5%AE%89%E8%A3%85%E7%9A%84-Ports"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4.4 移除安装的 Ports</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-5-%E5%8D%87%E7%BA%A7-Ports"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">4.5 升级 Ports</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-5-1-%E5%8D%87%E7%BA%A7%E5%92%8C%E7%AE%A1%E7%90%86-Ports-%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">4.5.1.</span> <span class="toc-nav-text">4.5.1 升级和管理 Ports 的工具</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-5-2-%E4%BD%BF%E7%94%A8-Portmaster-%E5%8D%87%E7%BA%A7-Ports"><span class="toc-nav-number">4.5.2.</span> <span class="toc-nav-text">4.5.2 使用 Portmaster 升级 Ports</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#4-5-3-%E4%BD%BF%E7%94%A8-Portupgrade-%E5%8D%87%E7%BA%A7-Ports"><span class="toc-nav-number">4.5.3.</span> <span class="toc-nav-text">4.5.3 使用 Portupgrade 升级 Ports</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-6-Ports-%E5%92%8C%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">4.6 Ports 和磁盘空间</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E4%BD%BF%E7%94%A8-Poudriere-%E6%9E%84%E5%BB%BA-Packages"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 使用 Poudriere 构建 Packages</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E5%AE%89%E8%A3%85%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 安装后注意事项</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+            
+            <a class="tag" href="/tags/#BSD" title="BSD">BSD</a>
+            
+            <a class="tag" href="/tags/#FreeBSD" title="FreeBSD">FreeBSD</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

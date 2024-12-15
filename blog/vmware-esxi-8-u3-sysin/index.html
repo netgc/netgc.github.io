@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版) - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版) - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版) "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+              
+            </div>
+            <h1>VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</h1>
+            <h2 class="subheading">发布 ESXi 8.0U3 集成驱动版，在个人电脑上运行企业级工作负载</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-12-12
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">35</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">7.6k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Thu Dec 12 2024 18:08:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>2024-12-12，ESXi 8.0U3c 发布，本站同步更新。</p>
+<p>2024-09-18，ESXi 8.0U3b 发布，本站同步更新。</p>
+<p>2024-09-01，更新 OEM BIOS 2.7，现已支持 Windows Server 2025。</p>
+<p><strong>发布 ESXi 8.0U3 集成驱动版，在个人电脑上运行企业级工作负载，构建开发、测试和学习的最佳平台。</strong></p>
+<p>新增功能详见：<a href="/blog/vmware-vsphere-8-u3-whats-new/" title="VMware vSphere 8 Update 3 新增功能">VMware vSphere 8 Update 3 新增功能</a></p>
+<p><img src="/blog/vmware-esxi-8-sysin/vsphere-8-workloads-everywhere.webp" alt="vSphere Workloads Everywhere"></p>
+<h2 id="通用特性概览-8">通用特性概览</h2>
+<p>该版本在官方原版基础上新增以下特性：</p>
+<ul>
+<li>macOS Unlocker：来自 GitHub 的 <a target="_blank" rel="noopener" href="https://github.com/netgc/esxi-unlocker-4">Unlocker 4</a>，现已支持 macOS Sequoia</li>
+<li>OEM BIOS 2.7：使用社区最流行的 OEM BIOS/EFI64，现已支持 Windows Server 2025</li>
+<li>LegacyCPU support，允许在不受支持的旧款 CPU 上安装 ESXi 8.0</li>
+<li>有限支持第 12 代+ Intel CPU 混合架构，可以正常引导和运行</li>
+<li>ESX-OSData 卷大小修改为 8G，解决 ESXi 7.0 开始的安装占用磁盘空间过大的问题（超过 142GB）</li>
+</ul>
+<h3 id="直接运行-macOS-Sequoia-2">直接运行 macOS Sequoia</h3>
+<p>参看：<a href="/blog/macos-15-ovf/" title="macOS 15 Blank OVF - macOS Sequoia 虚拟化解决方案">macOS 15 Blank OVF - macOS Sequoia 虚拟化解决方案</a></p>
+<p>ESXi 默认是支持创建 macOS 虚拟机的，但该功能仅限于 Apple Mac 硬件上启用。该版本解锁了对 macOS 虚拟化的支持，在任意非 Mac 硬件上可以直接运行 macOS 虚拟机。</p>
+<p>⚠️ macOS 虚拟机与 Mac 上的 macOS 体验有天壤之别，仅用于体验而已。开启 macOS 卓越性能的唯一平台是搭载 Apple M 芯片的 Mac。尽早加入 Apple 阵营，开启卓越体验吧。</p>
+<p>直接新建虚机，操作系统选择 “Apple macOS 11 (64-bit)” 或者 “Apple macOS 12 (64-bit)”，即可安装和正常启动：</p>
+<p><img src="/blog/vmware-esxi-8-oem/new-vm-in-esxi-8.webp" alt="New VM in ESXi 8"></p>
+<blockquote>
+<p>这里有个小错误：Apple OS X 10.12 应该为 Apple macOS 10.12，ESXi 7 中不存在这个问题。</p>
+<p>此用词错误在 8.0U2 中已修正。</p>
+</blockquote>
+<p>虚拟化中的 macOS Sequoia：</p>
+<p><img src="/blog/macOS-Sequoia-boot-iso/macos-sequoia-in-vm.webp" alt="macOS Sequoia in VMware"></p>
+<p>附：</p>
+<ul>
+<li>
+<a href="/blog/macOS-Sequoia-boot-iso/" title="macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载">macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载</a>
+</li>
+<li>
+<a href="/blog/macOS-Sonoma-boot-iso/" title="macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载">macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载</a>
+</li>
+<li>
+<a href="/blog/macOS-Ventura-boot-iso/" title="macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载">macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载</a>
+</li>
+<li>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></li>
+</ul>
+<h3 id="VMware-Dell-2-7-BIOS-EFI64-4">VMware_Dell_2.7_BIOS-EFI64</h3>
+<p>来自社区最新的 OEM BIOS/EFI64，现已更新支持 Windows Server 2025。</p>
+<p>BIOS.440 &amp; EFI64.ROM - Dell 2.7 OEM BIOS: NT 6.0 (Vista/Server 2008), NT 6.1 (7/Server 2008 R2), NT 6.2 (Server 2012), NT 6.3 (Server 2012 R2), NT 10.0 (Server 2016/Server 2019/Server 2022/Server 2025)</p>
+<p>Windows Server OVF 系列：</p>
+<ul>
+<li>
+<a href="/blog/windows-server-2025-ovf/" title="Windows Server 2025 OVF (2024 年 11 月更新) - VMware 虚拟机模板">Windows Server 2025 OVF (2024 年 11 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2022-ovf/" title="Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2019-ovf/" title="Windows Server 2019 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2019 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2016-ovf/" title="Windows Server 2016 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2016 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2008-r2-ovf/" title="Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+</li>
+</ul>
+<p>其他 OVF，如：<a href="/blog/rocky-linux-9-ovf/" title="Rocky Linux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板">Rocky Linux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a>，<a href="/blog/ubuntu-2404-ovf/" title="Ubuntu 24.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板">Ubuntu 24.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板</a>，更多请在本站搜索 “OVF”。</p>
+<h3 id="支持不受官方支持的旧款-CPU-7">支持不受官方支持的旧款 CPU</h3>
+<p><strong>ESXi 8.0 同样废弃了对部分旧款 CPU 的支持</strong>，以下 CPU 将不受 ESXi 8.0 支持：</p>
+<ul>
+<li>Intel Family 6, Model = 2A (Sandy Bridge DT/EN, GA 2011)</li>
+<li>Intel Family 6, Model = 2D (Sandy Bridge EP, GA 2012)</li>
+<li>Intel Family 6, Model = 3A (Ivy Bridge DT/EN, GA 2012)</li>
+<li>AMD Family 0x15, Model = 01 (Bulldozer, GA 2012)</li>
+</ul>
+<p>vSphere 7.0 Update 2 及更高版本中 ESX 安装程序显示的如下警告消息已经明示：<br>
+CPU_SUPPORT_WARNING: The CPUs in this host may not be supported in future ESXi releases. Please plan accordingly.</p>
+<p><strong>修改启动参数，在官方不受支持的 CPU 的服务器上可以正常安装。</strong></p>
+<p>根据 VMware vSphere 7.0 Release Notes，以下 CPU 已经不受支持（无法安装或者升级 ESXi 7.0）</p>
+<p>Comparing the processors supported by vSphere 6.7, vSphere 7.0 no longer supports the following processors:</p>
+<ul>
+<li>Intel Family 6, Model = 2C (Westmere-EP)</li>
+<li>Intel Family 6, Model = 2F (Westmere-EX)</li>
+</ul>
+<p>笔者在一台 2010 年发布的服务器上安装运行良好 (sysin)：HP DL 380 G7，Intel® Xeon® CPU E5606</p>
+<p><img src="/blog/vmware-esxi-7-oem/esxi-7-on-legacycpu.webp" alt="ESXi 7.0 on LegacyCPU"></p>
+<p>备注：本截图为 7.0 版本</p>
+<h3 id="ESX-OSData-卷大小修改为-8G-2">ESX-OSData 卷大小修改为 8G</h3>
+<p><img src="/blog/vmware-esxi-8-oem/esxi-8-vmfsl.webp" alt="ESXi 8 VMFSL"></p>
+<p><strong>ESXi 8.0 对存储容量的要求未有明显变更，以下 ESXi 7.0 的描述基本适用。</strong></p>
+<p>⚠️ 在 ESXi 8.0 中建议放弃使用 USB/SD 卡作为系统存储介质（虽然 SD 卡和 USB 介质继续获得有限支持，详见 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/85685">KB85685</a>）。</p>
+<p>从 ESXi 7.0 开始，对磁盘空间的要求有所变化：</p>
+<ul>
+<li>8GB SD 卡 + 32GB 本地磁盘</li>
+<li>32GB 本地磁盘</li>
+<li>142G 或者更大的本地磁盘</li>
+</ul>
+<p>通常我们在一块数百 GB 或者更大的本地磁盘上安装 ESXi，系统分区磁盘空间将占用 142GB 以上，整个系统分区（内核参数：systemMediaSize）需要 138GB 和 4GB 以上的空闲空间，其中 ESX-OSData volume 大约需要 120GB 的磁盘空间，对于磁盘空间紧张情况下可能有一定的浪费 (sysin)。修改后，系统安装后占用的磁盘空间不超过 16GB（特别是针对个人实验，无需浪费过多存储容量）。</p>
+<p>图：vSphere 7 中的新分区架构，只有系统引导分区固定为 100 MB，其余分区是动态的，这意味着分区大小将根据启动媒体大小确定。</p>
+<p><img src="/blog/vmware-esxi-7-oem/esxi-7-partition-schema.webp" alt="partition schema in vSphere 7"></p>
+<p>从 vSphere 7.0 Update 1c 开始，您可以使用 ESXi 安装程序引导选项 <code>systemMediaSize</code> 限制启动媒体上系统存储分区的大小。如果您的系统占用空间较小，不需要最大 128 GB 的系统存储大小，您可以将其限制为最小 32 GB。<code>systemMediaSize</code> 参数接受以下值：</p>
+<ul>
+<li>min（32 GB，用于单磁盘或嵌入式服务器）</li>
+<li>small（64 GB，用于至少有 512 GB RAM 的服务器）</li>
+<li>default（128 GB）</li>
+<li>max（消耗所有可用空间，用于多 TB 的服务器）</li>
+</ul>
+<blockquote>
+<p>即使设置值为 min，相比之前的版本所需存储容量还是要大的多。</p>
+</blockquote>
+<h3 id="有限支持第-12-代-Intel-CPU-混合架构-3">有限支持第 12 代+ Intel CPU 混合架构</h3>
+<p>ESXi 面向数据中心虚拟化，在测试和学习时也常常将其运行于桌面 PC 之上。</p>
+<p>据悉 ESXi 8.0 并不支持第 12 代 Intel 处理器，直接引导会出现 PSOD。本次通过加载内核参数可以有限支持第 12 代 Intel CPU，即可以正常引导和安装，也可以正常运行 (sysin)，但是无法区分或识别两种核心，P 核的超线程是无法识别的，比如 i7-12650H 配备 6P + 4E 在桌面系统中显示为 16 核心，而在 ESXi 中仅识别为 10 核。现在有了更好的解决方案，绝大多数主流品牌机和主板都可以通过配置开启 P 核的超线程（非主流请慎选）。</p>
+<p>已经广泛验证支持第 12 代+ Intel 处理器（目前 13、14 代同样支持），更多案例，期待您的反馈。</p>
+<blockquote>
+<p>第 12 代英特尔酷睿桌面级处理器有 N 个性能核（P 核，Performance-core）和 N 个能效核（E 核，Efficient-core）组成，性能核和能效核的混合架构，是 12 代酷睿处理器最大的革新。该架构或俗称 PE 大小核。</p>
+<p>第 12 代+ Intel CPU 已经成功安装 ESXi 后需要进一步配置，可联系笔者了解详情。</p>
+</blockquote>
+<p>⚠️：并不推荐此类 CPU，无法有效利用全部计算资源。</p>
+<h2 id="集成的驱动-7">集成的驱动</h2>
+<h3 id="新增网卡兼容性-4">新增网卡兼容性</h3>
+<p><strong>✅ USB Network Native Driver</strong>: 该项目名为 USB 网络原生驱动，支持以下芯片和 ID 的网卡。</p>
+<p>2022 年 11 月 23 日发布的 USB Network Native Driver 兼容 ESXi 8.0。</p>
+<p>USB Network Native Driver for ESXi (sysin) version 1.12 — April 26, 2023 (updated v1.15 - Jun 25, 2024)</p>
+<p>Any adapters using the following chipsets and with the following VID/PID are supported.</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Chipset</th>
+<th>Speed</th>
+<th>VendorID</th>
+<th>DeviceID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AQUANTIA</td>
+<td>AQC111U</td>
+<td>5G, 2.5G, 1G, 100M</td>
+<td>0xe05a</td>
+<td>0x20f4</td>
+</tr>
+<tr>
+<td>AQUANTIA</td>
+<td>Aquantia Pacific</td>
+<td>Unknown</td>
+<td>0x2eca</td>
+<td>0xc101</td>
+</tr>
+<tr>
+<td>ASIX</td>
+<td>AX88179</td>
+<td>10/100/1000M</td>
+<td>0x0b95</td>
+<td>0x1790</td>
+</tr>
+<tr>
+<td>ASIX</td>
+<td>AX88178a</td>
+<td>10/100/1000M</td>
+<td>0x0b95</td>
+<td>0x178a</td>
+</tr>
+<tr>
+<td>CISCO LINKSYS</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x13b1</td>
+<td>0x0041</td>
+</tr>
+<tr>
+<td>DLINK</td>
+<td>RTL8156</td>
+<td>2.5G, 1G, 100M, 10M</td>
+<td>0x2001</td>
+<td>0xb301</td>
+</tr>
+<tr>
+<td>DLINK</td>
+<td>AX88179</td>
+<td>10/100/1000M</td>
+<td>0x2001</td>
+<td>0x4a00</td>
+</tr>
+<tr>
+<td>INSYDE SOFTWARE CORP</td>
+<td>Insyde Software Corp.</td>
+<td>Unknown</td>
+<td>0x0b1f</td>
+<td>0x03ee</td>
+</tr>
+<tr>
+<td>LENOVO</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x17ef</td>
+<td>0x3062</td>
+</tr>
+<tr>
+<td>LENOVO</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x17ef</td>
+<td>0x3069</td>
+</tr>
+<tr>
+<td>LENOVO</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x17ef</td>
+<td>0x720a</td>
+</tr>
+<tr>
+<td>LENOVO</td>
+<td>AX88179</td>
+<td>10/100/1000M</td>
+<td>0x17ef</td>
+<td>0x304b</td>
+</tr>
+<tr>
+<td>LENOVO</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x17ef</td>
+<td>0x7205</td>
+</tr>
+<tr>
+<td>NVIDIA</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x0955</td>
+<td>0x09ff</td>
+</tr>
+<tr>
+<td>Qualcomm</td>
+<td>NA</td>
+<td>Unknown</td>
+<td>0x1A56</td>
+<td>0x3100</td>
+</tr>
+<tr>
+<td>Qualcomm</td>
+<td>NA</td>
+<td>Unknown</td>
+<td>0x0b05</td>
+<td>0x1976</td>
+</tr>
+<tr>
+<td>REALTEK</td>
+<td>RTL8152</td>
+<td>10/100M</td>
+<td>0x0bda</td>
+<td>0x8152</td>
+</tr>
+<tr>
+<td>REALTEK</td>
+<td>RTL8156</td>
+<td>2.5G, 1G, 100M, 10M</td>
+<td>0x0bda</td>
+<td>0x8156</td>
+</tr>
+<tr>
+<td>REALTEK</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x045e</td>
+<td>0x07c6</td>
+</tr>
+<tr>
+<td>REALTEK</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x0bda</td>
+<td>0x8153</td>
+</tr>
+<tr>
+<td>SITECOMEU</td>
+<td>AX88179</td>
+<td>10/100/1000M</td>
+<td>0x0df6</td>
+<td>0x0072</td>
+</tr>
+<tr>
+<td>SUPERMICRO</td>
+<td>Supermicro computer Inc</td>
+<td>Unknown</td>
+<td>0x15d9</td>
+<td>0x1b83</td>
+</tr>
+<tr>
+<td>TP-LINK</td>
+<td>RTL8153</td>
+<td>10/100/1000M</td>
+<td>0x2357</td>
+<td>0x0601</td>
+</tr>
+<tr>
+<td>TRENDNET</td>
+<td>AQC111U</td>
+<td>5G, 2.5G, 1G, 100M</td>
+<td>0xe05a</td>
+<td>0x20f4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>✅ 新增的 Intel 网卡支持</strong>：</p>
+<p>Community Networking Driver 项目中的驱动已经获得 ESXi 8.0 的官方支持。</p>
+<ul>
+<li><strong>icg</strong>: Any PCIe network adapters with VID/PID listed below are supported in ESXi 8.0 and newer (sysin)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Chipset</th>
+<th>VendorID</th>
+<th>DeviceID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225-LM</td>
+<td>0x8086</td>
+<td>0x15f2</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225-V</td>
+<td>0x8086</td>
+<td>0x15f3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225(blankNVM)</td>
+<td>0x8086</td>
+<td>0x15fd</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225-IT(2)</td>
+<td>0x8086</td>
+<td>0x0d9f</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225-I</td>
+<td>0x8086</td>
+<td>0x15f8</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225-K</td>
+<td>0x8086</td>
+<td>0x3100</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225-K(2)</td>
+<td>0x8086</td>
+<td>0x3101</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I225-LMvP(2)</td>
+<td>0x8086</td>
+<td>0x5502</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I226-LMvP(2)</td>
+<td>0x8086</td>
+<td>0x5503</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I226-K</td>
+<td>0x8086</td>
+<td>0x5504</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I226-LM</td>
+<td>0x8086</td>
+<td>0x125b</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I226-V</td>
+<td>0x8086</td>
+<td>0x125c</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I226-IT</td>
+<td>0x8086</td>
+<td>0x125d</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I226(blankNVM)</td>
+<td>0x8086</td>
+<td>0x125f</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I220-V</td>
+<td>0x8086</td>
+<td>0x15f7</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Controller I221-V</td>
+<td>0x8086</td>
+<td>0x125e</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>e1000</strong>: 8.0 U3 更新又带来了多款新的型号支持。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Chipset</th>
+<th>VendorID</th>
+<th>DeviceID</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (8) I219-LM</td>
+<td>0x8086</td>
+<td>0x15df</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (8) I219-V</td>
+<td>0x8086</td>
+<td>0x15e0</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (9) I219-LM</td>
+<td>0x8086</td>
+<td>0x15e1</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (9) I219-V</td>
+<td>0x8086</td>
+<td>0x15e2</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (10) I219-LM</td>
+<td>0x8086</td>
+<td>0x0d4e</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (10) I219-V</td>
+<td>0x8086</td>
+<td>0x0d4f</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (11) I219-LM</td>
+<td>0x8086</td>
+<td>0x0d4c</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (11) I219-V</td>
+<td>0x8086</td>
+<td>0x0d4d</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (12) I219-LM</td>
+<td>0x8086</td>
+<td>0x0d53</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (12) I219-V</td>
+<td>0x8086</td>
+<td>0x0d55</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (13) I219-LM</td>
+<td>0x8086</td>
+<td>0x155b</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (13) I219-V</td>
+<td>0x8086</td>
+<td>0x155c</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (14) I219-LM</td>
+<td>0x8086</td>
+<td>0x15f9</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (14) I219-V</td>
+<td>0x8086</td>
+<td>0x15fa</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (15) I219-LM</td>
+<td>0x8086</td>
+<td>0x15f4</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (15) I219-V</td>
+<td>0x8086</td>
+<td>0x15f5</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (16) I219-LM</td>
+<td>0x8086</td>
+<td>0x1a1e</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (17) I219-V</td>
+<td>0x8086</td>
+<td>0x1a1f</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (17) I219-LM</td>
+<td>0x8086</td>
+<td>0x1a1c</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (17) I219-V</td>
+<td>0x8086</td>
+<td>0x1a1d</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (18) I219-LM</td>
+<td>0x8086</td>
+<td>0x550a</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (18) I219-V</td>
+<td>0x8086</td>
+<td>0x550b</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (19) I219-LM</td>
+<td>0x8086</td>
+<td>0x550c</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (19) I219-V</td>
+<td>0x8086</td>
+<td>0x550d</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (20) I219-LM</td>
+<td>0x8086</td>
+<td>0x550e</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (20) I219-V</td>
+<td>0x8086</td>
+<td>0x550f</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (21) I219-LM</td>
+<td>0x8086</td>
+<td>0x5510</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (21) I219-V</td>
+<td>0x8086</td>
+<td>0x5511</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (22) I219-LM</td>
+<td>0x8086</td>
+<td>0x0dc7</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (22) I219-V</td>
+<td>0x8086</td>
+<td>0x0dc8</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (23) I219-LM</td>
+<td>0x8086</td>
+<td>0x0dc5</td>
+<td>New in U3</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Ethernet Connection (23) I219-V</td>
+<td>0x8086</td>
+<td>0x0dc6</td>
+<td>New in U3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>✅ 另有约 14 款新增的网卡获得支持</strong>，多为较高端的型号，这里就不一一列出了。</p>
+<h3 id="Intel-网卡增强定制版-4">Intel 网卡增强定制版</h3>
+<p>更新或增加以下 Intel 网卡的 async 驱动，启用兼容列表的中 Intel 网卡完整功能。</p>
+<ul>
+<li>
+<p>Intel® Ethernet Controllers 82580, I210, I350, and I354 family</p>
+</li>
+<li>
+<p>Intel® Ethernet Controllers 82599, x520, x540, x550, x552 and x553 family</p>
+</li>
+<li>
+<p>Intel® Ethernet Controllers X710, XL710, XXV710, and X722 family</p>
+</li>
+<li>
+<p>Intel® Ethernet Controllers E810-C and E810-XXV family</p>
+</li>
+<li>
+<p>Intel® Ethernet Controllers E810-C, E810-XXV and X722 family (RDMA)</p>
+</li>
+</ul>
+<p>现在 ESXi 8.0U3 本定制版已默认包含。</p>
+<h3 id="集成-NVMe-驱动-6">集成 NVMe 驱动</h3>
+<p>2021 年 11 月 10 日发布的 Community NVMe Driver for ESXi 更新，支持 ESXi 7.0 及更新版本 (sysin)，同样可用于 ESXi 8，支持以下存储设备：</p>
+<p>Community NVMe Driver for ESXi version 1.2 — November 10, 2021</p>
+<p><strong>Non-Apple NVMe:</strong></p>
+<ul>
+<li>VMware ESXi 7.0 (x86) or newer is required</li>
+<li>Any NVMe storage devices with VID/PID listed below are supported</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>VendorID</th>
+<th>DeviceID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADATA</td>
+<td>0x1cc1</td>
+<td>0x8201</td>
+</tr>
+<tr>
+<td>Micro/Crucial</td>
+<td>0xc0a9</td>
+<td>0x2263</td>
+</tr>
+<tr>
+<td>Silicon Motion</td>
+<td>0x126f</td>
+<td>0x2262</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>该项目虽已被弃用，但仍可在特定场景下发挥作用，故保留。</p>
+</blockquote>
+<p><strong>以下为特殊定制版本，因驱动本身具有互斥性（或影响原有兼容性），需要额外定制。</strong></p>
+<h3 id="ConnectX-3-网卡特殊定制版-4">ConnectX-3 网卡特殊定制版</h3>
+<p>ConnectX-3 系列网卡在 ESXi 8.0 中被弃用，最高兼容 7.0 系列。详见：<a href="/blog/devices-unsupported-in-esxi-8/" title="ESXi 8.0 中已弃用且不受支持的设备 (88172)">ESXi 8.0 中已弃用且不受支持的设备 (88172)</a>。</p>
+<p>此版本用于重新启用上述支持的网卡，代表机型有：R86S G3、R86S U4 万兆软路由。</p>
+<p>此项需要额外定制。</p>
+<p>NOTE - None of the following devices will be recognized in 8.0 by default.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>VID</th>
+<th>DID</th>
+<th>SVID</th>
+<th>SSID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mellanox ConnectX-3 Dual Port 40 GbE QSFP+ Network Adapter</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15b3</td>
+<td>0079</td>
+</tr>
+<tr>
+<td>Mellanox ConnectX-3 Dual Port 10 GbE KR Blade Mezzanine Card</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15b3</td>
+<td>0078</td>
+</tr>
+<tr>
+<td>Mellanox ConnectX-3 Dual Port 10 GbE DA/SFP+ Network Adapter</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15b3</td>
+<td>0080</td>
+</tr>
+<tr>
+<td>Mellanox ConnectX-3 Pro Dual Port 10 GbE KR Blade Mezzanine Card</td>
+<td>15B3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0078</td>
+</tr>
+<tr>
+<td>Mellanox ConnectX-3 Pro Dual Port 10 GbE DA/SFP+ Network Adapter</td>
+<td>15B3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0080</td>
+</tr>
+<tr>
+<td>Mellanox ConnectX-3 Pro Dual Port 40 GbE QSFP+ Network Adapter</td>
+<td>15B3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0079</td>
+</tr>
+<tr>
+<td>ConnectX-2 MNPH29D-XTR</td>
+<td>15b3</td>
+<td>6750</td>
+<td>15b3</td>
+<td>0018</td>
+</tr>
+<tr>
+<td>NC543i Single Port Flex-10 10GbE BL-c Adapter</td>
+<td>15b3</td>
+<td>6764</td>
+<td>103c</td>
+<td>1781</td>
+</tr>
+<tr>
+<td>NC543i Dual Port Flex-10 10GbE Adapter</td>
+<td>15b3</td>
+<td>6764</td>
+<td>103c</td>
+<td>3349</td>
+</tr>
+<tr>
+<td>NC542m Dual Port Flex-10 10GbE BL-c Adapter</td>
+<td>15b3</td>
+<td>6764</td>
+<td>103c</td>
+<td>3313</td>
+</tr>
+<tr>
+<td>HP IB QDR/EN 10Gb 2P 544M Adptr</td>
+<td>15b3</td>
+<td>1003</td>
+<td>103C</td>
+<td>18CE</td>
+</tr>
+<tr>
+<td>HP IB FDR/EN 10/40Gb 2P 544M Adptr</td>
+<td>15b3</td>
+<td>1003</td>
+<td>103C</td>
+<td>18CF</td>
+</tr>
+<tr>
+<td>HP IB FDR/EN 10/40Gb 2P 544QSFP Adptr</td>
+<td>15b3</td>
+<td>1003</td>
+<td>103C</td>
+<td>18D6</td>
+</tr>
+<tr>
+<td>HP IB FDR/EN 10/40Gb 2P 544FLR-QSFP Adptr</td>
+<td>15b3</td>
+<td>1003</td>
+<td>103C</td>
+<td>1777</td>
+</tr>
+<tr>
+<td>HP IB QDR/EN 10Gb 2P 544FLR-QSFP Adptr</td>
+<td>15b3</td>
+<td>1003</td>
+<td>103C</td>
+<td>18CD</td>
+</tr>
+<tr>
+<td>HP IB FDR/EN 40Gb 2P 544+QSFP Adptr</td>
+<td>15b3</td>
+<td>1007</td>
+<td>103C</td>
+<td>22F3</td>
+</tr>
+<tr>
+<td>HP IB FDR/EN 40Gb 2P 544+M Adptr</td>
+<td>15b3</td>
+<td>1007</td>
+<td>103C</td>
+<td>22F2</td>
+</tr>
+<tr>
+<td>HP IB QDR/EN 10Gb 2P 544+FLR-QSFP Adptr</td>
+<td>15b3</td>
+<td>1007</td>
+<td>103c</td>
+<td>22F5</td>
+</tr>
+<tr>
+<td>HPE Ethernet 10Gb 2-port 546FLR-SFP+ Adapter</td>
+<td>15b3</td>
+<td>1007</td>
+<td>103c</td>
+<td>8020</td>
+</tr>
+<tr>
+<td>HPE Ethernet 10G 2-port 546SFP+ Adapter</td>
+<td>15b3</td>
+<td>1007</td>
+<td>103c</td>
+<td>801f</td>
+</tr>
+<tr>
+<td>HP IB FDR/EN 40Gb 2P 544+FLR-QSFP Adptr</td>
+<td>15b3</td>
+<td>1007</td>
+<td>103C</td>
+<td>22F4</td>
+</tr>
+<tr>
+<td>HP IB QDR/EN 10Gb 2P 544+M Adptr</td>
+<td>15b3</td>
+<td>1007</td>
+<td>103C</td>
+<td>22F1</td>
+</tr>
+<tr>
+<td>MZ710</td>
+<td>15b3</td>
+<td>1007</td>
+<td>19e5</td>
+<td>df1e</td>
+</tr>
+<tr>
+<td>MZ311</td>
+<td>15b3</td>
+<td>1003</td>
+<td>19e5</td>
+<td>df05</td>
+</tr>
+<tr>
+<td>Mellanox 2port 10Gb Ethernet Expansion card (CFFh) (90Y3570)</td>
+<td>15B3</td>
+<td>6750</td>
+<td>15B3</td>
+<td>6750</td>
+</tr>
+<tr>
+<td>IBM Flex System EN4132 2-port 10Gb Ethernet Adapter (90Y3466)</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15b3</td>
+<td>0021</td>
+</tr>
+<tr>
+<td>Lenovo- 90Y3466-Flex System EN4132 2-port 10Gb Ethernet Adapter-Mellanox</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15B3</td>
+<td>0021</td>
+</tr>
+<tr>
+<td>Lenovo-90Y3482-Flex System EN6132 2-port 40Gb Ethernet Adapter-Mellanox</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15B3</td>
+<td>04A2</td>
+</tr>
+<tr>
+<td>Lenovo-00D9690-ConnectX- 3 10 GbE Adapter</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15B3</td>
+<td>0077</td>
+</tr>
+<tr>
+<td>Lenovo-00D9550-ConnectX-3 FDR VPI IB/E Adapter-Mellanox</td>
+<td>15b3</td>
+<td>1003</td>
+<td>15B3</td>
+<td>0076</td>
+</tr>
+<tr>
+<td>Lenovo-00FP650-ConnectX-3 Pro ML2 2x40GbE/FDR VPI Adapter-Mellanox</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0032</td>
+</tr>
+<tr>
+<td>Lenovo-7ZT7A00501-ThinkSystem ConnectX-3 Pro ML2 FDR 2-Port QSFP VPI Adapter-Mellanox</td>
+<td>15B3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>004E</td>
+</tr>
+<tr>
+<td>Lenovo-7ZT7A00502-ThinkSystem ConnectX-3 Mezz 40Gb 2-Port Ethernet Adapter-Mellanox</td>
+<td>15B3</td>
+<td>1003</td>
+<td>15B3</td>
+<td>04A2</td>
+</tr>
+<tr>
+<td>MT25448 - ConnectX</td>
+<td>15b3</td>
+<td>6368</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT26458 - ConnectX-2 Ent; 10GigE; 10GBaseT;</td>
+<td>15b3</td>
+<td>675a</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT25458 - ConnectX-2 Ent; 10GigE; 10GBaseT;</td>
+<td>15b3</td>
+<td>6372</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT26448 - ConnectX EN; 10GigE;</td>
+<td>15b3</td>
+<td>6750</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT25418 - ConnectX</td>
+<td>15b3</td>
+<td>634a</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT25408 - ConnectX/ConnectX-2</td>
+<td>15b3</td>
+<td>6340</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT26418 - ConnectX-2 Lx VPI NIC; single/dual-port QSFP;</td>
+<td>15b3</td>
+<td>6732</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT26488 - ConnectX-2 VPI w/ Virtualization+</td>
+<td>15b3</td>
+<td>6778</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>ConnectX-2 EN NIC; 40GBASE-CR4; single-port; (MNQH19-XTR)</td>
+<td>15b3</td>
+<td>676e</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT27500 Family [ConnectX-3]</td>
+<td>15b3</td>
+<td>1003</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT27500 Family [ConnectX-3 Virtual Function]</td>
+<td>15b3</td>
+<td>1004</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT27520 Family [ConnectX-3 Pro]</td>
+<td>15b3</td>
+<td>1007</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro VPI adapter card; dual-port QSFP; FDR IB (56Gb/s) and 40GigE (MCX354A-FCC)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0003</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro EN network interface card, 40/56GbE, dual-port QSFP(MCX314A-BCCT )</td>
+<td>15B3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0006</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro EN NIC; 40GigE; single-port QSFP (MCX313A-BCC)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0007</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro VPI adapter card; single-port QSFP; FDR IB (56Gb/s) and 40GigE (MCX353A-FCC)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0008</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro EN NIC; 10GigE; dual-port SFP+ (MCX312B-XCC)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>000C</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro EN network interface card; 10GigE; single-port SFP+ (MCX311A-XCC)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>000D</td>
+</tr>
+<tr>
+<td>HP Infiniband QDR/Ethernet 10Gb 2P 544i Adapter (NC544i)</td>
+<td>15b3</td>
+<td>1003</td>
+<td>103c</td>
+<td>17C9</td>
+</tr>
+<tr>
+<td>MT27500 [ConnectX-3 Flash Recovery]</td>
+<td>15b3</td>
+<td>01f6</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>MT27521 Family [ConnectX-3 Pro Virtual Function]</td>
+<td>15b3</td>
+<td>1008</td>
+<td>0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro EN NIC; 40GigE; dual-port QSFP (MCX314A-BCC)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0006</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro VPI NIC; FDR IB 40/56GbE; single-port QSFP; PCIe3.0 x8; (MCX353A-FCCT)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0008</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro VPI NIC; OCP; FDR IB 40/56GbE; dual-port QSFP; PCIe3.0 x8; (MCX346A-FCPN)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0057</td>
+</tr>
+<tr>
+<td>ConnectX-3 Pro VPI NIC; FDR IB 40/56GbE; dual-port QSFP; PCIe3.0 x8; (MCX354A-FCCT)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0003</td>
+</tr>
+<tr>
+<td>H3C NIC-10GE-2P-520F-B2(MCX312B-XCC)</td>
+<td>15b3</td>
+<td>1007</td>
+<td>15B3</td>
+<td>0178</td>
+</tr>
+</tbody>
+</table>
+<p>此类产品型号众多，品类繁杂，请确认产品型号在兼容列表，尽量不要购买非品牌的散装品，可能无法支持。正确的选择是使用 Dell HPE 联想等品牌服务器的配件。</p>
+<p>⚠️：这些是已弃用非官方支持的网卡型号，不是选购的参考。</p>
+<h3 id="Marvell-AQC-网卡特殊定制版-4">Marvell AQC 网卡特殊定制版</h3>
+<p>最新的用户案例中，发现 AQC107 已经不受 8.0 支持，虽然 8.0 弃用设备列表中并没有列出，特定制了此版本以恢复对该系列网卡的支持。</p>
+<p>此项需要额外定制。</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Model</th>
+<th>VendorID</th>
+<th>DeviceID</th>
+<th>SVID</th>
+<th>SSID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC100-B1</td>
+<td>1d6a</td>
+<td>00b1</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC100S-B1</td>
+<td>1d6a</td>
+<td>80b1</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC107-B0</td>
+<td>1d6a</td>
+<td>d107</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC107-B0</td>
+<td>1d6a</td>
+<td>d107</td>
+<td>1d6a</td>
+<td>8001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC107-B1</td>
+<td>1d6a</td>
+<td>07b1</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC107-B1</td>
+<td>1d6a</td>
+<td>07b1</td>
+<td>1d6a</td>
+<td>8001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC107-B1</td>
+<td>1d6a</td>
+<td>07b1</td>
+<td>106b</td>
+<td>0187</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC107S-B1</td>
+<td>1d6a</td>
+<td>87b1</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC108-B0</td>
+<td>1d6a</td>
+<td>d108</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC108-B1</td>
+<td>1d6a</td>
+<td>08b1</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC111C-B0</td>
+<td>1d6a</td>
+<td>11b1</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>Marvell Technology Group Ltd</td>
+<td>AQC112C-B0</td>
+<td>1d6a</td>
+<td>12b1</td>
+<td>1d6a</td>
+<td>0001</td>
+</tr>
+</tbody>
+</table>
+<p>备注：AQC113、AQC114 和 AQC115 暂不受支持。</p>
+<h3 id="NVMe-驱动特殊定制版-4">NVMe 驱动特殊定制版</h3>
+<p>可以增加已经被 ESXi 8.0 弃用，但是可以验证在 ESXi 6.x 或者 7.0 中受支持的 NVMe 驱动。此项需要额外定制。</p>
+<p>ESXi 版本的更新，总是伴随着部分硬件被弃用，通常是在大版本中，当然也可能在某些 Update 版本中。只要能验证在旧版中（6.x 或者 7.0 的任意版本）受支持，在 8.0 系列版本中就有机会获得支持。这些可能是一些消费品牌的 SSD，当然也包括数据中心级 SSD。</p>
+<p>成功案例：</p>
+<ul>
+<li>HP EX900</li>
+<li>HP EX920</li>
+<li>HP EX950</li>
+<li>ADATA XPG SX8200</li>
+<li>长江存储 致态 PC005</li>
+<li>HP FX700</li>
+<li>COLORFUL CN600</li>
+<li>KIMTIGO 金泰克（具体型号未反馈，欢迎新用户验证）</li>
+<li>毒刺（有点罕见，具体型号未反馈）</li>
+<li>光威（Gloway）Basic 系列 PCIe 3.0x4（新增）</li>
+</ul>
+<p>如果您的 NVMe SSD 从未在 ESXi 的任何版本中获得支持，这些通常是一些非主流的消费品牌 SSD，同样也无法获得支持（除非产品供应商提供驱动）。</p>
+<p>⚠️ 警告：在 ESXi 8.0 中此类产品未受官方及其合作伙伴验证和支持，部分用户反馈工作良好，也有部分用户反馈可以识别但是功能异常（或许跟主板有关）。近期的多个用户反馈都是工作正常，此前的问题可能是混用多种 SSD 导致的，建议仅使用一种品牌型号 SSD 的场景使用该特殊定制版。</p>
+<p><strong>请注意：以上特殊定制版非默认版本，仅在标准版本无法支持时提供。</strong></p>
+<h2 id="平台兼容性-5">平台兼容性</h2>
+<p>这里主要描述的是不受官方支持，但可以成功运行 ESXi 8.0 的实验环境硬件。</p>
+<h3 id="Intel-NUC-5">Intel NUC</h3>
+<p>早期该镜像集成网卡驱动主要是针对以下 NUC，如果您的 NUC 属于内置驱动支持的型号，直接使用标准的 ESXi 镜像即可（当然该版本也可以通用）。</p>
+<p><img src="/blog/vmware-esxi-8-sysin/nuc-family.webp" alt="nuc-family"></p>
+<p>经第三方验证以下 Intel NUC 硬件平台已经可以成功运行 ESXi 8.0:</p>
+<ul>
+<li>Intel NUC 5 (Rock Canyon)</li>
+<li>Intel NUC 6 (Swift Canyon)</li>
+<li>Intel NUC 8 (Dawson Canyon)</li>
+<li>Intel NUC 9 Extreme (Ghost Canyon)</li>
+<li>Intel NUC 9 Pro (Quartz Canyon)</li>
+<li>Intel NUC 10 Performance (Frost Canyon)</li>
+<li>Intel NUC 11 Performance (Panther Canyon)</li>
+<li>Intel NUC 11 Pro (Tiger Canyon)</li>
+<li>Intel NUC 11 Extreme (Beast Canyon)</li>
+<li>Intel NUC 12 (Dragon Canyon)</li>
+<li>Intel NUC 12 Pro (Wall Street Canyon)</li>
+<li>Intel NUC 12 Enthusiast (Serpent Canyon)</li>
+<li>Intel NUC 13 Pro (Arena Canyon)</li>
+<li>Intel NUC 13 Extreme (Raptor Canyon) (⚠️ 10GbE 不受支持)</li>
+<li>ASUS NUC 14 Pro</li>
+<li>ASUS NUC 14 Pro+</li>
+</ul>
+<p>警告：Intel® NUC 12 Extreme 包括 1 个 2.5GbE（英特尔 I225-LM，仅在 i9 型号上可用），以及 1 个 10GbE（Marvell AQC113），仅 i9 型号可以支持运行 ESXi，但是 10GbE 不可用，仅可直通给 VM 使用。</p>
+<p>Intel® NUC 13 Extreme i5/i7/i9 均配备 10GbE (AQC113) + Intel® i226-V，与上述 i9 款情况相同。</p>
+<h3 id="Apple-Mac-5">Apple Mac</h3>
+<p><img src="/blog/vmware-esxi-8-sysin/mac-mini-hero.webp" alt="mac-mini-hero"></p>
+<p>Apple Mac 是 ESXi 7.0 官方支持的硬件平台。Apple 已经转型 ARM 架构，虽然 ESXi-arm 项目仍在继续，但是暂时无法支持搭载 Apple 芯片的 Mac (sysin)。ESXi 8.0 不再官方支持 Apple Mac，但是仍然可以在部分 ESXi 7.0 兼容的 Mac 上成功运行。</p>
+<p><img src="/blog/vmware-esxi-8-sysin/apple-esxi-compatibility.webp" alt="apple-esxi-compatibility"></p>
+<p>图：<em>ESXi 7.0 Apple Mac 兼容性列表</em></p>
+<p>以下 Mac 机型经第三方验证可以成功运行 ESXi 8.0：</p>
+<ul>
+<li>Apple Mac Mini 7,1 (2014)</li>
+<li>Apple Mac Mini 8,1 (2018)（需要配置引导参数）</li>
+<li>Apple Mac Pro 7,1 (2019)</li>
+</ul>
+<h3 id="国产小主机-4">国产小主机</h3>
+<p>此类产品种类繁多，现代 Mini PC 多数配备 Intel 12 代+ CPU，只要配备 Intel 网卡（配备 Realtek 网卡的机型除非新增 USB 网卡直接可以忽略），大概率能够运行 ESXi 8.0。</p>
+<ul>
+<li>ASRock NUC BOX-1360P D4/D5：Intel 13th CPU / 64GB DDR4 or DDR5 / 1 x M.2 2280 PCIe 4.0 / 1 or 2 x 2.5GbE (i226)</li>
+<li>ASRock iBOX-1265UE：Intel 12th CPU / 64GB DDR4 / 1 x M.2 2280 PCIe 4.0, 1 x SATA 3.0 / 2 x 2.5GbE (i225)</li>
+<li>ASUS Mini PC PL64：Intel 12th CPU / 64GB DDR4 (sysin) / 2 x M.2 2280 PCIe 4.0 / 1 x 1GbE (i219) and 1 x 2.5GbE (i226)</li>
+<li>ASUS Mini PC PN64：Intel 13th CPU / 64GB DDR5 / 1 x M.2 2280 PCIe 4.0 and 1 x SATA 3.0 / 1 x 2.5GbE (i226)</li>
+<li>✓ <strong>硬件验证</strong> Lenovo ThinkStation P360 Ultra, Mini-tower (3.9L)：Intel 12th CPU / <strong>128GB</strong> DDR5 (4x 32GB DDR5 SO-DIMM) / 2 x M.2 2280 PCIe 4.0 and 1 x SATA 3.0 / 1 x 1GbE (I210) and 1 x 2.5GbE (I225)，One additional Ethernet adapter Slot</li>
+<li>✓ <strong>硬件验证</strong> Lenovo ThinkStation P360 Tiny, Micro (1L)：Intel 12th CPU / 64GB DDR5 (2x 32GB DDR5 SO-DIMM) / 2 x M.2 2280 PCIe 4.0 / 1 x 1GbE (I219-LM)，2 x Expansion slots</li>
+<li>✓ <strong>硬件验证</strong> 铭凡 MINISFORUM NPB7：i7-13700H (6P+8E) / 64GB DDR5 / 1 x M.2 2280 PCIe 4.0 and 1 x SATA 3.0 2.5 / 2 x 2.5GbE (i225 or i226)</li>
+<li>✓ <strong>硬件验证</strong> 铭凡 MINISFORUM NPB6：i7-13620H (6P+4E) / 64GB DDR5 / 1 x M.2 2280 PCIe 4.0 and 1 x SATA 3.0 2.5 / 2 x 2.5GbE (i225 or i226)</li>
+<li>✓ <strong>硬件验证</strong> 铭凡 MINISFORUM NPB5：i5-13500H (4P+8E) / 64GB DDR5 / 1 x M.2 2280 PCIe 4.0 and 1 x SATA 3.0 2.5 / 2 x 2.5GbE (i225 or i226)</li>
+<li>✓ <strong>硬件验证</strong> 铭凡 Minisforum MS-01 WorkStation：Intel i9-13900H (6P+8E vPro), i9-12900H (6P+8E vPro), i5-12450H (4P+4E); 2 x 48GB DDR5 (i9-13900H), 2 x 32GB DDR5 (12th CPUs); 1 x M.2 2280 NVME SSD(Alt U.2)(PCIE4.0x4)(此插槽支持 M.2 或 U.2), 1 x M.2 2280/22110 NVME SSD(PCIE3.0x4), 1 x M.2 2280/22110 NVME SSD(PCIE3.0x2); Intel I225-V (2.5GbE) + Intel I225-LM (2.5GbE) + 2 Intel X710 SPF+ (10GbE)</li>
+<li>Xiaomi 迷你主机：Intel i5-1240P (4P+8E) / 64GB DDR4 / 1 x M.2 2280 PCIe 4.0 and 1 x M.2 2242 SATA 3.0 / 1 x 2.5GbE (I225)</li>
+<li>Topton Fanless Mini PC (无风扇高性能软路由)：Intel 12th CPU / 64GB DDR4 / 1 x M.2 2280 PCIe 3.0 and 2 x SATA 3.0 non-standard / 6 x 2.5GbE (i226)</li>
+<li>畅网微控 CW-5658：AMD Ryzen™ 5 / 7，64GB DDR4，3 x M.2 2280 PCIe 3.0，4 x 2.5G (Intel I226-V)</li>
+<li>国伟 GW R86S G3 (万兆软件路由)：Intel Pentium Silver N6005 / 16GB DDR4 / 1 x M.2 2280 PCIe 3.0 / 3 x 2.5GbE (i225) and 2 x 10GbE SPF+ (ConnectX-3)，另有类似机型 R86S U4</li>
+<li>iKOOLCORE R1：Intel Pentium Silver N6005 / 16GB LPDDR4 (sysin) / 1 x M.2 2242 PCIe 3.0 / 4 x 2.5GbE (i226)</li>
+<li>其他：更新中，欢迎反馈成功运行的硬件平台</li>
+</ul>
+<p>最近更新：</p>
+<ul>
+<li>Lenovo ThinkStation P3 Ultra Workstation, Mini-tower (3.9L SSF)：Intel 13th 14th CPU / <strong>128GB</strong> DDR5 (4x 32GB DDR5 SO-DIMM) / 2 x M.2 2280 PCIe 4.0 and 1 x SATA 3.0 / 1 x 2.5GbE (I225-LM), 1 x 1GbE (I210-A)</li>
+</ul>
+<p>建议优先选择支持 DDR5 内存的主机，现在 48GB 单条 DDR5 内存条已经出货，两插槽的系统可达 96GB，未来有可能支持到 128GB。目前 4 插槽的主机官方配置显示为 4 x 32GB = 128GB，理论上有机会支持 4 x 48GB = 192GB (或通过更新 BIOS 实现)。</p>
+<h3 id="兼容机-4">兼容机</h3>
+<p>已知一些主流的主板品牌，如华硕、华擎、技嘉、微星、铭瑄、七彩虹、超微（皆已验证）等具备支持 Intel 12th+ CPU 的配置能力（AMD CPU 无需额外配置），只要板载为 Intel 网卡，通常可以直接支持运行 ESXi。对于常见的板载 Realtek 网卡的品类，通过新增网卡也非常容易解决（通常有多个扩展插槽）。</p>
+<ul>
+<li>ASUS 华硕（已验证）</li>
+<li>ASRock 华擎（已验证）</li>
+<li>GIGABYTE 技嘉（已验证）</li>
+<li>MSI 微星（已验证）</li>
+<li>MAXSUN 铭瑄（已验证）</li>
+<li>COLORFUL 七彩虹（已验证）</li>
+<li>SUPERMICRO 超微（已验证）</li>
+</ul>
+<h3 id="其他硬件-4">其他硬件</h3>
+<p>根据网上的文章分享（第三方验证），以下硬件可以成功运行 ESXi 8.0：</p>
+<ul>
+<li>Dell Precision 7770（笔记本，最大 128GB 内存）</li>
+<li>Dell Precision 7670（笔记本，最大 128GB 内存）</li>
+<li>HPE ProLiant MicroServer Gen10（官方支持）</li>
+<li>HPE ProLiant MicroServer Gen11（官方支持）</li>
+<li>Supermicro E200-8D</li>
+<li>Supermicro E302-12D</li>
+<li>其他：更新中，欢迎反馈成功运行的硬件平台</li>
+</ul>
+<p><strong>其他硬件若无法判断是否兼容，建议先安装原版以验证兼容性（若需协助分析，请提供报错截图）</strong>。</p>
+<h2 id="常见问题解答-FAQ-10">常见问题解答 (FAQ)</h2>
+<p>镜像基于官方原版，内置 60 天试用许可，驱动来自 VMware 及其合作伙伴公开的免费发行包，技术参数修改参考官方文档或者来自（开源）社区的分享。该镜像仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</p>
+<p>1️⃣ 该镜像不支持 UEFI Secure Boot。常规 UEFI 引导不受影响。同时建议禁用 TPM。</p>
+<p>2️⃣ 不支持通过 vSphere Lifecycle Manager 导入镜像。</p>
+<p>3️⃣ 更新官方 Patch bundle，将恢复原始状态，定制功能失效。</p>
+<p>4️⃣ 如何更新版本？正确的升级方法是使用新版 iso 启动，选择 “Upgrade ESXi，preserve VMFS datastore”，<a href="/blog/vmware-esxi-8-oem/upgrade-esxi.webp">参看截图</a>。</p>
+<p>5️⃣ 不建议使用不同的定制版交叉升级，可能升级失败或者出现异常。</p>
+<p>6️⃣ 该镜像仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</p>
+<p>7️⃣ <a href="/blog/macos-14-ovf/" title="macOS 14 Blank OVF - macOS Sonoma 虚拟化解决方案">macOS 14 Blank OVF - macOS Sonoma 虚拟化解决方案</a></p>
+<p>8️⃣ Intel 12 代+ CPU 已经成功安装 ESXi 后需要进一步配置，可联系笔者发送文档。</p>
+<p>9️⃣ 平台兼容性除了新增的部分驱动，其他请参照 <a target="_blank" rel="noopener" href="https://compatibilityguide.broadcom.com/">VMware Compatibility Guide</a>。另请参阅：<a href="/blog/devices-unsupported-in-esxi-8/" title="ESXi 8.0 中已弃用且不受支持的设备 (88172)">ESXi 8.0 中已弃用且不受支持的设备 (88172)</a>。</p>
+<p>🔟 此版本更新了什么？</p>
+<p>详见：<a href="/blog/vmware-vsphere-8-u3-whats-new/" title="VMware vSphere 8 Update 3 新增功能">VMware vSphere 8 Update 3 新增功能</a></p>
+<p>1️⃣1️⃣ 新增一块 Intel 网卡解决兼容性问题</p>
+<p>Intel 网卡或者 Intel 芯片的网卡在 VMware 兼容列表上有将近 300 款，实际上更多，因为很多 OEM 厂商使用 Intel 以太网控制芯片 (sysin)。如果因为网卡兼容性问题无法运行 ESXi，新增一块 Intel 网卡可能是最好的选择（有较长的生命周期）。下表列出了几款入门级的 Intel 网卡型号及其 ESXi 版本兼容性供参考。</p>
+<table>
+<thead>
+<tr>
+<th>产品系列（点击查看官网详情页）</th>
+<th>速率</th>
+<th>VMware ESXi 版本兼容性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/gigabit-network-adapters/i210-server-adapters.html">Intel® Ethernet Server Adapter I210 Series</a></td>
+<td>1GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 6.7U3</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/gigabit-controllers/i217-connections.html">Intel® Ethernet Connection I217 Series</a></td>
+<td>1GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 6.7U3</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/gigabit-controllers/i218-connections.html">Intel® Ethernet Connection I218 Series</a></td>
+<td>1GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 6.7U3</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/gigabit-controllers/i219-connections.html">Intel® Ethernet Connection I219 Series</a></td>
+<td>1GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 6.7U3</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/gigabit-controllers/i225-controllers.html">Intel® Ethernet Controller I225 Series</a></td>
+<td>2.5GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 (7 Unofficial)</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/gigabit-controllers/i226-controllers.html">Intel® Ethernet Controller I226 Series</a></td>
+<td>2.5GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 (7 Unofficial)</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/gigabit-controllers/i350-controllers.html">Intel® Ethernet Controller I350 Series</a></td>
+<td>1GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 6.7U3</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/products/details/ethernet/500-controllers/x550-controllers.html">Intel® Ethernet Controller X550</a></td>
+<td>10/5/2.5/1GbE</td>
+<td>8.0U3 8.0U2 8.0U1 8.0 7.0U3 7.0U2 7.0U1 7.0 6.7U3</td>
+</tr>
+</tbody>
+</table>
+<p>1️⃣2️⃣ <a href="/blog/create-bootable-esxi-usb-installer/" title="如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows)">如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows)</a></p>
+<p>1️⃣3️⃣ <a href="/blog/how-to-get-vendorid-deviceid/" title="如何查看设备的 VendorID 和 DeviceID">如何查看设备的 VendorID 和 DeviceID</a></p>
+<p>1️⃣4️⃣ <a href="/blog/intel-core-14th-gen-cpu-for-esxi/" title="Intel 最新发布的第 14 代酷睿处理器全面支持 ESXi 8.0">Intel 最新发布的第 14 代酷睿处理器全面支持 ESXi 8.0</a></p>
+<h2 id="下载地址-462">下载地址</h2>
+<p><img src="/blog/vmware-esxi-8-sysin/esxi-8-u3-sysin-image-profile.webp" alt="ImageProfile"><br>
+<em>ImageProfile Name：ESXi-8.0U3-24022510-SYSIN，Vendor：<a href="http://sysin.org">sysin.org</a>，AcceptanceLevel：CommunitySupported</em></p>
+<p><strong>VMware ESXi 8.0U3 Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</strong>：</p>
+<p><code>已捐赠 ESXi 8.0GA (包括 b、c) 未获赠 U1 任意版本或者未获赠 U2 任意版本可再次获赠此更新版。</code></p>
+<p><code>&quot;ConnectX-3 网卡特殊定制版&quot; 和 &quot;Marvell AQC 网卡特殊定制版&quot; 用户可以获赠此更新版。</code></p>
+<p><code>&quot;NVMe 驱动特殊定制版&quot; 用户可以获赠此更新版。</code></p>
+<ul>
+<li>发布日期：2024-06-25</li>
+<li>2024-09-01 更新 OEM BIOS 2.7，现已支持 Windows Server 2025，请在原链接获取更新。</li>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1cMQqdB9YMf9ON377CAowxw?pwd=">https://pan.baidu.com/s/1cMQqdB9YMf9ON377CAowxw?pwd=</a>&lt;专享已公布&gt;</li>
+<li>文件名：ESXi-8.0U3-24022510-SYSIN-20240901.iso</li>
+<li>SHA256：100113c6a21bc857155534266970301bba6238983d56e7abc068324ace698fd5</li>
+<li>需要<code>特殊定制版</code>请注明，默认是通用版。</li>
+</ul>
+<hr>
+<p><strong>ESXi 8.0U3b 集成驱动版 (2024-09-17)</strong>：</p>
+<ul>
+<li>发布日期：2024-09-17</li>
+<li>新增功能：
+<ul>
+<li>VMware vSphere 分布式服务引擎支持 NVIDIA Bluefield-3 DPU；</li>
+<li>添加了对 HPE、Cisco 和 Supermicro 的四款服务器 vSphere Quick Boot 支持；</li>
+<li>修复了 25 个已知问题。</li>
+</ul>
+</li>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1fn7ZGgPcgMxYcYourdGpWQ?pwd=">https://pan.baidu.com/s/1fn7ZGgPcgMxYcYourdGpWQ?pwd=</a>&lt;专享已公布&gt;</li>
+<li>需要<code>特殊定制版</code>请注明，默认是通用版。</li>
+</ul>
+<hr>
+<p><strong>ESXi 8.0U3c 集成驱动版 (2024-12-12)</strong>：</p>
+<ul>
+<li>发布日期：2024-12-12</li>
+<li>已解决的问题：vSphere vMotion 任务失败，并显示错误 NamespaceMgr could not lock the db file</li>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1IGcO9New5sN2xjp9R6wNeg?pwd=">https://pan.baidu.com/s/1IGcO9New5sN2xjp9R6wNeg?pwd=</a>&lt;专享已公布&gt;</li>
+<li>需要<code>特殊定制版</code>请注明，默认是通用版。</li>
+<li><code>特殊定制版</code>因版本太多，暂未发布，可更新。</li>
+</ul>
+<p><strong>✅ 公布获取此专享资源的正确方式：</strong></p>
+<p>为保证本站持续发展，该资源通过<code>捐赠</code>获取，捐赠是一种可以附加条件的行为，按照下面<code>指定方式</code>捐赠即可获得该项下载。</p>
+<ul>
+<li>点击 💙<a href="https://sysin.org/img/alipay98.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay98.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言</code>（以便发送链接，<strong>在其他平台留言恕无法处理</strong>）。24 小时内处理，白天会尽量及时，谢谢。</li>
+</ul>
+<p>捐赠者请知悉：</p>
+<ul>
+<li>笔者耗费了大量的时间和精力来分享产品和知识，网站运行也需要成本，捐赠是对本站提供下载服务的回报。</li>
+<li>捐赠获取的软件皆为官方原版或包含了使用方法或分享了技术心得，捐赠是对笔者行业知识的认同和回馈。</li>
+<li>下载的软件仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</li>
+<li>如果需要购买产品，请联系开发者和厂商。</li>
+<li>笔者乐意解答技术问题，但限于时间和知识，如您未能获得满意答案请见谅，捐赠并不包含其他服务。</li>
+<li><strong>未承诺提供版本更新服务</strong>，但是当前页面发布的更新版可留言获取。</li>
+<li>默认发送当前最新版，如有版本要求请指定。</li>
+<li>默认发送通用版，如需特殊定制版请说明。</li>
+<li><strong>如果不认同上述条款，请勿捐赠，谢谢。</strong></li>
+</ul>
+<p>感谢无私捐助者！当然无需任何捐助或者捐赠，您仍然能获得本站 15T+ 的免费资源和技术分享。</p>
+<hr>
+<p>标准版和厂商定制版，请访问：</p>
+<ul>
+<li>
+<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+</ul>
+<p>官方原版，请访问：</p>
+<ul>
+<li>
+<a href="/blog/vmware-vsphere-8-u3/" title="VMware vSphere 8.0 Update 3d 下载 - 企业级工作负载平台">VMware vSphere 8.0 Update 3d 下载 - 企业级工作负载平台</a>
+</li>
+</ul>
+<p>上一个版本，请访问：</p>
+<ul>
+<li>
+<a href="/blog/vmware-esxi-8-u2-sysin/" title="VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+</li>
+</ul>
+<p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/gitea/" data-toggle="tooltip" data-placement="top" title="Gitea Enterprise 22.6.0 (Linux, macOS, Windows) - 本地部署的企业级 Gti 服务">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/vmware-esxi-8-u3-oem/" data-toggle="tooltip" data-placement="top" title="VMware ESXi 8.0U3c macOS Unlocker & OEM BIOS 2.7 标准版和厂商定制版">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/vmware-esxi-8-u3-sysin/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E7%94%A8%E7%89%B9%E6%80%A7%E6%A6%82%E8%A7%88-8"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">通用特性概览</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C-macOS-Sequoia-2"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">直接运行 macOS Sequoia</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-Dell-2-7-BIOS-EFI64-4"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">VMware_Dell_2.7_BIOS-EFI64</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E4%B8%8D%E5%8F%97%E5%AE%98%E6%96%B9%E6%94%AF%E6%8C%81%E7%9A%84%E6%97%A7%E6%AC%BE-CPU-7"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">支持不受官方支持的旧款 CPU</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ESX-OSData-%E5%8D%B7%E5%A4%A7%E5%B0%8F%E4%BF%AE%E6%94%B9%E4%B8%BA-8G-2"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">ESX-OSData 卷大小修改为 8G</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%89%E9%99%90%E6%94%AF%E6%8C%81%E7%AC%AC-12-%E4%BB%A3-Intel-CPU-%E6%B7%B7%E5%90%88%E6%9E%B6%E6%9E%84-3"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">有限支持第 12 代+ Intel CPU 混合架构</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%9B%86%E6%88%90%E7%9A%84%E9%A9%B1%E5%8A%A8-7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">集成的驱动</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%96%B0%E5%A2%9E%E7%BD%91%E5%8D%A1%E5%85%BC%E5%AE%B9%E6%80%A7-4"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">新增网卡兼容性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Intel-%E7%BD%91%E5%8D%A1%E5%A2%9E%E5%BC%BA%E5%AE%9A%E5%88%B6%E7%89%88-4"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Intel 网卡增强定制版</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%9B%86%E6%88%90-NVMe-%E9%A9%B1%E5%8A%A8-6"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">集成 NVMe 驱动</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ConnectX-3-%E7%BD%91%E5%8D%A1%E7%89%B9%E6%AE%8A%E5%AE%9A%E5%88%B6%E7%89%88-4"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">ConnectX-3 网卡特殊定制版</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Marvell-AQC-%E7%BD%91%E5%8D%A1%E7%89%B9%E6%AE%8A%E5%AE%9A%E5%88%B6%E7%89%88-4"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">Marvell AQC 网卡特殊定制版</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#NVMe-%E9%A9%B1%E5%8A%A8%E7%89%B9%E6%AE%8A%E5%AE%9A%E5%88%B6%E7%89%88-4"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">NVMe 驱动特殊定制版</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B9%B3%E5%8F%B0%E5%85%BC%E5%AE%B9%E6%80%A7-5"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">平台兼容性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Intel-NUC-5"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Intel NUC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Apple-Mac-5"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Apple Mac</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9B%BD%E4%BA%A7%E5%B0%8F%E4%B8%BB%E6%9C%BA-4"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">国产小主机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%BC%E5%AE%B9%E6%9C%BA-4"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">兼容机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96%E7%A1%AC%E4%BB%B6-4"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">其他硬件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94-FAQ-10"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">常见问题解答 (FAQ)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-462"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

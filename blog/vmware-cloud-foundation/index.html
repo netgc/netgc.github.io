@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/vmware-cloud-foundation/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+              
+              <a class="tag" href="/tags/#ESXi" title="ESXi">ESXi</a>
+              
+              <a class="tag" href="/tags/#vCenter" title="vCenter">vCenter</a>
+              
+              <a class="tag" href="/tags/#Cloud" title="Cloud">Cloud</a>
+              
+              <a class="tag" href="/tags/#Aria" title="Aria">Aria</a>
+              
+              <a class="tag" href="/tags/#NSX" title="NSX">NSX</a>
+              
+              <a class="tag" href="/tags/#Tanzu" title="Tanzu">Tanzu</a>
+              
+              <a class="tag" href="/tags/#vSAN" title="vSAN">vSAN</a>
+              
+            </div>
+            <h1>VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案</h1>
+            <h2 class="subheading">full stack infrastructure with a platform</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-11-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">11</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.4k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Fri Nov 01 2024 09:00:01 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/vmware-cloud-foundation/" title="VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案">VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="/blog/vmware/vmware-logo-grey-broadcom.png" alt="VMware by Broadcom"></p>
+<p>VMware by Broadcom 产品组合：</p>
+<ul>
+<li>
+<a href="/blog/vmware-cloud-foundation/" title="VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案">VMware Cloud Foundation (VCF) - 多云全栈基础架构组合解决方案</a>
+</li>
+<li>
+<a href="/blog/vmware-vsphere-foundation/" title="VMware vSphere Foundation (VVF) - 企业级工作负载平台组合解决方案">VMware vSphere Foundation (VVF) - 企业级工作负载平台组合解决方案</a>
+</li>
+<li>
+<a href="/blog/vmware-vsphere-enterprise-plus/" title="VMware vSphere Enterprise Plus - 领先的企业工作负载平台">VMware vSphere Enterprise Plus - 领先的企业工作负载平台</a>
+</li>
+<li>
+<a href="/blog/vmware-vsphere-standard/" title="VMware vSphere Standard - 面向中小型企业及分支机构的工作负载平台">VMware vSphere Standard - 面向中小型企业及分支机构的工作负载平台</a>
+</li>
+<li>
+<p><s><a href="/blog/vmware-vsphere-essentials-plus-kit/" title="VMware vSphere Essentials Plus Kit (VVEP) - 面向小型企业的工作负载平台">VMware vSphere Essentials Plus Kit (VVEP) - 面向小型企业的工作负载平台</a></s> (2024 年 11 月 取消)</p>
+</li>
+</ul>
+<h2 id="VMware-by-Broadcom-解决方案简介">VMware by Broadcom 解决方案简介</h2>
+<p>正如 <a target="_blank" rel="noopener" href="https://news.vmware.com/company/vmware-by-broadcom-business-transformation">2023 年 12 月 11 日宣布的</a> 那样，VMware 在过去两年的精简和简化其产品组合以及从永久许可到订阅模式的过渡过程中达到了一个新的里程碑。VMware Cloud Foundation 和 VMware vSphere Foundation 现在是我们的两个新产品，仅作为订阅软件提供 (sysin)。我们还提供可选的高级附加组件，可与这些解决方案一起使用。</p>
+<p>由于产品组合简化，<strong>许多 VMware 软件解决方案将仅作为 VMware Cloud Foundation (VCF) 或 VMware vSphere Foundation (VVF) 的一部分提供。它们不能作为独立的单点解决方案购买</strong>。</p>
+<p>为了清楚起见，下面概述了我们对产品组合所做的改变：</p>
+<ul>
+<li><strong>VMware Cloud Foundation</strong> 是 VMware 为寻求利用全堆栈基础架构价值的客户推出的全新解决方案，该平台为 <strong>vSphere</strong>、<strong>vSAN</strong> 和 <strong>NSX</strong> 提供完整的 <strong>Aria</strong> 管理和编排套件以及新服务。</li>
+<li><strong>VMware vSphere Foundation</strong> 是 VMware 针对传统 vSphere 环境中的数据中心优化的解决方案。除了 <strong>Aria Operations</strong> 和 <strong>Aria Operations for Logs</strong> 之外，它还包括 Tanzu Kubernetes Grid，作为其标准功能套件的一部分 (sysin)。此外，对基本硬件整合或极少数服务器上的虚拟化等要求较轻的客户仍然可以购买 <strong>vSphere Standard</strong> 和 <strong>vSphere Essentials Plus Kit 的订阅。</strong></li>
+<li><strong>VMware 附加服务</strong> 可用于 <strong>VMware vSphere Foundation</strong> 和 <strong>VMware Cloud Foundation</strong>，以进一步增强客户旅程并解决额外的存储、安全、灾难恢复、生成 AI 和其他特定用例。</li>
+</ul>
+<p>这种产品组合简化将使客户能够从 VMware 投资中获取更多价值，并使 VMware 能够加速新创新的交付并简化客户的部署和管理。</p>
+<p>此外，VMware by Broadcom 还计划提供 “自带许可证” 功能 (sysin)，允许客户从 Broadcom 购买 VMware Cloud Foundation 订阅，并将这些订阅灵活部署到经过 VMware 验证的混合云端点以及他们自己的本地数据中心。</p>
+<p>此次过渡的另一个结果是，下表中列出的产品 <strong>现已作为独立产品停止供货 (EOA)。我们已注意到，某些产品可能仍可作为 VMware Cloud Foundation 或 VMware vSphere Foundation 产品的一部分供使用。</strong></p>
+<p>正如 <a target="_blank" rel="noopener" href="https://blogs.vmware.com/management/2024/01/dramatic-simplification-of-vmware-aria-as-part-of-vmware-cloud-foundation.html">博客</a> 中详细介绍的，VMware 还宣布了 Aria SaaS 服务的 EoA，但将继续为当前使用 Aria SaaS 服务的客户提供支持，直至其订阅期限结束。订阅期限结束时，客户将需要转换到 VCF 或 VVF。另请注意，Aria SaaS 服务处于维护模式，这意味着不会发布新功能，但在有效订阅期内将提供安全和关键更新。</p>
+<p><strong>本公告涵盖所有许可选项</strong>，包括永久、支持和订阅 (SnS)、SaaS / 托管和其他订阅类型。它还涵盖了每种产品的每个版本、套件和定价指标。此承保范围的任何例外情况将单独指定。</p>
+<table>
+<thead>
+<tr>
+<th><strong>产品不再作为独立产品提供（所有版本和定价指标）</strong></th>
+<th><strong>VCF/VVF / 附加组件中包含替换产品吗？</strong>（是 / 否）</th>
+<th><strong>哪种产品或附加组件？</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VMware vSphere Enterprise Plus</td>
+<td>Y</td>
+<td>VCF, VVF</td>
+</tr>
+<tr>
+<td>VMware vSphere+</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Enterprise</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Standard (excluding subscription)</td>
+<td>Y</td>
+<td>Replaced with new vSphere Standard</td>
+</tr>
+<tr>
+<td>VMware vSphere ROBO</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Scale Out</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Desktop</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Acceleration Kits</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Essentials Kit</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Essentials Plus (excluding new subscription offering)</td>
+<td>Y</td>
+<td>Replaced with vSphere Essentials Plus Kit</td>
+</tr>
+<tr>
+<td>VMware vSphere Starter/Foundation</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere with Operations Management</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Basic</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Advanced</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Storage Appliance</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSphere Hypervisor (free edition)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware Cloud Foundation (excluding new VCF subscription offering)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware Cloud Foundation for VDI</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware Cloud Foundation for ROBO</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware SDDC Manager</td>
+<td>Y</td>
+<td>VCF</td>
+</tr>
+<tr>
+<td>VMware vCenter Standard</td>
+<td>Y</td>
+<td>VCF, VVF and vSphere STD</td>
+</tr>
+<tr>
+<td>VMware vCenter Foundation</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSAN</td>
+<td>Y</td>
+<td>VCF, VVF, vSAN add-on</td>
+</tr>
+<tr>
+<td>VMware vSAN ROBO</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSAN Desktop</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vSAN+</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware HCI Kit</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware Site Recovery Manager</td>
+<td>Y</td>
+<td>SRM Add-On Service</td>
+</tr>
+<tr>
+<td>VMware Cloud Editions/Cloud Packs</td>
+<td>N</td>
+<td>Replaced with VCF, VVF</td>
+</tr>
+<tr>
+<td>VMware vCloud Suite</td>
+<td>N</td>
+<td>Replaced with VCF, VVF</td>
+</tr>
+<tr>
+<td>VMware Aria Suite (formerly vRealize Suite)</td>
+<td>Y</td>
+<td>VCF, VVF</td>
+</tr>
+<tr>
+<td>VMware Aria Universal Suite (formerly vRealize Cloud Universal)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware Aria Suite Term</td>
+<td>Y</td>
+<td>VCF, VVF</td>
+</tr>
+<tr>
+<td>VMware Aria Operations for Networks (formerly vRealize Network Insight)</td>
+<td>Y</td>
+<td>VCF</td>
+</tr>
+<tr>
+<td>VMWare Aria Operations for Networks Universal (formerly vRealize Network Insight Universal)</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware vRealize Network Insight ROBO</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMWare Aria Operations for Logs (formerly vRealize Log Insight)</td>
+<td>Y</td>
+<td>VVF, VCF</td>
+</tr>
+<tr>
+<td>VMware vRealize Operations 8 Application Monitoring Add-On</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware Aria Operations</td>
+<td>Y</td>
+<td>VVF, VCF</td>
+</tr>
+<tr>
+<td>VMware Aria Automation</td>
+<td>Y</td>
+<td>VCF</td>
+</tr>
+<tr>
+<td>VMware Aria Suite Cloud for US Public Sector</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware Aria Automation for Secure Hosts add-on (formerly SaltStack SecOps)</td>
+<td>Y</td>
+<td>Tanzu Guardrails Add-On</td>
+</tr>
+<tr>
+<td>VMware vRealize Automation SaltStack SecOps add-on</td>
+<td>Y</td>
+<td>Tanzu Guardrails Add-On</td>
+</tr>
+<tr>
+<td>VMware Aria Operations for Integrations (formerly vRealize True Visibility Suite)</td>
+<td>Y</td>
+<td>VCF, VVF</td>
+</tr>
+<tr>
+<td>VMware Cloud Director</td>
+<td>Y</td>
+<td>VCF (CSP only)</td>
+</tr>
+<tr>
+<td>VMware Cloud Director Service</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>VMware NSX</td>
+<td>Y</td>
+<td>VCF and VMware Firewall (with ATP)</td>
+</tr>
+<tr>
+<td>VMware NSX for Desktop</td>
+<td>Y</td>
+<td>VCF and VMware Firewall (with ATP)</td>
+</tr>
+<tr>
+<td>VMware NSX ROBO</td>
+<td>Y</td>
+<td>VCF and VMware Firewall (with ATP)</td>
+</tr>
+<tr>
+<td>VMware NSX Distributed Firewall</td>
+<td>Y</td>
+<td>VCF and VMware Firewall</td>
+</tr>
+<tr>
+<td>VMware NSX Gateway Firewall</td>
+<td>Y</td>
+<td>VCF and VMware Firewall</td>
+</tr>
+<tr>
+<td>VMware NSX Threat Prevention to Distributed Firewall</td>
+<td>Y</td>
+<td>VCF and VMware Firewall (with ATP)</td>
+</tr>
+<tr>
+<td>VMware NSX Threat Prevention to Gateway Firewall</td>
+<td>Y</td>
+<td>VCF and VMware Firewall (with ATP)</td>
+</tr>
+<tr>
+<td>VMware NSX Advanced Threat Prevention to Distributed Firewall</td>
+<td>Y</td>
+<td>VCF and VMware Firewall (with ATP)</td>
+</tr>
+<tr>
+<td>VMware NSX Advanced Threat Prevention to Gateway Firewall</td>
+<td>Y</td>
+<td>VCF and VMware Firewall (with ATP)</td>
+</tr>
+<tr>
+<td>VMware Advanced Load Balancer</td>
+<td>Y</td>
+<td>VMware Avi Load Balancer Add-On (also standalone)</td>
+</tr>
+<tr>
+<td>VMware Container Networking Enterprise with Antrea</td>
+<td>Y</td>
+<td>VCF and VMware Firewall</td>
+</tr>
+<tr>
+<td>VMware HCX</td>
+<td>Y</td>
+<td>VCF</td>
+</tr>
+<tr>
+<td>VMware HCX+</td>
+<td>N</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="VMware-Cloud-Foundation-产品组合">VMware Cloud Foundation 产品组合</h2>
+<p><img src="vmware-cloud-foundation-diagram.png" alt="VMware Cloud Foundation"></p>
+<p>VMware Cloud Foundation 是 VMware 推出的全新集成产品。但是，为了帮助理解该解决方案的构成，以下概述涉及制作该解决方案的遗留组件：</p>
+<p><strong>Products &amp; Support Services includes:</strong></p>
+<ul>
+<li>SDDC Manager</li>
+<li>vSphere Enterprise Plus
+<ul>
+<li>vCenter Server Standard</li>
+<li>vSphere with Tanzu (includes TKG Runtime)</li>
+<li>vSphere ESXi</li>
+</ul>
+</li>
+<li>vSAN Enterprise (includes 1TiB per CPU Core)</li>
+<li>NSX Enterprise Plus</li>
+<li>Aria Suite Enterprise
+<ul>
+<li>Aria Automation</li>
+<li>Aria Operations</li>
+<li>Aria Operations for Logs</li>
+</ul>
+</li>
+<li>Aria Operations for Networks Enterprise</li>
+<li>HCX Enterprise</li>
+<li>Activation &amp; Upgrade Support Service</li>
+<li>Select Support Service
+<ul>
+<li>Support Account Manager (SAM) Support Services (highly recommended)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Available Add-Ons for purchase for VCF:</strong></p>
+<ul>
+<li>VMware Cloud Disaster Recovery (VCDR)
+<ul>
+<li><em>Sold as protected TiB and Per Protected VM</em></li>
+</ul>
+</li>
+<li>VMware Ransomware Recovery (RWR)
+<ul>
+<li><em>Sold as Per Protected VM</em></li>
+</ul>
+</li>
+<li>VMware Site Recovery (SRM)
+<ul>
+<li><em>Sold as pack of 25 VMs</em></li>
+</ul>
+</li>
+<li>vSAN Enterprise
+<ul>
+<li><em>Sold as Per TiB (minimum purchase is 8TiB per CPU Socket)</em></li>
+</ul>
+</li>
+<li>VMware Load Balancer (NSX Advanced Load Balancer) (sysin)
+<ul>
+<li><em>Sold as per service unit</em></li>
+</ul>
+</li>
+<li>VMware Firewall
+<ul>
+<li><em>Sold as per CPU Core</em></li>
+<li>Distributed Firewall</li>
+<li>Gateway Firewall</li>
+<li>Security Intelligence</li>
+<li>Container Security with Antrea</li>
+</ul>
+</li>
+<li>VMware Firewall + Advanced Threat Protection (ATP)
+<ul>
+<li><em>Sold as per CPU Core</em></li>
+<li>Distributed Firewall</li>
+<li>Gateway Firewall</li>
+<li>Security Intelligence</li>
+<li>Container Security with Antrea</li>
+<li>Distributed and Gateway Intrusion Detection and Prevention Service (IDS/IPS)</li>
+<li>Malware Prevention</li>
+<li>Network Traffic Analysis (NTA) and Network Detection and Response (NDR)</li>
+</ul>
+</li>
+<li>Tanzu Mission Control (TMC)
+<ul>
+<li><em>Sold as per CPU Core</em></li>
+<li>TMC SaaS</li>
+<li>TMC (Self-Managed)</li>
+</ul>
+</li>
+<li>Tanzu Application Platform (TAP)
+<ul>
+<li>TAP
+<ul>
+<li><em>Sold as per vCPU</em></li>
+</ul>
+</li>
+<li>Tanzu Spring Runtime
+<ul>
+<li><em>Sold as per CPU Core</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tanzu Spring Runtime (TSR)
+<ul>
+<li><em>Sold as per CPU Core</em></li>
+</ul>
+</li>
+<li>Tanzu Guardrails Enterprise (TGE)
+<ul>
+<li><em>Sold as per resource</em></li>
+<li>Tanzu Hub</li>
+<li>Tanzu Guardrails</li>
+<li>Aria Automation Config (formally Saltstack)</li>
+<li>Automation for Secure Clouds</li>
+<li>Automation for Secure Host</li>
+</ul>
+</li>
+<li>Tanzu Guardrails Advanced (TGA)
+<ul>
+<li><em>Sold as per resource</em></li>
+<li>Tanzu Hub</li>
+<li>Tanzu Guardrails</li>
+<li>Automation for Secure Clouds</li>
+</ul>
+</li>
+<li>Tanzu Cloudhealth Enterprise (TCE)
+<ul>
+<li><em>Sold as percentage of monthly cloud spend</em></li>
+</ul>
+</li>
+<li>Tanzu Application Catalog (TAC)
+<ul>
+<li><em>Sold as active artifact</em></li>
+</ul>
+</li>
+<li>Tanzu Ops for Apps (formally Wavefront)
+<ul>
+<li><em>Sold as point per second (PPS)</em></li>
+</ul>
+</li>
+<li>Tanzu Insights (TI)
+<ul>
+<li><em>Sold as event per month</em></li>
+</ul>
+</li>
+<li>CSP Entitlement
+<ul>
+<li>Partner must be signed up to <a target="_blank" rel="noopener" href="https://www.broadcom.com/how-to-buy/software-partners/work-with-partners/expert">Broadcom Expert Advantage program</a></li>
+<li>Cloud Director</li>
+<li>Cloud Director Availability</li>
+<li>Cloud Director Plugins and Extension</li>
+<li>Chargeback</li>
+<li>Usage Meter</li>
+</ul>
+</li>
+<li>VMware Private AI Foundation (COMING SOON)</li>
+<li>Support Account Manager (SAM) Support Services</li>
+<li>Dedicated Technical Support Engineer (DTSE) Support Services</li>
+<li><a target="_blank" rel="noopener" href="https://www.vmware.com/customer-success/technical-adoption-management.html">Technical Adoption Management (TAM) Support Services</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.vmware.com/professional-services/cloud-infrastructure-and-management.html">VMware Professional Services</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.vmware.com/learning.html">VMware Learning Education Services</a></li>
+</ul>
+<h2 id="下载地址-437">下载地址</h2>
+<p>VMware Cloud Foundation 说是一款新产品，也不是一款新产品，是一种新的组合解决方案或者捆绑许可方式。</p>
+<p>笔者理解为剔除了桌面虚拟化以外的几乎 VMware 所有产品。</p>
+<p>解决方案组件：</p>
+<ul>
+<li>SDDC Manager：<a href="/blog/vmware-cloud-foundation-5/" title="VMware Cloud Foundation 5.2 - 领先的多云平台">VMware Cloud Foundation 5.2 - 领先的多云平台</a></li>
+<li>vSphere Enterprise Plus：<a href="/blog/vmware-vsphere-8-u3/" title="VMware vSphere 8.0 Update 3d 下载 - 企业级工作负载平台">VMware vSphere 8.0 Update 3d 下载 - 企业级工作负载平台</a>
+<ul>
+<li>vCenter Server Standard：<a href="/blog/vmware-vcenter-8-u3/" title="VMware vCenter Server 8.0U3d - 集中管理 vSphere 环境">VMware vCenter Server 8.0U3d - 集中管理 vSphere 环境</a></li>
+<li>vSphere with Tanzu：<a href="/blog/vmware-tkg-2/" title="VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案">VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案</a></li>
+<li>vSphere ESXi：<a href="/blog/vmware-esxi-8-u3/" title="VMware ESXi 8.0U3c - 领先的裸机 Hypervisor">VMware ESXi 8.0U3c - 领先的裸机 Hypervisor</a></li>
+<li>vSphere ESXi 定制版：<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></li>
+<li>vSphere ESXi 定制版：<a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a></li>
+</ul>
+</li>
+<li>vSAN Enterprise (includes 1TiB per CPU Core)：<a href="/blog/vmware-vsan/" title="VMware vSAN 8.0U3b - 存储虚拟化软件">VMware vSAN 8.0U3b - 存储虚拟化软件</a></li>
+<li>NSX Enterprise Plus：<a href="/blog/vmware-nsx-4/" title="VMware NSX 4.2.1 - 网络安全虚拟化平台">VMware NSX 4.2.1 - 网络安全虚拟化平台</a></li>
+<li>Aria Suite Enterprise：<a href="/blog/vmware-aria-suite/" title="VMware Aria Suite 8.18 下载汇总 - 云管理解决方案">VMware Aria Suite 8.18 下载汇总 - 云管理解决方案</a>
+<ul>
+<li>Aria Automation：<a href="/blog/vmware-aria-automation/" title="VMware Aria Automation 8.16.2 - 多云基础架构自动化平台">VMware Aria Automation 8.16.2 - 多云基础架构自动化平台</a></li>
+<li>Aria Operations：<a href="/blog/vmware-aria-operations/" title="VMware Aria Operations 8.18.1 - 多云 IT 运维管理">VMware Aria Operations 8.18.1 - 多云 IT 运维管理</a></li>
+<li>Aria Operations for Logs：<a href="/blog/vmware-aria-operations-for-logs/" title="VMware Aria Operations for Logs 8.18 - 集中式日志管理">VMware Aria Operations for Logs 8.18 - 集中式日志管理</a></li>
+</ul>
+</li>
+<li>Aria Operations for Networks Enterprise：<a href="/blog/vmware-aria-operations-for-networks/" title="VMware Aria Operations for Networks 6.12 - 网络和应用监控工具">VMware Aria Operations for Networks 6.12 - 网络和应用监控工具</a></li>
+<li>HCX Enterprise</li>
+<li>Activation &amp; Upgrade Support Service</li>
+<li>Select Support Service
+<ul>
+<li>Support Account Manager (SAM) Support Services (highly recommended)</li>
+</ul>
+</li>
+</ul>
+<p>在 Cloud Foundation 之上，您可以部署各种基于用例的附加组件，如下所示：</p>
+<ul>
+<li>VMware Site Recovery：<a href="/blog/vmware-srm-9/" title="VMware Site Recovery Manager 9.0 - 数据中心灾难恢复 (DR)">VMware Site Recovery Manager 9.0 - 数据中心灾难恢复 (DR)</a></li>
+<li>vSAN Enterprise (Expansion)：<a href="/blog/vmware-vsan/" title="VMware vSAN 8.0U3b - 存储虚拟化软件">VMware vSAN 8.0U3b - 存储虚拟化软件</a></li>
+<li>VMware Load Balancer (NSX Advanced Load Balancer)：<a href="/blog/vmware-nsx-alb-30/" title="VMware NSX Advanced Load Balancer (NSX ALB) 30.1.2 - 多云负载均衡平台">VMware NSX Advanced Load Balancer (NSX ALB) 30.1.2 - 多云负载均衡平台</a></li>
+<li>CSP Entitlement
+<ul>
+<li>Partner must be signed up to <a target="_blank" rel="noopener" href="https://www.broadcom.com/how-to-buy/software-partners/work-with-partners/expert">Broadcom Expert Advantage program</a></li>
+<li>Cloud Director：<a href="/blog/vmware-cloud-director-10/" title="VMware Cloud Director 10.6 - 领先的云服务交付平台">VMware Cloud Director 10.6 - 领先的云服务交付平台</a></li>
+<li>Cloud Director Availability：<a href="/blog/vmware-cloud-director-availability-4/" title="VMware Cloud Director Availability 4.7.3 | 灾难恢复和迁移 | DRaaS">VMware Cloud Director Availability 4.7.3 | 灾难恢复和迁移 | DRaaS</a></li>
+<li>Cloud Director Plugins and Extension</li>
+<li>Chargeback</li>
+<li>Usage Meter</li>
+</ul>
+</li>
+<li>其他仅 SaaS 产品未列出</li>
+</ul>
+<p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/vmware-vsphere-foundation/" data-toggle="tooltip" data-placement="top" title="VMware vSphere Foundation (VVF) - 企业级工作负载平台组合解决方案">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/vmware-esxi-6-oem/" data-toggle="tooltip" data-placement="top" title="VMware ESXi 6.7U3u macOS Unlocker & OEM BIOS 2.7 标准版和厂商定制版">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/vmware-cloud-foundation/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware-by-Broadcom-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">VMware by Broadcom 解决方案简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware-Cloud-Foundation-%E4%BA%A7%E5%93%81%E7%BB%84%E5%90%88"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">VMware Cloud Foundation 产品组合</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-437"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+            
+            <a class="tag" href="/tags/#ESXi" title="ESXi">ESXi</a>
+            
+            <a class="tag" href="/tags/#vCenter" title="vCenter">vCenter</a>
+            
+            <a class="tag" href="/tags/#Cloud" title="Cloud">Cloud</a>
+            
+            <a class="tag" href="/tags/#Aria" title="Aria">Aria</a>
+            
+            <a class="tag" href="/tags/#NSX" title="NSX">NSX</a>
+            
+            <a class="tag" href="/tags/#Tanzu" title="Tanzu">Tanzu</a>
+            
+            <a class="tag" href="/tags/#vSAN" title="vSAN">vSAN</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" HTTP2,HTTP3,HTTPS,TLS,Apple,macOS,Unix,VMware,vSphere,ESXi,vSAN,NSX,Tanzu,F5,BIG-IP,FreeBSD,Linux,RHEL,AlmaLinux,CentOS,Debian,Ubuntu,Docker,Kubernetes,Cisco,IOS-XE,IOS-XR,NX-OS,PAN-OS,FortiOS "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/archives/17/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archives.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archives.jpg');
+    }
+
+    header.intro-header {
+       /*config*/
+        background-image: var(--intro-header-background-image-url-home);
+        /* background-image: url('/img/header_img/home.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="site-heading">
+            <h1>sysin</h1>
+            <!--<hr class="small">-->
+            <!--<span class="subheading">SYStem INside | 软件与技术分享</span>-->
+            <!--change-by-sysin-->
+            <span class="subheading"><h2>SYStem INside | 软件与技术分享</h2></span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    
+
+    <!-- USE SIDEBAR -->
+    <!-- Post Container -->
+    <div class="col-lg-9 col-lg-offset-0 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
+
+      <!-- Main Content -->
+
+
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/vmware-avi-load-balancer-30/">
+    <h2 class="post-title">
+      VMware Avi Load Balancer 30.2.2 - 多云负载均衡平台
+    </h2>
+    <h3 class="post-subtitle">
+      应用交付：多云负载均衡、Web 应用防火墙和容器 Ingress 服务
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：VMware Avi Load Balancer 30.2.2 - 多云负载均衡平台 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+负载均衡平台
+VMware Avi Load Balancer
+VMware Avi Load Balancer 可简化应用交付，并提供多云负载均衡、Web 应用防火墙和容器 Ingress 服务。
+
+名称变更
+VMwa......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-13
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#VMware" title="VMware">VMware</a>
+    
+    <a href="/tags/#NSX" title="NSX">NSX</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/vmware-nsx-alb-22/">
+    <h2 class="post-title">
+      VMware NSX Advanced Load Balancer (NSX ALB) 22.1.7 - 多云负载均衡平台
+    </h2>
+    <h3 class="post-subtitle">
+      应用交付：多云负载均衡、Web 应用防火墙和容器 Ingress 服务
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：VMware NSX Advanced Load Balancer (NSX ALB) 22.1.7 - 多云负载均衡平台 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+负载均衡平台
+NSX Advanced Load Balancer
+NSX Advanced Load Balancer (Avi) 可简化应用交付，并提供多云负载均衡、Web 应用......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-13
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#VMware" title="VMware">VMware</a>
+    
+    <a href="/tags/#NSX" title="NSX">NSX</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/vmware-tkg-2/">
+    <h2 class="post-title">
+      VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案
+    </h2>
+    <h3 class="post-subtitle">
+      VMware 构建、签名和支持的开源 Kubernetes 容器编排平台的完整分发版
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+Tanzu Kubernetes 集群是由 VMware 构建、签名和支持的开源 Kubernetes 容器编排平台的完整分发版。可以通过使用 Tanzu Kubernetes G......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-13
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#VMware" title="VMware">VMware</a>
+    
+    <a href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+    
+    <a href="/tags/#Tanzu" title="Tanzu">Tanzu</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/nessus-10/">
+    <h2 class="post-title">
+      Tenable Nessus 10.8.3 (macOS, Linux, Windows) - 领先的漏洞评估解决方案
+    </h2>
+    <h3 class="post-subtitle">
+      发布 Nessus 试用版自动化安装程序，支持 macOS Sequoia、RHEL 9 和 Ubuntu 24.04
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Tenable Nessus 10.8.3 (macOS, Linux, Windows) - 领先的漏洞评估解决方案 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+
+Nessus
+漏洞评估领域的全球黄金标准            针对现代攻击面量身打造
+利用业界最受信赖的漏洞评估解决方案来评估现代攻击面。扩展到传统的 IT 资产之外 – 保护云基础......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-12
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Linux" title="Linux">Linux</a>
+    
+    <a href="/tags/#macOS" title="macOS">macOS</a>
+    
+    <a href="/tags/#Security" title="Security">Security</a>
+    
+    <a href="/tags/#Windows" title="Windows">Windows</a>
+    
+    <a href="/tags/#Unix" title="Unix">Unix</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/cisco-jabber-15/">
+    <h2 class="post-title">
+      Cisco Jabber 15.0 (Andriod, iOS, macOS, Windows) - 面向企业的多合一通信工具
+    </h2>
+    <h3 class="post-subtitle">
+      即时消息、语音和视频通话、语音邮件、桌面共享、会议和在线状态
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Cisco Jabber 15.0 (Andriod, iOS, macOS, Windows) - 面向企业的多合一通信工具 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+思科 Jabber
+​
+使用任意设备随时随地开展协作
+移动办公不应成为影响工作效率的不利因素。Cisco Jabber 将即时消息、语音和视频通话、语音邮件、桌面共享、会议和在线......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-12
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#macOS" title="macOS">macOS</a>
+    
+    <a href="/tags/#Windows" title="Windows">Windows</a>
+    
+    <a href="/tags/#Cisco" title="Cisco">Cisco</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/parallels-desktop/">
+    <h2 class="post-title">
+      Parallels Desktop for Mac 20.0.0 (build 55653) - 在 Mac 上运行 Windows
+    </h2>
+    <h3 class="post-subtitle">
+      macOS Sequoia 和 Windows 11 24H2 支持准备就绪
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Parallels Desktop for Mac 20.0.0 (build 55653) - 在 Mac 上运行 Windows 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+在 Mac 上运行 Windows
+全新登场
+Parallels Desktop for Mac
+在搭载 Intel 或 Apple M 系列芯片的任何 Mac 上运行 W......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-11
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#macOS" title="macOS">macOS</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/dbeaver/">
+    <h2 class="post-title">
+      DBeaver Ultimate Edtion 24.2 Multilingual (macOS, Linux, Windows) - 通用数据库工具
+    </h2>
+    <h3 class="post-subtitle">
+      One tool for all data sources
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：DBeaver Ultimate Edtion 24.2 Multilingual (macOS, Linux, Windows) - 通用数据库工具 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+
+通用数据库工具
+DBeaver 是一个通用的数据库管理工具，适用于需要以专业方式处理数据的每个人。使用 DBeaver，您可以像在常规电子表格中一样处理......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-10
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Linux" title="Linux">Linux</a>
+    
+    <a href="/tags/#macOS" title="macOS">macOS</a>
+    
+    <a href="/tags/#Windows" title="Windows">Windows</a>
+    
+    <a href="/tags/#Database" title="Database">Database</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/cisco-sd-wan-20/">
+    <h2 class="post-title">
+      Cisco SD-WAN (Viptela) version 20.15.1 ED - 软件定义广域网
+    </h2>
+    <h3 class="post-subtitle">
+      Cisco SD-WAN powered by Viptela
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Cisco SD-WAN (Viptela) version 20.15.1 ED - 软件定义广域网 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+支持 SASE 的架构，其集成了面向多云、安全、统一通信和应用优化的各种功能，可用于轻松安全地将任何用户连接至任何应用。
+
+
+Cisco SD-WAN powered by Viptela
+SAN JO......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-10
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#OVF" title="OVF">OVF</a>
+    
+    <a href="/tags/#Cisco" title="Cisco">Cisco</a>
+    
+    <a href="/tags/#Router" title="Router">Router</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/cisco-catalyst-center/">
+    <h2 class="post-title">
+      Cisco Catalyst Center 2.3.7.6-VA - 网络管理和自动化
+    </h2>
+    <h3 class="post-subtitle">
+      Cisco Catalyst Center - Network Management and Automation
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Cisco Catalyst Center 2.3.7.6-VA - 网络管理和自动化 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+Cisco Catalyst Center
+节约时间，不再为网络管理煞费苦心
+自动执行日常任务、提供网络洞察、提升安全性，确保 Cisco Catalyst 9000 基础设施为您带来最佳体验。
+​
+工作更智能、更迅捷......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-09
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Cisco" title="Cisco">Cisco</a>
+    
+    <a href="/tags/#IOS-XE" title="IOS-XE">IOS-XE</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/magnet-axiom/">
+    <h2 class="post-title">
+      Magnet AXIOM 8.4 Windows x64 Multilingual - 数字取证与分析
+    </h2>
+    <h3 class="post-subtitle">
+      Digital Forensic Software
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Magnet AXIOM 8.4 Windows x64 Multilingual - 数字取证与分析 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+
+Magnet AXIOM - 恢复并分析一个案件中的证据
+
+检查来自移动、云、计算机和车辆来源的数字证据，以及第三方提取的数据，所有这些都在一个案例文件中。使用强大且直观的分析工具快速自动显示案件相关......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-07
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Security" title="Security">Security</a>
+    
+    <a href="/tags/#Windows" title="Windows">Windows</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/vmware-tkgi/">
+    <h2 class="post-title">
+      VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 1.20.0 - 运营商 Kubernetes 解决方案
+    </h2>
+    <h3 class="post-subtitle">
+      Kubernetes-based container solution with advanced networking, a private container registry, and life cycle management
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 1.20.0 - 运营商 Kubernetes 解决方案 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 使运营商能够使用 BOSH ......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-07
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#VMware" title="VMware">VMware</a>
+    
+    <a href="/tags/#Kubernetes" title="Kubernetes">Kubernetes</a>
+    
+    <a href="/tags/#Tanzu" title="Tanzu">Tanzu</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/cisco-catalyst-9800-cl/">
+    <h2 class="post-title">
+      Cisco Catalyst 9800-CL Wireless Controller for Cloud, IOS XE Release 17.15.1 ED
+    </h2>
+    <h3 class="post-subtitle">
+      面向云的思科 Catalyst 9800-CL 无线控制器，专为基于意图的网络全新打造
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Cisco Catalyst 9800-CL Wireless Controller for Cloud, IOS XE Release 17.15.1 ED 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+面向云的思科 Catalyst 9800-CL 无线控制器，既可以部署在私有云(支持 ESXi, KVM, Microsoft Hyper-V 和......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-07
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#OVF" title="OVF">OVF</a>
+    
+    <a href="/tags/#Cisco" title="Cisco">Cisco</a>
+    
+    <a href="/tags/#IOS-XE" title="IOS-XE">IOS-XE</a>
+    
+    <a href="/tags/#Wi-Fi" title="Wi-Fi">Wi-Fi</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/cisco-catalyst-9800/">
+    <h2 class="post-title">
+      Cisco Catalyst 9800 Wireless Controller, IOS XE Release 17.15.1 ED
+    </h2>
+    <h3 class="post-subtitle">
+      思科 Catalyst 9800 系列无线控制器 IOS XE 系统软件
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Cisco Catalyst 9800 Wireless Controller, IOS XE Release 17.15.1 ED 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+
+Catalyst 9800 系列无线控制器将最佳射频性能与 IOS XE 的优势集于一身，为您提供可靠性和安全性均达到业内顶级水平的无线控制器 (sysin)。您可以将其......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-07
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#OVF" title="OVF">OVF</a>
+    
+    <a href="/tags/#Cisco" title="Cisco">Cisco</a>
+    
+    <a href="/tags/#IOS-XE" title="IOS-XE">IOS-XE</a>
+    
+    <a href="/tags/#Wi-Fi" title="Wi-Fi">Wi-Fi</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/cisco-catalyst-9100/">
+    <h2 class="post-title">
+      Cisco Catalyst 9100 Access Points, IOS XE Release 17.15.1
+    </h2>
+    <h3 class="post-subtitle">
+      思科 Catalyst 9100 无线接入点 IOS XE 系统软件
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Cisco Catalyst 9100 Access Points, IOS XE Release 17.15.1 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+思科 Catalyst 9100 无线接入点
+
+使用 Catalyst 无线接入点开启您的 Wi-Fi 6 网络之旅
+无线数据流量正以惊人的速度增长。随着生成的数据日益增多以及连接网络的设备......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-07
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Cisco" title="Cisco">Cisco</a>
+    
+    <a href="/tags/#IOS-XE" title="IOS-XE">IOS-XE</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/blog/cisco-catalyst-9000/">
+    <h2 class="post-title">
+      Cisco Catalyst 9000 Series Switches, IOS XE Release 17.15.1 ED
+    </h2>
+    <h3 class="post-subtitle">
+      思科 Catalyst 9000 交换产品系列 IOS XE 系统软件
+    </h3>
+    <div class="post-content-preview">
+      请访问原文链接：Cisco Catalyst 9000 Series Switches, IOS XE Release 17.15.1 ED 查看最新版。原创作品，转载请保留出处。
+作者主页：sysin.org
+
+Cisco Catalyst 9000 交换产品系列
+借助交换机，畅享混合办公
+
+改造网络，应对未来的混合办公挑战。
+功能强大、方便灵活的交换产品
+Catalyst 9000 交换......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by sysin on
+    2024-09-07
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Cisco" title="Cisco">Cisco</a>
+    
+    <a href="/tags/#IOS-XE" title="IOS-XE">IOS-XE</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+
+  <!-- Pager -->
+  <ul class="pager">
+    
+    <li class="previous">
+      <a href="/archives/16/">&larr; 上一页</a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/archives/18/">下一页 &rarr;</a>
+    </li>
+    
+  </ul>
+
+        <!-- 如果开启评论功能 -->
+      <!-- comments: true -->
+      
+
+      <!-- 如果开启评论功能 -->
+      <!-- comments: true -->
+      
+    </div>
+
+    <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Notices -->
+
+    <!-- <h5>Notices</h5> -->
+    <h5><a href="/">公告</a></h5>
+    <ul class="list-inline">
+      
+      <li><a href="https://sysin.cn/" target="_blank">🤓 镜像站点: sysin.cn</a></li>
+      <br />
+      
+      <li><a href="/donate/" target="_blank">❤️ 捐助本站</a></li>
+      <br />
+      
+      <li><a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">☀️ 阿里云促销入口</a></li>
+      <br />
+      
+      <li><a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">🐥 腾讯云促销入口</a></li>
+      <br />
+      
+    </ul>
+    
+
+        <hr>
+    
+        <!-- Categories -->
+
+<h5><a href="/categories/">分类</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="/categories/#HTTP">
+      <li>HTTP</li>
+    </a>
+    
+    <a href="/categories/#Designer">
+      <li>Designer</li>
+    </a>
+    
+    <a href="/categories/#macOS">
+      <li>macOS</li>
+    </a>
+    
+    <a href="/categories/#Windows">
+      <li>Windows</li>
+    </a>
+    
+    <a href="/categories/#Linux">
+      <li>Linux</li>
+    </a>
+    
+    <a href="/categories/#Developer">
+      <li>Developer</li>
+    </a>
+    
+    <a href="/categories/#Cisco">
+      <li>Cisco</li>
+    </a>
+    
+    <a href="/categories/#VMware">
+      <li>VMware</li>
+    </a>
+    
+    <a href="/categories/#F5">
+      <li>F5</li>
+    </a>
+    
+    <a href="/categories/#Unix">
+      <li>Unix</li>
+    </a>
+    
+    <a href="/categories/#Gartner">
+      <li>Gartner</li>
+    </a>
+    
+  </ul>
+</div>
+
+
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+  <h5><a href="/about/">关于</a></h5>
+  <div class="short-about">
+
+    
+    <img id="avatar_pic" src="/img/aboutme.png" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
+    
+
+    
+    <p>技术问题和建议请到对应页面留言，非站务问题概不回复，谢谢。</p>
+    
+
+    <!-- SNS Link -->
+    <ul class="list-inline">
+      
+      <li>
+        <a href="/feed.xml">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a target="_blank" href="https://www.cnblogs.com/sysin">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-stack-1x fa-inverse">博</i>
+            </span>
+          </a>
+        </li>
+      
+
+      
+      <li>
+        <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-stack-1x fa-inverse">知</i>
+          </span>
+        </a>
+      </li>
+      
+
+      
+
+    </ul>
+  </div>
+</section>
+
+        <hr>
+    
+        <!-- Featured Tags -->
+
+<section>
+  <h5><a href="/tags/">特色标签</a></h5>
+  <div class="tags">
+    
+    
+    <a href="/tags/#Linux" title="Linux" rel="248">Linux</a>
+    
+    
+    
+    <a href="/tags/#HTTP" title="HTTP" rel="47">HTTP</a>
+    
+    
+    
+    <a href="/tags/#macOS" title="macOS" rel="275">macOS</a>
+    
+    
+    
+    <a href="/tags/#Security" title="Security" rel="81">Security</a>
+    
+    
+    
+    <a href="/tags/#Windows" title="Windows" rel="231">Windows</a>
+    
+    
+    
+    <a href="/tags/#Adobe" title="Adobe" rel="25">Adobe</a>
+    
+    
+    
+    <a href="/tags/#Apple" title="Apple" rel="91">Apple</a>
+    
+    
+    
+    <a href="/tags/#AlmaLinux" title="AlmaLinux" rel="9">AlmaLinux</a>
+    
+    
+    
+    <a href="/tags/#CentOS" title="CentOS" rel="25">CentOS</a>
+    
+    
+    
+    <a href="/tags/#RHEL" title="RHEL" rel="21">RHEL</a>
+    
+    
+    
+    <a href="/tags/#OVF" title="OVF" rel="88">OVF</a>
+    
+    
+    
+    <a href="/tags/#iOS" title="iOS" rel="18">iOS</a>
+    
+    
+    
+    <a href="/tags/#DFU" title="DFU" rel="3">DFU</a>
+    
+    
+    
+    <a href="/tags/#Code" title="Code" rel="63">Code</a>
+    
+    
+    
+    <a href="/tags/#Rapid7" title="Rapid7" rel="6">Rapid7</a>
+    
+    
+    
+    <a href="/tags/#Unix" title="Unix" rel="31">Unix</a>
+    
+    
+    
+    <a href="/tags/#Autodesk" title="Autodesk" rel="2">Autodesk</a>
+    
+    
+    
+    <a href="/tags/#Network" title="Network" rel="3">Network</a>
+    
+    
+    
+    <a href="/tags/#VMware" title="VMware" rel="194">VMware</a>
+    
+    
+    
+    <a href="/tags/#Firewall" title="Firewall" rel="46">Firewall</a>
+    
+    
+    
+    <a href="/tags/#Chrome" title="Chrome" rel="2">Chrome</a>
+    
+    
+    
+    <a href="/tags/#Firefox" title="Firefox" rel="2">Firefox</a>
+    
+    
+    
+    <a href="/tags/#Safari" title="Safari" rel="1">Safari</a>
+    
+    
+    
+    <a href="/tags/#Kubernetes" title="Kubernetes" rel="11">Kubernetes</a>
+    
+    
+    
+    <a href="/tags/#SSL" title="SSL" rel="2">SSL</a>
+    
+    
+    
+    <a href="/tags/#Cisco" title="Cisco" rel="65">Cisco</a>
+    
+    
+    
+    <a href="/tags/#NX-OS" title="NX-OS" rel="14">NX-OS</a>
+    
+    
+    
+    <a href="/tags/#IOS-XE" title="IOS-XE" rel="16">IOS-XE</a>
+    
+    
+    
+    <a href="/tags/#IOS-XR" title="IOS-XR" rel="4">IOS-XR</a>
+    
+    
+    
+    <a href="/tags/#Router" title="Router" rel="7">Router</a>
+    
+    
+    
+    <a href="/tags/#Wi-Fi" title="Wi-Fi" rel="4">Wi-Fi</a>
+    
+    
+    
+    <a href="/tags/#Firepower" title="Firepower" rel="10">Firepower</a>
+    
+    
+    
+    <a href="/tags/#FXOS" title="FXOS" rel="10">FXOS</a>
+    
+    
+    
+    <a href="/tags/#ISE" title="ISE" rel="2">ISE</a>
+    
+    
+    
+    <a href="/tags/#Citrix" title="Citrix" rel="7">Citrix</a>
+    
+    
+    
+    <a href="/tags/#ADC" title="ADC" rel="15">ADC</a>
+    
+    
+    
+    <a href="/tags/#DNS" title="DNS" rel="5">DNS</a>
+    
+    
+    
+    <a href="/tags/#Backup" title="Backup" rel="39">Backup</a>
+    
+    
+    
+    <a href="/tags/#vSphere" title="vSphere" rel="83">vSphere</a>
+    
+    
+    
+    <a href="/tags/#ESXi" title="ESXi" rel="30">ESXi</a>
+    
+    
+    
+    <a href="/tags/#vCenter" title="vCenter" rel="32">vCenter</a>
+    
+    
+    
+    <a href="/tags/#Database" title="Database" rel="12">Database</a>
+    
+    
+    
+    <a href="/tags/#Microsoft" title="Microsoft" rel="51">Microsoft</a>
+    
+    
+    
+    <a href="/tags/#PowerShell" title="PowerShell" rel="2">PowerShell</a>
+    
+    
+    
+    <a href="/tags/#Dell" title="Dell" rel="1">Dell</a>
+    
+    
+    
+    <a href="/tags/#Storage" title="Storage" rel="5">Storage</a>
+    
+    
+    
+    <a href="/tags/#DellEMC" title="DellEMC" rel="1">DellEMC</a>
+    
+    
+    
+    <a href="/tags/#Header" title="Header" rel="2">Header</a>
+    
+    
+    
+    <a href="/tags/#AutoUpdate" title="AutoUpdate" rel="12">AutoUpdate</a>
+    
+    
+    
+    <a href="/tags/#Edge" title="Edge" rel="1">Edge</a>
+    
+    
+    
+    <a href="/tags/#Ubuntu" title="Ubuntu" rel="18">Ubuntu</a>
+    
+    
+    
+    <a href="/tags/#Elastic" title="Elastic" rel="2">Elastic</a>
+    
+    
+    
+    <a href="/tags/#SIEM" title="SIEM" rel="10">SIEM</a>
+    
+    
+    
+    <a href="/tags/#Server" title="Server" rel="20">Server</a>
+    
+    
+    
+    <a href="/tags/#F5" title="F5" rel="16">F5</a>
+    
+    
+    
+    <a href="/tags/#BIG-IP" title="BIG-IP" rel="8">BIG-IP</a>
+    
+    
+    
+    <a href="/tags/#BIG-IQ" title="BIG-IQ" rel="1">BIG-IQ</a>
+    
+    
+    
+    <a href="/tags/#F5OS" title="F5OS" rel="1">F5OS</a>
+    
+    
+    
+    <a href="/tags/#FortiOS" title="FortiOS" rel="6">FortiOS</a>
+    
+    
+    
+    <a href="/tags/#FortiGate" title="FortiGate" rel="1">FortiGate</a>
+    
+    
+    
+    <a href="/tags/#BSD" title="BSD" rel="9">BSD</a>
+    
+    
+    
+    <a href="/tags/#FreeBSD" title="FreeBSD" rel="12">FreeBSD</a>
+    
+    
+    
+    <a href="/tags/#zsh" title="zsh" rel="4">zsh</a>
+    
+    
+    
+    <a href="/tags/#Gartner" title="Gartner" rel="33">Gartner</a>
+    
+    
+    
+    <a href="/tags/#API" title="API" rel="2">API</a>
+    
+    
+    
+    <a href="/tags/#Cloud" title="Cloud" rel="15">Cloud</a>
+    
+    
+    
+    <a href="/tags/#SQL" title="SQL" rel="11">SQL</a>
+    
+    
+    
+    <a href="/tags/#SD-WAN" title="SD-WAN" rel="5">SD-WAN</a>
+    
+    
+    
+    <a href="/tags/#Splunk" title="Splunk" rel="8">Splunk</a>
+    
+    
+    
+    <a href="/tags/#WAF" title="WAF" rel="1">WAF</a>
+    
+    
+    
+    <a href="/tags/#TLS" title="TLS" rel="5">TLS</a>
+    
+    
+    
+    <a href="/tags/#Nginx" title="Nginx" rel="4">Nginx</a>
+    
+    
+    
+    <a href="/tags/#Apache" title="Apache" rel="3">Apache</a>
+    
+    
+    
+    <a href="/tags/#IIS" title="IIS" rel="3">IIS</a>
+    
+    
+    
+    <a href="/tags/#Tomcat" title="Tomcat" rel="1">Tomcat</a>
+    
+    
+    
+    <a href="/tags/#Varnish" title="Varnish" rel="2">Varnish</a>
+    
+    
+    
+    <a href="/tags/#HAProxy" title="HAProxy" rel="1">HAProxy</a>
+    
+    
+    
+    <a href="/tags/#PAN-OS" title="PAN-OS" rel="8">PAN-OS</a>
+    
+    
+    
+    <a href="/tags/#Go" title="Go" rel="1">Go</a>
+    
+    
+    
+    <a href="/tags/#Hexo" title="Hexo" rel="2">Hexo</a>
+    
+    
+    
+    <a href="/tags/#Blog" title="Blog" rel="1">Blog</a>
+    
+    
+    
+    <a href="/tags/#NIOS" title="NIOS" rel="1">NIOS</a>
+    
+    
+    
+    <a href="/tags/#Docker" title="Docker" rel="2">Docker</a>
+    
+    
+    
+    <a href="/tags/#RockyLinux" title="RockyLinux" rel="9">RockyLinux</a>
+    
+    
+    
+    <a href="/tags/#JetBrains" title="JetBrains" rel="39">JetBrains</a>
+    
+    
+    
+    <a href="/tags/#JUNOS" title="JUNOS" rel="2">JUNOS</a>
+    
+    
+    
+    <a href="/tags/#kind" title="kind" rel="1">kind</a>
+    
+    
+    
+    <a href="/tags/#Office" title="Office" rel="12">Office</a>
+    
+    
+    
+    <a href="/tags/#Debian" title="Debian" rel="1">Debian</a>
+    
+    
+    
+    <a href="/tags/#shell" title="shell" rel="2">shell</a>
+    
+    
+    
+    <a href="/tags/#SSH" title="SSH" rel="4">SSH</a>
+    
+    
+    
+    <a href="/tags/#MTU" title="MTU" rel="1">MTU</a>
+    
+    
+    
+    <a href="/tags/#NetApp" title="NetApp" rel="2">NetApp</a>
+    
+    
+    
+    <a href="/tags/#ONTAP" title="ONTAP" rel="2">ONTAP</a>
+    
+    
+    
+    <a href="/tags/#nodejs" title="nodejs" rel="2">nodejs</a>
+    
+    
+    
+    <a href="/tags/#Horizon" title="Horizon" rel="16">Horizon</a>
+    
+    
+    
+    <a href="/tags/#Oracle" title="Oracle" rel="3">Oracle</a>
+    
+    
+    
+    <a href="/tags/#Sophos" title="Sophos" rel="4">Sophos</a>
+    
+    
+    
+    <a href="/tags/#SFOS" title="SFOS" rel="4">SFOS</a>
+    
+    
+    
+    <a href="/tags/#Veeam" title="Veeam" rel="8">Veeam</a>
+    
+    
+    
+    <a href="/tags/#Veritas" title="Veritas" rel="16">Veritas</a>
+    
+    
+    
+    <a href="/tags/#Aria" title="Aria" rel="11">Aria</a>
+    
+    
+    
+    <a href="/tags/#NSX" title="NSX" rel="12">NSX</a>
+    
+    
+    
+    <a href="/tags/#Tanzu" title="Tanzu" rel="7">Tanzu</a>
+    
+    
+    
+    <a href="/tags/#vSAN" title="vSAN" rel="8">vSAN</a>
+    
+    
+    
+    <a href="/tags/#vRealize" title="vRealize" rel="10">vRealize</a>
+    
+    
+    
+    <a href="/tags/#Andriod" title="Andriod" rel="2">Andriod</a>
+    
+    
+    
+    <a href="/tags/#Download" title="Download" rel="1">Download</a>
+    
+    
+    
+    <a href="/tags/#Zabbix" title="Zabbix" rel="4">Zabbix</a>
+    
+    
+  </div>
+</section>
+
+
+        <hr>
+    
+        <!-- RECENT POSTS -->
+
+<h5><a href="/">最近博文</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="../../blog/gitea/">
+      <li>Gitea Enterprise 22.6.0 (Linux, macOS, Windows) - 本地部署的企业级 Gti 服务</li>
+    </a>
+    
+    <a href="../../blog/vmware-esxi-8-u3-sysin/">
+      <li>VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</li>
+    </a>
+    
+    <a href="../../blog/vmware-esxi-8-u3-oem/">
+      <li>VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</li>
+    </a>
+    
+    <a href="../../blog/vmware-esxi-8-u3/">
+      <li>VMware ESXi 8.0U3c - 领先的裸机 Hypervisor</li>
+    </a>
+    
+    <a href="../../blog/vmware-esxi-7-u3-sysin/">
+      <li>VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</li>
+    </a>
+    
+  </ul>
+</div>
+
+
+        <hr>
+    
+        <!-- Friends Blog -->
+
+<h5><a href="/">网站链接</a></h5>
+<ul class="list-inline">
+  
+  <li><a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a></li>
+  
+  <li><a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a></li>
+  
+</ul>
+
+
+        <hr>
+    
+        <!-- Archives -->
+
+<h5><a href="/archives/">归档</a></h5>
+<div class="widget">
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2024/12/">December 2024</a><span class="archive-list-count">45</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/11/">November 2024</a><span class="archive-list-count">111</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/10/">October 2024</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/09/">September 2024</a><span class="archive-list-count">54</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/08/">August 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/07/">July 2024</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/06/">June 2024</a><span class="archive-list-count">30</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/05/">May 2024</a><span class="archive-list-count">24</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/04/">April 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/03/">March 2024</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/02/">February 2024</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2024/01/">January 2024</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/12/">December 2023</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/11/">November 2023</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/10/">October 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/09/">September 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/08/">August 2023</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/07/">July 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/06/">June 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/05/">May 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/04/">April 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/03/">March 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/02/">February 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/01/">January 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/12/">December 2022</a><span class="archive-list-count">32</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/11/">November 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/10/">October 2022</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/09/">September 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/08/">August 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/07/">July 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/06/">June 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/02/">February 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/01/">January 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/12/">December 2021</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/11/">November 2021</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/10/">October 2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/09/">September 2021</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/08/">August 2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/07/">July 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/06/">June 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/05/">May 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/04/">April 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/03/">March 2021</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/02/">February 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/01/">January 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/12/">December 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/11/">November 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/10/">October 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/09/">September 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/08/">August 2020</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/05/">May 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/02/">February 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/09/">September 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2019/05/">May 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2017/08/">August 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2010/08/">August 2010</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2007/07/">July 2007</a><span class="archive-list-count">1</span></li></ul>
+</div>
+
+
+        <hr>
+    
+</div>
+
+
+    
+  </div>
+</div>
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

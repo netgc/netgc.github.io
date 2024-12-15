@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> FortiGate FGCP HA 配置文档 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" FortiGate FGCP HA 配置文档 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" FortiGate FGCP HA 配置文档 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/fortios-fgcp-ha-config/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+              
+              <a class="tag" href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+              
+            </div>
+            <h1>FortiGate FGCP HA 配置文档</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2017-08-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">17</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">4.5k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Tue Aug 01 2017 10:10:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>防火墙 HA 配置系列文章：</p>
+<ul>
+<li>
+<a href="/blog/cisco-firepower-ha-config/" title="Cisco Firepower FTD HA 配置文档">Cisco Firepower FTD HA 配置文档</a>
+</li>
+<li>
+<a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a>
+</li>
+<li>
+<a href="/blog/pan-os-ha-config/" title="Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档">Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档</a>
+</li>
+<li>
+<a href="/blog/juniper-srx-jsrp-config/" title="Juniper SRX JSRP 配置文档">Juniper SRX JSRP 配置文档</a>
+</li>
+</ul>
+<p><img src="fortinet-logo.png" alt="fortinet-logo"></p>
+<h2 id="概述-3">概述</h2>
+<p>FortiOS 提供 6 种冗余解决方案，工业标准的 VRRP 和 5 种专有的解决方案：</p>
+<ul>
+<li>FortiGate Cluster Protocol (FGCP) high availability，</li>
+<li>FortiGate Session Life Support Protocol (FGSP) high availability，</li>
+<li>Session-Aware Load Balancing Clustering (SLBC)，</li>
+<li>Enhanced Load Balanced Clustering (ELBC)，</li>
+<li>Content Clustering.</li>
+</ul>
+<p>FGCP HA 是 ForitOS 最常用的 HA 配置方式，也是本文描述的内容。</p>
+<p>FGCP HA 参考拓扑：</p>
+<p><img src="fgcp-ha-topology.png" alt="fgcp-ha-topology"></p>
+<h3 id="FGCP-HA">FGCP HA</h3>
+<p>FortiGate HA 集群由为 HA 操作配置的两到四个 FortiGate 组成。集群中的每个 FortiGate 称为集群设备。所有集群设备必须是相同的 ForitGate 型号，安装相同的 FortiOS 固件版本。所有集群设备还必须具有相同的硬件配置 (例如，相同数量的硬盘等等)，并以相同的操作模式 (NAT 模式或透明模式) 运行。</p>
+<blockquote>
+<p>您可以创建最多由四个 FortiGate 组成的 FGCP 集群。</p>
+</blockquote>
+<p>此外，集群设备必须能够通过心跳接口彼此通信。创建集群并继续运行集群需要这种心跳通信。没有它，集群就像独立 FortiGate 的集合。</p>
+<p>在启动时，使用相同的 HA 配置配置集群设备并连接它们的心跳接口之后，集群设备使用 FortiGate 集群协议 (FGCP) 査找为 HA 操作配置的其他 FortiGate，并协商创建集群。在集群操作期间，FGCP 通过心跳接口链接在集群设备之间共享通信和同步信息。这种通信和同步称为 FGCP 心跳或者 HA 心跳。通常，简称为心跳。</p>
+<p>集群使用 FGCP 选择主设备，并提供设备、链接和会话故障转移。FGCP 还管理两种 HA 模式：主动 - 被动 (故障转移 HA) 和主动 - 主动 (负载均衡 HA)。</p>
+<h3 id="不同步的配置">不同步的配置</h3>
+<p>FGCP 使用增量同步和周期性同步的组合，以确保所有集群设备的配置与主设备的配置同步。这意味着在大多数情况下，你只需进行—次配置更改，就可以将其同步到所有集群设备。这包括包含额外信息的特殊配置设置 (例如，第三方证书、替换消息文本文件和图形等)。</p>
+<p>某些配置设置不同步，以支持 FortiGate 某些特定操作。以下设置在集群设备之间不同步：</p>
+<ul>
+<li>FortiGate 主机名。允许你识别集群设备。</li>
+<li>GUI 仪表板配置。故障转移只有，你可能必须重新配置仪表板小部件。</li>
+<li>HA 覆盖。</li>
+<li>HA 设备优先级。</li>
+<li>虚拟集群 1 和虚拟集群 2 设备优先级。</li>
+<li>ping 服务器或死网关检测配置的 HA 优先级 (ha-priority) 设置。</li>
+<li>成为 HA 保留管理接口的 FortiGate 接口的系统接口设置。</li>
+<li>保留管理接口的默认路由，使用 <code>config system ha</code> 命令的 <code>ha-mgmt-interface-gateway</code> 选项设置。</li>
+<li>动态加权负载均衡阈值和高低水印。</li>
+<li>OSPF summary-addresses 设置。</li>
+</ul>
+<p>此外，许可证是不同步的，因为每个 FortiGate 必须单独许可。这包括 FortiCloud 激活和 FortiClient 许可，如果你购买了超过 10 个虚拟域 (VDOM)，则输入一个许可密钥。</p>
+<h3 id="HA-工作模式">HA 工作模式</h3>
+<p><strong>Active-Passive（A-P）模式</strong>：</p>
+<p>集群中的所有防火墙必须工作在同一个模式下。可以对运行中的 HA 集群进行模式的修改，但会造成一定的延时，因为集群需要重新协商并选取新的主设备。A-P 模式提供了备机保护。HA 集群中由一台主设备，和一台以上到从设备组成。</p>
+<p>从设备与主设备一样连接到网络，但不处理任何的数据包，从设备处于备用状态。从设备会自动同步主设备的配置，并时刻监视主设备到运行状态。整个失效保护的过程是透明的，一旦主设备失效，从设备会自动接替其工作。如果设备的接口或链路出现故障，集群内会更新链路状态数据库，重新选举新的主设备。</p>
+<p><strong>Active-Active（A-A）模式</strong>：</p>
+<p>A-A 模式下会对占用资源较多的进程进行在各个设备中进行分担。需要处理协议识别、病毒扫描、ips、网页过滤、邮件过滤、数据防泄露、应用程序控制、voip 内容扫描、协议保护（HTTP，HTTPS，FTP，IMAP，IMAPS，POP3，SMTP，SMTPS，IM，NNTP，SIP，SIMPLE），SCCP 协议控制等。通过对如上内容的负载均担，A-A 模式可以提供更高的 UTM 性能。安全策略中的终端控制，流控，用户认证功能，在 A-A 模式下没有什么提高效果。其他非 UTM 功能不会进行负载分担，将由主设备进行处理。除了 UTM 功 能外，还可以实现对 TCP 会话进行分担。</p>
+<p>AA 模式下，集群中的主设备负责对所有通信会话的处理，然后将部分负载分发到所有从设备上。从设备可以说是活动的，因为要处理 UTM 的相关会话。但从设备只处理由主设备分配的数据，不会响应 arp 等。其他方面 AA 模式和 AP 模式是相同的。</p>
+<p>单机配置同步、单机会话同步模式</p>
+<p>从 5.0 版本开始，全新 NGFW 下一代防火墙支持单机配置同步、会话同步功能，在一些应用场景中它可以代替双机 HA 功能，实现控制异步流量的目的。</p>
+<h3 id="HA-配置要求">HA 配置要求</h3>
+<p>进行 HA 配置，硬件和软件版本需满足如下要求：</p>
+<ol>
+<li>
+<p>防火墙硬件型号相同；</p>
+</li>
+<li>
+<p>同型号硬件要求硬件版本，内存容量，CPU 型号，硬盘容量等相同；</p>
+</li>
+<li>
+<p>相同的软件版本；</p>
+</li>
+<li>
+<p>设备的所有接口不能工作在 DHCP，PPPOE 模式下。没有使用的接口 IP 地址模式也需要选择为 “自定义”；</p>
+</li>
+</ol>
+<p>假如 HA 的两台 FGT 存在上述不一致的情况，那么做为备机的 FGT 将会被 Shutdown 主动关闭。</p>
+<p>串口下将会打印 shutdown 并提示原因：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slave and master have different hdisk status. Cannot work with HA master. Shutdown the box!</span><br><span class="line"></span><br><span class="line">The system is going down NOW</span><br><span class="line"></span><br><span class="line">The system is halted.</span><br></pre></td></tr></table></figure>
+<h3 id="HA-配置步骤">HA 配置步骤</h3>
+<p>步骤 1、配置设备 1 的 HA</p>
+<p>步骤 2、配置设备 2 的 HA</p>
+<p>步骤 3、组建 HA</p>
+<p>步骤 4、查看 HA 集群</p>
+<h3 id="HA-配置建议">HA 配置建议</h3>
+<ol>
+<li>
+<p>进行 HA 环境下更换设备前，进行配置备份，防止操作失误而造成的配置丢失。</p>
+</li>
+<li>
+<p>建议配置两条以上的心跳线缆，防止单心跳故障造成 HA 机群崩溃，使用独立的心跳接口，尽量避免与业务口混用。</p>
+</li>
+<li>
+<p>优先使用光纤接口。</p>
+</li>
+<li>
+<p>开启会话同步：set session-pickup enable(默认关闭) 或者在 WEB 上启用 “会话交接”</p>
+</li>
+<li>
+<p>谨慎使用 override 功能。开启 override 后设备选举过程中 HA 优先级参数高于设备运行时间参数，可能造成期望成为备机的设备被选举为主设备，造成反向同步配置信息。</p>
+</li>
+<li>
+<p>更改默认的 HA 组的 ID，避免同一个广播域内存在多个 HA 机群，而造成接口的虚拟 MAC 冲突</p>
+</li>
+<li>
+<p>选择正确的监控端口和心跳端口，在开启 vdom 虚拟 cluster 时候，每个 cluster 需要单独配置。</p>
+</li>
+<li>
+<p>如果开启 ping server 功能，则需要再 HA 配置中添加相应的配置命令。</p>
+</li>
+<li>
+<p>建议将与防火墙相连的交换机接口配置为 stp portfast 模式，发生接口 Up/Down 切换时，交换机的接口可立刻进入转发状态，而不需要 stp 状态进行侦听、学习、转发等延迟步骤后接口才转发数据。</p>
+</li>
+</ol>
+<h2 id="FGCP-HA-配置实例">FGCP HA 配置实例</h2>
+<h3 id="1-配置任务概述：两台设备配置主备模式">1. 配置任务概述：两台设备配置主备模式</h3>
+<p>网口：</p>
+<ul>
+<li>port1 用作内网口</li>
+<li>port2 用作外网口</li>
+<li>port3 和 port4 用作 heartbeat</li>
+</ul>
+<p>连线：</p>
+<ul>
+<li>port1、port2 以及 MGMT 口正常连接网线到交换机</li>
+<li>port3 和 port4 暂不连接网线</li>
+</ul>
+<p>1）主设备：已经在网络配置运行的机器，或者是新机器可以配置一下管理 IP 即可</p>
+<p>The FortiGate already on the network will be configured to become the primary unit by:</p>
+<ul>
+<li>Licensing it (if required)</li>
+<li>Enabling HA</li>
+<li>Increasing its device priority</li>
+<li>Enabling override  // 全新机器不需要启用 override (sysin)</li>
+</ul>
+<p>2）备机：如果不是新机器需要恢复出厂设置，创建群集后所有设置将被主设备覆盖</p>
+<p>The new FortiGate will be prepared by:</p>
+<ul>
+<li>Setting it to factory defaults to wipe any configuration changes</li>
+<li>Licensing it (if required)</li>
+<li>Enabling HA without changing the device priority and override</li>
+<li>Connecting it to the FortiGate already on the network.</li>
+</ul>
+<p>The new FortiGate becomes the backup unit and its configuration is overwritten by the primary unit.</p>
+<h3 id="2-配置群集">2. 配置群集</h3>
+<h4 id="1）主设备">1）主设备</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">config system global</span><br><span class="line">  <span class="built_in">set</span> hostname FGSYSIN01</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">200</span></span><br><span class="line"> <span class="built_in">set</span> override enable  <span class="comment">// 全新机器不需要启用 override</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"><span class="comment">//port3 和 port4 为两个心跳接口 (sysin)</span></span><br></pre></td></tr></table></figure>
+<p>清空 arp 表<br>
+arp -d<br>
+查看 MAC 地址更新<br>
+get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
+<h4 id="2）备机">2）备机</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">execute factoryreset</span><br><span class="line"><span class="comment">// 非新机器时执行</span></span><br><span class="line"></span><br><span class="line">config system global</span><br><span class="line"> <span class="built_in">set</span> hostname FGSYSIN02</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">100</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"><span class="comment">//mode、group-id、group-name、password 个心跳端口设置相同，priority 优先级低，不配置 override</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-连接群集">3. 连接群集</h3>
+<p>将 heartbeat 端口网线直连，这里是 port3 和 port4，这是主备设备将发现对方并协商创建群集，主设备将配置同步到备机上。</p>
+<h3 id="4-校验群集并禁用-orveride">4. 校验群集并禁用 orveride</h3>
+<p>登录主机执行如下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diagnose sys ha checksum cluster</span><br></pre></td></tr></table></figure>
+<p>可以看到所有群集成员的 checksum 相同，表示已经同步完成。</p>
+<p>也可以在 web 界面的 HA Status Dashboard 查看群集同步状态</p>
+<p>在主设备上执行如下命令禁用 override，若不取消这项设置，主设备将始终保持主机状态无法实现故障转移</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config system ha</span><br><span class="line"> set override disable</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>查看最近的 HA 系统状态时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show HA Historical Events</span><br></pre></td></tr></table></figure>
+<h3 id="5-测试故障转移">5. 测试故障转移</h3>
+<p>在内网长 ping 8.8.8.8</p>
+<p>关闭主设备</p>
+<p>可以观察有丢包产生，网络仍然可以正常访问</p>
+<h3 id="6-相关命令">6. 相关命令</h3>
+<ul>
+<li>
+<p>重启和切换</p>
+<ul>
+<li>软切换：diagnose sys ha reset-uptime</li>
+<li>重启防火墙：exec reboot （只重启主防火墙，将导致主备切换）</li>
+</ul>
+</li>
+<li>
+<p>查看设备系统状态</p>
+<ul>
+<li>查看系统基本信息：get sys status</li>
+<li>查看系统状态信息：get sys performance status</li>
+</ul>
+</li>
+<li>
+<p>查看接口状态</p>
+<ul>
+<li>查看单接口状态：diagnose hardware deviceinfo nic 接口名</li>
+<li>查看聚合接口状态：diagnose netlink aggregate name 聚合接口名</li>
+<li>关闭接口线速转发：diagnose npu np2 fastpath-sniffer enable Port-Number</li>
+</ul>
+<blockquote>
+<p>注：该配置只在工作机有效（diagnose 命令），当设备切换时，原备机没有这个配置</p>
+</blockquote>
+</li>
+<li>
+<p>查看 HA 状态</p>
+<ul>
+<li>
+<p>登录备墙，需要先用 admin 登录到主防火墙后执行：exec ha manage 0 或 1</p>
+</li>
+<li>
+<p>查看主备机配置是否同步：diag sys ha showcsum</p>
+<blockquote>
+<p>查看主备机输出是否一致，如果一致则表明配置已同步。</p>
+</blockquote>
+</li>
+<li>
+<p>查看 HA 状态：get sys ha status</p>
+</li>
+</ul>
+</li>
+<li>
+<p>查看会话</p>
+<p>查看会话：diagnose sys session stat 或 diagnose sys session full-stat</p>
+</li>
+<li>
+<p>查看系统 ARP 表项</p>
+<ul>
+<li>查看 ARP 表：get sys arp</li>
+<li>查看丰富 ARP 信息：diagnose ip arp list</li>
+</ul>
+</li>
+<li>
+<p>查看当前系统进程</p>
+<ul>
+<li>
+<p>查看系统进程：diagnose sys top 5 99</p>
+</li>
+<li>
+<p>杀进程：diagnose sys kill 11 进程 ID 或 dia sys kill 9 进程 ID</p>
+<blockquote>
+<p>注意：kill 11 有日志，kill 9 没有日志。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="HA-Cluster-不中断升级过程">HA-Cluster 不中断升级过程</h2>
+<ol>
+<li>
+<p>在主机 Web 界面上点击升级按钮。</p>
+</li>
+<li>
+<p>主机把 OS 发给备机，备机准备并开始升级，然后自动重启，此过程需要 5 分钟（或更长时间），请耐心等待。</p>
+</li>
+<li>
+<p>备机升级完成，并切换成主机。</p>
+</li>
+<li>
+<p>主机观察到备机升级成功并切换为新的主机后，开始准备升级，此过程需要 5 分钟（或更长时间），请耐心等待。</p>
+</li>
+<li>
+<p>一旦准备完成，主机（此时为备）自动重启加载升级后 OS ，重启约 2 分钟。</p>
+</li>
+<li>
+<p>主机（此时为备）重启后，形成 HA。主机从原来的备同步配置（外部配置和内部配置），约 1~3 分钟。</p>
+</li>
+</ol>
+<p>此时，HA 重新建立，但是主备关系发生了切换，需要在此时的主（最开始的备）手工执行切换 diagnose sys ha reset uptime 切换原来的主备关系。</p>
+<h2 id="HA-配置命令集参考">HA 配置命令集参考</h2>
+<p>HA 配置命令 <code>config system ha</code>，如下是常用的配置命令。</p>
+<p>1.set group-id 0</p>
+<p>配置 HA 机群的组 ID，一个机群内的成员必须有相同的组 ID. 该 ID 会成为生成防火墙接口的的虚拟 MAC 的一个组成因素，因此当同一个广播域有２组以上的 HA 机群的时候需要配置不同的组 ID，防止 MAC 地址冲突.</p>
+<p>2.set group-name “FGT-HA”</p>
+<p>一个机群内的成员必须有相同的组名字</p>
+<p>3.set mode 　standalone/a-a/a-p</p>
+<p>HA 工作模式，常用为 a-p 模式。AA 模式下在 HA 状态中查看到 HA 的角色，有主设备及从设备，通常会被认为工作在主被模式下，实际上主主下设备虽然都在工作，仍会有一台作为集群的主设备用来控制和分配流量和会话给集群中的其他设备。AA 模式默认情况下仅负载均衡 UTM 的流量，所以在下不使用 UTM 功能时建议使用 AP 模式。</p>
+<p>4.set password</p>
+<p>一个机群内的成员必须有相同的密码</p>
+<p>5.set hbdev “port1” 50 “port2” 50</p>
+<p>配置心跳接口。其中 50 为优先级，优先级高的被优先使用。</p>
+<p>6.unset session-sync-dev</p>
+<p>可以配置专门的心跳接口用于会话信息同步，默认和控制信息为同一心跳接口。</p>
+<p>7.set route-ttl 10</p>
+<p>路由转发表的存活时间。HA 设备之间只同步转发表，不同步路由表。当一个备机被选举成主机后，其原有转发表的存活时间，单位秒。随后通过静态或动态路由协议生成转发表，继续工作。</p>
+<p>8.set route-wait 0</p>
+<p>主设备收到新的路由条目后，会等待 x 秒后，再同步给从设备。</p>
+<p>9.set route-hold 10</p>
+<p>主设备进行２次路由同步之间的间隔，防止路由震荡而造成反复更新路由。</p>
+<p>10.set sync-config enable</p>
+<p>配置文件自动同步，需要开启。</p>
+<p>11.set encryption disable</p>
+<p>是否允许使用 AES-128 和 SHA1 对心跳信息进行加密和完整性验证。</p>
+<p>12.set authentication disable</p>
+<p>是否使用 SHA1 算法验证心跳信息的完整性。</p>
+<p>13.set hb-interval 2</p>
+<p>发送心跳数据包的间隔，单位为每 100ms. 如配置 2，则每 200ms 发送一个心跳信息。</p>
+<p>14.set hb-lost-threshold 6</p>
+<p>心跳信息连续丢失６个后则认为对方不再存活。</p>
+<p>15.set helo-holddown 20</p>
+<p>Hello 状态时间。设备加入 HA 机群前等待的时间，防止由于未能发现所有的机群成员而造成 Ha 的反复协商。</p>
+<p>16.set arps 5</p>
+<p>设备成为主设备后，要发送免费 arp 来宣布自己的 MAC 地址，以便相连的交换机能够及时更新 MAC 地址表，该参数用于配置其发送的数量。</p>
+<p>17.set arps-interval 8</p>
+<p>发送免费 arp 的间隔，单位秒。</p>
+<p>18.set session-pickup enable/disable</p>
+<p>关闭或者开启会话同步，默认为 disable。一般需要开启。</p>
+<p>19.set session-pickup-delay{enable | disable}</p>
+<p>仅对存活 30 秒以上的会话进行同步。开启后会对性能有所优化，但小于 30 秒的会话在 HA 切换的时候会丢失。默认为关闭，谨慎使用。</p>
+<p>20.set link-failed-signal disable</p>
+<p>防火墙上发生被监控端口失效触发 HA 切换的时候，是否将除心跳口外的所有端口 shutdown 一秒钟的时间，便于与之相连的交换机及时更新 MAC 表。// 这个命令是一个优化命令，其实是建议配置上去的。</p>
+<p>21.set uninterruptable-upgrade enable</p>
+<p>是否允许无中断升级ＯＳ。系统自动分别对机群内的设备升级，并自动切换，不会造成业务的中断。</p>
+<p>22.set ha-uptime-diff-margin 300</p>
+<p>当进行 HA 选举时，启动时间为一个选举的一个参数，当２台设备启动时间差小于 300 时则将该部分差异忽略，视为相同。</p>
+<p>23.set override disable</p>
+<p>默认为 disable，ＨＡ选举按如下顺序进行比较：有效接口数量 &gt; 运行时间 &gt; HA 优先级 &gt; 设备序列号。Enable 情况下，讯据顺序改变。有效接口数量 &gt; HA 优先级 &gt; 运行时间 &gt; 设备序列号。每次设备加入或者离开机群，都会强制整个机群重新进行主设备的选举。</p>
+<p>24.set priority 128</p>
+<p>HA 优先级，为便于管理，建议主设备 200，从设备 100.</p>
+<p>25.set monitor port3 port4</p>
+<p>配置需要被监控的端口，其有效数量多的设备成为主设备。</p>
+<p>26.unset pingserver-monitor-interface</p>
+<p>是否设置 pingserver 监控端口。</p>
+<p>27.set pingserver-failover-threshold 0</p>
+<p>pingserver 触发的阀值，0 则意味着任何的 pingserver 失效都会触发 HA 的切换。</p>
+<p>28.set pingserver-flip-timeout 60</p>
+<p>两次 pingserver 失效切换之间的间隔。如 A 发生失效，切换到 B. 切过去之后发现 B 也是失效的，则需要等待 60 分钟的时间允许切换回 A.</p>
+<p>29.set ha-mgmt-status  enable HA 的带外管理配置命令</p>
+<p>set ha-mgmt-interface port1</p>
+<p>set ha-mgmt-interface-gateway  x.x.x.x</p>
+<h2 id="相关产品下载">相关产品下载</h2>
+<a href="/blog/fortios-7/" title="Fortinet FortiOS 7.6.0 (FortiGate VM deployment Images) - 混合架构防火墙">Fortinet FortiOS 7.6.0 (FortiGate VM deployment Images) - 混合架构防火墙</a>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/dnssec/" data-toggle="tooltip" data-placement="top" title="DNSSEC 实战">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/juniper-srx-jsrp-config/" data-toggle="tooltip" data-placement="top" title="Juniper SRX JSRP 配置文档">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/fortios-fgcp-ha-config/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#FGCP-HA"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">FGCP HA</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8D%E5%90%8C%E6%AD%A5%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">不同步的配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HA 工作模式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E8%A6%81%E6%B1%82"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">HA 配置要求</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">HA 配置步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E5%BB%BA%E8%AE%AE"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">HA 配置建议</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FGCP-HA-%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FGCP HA 配置实例</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0%EF%BC%9A%E4%B8%A4%E5%8F%B0%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE%E4%B8%BB%E5%A4%87%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. 配置任务概述：两台设备配置主备模式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E9%85%8D%E7%BD%AE%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 配置群集</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1%EF%BC%89%E4%B8%BB%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1）主设备</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2%EF%BC%89%E5%A4%87%E6%9C%BA"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2）备机</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E8%BF%9E%E6%8E%A5%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 连接群集</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%A0%A1%E9%AA%8C%E7%BE%A4%E9%9B%86%E5%B9%B6%E7%A6%81%E7%94%A8-orveride"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 校验群集并禁用 orveride</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E6%B5%8B%E8%AF%95%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 测试故障转移</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 相关命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HA-Cluster-%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8D%87%E7%BA%A7%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HA-Cluster 不中断升级过程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E9%9B%86%E5%8F%82%E8%80%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">HA 配置命令集参考</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%B8%E5%85%B3%E4%BA%A7%E5%93%81%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">相关产品下载</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Firewall" title="Firewall">Firewall</a>
+            
+            <a class="tag" href="/tags/#FortiOS" title="FortiOS">FortiOS</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

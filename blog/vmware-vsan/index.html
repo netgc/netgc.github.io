@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> VMware vSAN 8.0U3b - 存储虚拟化软件 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware vSAN 8.0U3b - 存储虚拟化软件 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" VMware vSAN 8.0U3b - 存储虚拟化软件 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/vmware-vsan/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+              
+              <a class="tag" href="/tags/#ESXi" title="ESXi">ESXi</a>
+              
+              <a class="tag" href="/tags/#vCenter" title="vCenter">vCenter</a>
+              
+              <a class="tag" href="/tags/#vSAN" title="vSAN">vSAN</a>
+              
+            </div>
+            <h1>VMware vSAN 8.0U3b - 存储虚拟化软件</h1>
+            <h2 class="subheading">vSAN 8 with Express Storage Architecture</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-09-30
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">11</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.7k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Mon Sep 30 2024 09:50:01 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/vmware-vsan/" title="VMware vSAN 8.0U3b - 存储虚拟化软件">VMware vSAN 8.0U3b - 存储虚拟化软件</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="/blog/vmware/vmware-logo-grey-broadcom.png" alt="VMware by Broadcom"></p>
+<p>VMware vSAN</p>
+<p>存储虚拟化软件<br>
+vSAN</p>
+<p>利用企业级存储虚拟化软件 VMware vSAN 降低存储成本和复杂性，该软件提供了通往超融合基础架构 (HCI) 和多云的最简单途径。</p>
+<p><img src="https://www.vmware.com/media/blt8c9a8aaca0ffd4ac/blt7f4c261b2bad4134/660d52ec59445add21ae119a/illu-sec-secure-databases-whtbg.png" alt="VMware vSAN - 您实现超融合基础架构的途径"></p>
+<h2 id="利用-VMware-超融合基础架构实现创新">利用 VMware 超融合基础架构实现创新</h2>
+<ul>
+<li>
+<p>使用 vSAN 顺畅转型</p>
+<p>使用您目前的 VMware 工具 (sysin)，通过我们的安全超融合解决方案将虚拟化扩展到存储领域，该解决方案可与 Hypervisor 和领先的公有云提供商平台相集成。</p>
+</li>
+<li>
+<p>降低成本</p>
+<p>在符合行业标准的服务器上使用最新存储技术，从而获得更高的性价比。</p>
+</li>
+<li>
+<p>支持多云管理</p>
+<p>通过单个云控制台，针对 vSAN 基础架构提供集中可见性和发出警示，从而提高 IT 工作效率，并通过 VMware Tanzu 集成无缝管理基于虚拟机和基于容器的应用。</p>
+</li>
+<li>
+<p>最大限度提高灵活性</p>
+<p>借助 vSAN Max 实现 PB 级解聚，通过独立扩展存储来优化资源利用率并降低成本。</p>
+</li>
+</ul>
+<h2 id="了解-vSAN-8-with-Express-Storage-Architecture">了解 vSAN 8 with Express Storage Architecture</h2>
+<p>vSAN 8 with Express Storage Architecture 可为您的新一代存储设备提供最高级别的性能和效率。</p>
+<ul>
+<li>
+<p>优化的性能</p>
+<p>在不影响空间效率的情况下，将新一代设备的性能提高多达 4 倍。</p>
+</li>
+<li>
+<p>极高的效率</p>
+<p>借助增强的数据压缩和自适应存储效率，将存储 TCO 降低多达 40%。</p>
+</li>
+<li>
+<p>提高了恢复能力</p>
+<p>通过新的存储池结构提高可用性并满足更高的 SLA 要求。</p>
+</li>
+<li>
+<p>敏捷的运维</p>
+<p>跨所有 vSAN 部署和体系架构享受一致、直观的管理体验。</p>
+</li>
+</ul>
+<h2 id="vSAN-Max-简介">vSAN Max 简介</h2>
+<p>vSAN Max 由 vSAN Express Storage Architecture 提供技术支持，是一种全新的可选 vSAN 部署模式，可为 vSphere 提供 PB 级分解式存储 (sysin)。独立于计算扩展存储，以提高灵活性，从而支持所有工作负载。新的 vSAN Max 产品 / 服务将与现有 vSAN 版本分开授予许可。</p>
+<ul>
+<li>
+<p>极高的容量和性能</p>
+<p>每个集群可纵向扩展至 8.6 PB 和 360 万次 IOPS。</p>
+</li>
+<li>
+<p>最大规模</p>
+<p>每个集群最多可横向扩展至 24 个数据节点。</p>
+</li>
+<li>
+<p>成本效益</p>
+<p>将关键任务数据库的总体拥有成本降低多达 30%。</p>
+</li>
+<li>
+<p>运维简单</p>
+<p>可使用单一界面管理所有 vSAN 环境。</p>
+</li>
+</ul>
+<h2 id="vSAN-的功能特性">vSAN 的功能特性</h2>
+<ul>
+<li>
+<p>云级的非凡效率</p>
+<p>通过解聚以 PB 级独立扩展计算和存储资源，从而最大限度提高资源利用率并降低成本。</p>
+</li>
+<li>
+<p>开发人员就绪型基础架构</p>
+<p>使开发人员能够顺畅地使用存储大规模创建应用 (sysin)，同时为管理员提供管理虚拟机和容器的基础架构所需的监管功能。</p>
+</li>
+<li>
+<p>集成式文件服务</p>
+<p>将 vSAN 用作数据块和文件存储的统一存储控制平面，只需一个工作流即可轻松置备文件共享。</p>
+</li>
+<li>
+<p>功能强大的有状态服务</p>
+<p>利用 vSAN 数据持久性平台框架将云原生应用集成到底层虚拟基础架构中。</p>
+</li>
+<li>
+<p>基于存储策略的一致管理</p>
+<p>根据虚拟机和容器卷的应用需求调整存储。定义虚拟机、卷或 VMDK 的存储需求，由软件应用并实施这些要求。</p>
+</li>
+<li>
+<p>vSAN+ 的云连接</p>
+<p>利用可执行集中管理并提高效率的云连接服务对本地部署基础架构进行转型。</p>
+</li>
+</ul>
+<h2 id="vSAN-简介">vSAN+ 简介</h2>
+<p>vSAN+ 为本地部署提供基于订阅的云连接 vSAN 服务。</p>
+<ul>
+<li>
+<p>灵活的消费模式</p>
+<p>“按增长付费” 订阅选项可帮助您简化和管理成本。</p>
+</li>
+<li>
+<p>精简维护</p>
+<p>通过一键式更新缩短基础架构维护时段。</p>
+</li>
+<li>
+<p>通过集中可见性提高工作效率</p>
+<p>从单个云管理控制台查看全局清单 (sysin)、集中置备虚拟机并查看警示。</p>
+</li>
+<li>
+<p>VMware Cross-Cloud Services</p>
+<p>VMware Cloud on AWS Outposts 是 Cross-Cloud Services 中的一项云基础架构服务，可为您的本地部署环境提供代管云服务。</p>
+</li>
+</ul>
+<h2 id="满足主要应用场景的要求">满足主要应用场景的要求</h2>
+<ul>
+<li>
+<p>关键业务应用</p>
+<p>为您的关键应用实现高性能 - 每个节点高达 15 万 IOPS。与传统存储解决方案相比，可通过高度自动化的流程加快部署并降低存储成本。</p>
+<p><a target="_blank" rel="noopener" href="https://core.vmware.com/business-critical-application-reference-architectures">了解参考体系架构</a></p>
+</li>
+<li>
+<p>虚拟桌面基础架构 (VDI)</p>
+<p>利用完全符合您增长要求的资源改善您的用户体验并大规模实现卓越的桌面和应用性能。</p>
+</li>
+<li>
+<p>远程办公室和分支机构 (ROBO)</p>
+<p>通过从数据中心管理本地 IT 性能来提高该性能 (sysin)。从只有两个节点的较小物理空间着手，然后根据需要进行扩展。利用灵活的许可模式控制成本。</p>
+<p>​<a target="_blank" rel="noopener" href="https://core.vmware.com/resource/vsan-remote-office-deployment">查看解决方案概述</a></p>
+</li>
+<li>
+<p>灾难恢复 (DR)</p>
+<p>使用 HCI 服务器（而不是专用存储阵列）降低灾难恢复成本。从数据中心轻松管理灾难恢复站点。通过结合使用 vSAN 与 VMware Site Recovery Manager 和 vSphere Replication 编排和自动执行恢复。</p>
+</li>
+<li>
+<p>现代应用</p>
+<p>在同一平台上运行、监控和管理容器及虚拟机存储。云原生存储可为无状态和有状态应用执行全面的数据管理。</p>
+</li>
+</ul>
+<h2 id="比较-vSAN-的各个版本">比较 vSAN 的各个版本</h2>
+<p>SaaS</p>
+<ul>
+<li>
+<p>vSAN+</p>
+<p>我们的核心级 HCI 服务产品，附带云连接服务，可实现集中管理并提高效率。</p>
+<ul>
+<li>通过云集成对本地部署基础架构进行转型</li>
+<li>精简维护并获得集中可见性</li>
+<li>随增长付费订阅选项</li>
+</ul>
+</li>
+</ul>
+<p>本地部署</p>
+<ul>
+<li>
+<p>Standard</p>
+<p>最适合具有虚拟机级存储策略的混合环境。包括：</p>
+<ul>
+<li>基于存储策略的管理</li>
+<li>虚拟分布式交换机 (sysin)</li>
+<li>云原生存储 (CNS) 控制平面</li>
+</ul>
+</li>
+<li>
+<p>Advanced</p>
+<p>包含 Standard 版的所有功能特性，以及：</p>
+<ul>
+<li>全闪存空间效率功能特性</li>
+<li>去重和压缩</li>
+<li>VMware Aria Operations within vCenter</li>
+</ul>
+</li>
+<li>
+<p>Enterprise</p>
+<p>包含 Advanced 版的所有功能特性，以及：</p>
+<ul>
+<li>软件定义的静态数据加密</li>
+<li>延伸集群</li>
+<li>VMware HCI Mesh</li>
+<li>适用于现代有状态服务的数据持久性平台</li>
+</ul>
+</li>
+<li>
+<p>Enterprise Plus</p>
+<p>提供高级管理功能，实现性能优化和高效容量管理，以便将数据中心转变为简单、统一的云操作系统。包含 Enterprise 版的所有功能特性，以及：</p>
+<ul>
+<li>vRealize Operations 8 Advanced</li>
+</ul>
+</li>
+</ul>
+<h2 id="准备好开始体验了吗？-2">准备好开始体验了吗？</h2>
+<p>借助 VMware vSAN 面向未来的 HCI，降低成本和复杂性，并精简您的多云之旅。</p>
+<p>VMware vSAN 8.0：</p>
+<ul>
+<li><strong><a href="/blog/vmware-vsphere-8/" title="VMware vSphere 8.0d 下载 - 企业级工作负载平台">VMware vSphere 8.0d 下载 - 企业级工作负载平台</a></strong></li>
+<li>
+<a href="/blog/vmware-esxi-8/" title="VMware ESXi 8.0d - 领先的裸机 Hypervisor">VMware ESXi 8.0d - 领先的裸机 Hypervisor</a>
+</li>
+<li>
+<a href="/blog/vmware-vcenter-8/" title="VMware vCenter Server 8.0c - 集中式管理 vSphere 环境">VMware vCenter Server 8.0c - 集中式管理 vSphere 环境</a>
+</li>
+<li>VMware vSAN File Services Appliance 8.0</li>
+<li>VMware vSAN Witness Appliance 8.0</li>
+</ul>
+<p>VMware vSAN 8.0U1：</p>
+<ul>
+<li><strong><a href="/blog/vmware-vsphere-8-u1/" title="VMware vSphere 8.0 Update 1e 下载 - 企业级工作负载平台">VMware vSphere 8.0 Update 1e 下载 - 企业级工作负载平台</a></strong></li>
+<li>
+<a href="/blog/vmware-esxi-8-u1/" title="VMware ESXi 8.0U1d - 领先的裸机 Hypervisor">VMware ESXi 8.0U1d - 领先的裸机 Hypervisor</a>
+</li>
+<li>
+<a href="/blog/vmware-vcenter-8-u1/" title="VMware vCenter Server 8.0U1e - 集中管理 vSphere 环境">VMware vCenter Server 8.0U1e - 集中管理 vSphere 环境</a>
+</li>
+<li>VMware vSAN File Services Appliance 8.0U1</li>
+<li>VMware vSAN Witness Appliance 8.0U1</li>
+</ul>
+<p>VMware vSAN 8.0U2：</p>
+<ul>
+<li><strong><a href="/blog/vmware-vsphere-8-u2/" title="VMware vSphere 8.0 Update 2e 下载 - 企业级工作负载平台">VMware vSphere 8.0 Update 2e 下载 - 企业级工作负载平台</a></strong></li>
+<li>
+<a href="/blog/vmware-esxi-8-u2/" title="VMware ESXi 8.0U2c - 领先的裸机 Hypervisor">VMware ESXi 8.0U2c - 领先的裸机 Hypervisor</a>
+</li>
+<li>
+<a href="/blog/vmware-vcenter-8-u2/" title="VMware vCenter Server 8.0U2e - 集中管理 vSphere 环境">VMware vCenter Server 8.0U2e - 集中管理 vSphere 环境</a>
+</li>
+<li>VMware vSAN File Services Appliance 8.0U2</li>
+<li>VMware vSAN Witness Appliance 8.0U2</li>
+</ul>
+<p>VMware vSAN 8.0U3：</p>
+<ul>
+<li><strong><a href="/blog/vmware-vsphere-8-u3/" title="VMware vSphere 8.0 Update 3d 下载 - 企业级工作负载平台">VMware vSphere 8.0 Update 3d 下载 - 企业级工作负载平台</a></strong></li>
+<li>
+<a href="/blog/vmware-esxi-8-u3/" title="VMware ESXi 8.0U3c - 领先的裸机 Hypervisor">VMware ESXi 8.0U3c - 领先的裸机 Hypervisor</a>
+</li>
+<li>
+<a href="/blog/vmware-vcenter-8-u3/" title="VMware vCenter Server 8.0U3d - 集中管理 vSphere 环境">VMware vCenter Server 8.0U3d - 集中管理 vSphere 环境</a>
+</li>
+<li>VMware vSAN File Services Appliance 8.0U3</li>
+<li>VMware vSAN Witness Appliance 8.0U3</li>
+</ul>
+<h2 id="文件信息">文件信息</h2>
+<p>VMware vSAN 8.0U3</p>
+<p>VMware vSphere Management SDK 8.0U3</p>
+<ul>
+<li>VMware vSphere Management SDK 8.0U3<br>
+Name: VMware-vSphere-SDK-8.0.3-24002394.zip<br>
+Size: 70.21 MB<br>
+Last updated: Jun 10, 2024</li>
+</ul>
+<p>VMware vSAN Witness Appliance 8.0U3</p>
+<ul>
+<li>
+<p>VMware vSAN Witness Appliance for vSAN 8.0U3 OSA<br>
+Name: VMware-VirtualSAN-Witness-8.0U3-24022510.ova<br>
+Size: 844.38 MB<br>
+Last updated: Jun 19, 2024</p>
+</li>
+<li>
+<p>VMware vSAN Witness Appliance for vSAN 8.0U3 ESA<br>
+Name: VMware-vSAN-ESA-Witness-8.0U3-24022510.ova<br>
+Size: 844.24 MB<br>
+Last updated: Jun 19, 2024</p>
+</li>
+</ul>
+<p>VMware vSAN Snapshot Service Appliance 8.0U3</p>
+<ul>
+<li>VMware vSAN Snapshot Service Appliance 8.0U3<br>
+Name: snapservice_appliance-8.0.3.0-24057802_OVF10.ova<br>
+Size: 1.29 GB<br>
+Last updated: Jun 27, 2024</li>
+</ul>
+<p>VMware vSAN Management SDK 8.0U3</p>
+<ul>
+<li>
+<p>Documents<br>
+Name: apiref-vmodl-doc.zip<br>
+Size: 7.81 MB<br>
+Last updated: Jun 13, 2024</p>
+</li>
+<li>
+<p>VMware vSAN Management SDK 8.0U3 - C#<br>
+Name: vsan-sdk-cs.zip<br>
+Size: 8.23 MB<br>
+Last updated: Jun 13, 2024</p>
+</li>
+<li>
+<p>VMware vSAN Management SDK 8.0U3 - Java<br>
+Name: vsan-sdk-java.zip<br>
+Size: 15.24 MB<br>
+Last updated: Jun 13, 2024</p>
+</li>
+<li>
+<p>VMware vSAN Management SDK 8.0U3 - Perl<br>
+Name: vsan-sdk-perl.zip<br>
+Size: 8.19 MB<br>
+Last updated: Jun 13, 2024</p>
+</li>
+<li>
+<p>VMware vSAN Management SDK 8.0U3 - Ruby<br>
+Name: vsan-sdk-ruby.zip<br>
+Size: 8 MB<br>
+Last updated: Jun 13, 2024</p>
+</li>
+</ul>
+<p>VMware vSAN File Services Appliance 8.0U3</p>
+<ul>
+<li>File<br>
+Name: VMware-vSAN-File-Services-Appliance-8.0.3.1000-24022510-cloud-components.vmdk<br>
+Size: 101.34 MB<br>
+Last updated: Jun 13, 2024</li>
+<li>File<br>
+Name: VMware-vSAN-File-Services-Appliance-8.0.3.1000-24022510-log.vmdk<br>
+Size: 1.01 MB<br>
+Last updated: Jun 13, 2024</li>
+<li>File<br>
+Name: VMware-vSAN-File-Services-Appliance-8.0.3.1000-24022510-system.vmdk<br>
+Size: 834.29 MB<br>
+Last updated: Jun 13, 2024</li>
+<li>File<br>
+Name: VMware-vSAN-File-Services-Appliance-8.0.3.1000-24022510_OVF10.cert<br>
+Size: 1.92 KB<br>
+Last updated: Jun 13, 2024</li>
+<li>File<br>
+Name: VMware-vSAN-File-Services-Appliance-8.0.3.1000-24022510_OVF10.mf<br>
+Size: 573 Bytes<br>
+Last updated: Jun 13, 2024</li>
+<li>File<br>
+Name: VMware-vSAN-File-Services-Appliance-8.0.3.1000-24022510_OVF10.ovf<br>
+Size: 60.25 KB<br>
+Last updated: Jun 13, 2024</li>
+</ul>
+<p>VMware vSAN Data Protection SDK 8.0U3</p>
+<ul>
+<li>
+<p>VMware vSAN Data Protection SDK 8.0U3 - Java<br>
+Name: java-sdk.zip<br>
+Size: 124.09 KB<br>
+Last updated: Jun 27, 2024</p>
+</li>
+<li>
+<p>VMware vSAN Data Protection SDK 8.0U3 - Python<br>
+Name: python-sdk.zip<br>
+Size: 32.24 KB<br>
+Last updated: Jun 27, 2024</p>
+</li>
+</ul>
+<p>VMware Virtual Disk Development Kit (VDDK) 8.0U3</p>
+<ul>
+<li>
+<p>VMware Virtual Disk Development Kit (VDDK) 8.0.3 for Linux<br>
+Name: VMware-vix-disklib-8.0.3-23950268.x86_64.tar.gz<br>
+Size: 39.7 MB<br>
+Last updated: Jun 18, 2024</p>
+</li>
+<li>
+<p>VMware Virtual Disk Development Kit (VDDK) 8.0.3 for Windows<br>
+Name: VMware-vix-disklib-8.0.3-23950268.x86_64.zip<br>
+Size: 27.59 MB<br>
+Last updated: Jun 18, 2024</p>
+</li>
+</ul>
+<p>VMware Open Virtualization Format Tool 4.6.3</p>
+<ul>
+<li>
+<p>OVFTool 4.6.3 for Windows Installer<br>
+Name: VMware-ovftool-4.6.3-24031167-win.x86_64.msi<br>
+Size: 28.51 MB<br>
+Last updated: Jun 19, 2024</p>
+</li>
+<li>
+<p>OVFTool 4.6.3 for Windows<br>
+Name: VMware-ovftool-4.6.3-24031167-win.x86_64.zip<br>
+Size: 26.65 MB<br>
+Last updated: Jun 19, 2024</p>
+</li>
+<li>
+<p>OVFTool 4.6.3 for Linux 64<br>
+Name: VMware-ovftool-4.6.3-24031167-lin.x86_64.zip<br>
+Size: 24.37 MB<br>
+Last updated: Jun 19, 2024</p>
+</li>
+<li>
+<p>OVFTool 4.6.3 for macOS<br>
+Name: VMware-ovftool-4.6.3-24031167-mac.x64.zip<br>
+Size: 19.56 MB<br>
+Last updated: Jun 19, 2024</p>
+</li>
+</ul>
+<h2 id="下载地址-533">下载地址</h2>
+<p>VMware vSAN 8.0U3 Related files</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1zKdRLc2Mgw6ztLTw4wmoIA?pwd=">https://pan.baidu.com/s/1zKdRLc2Mgw6ztLTw4wmoIA?pwd=</a><code>[本站 ESXi 8 定制版用户或已通过导航栏捐助下载 VMware 产品可留言获取]</code></li>
+<li>2024-09-26 更新 VMware vSAN File Services Appliance 8.0U3b，请在原链接查收。</li>
+<li>其他用户通过捐赠下载此版本：点击 💙<a href="https://sysin.org/img/alipay18.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay18.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言指定版本（默认当前最新版）</code>。</li>
+</ul>
+<p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/vmware-aria-operations-for-logs/" data-toggle="tooltip" data-placement="top" title="VMware Aria Operations for Logs 8.18 - 集中式日志管理">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/ida-pro/" data-toggle="tooltip" data-placement="top" title="IDA Pro 9.0 (macOS, Linux, Windows) - 强大的反汇编程序、反编译器和多功能调试器">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/vmware-vsan/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%88%A9%E7%94%A8-VMware-%E8%B6%85%E8%9E%8D%E5%90%88%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0%E5%88%9B%E6%96%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">利用 VMware 超融合基础架构实现创新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%86%E8%A7%A3-vSAN-8-with-Express-Storage-Architecture"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">了解 vSAN 8 with Express Storage Architecture</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSAN-Max-%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">vSAN Max 简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSAN-%E7%9A%84%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">vSAN 的功能特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSAN-%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">vSAN+ 简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%BB%A1%E8%B6%B3%E4%B8%BB%E8%A6%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">满足主要应用场景的要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%AF%94%E8%BE%83-vSAN-%E7%9A%84%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">比较 vSAN 的各个版本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%A5%BD%E5%BC%80%E5%A7%8B%E4%BD%93%E9%AA%8C%E4%BA%86%E5%90%97%EF%BC%9F-2"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">准备好开始体验了吗？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">文件信息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-533"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#vSphere" title="vSphere">vSphere</a>
+            
+            <a class="tag" href="/tags/#ESXi" title="ESXi">ESXi</a>
+            
+            <a class="tag" href="/tags/#vCenter" title="vCenter">vCenter</a>
+            
+            <a class="tag" href="/tags/#vSAN" title="vSAN">vSAN</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

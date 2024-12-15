@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/how-to-fix-apple-continuity/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header_m1.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header_m1.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header_m1.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header_m1.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header_m1.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+              
+              <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+              
+            </div>
+            <h1>修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2020-12-23
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">13</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.7k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Wed Dec 23 2020 13:44:25 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/how-to-fix-apple-continuity/" title="修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等">修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>how-to-fix-apple-continuity-from-sysin</p>
+<p>macOS Big Sur 使 macOS 这款先进的桌面操作系统提升至性能与美学的新境界。通过精致的全新设计，充分体验 Mac 的强大功能。但是 Bug 也不可避免（戏称为 Bug Sir），比如常见的有：</p>
+<ul>
+<li>
+<p>卡顿（特别是中文输入法卡顿（包括系统自带的），11.1 未修复）</p>
+</li>
+<li>
+<p>蓝牙问题，影响 AirDrop、Apple Watch Unlock Mac 等连续互通功能</p>
+</li>
+</ul>
+<p>本文描述了修复 Apple 连续互通故障的一般步骤。</p>
+<p>Apple 连续互通故障特别复杂，可能修复一项功能，其他功能全部恢复正常，也可能某个功能独立故障无法修复，必要时请联系 Apple 支持。</p>
+<h2 id="1-了解-Apple-Continuity（连续互通）">1. 了解 Apple Continuity（连续互通）</h2>
+<h3 id="使用-“连续互通”-连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch"><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204681">使用 “连续互通” 连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch</a></h3>
+<p>当您在所有设备上登录您的 Apple ID 后，您便可以使用 “连续互通” 功能在设备之间实现无缝衔接。点按下面的某项功能以了解相关信息，例如，如何在佩戴 Apple Watch 时自动解锁 Mac，或者如何使用 iPad 扩展 Mac 的工作空间。</p>
+<p>​</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-airdrop-icon.png" alt="“隔空投送” 图标"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT203106">隔空投送</a>：通过无线方式将文稿、照片、视频、网站、地图位置等发送到附近的 iPhone、iPad、iPod touch 或 Mac 上。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/monterey/continuity-airplay-video-icon.png" alt="“隔空播放视频” 图标"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204289">隔空播放至 Mac</a>：在 Mac 屏幕上共享、播放或演示来自其他 Apple 设备的内容。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-apple-pay-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204506">Apple Pay</a>：在 Mac 上在线购买，并使用 iPhone 或 Apple Watch 上的 Apple Pay 完成购买。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-auto-unlock-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT206995">自动解锁</a>：在您佩戴 Apple Watch 期间，快速访问 Mac 系统，还可以快速批准其他要求输入您的 Mac 管理员密码的请求。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-camera-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209037">“连续互通” 相机</a>：使用 iPhone、iPad 或 iPod touch 扫描文稿或拍摄照片，随后相应文稿或照片会立刻出现在您的 Mac 上。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-sketch-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204975#markup">标记连续互通</a>：使用 iPad、iPhone 或 iPod touch 将速绘、形状和其他标记添加到 Mac 文稿中，并在 Mac 上实时查看所做更改。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-markup-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204975#sketch">速绘连续互通</a>：在 iPad、iPhone 或 iPod touch 上创建速绘，然后将速绘轻松插入 Mac 上的文稿中。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-handoff-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209455">接力</a>：在一台设备上开始工作，再切换到附近的另一台设备上继续工作。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-instant-hotspot-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209459">智能热点</a>：无需输入密码，便可以从您的 Mac、iPad、iPod touch 或另一台 iPhone 连接到您 iPhone 或 iPad（无线局域网 + 蜂窝网络）上的个人热点。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-phone-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209456">iPhone 蜂窝网络通话</a>：从 Mac、iPad 或 iPod touch 拨打和接听电话，只要这些设备与 iPhone 连接到同一网络。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-sidecar-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT210380">随航</a>：将您的 iPad 用作第二个显示屏，以扩展或镜像您的 Mac 桌面。或者，将它用作平板电脑输入设备，以在 Mac App 中使用 Apple Pencil 进行绘图。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-sms-messages-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208386">短信转发</a>：在您的 Mac、iPad 和 iPod touch 上发送和接收 iPhone 短信和彩信。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-universal-clipboard-icon.png" alt="Apple"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209460">通用剪贴板</a>：在一台 Apple 设备上拷贝文本、图像、照片和视频等内容，然后在另一台 Apple 设备上粘贴这些内容。</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/monterey/continuity-universal-control-icon.png" alt="“通用控制” 图标"></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT212757">通用控制</a>：使用 Mac 的键盘、鼠标或触控板可控制最多两台附近的其他 Mac 或 iPad 设备，并在它们之间无缝操控。</p>
+<h3 id="系统要求（机型）">系统要求（机型）</h3>
+<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204689">Mac、iPhone、iPad、iPod touch 和 Apple Watch 上 “连续互通” 的系统要求</a></p>
+<h3 id="关于-AirDrop（隔空投送）">关于 AirDrop（隔空投送）</h3>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT203106">在 Mac 上使用 “隔空投送”</a></p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204144">在 iPhone、iPad 或 iPod touch 上 “隔空投送” 的使用方法</a></p>
+<h3 id="关于-Apple-Watch-解锁-Mac">关于 Apple Watch 解锁 Mac</h3>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT206995">通过 Apple Watch 解锁 Mac</a></p>
+<h3 id="关于-Handoff（接力）">关于 Handoff（接力）</h3>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209455">使用接力在其他设备上继续完成任务</a></p>
+<h2 id="2-了解产生问题的原因">2. 了解产生问题的原因</h2>
+<p>“连续互通” 各项特性都依赖三个条件</p>
+<ul>
+<li>统一的 iCoud 账号（通常出现在 iCoud 登录和访问上，一般需要退出重新登录解决）</li>
+<li>开启蓝牙（通常是蓝牙模块固件和配置等问题，通过重置配置来解决，某些时候需要系统更新才能彻底解决）</li>
+<li>Wi-Fi 连接（问题通常不会出现）</li>
+</ul>
+<p>第三方应用软件的影响：一些使用蓝牙或者 Wi-Fi 的工具软件可能存在 Bug 影响了 “连续互通” 功能的正常发挥。</p>
+<h2 id="3-第一步骤：通过-“安全模式”-快速修复">3. 第一步骤：通过 “安全模式” 快速修复</h2>
+<p>安全模式可以帮助您确定问题是不是由 Mac 启动时载入的软件所致。</p>
+<p>操作步骤：</p>
+<h3 id="Apple-芯片">Apple 芯片</h3>
+<ol>
+<li>将 Mac 关机。</li>
+<li>Mac 启动时，按住键盘上的 <strong>电源按钮</strong> 10 秒钟。</li>
+<li>当您看到 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211873">启动选项</a> 窗口时，松开 <strong>电源按钮</strong>。</li>
+<li>选择您的启动磁盘，按住 <strong>Shift</strong> 键，点按 “继续以安全模式运行”，然后松开 <strong>Shift</strong> 键。</li>
+<li>登录到 Mac。系统可能会要求您再次登录。</li>
+</ol>
+<h3 id="Intel-处理器">Intel 处理器</h3>
+<ol>
+<li>启动或重新启动 Mac，然后在 Mac 启动时立即按住 <strong>Shift</strong> 键。</li>
+<li>看到登录窗口时，松开这个按键，然后登录 Mac。</li>
+<li>系统可能会要求您再次登录。在第一个或第二个登录窗口中，您应该会在窗口的右上角看到 “安全启动”。</li>
+</ol>
+<h3 id="验证问题">验证问题</h3>
+<p>此时我们可以尝试一下 AirDrop（隔空投送）传输文件，或者 Apple Watch 解锁 Mac 等有问题的 “连续互通” 特性。如果在安全模式下工作正常，那么请正常重新启动 Mac 以退出安全模式 (sysin)。然后再次测试是否存在问题。此时问题可能已解决。（恭喜！这是最简单的修复步骤。）</p>
+<p><strong>如果问题在安全模式下仍然存在。</strong></p>
+<p>如果问题在安全模式下仍然存在，或者在安全模式下启动时您的 Mac 重新启动数次后关机，则应 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204904">重新安装 macOS</a> 并确保您的 Apple 软件和第三方 App 是最新版本。</p>
+<p>如果在安全模式下问题已经解决，重启后问题依旧，可以尝试下述修复步骤。</p>
+<h2 id="4-验证-iCloud-的连续互通性">4. 验证 iCloud 的连续互通性</h2>
+<p>我们可以使用 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209455">接力</a>” 或者 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209460">通用剪贴板</a>” 来测试一下 iCloud 账号是否连续互通。</p>
+<ul>
+<li>在 iOS 或者 Mac 上打开 Safari 浏览器，打开一个网页，比如：<a href="http://sysin.org">sysin.org</a>，此时查看另外一台 iOS 或者 Mac 的 Docker 栏是否出现了 Safari 的提示图标。</li>
+<li>在 iOS 或者 Mac 上复制一段字符文本，在然后在另外一台 iOS 或者 Mac 上（比如 Safari 的地址栏）进行粘贴，看是否出现了对应的内容。</li>
+</ul>
+<p>如果以上都没有问题，请继续下一步骤。</p>
+<p>如果上述测试都无法完成，请考虑退出 iCloud 账号并重新登录。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208242">在 iPhone、iPad、iPod touch、Apple TV 或 Mac 上退出登录 iCloud</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204053">使用您的 Apple ID 登录</a></li>
+</ul>
+<h2 id="5-重置和修复蓝牙">5. 重置和修复蓝牙</h2>
+<h3 id="重置蓝牙模块">重置蓝牙模块</h3>
+<p>按住 Shift + Option，同时点按菜单栏的蓝牙图标（控制中心图标中的蓝牙图标也可以）, 出现菜单如下，点击 “还原蓝牙模块”</p>
+<p><img src="bluetooth-reset-11.webp" alt="bluetooth-reset"></p>
+<p>⚠️ 该配置项在 macOS Monterey 中已经不可用。</p>
+<h3 id="重置蓝牙配置文件">重置蓝牙配置文件</h3>
+<p>关闭蓝牙（某些情况下无法正常关闭，需要执行命令 <code>sudo pkill blued</code>，这也是蓝牙问题的征兆）。</p>
+<p>然后打开终端，执行如下命令删除配置文件：</p>
+<p><code>sudo rm /Library/Preferences/com.apple.Bluetooth.plist</code></p>
+<p>然后重新开启蓝牙。</p>
+<p>⚠️ 该配置项在 macOS Monterey 中已经不可用。</p>
+<h3 id="删除-Apple-Watch-解锁-Mac-配置文件">删除 Apple Watch 解锁 Mac 配置文件</h3>
+<p>（1）打开 钥匙串访问（KeyChain Access），点击菜单 “显示” - “显示不可见项”</p>
+<p>启动台 - 其他 - 钥匙串访问，或者直接搜索 KeyChain。</p>
+<p>（2）搜索 <code>Auto Unlock</code>，将出现的项全部删除</p>
+<p><img src="keychain-auto-unlock.webp" alt="keychain-auto-unlock"></p>
+<p>（3）继续搜索 <code>AutoUnlock</code>，将出现的内容全部删除</p>
+<p><img src="keychain-autounlock.webp" alt="keychain-autounlock"></p>
+<p>（4）打开终端，执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm ~/Library/Sharing/AutoUnlock/ltk.plist</span><br><span class="line">rm ~/Library/Sharing/AutoUnlock/pairing-records.plist</span><br></pre></td></tr></table></figure>
+<p>最后重启，验证问题是否解决。</p>
+<h2 id="6-排查-App-问题">6. 排查 App 问题</h2>
+<p>如前所述在安全模式下面如果问题已经得到解决，有可能是系统加载了一些自动启动的 App 影响了蓝牙或者 Wi-Fi 的可用性，此时禁止 App 自动启动来验证问题，可以通过 App 的设置来禁止自动启动，或者使用一些系统优化工具来控制 App 开机启动。</p>
+<p>重启系统验证问题是否解决，必要时，使用排除法来确定是哪个 App 的问题，然后更新（或者降版本）确认有问题的 App。</p>
+<p>笔者使用的一款 Wi-Fi 管理工具就是一个例子，因为经常要使用该工具，开机自启动，结果导致 AirDrop 失效，尝试多种方式修复，短暂恢复后再次失效，后来更新到新版 App 才得以彻底修复。</p>
+<p>如果问题依然没有解决，下一步将重置 SMC 和 NVRAM。</p>
+<h2 id="7-重置-Mac-的-SMC">7. 重置 Mac 的 SMC</h2>
+<p>重置系统管理控制器 (SMC) 可以解决某些与电源、电池、风扇和其他功能相关的问题。</p>
+<h3 id="如果您拥有的是搭载-Apple-芯片的-Mac">如果您拥有的是搭载 Apple 芯片的 Mac</h3>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">了解您拥有的是不是搭载 Apple 芯片的 Mac</a></p>
+<p>确保 Mac 已插接电源。然后重新启动，或者关机后再开机。对于搭载 Apple 芯片的 Mac 电脑，无需完成其他步骤。</p>
+<h3 id="在配备-T2-芯片的电脑上重置-SMC">在配备 T2 芯片的电脑上重置 SMC</h3>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">如果您的 Mac 配备 Apple T2 安全芯片</a>，请按照以下步骤操作。如果您需要协助，请 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/contact">联系 Apple 支持</a>。</p>
+<h4 id="配备-T2-芯片的笔记本电脑">配备 T2 芯片的笔记本电脑</h4>
+<p>重置 SMC 之前，请尝试以下步骤：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>。</li>
+<li>按住 <strong>电源按钮</strong> 10 秒钟，然后松开这个按钮。</li>
+<li>等待几秒钟，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
+</ol>
+<p>如果问题仍然存在，请按照以下步骤重置 SMC：</p>
+<ol>
+<li>将 Mac 关机。</li>
+<li>在内建键盘上，按住以下所有按键。Mac 可能会开机。
+<ul>
+<li>键盘左侧的 <strong>Control</strong> <img src="macos-catalina-sidecar-sidebar-control-icon.webp" alt="Apple"></li>
+<li>键盘左侧的 <strong>Option</strong> (Alt) <img src="macos-catalina-sidecar-sidebar-option-icon.webp" alt="Apple"></li>
+<li>键盘右侧的 <strong>Shift</strong> <img src="macos-catalina-sidecar-sidebar-shift-icon.webp" alt="Apple"></li>
+</ul>
+</li>
+<li>按住 <strong>全部三个按键</strong> 7 秒钟 (sysin)，然后在不松开按键的情况下按住 <strong>电源按钮</strong>。如果 Mac 处于开机状态，它将在您按住这些按键时关机。<br>
+<img src="2020-macbook-air-keyboard-diagram-smc.webp" alt="Apple"></li>
+<li>继续按住 <strong>全部四个按键</strong> 7 秒钟，然后松开这些按键。</li>
+<li>等待几秒钟，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
+</ol>
+<h4 id="配备-T2-芯片的台式电脑">配备 T2 芯片的台式电脑</h4>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>，然后拔下电源线。</li>
+<li>等待 15 秒钟，然后重新接回电源线。</li>
+<li>等待 5 秒钟，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
+</ol>
+<h3 id="在其他电脑上重置-SMC">在其他电脑上重置 SMC</h3>
+<p>如果您的 Mac 没有配备 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">Apple T2 安全芯片</a>，请按照以下步骤操作。如果您需要协助，请 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/contact">联系 Apple 支持</a>。</p>
+<h4 id="装有不可拆卸电池的笔记本电脑">装有不可拆卸电池的笔记本电脑</h4>
+<p>这类电脑包括 2009 年中至 2017 年推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">MacBook Pro</a> 机型、2017 年或之前推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">MacBook Air</a> 机型，以及所有 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">MacBook</a> 机型，但 MacBook（13 英寸，2009 年中）除外。</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>。</li>
+<li>在内建键盘上，按住以下所有按键：
+<ul>
+<li>键盘左侧的 <strong>Shift</strong> <img src="macos-catalina-sidecar-sidebar-shift-icon.webp" alt="Apple"></li>
+<li>键盘左侧的 <strong>Control</strong> <img src="macos-catalina-sidecar-sidebar-control-icon.webp" alt="Apple"></li>
+<li>键盘左侧的 <strong>Option</strong> (Alt) <img src="macos-catalina-sidecar-sidebar-option-icon.webp" alt="Apple"></li>
+</ul>
+</li>
+<li>在按住 <strong>全部三个按键</strong> 的情况下，按住 <strong>电源按钮</strong>。<br>
+<img src="2016-macbook-keyboard-diagram-smc.webp" alt="全部 4 个按键已被按下的笔记本电脑键盘"></li>
+<li>按住 <strong>全部四个按键</strong> 10 秒钟。</li>
+<li>松开所有按键，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
+</ol>
+<h4 id="装有可拆卸电池的笔记本电脑">装有可拆卸电池的笔记本电脑</h4>
+<p>这类电脑包括 2009 年初或之前推出的所有 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">MacBook Pro</a> 和 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">MacBook</a> 机型，以及 MacBook（13 英寸，2009 年中）。</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>。</li>
+<li>拆下电池。（如果您需要拆卸电池方面的协助，请联系 <a target="_blank" rel="noopener" href="http://www.apple.com/cn/retail/storelist/">Apple Store 商店</a> 或 <a target="_blank" rel="noopener" href="https://locate.apple.com/cn/zh/">Apple 授权服务提供商</a>。）</li>
+<li>按住 <strong>电源按钮</strong> 5 秒钟。</li>
+<li>重新安装电池。</li>
+<li>按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
+</ol>
+<h4 id="台式电脑">台式电脑</h4>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>，然后拔下电源线。</li>
+<li>等待 15 秒钟，然后重新接回电源线。</li>
+<li>等待 5 秒钟，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
+</ol>
+<h2 id="8-重置-Mac-上的-NVRAM-或-PRAM">8. 重置 Mac 上的 NVRAM 或 PRAM</h2>
+<p>如果您拥有的是搭载 Apple 芯片的 Mac：</p>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">了解您拥有的是不是搭载 Apple 芯片的 Mac</a></p>
+<p>重置 NVRAM 的步骤不适用于搭载 Apple 芯片的 Mac 电脑，这类电脑也不需要完成这些步骤。</p>
+<p>如果您拥有的是基于 Intel 的 Mac：</p>
+<p>如果 Mac 出现了与 NVRAM 或 PRAM 中储存的设置有关的问题，那么进行重置可能会有帮助。</p>
+<p>NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用这些内存来储存某些设置并对其进行快速访问。PRAM（参数 RAM）储存着类似的信息，且 NVRAM 和 PRAM 的重置步骤相同。</p>
+<p>可储存在 NVRAM 中的设置包括音量、显示屏分辨率、启动磁盘选择、时区，以及最近的内核崩溃信息 (sysin)。储存在 NVRAM 中的设置取决于您的 Mac 以及与这台 Mac 搭配使用的设备。</p>
+<p>如果您遇到与这些设置或其他设置有关的问题，那么重置 NVRAM 可能会有帮助。例如，如果 Mac 并非从 “启动磁盘” 偏好设置中选定的磁盘启动，或者在 Mac 启动前短暂地显示了一个问号图标，则可能需要重置 NVRAM。</p>
+<p><strong>如何重置 NVRAM</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>+</th>
+<th>Command</th>
+<th>+</th>
+<th>P</th>
+<th>+</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="macos-nvram-option-key.webp" alt="Option 键"></td>
+<td><img src="mac-nvram-add-icon.webp" alt="加"></td>
+<td><img src="macos-nvram-command-key.webp" alt="Command 键"></td>
+<td><img src="mac-nvram-add-icon.webp" alt="加"></td>
+<td><img src="macos-nvram-p-key.webp" alt="P 键"></td>
+<td><img src="mac-nvram-add-icon.webp" alt="加"></td>
+<td><img src="macos-nvram-r-key.webp" alt="R 键"></td>
+</tr>
+</tbody>
+</table>
+<p>将 Mac 关机，然后开机并立即同时按住以下四个按键：Option、Command、P 和 R。您可以在大约 20 秒后松开这些按键，在此期间您的 Mac 可能看似在重新启动。</p>
+<ul>
+<li>在会发出 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202768">启动声</a> 的 Mac 电脑上，您可以在两次启动声之后松开这些按键。</li>
+<li>在 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">配有 Apple T2 安全芯片的 Mac 电脑</a> 上，您可以在 Apple 标志出现并再次消失后松开这些按键。</li>
+</ul>
+<p>如果您的 Mac 使用了 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204455">固件密码</a>，这个组合键将不起任何作用或导致您的 Mac 从 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201314">macOS 恢复功能</a> 启动。要重置 NVRAM，请先关闭固件密码。</p>
+<p>在您的 Mac 完成启动后，您可能需要打开 “系统偏好设置” 并调整已重置的任何设置，例如音量、显示屏分辨率、启动磁盘选择或时区。</p>
+<h2 id="9-软件更新">9. 软件更新</h2>
+<p>什么？系统已经是 macOS 11.5 + iOS 14.5 (12.5 + 15.5)，在等等看吧…</p>
+<h2 id="10-系统恢复">10. 系统恢复</h2>
+<p>无力回天只能 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204904">重新安装 macOS</a>。</p>
+<h2 id="11-联系-Apple-Support">11. 联系 Apple Support</h2>
+<p>都重新安装了系统，也无法解决？</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn">欢迎使用 Apple 支持</a></p>
+</li>
+<li>
+<p>请致电 400-666-8800</p>
+</li>
+<li>
+<p>到全国任意一家 <a target="_blank" rel="noopener" href="https://www.apple.com.cn/retail/">Apple Store 零售店</a></p>
+</li>
+</ul>
+<p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/splunk-8-mac/" data-toggle="tooltip" data-placement="top" title="Splunk Enterprise 8.1.0 for macOS (sysin)">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/get-macos-ethernet-speed/" data-toggle="tooltip" data-placement="top" title="如何查看 Mac 的以太网卡速度">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/how-to-fix-apple-continuity/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%BA%86%E8%A7%A3-Apple-Continuity%EF%BC%88%E8%BF%9E%E7%BB%AD%E4%BA%92%E9%80%9A%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 了解 Apple Continuity（连续互通）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8-%E2%80%9C%E8%BF%9E%E7%BB%AD%E4%BA%92%E9%80%9A%E2%80%9D-%E8%BF%9E%E6%8E%A5-Mac%E3%80%81iPhone%E3%80%81iPad%E3%80%81iPod-touch-%E5%92%8C-Apple-Watch"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">使用 “连续互通” 连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82%EF%BC%88%E6%9C%BA%E5%9E%8B%EF%BC%89"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">系统要求（机型）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-AirDrop%EF%BC%88%E9%9A%94%E7%A9%BA%E6%8A%95%E9%80%81%EF%BC%89"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">关于 AirDrop（隔空投送）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-Apple-Watch-%E8%A7%A3%E9%94%81-Mac"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">关于 Apple Watch 解锁 Mac</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-Handoff%EF%BC%88%E6%8E%A5%E5%8A%9B%EF%BC%89"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">关于 Handoff（接力）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E4%BA%86%E8%A7%A3%E4%BA%A7%E7%94%9F%E9%97%AE%E9%A2%98%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 了解产生问题的原因</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E7%AC%AC%E4%B8%80%E6%AD%A5%E9%AA%A4%EF%BC%9A%E9%80%9A%E8%BF%87-%E2%80%9C%E5%AE%89%E5%85%A8%E6%A8%A1%E5%BC%8F%E2%80%9D-%E5%BF%AB%E9%80%9F%E4%BF%AE%E5%A4%8D"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 第一步骤：通过 “安全模式” 快速修复</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Apple-%E8%8A%AF%E7%89%87"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Apple 芯片</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Intel-%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Intel 处理器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%AA%8C%E8%AF%81%E9%97%AE%E9%A2%98"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">验证问题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E9%AA%8C%E8%AF%81-iCloud-%E7%9A%84%E8%BF%9E%E7%BB%AD%E4%BA%92%E9%80%9A%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 验证 iCloud 的连续互通性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E9%87%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E5%A4%8D%E8%93%9D%E7%89%99"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 重置和修复蓝牙</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%87%8D%E7%BD%AE%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">重置蓝牙模块</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%87%8D%E7%BD%AE%E8%93%9D%E7%89%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">重置蓝牙配置文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%88%A0%E9%99%A4-Apple-Watch-%E8%A7%A3%E9%94%81-Mac-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">删除 Apple Watch 解锁 Mac 配置文件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E6%8E%92%E6%9F%A5-App-%E9%97%AE%E9%A2%98"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 排查 App 问题</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E9%87%8D%E7%BD%AE-Mac-%E7%9A%84-SMC"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 重置 Mac 的 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A6%82%E6%9E%9C%E6%82%A8%E6%8B%A5%E6%9C%89%E7%9A%84%E6%98%AF%E6%90%AD%E8%BD%BD-Apple-%E8%8A%AF%E7%89%87%E7%9A%84-Mac"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">如果您拥有的是搭载 Apple 芯片的 Mac</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E9%85%8D%E5%A4%87-T2-%E8%8A%AF%E7%89%87%E7%9A%84%E7%94%B5%E8%84%91%E4%B8%8A%E9%87%8D%E7%BD%AE-SMC"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">在配备 T2 芯片的电脑上重置 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%85%8D%E5%A4%87-T2-%E8%8A%AF%E7%89%87%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91"><span class="toc-nav-number">7.2.1.</span> <span class="toc-nav-text">配备 T2 芯片的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%85%8D%E5%A4%87-T2-%E8%8A%AF%E7%89%87%E7%9A%84%E5%8F%B0%E5%BC%8F%E7%94%B5%E8%84%91"><span class="toc-nav-number">7.2.2.</span> <span class="toc-nav-text">配备 T2 芯片的台式电脑</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E5%85%B6%E4%BB%96%E7%94%B5%E8%84%91%E4%B8%8A%E9%87%8D%E7%BD%AE-SMC"><span class="toc-nav-number">7.3.</span> <span class="toc-nav-text">在其他电脑上重置 SMC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A3%85%E6%9C%89%E4%B8%8D%E5%8F%AF%E6%8B%86%E5%8D%B8%E7%94%B5%E6%B1%A0%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91"><span class="toc-nav-number">7.3.1.</span> <span class="toc-nav-text">装有不可拆卸电池的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%A3%85%E6%9C%89%E5%8F%AF%E6%8B%86%E5%8D%B8%E7%94%B5%E6%B1%A0%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91"><span class="toc-nav-number">7.3.2.</span> <span class="toc-nav-text">装有可拆卸电池的笔记本电脑</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8F%B0%E5%BC%8F%E7%94%B5%E8%84%91"><span class="toc-nav-number">7.3.3.</span> <span class="toc-nav-text">台式电脑</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E9%87%8D%E7%BD%AE-Mac-%E4%B8%8A%E7%9A%84-NVRAM-%E6%88%96-PRAM"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">8. 重置 Mac 上的 NVRAM 或 PRAM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">9. 软件更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-%E7%B3%BB%E7%BB%9F%E6%81%A2%E5%A4%8D"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">10. 系统恢复</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-%E8%81%94%E7%B3%BB-Apple-Support"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">11. 联系 Apple Support</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+            
+            <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

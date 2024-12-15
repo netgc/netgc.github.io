@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Cisco Unified Communications Manager (CallManager) 15.0 SU1 - 统一通信与协作 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Cisco Unified Communications Manager (CallManager) 15.0 SU1 - 统一通信与协作 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Cisco Unified Communications Manager (CallManager) 15.0 SU1 - 统一通信与协作 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/cisco-ucm-15/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+              <a class="tag" href="/tags/#Cisco" title="Cisco">Cisco</a>
+              
+            </div>
+            <h1>Cisco Unified Communications Manager (CallManager) 15.0 SU1 - 统一通信与协作</h1>
+            <h2 class="subheading">思科统一通信管理器 (CallManager)</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-03-30
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">16</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Sat Mar 30 2024 09:09:41 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/cisco-ucm-15/" title="Cisco Unified Communications Manager (CallManager) 15.0 SU1 - 统一通信与协作">Cisco Unified Communications Manager (CallManager) 15.0 SU1 - 统一通信与协作</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>思科统一通信管理器</p>
+<p><img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/anchor_info_a152/image.img.jpg/1603894912200.jpg" alt="企业统一通信和协作"></p>
+<h2 id="企业统一通信和协作-2">企业统一通信和协作</h2>
+<p>借助思科集成协作基础设施提供语音/视频通话、消息传送和移动服务，让员工随时随地使用任意设备进行协作。</p>
+<p>思科统一通信管理器 (Unified CM) 为您提供易于扩展和管理且安全可靠的呼叫控制和会话管理解决方案。</p>
+<h2 id="特性和功能-5">特性和功能</h2>
+<h3 id="统一通信-2">统一通信</h3>
+<p>​<img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_9fad/bladeContents/spotlight_d318/image.img.png/1563332249081.png" alt="整合通信基础设施"></p>
+<p>整合通信基础设施，让人员和团队能够通过思科统一通信管理器轻松通信 (sysin)。该解决方案融 IP 电话、高清视频、统一消息传送、即时消息和在线状态于一体。</p>
+<h3 id="增强移动性-2">增强移动性</h3>
+<p>​<img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_9fad/bladeContents/spotlight_2475/image.img.png/1563332273464.png" alt="推动工作空间转型"></p>
+<p>推动工作空间转型，吸引并留住优秀人才，确保他们能够随时随地借助思科统一通信管理器工具高效工作，取得成功。该解决方案凭借丰富的功能，为移动员工和远程工作人员提供支持。</p>
+<h3 id="本地和全球-2">本地和全球</h3>
+<p>​<img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_9fad/bladeContents/spotlight_16b/image.img.png/1606789817277.png" alt="本地和全球"></p>
+<p>无论您经营的是区域性家族企业，还是全球知名企业，都需要选择一个能随组织需求的变化而不断扩展的解决方案。思科统一通信管理器不仅能满足中小企业的需求，也能为拥有多达 8 万名用户的大型企业提供支持。</p>
+<h3 id="开放且互通-2">开放且互通</h3>
+<p>​<img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_9fad/bladeContents/spotlight_2239/image.img.png/1563332380316.png" alt="开放且互通"></p>
+<p>Cisco Unified (CM) 支持行业标准，拥有丰富的网关产品，并建立由第三方集成和解决方案以及合作伙伴构成的庞大生态系统。从而帮助您随时随地以多种方式与任何人进行协作，并将协作功能嵌入业务部门的各种应用中。</p>
+<h3 id="安全且合规-2">安全且合规</h3>
+<p>​<img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_9fad/bladeContents/spotlight_7a14/image.img.jpg/1574504143998.jpg" alt="安全且合规"></p>
+<p>Cisco Unified (CM) 支持最新身份验证、加密和通信协议 (sysin)。该解决方案通过了关键行业认证，可面向全球的金融服务业、制造业、零售业和政府部门客户提供数据和通信保护。</p>
+<h2 id="如何部署-3">如何部署</h2>
+<p>统一通信管理器可采用以下方式提供：成套协作解决方案的组件；合作伙伴托管解决方案；或者直接安装在您自己的硬件上。</p>
+<h3 id="思科-Business-Edition-6000-2"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/zh_cn/products/unified-communications/business-edition-6000/index.html">思科 Business Edition 6000</a></h3>
+<p><img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_6f22/bladeContents/tile_78bb/image.img.png/1573587938099.png" alt="思科 Business Edition 6000"></p>
+<p>为员工人数多达 1000 人的组织选择一体化成套协作解决方案。</p>
+<h3 id="思科-Business-Edition-7000-2"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/zh_cn/products/unified-communications/business-edition-7000/index.html">思科 Business Edition 7000</a></h3>
+<p><img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_6f22/bladeContents1/tile_b604/image.img.png/1563332710930.png" alt="思科 Business Edition 7000"></p>
+<p>通过适用于大中型企业的模块化成套解决方案扩展企业通信。</p>
+<h3 id="在您的基础设施中部署-Cisco-UCM-2"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/dam/en/us/products/collateral/unified-communications/unified-communications-manager-callmanager/at-a-glance-c45-741603.pdf">在您的基础设施中部署 Cisco UCM</a></h3>
+<p><img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_6f22/bladeContents2/tile_81a4/image.img.jpg/1563332753560.jpg" alt="在您的基础设施中部署 Cisco Unified (CM)"></p>
+<p>使用经过测试的参考配置和思科验证设计，将统一通信管理器部署到思科 UCS 和思科 HyperFlex 上。</p>
+<h3 id="选择托管协作解决方案-2"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/solutions/hosted-collaboration-solution/index.html">选择托管协作解决方案</a></h3>
+<p><img src="https://www.cisco.com/c/zh_cn/products/unified-communications/unified-communications-manager-callmanager/index/jcr:content/Grid/subcategory_atl_ba2c/layout-subcategory-atl/blade_6f22/bladeContents3/tile_3cf1/image.img.jpg/1601982723717.jpg" alt="选择托管协作解决方案"></p>
+<p>您可选择将统一通信解决方案作为由 Cisco Powered 合作伙伴提供的公共托管云服务或私有云服务。</p>
+<h2 id="下载地址-140">下载地址</h2>
+<p><strong>Unified Communications Manager (CallManager) Version 15</strong> File Information</p>
+<p>Prime Collaboration Deployment Updates - 15</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prime Collab Deployment (PCD) non-bootable</td>
+<td>PCD_UCOS_15.0.1.10000-10.sha512.iso</td>
+<td>18-Dec-2023</td>
+<td>1861.36 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Recovery Software - 15</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15.0.1.10000-32-recovery.iso</td>
+<td>15.0.1.10000-32-recovery.iso</td>
+<td>18-Dec-2023</td>
+<td>850.88 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Unified Communications Manager Updates - 15</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US Export Restricted. Full encryption capabilities (non-bootable). If upgrading from an earlier version, make sure you have the appropriate licenses.</td>
+<td>UCSInstall_UCOS_15.0.1.10000-32.sha512.iso</td>
+<td>18-Dec-2023</td>
+<td>4561.45 MB</td>
+</tr>
+<tr>
+<td>US Export Unrestricted. Fewer encryption capabilities (non-bootable). If upgrading from an earlier version, make sure you have the appropriate licenses.</td>
+<td>UCSInstall_UCOS_UNRST_15.0.1.10000-32.sha512.iso</td>
+<td>18-Dec-2023</td>
+<td>4561.46 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Related Software</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Upgrade Readiness COP file to run post upgrade tests.</td>
+<td>ciscocm.postUpgradeCheck-00041.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>0.63 MB</td>
+</tr>
+<tr>
+<td>Upgrade Readiness COP file to run pre upgrade tests.</td>
+<td>ciscocm.preUpgradeCheck-00041.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>0.63 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Unified Communications Manager Utilities - COP-Files</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COP file to fix CSCwi52160 prior to doing a direct migration to Release 15 for CUCM, CUC, and IM&amp;P.</td>
+<td>ciscocm.CSCwi52160_15-direct-migration_v1.0.k4.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>0.00 MB</td>
+</tr>
+<tr>
+<td>The Cisco Free Common Space COP file can be used to free up space when the upgrade runs out of space.</td>
+<td>ciscocm.free_common_space_v1.10.k4.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>0.00 MB</td>
+</tr>
+<tr>
+<td>Upgrade Readiness COP file to run post upgrade tests.</td>
+<td>ciscocm.postUpgradeCheck-00041.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>0.63 MB</td>
+</tr>
+<tr>
+<td>Upgrade Readiness COP file to run pre upgrade tests.</td>
+<td>ciscocm.preUpgradeCheck-00041.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>0.63 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Unified Communications Manager Virtual Machine Templates - 15</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual Server Template (OVA file) for Cisco Unified Communications Manager (CUCM), used for creation of a virtual machine (VM) on all supported servers. This OVA is signed by TrustID EV Code Signing CA 4.</td>
+<td>cucm_15.0_vmv17_v1.1.sha512.ova</td>
+<td>18-Dec-2023</td>
+<td>0.12 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Unified Communications Manager/CallManager Device Packages - 15.0(1.10000)EOL</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cisco Unified Communications Manager 15.0(1.10000)EOL Device Package - Compatible UCM Version: 15</td>
+<td>cmterm-eol_endpoint-15.0.1.10000-32.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>372.91 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Unified Communications Manager/CallManager Locale Installer - 15(1.1000)</p>
+<table>
+<thead>
+<tr>
+<th>File Information</th>
+<th>File Name</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (United Arab Emirates) for release 15(1.1000)</td>
+<td>cm-locale-ar_AE-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.79 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Bahrain) for release 15(1.1000)</td>
+<td>cm-locale-ar_BH-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.80 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Algeria) for release 15(1.1000)</td>
+<td>cm-locale-ar_DZ-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.80 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Egypt) for release 15(1.1000)</td>
+<td>cm-locale-ar_EG-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.91 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Iraq) for release 15(1.1000)</td>
+<td>cm-locale-ar_IQ-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.82 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Jordan) for release 15(1.1000)</td>
+<td>cm-locale-ar_JO-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.87 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Kuwait) for release 15(1.1000)</td>
+<td>cm-locale-ar_KW-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.89 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Lebanon) for release 15(1.1000)</td>
+<td>cm-locale-ar_LB-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.77 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Morocco) for release 15(1.1000)</td>
+<td>cm-locale-ar_MA-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.85 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Oman) for release 15(1.1000)</td>
+<td>cm-locale-ar_OM-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.84 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Qatar) for release 15(1.1000)</td>
+<td>cm-locale-ar_QA-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.80 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Saudi Arabia) for release 15(1.1000)</td>
+<td>cm-locale-ar_SA-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.87 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Tunisia) for release 15(1.1000)</td>
+<td>cm-locale-ar_TN-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.79 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Arabic (Yemen) for release 15(1.1000)</td>
+<td>cm-locale-ar_YE-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>124.87 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Bulgarian (Bulgaria) for release 15(1.1000)</td>
+<td>cm-locale-bg_BG-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>126.44 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Catalan (Spain) for release 15(1.1000)</td>
+<td>cm-locale-ca_ES-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>105.17 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Combined Network for release 15(1.1000)</td>
+<td>cm-locale-combined_network-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>9.14 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Czech (Czech Republic) for release 15(1.1000)</td>
+<td>cm-locale-cs_CZ-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>104.29 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Danish (Denmark) for release 15(1.1000)</td>
+<td>cm-locale-da_DK-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>108.77 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer German (Austrian) for release 15(1.1000)</td>
+<td>cm-locale-de_AT-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>104.09 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer German (Swiss) for release 15(1.1000)</td>
+<td>cm-locale-de_CH-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>104.12 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer German (Germany) for release 15(1.1000)</td>
+<td>cm-locale-de_DE-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>107.07 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Greek (Greece) for release 15(1.1000)</td>
+<td>cm-locale-el_GR-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>106.43 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer English (United Kingdom) for release 15(1.1000)</td>
+<td>cm-locale-en_GB-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>91.69 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Spanish (Argentina) for release 15(1.1000)</td>
+<td>cm-locale-es_AR-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>125.70 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Spanish (Columbia) for release 15(1.1000)</td>
+<td>cm-locale-es_CO-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>125.73 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Spanish (Spain) for release 15(1.1000)</td>
+<td>cm-locale-es_ES-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>104.09 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Estonian (Estonia) for release 15(1.1000)</td>
+<td>cm-locale-et_EE-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>123.45 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Finnish (Finland) for release 15(1.1000)</td>
+<td>cm-locale-fi_FI-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>92.33 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer French (Canada) for release 15(1.1000)</td>
+<td>cm-locale-fr_CA-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>111.72 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer French (Swiss) for release 15(1.1000)</td>
+<td>cm-locale-fr_CH-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>101.86 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer French (France) for release 15(1.1000)</td>
+<td>cm-locale-fr_FR-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>104.84 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Hebrew (Israel) for release 15(1.1000)</td>
+<td>cm-locale-he_IL-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>104.24 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Croatian (Croatia) for release 15(1.1000)</td>
+<td>cm-locale-hr_HR-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>134.06 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Hungarian (Hungary) for release 15(1.1000)</td>
+<td>cm-locale-hu_HU-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>101.10 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Italian (Switzerland) for release 15(1.1000)</td>
+<td>cm-locale-it_CH-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>100.07 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Italian (Italy) for release 15(1.1000)</td>
+<td>cm-locale-it_IT-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>103.00 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Japanese (Japan) for release 15(1.1000)</td>
+<td>cm-locale-ja_JP-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>164.16 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Korean (Korea) for release 15(1.1000)</td>
+<td>cm-locale-ko_KR-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>164.33 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Lithuanian (Lithuania) for release 15(1.1000)</td>
+<td>cm-locale-lt_LT-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>121.49 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Latvian (Latvia) for release 15(1.1000)</td>
+<td>cm-locale-lv_LV-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>102.25 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Dutch (Netherlands) for release 15(1.1000)</td>
+<td>cm-locale-nl_NL-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>93.52 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Norwegian (Norway) for release 15(1.1000)</td>
+<td>cm-locale-no_NO-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>92.76 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Polish (Poland) for release 15(1.1000)</td>
+<td>cm-locale-pl_PL-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>112.27 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Portuguese (Brazil) for release 15(1.1000)</td>
+<td>cm-locale-pt_BR-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>112.04 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Portuguese (Portugal) for release 15(1.1000)</td>
+<td>cm-locale-pt_PT-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>105.79 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Romanian (Romania) for release 15(1.1000)</td>
+<td>cm-locale-ro_RO-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>97.45 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Russian (Russian Federation) for release 15(1.1000)</td>
+<td>cm-locale-ru_RU-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>103.23 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Slovak (Slovakia) for release 15(1.1000)</td>
+<td>cm-locale-sk_SK-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>104.28 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Slovenian (Slovenia) for release 15(1.1000)</td>
+<td>cm-locale-sl_SI-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>127.68 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Serbian (Republic of Montenegro) for release 15(1.1000)</td>
+<td>cm-locale-sr_ME-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>131.12 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Serbian (Republic of Serbia) for release 15(1.1000)</td>
+<td>cm-locale-sr_RS-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>131.12 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Swedish (Sweden) for release 15(1.1000)</td>
+<td>cm-locale-sv_SE-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>103.38 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Thai (Thailand) for release 15(1.1000)</td>
+<td>cm-locale-th_TH-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>146.10 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Turkish (Turkey) for release 15(1.1000)</td>
+<td>cm-locale-tr_TR-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>107.22 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Ukrainian (Ukraine) for release 15(1.1000)</td>
+<td>cm-locale-uk_UA-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>123.53 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Chinese (China) for release 15(1.1000)</td>
+<td>cm-locale-zh_CN-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>128.31 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Chinese (Hong Kong) for release 15(1.1000)</td>
+<td>cm-locale-zh_HK-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>125.30 MB</td>
+</tr>
+<tr>
+<td>Unified Communications Manager/CallManager Locale Installer Chinese (Taiwan) for release 15(1.1000)</td>
+<td>cm-locale-zh_TW-15.0.1.1000-1.cop.sha512</td>
+<td>18-Dec-2023</td>
+<td>149.36 MB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unified Communications Manager 15</strong> Download<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1P9SZYNx6dxW3H2-a-63Y4A?pwd=">https://pan.baidu.com/s/1P9SZYNx6dxW3H2-a-63Y4A?pwd=</a> &lt;专享&gt;</p>
+<p><strong>Unified Communications Manager 15SU1</strong> Download (更新在相同目录，总共约 130GB)<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1P9SZYNx6dxW3H2-a-63Y4A?pwd=">https://pan.baidu.com/s/1P9SZYNx6dxW3H2-a-63Y4A?pwd=</a> &lt;专享&gt;</p>
+<p>更多：<a href="/blog/cisco/" title="Cisco 产品下载链接汇总">Cisco 产品下载链接汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/cisco-asr-1000/" data-toggle="tooltip" data-placement="top" title="Cisco ASR 1000 Router IOS XE Release Dublin-17.12.3 ED">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/veritas-netbackup-10-4/" data-toggle="tooltip" data-placement="top" title="Veritas NetBackup 10.4 新增功能和文件列表">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/cisco-ucm-15/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BC%81%E4%B8%9A%E7%BB%9F%E4%B8%80%E9%80%9A%E4%BF%A1%E5%92%8C%E5%8D%8F%E4%BD%9C-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">企业统一通信和协作</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E6%80%A7%E5%92%8C%E5%8A%9F%E8%83%BD-5"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">特性和功能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BB%9F%E4%B8%80%E9%80%9A%E4%BF%A1-2"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">统一通信</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A2%9E%E5%BC%BA%E7%A7%BB%E5%8A%A8%E6%80%A7-2"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">增强移动性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%92%8C%E5%85%A8%E7%90%83-2"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">本地和全球</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%BC%80%E6%94%BE%E4%B8%94%E4%BA%92%E9%80%9A-2"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">开放且互通</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%89%E5%85%A8%E4%B8%94%E5%90%88%E8%A7%84-2"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">安全且合规</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2-3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">如何部署</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%9D%E7%A7%91-Business-Edition-6000-2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">思科 Business Edition 6000</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%9D%E7%A7%91-Business-Edition-7000-2"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">思科 Business Edition 7000</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E6%82%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E4%B8%AD%E9%83%A8%E7%BD%B2-Cisco-UCM-2"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">在您的基础设施中部署 Cisco UCM</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%89%E6%8B%A9%E6%89%98%E7%AE%A1%E5%8D%8F%E4%BD%9C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-2"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">选择托管协作解决方案</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-140"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+            <a class="tag" href="/tags/#Cisco" title="Cisco">Cisco</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

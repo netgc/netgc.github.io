@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Cisco ASR 9000 Router IOS XR Release 7.5.1 ED - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Cisco ASR 9000 Router IOS XR Release 7.5.1 ED - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Cisco ASR 9000 Router IOS XR Release 7.5.1 ED "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/cisco-asr-9000/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+              
+              <a class="tag" href="/tags/#Cisco" title="Cisco">Cisco</a>
+              
+              <a class="tag" href="/tags/#IOS-XR" title="IOS-XR">IOS-XR</a>
+              
+            </div>
+            <h1>Cisco ASR 9000 Router IOS XR Release 7.5.1 ED</h1>
+            <h2 class="subheading">Cisco ASR 9000 Series Aggregation Services Routers</h2>
+            <span class="meta">
+              Posted by sysin on
+              2021-12-03
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">5</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Fri Dec 03 2021 10:24:53 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/cisco-asr-9000/" title="Cisco ASR 9000 Router IOS XR Release 7.5.1 ED">Cisco ASR 9000 Router IOS XR Release 7.5.1 ED</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>Cisco ASR 9000 系列聚合服务路由器</p>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/anchor_info.img.png/1622545010905.png" alt="Cisco ASR 9000 系列聚合服务路由器"></p>
+<h2 id="专为满足苛刻的边缘市场而打造的高性能路由器">专为满足苛刻的边缘市场而打造的高性能路由器</h2>
+<p>边缘网络为数十亿台设备提供低延迟服务。您需要功能丰富的路由器，可以根据带宽需求经济地扩展。ASR 9000 系列是您的边缘路由设备，能够支持满足 5G 服务需求所需的应用性能。</p>
+<h2 id="为今天而打造，为接下来的一切做好准备">为今天而打造，为接下来的一切做好准备</h2>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/spotlightgroup/spotlight1.img.png/1634859248561.png" alt="重装上阵"></p>
+<h3 id="重装上阵">重装上阵</h3>
+<ul>
+<li>增强的端口灵活性，支持 1G 到 400G 和新的外形规格。</li>
+<li>支持相干光学以推动 IP 和光学层的融合。</li>
+<li>致力于向前和向后兼容 (sysin)。</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/spotlightgroup/spotlight2.img.png/1634859407247.png" alt="重构"></p>
+<h3 id="重构">重构</h3>
+<ul>
+<li>使用简单、现代且值得信赖的网络操作系统 (IOS XR)。</li>
+<li>使用开放 API、本机、YANG 和开放配置模型实现自动化。</li>
+<li>具有实时遥测、分段路由和以太网虚拟专用网络 (EVPN)。</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/spotlightgroup/spotlight3.img.png/1634859478589.png" alt="有弹性的"></p>
+<h3 id="有弹性的">有弹性的</h3>
+<ul>
+<li>增强的安全性，包括安全启动、Cisco Trust Anchor 和防伪措施。</li>
+<li>通过安全的开发生命周期来确保制造的完整性 (sysin)。</li>
+<li>通过持续的软件和硬件创新为 ASR 9000 提供投资保护。</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/spotlightgroup/spotlight4.img.png/1635176287135.png" alt="可持续性"></p>
+<h3 id="可持续性">可持续性</h3>
+<ul>
+<li>定制 ASIC 经过优化，可在性能与 100 倍容量增加和每 Gbps 功耗降低 96% 之间取得平衡。</li>
+</ul>
+<h2 id="ASR-9000-系列型号">ASR 9000 系列型号</h2>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents/tile_17a4.img.jpg/1584117721603.jpg" alt="ASR 9922"></p>
+<h3 id="ASR-9922"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-501767.html">ASR 9922</a></h3>
+<ul>
+<li>44 RU</li>
+<li>高达 160 Tbps</li>
+<li>20 个线卡、2 个 RP、7 个光纤卡</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents/tile_f87.img.jpg/1584117745819.jpg" alt="ASR 9904"></p>
+<h3 id="ASR-9904"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-501767.html">ASR 9904</a></h3>
+<ul>
+<li>6 RU</li>
+<li>高达 16 Tbps</li>
+<li>2 个线卡，2 个 RSP</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents/tile_805b.img.jpg/1602232489361.jpg" alt="ASR 9010"></p>
+<h3 id="ASR-9010"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-501767.html">ASR 9010</a></h3>
+<ul>
+<li>21 RU</li>
+<li>高达 32 Tbps</li>
+<li>8 个线卡，2 个 RSP</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents1/tile_e64.img.jpg/1584117734458.jpg" alt="ASR 9912"></p>
+<h3 id="ASR-9912"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-501767.html">ASR 9912</a></h3>
+<ul>
+<li>30 RU</li>
+<li>高达 80 Tbps</li>
+<li>10 个线卡、2 个 RP、7 个光纤卡</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents1/tile_3621_copy.img.jpg/1634859595765.jpg" alt="ASR 9903"></p>
+<h3 id="ASR-9903"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/datasheet-c78-744035.html">ASR 9903</a></h3>
+<ul>
+<li>3 RU</li>
+<li>高达 7.2 Tbps</li>
+<li>1 个端口扩展卡，2 个 RP</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents1/tile_bd63.img.jpg/1602232544283.jpg" alt="ASR 9006"></p>
+<h3 id="ASR-9006"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-501767.html">ASR 9006</a></h3>
+<ul>
+<li>10 RU</li>
+<li>高达 16 Tbps</li>
+<li>4 个线卡，2 个 RSP</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents2/tile_17b5.img.jpg/1584117734862.jpg" alt="ASR 9910"></p>
+<h3 id="ASR-9910"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-501767.html">ASR 9910</a></h3>
+<ul>
+<li>21 RU</li>
+<li>高达 64 Tbps</li>
+<li>8 个线卡、2 个 RSP、5 个交换矩阵卡</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents2/tile_885d.img.jpg/1613592173528.jpg" alt="ASR 9902"></p>
+<h3 id="ASR-9902"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/datasheet-c78-744663.html">ASR 9902</a></h3>
+<ul>
+<li>2 RU</li>
+<li>高达 1.6 Tbps</li>
+<li>2 个 RP 和集成以太网端口</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents2/tile_3621.img.jpg/1584117774275.jpg" alt="ASR 9001"></p>
+<h3 id="ASR-9001"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9001-router/data_sheet_c78-685687.html">ASR 9001</a></h3>
+<ul>
+<li>2 RU</li>
+<li>高达 240 Gbps</li>
+<li>固定 4x10GE</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents3/tile_4bf1.img.jpg/1584117739868.jpg" alt="ASR 9906"></p>
+<h3 id="ASR-9906"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-501767.html">ASR 9906</a></h3>
+<ul>
+<li>14 RU</li>
+<li>高达 32 Tbps</li>
+<li>4 个线卡、2 个 RSP、5 个交换矩阵卡</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents3/tile_885d_copy.img.jpg/1602232428756.jpg" alt="ASR 9901"></p>
+<h3 id="ASR-9901"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/datasheet-c78-740540.html">ASR 9901</a></h3>
+<ul>
+<li>2 RU</li>
+<li>高达 912 Gbps</li>
+<li>集成 RSP 和以太网端口</li>
+</ul>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_103d/bladeContents3/tile_9917.img.jpg/1602232619704.jpg" alt="ASR 9000v-V2"></p>
+<h3 id="ASR-9000v-V2"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/data_sheet_c78-673744.html">ASR 9000v-V2</a></h3>
+<ul>
+<li>
+<p>1 RU</p>
+</li>
+<li>
+<p>高达 168 Gbps</p>
+</li>
+<li>
+<p>固定 44 个 SFP 端口</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/models-comparison.html">比较 ASR 9000 型号</a></p>
+</li>
+</ul>
+<h2 id="优势">优势</h2>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_0_copy/bladeContents/spotlight_1.img.jpg/1584127728000.jpg" alt="Meet the needs of mass-scale networks"></p>
+<h3 id="满足大规模网络的需求"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/datasheet-c78-741101.html">满足大规模网络的需求</a></h3>
+<p>ASR 9000 是一种高密度、高性能的边缘平台，适用于不断增长或高需求的市场。ASR 能够支持从 1G 到 400G 的连接，为运营商提供一个超前扩展的长期增长平台。</p>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_0_copy/bladeContents/spotlight_2.img.jpg/1583745566016.jpg" alt="Protect and optimize your investments"></p>
+<h3 id="保护和优化您的投资"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/collateral/routers/asr-9000-series-aggregation-services-routers/datasheet-c78-741260.html">保护和优化您的投资</a></h3>
+<p>今天就在一个准备好为明天扩展的平台上构建您的网络。借助灵活的按需付费选项和动态许可证池，您可以简化容量规划和扩展以满足需求。</p>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_0_copy/bladeContents/spotlight_3.img.jpg/1583745623370.jpg" alt="Accelerate service agility"></p>
+<h3 id="加速服务敏捷"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/m/en_us/network-intelligence/service-provider/digital-transformation/build-a-programmable-network-with-cisco-ios-xr.html">加速服务敏捷</a></h3>
+<p>使用 Cisco IOS XR 的多维可编程性、开放式 API 和高级遥测，提供前所未有的网络可见性和由分析和机器学习驱动的闭环修复。随着您的网络基础设施的发展，IOS XR 和 Cisco 自动化工具为您的工程师提供精细控制，以便他们能够快速采取行动为您的客户提供最佳客户端体验。</p>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/asr-9000-series-aggregation-services-routers/index/jcr:content/Grid/subcategory_atl/layout-subcategory-atl/blade_0_copy/bladeContents/spotlight_7d0b.img.jpg/1622545256627.jpg" alt="Protect your critical infrastructure from the inside-out"></p>
+<h3 id="从内到外保护您的关键基础设施"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/m/en_us/network-intelligence/service-provider/digital-transformation/built-in-trust.html">从内到外保护您的关键基础设施</a></h3>
+<p>验证在您的网络中运行的 ASR 硬件和软件的完整性，以促进网络堆栈每一层的保护。通过这些验证，您可以确保您的关键基础设施不变，然后通过自动软件升级来改善您的安全状况，确保您的网络安全和最新。</p>
+<h2 id="服务">服务</h2>
+<p>借助 Cisco CX 支持服务，更快地解决问题、提高运营效率并降低停机风险。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/solutions/collateral/service-provider/service-offers-service-provider/service-provider-advantage/datasheet-c78-738807.html">了解服务提供商基础支持</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cisco.com/c/m/en_us/customer-experience/support.html">查看所有 CX 支持选项</a></li>
+</ul>
+<h2 id="灵活性和可持续性">灵活性和可持续性</h2>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/8000-series-routers/index/jcr:content/Grid/subcategory_atl_581e/layout-subcategory-atl/spotlightgroup_copy/spotlight1.img.png/1623341550533.png" alt="Cisco Smart Licensing"></p>
+<h3 id="思科智能许可"><a target="_blank" rel="noopener" href="https://cisco.com/go/licensingguide">思科智能许可</a></h3>
+<p>一种灵活且安全的许可模式，可提供更轻松、更一致的软件购买和管理方式。</p>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/8000-series-routers/index/jcr:content/Grid/subcategory_atl_581e/layout-subcategory-atl/spotlightgroup_copy/spotlight2.img.png/1623341559524.png" alt="Cisco Capital"></p>
+<h3 id="思科资本"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/buy/payment-solutions.html">思科资本</a></h3>
+<p>通过创新、灵活的支付选项，获取您现在需要的思科技术。</p>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/8000-series-routers/index/jcr:content/Grid/subcategory_atl_581e/layout-subcategory-atl/spotlightgroup_copy/spotlight3.img.png/1623341566758.png" alt="Cisco Refresh"></p>
+<h3 id="思科刷新"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/products/remanufactured.html">思科刷新</a></h3>
+<p>以可观的成本获得经过认证的思科再制造设备。保修和新的一样。</p>
+<p><img src="https://www.cisco.com/c/en/us/products/routers/8000-series-routers/index/jcr:content/Grid/subcategory_atl_581e/layout-subcategory-atl/spotlightgroup_copy/spotlight4.img.png/1623341658963.png" alt="Cisco Takeback and Reuse"></p>
+<h3 id="思科回收和再利用"><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/about/takeback-and-reuse.html">思科回收和再利用</a></h3>
+<p>准备好退回您的废弃 Cisco 硬件了吗？我们准备好捡起来了。安全、可靠、可持续。</p>
+<h2 id="下载地址-97">下载地址</h2>
+<p>Cisco ASR 9000 Router IOS XR Software - 7.5.1(ED)<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1aHFIq42cqKBErwXUnsFNFA?pwd=qavg">https://pan.baidu.com/s/1aHFIq42cqKBErwXUnsFNFA?pwd=qavg</a></p>
+<p>File Information</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Filename</th>
+<th>Release Date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cisco ASR9000 64-BIT IOS XR Software Upgrade/Downgrade docs</td>
+<td>ASR9K-x64-docs-7.5.1.tar (N/A)</td>
+<td>30-Nov-2021</td>
+<td>2.40 MB</td>
+</tr>
+<tr>
+<td>Cisco ASR9000 64-BIT IOS XR Software</td>
+<td>ASR9K-x64-iosxr-px-7.5.1.tar</td>
+<td>30-Nov-2021</td>
+<td>87.15 MB</td>
+</tr>
+<tr>
+<td>Cisco ASR9000 64-BIT IOS XR Software 3DES</td>
+<td>ASR9K-x64-iosxr-px-k9-7.5.1.tar</td>
+<td>30-Nov-2021</td>
+<td>89.47 MB</td>
+</tr>
+<tr>
+<td>Cisco ASR9000 64-BIT IOS XR Software</td>
+<td>asr9k-mini-x64-7.5.1.iso</td>
+<td>30-Nov-2021</td>
+<td>1484.50 MB</td>
+</tr>
+<tr>
+<td>Cisco ASR9000 64-BIT IOS XR Software</td>
+<td>asr9k-mini-x64-migrate_to_eXR.7.5.1.tar</td>
+<td>30-Nov-2021</td>
+<td>1637.37 MB</td>
+</tr>
+<tr>
+<td>Cisco ASR9000 64-BIT IOS XR Software</td>
+<td>asr9k-x64-usb_boot-7.5.1.zip</td>
+<td>30-Nov-2021</td>
+<td>1482.17 MB</td>
+</tr>
+</tbody>
+</table>
+<p>更多：<a href="/blog/cisco/" title="Cisco 产品下载链接汇总">Cisco 产品下载链接汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/dns-caa/" data-toggle="tooltip" data-placement="top" title="DNS CAA 记录及创建方法">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/vmware-horizon-8-2111/" data-toggle="tooltip" data-placement="top" title="VMware Horizon 8 2111 - 虚拟桌面基础架构 (VDI) 和应用软件">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/cisco-asr-9000/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%93%E4%B8%BA%E6%BB%A1%E8%B6%B3%E8%8B%9B%E5%88%BB%E7%9A%84%E8%BE%B9%E7%BC%98%E5%B8%82%E5%9C%BA%E8%80%8C%E6%89%93%E9%80%A0%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">专为满足苛刻的边缘市场而打造的高性能路由器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%8A%E5%A4%A9%E8%80%8C%E6%89%93%E9%80%A0%EF%BC%8C%E4%B8%BA%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E4%B8%80%E5%88%87%E5%81%9A%E5%A5%BD%E5%87%86%E5%A4%87"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">为今天而打造，为接下来的一切做好准备</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%87%8D%E8%A3%85%E4%B8%8A%E9%98%B5"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">重装上阵</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%87%8D%E6%9E%84"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">重构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%89%E5%BC%B9%E6%80%A7%E7%9A%84"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">有弹性的</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%AF%E6%8C%81%E7%BB%AD%E6%80%A7"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">可持续性</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ASR-9000-%E7%B3%BB%E5%88%97%E5%9E%8B%E5%8F%B7"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">ASR 9000 系列型号</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9922"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">ASR 9922</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9904"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">ASR 9904</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9010"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">ASR 9010</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9912"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">ASR 9912</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9903"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">ASR 9903</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9006"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">ASR 9006</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9910"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">ASR 9910</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9902"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">ASR 9902</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9001"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">ASR 9001</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9906"><span class="toc-nav-number">3.10.</span> <span class="toc-nav-text">ASR 9906</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9901"><span class="toc-nav-number">3.11.</span> <span class="toc-nav-text">ASR 9901</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ASR-9000v-V2"><span class="toc-nav-number">3.12.</span> <span class="toc-nav-text">ASR 9000v-V2</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">优势</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%BB%A1%E8%B6%B3%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%BD%91%E7%BB%9C%E7%9A%84%E9%9C%80%E6%B1%82"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">满足大规模网络的需求</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BF%9D%E6%8A%A4%E5%92%8C%E4%BC%98%E5%8C%96%E6%82%A8%E7%9A%84%E6%8A%95%E8%B5%84"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">保护和优化您的投资</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8A%A0%E9%80%9F%E6%9C%8D%E5%8A%A1%E6%95%8F%E6%8D%B7"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">加速服务敏捷</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%8E%E5%86%85%E5%88%B0%E5%A4%96%E4%BF%9D%E6%8A%A4%E6%82%A8%E7%9A%84%E5%85%B3%E9%94%AE%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">从内到外保护您的关键基础设施</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">服务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%81%B5%E6%B4%BB%E6%80%A7%E5%92%8C%E5%8F%AF%E6%8C%81%E7%BB%AD%E6%80%A7"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">灵活性和可持续性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%9D%E7%A7%91%E6%99%BA%E8%83%BD%E8%AE%B8%E5%8F%AF"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">思科智能许可</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%9D%E7%A7%91%E8%B5%84%E6%9C%AC"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">思科资本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%9D%E7%A7%91%E5%88%B7%E6%96%B0"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">思科刷新</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%80%9D%E7%A7%91%E5%9B%9E%E6%94%B6%E5%92%8C%E5%86%8D%E5%88%A9%E7%94%A8"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">思科回收和再利用</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-97"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Unix" title="Unix">Unix</a>
+            
+            <a class="tag" href="/tags/#Cisco" title="Cisco">Cisco</a>
+            
+            <a class="tag" href="/tags/#IOS-XR" title="IOS-XR">IOS-XR</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

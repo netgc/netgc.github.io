@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> VMware NSX Data Center for vSphere (NSX-V) 6.4.14 - 网络虚拟化平台 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware NSX Data Center for vSphere (NSX-V) 6.4.14 - 网络虚拟化平台 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" VMware NSX Data Center for vSphere (NSX-V) 6.4.14 - 网络虚拟化平台 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/vmware-nsx-v-6/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+              
+              <a class="tag" href="/tags/#NSX" title="NSX">NSX</a>
+              
+            </div>
+            <h1>VMware NSX Data Center for vSphere (NSX-V) 6.4.14 - 网络虚拟化平台</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2022-10-23
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">19</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">4.8k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Sun Oct 23 2022 21:36:18 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/vmware-nsx-v-6/" title="VMware NSX Data Center for vSphere (NSX-V) 6.4.14 - 网络虚拟化平台">VMware NSX Data Center for vSphere (NSX-V) 6.4.14 - 网络虚拟化平台</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>VMware NSX Data Center for vSphere 6.4.14 | 20 OCT 2022 | Build 20609341</p>
+<p>VMware NSX Data Center for vSphere 6.4.13 | February 8, 2022 | Build 19307994</p>
+<p>VMware NSX Data Center for vSphere 6.4.12 | December 21, 2021 | Build 19066632</p>
+<p>VMware NSX Data Center for vSphere 6.4.11 | August 26, 2021 | Build 18524545</p>
+<p>VMware NSX Data Center for vSphere 6.4.10 | February 18, 2021 | Build 17626462</p>
+<p>VMware NSX Data Center for vSphere 6.4.9 | December 15, 2020 | Build 17267008</p>
+<p>VMware NSX Data Center for vSphere 6.4.8 | August 10, 2020 | Build 16724220</p>
+<p>VMware NSX Data Center for vSphere 6.4.7 | July 09, 2020 | Build 16509800</p>
+<p>VMware NSX Data Center for vSphere 6.4.6 | October 10, 2019 | Build 14819921</p>
+<p>VMware NSX Data Center for vSphere 6.4.5 | April 18, 2019 | Build 13282012</p>
+<p>VMware NSX Data Center for vSphere 6.4.4 | Dec 13, 2018 | Build 11197766</p>
+<p>VMware NSX Data Center for vSphere 6.4.3 | Sep 11, 2018 | Build 9927516</p>
+<p>VMware NSX Data Center for vSphere 6.4.2 | Aug 21, 2018 | Build 9643711</p>
+<p>VMware NSX for vSphere 6.4.1 | May 24, 2018 | Build 8599035</p>
+<p>VMware NSX for vSphere 6.4.0 | January 16, 2018 | Build 7564187</p>
+<h2 id="产品周期终止和支持期终止警告">产品周期终止和支持期终止警告</h2>
+<p><strong>NSX for vSphere 6.4.x</strong> 已于 2022 年 1 月 16 日终止支持 (EOGS)。有关迁移计划和扩展支持的资源，请参见知识库文章 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/85706?lang=en_US&amp;queryTerm=85706">85706</a>。</p>
+<p><strong>重要信息</strong>：您将无法从以下先前发行版本一步升级到 NSX for vSphere 6.4.10：6.4.2、6.4.3、6.4.4 和 6.4.5。如果您打算从其中某个受影响版本升级，请参见 VMware 知识库文章 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/82662">82662</a>。</p>
+<p><strong>注意</strong>：NSX Data Center for vSphere 已于 2022 年 1 月 16 日终止支持（EoGS），技术指导将于 2023 年 1 月 16 日结束。我们建议您考虑迁移到 NSX-T Data Center。请参见以下文档资源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-T-Data-Center/3.1/migration/GUID-7899A104-2662-4FC9-87B2-F4688FAEBBBA.html">NSX-T Data Center 迁移协调器指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://nsx.techzone.vmware.com/resource/vmware-nsx-v-nsx-t-migration-guide">VMware NSX Tech Zone 上的迁移文档</a></li>
+</ul>
+<h2 id="产品概述-14">产品概述</h2>
+<p>IT 组织已经从服务器虚拟化中明显获益。服务器整合降低了物理复杂性，提高了运营效率，并且能够动态地重新调整基础资源的用途，使其以最佳方式快速满足日益动态化的业务应用需求。</p>
+<p>现在，VMware 的软件定义数据中心 (SDDC) 架构正将虚拟化技术延展至整个物理数据中心基础架构。NSX Data Center for vSphere 是 SDDC 架构中的关键产品。使用 NSX Data Center for vSphere 可以实现网络虚拟化，正如计算和存储虚拟化交付。与服务器虚拟化以编程方式创建、删除和还原基于软件的虚拟机 (Virtual Machine, VM) 以及拍摄虚拟机快照的方式大致相同，NSX Data Center for vSphere 网络虚拟化也是以编程方式创建、删除和还原基于软件的虚拟网络以及拍摄虚拟网络快照。这使得联网方式发生了变革 (sysin)，不仅使数据中心管理人员能够将敏捷性和经济性提高若干数量级，而且还能极大地简化底层物理网络的运营模式。NSX Data Center for vSphere 能够部署在任何 IP 网络上，包括现有的传统网络模型以及任何供应商提供的新一代网络架构，它为您提供了一个无中断的解决方案。事实上，使用 NSX Data Center for vSphere，您只需利用现有的物理网络基础架构即可部署软件定义的数据中心。</p>
+<p><img src="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.admin.doc/images/GUID-8E555ADE-1058-46CB-80A0-B2AEBEE1F381-high.png" alt="VMware"></p>
+<p>上图对计算和网络虚拟化进行了类比。通过服务器虚拟化，软件抽象层（服务器虚拟机管理程序）可在软件中重现人们所熟悉的 x86 物理服务器属性（例如 CPU、内存、磁盘、网卡），从而可通过编程方式来任意组合这些属性，只需短短数秒，即可生成一台独一无二的虚拟机。</p>
+<p>通过网络虚拟化，与网络虚拟机管理程序等效的功能可在软件中重现第 2 层到第 7 层的一整套网络服务（例如，交换、路由、访问控制、防火墙、QoS 和负载平衡）。因此，可通过编程方式任意组合这些服务，只需短短数秒，即可生成独一无二的独立虚拟网络。</p>
+<p>通过网络虚拟化，带来了类似于服务器虚拟化的优势。例如，就像虚拟机独立于基础 x86 平台并允许 IT 将物理主机视为计算容量池一样，虚拟网络也独立于底层 IP 网络硬件并允许 IT 将物理网络视为可以按需使用和调整用途的传输容量池。与传统架构不同的是，无需重新配置底层物理硬件或拓扑 (sysin)，即可通过编程方式置备、更改、存储、删除和还原虚拟网络。与企业从熟悉的服务器和存储虚拟化解决方案获得的功能和优势相匹配，这一革命性的联网方式可发挥软件定义的数据中心的全部潜能。</p>
+<p>可通过 vSphere Web Client、命令行界面 (Command-Line Interface, CLI) 和 REST API 配置 NSX Data Center for vSphere。</p>
+<h2 id="功能介绍-3">功能介绍</h2>
+<h3 id="通过-VMware-NSX-实现全栈网络安全虚拟化-2">通过 VMware NSX 实现全栈网络安全虚拟化</h3>
+<p>使虚拟云网络能够跨数据中心、多云环境、裸机和容器基础架构连接并保护应用。VMware NSX Data Center 提供完整的 L2-L7 网络和安全虚拟化平台，支持像从单一窗口管理单个条目一样轻松管理整个网络。</p>
+<h3 id="跨云环境提供-L2-L7-虚拟化平台-2">跨云环境提供 L2-L7 虚拟化平台</h3>
+<ul>
+<li>
+<p>通过自动化实现敏捷性</p>
+<p>通过在软件中运行整个 L2-L7 体系（与底层物理硬件分离），为您的网络和安全服务提供一键式置备服务，实现强大的灵活性、敏捷性和规模。</p>
+</li>
+<li>
+<p>实现原生安全性</p>
+<p>通过细分到单个工作负载的微分段，为应用提供精细的保护。针对每个工作负载创建情境感知安全策略，同时利用 IDS/IPS 以抵御多云环境中的横向威胁。</p>
+</li>
+<li>
+<p>享受一致的多云环境运维体验</p>
+<p>可从单一窗口管理私有云和公有云中一致的网络和安全策略，而无论您的应用是在虚拟机、容器还是裸机中运行。</p>
+</li>
+<li>
+<p>同时节省 CAPEX 和 OPEX</p>
+<p>通过将网络和安全功能整合到单个分布式虚拟化平台，将 CAPEX 降低高达 35%，并通过简化运维管理和优化流量来大幅削减 OPEX。</p>
+</li>
+</ul>
+<h3 id="NSX-的主要应用场景有哪些？-2">NSX 的主要应用场景有哪些？</h3>
+<ul>
+<li>
+<p>采用零信任安全策略</p>
+<p>使用 NSX 中的微分段功能锁定关键应用，在软件中创建逻辑 DMZ，并减少虚拟桌面环境的攻击面。零信任安全策略现在可在私有云和公有云环境中实施，并且效率很高。</p>
+</li>
+<li>
+<p>加快交付网络和安全服务</p>
+<p>通过利用蓝图在所有站点和云环境中一致地自动置备和管理网络和安全服务，或者通过将基础架构公开为代码，来加快应用交付。</p>
+</li>
+<li>
+<p>跨云环境延展网络</p>
+<p>通过一致的网络和安全服务精简多云运维，并在此过程中启用从无缝数据中心延展到多数据中心池的多云应用场景，从而加快工作负载移动速度。</p>
+</li>
+<li>
+<p>将容器作为“一等公民”予以管理</p>
+<p>为容器化应用和微服务提供虚拟机享有的集成式全体系网络和安全服务。利用针对 Kubernetes 的原生容器网络功能、微分段和针对微服务的端到端可观察性。</p>
+</li>
+</ul>
+<h3 id="扩展虚拟云的功能-2">扩展虚拟云的功能</h3>
+<ul>
+<li>
+<p>升级到原生安全性</p>
+<p>依靠专门构建的唯一内部防火墙来保护东西向网络流量，以及跨云环境一致地保护工作负载。</p>
+</li>
+<li>
+<p>运行 VMware Cloud on AWS</p>
+<p>将本地部署 vSphere 环境扩展到 AWS 云中，交付顺畅的混合云体验。</p>
+</li>
+<li>
+<p>通过 IDS/IPS 实现高级威胁检测</p>
+<p>用分布式软件 IDS/IPS 解决方案替换分散的设备，以检测东西向流量上的横z</p>
+</li>
+<li>
+<p>利用全局可见性</p>
+<p>跨虚拟、物理和公有云网络基础架构（包括防火墙）获得端到端运维可见性和故障排除能力。</p>
+</li>
+<li>
+<p>获取推荐的安全策略</p>
+<p>通过丰富的应用拓扑虚拟化和自动化策略推荐，简化运维微分段。</p>
+</li>
+<li>
+<p>将 NSX 延展到云端应用</p>
+<p>通过单一窗口，为在公有云上运行的原生应用提供一致的网络和安全服务。</p>
+</li>
+</ul>
+<h2 id="新增功能-47">新增功能</h2>
+<ul>
+<li>
+<p>VMware NSX Data Center for vSphere 6.4.14 解决了许多特定的客户错误。</p>
+<p>请参见 *<a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-NSX-Data-Center-for-vSphere/6.4/rn/VMware-NSX-Data-Center-for-vSphere-6413-Release-Notes.html">NSX Data Center for vSphere 6.4.13 发行说明。</a>*有关升级和安装详细信息以及当前已知问题，</p>
+<p>已解决的问题</p>
+<ul>
+<li>
+<p><strong>已修复问题 2989776：VMkernel 日志由“无法添加 Arp VMI，达到最大限制 1”填充。</strong></p>
+<p>由于 MAC 重复问题，VMware ESXi 日志文件 (/var/log/vmkernel.log) 被过多的消息迅速填满，表明已达到最大  ARP 限制。解决方法：NSX for vSphere 6.4.14 已将此消息的默认日志级别从错误降低到调试。</p>
+</li>
+<li>
+<p><strong>已修复问题 3003814：NSX Manager 在重新引导之前无响应。</strong></p>
+<p>NSX Manager 不可用。</p>
+</li>
+<li>
+<p><strong>已修复问题 3020991：多个 ESX 主机 PSOD 具有跨 DR 的大量挂起 ARP 条目。</strong></p>
+<p>当工作负载为不存在的 IP（通常通过扫描工具）生成大量 TCP/UDP 流量时，DR 会向这些 IP 发起 ARP。DR 无法完成对这些大型 ARP 的处理，导致 ESX 看门狗进程对主机进行 PSOD。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.13 的新增功能</p>
+<p>VMware NSX for vSphere 6.4.13 解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/VMware-NSX-Data-Center-for-vSphere-6413-Release-Notes.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.12 的新增功能</p>
+<p>VMware NSX Data Center for vSphere 6.4.12 修补程序是一项强制安全更新，适用于运行 NSX for vSphere 6.4.x 版本的所有部署，用于解决 <a target="_blank" rel="noopener" href="https://www.vmware.com/security/advisories/VMSA-2021-0028.html">VMSA-2021-0028</a> 中记录的安全漏洞。Log4j 的版本已更新到 2.16。</p>
+<p>有关当前的已知问题，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/VMware-NSX-Data-Center-for-vSphere-6411-Release-Notes.html">VMware NSX Data Center for vSphere 6.4.11 发行说明</a>。</p>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.11 的新增功能</p>
+<p>VMware NSX for vSphere 6.4.11 解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/VMware-NSX-Data-Center-for-vSphere-6411-Release-Notes.html#resolvedissues">已解决的问题</a>。</p>
+<ul>
+<li>
+<p>提高了平台安全性 - NSX Controller 仅接受使用以下四个密码的 TLS 连接：</p>
+<ul>
+<li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256；</li>
+<li>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384；</li>
+<li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256；</li>
+<li>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.10 的新增功能</p>
+<p>VMware NSX for vSphere 6.4.10 解决了 VMware NSX for vSphere 6.4.9 中发现的一些问题，这些问题可能会影响 Edge 设备上的高可用性模式。有关详细信息，请参见已解决的问题。</p>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.9 的新增功能</p>
+<p><strong>关于 NSX for vSphere 6.4.9 的重要信息</strong></p>
+<p>请注意，VMware NSX 团队发现 NSX Data Center for vSphere 6.4.9 中 Edge 设备的高可用性模式存在问题，因此决定从下载页面中撤回该版本。替代版本即将推出。</p>
+<p>如果客户已下载 NSX Data Center for vSphere 6.4.9 并计划在高可用性模式下使用 NSX-V Edge，则建议不要安装或升级到 NSX for vSphere 6.4.9。</p>
+<p>有关更多详细信息，请参见 VMware 知识库文章 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/82460">82460</a>。</p>
+<p>NSX Data Center for vSphere 6.4.9 加强了可用性，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_649.html#resolvedissues">已解决的问题</a>。</p>
+<ul>
+<li><strong>支持 vSphere 7.0 Update 1</strong></li>
+<li><strong>VMware NSX - vSphere Client (HTML) 功能更新</strong>：现在，可以通过 vSphere Client 使用以下 VMware NSX 功能：客户机侦测和网络侦测的服务定义。有关支持的功能列表，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-for-vSphere/6.4/rn/nsx-vsphere-client-65-functionality-support.html">vSphere Client 中的 VMware NSX for vSphere UI 插件功能</a>。</li>
+<li><strong>客户机侦测</strong>：增加了在无需重新启动第三方客户机侦测合作伙伴服务的情况下更改日志记录级别的功能</li>
+</ul>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.8 的新增功能</p>
+<p>VMware NSX for vSphere 6.4.8 解决了在 VMware NSX for vSphere 6.4.7 中发现的一个特定问题，该问题可能会影响新的 NSX 客户以及从 NSX 的先前版本升级的客户。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/VMware-NSX-Data-Center-for-vSphere-648-Release-Notes.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.7 的新增功能</p>
+<p>关于 NSX for vSphere 6.4.7 的重要信息</p>
+<p><strong>注意</strong>：VMware 发现  VMware NSX for vSphere 6.4.7 中存在一个问题，该问题会影响新的 NSX 客户以及从 NSX  的先前版本升级的客户。因此，VMware 决定不再分发 NSX 6.4.7。当前可用的 NSX for vSphere 版本为  6.4.6。VMware 正在积极地解决问题，以期尽快发布下一个版本来替代 NSX for vSphere 6.4.7。</p>
+<p>有关更多详细信息，请参见 VMware 知识库文章 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/80238">80238</a>。</p>
+<p>NSX Data Center for vSphere 6.4.7 版本加强了可用性和可维护性功能，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_647.html#resolvedissues">已解决的问题</a>。</p>
+<p>NSX Data Center for vSphere 6.4.7 中引入了以下更改：</p>
+<ul>
+<li>
+<p><strong>vSphere 7.0 支持</strong></p>
+</li>
+<li>
+<p>多播增强：添加了对以下各项的支持：</p>
+<ul>
+<li>在一个 GRE 隧道上支持 PIM，同时排除任何其他上行链路上的 PIM。</li>
+<li>由单播连接使用的静态路由。</li>
+<li>活动-备用模式。</li>
+<li>适用于多播的 Edge 防火墙。</li>
+<li>适用于多播的分布式防火墙。</li>
+</ul>
+</li>
+<li>
+<p><strong>VMware NSX - vSphere Client (HTML) 功能更新</strong>：有关支持的功能列表，请参见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-for-vSphere/6.4/rn/nsx-vsphere-client-65-functionality-support.html">vSphere Client 中的 VMware NSX for vSphere UI 插件功能</a>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.6 的新增功能</p>
+<p><strong>重要信息</strong>：NSX for vSphere 现名为 NSX Data Center for vSphere。</p>
+<p>NSX Data Center for vSphere 6.4.6 版本加强了可用性和可维护性功能，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_646.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.5 的新增功能</p>
+<p><strong>重要信息</strong>：NSX for vSphere 现名为 NSX Data Center for vSphere。</p>
+<p>NSX Data Center for vSphere 6.4.5 版本加强了可用性和可维护性功能，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_645.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.4 的新增功能</p>
+<p><strong>重要信息</strong>：NSX for vSphere 现名为 NSX Data Center for vSphere。</p>
+<p>NSX Data Center for vSphere 6.4.4 版本加强了可用性和可维护性功能，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_644.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>NSX Data Center for vSphere 6.4.3 的新增功能</p>
+<p><strong>重要信息</strong>：NSX for vSphere 现名为 NSX Data Center for vSphere。</p>
+<p>NSX Data Center for vSphere 6.4.3 解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_643.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>VMware NSX Data Center for vSphere 6.4.2 的新增功能</p>
+<p><strong>重要信息</strong>：安装或升级到 NSX Data Center for vSphere 6.4.2 之后，在具有多个 PSC 或 STS 证书的环境中，NSX Data Center for vSphere 无法连接到 SSO。有关详细信息，请参见 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/57770">VMware 知识库文章 57770</a>。</p>
+<p><strong>重要信息</strong>：NSX for vSphere 现名为 NSX Data Center for vSphere。</p>
+<p>NSX Data Center for vSphere 6.4.2 版本加强了可用性和可维护性功能，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_642.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>NSX 6.4.1 的新增功能</p>
+<p>NSX for vSphere 6.4.1 添加了可用性和可维护性增强功能，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_641.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+<li>
+<p>NSX 6.4.0 的新增功能</p>
+<p>NSX for vSphere 6.4.0 添加了可维护性增强功能，并解决了一些特定的客户问题。有关详细信息，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/rn/releasenotes_nsx_vsphere_640.html#resolvedissues">已解决的问题</a>。</p>
+</li>
+</ul>
+<h2 id="系统要求-100">系统要求</h2>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>下表列出了建议的 VMware 软件版本。这些建议只是常规建议，具体应考虑特定的环境需求。此信息为截至本文档发布之日的最新信息。</li>
+<li>有关 NSX 和其他 VMware 产品的<strong>最低支持</strong>版本，请参见 <a target="_blank" rel="noopener" href="http://partnerweb.vmware.com/comp_guide2/sim/interop_matrix.php">VMware 产品互操作性列表</a>。VMware 的最低支持版本声明基于内部测试。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>产品或组件</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NSX Data Center for vSphere</td>
+<td>对于新部署，VMware 建议使用最新的 NSX 版本。在升级现有部署时，请在计划升级之前参考 NSX Data Center for vSphere 发行说明，或者与 VMware 技术支持代表联系以了解某些特定问题的详细信息。</td>
+</tr>
+<tr>
+<td>vSphere</td>
+<td><strong>对于 vSphere 6.5</strong>：推荐：6.5 Update 3  注意：vSphere 6.5 Update 1 解决了 EAM 由于内存不足而失败的问题。有关详细信息，请参见 <a target="_blank" rel="noopener" href="https://kb.vmware.com/kb/2135378">VMware 知识库文章 2135378</a>。<strong>重要信息</strong>：如果您要在 vSphere 6.5 上使用多播路由，建议使用 vSphere 6.5 Update 2 或更高版本。如果您要在 vSphere 6.5 上使用 NSX 客户机侦测，建议使用 vSphere 6.5 P03 或更高版本。<br/><strong>对于 vSphere 6.7</strong>： 推荐：6.7 Update 2  <strong>重要信息</strong>：如果您要在 vSphere 6.7 上使用 NSX 客户机侦测，请在安装 NSX 6.4.6 之前参阅知识库文章 <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/57248">57248</a>，并咨询 VMware 客户支持以了解详细信息。注意：NSX 6.4 不支持 vSphere 5.5。注意：vSphere 6.0 已终止支持，从 NSX 6.4.7 开始将不支持 vSphere 6.0。</td>
+</tr>
+<tr>
+<td>适用于 Windows 的客户机侦测</td>
+<td>在升级 NSX for vSphere 之前，建议您将 VMware Tools 升级到 10.3.10。</td>
+</tr>
+<tr>
+<td>适用于 Linux 的客户机侦测</td>
+<td>确保客户机虚拟机安装了支持的 Linux 版本。有关支持的 Linux 版本的最新列表，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.admin.doc/GUID-636788A7-BB64-483A-A48D-4E62B3AFC0C8.html">《VMware NSX 管理指南》</a>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>系统要求和安装说明</strong>：</p>
+<p>有关 NSX 安装必备条件的完整列表，请参见《NSX 安装指南》中的 <a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.install.doc/GUID-311BBB9F-32CC-4633-9F91-26A39296381A.html">NSX 的系统要求</a>一节。</p>
+<p>有关安装说明，请参见<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.install.doc/GUID-D8578F6E-A40C-493A-9B43-877C2B75ED52.html">《NSX 安装指南》</a>或<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-NSX-Data-Center-for-vSphere/6.4/com.vmware.nsx.cross-vcenter-install.doc/GUID-803A5A77-74A0-483C-97C9-5B66A0B02240.html">《跨 vCenter NSX 安装指南》</a>。</p>
+<h2 id="下载地址-493">下载地址</h2>
+<p>VMware NSX Data Center for vSphere 6.4.5<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1bgZ0xKgI7BC1gWnt5JxcVg?pwd=qfjj">https://pan.baidu.com/s/1bgZ0xKgI7BC1gWnt5JxcVg?pwd=qfjj</a></p>
+<p>VMware NSX Data Center for vSphere 6.4.10<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1BCmpbbuIE9_d3pmkMCzxFg?pwd=taol">https://pan.baidu.com/s/1BCmpbbuIE9_d3pmkMCzxFg?pwd=taol</a></p>
+<p>VMware NSX Data Center for vSphere 6.4.13 log2j fix<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/12geqT1VW9x_TzR3OC5b90Q?pwd=8r90">https://pan.baidu.com/s/12geqT1VW9x_TzR3OC5b90Q?pwd=8r90</a></p>
+<p>VMware NSX Data Center for vSphere 6.4.14<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1ff2HSqHm3bVB-Is2B549nw?pwd=0ccr">https://pan.baidu.com/s/1ff2HSqHm3bVB-Is2B549nw?pwd=0ccr</a></p>
+<ul>
+<li>
+<p>NSX for vSphere 6.4.14<br>
+File size: 2.53 GB<br>
+Name: VMware-NSX-Manager-6.4.14-20609341.ova<br>
+Release Date: 2022-10-20<br>
+This is the NSX Manager Appliance in Open Virtualization Appliance Format (OVA). The NSX Manager appliance packages various NSX components such as NSX Management application.<br>
+SHA256SUM: d2f22c32d26d87d188c20eab7d879e22e11174500264ff3810f448c20b2d86be</p>
+</li>
+<li>
+<p>Standalone Edge - Client<br>
+File size: 161.28 MB<br>
+Name: nsx-l2vpn-client-ovf-20511670.tar.gz<br>
+Release Date: 2022-10-20<br>
+SHA256SUM: 2710ce45ac89ab95fe734506971e05e371e31bacaa25aa4c0ef870842c34c920</p>
+</li>
+<li>
+<p>NSX for vSphere 6.4.14 Upgrade Bundle<br>
+File size: 2.43 GB<br>
+Name: VMware-NSX-Manager-upgrade-bundle-6.4.14-20609341.tar.gz<br>
+Release Date: 2022-10-20<br>
+Use this file to upgrade the existing installations of NSX-vSphere 6.x releases to the NSX-vSphere 6.4.14 version.<br>
+SHA256SUM: 937da540e29525cdb6c6574ffcc56c102ca206f428b0cff011d260acd77eaffe</p>
+</li>
+</ul>
+<p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/vmware-vrealize-8/" data-toggle="tooltip" data-placement="top" title="VMware vRealize Suite 8 - 多云环境的云计算管理解决方案">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/vmware-vrops-8/" data-toggle="tooltip" data-placement="top" title="VMware vRealize Operations 8.10 - 自动驾驶式 IT 运维管理">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/vmware-nsx-v-6/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A7%E5%93%81%E5%91%A8%E6%9C%9F%E7%BB%88%E6%AD%A2%E5%92%8C%E6%94%AF%E6%8C%81%E6%9C%9F%E7%BB%88%E6%AD%A2%E8%AD%A6%E5%91%8A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">产品周期终止和支持期终止警告</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0-14"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">产品概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">功能介绍</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%80%9A%E8%BF%87-VMware-NSX-%E5%AE%9E%E7%8E%B0%E5%85%A8%E6%A0%88%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%99%9A%E6%8B%9F%E5%8C%96-2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">通过 VMware NSX 实现全栈网络安全虚拟化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B7%A8%E4%BA%91%E7%8E%AF%E5%A2%83%E6%8F%90%E4%BE%9B-L2-L7-%E8%99%9A%E6%8B%9F%E5%8C%96%E5%B9%B3%E5%8F%B0-2"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">跨云环境提供 L2-L7 虚拟化平台</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#NSX-%E7%9A%84%E4%B8%BB%E8%A6%81%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F-2"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">NSX 的主要应用场景有哪些？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%89%A9%E5%B1%95%E8%99%9A%E6%8B%9F%E4%BA%91%E7%9A%84%E5%8A%9F%E8%83%BD-2"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">扩展虚拟云的功能</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD-47"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82-100"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">系统要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-493"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#VMware" title="VMware">VMware</a>
+            
+            <a class="tag" href="/tags/#NSX" title="NSX">NSX</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

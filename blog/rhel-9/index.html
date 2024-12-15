@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/rhel-9/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header_l.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header_l.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header_l.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header_l.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header_l.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+              
+            </div>
+            <h1>Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux</h1>
+            <h2 class="subheading">RHEL 9 | 红帽企业 Linux 9</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-11-13
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">14</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.7k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Wed Nov 13 2024 09:05:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/rhel-9/" title="Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux">Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p><img src="/blog/rhel-9/rhel-logo.png" alt="Red Hat Enterprise Linux sysin"></p>
+<p>红帽企业 Linux 9</p>
+<p><img src="/blog/rhel-9/rhel-9-platform.png" alt="Red Hat Enterprise Linux Platform"></p>
+<h2 id="红帽企业-Linux-9-5-新增功能">红帽企业 Linux 9.5 新增功能</h2>
+<p>Red Hat Enterprise Linux 9.5 扩展了平台中的新安全功能，进一步简化了操作，并帮助揭开了在混合云中部署 Linux 工作负载的复杂性</p>
+<p>2024 年 11 月 13 日</p>
+<p>全球领先的开源解决方案提供商 Red Hat,Inc. 今天宣布全面推出 Red Hat Enterprise Linux 9.5，这是世界领先的企业 Linux 平台的最新版本。Red Hat Enterprise Linux 可帮助企业更快、更可靠地部署应用程序和工作负载，使他们能够降低成本并更有效地管理混合云部署中的工作负载，同时降低从数据中心到公共云再到边缘的 IT 风险。</p>
+<p>推动更强大的安全性和合规性管理能力</p>
+<p>红帽企业 Linux 系统角色是红帽企业 Linux 订阅中的红帽 Ansible 内容的集合，可自动执行日常管理任务，以帮助组织大规模提供更一致的配置和工作流程。Red Hat Enterprise Linux 9.5 添加了几个新的系统角色，包括 sudo 的新角色，sudo 是 Linux 中的命令行实用程序，用于大规模自动化 sudo 的配置 (sysin)。这使日常用户能够运行通常为管理员保留的命令，并使用适当的护栏来相应地管理规则。具有提升权限的用户可以使用自动化在其环境中更一致地安全地实施 sudo 配置，从而帮助整个组织降低整个业务的复杂性。</p>
+<p>增加对机密计算的平台支持，为 AI 工作负载提供数据保护，并降低内部威胁的攻击面。通过防止查看或篡改敏感数据的潜在威胁，机密计算使企业有更多机会更安全地使用 AI 来审查大量数据，同时仍保持数据分段并遵守数据合规性法规。</p>
+<p>新发布的 Red Hat Satellite 6.16 引入了更新，以改进功能、效率、安全性和兼容性。Satellite 6.16 现在支持在 Red Hat Enterprise Linux 9 上安装 Satellite Server 和 Capsule，并扩大了操作系统（OS）兼容性，同时增强了合规性功能。它还通过将单个内容视图同步到胶囊来节省时间、存储和带宽。这减少了 Satellite 和 Capsule 之间的内容视图和流量占用空间。Satellite 6.16 还添加了容器推送功能，以支持客户的容器依赖工作流，使 bootc 容器能够以安全的方式存储在本地。</p>
+<p>Image Builder 继续采用“shift left”方法，通过为客户提供预先强化的映像配置、节省时间并提高安全性，将安全测试和漏洞修复集成到开发过程的早期。它为用户提供了这些内置功能的好处，而无需成为安全专家;相反，他们可以专注于实现他们的业务目标。</p>
+<p>通过自动化降低复杂性</p>
+<p>Red Hat Enterprise Linux 管理工具继续简化系统管理，使组织能够自动执行手动任务、大规模标准化部署并降低系统复杂性。</p>
+<p>此外，Red Hat Enterprise Linux 9.5 现在为 Web 控制台提供了新的文件管理功能，允许用户在不使用命令行的情况下执行日常文件管理任务，例如浏览文件系统、上传和下载文件、更改权限和创建目录。</p>
+<p>更快的混合云操作，适用于大规模应用程序部署</p>
+<p>红帽企业 Linux 9.5 延续了红帽在平台级别推动容器原生创新的承诺，包含并完全支持最新版本的开源容器引擎 Podman 5.0。Podman 为开发人员提供了一个强大的开源工具，用于在 Linux 环境中构建、管理和运行容器。此主要版本引入了 Podman 场构建，因此开发人员可以通过单个命令在远程计算机上快速构建多平台映像，使组织能够跨各种平台高效测试和部署应用程序，从而缩短开发时间并提高可移植性。</p>
+<p>Red Hat Enterprise Linux 9.5 中的应用流提供了推动创新应用所需的最新精选开发人员工具、语言和数据库。Red Hat Enterprise Linux 9.5 包括 PG Vector for PostgreSQL、新版 node.js、GCC 工具集、Rust 工具集和 LLVM 工具集。</p>
+<p>此外，Java Dev Kit （JDK） 11 在 Red Hat Enterprise Linux 9 中已结束维护;Red Hat 将继续支持使用它的客户，并且这些软件包将保持可用。新的默认 JDK 17 为构建和管理现代 Java 应用程序提供了新功能和工具，同时保持向后兼容性，以保持应用程序和用户的 JDK 升级一致。</p>
+<p>可用性</p>
+<p>Red Hat Enterprise Linux 9.5 和 Red Hat Satellite 6.16 现已正式发布。</p>
+<p>Red Hat Enterprise Linux 9.5 可通过 Red Hat 的客户门户向所有订阅了 RHEL 的现有客户提供。</p>
+<h2 id="RHEL-9-发布公告">RHEL 9 发布公告</h2>
+<p>2022 年 5 月 18 日，IBM 收购的红帽公司宣布推出红帽企业 Linux 9 (RHEL 9)，这是世界领先的企业 Linux 平台的最新版本。RHEL 9 为支持混合云创新提供了更灵活、更稳定的基础，并为跨物理、虚拟、私有和公共云和边缘部署部署应用程序和关键工作负载提供了更快、更一致的体验。</p>
+<p>新增内容</p>
+<p>RHEL 9 包括功能和增强功能，可通过使用通用、灵活的基础来支持创新并加快上市时间，从而帮助实现 IT 的长期成功。</p>
+<p>主要特点和优势</p>
+<p>以下是 RHEL 9 中包含的一些亮点。</p>
+<ul>
+<li>
+<p>面向当今和未来的开发人员的新平台</p>
+<p>完成向 Python 3 的迁移，版本 3.9 将成为 RHEL 9 生命周期的默认 Python。Python 3.9 带来了一些新的增强功能，包括时区感知时间戳、最近的字符串前缀、后缀方法和字典联合操作，以帮助开发人员现代化现有的应用。</p>
+<p>RHEL 9 还使用 GCC 11 和最新版本的 LLVM、Rust 和 Go 编译器构建。RHEL 9 基于 glibc 2.34，具有 10 多年的企业级平台稳定性 (sysin)。</p>
+<p>最后，在 RHEL 中，链接时间优化 (LTO) 将首次在用户空间中默认启用，以对应用程序代码进行更深入的优化，以帮助构建更小、更高效的可执行文件。</p>
+</li>
+<li>
+<p>对未来 RHEL 版本的简单贡献路径</p>
+<p>组织现在可以开发、测试和贡献一个持续交付的发行版，该发行版在 RHEL 之前就可以跟踪。CentOS Stream 是一个上游开源开发平台，为下一个次要版本提供了无缝的贡献路径。RHEL 9 是第一个从 CentOS Stream 构建的 RHEL 主要版本，而 RHEL 9 Beta 最初是作为 CentOS Stream 9 提供的。所有未来的 RHEL 9 版本都将从 CentOS Stream 构建。</p>
+</li>
+<li>
+<p>下一代应用程序流</p>
+<p>在 RHEL 8 中引入应用程序流和模块打包的基础上，RHEL 9 中的所有打包方法都被合并到应用程序流中，包括模块、SCL、Flatpacks 和传统的 RPM，使其更易于使用。</p>
+</li>
+<li>
+<p>继续致力于多种架构支持</p>
+<p>开源软件通过防止工作负载被锁定到特定供应商，使用户能够更好地控制他们的数字化未来。RHEL 通过为需要不断发展的业务环境的用户启用不同的 CPU 架构，将这种控制扩展到源代码之外。无论您是在 x86_64、aarch64、IBM POWER9、Power10 还是 IBM Z 上运行工作负载，我们都能满足您的需求。</p>
+</li>
+<li>
+<p>容器改进</p>
+<p>如果您正在使用通用基础映像 (UBI) 容器映像构建应用程序，则需要查看 RHEL 9 UBI 映像。可以使用标准 UBI 映像，以及 micro、minimal 和 init 映像。要获得完整的体验，请在完全订阅的 RHEL 9 容器主机上测试 UBI 映像，从而允许您从 RHEL 9 存储库中提取额外的 RPM。</p>
+</li>
+<li>
+<p>边缘的 RHEL</p>
+<p>RHEL 9 引入了自动容器更新和回滚，从而扩展了自动更新容器映像的能力。Podman 现在可以检测更新的容器是否无法启动并自动回滚配置。与现有的操作系统级回滚一起，这为应用程序提供了新级别的可靠性。</p>
+</li>
+<li>
+<p>镜像生成器即服务</p>
+<p>RHEL 9 中的 Image Builder 增强功能可帮助组织节省时间并大规模提高系统一致性 (sysin)。借助新的 Image Builder as-a-Service，组织现在可以通过我们的托管服务构建标准化和优化的操作系统映像，并将其部署到选择的云提供商。</p>
+</li>
+<li>
+<p>身份和安全</p>
+<p>RHEL 9 添加的新功能有助于简化组织在部署新系统或管理现有基础架构时管理安全性和合规性的方式。RHEL 9 现在提供完整性测量架构 (IMA) 来动态验证操作系统的完整性，以检测它是否已被破坏。RHEL 9 也得到了增强，包括数字签名和哈希，可帮助组织检测整个基础架构中的恶意修改。</p>
+</li>
+<li>
+<p>自动化和管理</p>
+<p>组织现在可以访问 RHEL 9 Web 控制台中增强的性能指标页面，以帮助识别 CPU、内存、磁盘和网络资源使用高峰的潜在原因。此外，客户可以更轻松地将指标导出到 Grafana 服务器。还可以通过 Web 控制台进行内核实时补丁管理，以显着降低执行关键维护的复杂性。控制台还添加了一个简化的界面，用于在不使用命令行工具的情况下应用内核更新。</p>
+</li>
+<li>
+<p>预测分析</p>
+<p>Red Hat Insights 现在包含资源优化，它可以在公共云中正确调整 RHEL。资源优化通过评估性能指标来确定工作负载利用率来做到这一点。然后，Insights 提供可见性和建议，以针对工作负载需求优化到更合适的实例。Insights 还添加了恶意软件检测，这是一种安全评估，可分析整个企业的 RHEL 系统中已知的恶意软件签名，并提供风险的详细可见性。</p>
+</li>
+</ul>
+<p>其他资源</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://access.redhat.com/downloads/">下载最新版本</a></li>
+<li><a target="_blank" rel="noopener" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9">产品文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/9.0_release_notes/index">发行说明</a></li>
+<li><a target="_blank" rel="noopener" href="https://access.redhat.com/products/red-hat-enterprise-linux/">客户门户</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.redhat.com/en/about/press-releases/red-hat-defines-new-epicenter-innovation-red-hat-enterprise-linux-9">新闻稿</a></li>
+</ul>
+<h2 id="关于红帽企业-Linux-4">关于红帽企业 Linux</h2>
+<p>红帽® 企业 Linux® 是全球领先的企业 Linux 平台 *1，是可靠的开源操作系统（OS）。用户可基于这一平台，在裸机、虚拟环境、容器及各类云环境之间扩展现有应用并部署各种新兴技术。</p>
+<ul>
+<li>*1 操作系统及子系统 2018 年全球市场份额报告；2019 年 11 月发布。</li>
+</ul>
+<p>什么是红帽企业 Linux？</p>
+<p>红帽企业 Linux 是企业 Linux 操作系统，已获得数百个云服务及数千个供应商的认证。红帽企业 Linux 能够跨环境提供一致的基础，并提供帮助任何应用快速交付服务和工作负载所需的工具 (sysin)。红帽企业 Linux 可减少部署摩擦，降低成本，同时加速关键工作负载实现价值的时间，使开发和运维团队能够在任何环境中一起创新。</p>
+<h2 id="下载地址-342">下载地址</h2>
+<p>Red Hat Enterprise Linux 9.0<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1vfu7wIwQp8OywJyCjT_7oA?pwd=ebm4">https://pan.baidu.com/s/1vfu7wIwQp8OywJyCjT_7oA?pwd=ebm4</a></p>
+<table>
+<thead>
+<tr>
+<th>Architectures</th>
+<th>Image type</th>
+<th>File name</th>
+<th>Release date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x86_64</td>
+<td>DVD iso</td>
+<td>rhel-baseos-9.0-x86_64-dvd.iso</td>
+<td>May 17, 2022</td>
+<td>7.99 GB</td>
+</tr>
+<tr>
+<td>x86_64</td>
+<td>Boot iso</td>
+<td>rhel-baseos-9.0-x86_64-boot.iso</td>
+<td>May 17, 2022</td>
+<td>766 MB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>DVD iso</td>
+<td>rhel-baseos-9.0-aarch64-dvd.iso</td>
+<td>May 17, 2022</td>
+<td>6.37 GB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>Boot iso</td>
+<td>rhel-baseos-9.0-aarch64-boot.iso</td>
+<td>May 17, 2022</td>
+<td>723.65 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Red Hat Enterprise Linux 9.1</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1q83tzftSUbvslgFe-jF8ng?pwd=aadq">https://pan.baidu.com/s/1q83tzftSUbvslgFe-jF8ng?pwd=aadq</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Architectures</th>
+<th>Image type</th>
+<th>File name</th>
+<th>Release date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x86_64</td>
+<td>DVD iso</td>
+<td>rhel-baseos-9.1-x86_64-dvd.iso</td>
+<td>November 15, 2022</td>
+<td>8.44 GB</td>
+</tr>
+<tr>
+<td>x86_64</td>
+<td>Boot iso</td>
+<td>rhel-baseos-9.1-x86_64-boot.iso</td>
+<td>November 15, 2022</td>
+<td>805 MB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>DVD iso</td>
+<td>rhel-baseos-9.1-aarch64-dvd.iso</td>
+<td>November 15, 2022</td>
+<td>6.81 GB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>Boot iso</td>
+<td>rhel-baseos-9.1-aarch64-boot.iso</td>
+<td>November 15, 2022</td>
+<td>757.58 MB</td>
+</tr>
+</tbody>
+</table>
+<p>Red Hat Enterprise Linux 9.2</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1QqbDNA7Fr9VCo0GFOxzeew?pwd=x3ht">https://pan.baidu.com/s/1QqbDNA7Fr9VCo0GFOxzeew?pwd=x3ht</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Architectures</th>
+<th>Image type</th>
+<th>File name</th>
+<th>Release date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x86_64</td>
+<td>DVD iso</td>
+<td>rhel-9.2-x86_64-dvd.iso</td>
+<td>May 09, 2023</td>
+<td>8.94 GB</td>
+</tr>
+<tr>
+<td>x86_64</td>
+<td>Boot iso</td>
+<td>rhel-9.2-x86_64-boot.iso</td>
+<td>May 09, 2023</td>
+<td>865 MB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>DVD iso</td>
+<td>rhel-9.2-aarch64-dvd.iso</td>
+<td>May 09, 2023</td>
+<td>7.37 GB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>Boot iso</td>
+<td>rhel-9.2-aarch64-boot.iso</td>
+<td>May 09, 2023</td>
+<td>814.55 MB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Red Hat Enterprise Linux</strong> 9.3</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Etzft-a08xF620ggS4sbuw?pwd=?">https://pan.baidu.com/s/1Etzft-a08xF620ggS4sbuw?pwd=?</a>&lt;专享&gt;</li>
+<li>通过捐赠下载此版本：点击 💙<a href="https://sysin.org/img/alipay18.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay18.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言指定版本（默认当前最新版）</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Architectures</th>
+<th>Image type</th>
+<th>File name</th>
+<th>Release date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x86_64</td>
+<td>DVD iso</td>
+<td>rhel-9.3-x86_64-dvd.iso</td>
+<td>November 06, 2023</td>
+<td>9.81 GB</td>
+</tr>
+<tr>
+<td>x86_64</td>
+<td>Boot iso</td>
+<td>rhel-9.3-x86_64-boot.iso</td>
+<td>November 06, 2023</td>
+<td>901 MB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>DVD iso</td>
+<td>rhel-9.3-aarch64-dvd.iso</td>
+<td>November 06, 2023</td>
+<td>8.2 GB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>Boot iso</td>
+<td>rhel-9.3-aarch64-boot.iso</td>
+<td>November 06, 2023</td>
+<td>850.14 MB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Red Hat Enterprise Linux</strong> 9.4</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Etzft-a08xF620ggS4sbuw?pwd=?">https://pan.baidu.com/s/1Etzft-a08xF620ggS4sbuw?pwd=?</a>&lt;专享&gt;</li>
+<li>通过捐赠下载此版本：点击 💙<a href="https://sysin.org/img/alipay18.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay18.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言指定版本（默认当前最新版）</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Architectures</th>
+<th>Image type</th>
+<th>File name</th>
+<th>Release date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x86_64</td>
+<td>DVD iso</td>
+<td>rhel-9.4-x86_64-dvd.iso</td>
+<td>April 30, 2024</td>
+<td>10.32 GB</td>
+</tr>
+<tr>
+<td>x86_64</td>
+<td>Boot iso</td>
+<td>rhel-9.4-x86_64-boot.iso</td>
+<td>April 30, 2024</td>
+<td>991 MB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>DVD iso</td>
+<td>rhel-9.4-aarch64-dvd.iso</td>
+<td>April 30, 2024</td>
+<td>8.72 GB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>Boot iso</td>
+<td>rhel-9.4-aarch64-boot.iso</td>
+<td>April 30, 2024</td>
+<td>948.48 MB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Red Hat Enterprise Linux</strong> 9.5</p>
+<ul>
+<li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Etzft-a08xF620ggS4sbuw?pwd=?">https://pan.baidu.com/s/1Etzft-a08xF620ggS4sbuw?pwd=?</a>&lt;专享&gt;</li>
+<li>通过捐赠下载此版本：点击 💙<a href="https://sysin.org/img/alipay18.webp" target="_blank" alt="支付宝">支付宝</a> 或者 💚<a href="https://sysin.org/img/wechatpay18.webp" target="_blank" alt="微信支付">微信支付</a>，扫码备注邮箱（用于识别注册用户），<code>评论区留言指定版本（默认当前最新版）</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Architectures</th>
+<th>Image type</th>
+<th>File name</th>
+<th>Release date</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x86_64</td>
+<td>DVD iso</td>
+<td>rhel-9.5-x86_64-dvd.iso</td>
+<td>November 15, 2024</td>
+<td>11 GB</td>
+</tr>
+<tr>
+<td>x86_64</td>
+<td>Boot iso</td>
+<td>rhel-9.5-x86_64-boot.iso</td>
+<td>November 15, 2024</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>DVD iso</td>
+<td>rhel-9.5-aarch64-dvd.iso</td>
+<td>November 15, 2024</td>
+<td>9.5 GB</td>
+</tr>
+<tr>
+<td>aarch64</td>
+<td>Boot iso</td>
+<td>rhel-9.5-aarch64-boot.iso</td>
+<td>November 15, 2024</td>
+<td>1 GB</td>
+</tr>
+</tbody>
+</table>
+<p>如何获得此页面的所有版本包括后续更新版？点击下方的 “赞赏” 即可，谢谢。</p>
+<hr>
+<p>更多：<a href="/blog/linux/" title="Linux 产品链接汇总">Linux 产品链接汇总</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/blackmagic-design-davinci-resolve/" data-toggle="tooltip" data-placement="top" title="DaVinci Resolve Studio 19.1 (macOS, Windows) - 剪辑、调色、特效和音频后期制作">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/vmware-workstation-17-unlocker-windows/" data-toggle="tooltip" data-placement="top" title="VMware Workstation 17.6.1 Pro macOS Unlocker & OEM BIOS 2.7 for Windows">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/rhel-9/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BA%A2%E5%B8%BD%E4%BC%81%E4%B8%9A-Linux-9-5-%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">红帽企业 Linux 9.5 新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#RHEL-9-%E5%8F%91%E5%B8%83%E5%85%AC%E5%91%8A"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">RHEL 9 发布公告</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E%E7%BA%A2%E5%B8%BD%E4%BC%81%E4%B8%9A-Linux-4"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">关于红帽企业 Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-342"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

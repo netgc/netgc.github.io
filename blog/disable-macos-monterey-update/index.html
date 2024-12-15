@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> 如何彻底禁止 macOS Monterey 自动更新，去除更新标记和通知 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 如何彻底禁止 macOS Monterey 自动更新，去除更新标记和通知 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" 如何彻底禁止 macOS Monterey 自动更新，去除更新标记和通知 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/disable-macos-monterey-update/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header_m2.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header_m2.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header_m2.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header_m2.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header_m2.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+              
+              <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+              
+              <a class="tag" href="/tags/#AutoUpdate" title="AutoUpdate">AutoUpdate</a>
+              
+            </div>
+            <h1>如何彻底禁止 macOS Monterey 自动更新，去除更新标记和通知</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by sysin on
+              2022-07-21
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">11</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Thu Jul 21 2022 07:45:22 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>禁用 macOS 更新系列文章：</p>
+<ul>
+<li>
+<a href="/blog/disable-macos-sonoma-update/" title="如何彻底禁止 macOS Sonoma 自动更新，去除更新标记和通知">如何彻底禁止 macOS Sonoma 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-macos-ventura-update/" title="如何彻底禁止 macOS Ventura 自动更新，去除更新标记和通知">如何彻底禁止 macOS Ventura 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-macos-monterey-update/" title="如何彻底禁止 macOS Monterey 自动更新，去除更新标记和通知">如何彻底禁止 macOS Monterey 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-macos-big-sur-update/" title="如何彻底禁止 macOS Big Sur 自动更新，去除更新标记和通知">如何彻底禁止 macOS Big Sur 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-macos-catalina-update/" title="如何彻底禁止 macOS Catalina 自动更新，去除更新标记和通知">如何彻底禁止 macOS Catalina 自动更新，去除更新标记和通知</a>
+</li>
+</ul>
+<p>随着 <a href="https://sysin.org/blog/macOS-Monterey/">macOS Monterey 12.5</a> 的发布，macOS Monterey 的功能和性能已经大幅改善，达到了当前版本的最佳状态，Monterey 更新的使命已经完成，是时候屏蔽自动更新了！建议普通用户长期保持该版本直到 13.5 的发布。macOS 爱好者和开发者可以转战 <a href="https://sysin.org/blog/macOS-Ventura/">Ventura</a>。</p>
+<p><img src="macos-software-update.webp" alt="macos-software-update"><br>
+<em>图：屏蔽更新后的效果</em></p>
+<p><strong>如果您想快速屏蔽更新，只需要查看 “3.1 编辑 hosts 文件，添加如下内容” 此章节即可。</strong></p>
+<blockquote>
+<p><strong>提示</strong>：</p>
+<p>以下步骤不是完全必要，但是全部执行可以确保解决顽固性的更新通知角标出现。</p>
+<p>本文针对 macOS Monterey，低版本或者更新版本有限适用。</p>
+<p>如果是新安装系统，暂时不要联网，可以确保完美屏蔽更新。</p>
+</blockquote>
+<h2 id="1-取消自动更新选项-3">1. 取消自动更新选项</h2>
+<p>请选取苹果菜单  &gt;&gt; “系统偏好设置”，然后点按 “软件更新”。</p>
+<p>取消勾选：“自动保持我的 Mac 运行最新版本”</p>
+<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchla7037245/mac">在 Mac 上更改 “软件更新” 偏好设置</a></p>
+<h2 id="2-macOS-Monterey-如何进行自动更新">2. macOS Monterey 如何进行自动更新</h2>
+<p>路径：检测 &gt; 通知 &gt; 下载</p>
+<ul>
+<li>
+<p>检测：进程 <code>/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated</code> 访问 Apple 相关 URL 检测软件更新；</p>
+<p>要访问的域名主要如下：<br>
+<a target="_blank" rel="noopener" href="http://swdist.apple.com">swdist.apple.com</a><br>
+<a target="_blank" rel="noopener" href="http://swscan.apple.com">swscan.apple.com</a><br>
+<a target="_blank" rel="noopener" href="http://swcdn.apple.com">swcdn.apple.com</a><br>
+<a target="_blank" rel="noopener" href="http://xp.apple.com">xp.apple.com</a></p>
+</li>
+<li>
+<p>检测：进程 <code>/usr/libexec/mobileassetd</code> 访问 Apple 相关 URL 检测软件更新（该项为 Monterey 新增）；</p>
+<p>要访问的域名主要如下：<br>
+<a target="_blank" rel="noopener" href="http://gdmf.apple.com">gdmf.apple.com</a><br>
+<a target="_blank" rel="noopener" href="http://xp.apple.com">xp.apple.com</a></p>
+</li>
+<li>
+<p>通知：进程 <code>/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Versions/A/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager</code> 负责通知，产生系统更新标记（小红点）；</p>
+</li>
+<li>
+<p>下载：进程 <code>/usr/libexec/nsurlsessiond</code> 主要负责下载软件更新 (sysin)。</p>
+<p>要访问的域名主要如下：<br>
+<a target="_blank" rel="noopener" href="http://mesu.apple.com">mesu.apple.com</a><br>
+<a target="_blank" rel="noopener" href="http://updates.cdn-apple.com">updates.cdn-apple.com</a></p>
+</li>
+</ul>
+<blockquote>
+<p>注意：以上为笔者粗略分析，具体进程执行的功能仅供参考，但屏蔽方法是有效的。</p>
+</blockquote>
+<p>所以要屏蔽自动更新和更新标记出现，解决方案如下：</p>
+<p><strong>检测（屏蔽网络访问） &gt; 通知（取消执行权限） &gt; 下载（屏蔽网络访问）。</strong></p>
+<h2 id="3-屏蔽网络访问-3">3. 屏蔽网络访问</h2>
+<h3 id="3-1-编辑-hosts-文件，添加如下内容-3">3.1 编辑 hosts 文件，添加如下内容</h3>
+<p>手动编辑：打开终端，执行命令 <code>sudo vi /etc/hosts</code>，添加以下条目：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Mac Software Update (sysin)</span></span></span><br><span class="line">127.0.0.1 swdist.apple.com</span><br><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com</span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br></pre></td></tr></table></figure>
+<p><img src="hosts.webp" alt="hosts"><br>
+<em>图：<code>sudo vi /etc/hosts</code> 添加的内容</em></p>
+<p>或者使用 <a target="_blank" rel="noopener" href="https://github.com/oldj/SwitchHosts/releases">SwitchHosts</a>（免费软件）。</p>
+<p><img src="switchhosts.webp" alt="switchhosts"></p>
+<p><em>注意：SwitchHosts 最后要空一行。</em></p>
+<p><strong>一般到此步骤即可发生作用，自动更新已经被屏蔽（下文部分可以忽略^_^）。</strong></p>
+<blockquote>
+<p>例外：如果使用了系统代理或者虚拟专用网，将绕过本地 DNS 设置，仅仅设置 hosts 仍然会检测到更新。</p>
+</blockquote>
+<h3 id="3-2-或者（或同时）使用防火墙软件屏蔽-3">3.2 或者（或同时）使用防火墙软件屏蔽</h3>
+<p>例如 Little Snitch，这是一个商业软件。</p>
+<ul>
+<li>
+<p>新建规则 1：禁止 nsurlsessiond 出站访问</p>
+<p>Process Name：<code>/usr/libexec/nsurlsessiond</code></p>
+<p>Deny Outgoing Connections</p>
+<p>To: Any Server</p>
+</li>
+<li>
+<p>新建规则 2：禁止 mobileassetd 出站访问</p>
+<p>Process Name：<code>/usr/libexec/mobileassetd</code></p>
+<p>Deny Outgoing Connections</p>
+<p>To: Any Serve</p>
+</li>
+<li>
+<p>新建规则 3：禁止 softwareupdated 出站访问</p>
+<p>Process Name：<code>/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated</code></p>
+<p>Deny Outgoing Connections</p>
+<p>To: Any Server</p>
+</li>
+</ul>
+<blockquote>
+<p>备注：</p>
+<p>在 macOS Big Sur 进程为：<code>/System/Library/PrivateFrameworks/MobileSoftwareUpdate.framework/Support/softwareupdated</code></p>
+<p>在 macOS Catalina 进程为：<code>/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated</code></p>
+<p>但 softwareupdated 具体功能似乎有所差异。</p>
+</blockquote>
+<h2 id="4-清除系统更新标记（红点-1）-2">4. 清除系统更新标记（红点 1）</h2>
+<h3 id="4-1-临时清除系统更新标记-2">4.1 临时清除系统更新标记</h3>
+<p>如果已经检测到更新，可以使用如下方法临时去除更新通知标记。</p>
+<p>打开 “终端”，执行如下命令（可能需要重启才能生效）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></table></figure>
+<p><strong>经过测试在 Monterey 中进行 hosts 屏蔽后再次检查软件更新，会自动清除更新标记。</strong></p>
+<h3 id="4-2-修改权限">4.2 修改权限</h3>
+<p>该步骤适用于 macOS Big Sur 和 macOS Monterey。</p>
+<p>macOS Big Sur 相对于之前的版本，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204899">系统完整性保护</a>进一步增强，无法在“恢复模式”下修改下述文件的权限。操作略嫌复杂，步骤如下。</p>
+<ol>
+<li>
+<p>确保 FileVault 已经禁用（默认禁用），在 ” &gt;&gt; 系统偏好设置… &gt;&gt; 安全性和隐私 &gt;&gt; 文件保险箱” 查看确认。</p>
+</li>
+<li>
+<p>进入恢复模式（启动到 recoveryOS），打开终端执行如下命令：</p>
+<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201314">关于 macOS 恢复功能</a>：重启电脑，在黑屏的时候按住 command + R 进入恢复模式（可以按住 command + R 不放，直到 Apple logo 画面出现，即可进入恢复模式），然后点击菜单栏 “实用工具 &gt;&gt; 终端”。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">csrutil authenticated-root disable</span><br><span class="line">csrutil disable</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>正常重启到 macOS。</p>
+</li>
+<li>
+<p>通过执行 <code>mount</code> 命令查找要挂载的设备（这里定义为 <code>&lt;DISK_PATH&gt;</code> ）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mount</span></span><br><span class="line">/dev/disk1s5s1 on / (apfs, sealed, local, read-only, journaled)</span><br></pre></td></tr></table></figure>
+<p>注意：这里的 / 目录的的设备名称显示 <code>/dev/disk1s5s1</code>，那么应该挂载的设备名称是 <code>/dev/disk1s5</code>，s1 表示 “Snapshot 1”（APFS 快照）：</p>
+</li>
+<li>
+<p>创建一个新目录用于挂载（这里定义为 <code>&lt;MOUNT_PATH&gt;</code> ）：</p>
+<p>例如：~/mount</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p -m777 ~/mount</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>执行挂载：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o nobrowse -t apfs &lt;DISK_PATH&gt; &lt;MOUNT_PATH&gt;</span><br></pre></td></tr></table></figure>
+<p>例如使用上面的值：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o nobrowse -t apfs /dev/disk1s5 ~/mount</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在 <code>&lt;MOUNT_PATH&gt;</code> 下修改文件。</p>
+<p>例如 (sysin)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/mount</span><br><span class="line">sudo chmod 644 System/Library/PrivateFrameworks/SoftwareUpdate.framework/Versions/A/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>执行 <code>sudo bless --folder &lt;MOUNT_PATH&gt;/System/Library/CoreServices --bootefi --create-snapshot</code>。</p>
+<p>注意：将 <code>&lt;MOUNT_PATH&gt;</code> 修改为实际路径如 <code>~/mount</code>。</p>
+</li>
+<li>
+<p>重启系统生效。</p>
+<p>在正常启动系统后验证。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /System/Library/PrivateFrameworks/SoftwareUpdate.framework/Versions/A/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager</span><br><span class="line">-rw-r--r--  1 root  wheel  668960  2 26 15:05 /System/Library/PrivateFrameworks/SoftwareUpdate.framework/Versions/A/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager</span><br></pre></td></tr></table></figure>
+<p>此时，即使不做任何屏蔽操作，可以正常检测软件更新，但不会出现更新标记（红点数字1）！</p>
+</li>
+<li>
+<p>开启 SIP</p>
+</li>
+</ol>
+<p>最后要恢复 “系统完整性保护”，进入恢复模式（启动到 recoveryOS），打开终端执行如下命令：</p>
+<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201314">关于 macOS 恢复功能</a>：重启电脑，在黑屏的时候按住 command + R 进入恢复模式（可以按住 command + R 不放，直到 Apple logo 画面出现，即可进入恢复模式），然后点击菜单栏 “实用工具 &gt;&gt; 终端”。</p>
+   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">csrutil enable</span><br><span class="line">csrutil authenticated-root disable</span><br></pre></td></tr></table></figure>
+<p>在当前新版本中，执行 <code>csrutil enable</code> 将自动配置 <code>csrutil authenticated-root enable</code> 即不允许从修改过的 snapshots 启动，所以需要同时执行 <code>csrutil authenticated-root disable</code> 否则修改无效。</p>
+<p>重启完毕。</p>
+<hr>
+<p>提示：在 macOS Catalina 中只需要在 recoveryOS 操作即可，步骤如下：</p>
+<ol>
+<li>
+<p>进入恢复模式（启动到 recoveryOS）：</p>
+<p>重启电脑，在黑屏的时候按住 command + R 进入恢复模式（可以按住 command + R 不放，直到 apple logo 画面出现）</p>
+<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201314">关于 macOS 恢复功能</a></p>
+</li>
+<li>
+<p>打开 “终端”（Utilities (实用工具) -&gt; Terminal（终端））：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到系统所在卷，默认名称是 “Macintosh HD”</span></span><br><span class="line">cd /Volumes/Macintosh\ HD</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果修改了名称，假如系统卷名称是 Mac</span></span><br><span class="line">cd /Volumes/Mac</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>取消 SoftwareUpdateNotificationManager 可执行权限（默认权限位是 755）：</p>
+<p>检测系统更新时该进程一直在运行，即使屏蔽了网络访问，仍然可能出现通知标记，所以修改它的可执行权限来禁止它运行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 System/Library/PrivateFrameworks/SoftwareUpdate.framework/Versions/A/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>退出终端，重启电脑，操作完毕。</p>
+</li>
+</ol>
+<h2 id="5-如果需要更新-3">5. 如果需要更新</h2>
+<p>并不建议采用补丁加补丁的方式在线更新，虽然操作省事，容易导致系统卡顿，出现异常，甚至出现未知故障，可以使用完整软件包升级或者全新安装：</p>
+<ul>
+<li>
+<p>下载本站 macOS 镜像，完整安装：</p>
+<p><a href="https://sysin.org/blog/macOS/">macOS 下载汇总</a><br>
+<a href="https://sysin.org/blog/macOS-Monterey/">macOS Monterey 下载</a></p>
+</li>
+<li>
+<p>或者取消上述第 3 条的屏蔽，访问 App Store 下载 macOS 完整软件包，下载后会自动保存在“应用程序”下面，直接安装即可。</p>
+</li>
+</ul>
+<h2 id="6-禁用-App-Store-更新-2">6. 禁用 App Store 更新</h2>
+<h3 id="6-1-取消-“自动更新”">6.1 取消 “自动更新”</h3>
+<p>App Store &gt; 偏好设置…，取消勾选 “自动更新”（默认）。</p>
+<h3 id="6-2-清除更新标记（数字角标）-2">6.2 清除更新标记（数字角标）</h3>
+<p>如果已经检测到更新，App Store 图标上出现红点数字，打开终端执行如下命令可以清除：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.appstored.plist BadgeCount 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></table></figure>
+<p>App Store 左侧的更新条目通知也会清空。</p>
+<h3 id="6-3-禁用标记-App-图标（禁用数字角标）">6.3 禁用标记 App 图标（禁用数字角标）</h3>
+<p>系统偏好设置… &gt; 通知与专注模式，通知，选择 “App Store” 取消勾选 “标记 App 图标”（也可以完全关闭该项通知）。</p>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/devicemanagement/appstore">https://developer.apple.com/documentation/devicemanagement/appstore</a></p>
+</blockquote>
+<h3 id="6-4-可选步骤（仅供参考）">6.4 可选步骤（仅供参考）</h3>
+<p><strong>上述步骤已经可以禁用更新了，以下内容是非必要的，一般忽略即可。</strong></p>
+<p>但是如果检测到了更新以下两处仍然会有提示（非 MAS App 不受影响）：</p>
+<ul>
+<li>Apple logo 菜单下的 App Store… 会提示有 “x项更新” （可以重复 “6.2 清除更新标记（数字角标）”）</li>
+<li>打开 App Store 右侧会提示可更新的 App 列表</li>
+</ul>
+<h4 id="禁用全局-App-更新通知-2">禁用全局 App 更新通知</h4>
+<p><strong>编辑 hosts 文件，添加如下内容</strong>：</p>
+<p>手动编辑：打开终端，执行命令<code>sudo vi /etc/hosts</code>，添加以下条目：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 gsp64-ssl.ls.apple.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>备注：以上地址为笔者实际检测地址，因网络环境差异，地址可能有所差异，如果无效请反馈。使用防火墙屏蔽进程可以彻底解决该问题。</p>
+</blockquote>
+<p>或者使用 <a target="_blank" rel="noopener" href="https://github.com/oldj/SwitchHosts/releases">SwitchHosts</a>（免费软件）。</p>
+<p><strong>或者（或同时）使用防火墙软件屏蔽</strong>：</p>
+<p>例如 Little Snitch，这是一个商业软件。</p>
+<ul>
+<li>
+<p>新建规则 1：禁止下载更新相关的数据</p>
+<p>Process Name：<code>/usr/libexec/nsurlsessiond</code></p>
+<p>Deny  Outgoing Connections</p>
+</li>
+</ul>
+<p><strong>App Store 更新 App 时可能需要访问以下主机</strong>：</p>
+<p>以下是 Apple 官方提供的列表，请根据需要屏蔽。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">主机</th>
+<th>端口</th>
+<th>协议</th>
+<th style="text-align:left">OS</th>
+<th style="text-align:left">描述</th>
+<th>支持代理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">*.itunes.apple.com</td>
+<td>443、80</td>
+<td>TCP</td>
+<td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
+<td style="text-align:left">商店内容，如 App、图书和音乐</td>
+<td>是</td>
+</tr>
+<tr>
+<td style="text-align:left">*.apps.apple.com</td>
+<td>443</td>
+<td>TCP</td>
+<td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
+<td style="text-align:left">商店内容，如 App、图书和音乐</td>
+<td>是</td>
+</tr>
+<tr>
+<td style="text-align:left">*.mzstatic.com</td>
+<td>443</td>
+<td>TCP</td>
+<td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
+<td style="text-align:left">商店内容，如 App、图书和音乐</td>
+<td>—</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://itunes.apple.com">itunes.apple.com</a></td>
+<td>443、80</td>
+<td>TCP</td>
+<td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
+<td style="text-align:left"></td>
+<td>是</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://ppq.apple.com">ppq.apple.com</a></td>
+<td>443</td>
+<td>TCP</td>
+<td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
+<td style="text-align:left">企业 App 验证</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="禁用单个-App-更新通知-2">禁用单个 App 更新通知</h4>
+<p>打开 Finder（访达），浏览到侧边栏 Applications（应用程序），找到不需要更新的 App，点击右键 “显示包内容”，此时出现 Content 文件夹，展开该文件夹，可以看到下面有个 <strong>_MASReceipt</strong> 文件夹，下面有个 <strong>receipt</strong> 文件。将 <strong>receipt</strong> 文件内容清空或者直接将 <strong>_MASReceipt</strong> 文件夹删除，即可禁用该 App 自动检测 App Store 软件更新（有限支持）。</p>
+<p>在终端中执行的示例，这里以微信（WeChat）为例：</p>
+<ul>
+<li>清空 <strong>receipt</strong> 文件内容：<code>echo '' &gt; /Applications/WeChat.app/Contents/_MASReceipt/receipt</code></li>
+<li>或者删除 <strong>_MASReceipt</strong> 文件夹：<code>rm -rf /Applications/WeChat.app/Contents/_MASReceipt/</code></li>
+</ul>
+<h2 id="附录-8">附录</h2>
+<p>相关文章：</p>
+<ul>
+<li>
+<a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a>
+</li>
+<li>
+<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a>
+</li>
+<li>
+<a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
+</li>
+</ul>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/vmware-horizon-8-2206/" data-toggle="tooltip" data-placement="top" title="VMware Horizon 8 2206 - 虚拟桌面基础架构 (VDI) 和应用软件">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/cisco-acisim-5/" data-toggle="tooltip" data-placement="top" title="Cisco ACI Simulator 5.2(5c) - ACI 模拟器">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/disable-macos-monterey-update/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%8F%96%E6%B6%88%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E9%80%89%E9%A1%B9-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 取消自动更新选项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-macOS-Monterey-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. macOS Monterey 如何进行自动更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%B1%8F%E8%94%BD%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE-3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 屏蔽网络访问</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E7%BC%96%E8%BE%91-hosts-%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9-3"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 编辑 hosts 文件，添加如下内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E6%88%96%E8%80%85%EF%BC%88%E6%88%96%E5%90%8C%E6%97%B6%EF%BC%89%E4%BD%BF%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99%E8%BD%AF%E4%BB%B6%E5%B1%8F%E8%94%BD-3"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 或者（或同时）使用防火墙软件屏蔽</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E6%B8%85%E9%99%A4%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E7%BA%A2%E7%82%B9-1%EF%BC%89-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 清除系统更新标记（红点 1）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-1-%E4%B8%B4%E6%97%B6%E6%B8%85%E9%99%A4%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0-2"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">4.1 临时清除系统更新标记</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-2-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">4.2 修改权限</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E6%9B%B4%E6%96%B0-3"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 如果需要更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E7%A6%81%E7%94%A8-App-Store-%E6%9B%B4%E6%96%B0-2"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 禁用 App Store 更新</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-1-%E5%8F%96%E6%B6%88-%E2%80%9C%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E2%80%9D"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">6.1 取消 “自动更新”</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-2-%E6%B8%85%E9%99%A4%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E6%95%B0%E5%AD%97%E8%A7%92%E6%A0%87%EF%BC%89-2"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">6.2 清除更新标记（数字角标）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-3-%E7%A6%81%E7%94%A8%E6%A0%87%E8%AE%B0-App-%E5%9B%BE%E6%A0%87%EF%BC%88%E7%A6%81%E7%94%A8%E6%95%B0%E5%AD%97%E8%A7%92%E6%A0%87%EF%BC%89"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">6.3 禁用标记 App 图标（禁用数字角标）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-4-%E5%8F%AF%E9%80%89%E6%AD%A5%E9%AA%A4%EF%BC%88%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%EF%BC%89"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">6.4 可选步骤（仅供参考）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%85%A8%E5%B1%80-App-%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-2"><span class="toc-nav-number">6.4.1.</span> <span class="toc-nav-text">禁用全局 App 更新通知</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%8D%95%E4%B8%AA-App-%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5-2"><span class="toc-nav-number">6.4.2.</span> <span class="toc-nav-text">禁用单个 App 更新通知</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95-8"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">附录</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+            
+            <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+            
+            <a class="tag" href="/tags/#AutoUpdate" title="AutoUpdate">AutoUpdate</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+    <script type="text/javascript">
+      // Originial
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2bb536d3dd0b9939875b1491d84cce9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  <!-- Baidu Push -->
+  
+    <script>
+      (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  
+  
+  
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title> 使用 DFU 模式修复或恢复 Mac 固件 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 使用 DFU 模式修复或恢复 Mac 固件 - sysin | SYStem INside | 软件与技术分享 "/>
+  <meta name="keyword" content=" 使用 DFU 模式修复或恢复 Mac 固件 "/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://sysin.org/blog/apple-silicon-mac-dfu/">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- reward start -->
+      <link rel="stylesheet" href="/css/donate.css"/>
+      <!-- reward end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- waline start -->
+      <script type="text/javascript" src="/js/waline.js"></script>
+      <!-- <script type="text/javascript" src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script> -->
+      <link rel="stylesheet" href="/css/waline.css"/>
+      <!-- <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/> -->
+      <!-- waline end -->
+    
+
+    
+
+    
+
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css"> -->
+  <!-- GC change CDN to local: css/font-awesome.min.css & fonts/fontawesome-webfont.* 5 file-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <!-- ThemeColor Icon -->
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/> -->
+  <link rel="stylesheet" href="/css/google-icon.css" type="text/css"/>
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="sysin" type="application/atom+xml">
+<link rel="alternate" href="/feed.xml" title="sysin" type="application/rss+xml">
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" ><img src="/img/logo.png" width="64" alt="sysin" height="64" border="0" style="vertical-align:middle"></a>
+      <!-- <a class="navbar-brand" href="/">sysin</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">首页</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              关于
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              分类
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/donate/">
+              
+              捐助
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              标签
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>搜索</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: url('/img/article_header/article_header_m4.jpg');
+      --intro-header-background-image-url-page: url('//img/article_header/article_header_m4.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/article_header/article_header_m4.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/article_header/article_header_m4.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/article_header/article_header_m4.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+              
+              <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+              
+              <a class="tag" href="/tags/#DFU" title="DFU">DFU</a>
+              
+            </div>
+            <h1>使用 DFU 模式修复或恢复 Mac 固件</h1>
+            <h2 class="subheading">搭载 Apple 芯片的 Mac 电脑 DFU 模式全新安装 macOS</h2>
+            <span class="meta">
+              Posted by sysin on
+              2024-11-18
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">20</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">5.5k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 post-container">
+
+        <!-- pageview_count start -->
+        
+        <div style="color:gray" align="left">
+        更新日期：Mon Nov 18 2024 08:00:20 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        <script type="module">
+          import { pageviewCount } from '/js/pageview.mjs';
+          pageviewCount({
+            serverURL: 'https://discuss.sysin.org',
+            path: window.location.pathname,
+            // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
+            // selector: 'waline-pageview-count',
+            // 可选的，是否在获取时增加访问量，默认为 `true`
+            // update: true,
+          });
+        </script>
+        </div>
+        
+        <!-- pageview_count end -->
+
+        <!-- toppromotion start -->
+        
+        <!-- toppromotion end -->
+
+        <p>请访问原文链接：<a href="/blog/apple-silicon-mac-dfu/" title="使用 DFU 模式修复或恢复 Mac 固件">使用 DFU 模式修复或恢复 Mac 固件</a> 查看最新版。原创作品，转载请保留出处。</p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<hr>
+<p>Mac computers with Apple silicon，简称 Apple silicon Mac，中文翻译为 “搭载 Apple 芯片的 Mac 电脑”。</p>
+<p><img src="mac-card-100-customize-202310.webp" alt="一系列 Mac 机型，展示不同的尺寸和设计。"></p>
+<blockquote>
+<p>2024.11.18 参照更新的官方文档全新逻辑重写了步骤，更加简介，也无需按每年发布的新硬件修改，除非出现重大更新。</p>
+<p>2024.05.01 更正 iMac 进入 DFU 模式的步骤。感谢热心读者的反馈！</p>
+<p>2023.11.04 更新，增加了新机型：搭载 M3 芯片的新款 14、16 英寸 MacBook Pro 和 24 英寸 iMac（2023 年 11 月 7 日发售）</p>
+<p>2023.06.13 更新，增加了新机型：搭载 Apple 芯片的新款 15 英寸 MacBook Air、Mac Studio 和 Mac Pro（2023 年 6 月 13 日开售）。</p>
+<p>2023.02.07 更新，增加了新机型 MacBook Pro（14、16 英寸，M2 Pro/M2 Max，2023 年）和 Mac mini (M2/M2 Pro 2023 年)。</p>
+<p>2022.08.17 更新：增加了新机型 Mac Studio（2022 年）、MacBook Pro（13 英寸，M2，2022 年）和 MacBook Air（M2，2022 年）。</p>
+<p>2021.11.28 更新：增加了新机型 2021 款搭载 Apple 芯片的 14 英寸或 16 英寸 MacBook Pro。</p>
+<p>2021.05.25 更新：增加了新机型 iMac (24 英寸, M1, 2021 年) 相关内容。</p>
+<p>本文最初基于 2020 年搭载 Apple M1 芯片的 Mac 写作，新版硬件相关特性可能有所变更，若有不当之处请指正，谢谢。</p>
+</blockquote>
+<h2 id="一、了解-Apple-silicon-Mac-的新特性">一、了解 Apple silicon Mac 的新特性</h2>
+<p>与基于 Intel 处理器的 Mac 相比，搭载 Apple 芯片 Mac 在系统和固件方面有一定的变化。</p>
+<p>1、<strong>了解 Apple silicon Mac 机型</strong></p>
+<p>本任务适用以下搭载 Apple 芯片的 Mac 电脑：</p>
+<p>从 2020 年末推出的某些机型开始，Apple 开启了 Mac 电脑从 Intel 处理器到 Apple 芯片的过渡。2023 年 6 月搭载 Apple 芯片的新款 15 英寸 MacBook Air、Mac Studio 和 Mac Pro 现已正式发售。随着 Mac Pro 配备 M2 Ultra 芯片，Mac 产品系列过渡至 Apple 芯片的计划至此大功告成。</p>
+<p>搭载 Apple 芯片的 Mac 电脑：</p>
+<ul>
+<li>在 2021 年或之后推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">MacBook Pro</a>，以及 MacBook Pro（13 英寸，M1，2020 年）</li>
+<li>在 2022 年或之后推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">MacBook Air</a>，以及 MacBook Air（M1，2020 年）</li>
+<li>在 2021 年或之后推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">iMac</a></li>
+<li>在 2020 年或之后推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201894">Mac mini</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT213073">Mac Studio</a></li>
+<li>在 2023 年或之后推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202888">Mac Pro</a></li>
+</ul>
+<p>在搭载 Apple 芯片的 Mac 电脑上，“关于本机” 会显示一个标有 “芯片” 的项目并跟有相应芯片的名称：</p>
+<p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/zh_CN/mac/macos-ventura-mac-mini-m2-pro-2023-apple-menu-about-this-mac.png" alt="关于本机"></p>
+<p>要打开 “关于本机”，请选取苹果菜单  &gt; “关于本机”。</p>
+<p>在搭载 Intel 处理器的 Mac 电脑上，“关于本机” 会显示一个标有 “处理器” 的项目并跟有 Intel 处理器的名称。搭载 Intel 处理器的 Mac 也称为基于 Intel 的 Mac。</p>
+<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">搭载 Apple 芯片的 Mac 电脑</a></p>
+<p>2、<strong>macOS Recovery 启动方式不同</strong></p>
+<ul>
+<li><strong>Apple 芯片</strong>：将 Mac 开机并继续按住电源按钮，直至看到启动选项窗口 (sysin)，其中包含一个标有 “选项”（Option）字样的齿轮图标。选择 “选项”，然后点按 “继续”。</li>
+<li><strong>Intel 处理器</strong>：确保您的 Mac 已连接到互联网。然后，将 Mac 开机并立即按住 Command (⌘) + R，直至看到 Apple 标志或其他图像。</li>
+</ul>
+<p><img src="apple-ailicon-macos-recovery.webp" alt="macOS Recovery"><br>
+<em>Apple silicon Mac 启动管理器</em></p>
+<p>3、<strong>Apple silicon System Recovery（新特性）</strong></p>
+<p>Apple silicon System Recovery 是除了 macOS Recovery 之外的一个新的隐藏恢复选项。如果由于某种原因 macOS Recovery 损坏，System recovery 将与 macOS Recovery 相同的方式加载 (sysin)。您可以使用它重新安装 macOS 和 macOS Recovery。</p>
+<p>如果 macOS 和 System Revovery 都被破坏：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211868">如果您的 Mac 在启动时出现一个圆圈围绕的感叹号</a></p>
+<p>4、<strong>Internet Recovery 已废弃</strong></p>
+<p>对比：</p>
+<ul>
+<li>
+<p><strong>Apple 芯片</strong>：不存在</p>
+</li>
+<li>
+<p><strong>Intel 处理器</strong>：</p>
+<ul>
+<li>Option-Command-R：通过互联网从 macOS 恢复启动。使用此按键组合来重新安装 macOS 并升级到与您 Mac 兼容的最新版本 macOS。</li>
+<li>Option-Shift-Command-R：通过互联网从 macOS 恢复启动。使用此按键组合来重新安装随 Mac 预装的 macOS 版本或仍可用的最接近版本。</li>
+</ul>
+</li>
+</ul>
+<p>5、<strong>Mac Sharing Mode（共享磁盘模式）替代了 Target Disk Mode（目标磁盘模式）</strong></p>
+<p>注意：建议使用雷雳 3 或雷雳 4 连接线，否则速度堪忧 (sysin)。</p>
+<ul>
+<li>
+<p><strong>Apple 芯片</strong>：长按电源键进入 “选项” &gt; 进入恢复模式 &gt; 菜单 “实用工具” &gt; “共享磁盘”。<br>
+链接：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchlb37e8ca7/11.0/mac/11.0">在搭载 Apple 芯片的 Mac 和另一台 Mac 之间传输文件</a></p>
+<ol>
+<li>用 USB、USB-C 或雷雳线缆将两台电脑连接起来。</li>
+<li>在搭载 Apple 芯片的 Mac 上，选取苹果菜单  &gt; “关机”。</li>
+<li>按住电源按钮直至 “正在载入启动选项” 出现。</li>
+<li>点按 “选项”，然后点按 “继续”。<br>
+如有要求，请输入管理员帐户的密码。<br>
+Mac 将以恢复模式打开。</li>
+<li>选取 “实用工具” &gt; “共享磁盘”。</li>
+<li>选择要共享的磁盘或宗卷，然后点按 “开始共享”。</li>
+<li>在另一台 Mac 上，打开 “访达” 窗口，然后点按边栏中的 “网络”（在 “位置” 下方）。</li>
+<li>在 “网络” 窗口中，连按含共享磁盘或宗卷的 Mac，点按 “连接身份”，在 “连接身份” 窗口中选择 “客人”，然后点按 “连接”。</li>
+<li>传输文件。</li>
+<li>文件传输完成后，推出另一台 Mac 上的磁盘。</li>
+</ol>
+</li>
+<li>
+<p><strong>Intel 处理器</strong>：同时按住电源键和 T 键。<br>
+链接：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchlp1443/11.0/mac/11.0">使用目标磁盘模式在两台 Mac 电脑之间传输文件</a></p>
+<ol>
+<li>用 FireWire 或雷雳线缆将两台电脑连接起来。</li>
+<li>在要以目标磁盘模式用作磁盘的 Mac 上，请执行以下一项操作：
+<ul>
+<li>如果电脑关闭，则在按住 T 键的同时启动它。</li>
+<li>如果电脑已开机，请选取苹果菜单  &gt; “系统偏好设置”，点按 “启动磁盘”，然后点按 “目标磁盘模式”。<br>
+当电脑启动后，就会在另一台电脑的桌面上出现一个磁盘图标。</li>
+</ul>
+</li>
+<li>您可以将文件拖入或拖出磁盘来传输它们。</li>
+<li>将磁盘图标拖移到废纸篓，将其推出。<br>
+在拖移时，废纸篓图标会变为 “推出” 图标。</li>
+<li>在用作磁盘的 Mac 上，按下电源按钮将它关闭，然后断开电缆连接。</li>
+</ol>
+</li>
+</ul>
+<p>6、<strong>安全模式（启动方式不同）</strong></p>
+<p>操作方式如下 (sysin)：</p>
+<ul>
+<li>
+<p>以安全模式启动配备 Intel 处理器的 Mac</p>
+<ol>
+<li>在 Mac 上，选取苹果菜单  &gt; “关机”。<br>
+Mac 关机后，等待 10 秒钟。</li>
+<li>重新启动 Mac，然后立即按住 Shift 键。</li>
+<li>看到登录窗口时松开 Shift 键。</li>
+</ol>
+</li>
+<li>
+<p>以安全模式启动搭载 Apple 芯片的 Mac</p>
+<ol>
+<li>在 Mac 上，选取苹果菜单  &gt; “关机”。<br>
+Mac 关机后，等待 10 秒钟。</li>
+<li>按住电源按钮直至启动磁盘和 “选项” 出现。</li>
+<li>按住 Shift 键，然后在安全模式中点按 “继续”。</li>
+</ol>
+</li>
+</ul>
+<p>7、<strong>Apple silicon Mac “外部启动” 默认开启</strong></p>
+<p>参看：</p>
+<ul>
+<li>
+<p><strong>Apple 芯片</strong>：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/change-security-settings-startup-disk-a-mac-mchl768f7291/mac">在搭载 Apple 芯片的 Mac 上更改安全性设置</a>。</p>
+</li>
+<li>
+<p><strong>Intel 处理器</strong>：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">打开 “启动安全性实用工具”</a></p>
+</li>
+</ul>
+<p>8、<strong>macOS IPSW 软件包</strong></p>
+<p>没错，就像 iOS，Apple silicon Mac 可以通过 IPSW 文件进行固件恢复和更新（通过 Apple Configurator 2）。</p>
+<p>更新：macOS Sonoma 及更新版本中，使用 Finder 即可（无需 Apple Configurator 2）。</p>
+<p>9、<strong>DFU 模式</strong></p>
+<p>DFU 的全称是 Device Firmware Upgrade，即 iOS 固件的强制升降级模式。Apple silicon Mac 同样可以启动到 DFU 模式。</p>
+<p>如何启动到 DFU 模式，将在下文 “步骤 2：准备目标 Mac” 描述 (sysin)。</p>
+<p>10、<strong>系统版本是否可以降级？</strong></p>
+<p>Apple silicon Mac 的 macOS 版本仍然可以降级。</p>
+<p>默认启用 “完整安全性”（等于 iOS），需要将安全策略设置为 “降级安全性”，详见：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchl768f7291/mac">在搭载 Apple 芯片的 Mac 上更改启动磁盘的安全性设置</a>。</p>
+<p>对比参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">关于搭载 Apple T2 安全芯片的 Mac</a> 上的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">“启动安全性实用工具”</a></p>
+<p>11、<strong>了解 Apple silicon Mac 恢复系统的方式</strong></p>
+<p>相比搭载 Apple T2 安全芯片且基于 Intel 的 Mac 电脑，搭载 Apple 芯片的 Mac 除了少了 Internet Recovery，其他恢复方式是类似的，但是可以手动下载 ipsw 进行修复或者恢复，这样可以指定版本。</p>
+<ol>
+<li><strong>macOS Recovery</strong></li>
+<li><strong>System Recovery</strong> - (如果 macOS Recovery 不可用，将自动启动)</li>
+<li><strong>macOS USB 启动安装</strong> - (“<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198#open">外部启动</a>” 默认开启，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201372">操作方式</a> 并无变化，除了引导安装器的按键不同)
+<ul>
+<li>Intel 处理器：将 Mac 开机或重新启动后，立即按住 <strong>Option (Alt) ⌥ 键</strong>。出现可引导宗卷的黑屏时，松开 Option 键。</li>
+<li>Apple 芯片：将 Mac 开机并继续按住 <strong>电源按钮</strong>，直到看到启动选项窗口，其中会显示可引导宗卷。</li>
+</ul>
+</li>
+<li><strong>Finder (macOS 14+) 或 Apple Configurator 2 REVIVE（修复）选项</strong> - 将修复固件并重新安装 macOS Recovery（更新固件并将 recoveryOS 更新到最新版本），用户数据仍然保留在 SSD 中</li>
+<li><strong>Finder (macOS 14+) 或 Apple Configurator 2 RESTORE（恢复）选项</strong> - 将重新安装 macOS Recovery, 将抹掉整个磁盘重新安装 macOS，当然用户数据也会抹掉</li>
+</ol>
+<p>本文主要描述使用 Finder (macOS 14+) 或 Apple Configurator 2 恢复系统。</p>
+<h2 id="二、准备和要求">二、准备和要求</h2>
+<p>我们需要一台额外的 Mac 才能完成相关任务，这里称之为 “主 Mac”。我们将要被修复或恢复的 Mac 称之为 “目标 Mac”。</p>
+<ol>
+<li>
+<p>一台额外的 Mac，我们这里称之为 “主 Mac”，配备 Type-C 接口，Intel 处理器和 Apple 芯片的机型都可以，笔记本电脑和台式电脑都可以。</p>
+</li>
+<li>
+<p>“主 Mac” 系统版本 macOS Monterey 12.4 及以上（建议当前最新版）。</p>
+</li>
+<li>
+<p>如果 “主 Mac” 系统为 macOS Monterey 或 macOS Ventura 需要下载 <a target="_blank" rel="noopener" href="https://apps.apple.com/app/apple-configurator-2/id1037126344?mt=12">Apple Configurator 2</a>。macOS Sonoma 及更新版本使用 “访达”。</p>
+</li>
+<li>
+<p>在 “主 Mac” 上下载 macOS IPSW 格式软件。</p>
+<ul>
+<li><a href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a></li>
+<li><a href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a></li>
+<li><a href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a></li>
+<li><a href="https://sysin.org/blog/macOS-Monterey/">macOS Monterey</a></li>
+<li><a href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur</a></li>
+</ul>
+<p>Apple Configurator 2 将自动下载最新版 IPSW 固件（类似 iOS），推荐手动下载到本地（可以指定版本，并且速度更快）。</p>
+</li>
+<li>
+<p><strong>USB-C to USB-C Cable</strong>：同时支持数据传输和充电的 USB-C 至 USB-C 连接线，例如部分 Apple 产品随附的 Apple USB-C 充电线。包括雷雳 4、雷雳 / USB 4、雷雳 3 或 USB 3。</p>
+<p>Apple 官方文档中表示 USB-C 连接线必须 “同时支持数据传输和充电”，“请勿使用雷雳 3 充电线”，常规雷雳 3 线缆当然同时支持电源和数据。</p>
+<p>早期有 “支持的 USB-A 转 USB-C 连接线”，也就是说支持 macOS Monterey 的带 USB-A 端口的主 Mac 也是支持的，不过此类机型已经或者即将停止软件更新支持，故本文不将其明确列入要求。</p>
+</li>
+<li>
+<p>线缆的连接：“主 Mac” 可以任意 C 口，目标 Mac（要被修复或恢复的 Mac）必须是指定 C 口即 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">DFU 端口</a>”（点击查看官方说明）。</p>
+</li>
+<li>
+<p>确保两台电脑都已接入电源，有效的互联网连接。</p>
+</li>
+</ol>
+<h2 id="三、准备目标-Mac-电脑以进行修复或恢复">三、准备目标 Mac 电脑以进行修复或恢复</h2>
+<h3 id="准备笔记本电脑以进行修复或恢复">准备笔记本电脑以进行修复或恢复</h3>
+<p>如果要修复或恢复的目标 Mac 是笔记本，请按照如下步骤操作。</p>
+<p>你将使用 USB-C 连接线来连接两台电脑，然后在目标电脑上进入 DFU（设备固件更新）模式。</p>
+<ol>
+<li>
+<p>确保两台电脑都已接入电源。</p>
+</li>
+<li>
+<p>在目标 MacBook Pro 或 MacBook Air 上，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">识别 DFU 端口</a>，然后将 USB-C 连接线插入这个端口。</p>
+</li>
+<li>
+<p>在主 Mac 上：</p>
+<ul>
+<li>将 USB-C 连接线的另一端插入任一 USB-C 端口。</li>
+<li>确保这台 Mac 已接入互联网。</li>
+<li>如果这台 Mac 运行的是 macOS Ventura 或 macOS Monterey，请打开 Apple Configurator。</li>
+</ul>
+</li>
+<li>
+<p>在目标 Mac 上，进入 DFU 模式：</p>
+<p>a. 按住电源按钮最多 10 秒钟，直到 Mac 关机。（如果 Mac 配有触控 ID 按钮，这个按钮也是电源按钮。）如果 Mac 反而开机了，请重复这个步骤。</p>
+<p>b. 按下并松开电源按钮，然后_立即_同时按住内建键盘上的以下四个按键：</p>
+<ul>
+<li>键盘左侧的 Control ⌃ 键</li>
+<li>键盘左侧的 Option ⌥ 键</li>
+<li>键盘右侧的 Shift ⇧ 键</li>
+<li>电源按钮<br>
+<img src="https://cdsassets.apple.com/live/7WUAS350/images/mac-os/sonoma/macbook-pro-keyboard-dfu-mode-startup-keyboard-combination-diagram.png" alt="MacBook Pro 键盘，显示了要按的四个按键"></li>
+</ul>
+<p>c. 搭载 Apple 芯片的 Mac 笔记本电脑：</p>
+<ul>
+<li>按住所有这四个按键约 10 秒钟，然后松开除电源按钮以外的所有按键。</li>
+<li>继续按住电源按钮最多 10 秒钟。当另一台 Mac 在 “访达” 或 Apple Configurator 中显示 DFU 窗口时，请松开电源按钮。如果那台 Mac 先显示一条提醒，询问你是不是允许配件进行连接，请松开电源按钮并点按 “允许”。目标 Mac 现在会进入 DFU 模式，并且应该会显示空白屏幕。</li>
+</ul>
+<p>d. 搭载 T2 芯片的 Mac 笔记本电脑：按住所有这四个按键约 3 秒钟。当另一台 Mac 在 “访达” 或 Apple Configurator 中显示 DFU 窗口时，请松开所有按键。如果那台 Mac 先显示一条提醒，询问你是不是允许配件进行连接，请松开所有按键并点按 “允许”。目标 Mac 现在会进入 DFU 模式，并且应该会显示空白屏幕。</p>
+</li>
+<li>
+<p>请按照下面的步骤使用 “访达” 或 Apple Configurator 进行修复或恢复。</p>
+</li>
+</ol>
+<h3 id="准备台式电脑以进行修复或恢复">准备台式电脑以进行修复或恢复</h3>
+<p>如果要修复或恢复的目标 Mac 是台式机（iMac、Mac mini、Mac Studio 或 Mac Pro），请按照如下步骤操作。</p>
+<p>你将使用 USB-C 连接线来连接两台电脑，然后在目标电脑上进入 DFU（设备固件更新）模式。</p>
+<ol>
+<li>
+<p>在目标 Mac 上，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">识别 DFU 端口</a>，然后将 USB-C 连接线插入这个端口。</p>
+</li>
+<li>
+<p>在主 Mac 上：</p>
+<ul>
+<li>将 USB-C 连接线的另一端插入任一 USB-C 端口。</li>
+<li>确保这台 Mac 已接入电源和互联网 *。</li>
+<li>如果这台 Mac 运行的是 macOS Ventura 或 macOS Monterey，请打开 Apple Configurator。</li>
+</ul>
+</li>
+<li>
+<p>在目标 Mac 上，进入 DFU 模式：</p>
+<p>a. 拔下 Mac 的电源线。<br>
+b. 按住电源按钮。<br>
+c. 继续按住电源按钮，同时将 Mac 接入电源，然后继续按住电源按钮最多 10 秒钟。当另一台 Mac 在 “访达” 或 Apple Configurator 中显示 DFU 窗口时，请松开电源按钮。如果那台 Mac 先显示一条提醒，询问你是不是允许配件进行连接，请松开电源按钮并点按 “允许”。目标 Mac 现在会进入 DFU 模式，并且应该会显示空白屏幕。</p>
+</li>
+<li>
+<p>请按照下面的步骤使用 “访达” 或 Apple Configurator 进行修复或恢复。</p>
+</li>
+</ol>
+<h3 id="关于-DFU-模式的补充">关于 DFU 模式的补充</h3>
+<ol>
+<li>
+<p>验证状态</p>
+<p>事实证明，有时候让 Apple silicon Mac 进入 DFU 模式并不那么容易。往往需要按照 Apple 的描述多尝试几次，如果无法进入 DFU 模式需要重新开始，以下几个要点请参考：</p>
+<p>a. 目标 Mac 必须关机才能开始。</p>
+<p>b. 同时按住 <strong>电源键</strong>、<strong>右 Shift 键</strong>、<strong>左 Control 键</strong> 和 <strong>左 Option</strong> 键 10 秒（看着打开 Apple Configurator 2 的画面计数，可以让电脑显示秒数）然后松开除电源键以外的所有键 (sysin)。继续按住电源按钮 8 秒，整个过程 18 秒。如果计数超过 20 秒并且没有看到 DFU 图标，需要重新尝试该过程。</p>
+<p>c. 当目标 Mac 正确启动到 DFU 模式时，Apple Configurator 2 中显示一个大的 DFU 图标（如下图）。此时可以松开电源按钮。</p>
+<p>在 “主 Mac” 的 Apple Configurator 2 状态变化如下：</p>
+<p>（1）目标 Mac 尚未启动到 DFU 模式，显示如下：</p>
+<p><img src="apple-configurator-2-normal.webp" alt="Apple Configurator"></p>
+<p>（2）目标 Mac 已经正确启动到 DFU 模式</p>
+<p><img src="apple-configurator-2-dfu.webp" alt="Apple Configurator"></p>
+<p>（3）目标 Mac 线缆连接正确，已经启动到了恢复模式选择窗口（仅供参考，这里不需要启动到该模式）</p>
+<p><img src="apple-configurator-2-recovery.webp" alt="Apple Configurator"></p>
+</li>
+<li>
+<p>退出 DFU 模式的方法</p>
+<p>这里描述的是退出 DFU 模式的方法，并非需要此操作步骤。操作成功后会自动退出 DFU 模式。</p>
+<ul>
+<li>在 DFU 图标上点击右键，菜单 “高级”，选择 “重新启动设备” 或者 “关闭设备”</li>
+</ul>
+<p><img src="apple-configurator-2-exit-dfu.webp" alt="Apple Configurator"></p>
+<ul>
+<li>
+<p>上述操作如果无效，长按电源按钮（超过 4 秒）即可关闭设备并退出 DFU 模式。</p>
+</li>
+<li>
+<p>恢复操作成功后会自动退出 DFU 模式。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="四、如何进行修复或恢复">四、如何进行修复或恢复</h2>
+<p>在按照上文所述准备笔记本电脑或准备台式电脑后，请使用 “访达” 或 Apple Configurator 来修复或恢复目标 Mac，具体使用哪个工具取决于另一台 Mac 上使用的 macOS 版本。</p>
+<p><em>Mac 已准备好从 “访达” 进行修复或恢复（macOS Sonoma 或更高版本）：</em></p>
+<p><img src="https://cdsassets.apple.com/live/7WUAS350/images/mac-os/sonoma/locale/zh-cn/macos-sonoma-finder-mac-dfu-mode-revive-restore-firmware.png" alt="“访达” 窗口中显示已在边栏中选择 “Mac”"></p>
+<p><em>Mac 已准备好从 Apple Configurator 进行修复或恢复（macOS Monterey 12.4 或更高版本）：</em></p>
+<p><img src="https://cdsassets.apple.com/live/7WUAS350/images/macos/sonoma/locale/zh-cn/apple-configurator-2-17-device-list-all-devices-mac-in-dfu-mode-selected.png" alt="Apple Configurator 窗口中显示已为目标 Mac 选择 “DFU”"></p>
+<h3 id="修复-保留用户数据">修复 (保留用户数据)</h3>
+<p>先尝试修复。修复可能比恢复要快，而且不会抹掉 Mac。</p>
+<ol>
+<li>如果使用的是 “访达”（需要 macOS Sonoma 或更高版本）：
+<ol>
+<li>在 “访达” 窗口的边栏中，选择 “Mac”，如上图所示。</li>
+<li>点按 “修复 Mac” 按钮，然后点按 “继续” 进行确认。或者按住 Option 键然后点按 “修复 Mac” 按钮，并浏览到已下载的 IPSW 文件。</li>
+</ol>
+</li>
+<li>如果使用的是 Apple Configurator（需要 macOS Monterey 12.4 或更高版本）：
+<ol>
+<li>打开 Apple Configurator。</li>
+<li>在 Apple Configurator 窗口中，为目标 Mac 选择 “DFU”，如上图所示。</li>
+<li>从菜单栏中，选取 “操作”&gt;“高级”&gt;“修复设备”。或者将下载的 IPSW 文件拖拽到 DFU 图标上，在弹出的菜单中选择 “修复”。<br>
+<img src="apple-configurator-2-rerive.webp" alt="Apple Configurator 修复设备"><br>
+<em>图：Apple Configurator 修复设备</em><br>
+<img src="apple-configurator-2-select.webp" alt="将 IPSW 文件拖拽到 DFU 图标上弹出的菜单"><br>
+<em>图：将 IPSW 文件拖拽到 DFU 图标上弹出的菜单，这里选择 “修复”</em></li>
+</ol>
+</li>
+<li>修复完成后，目标 Mac 会自动重新启动。如果它关机，请按下电源按钮将它开机。</li>
+<li>如果系统提示你选择要恢复的宗卷，请选择所需的宗卷（例如 Macintosh HD），然后点按 “下一步”。</li>
+<li>如果系统提示你选择一个你知道密码的用户，请按提示操作，然后输入这个用户的登录密码。点按 “下一步”，然后点按 “重新启动”。</li>
+<li>搭载 Apple 芯片的 Mac：修复后的 Mac 会载入启动选项，其中包括 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/102342">“选项” 齿轮图标</a>。选择你的启动磁盘（例如 Macintosh HD），然后点按它下方显示的 “继续” 按钮。</li>
+<li>修复的 Mac 会完成启动，随后这个过程便告完成。</li>
+</ol>
+<h3 id="恢复-全新安装系统">恢复 (全新安装系统)</h3>
+<p>这是全新安装系统并恢复出厂设置。将清空所有数据。</p>
+<p>如果 Mac 无法修复，请按照以下步骤来抹掉它并将它恢复为出厂设置。</p>
+<ol>
+<li>如果使用的是 “访达”（需要 macOS Sonoma 或更高版本）：
+<ol>
+<li>在 “访达” 窗口的边栏中，选择 “Mac”，如上图所示。</li>
+<li>点按 “恢复 Mac” 按钮，然后点按 “恢复并更新” 进行确认。或者按住 Option 键然后点按 “修复 Mac” 按钮，并浏览到已下载的 IPSW 文件。</li>
+</ol>
+</li>
+<li>如果使用的是 Apple Configurator（需要 macOS Monterey 12.4 或更高版本）：
+<ol>
+<li>打开 Apple Configurator。</li>
+<li>在 Apple Configurator 窗口中，为目标 Mac 选择 “DFU”，如上图所示。</li>
+<li>从菜单栏中，选取 “操作”&gt;“恢复”，然后点按 “恢复” 进行确认。或者将下载的 IPSW 文件拖拽到 DFU 图标上，在弹出的菜单中选择 “恢复”。<br>
+<img src="apple-configurator-2-restore.webp" alt="Apple Configurator 恢复"><br>
+<em>图：Apple Configurator 恢复</em><br>
+<img src="apple-configurator-2-select.webp" alt="将 IPSW 文件拖拽到 DFU 图标上弹出的菜单"><br>
+<em>图：将 IPSW 文件拖拽到 DFU 图标上弹出的菜单，这里选择 “恢复”</em></li>
+</ol>
+</li>
+<li>恢复完成后，目标 Mac 会自动重新启动。如果它关机，请按下电源按钮将它开机。</li>
+<li>如果系统提示你选择 Wi-Fi 网络或连接网线，请按提示操作。</li>
+<li>搭载 Apple 芯片的 Mac：
+<ol>
+<li>如果系统提示你登录，请使用之前在这台 Mac 上使用的那个 Apple 账户登录。</li>
+<li>当设置助理打开时，使用它来完成 Mac 的设置。</li>
+</ol>
+</li>
+<li>搭载 T2 芯片的 Mac：
+<ol>
+<li>恢复的 Mac 会在通过互联网从 “macOS 恢复” 启动时显示一个旋转的地球。当系统提示你选取语言时，请按提示操作。</li>
+<li>如果系统提示你登录，请使用之前在这台 Mac 上使用的那个 Apple 账户登录。然后点按 “退出到恢复”。</li>
+<li>当你在 “恢复” 中看到实用工具列表时，请选取用于 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/102655#reinstall">安装或重新安装 macOS</a> 的选项。</li>
+<li>macOS 安装完成后，Mac 会重新启动并打开设置助理。使用设置助理来完成 Mac 的设置。</li>
+</ol>
+</li>
+</ol>
+<h2 id="五、题外话-对比修复基于-Intel-的-Mac">五、题外话: 对比修复基于 Intel 的 Mac</h2>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/apple-configurator-2/apdebea5be51/mac">使用 Apple Configurator 修复或恢复基于 Intel 的 Mac</a> 的差异：</p>
+<ul>
+<li>目标 Mac 使用右侧的 USB-C（Apple 芯片 Mac 笔记本使用左侧端口，台式机使用右侧端口）。</li>
+<li>默认仅有 “修复” 选项，将固件（T2 芯片固件）更新到最新版本（但有一个例外如下）。</li>
+<li>仅限 Mac Pro（2019 年）：恢复固件、抹掉所有数据并重新安装最新版本的 recoveryOS 和 macOS。</li>
+</ul>
+<p>下表列出了修复或恢复 iOS 及衍生系统设备与 Mac 的差异 (sysin)。</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>修复</th>
+<th>恢复</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iPhone 和 iPod touch</td>
+<td>可能保留用户数据（如果可恢复）。</td>
+<td>抹掉用户数据。抹掉并重新安装最新版本的 iOS。</td>
+</tr>
+<tr>
+<td>iPad</td>
+<td>可能保留用户数据（如果可恢复）。</td>
+<td>抹掉用户数据。抹掉并重新安装最新版本的 iPadOS。</td>
+</tr>
+<tr>
+<td>Apple TV</td>
+<td>可能保留用户数据（如果可恢复）。</td>
+<td>抹掉用户数据。抹掉并重新安装最新版本的 Apple tvOS。</td>
+</tr>
+<tr>
+<td>搭载 Apple 芯片的 Mac</td>
+<td>将 sepOS 和 recoveryOS 更新到公开发布的最新版本。可能保留用户数据（如果可恢复）。</td>
+<td>抹掉用户数据。抹掉并重新安装 sepOS、recoveryOS 和 macOS 公开发布的最新版本。</td>
+</tr>
+<tr>
+<td>搭载 Apple T2 安全芯片且基于 Intel 的 Mac</td>
+<td>仅更新 T2 芯片固件。可能保留用户数据（如果可恢复）。</td>
+<td>抹掉用户数据。仅抹掉并重新安装 T2 芯片固件。必须使用 “互联网恢复” 重新安装 recoveryOS 和 macOS。</td>
+</tr>
+</tbody>
+</table>
+<p>文章结束，感谢观看。</p>
+<p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
+
+
+        <hr>
+          <!-- comment_tips start -->
+          
+            <!-- comment_tips end -->
+
+        <div align="center">
+          <a href="/donate/">捐助本站 ❤️ Donate</a>
+        </div>
+
+        <!-- promotion start -->
+        
+          <div align="center">
+            <p>
+              <a href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=78f957e545ecb2e5e2720d6ccf030209&from=console" target="_blank"><img src="/img/banner-qcloud.webp?v20230203" style="cursor:pointer;" alt="点击访问官方网站" /></a>
+            </p>
+          </div>
+          <hr>
+          
+          <!-- promotion end -->
+
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/blog/ravynos/" data-toggle="tooltip" data-placement="top" title="ravynOS 0.5.2 - 基于 FreeBSD 的 macOS 兼容开源操作系统">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/blog/jetbrains-aqua/" data-toggle="tooltip" data-placement="top" title="JetBrains Aqua 2024.3 (macOS, Linux, Windows) - 测试自动化 IDE">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      文章用于推荐和分享优秀的软件产品及其相关技术，所有软件默认提供官方原版（免费版或试用版），免费分享。对于部分产品笔者加入了自己的理解和分析，方便学习和研究使用。任何内容若侵犯了您的版权，请联系作者删除。如果您喜欢这篇文章或者觉得它对您有所帮助，或者发现有不当之处，欢迎您发表评论，也欢迎您分享这个网站，或者赞赏一下作者，谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+          <!-- reward Srtart -->
+          <!--赞赏-->
+
+    <div class="reward">
+        <div class="reward-button">赞 <span class="reward-code">
+            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay-s-68.webp"><b>支付宝赞赏</b></span>
+            <span class="wechat-code"> <img class="wechat-img" src="/img/wechatpay-s-68.webp"><b>微信赞赏</b> </span>
+            </span></div>
+        <p class="reward-notice">赞赏一下</p>
+    </div>
+
+<!--赞赏end-->
+          <!-- reward End -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- sites: ['weibo', 'qq', 'wechat', 'douban', 'qzone', 'linkedin', 'facebook', 'twitter', 'google'] -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+<div class="social-share" data-disabled="douban" data-wechat-qrcode-helper="" data-mobile-sites="weibo,wechat,qq,qzone,linkedin" align="center">
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<!-- <script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script> -->
+<link rel="stylesheet" href="/css/share.min.css">
+<script defer="defer" async="true" src="/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        <hr>
+        
+
+        <!-- comments start -->
+        <!-- 默认 comments: true -->
+        <!-- 关闭 comments: false -->
+        
+        <!-- 0. waline comment (by sysin.org)-->
+
+  <!-- waline Srtart -->
+  <div style="color:gray" align="center">
+    <span>☑️ 评论恢复，欢迎留言❗️</br>敬请注册！点击 “登录” - “<font color="blue">用户注册</font>”（已知不支持 21.cn/189.cn 邮箱）。<font color="red">请勿使用联合登录（已关闭）</font>。</span>
+  </div>
+  <div id="waline" style="all: unset; /* max-width: 100%; margin: 0 auto; */"></div>
+  <style>
+    :root {
+      /* 字体大小 */
+      --waline-font-size: 1.75rem;
+      /* 头像大小 */
+      --waline-avatar-size: 5.25rem;
+      /* 评论状态按钮高亮色 */
+      --waline-disable-bgcolor: #abe2fc;
+    }
+    .wl-login-nick {
+      /* 昵称字体大小 */
+      font-size:.05em;
+    }
+    /* 你需要把 `https://img.t.sinajs.cn` 换成自己的 CDN */
+    .wl-content img[src^="https://unpkg.com/@waline/"] {
+      width: 1.25em;
+      margin: 0.25em;
+      vertical-align: middle;
+    }
+  </style>
+  <script type="text/javascript">
+      Waline.init({
+        el: '#waline',
+        serverURL: 'https://discuss.sysin.org',
+        login: 'force',
+        wordLimit: [3, 300],
+        pageSize: 10,
+        imageUploader: false,
+        search: false,
+        reaction: false,
+        copyright: false,
+        // pageview: true,
+        // path: '/blog/apple-silicon-mac-dfu/',
+        emoji: false,
+        locale: {
+          admin: '作者',
+          placeholder: '欢迎留言！请使用邮箱注册，注册仅需提供有效邮件地址，无需其他个人信息，谢谢。',
+          level0: '777',
+          level1: '755',
+          level2: '644',
+          level3: '600',
+          level4: '400',
+          level5: '000',
+        },
+      });
+  </script>
+  <!-- <div style="color:gray" align="right">
+    Pageviews: <span class="waline-pageview-count" /"></span>
+  </div> -->
+  <!-- waline End -->
+  
+
+    <!-- 0. valine comment (by sysin.org)-->
+    
+
+        <!-- 1. gitalk comment -->
+        
+
+                  <!-- 2. gitment comment -->
+                  
+
+                      <!-- 3. disqus comment -->
+                      
+        <hr>
+        
+        <!-- comments end -->
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+  <!-- Don not display number -->
+  
+    <style>
+      span.toc-nav-number{
+        display: none
+      }
+    </style>
+  
+  <!-- Don not display number -->
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">目录</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E4%BA%86%E8%A7%A3-Apple-silicon-Mac-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一、了解 Apple silicon Mac 的新特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E5%92%8C%E8%A6%81%E6%B1%82"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">二、准备和要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E5%87%86%E5%A4%87%E7%9B%AE%E6%A0%87-Mac-%E7%94%B5%E8%84%91%E4%BB%A5%E8%BF%9B%E8%A1%8C%E4%BF%AE%E5%A4%8D%E6%88%96%E6%81%A2%E5%A4%8D"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">三、准备目标 Mac 电脑以进行修复或恢复</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91%E4%BB%A5%E8%BF%9B%E8%A1%8C%E4%BF%AE%E5%A4%8D%E6%88%96%E6%81%A2%E5%A4%8D"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">准备笔记本电脑以进行修复或恢复</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%8F%B0%E5%BC%8F%E7%94%B5%E8%84%91%E4%BB%A5%E8%BF%9B%E8%A1%8C%E4%BF%AE%E5%A4%8D%E6%88%96%E6%81%A2%E5%A4%8D"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">准备台式电脑以进行修复或恢复</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-DFU-%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%A1%A5%E5%85%85"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">关于 DFU 模式的补充</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BF%AE%E5%A4%8D%E6%88%96%E6%81%A2%E5%A4%8D"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">四、如何进行修复或恢复</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BF%AE%E5%A4%8D-%E4%BF%9D%E7%95%99%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">修复 (保留用户数据)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%81%A2%E5%A4%8D-%E5%85%A8%E6%96%B0%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">恢复 (全新安装系统)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%94%E3%80%81%E9%A2%98%E5%A4%96%E8%AF%9D-%E5%AF%B9%E6%AF%94%E4%BF%AE%E5%A4%8D%E5%9F%BA%E4%BA%8E-Intel-%E7%9A%84-Mac"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">五、题外话: 对比修复基于 Intel 的 Mac</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Post Domain Container -->
+      <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1 sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">特色标签</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#macOS" title="macOS">macOS</a>
+            
+            <a class="tag" href="/tags/#Apple" title="Apple">Apple</a>
+            
+            <a class="tag" href="/tags/#DFU" title="DFU">DFU</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>网站链接</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://curl.qcloud.com/IQz7k8Kc" target="_blank">腾讯云限时秒杀</a>
+          </li>
+          
+          <li>
+            <a href="https://www.aliyun.com/minisite/goods?userCode=ne0pli3k" target="_blank">阿里云优惠活动</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("/js/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-11 col-lg-offset-0 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+            <li>
+              <a href="/feed.xml">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.cnblogs.com/sysin">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">博</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+            <li>
+              <a target="_blank" href="https://www.zhihu.com/people/sysinside">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse">知</i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; sysin 2024
+          <br>
+          Build with <a href="https://hexo.io/" target=_blank>Hexo</a>
+          <span style="display: inline-block; margin: 0 5px;">
+              <i class="fa fa-heart"></i>
+          </span>
+          Powered by <a href="https://github.com/" target=_blank><img border="0" src="/img/github.png"></a>
+          <br>
+          
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  //GC change fastclick.min.js to local and rename to fc.min.js, because AdBlock Plus
+  //https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js
+  //https://cdn.staticfile.org/fastclick/1.0.6/fastclick.min.js
+  async ("/js/fc.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="搜索..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.fle'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
