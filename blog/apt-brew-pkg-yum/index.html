@@ -464,7 +464,7 @@
         <!-- pageview_count start -->
         
         <div style="color:gray" align="left">
-        更新日期：1625211294000，阅读量: <span class="waline-pageview-count" />
+        更新日期：Fri Jul 02 2021 15:34:54 GMT+0800，阅读量: <span class="waline-pageview-count" />
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
@@ -489,7 +489,6 @@
 <hr>
 <p><img src="apt-brew-pkg-yum.webp" alt="apt-brew-pkg-yum"></p>
 <p>如果您已经有了 Linux（RHEL、Ubuntu）或者 Unix（macOS、FreeBSD）任一产品的软件包管理工具使用经验 (sysin)，对于其他系统可以参看下表快速入门：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -559,7 +558,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>可以看到，RHEL 中更新 repo 列表的命令与其他不同，其他命令几乎都是相同或者极为类似。</p>
 <blockquote>
 <p>备注 1：RHEL 8 开始，使用 dnf，但 yum 仍然可用，实际上两个命令都是相同的文件链接 (sysin)，等价。</p>
@@ -1323,5 +1321,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
