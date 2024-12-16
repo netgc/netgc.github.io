@@ -489,17 +489,21 @@
         <p>请访问原文链接：<a href="/blog/pt-nad-ovf/" title="PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统</a> 查看最新版。原创作品，转载请保留出处。</p>
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
-<p><img src="/blog/pt-network-attack-discovery/pt-logo-small.png" alt="Positive Technologies"><br><em>Positive Technologies</em></p>
-<h2 id="什么是-PT-NAD"><a href="#什么是-PT-NAD" class="headerlink" title="什么是 PT NAD"></a>什么是 PT NAD</h2><p><strong>PT Network Attack Discovery</strong> 是一种网络检测和响应 (NDR/NTA) 系统，用于检测网络外围和内部的攻击。该系统使隐藏的威胁可见，即使在加密流量中也能检测可疑活动，并帮助调查事件。</p>
+<p><img src="/blog/pt-network-attack-discovery/pt-logo-small.png" alt="Positive Technologies"><br>
+<em>Positive Technologies</em></p>
+<h2 id="什么是-PT-NAD">什么是 PT NAD</h2>
+<p><strong>PT Network Attack Discovery</strong> 是一种网络检测和响应 (NDR/NTA) 系统，用于检测网络外围和内部的攻击。该系统使隐藏的威胁可见，即使在加密流量中也能检测可疑活动，并帮助调查事件。</p>
 <p>详细介绍参看：<a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a></p>
 <p><img src="https://www.ptsecurity.com/upload/corporate/ww-en/images/nad/V.png" alt="攻击检测"></p>
-<h2 id="部署截图及说明"><a href="#部署截图及说明" class="headerlink" title="部署截图及说明"></a>部署截图及说明</h2><p>Debian GNU/Linux 10 (bullseye) (Linux debian 4.19.0-26-amd64)</p>
+<h2 id="部署截图及说明-11">部署截图及说明</h2>
+<p>Debian GNU/Linux 10 (bullseye) (Linux debian 4.19.0-26-amd64)</p>
 <p><img src="/blog/debian-11-ovf/debian-11-ovf-02.webp" alt="debian-11-ovf"></p>
 <p><img src="/blog/debian-11-ovf/debian-11-ovf-03.webp" alt="debian-11-ovf"></p>
 <p><img src="/blog/debian-11-ovf/debian-11-ovf-04.webp" alt="debian-11-ovf"></p>
 <p>自定义 OVF 属性填写说明：</p>
 <ul>
-<li><ol>
+<li>
+<ol>
 <li>root User Configuration</li>
 </ol>
 <ul>
@@ -507,7 +511,8 @@
 <li>1.2. User root Password 必填项，8-128 个字符，建议使用复杂密码，未强制要求</li>
 </ul>
 </li>
-<li><ol>
+<li>
+<ol start="2">
 <li>New Admin User Configuration 新建一个管理员账号，必填项</li>
 </ol>
 <ul>
@@ -516,7 +521,8 @@
 <li>2.3. sudo doesn’t need a password 默认不勾选</li>
 </ul>
 </li>
-<li><ol>
+<li>
+<ol start="3">
 <li>Networking Properties 选填</li>
 </ol>
 <ul>
@@ -526,36 +532,52 @@
 <li>3.4.1 DNS 1</li>
 <li>3.4.2 DNS 2</li>
 <li>3.5. Hostname 主机名可以单独填写（无论是否使用固定 IP），建议填写，系统无默认值，这里默认设置为 debian</li>
-<li>3.6. Domain Name 选填，格式如 sysin.org，系统无默认值</li>
+<li>3.6. Domain Name 选填，格式如 <a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>，系统无默认值</li>
 </ul>
 </li>
 </ul>
 <p>Debian/Ubuntu 系列发行版部署完毕后系统将自动重启。</p>
-<h2 id="OVF-特性"><a href="#OVF-特性" class="headerlink" title="OVF 特性"></a>OVF 特性</h2><h3 id="1-OVF-版本"><a href="#1-OVF-版本" class="headerlink" title="1. OVF 版本"></a>1. OVF 版本</h3><p>默认 VM 硬件版本 13（GuestOS ID 最低要求，可升级至最新版）；<br>兼容 ESXi 6.5、Fusion 10.x、Workstation 14.x 及更新版本；<br>启用 CPU、内存热插拔。</p>
-<h3 id="2-系统账号"><a href="#2-系统账号" class="headerlink" title="2. 系统账号"></a>2. 系统账号</h3><p>部署时可以选择是否启用 root SSH 密码登录并设置密码。<br>部署时可以选择是否创建新的管理员账号并设置密码 (sysin)。</p>
-<h3 id="3-分区"><a href="#3-分区" class="headerlink" title="3. 分区"></a>3. 分区</h3><p>标准分区</p>
-<p>NAME     FILESYSTEM  SIZE  TYPE  MOUNTPOINT<br>sda      Linux        80G  disk<br>├─sda1   ext4          2G  part  /boot<br>└─sda2   ext4         158G  part  /<br>[SWAP]  /swap.img  4G (此版本专为特定应用创建，禁用了 SWAP)</p>
+<h2 id="OVF-特性-12">OVF 特性</h2>
+<h3 id="1-OVF-版本-9">1. OVF 版本</h3>
+<p>默认 VM 硬件版本 13（GuestOS ID 最低要求，可升级至最新版）；<br>
+兼容 ESXi 6.5、Fusion 10.x、Workstation 14.x 及更新版本；<br>
+启用 CPU、内存热插拔。</p>
+<h3 id="2-系统账号-9">2. 系统账号</h3>
+<p>部署时可以选择是否启用 root SSH 密码登录并设置密码。<br>
+部署时可以选择是否创建新的管理员账号并设置密码 (sysin)。</p>
+<h3 id="3-分区-9">3. 分区</h3>
+<p>标准分区</p>
+<p>NAME     FILESYSTEM  SIZE  TYPE  MOUNTPOINT<br>
+sda      Linux        80G  disk<br>
+├─sda1   ext4          2G  part  /boot<br>
+└─sda2   ext4         158G  part  /<br>
+[SWAP]  /swap.img  4G (此版本专为特定应用创建，禁用了 SWAP)</p>
 <p>分区扩容请参看：<a href="/blog/linux-partition-expansion/" title="Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）">Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）</a></p>
-<h3 id="4-系统配置"><a href="#4-系统配置" class="headerlink" title="4. 系统配置"></a>4. 系统配置</h3><ul>
+<h3 id="4-系统配置-9">4. 系统配置</h3>
+<ul>
 <li>格式化网卡命名为 eth0</li>
 <li>配置 sudo</li>
 <li>更换国内镜像：ustc</li>
-<li>安装一些必备工具：<br>zip unzip, lrzsz, htop, lnav, fd, rg，tree, pstree, net-tools (ifconfig、netstat、route), ntpdate, resolvconf, ncdu, dstat, screen, tmux, exa, duf, expect</li>
+<li>安装一些必备工具：<br>
+zip unzip, lrzsz, htop, lnav, fd, rg，tree, pstree, net-tools (ifconfig、netstat、route), ntpdate, resolvconf, ncdu, dstat, screen, tmux, exa, duf, expect</li>
 <li>开发者工具：git, build-essential</li>
 <li>NTP：systemd-timesyncd</li>
 <li>SNMP：仅安装默认配置</li>
 <li>VMware Tools：open-vm-tools</li>
-<li>Zsh 作为默认 Shell<br>参看：<a href="/blog/linux-zsh-all/" title="Linux 全局安装配置 zsh + oh-my-zsh">Linux 全局安装配置 zsh + oh-my-zsh</a></li>
+<li>Zsh 作为默认 Shell<br>
+参看：<a href="/blog/linux-zsh-all/" title="Linux 全局安装配置 zsh + oh-my-zsh">Linux 全局安装配置 zsh + oh-my-zsh</a></li>
 </ul>
 <p>参看：<a href="/blog/debian-11-install/" title="Debian 11 “bullseye” 安装笔记">Debian 11 “bullseye” 安装笔记</a></p>
-<h2 id="适用的-VMware-软件下载"><a href="#适用的-VMware-软件下载" class="headerlink" title="适用的 VMware 软件下载"></a>适用的 VMware 软件下载</h2><p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
+<h2 id="适用的-VMware-软件下载-20">适用的 VMware 软件下载</h2>
+<p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
 <ul>
 <li>Server：VMware <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
 <li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
 <li>Linux：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
 <li>Windows：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
-<h2 id="OVF-版本兼容性和部署方式"><a href="#OVF-版本兼容性和部署方式" class="headerlink" title="OVF 版本兼容性和部署方式"></a>OVF 版本兼容性和部署方式</h2><p>默认 VM 硬件版本 13（GuestOS ID 最低要求，可升级至最新版）；兼容 ESXi 6.5、Fusion 10.x、Workstation 14.x 及更新版本。</p>
+<h2 id="OVF-版本兼容性和部署方式-11">OVF 版本兼容性和部署方式</h2>
+<p>默认 VM 硬件版本 13（GuestOS ID 最低要求，可升级至最新版）；兼容 ESXi 6.5、Fusion 10.x、Workstation 14.x 及更新版本。</p>
 <p>支持通过以下客户端部署（推荐版本，非最低要求）：</p>
 <ul>
 <li>VMware Fusion for Mac：12、13 及更新版本（推荐版本 13）</li>
@@ -568,16 +590,18 @@
 </blockquote>
 <p>客户端系统和软件要求：</p>
 <ul>
-<li><p>支持的客户端操作系统</p>
+<li>
+<p>支持的客户端操作系统</p>
 <ul>
 <li>macOS（推荐 <a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a>）</li>
-<li>Windows 32-bit and 64-bit（推荐 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）<blockquote>
+<li>Windows 32-bit and 64-bit（推荐 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）</li>
+</ul>
+<blockquote>
 <p>主流 Linux 桌面发行版理论上支持，未经官方验证。</p>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p>支持以下浏览器版本【<a target="_blank" rel="noopener" href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
+<li>
+<p>支持以下浏览器版本【<a target="_blank" rel="noopener" href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
 <ul>
 <li>Google Chrome 89 or later</li>
 <li>Mozilla Firefox 80 or later</li>
@@ -585,7 +609,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="Positive-Technologies-产品和服务"><a href="#Positive-Technologies-产品和服务" class="headerlink" title="Positive Technologies 产品和服务"></a>Positive Technologies 产品和服务</h2><p>Positive Technologies 是注重结果的网络安全领域的行业领导者，也是信息安全解决方案的主要全球提供商。我们的使命是保护企业和整个行业免受网络攻击和不可容忍的损害。全球有超过 3,300 个组织使用我们公司开发的技术和服务。</p>
+<h2 id="Positive-Technologies-产品和服务-2">Positive Technologies 产品和服务</h2>
+<p>Positive Technologies 是注重结果的网络安全领域的行业领导者，也是信息安全解决方案的主要全球提供商。我们的使命是保护企业和整个行业免受网络攻击和不可容忍的损害。全球有超过 3,300 个组织使用我们公司开发的技术和服务。</p>
 <p>Positive Technologies 是俄罗斯第一家也是唯一一家在莫斯科交易所上市的网络安全公司（MOEX：POSI），拥有 180,000 名股东，而且还在不断增加。</p>
 <p>我们的新型解决方案——元产品——专注于以结果为导向的网络安全方法。Positive Technologies 的首款元产品 MaxPatrol O2 可以在对公司造成不可容忍的损害之前自动检测并阻止攻击 (sysin)。MaxPatrol O2 可以替代安防监控中心的整个团队，并且只需要一个人来管理。该保护系统只需要专家最少的知识和精力。</p>
 <p>为了证明以结果为导向的信息安全方法确实有效，我们进行了网络演习（在我们自己的基础设施以及其他基础设施上）并公开测试我们的产品。我们的解决方案基于数百名信息安全专家 20 年的研究经验和专业知识。</p>
@@ -619,19 +644,29 @@
 <li>我们积极为一流大学制定教育计划，帮助学生做好职业准备，在职业生涯中取得领先地位：由我们公司专家编写的积极教育材料已在超过 65 所大学使用。</li>
 <li>我们举行了世界上最大的网络战 “对峙”，它汇集了进攻性和防御性网络安全方面最优秀的俄罗斯和外国专家。该网络靶场包含不同行业典型的生产链、业务场景和技术景观的全保真复制品。专家分析了引发不可容忍事件的可能性以及预防方法。</li>
 </ul>
-<h2 id="PT-NAD-相关信息"><a href="#PT-NAD-相关信息" class="headerlink" title="PT NAD 相关信息"></a>PT NAD 相关信息</h2><p>部署模式：A11-in-one PT NAD</p>
+<h2 id="PT-NAD-相关信息">PT NAD 相关信息</h2>
+<p>部署模式：A11-in-one PT NAD</p>
 <p>系统账号：全部默认（参看 OVF 文件，部署时提示）</p>
 <p>界面语言默认使用英文。</p>
 <p>许可方式：包含全功能试用许可证。</p>
 <p>其他注意事项：通常新部署会修改计算机名，这将导致 Sensors 中的本机实例不可用，将其删除，重启系统后将恢复正常。</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><strong>PT Network Attack Discovery</strong> 11.0 based on Debian 10.13 OVF<br>  百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1t1bkAvbvpiVGcMhJudiapw?pwd=">https://pan.baidu.com/s/1t1bkAvbvpiVGcMhJudiapw?pwd=</a> &lt;专享&gt;</p>
+<h2 id="下载地址-331">下载地址</h2>
+<p><strong>PT Network Attack Discovery</strong> 11.0 based on Debian 10.13 OVF<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1t1bkAvbvpiVGcMhJudiapw?pwd=">https://pan.baidu.com/s/1t1bkAvbvpiVGcMhJudiapw?pwd=</a> &lt;专享&gt;</p>
 <p>同时随附原版：<a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a></p>
 <p>相关产品：</p>
 <ul>
-<li><a href="/blog/pt-application-inspector/" title="PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试">PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试</a></li>
-<li><a href="/blog/pt-maxpatrol/" title="MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统">MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统</a></li>
-<li><a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a></li>
-<li><a href="/blog/pt-nad-ovf/" title="PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
+<li>
+<a href="/blog/pt-application-inspector/" title="PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试">PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试</a>
+</li>
+<li>
+<a href="/blog/pt-maxpatrol/" title="MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统">MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统</a>
+</li>
+<li>
+<a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
+</li>
+<li>
+<a href="/blog/pt-nad-ovf/" title="PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/http/" title="HTTP 协议与安全">HTTP 协议与安全</a></p>
@@ -820,7 +855,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-PT-NAD"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是 PT NAD</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E8%B4%A6%E5%8F%B7"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 系统账号</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%88%86%E5%8C%BA"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 系统配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Positive-Technologies-%E4%BA%A7%E5%93%81%E5%92%8C%E6%9C%8D%E5%8A%A1"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Positive Technologies 产品和服务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PT-NAD-%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">PT NAD 相关信息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-PT-NAD"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是 PT NAD</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E-11"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7-12"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC-9"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E8%B4%A6%E5%8F%B7-9"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 系统账号</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%88%86%E5%8C%BA-9"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-9"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 系统配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD-20"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F-11"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Positive-Technologies-%E4%BA%A7%E5%93%81%E5%92%8C%E6%9C%8D%E5%8A%A1-2"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Positive Technologies 产品和服务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PT-NAD-%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">PT NAD 相关信息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-331"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

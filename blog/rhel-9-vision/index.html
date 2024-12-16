@@ -491,23 +491,27 @@
 <p>目前 Red Hat, Inc. 已经发布 <a target="_blank" rel="noopener" href="https://access.redhat.com/announcements/6462811">RHEL 9 Beta</a>，它带来了令人兴奋的新功能和许多改进，包括最新的内核和最新的软件版本以及最新的安全改进。</p>
 <p>我们将在未来发布的 <a target="_blank" rel="noopener" href="https://sysin.org/blog/rocky-linux-9/">Rocky Linux 9</a> 和 <a target="_blank" rel="noopener" href="https://sysin.org/blog/almalinux-9/">AlmaLinux 9</a> 中完整体验 RHEL 9 带来的改进。</p>
 <p><img src="https://www.redhat.com/profiles/rh/themes/redhatdotcom/img/logo.svg" alt="redhat-logo"></p>
-<h2 id="内核版本"><a href="#内核版本" class="headerlink" title="内核版本"></a>内核版本</h2><p>Linux Kernel 5.14</p>
+<h2 id="内核版本">内核版本</h2>
+<p>Linux Kernel 5.14</p>
 <blockquote>
 <p>5.14 当前并非 LTS 版本，上一个 LTS 内核版本是 5.10，下一个 LTS 版本预计应该是 5.15。</p>
 <p>Redhat 不走寻常路？RHEL 8 内核版本 4.18，而 LTS 版本是 4.19。</p>
 </blockquote>
-<h2 id="支持的硬件架构（4-种）"><a href="#支持的硬件架构（4-种）" class="headerlink" title="支持的硬件架构（4 种）"></a>支持的硬件架构（4 种）</h2><ul>
+<h2 id="支持的硬件架构（4-种）">支持的硬件架构（4 种）</h2>
+<ul>
 <li>Intel/AMD64 (x86_64)</li>
 <li>ARM 64-bit (aarch64)</li>
 <li>IBM Power LE (ppc64le)</li>
 <li>IBM Z (s390x)</li>
 </ul>
-<h2 id="简化的自动化和管理"><a href="#简化的自动化和管理" class="headerlink" title="简化的自动化和管理"></a>简化的自动化和管理</h2><ul>
+<h2 id="简化的自动化和管理">简化的自动化和管理</h2>
+<ul>
 <li><strong>增强的 Web 控制台性能指标</strong> - 访问附加信息将使您能够更好地识别性能瓶颈的潜在原因。我们还简化了将这些数据导出到 Grafana 等领先分析和报告工具的过程。</li>
 <li><strong>通过 Web 控制台实时修补内核</strong> - 对系统停机时间敏感吗？ 您现在可以利用 Web 控制台的强大功能和易用性来应用实时内核更新。</li>
 <li><strong>简化的镜像构建</strong> - 您会在 RHEL 9 Beta 中发现一些镜像构建器的改进 (sysin)，包括通过单个构建节点构建 RHEL 8 和 RHEL 9 镜像的能力，更好地支持自定义文件系统（非 LVM 挂载点）和裸机金属部署。</li>
 </ul>
-<h2 id="增强的安全性和合规性"><a href="#增强的安全性和合规性" class="headerlink" title="增强的安全性和合规性"></a>增强的安全性和合规性</h2><ul>
+<h2 id="增强的安全性和合规性">增强的安全性和合规性</h2>
+<ul>
 <li><strong>通过 Web 控制台进行智能卡身份验证</strong> - 用户可以使用智能卡身份验证通过 RHEL Web 控制台（sudo、SSH 等）访问远程主机。</li>
 <li><strong>额外的 安全配置文件</strong> - 帮助符合 PCI-DSS、HIPAA 等标准。结合 Red Hat Insights 和 Red Hat Satellite 等情报收集和补救服务，客户现在可以使用强大的工具来快速大规模解决合规性问题。</li>
 <li><strong>详细的 SSSD 日志记录</strong> - SSSD 是内置的企业单点登录框架，现在添加了更多事件的详细信息，例如完成任务的时间、错误、身份验证流程等。新的搜索功能使管理员能够分析性能和配置问题。</li>
@@ -515,13 +519,16 @@
 <li><strong>完整性测量架构 (IMA) 数字散列和签名</strong> - 您现在可以动态验证操作系统的完整性，以检测跨基础架构的恶意修改。</li>
 <li><strong>默认情况下禁用 SSH root 密码登录</strong> - RHEL 9 不允许用户使用密码以“root”身份登录，以防止通过密码获得访问权限的暴力攻击。</li>
 </ul>
-<h2 id="改进的容器开发"><a href="#改进的容器开发" class="headerlink" title="改进的容器开发"></a>改进的容器开发</h2><p>适用于希望使用 UBI 容器映像（默认为 cgroup2）构建应用程序的开发人员，以及最近发布的 podman 作为默认的容器管理工具</p>
+<h2 id="改进的容器开发">改进的容器开发</h2>
+<p>适用于希望使用 UBI 容器映像（默认为 cgroup2）构建应用程序的开发人员，以及最近发布的 podman 作为默认的容器管理工具</p>
 <blockquote>
 <p>UBI：Red Hat Universal Base Image</p>
 </blockquote>
-<h2 id="核心软件包版本"><a href="#核心软件包版本" class="headerlink" title="核心软件包版本"></a>核心软件包版本</h2><p>RHEL 9 包含了最新的 GNU/Linux 技术。</p>
+<h2 id="核心软件包版本">核心软件包版本</h2>
+<p>RHEL 9 包含了最新的 GNU/Linux 技术。</p>
 <ul>
-<li><p>Dynamic programming languages:</p>
+<li>
+<p>Dynamic programming languages:</p>
 <ul>
 <li>Node.js 16</li>
 <li>Perl 5.32</li>
@@ -530,25 +537,29 @@
 <li>Ruby 3.0</li>
 </ul>
 </li>
-<li><p>Version control systems:</p>
+<li>
+<p>Version control systems:</p>
 <ul>
 <li>Git 2.31</li>
 <li>Subversion 1.14</li>
 </ul>
 </li>
-<li><p>Web servers:</p>
+<li>
+<p>Web servers:</p>
 <ul>
 <li>Apache HTTP Server 2.4</li>
 <li>nginx 1.20</li>
 </ul>
 </li>
-<li><p>Proxy caching servers:</p>
+<li>
+<p>Proxy caching servers:</p>
 <ul>
 <li>Varnish Cache 6.5</li>
 <li>Squid 5.1</li>
 </ul>
 </li>
-<li><p>Database servers:</p>
+<li>
+<p>Database servers:</p>
 <ul>
 <li>MariaDB 10.5</li>
 <li>MySQL 8.0</li>
@@ -556,21 +567,24 @@
 <li>Redis 6.2</li>
 </ul>
 </li>
-<li><p>Compiler toolsets:</p>
+<li>
+<p>Compiler toolsets:</p>
 <ul>
 <li>LLVM Toolset 12.0.1</li>
 <li>Rust Toolset 1.54.0</li>
 <li>Go Toolset 1.16.6</li>
 </ul>
 </li>
-<li><p>System toolchain components:</p>
+<li>
+<p>System toolchain components:</p>
 <ul>
 <li>GCC 11.2</li>
 <li>glibc 2.34</li>
 <li>binutils 2.35</li>
 </ul>
 </li>
-<li><p>Performance tools and debuggers:</p>
+<li>
+<p>Performance tools and debuggers:</p>
 <ul>
 <li>GDB 10.2</li>
 <li>Valgrind 3.17.0</li>
@@ -579,15 +593,18 @@
 <li>elfutils 0.185</li>
 </ul>
 </li>
-<li><p>Java tools:</p>
+<li>
+<p>Java tools:</p>
 <ul>
 <li>Maven 3.6</li>
 <li>Ant 1.10</li>
 </ul>
 </li>
 </ul>
-<h2 id="软件支持生命周期"><a href="#软件支持生命周期" class="headerlink" title="软件支持生命周期"></a>软件支持生命周期</h2><p>  最终版本将在未来 10 年内通过安全和软件更新得到支持。</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>已更新：<a href="/blog/rhel-9/" title="Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux">Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux</a></p>
+<h2 id="软件支持生命周期">软件支持生命周期</h2>
+<p>最终版本将在未来 10 年内通过安全和软件更新得到支持。</p>
+<h2 id="下载地址-342">下载地址</h2>
+<p>已更新：<a href="/blog/rhel-9/" title="Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux">Red Hat Enterprise Linux 9.5 (x86_64, aarch64) - 红帽企业 Linux</a></p>
 <p>AlmaLinux 抢先体验：<a href="/blog/almalinux-9/" title="AlmaLinux 9.5 正式版发布 - RHEL 二进制兼容免费发行版">AlmaLinux 9.5 正式版发布 - RHEL 二进制兼容免费发行版</a></p>
 
 
@@ -772,7 +789,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">内核版本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%EF%BC%884-%E7%A7%8D%EF%BC%89"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">支持的硬件架构（4 种）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%80%E5%8C%96%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%92%8C%E7%AE%A1%E7%90%86"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">简化的自动化和管理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A2%9E%E5%BC%BA%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E5%92%8C%E5%90%88%E8%A7%84%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">增强的安全性和合规性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%B9%E8%BF%9B%E7%9A%84%E5%AE%B9%E5%99%A8%E5%BC%80%E5%8F%91"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">改进的容器开发</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%89%88%E6%9C%AC"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">核心软件包版本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%94%AF%E6%8C%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">软件支持生命周期</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">内核版本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E7%A1%AC%E4%BB%B6%E6%9E%B6%E6%9E%84%EF%BC%884-%E7%A7%8D%EF%BC%89"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">支持的硬件架构（4 种）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%80%E5%8C%96%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%92%8C%E7%AE%A1%E7%90%86"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">简化的自动化和管理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A2%9E%E5%BC%BA%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%E5%92%8C%E5%90%88%E8%A7%84%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">增强的安全性和合规性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%B9%E8%BF%9B%E7%9A%84%E5%AE%B9%E5%99%A8%E5%BC%80%E5%8F%91"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">改进的容器开发</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A0%B8%E5%BF%83%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%89%88%E6%9C%AC"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">核心软件包版本</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%94%AF%E6%8C%81%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">软件支持生命周期</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-342"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

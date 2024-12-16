@@ -407,7 +407,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">745</span> In Total
+              Words <span class="post-count">770</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -491,8 +491,10 @@
 <hr>
 <p>VMware vSphere Bitfusion 4.0 | 17 AUG 2021 | Build 13</p>
 <p><img src="https://docs.vmware.com/en/VMware-vSphere-Bitfusion/4.0/User-Guide/images/GUID-7D2E29ED-4E92-4A82-96ED-2F32F8FAC4FE-high.png" alt="Bitfusion"></p>
-<h2 id="关于-vSphere-Bitfusion"><a href="#关于-vSphere-Bitfusion" class="headerlink" title="关于 vSphere Bitfusion"></a>关于 vSphere Bitfusion</h2><p>VMware vSphere Bitfusion 共享图形处理单元 (GPU) 等加速器以提供共享网络可访问资源池，从而支持资源密集型人工智能 (AI) 和机器学习 (ML) 工作负载。vSphere Bitfusion 可在 AI 框架、云站点、网络以及虚拟机、容器和笔记本等环境中运行。</p>
-<h2 id="vSphere-Bitfusion-的工作原理是什么？"><a href="#vSphere-Bitfusion-的工作原理是什么？" class="headerlink" title="vSphere Bitfusion 的工作原理是什么？"></a>vSphere Bitfusion 的工作原理是什么？</h2><p>Bitfusion 要解决的是以下问题：</p>
+<h2 id="关于-vSphere-Bitfusion-3">关于 vSphere Bitfusion</h2>
+<p>VMware vSphere Bitfusion 共享图形处理单元 (GPU) 等加速器以提供共享网络可访问资源池，从而支持资源密集型人工智能 (AI) 和机器学习 (ML) 工作负载。vSphere Bitfusion 可在 AI 框架、云站点、网络以及虚拟机、容器和笔记本等环境中运行。</p>
+<h2 id="vSphere-Bitfusion-的工作原理是什么？-4">vSphere Bitfusion 的工作原理是什么？</h2>
+<p>Bitfusion 要解决的是以下问题：</p>
 <ul>
 <li>有些团队在利用机器学习进行研究时没有 GPU 可以用来加速学习速度 (sysin)；</li>
 <li>而另一些团队已经拥有了 GPU，但是他们没有完全利用 GPU 的处理能力，很多 GPU 资源在白白闲置。</li>
@@ -502,7 +504,8 @@
 <li><strong>Bitfusion 服务器</strong>：把 GPU 安装在 vSphere 服务器上 (要求 vSphere 7 以上版本)，然后在上面运行 Bitfusion Server (以 OVA 格式提供的 virtual appliance)，Bitfusion Server 可以把物理 GPU 资源虚拟化，共享给多个用户使用。</li>
 <li><strong>Bitfusion 客户机</strong>：Bitfusion Client 是运行在其他 vSphere 服务器上的 Linux 虚机 (要求 vSphere 6.7 以上版本)，机器学习 ML (Machine Learning) 工作负载运行在这些虚拟机上 (sysin)，Bitfusion 会把它们对于GPU 的服务请求通过网络传输给 Bitfusion Server，计算完成后再返回结果。对于 ML 工作负载来说，远程 GPU 是完全透明的，它就像是在使用本地的 GPU 硬件。</li>
 </ul>
-<h2 id="vSphere-Bitfusion-4-0-的新增功能"><a href="#vSphere-Bitfusion-4-0-的新增功能" class="headerlink" title="vSphere Bitfusion 4.0 的新增功能"></a>vSphere Bitfusion 4.0 的新增功能</h2><ul>
+<h2 id="vSphere-Bitfusion-4-0-的新增功能">vSphere Bitfusion 4.0 的新增功能</h2>
+<ul>
 <li>Added support for NVIDIA CUDA 11.2.2, NVIDIA cuDNN 8.1.1, and NVIDIA NCCL 2.8.4.</li>
 <li>Added improved scheduling to run workloads on specific sets of GPUs or vSphere Bitfusion servers.</li>
 <li>Added data retention policy to specify a time period to store historical vSphere Bitfusion data.</li>
@@ -512,18 +515,49 @@
 <li>Support for Ubuntu 16.04 clients is deprecated in vSphere Bitfusion 4.0.0.</li>
 <li>Support for vSphere Bitfusion 2.x.x clients will be deprecated in vSphere Bitfusion 4.5.0.</li>
 </ul>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><ul>
-<li><p><strong>Bitfusion Server</strong><br>File size: 800.45 MB<br>Name: bitfusion-server-4.0.0-13.ova<br>Release Date: 2021-08-17<br>SHA256SUM: cb20452e3a93272a9a14423e1bf573fa870d3f87e081461b9c1ece5853dc8ab2</p>
+<h2 id="下载地址-547">下载地址</h2>
+<ul>
+<li>
+<p><strong>Bitfusion Server</strong><br>
+File size: 800.45 MB<br>
+Name: bitfusion-server-4.0.0-13.ova<br>
+Release Date: 2021-08-17<br>
+SHA256SUM: cb20452e3a93272a9a14423e1bf573fa870d3f87e081461b9c1ece5853dc8ab2</p>
 </li>
-<li><p><strong>Bitfusion Client</strong> - RHEL/CentOS 8<br>File size: 26.87 MB<br>Name: bitfusion-client-centos8-4.0.0-13.x86_64.rpm<br>Release Date: 2021-08-17<br>SHA256SUM: e5d046c42c9c93951bed92419f42e834ffbaab08ff06187f83bb9a6b19ef1375</p>
+<li>
+<p><strong>Bitfusion Client</strong> - RHEL/CentOS 8<br>
+File size: 26.87 MB<br>
+Name: bitfusion-client-centos8-4.0.0-13.x86_64.rpm<br>
+Release Date: 2021-08-17<br>
+SHA256SUM: e5d046c42c9c93951bed92419f42e834ffbaab08ff06187f83bb9a6b19ef1375</p>
 </li>
-<li><p><strong>Bitfusion Client</strong>t - RHEL/CentOS 7<br>File size: 26.46 MB<br>Name: bitfusion-client-centos7-4.0.0-13.x86_64.rpm<br>Release Date: 2021-08-17<br>SHA256SUM: cf025fd760257cbe413afb5d6db46faefc2df942ef856f2f7f7e0a274f7605c5</p>
+<li>
+<p><strong>Bitfusion Client</strong>t - RHEL/CentOS 7<br>
+File size: 26.46 MB<br>
+Name: bitfusion-client-centos7-4.0.0-13.x86_64.rpm<br>
+Release Date: 2021-08-17<br>
+SHA256SUM: cf025fd760257cbe413afb5d6db46faefc2df942ef856f2f7f7e0a274f7605c5</p>
 </li>
-<li><p><strong>Bitfusion Client</strong> - Ubuntu 18.04<br>File size: 26.67 MB<br>Name: bitfusion-client-ubuntu1804_4.0.0-13_amd64.deb<br>Release Date: 2021-08-17<br>SHA256SUM: a56f6bf78e9cb60693d9c0b86b99eaf38f2c08d47315f4e607cb116e0ee5d2bd</p>
+<li>
+<p><strong>Bitfusion Client</strong> - Ubuntu 18.04<br>
+File size: 26.67 MB<br>
+Name: bitfusion-client-ubuntu1804_4.0.0-13_amd64.deb<br>
+Release Date: 2021-08-17<br>
+SHA256SUM: a56f6bf78e9cb60693d9c0b86b99eaf38f2c08d47315f4e607cb116e0ee5d2bd</p>
 </li>
-<li><p><strong>Bitfusion Client</strong> - Ubuntu 20.04<br>File size: 26.91 MB<br>Name: bitfusion-client-ubuntu2004_4.0.0-13_amd64.deb<br>Release Date: 2021-08-17<br>SHA256SUM: 0e2eb15c13c03d00c79e6479fe0eaf5f2b2b0b3615a093d7353020459350ddd2</p>
+<li>
+<p><strong>Bitfusion Client</strong> - Ubuntu 20.04<br>
+File size: 26.91 MB<br>
+Name: bitfusion-client-ubuntu2004_4.0.0-13_amd64.deb<br>
+Release Date: 2021-08-17<br>
+SHA256SUM: 0e2eb15c13c03d00c79e6479fe0eaf5f2b2b0b3615a093d7353020459350ddd2</p>
 </li>
-<li><p>Bitfusion Client Package Signature Verification Public Key<br>File size: 1.74 KB<br>Name: vmware.bitfusion.key<br>Release Date: 2020-07-09<br>SHA256SUM: ff909b0de41045adee4fb062d6a57259ba3ddca02a3d3e636e6591c7ce9e52c5</p>
+<li>
+<p>Bitfusion Client Package Signature Verification Public Key<br>
+File size: 1.74 KB<br>
+Name: vmware.bitfusion.key<br>
+Release Date: 2020-07-09<br>
+SHA256SUM: ff909b0de41045adee4fb062d6a57259ba3ddca02a3d3e636e6591c7ce9e52c5</p>
 </li>
 </ul>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1RjQCwQW-LSq4QZnNlvA8bw">https://pan.baidu.com/s/1RjQCwQW-LSq4QZnNlvA8bw</a>  提取码：1wt1</p>
@@ -712,7 +746,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-vSphere-Bitfusion"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 vSphere Bitfusion</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere Bitfusion 的工作原理是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-4-0-%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">vSphere Bitfusion 4.0 的新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-vSphere-Bitfusion-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 vSphere Bitfusion</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F-4"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere Bitfusion 的工作原理是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-4-0-%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">vSphere Bitfusion 4.0 的新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-547"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
