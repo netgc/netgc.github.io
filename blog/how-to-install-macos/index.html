@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/how-to-install-macos/">
+  <link rel="canonical" href="https://sysin.org/blog/how-to-install-macos/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -466,11 +464,11 @@
         <!-- pageview_count start -->
         
         <div style="color:gray" align="left">
-        更新日期：Wed Sep 18 2024 12:01:00 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        更新日期：1726632060000，阅读量: <span class="waline-pageview-count" />
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,13 +485,12 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/how-to-install-macos/" title="如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura">如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>本文适用于 macOS Big Sur、macOS Monterey、macOS Ventura、macOS Sonoma 和 macOS Sequoia，理论上新版也可以参考，除非出现重大改变。标题显示为最新的三个版本。</p>
 <p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">搭载 Apple 芯片的 Mac 电脑</a>，同时可以使用以下方式：</p>
 <ul>
-<li>
-<a href="/blog/apple-silicon-mac-dfu/" title="使用 DFU 模式修复或恢复 Mac 固件">使用 DFU 模式修复或恢复 Mac 固件</a>
+<li><a href="/blog/apple-silicon-mac-dfu/" title="使用 DFU 模式修复或恢复 Mac 固件">使用 DFU 模式修复或恢复 Mac 固件</a>
 </li>
 </ul>
 <p><strong>名词解释</strong>：</p>
@@ -519,99 +516,63 @@
 </ul>
 <p><strong>本文适用以下场景</strong>：</p>
 <ul>
-<li>
-<p>Mac 上全新安装 macOS（在官方兼容列表中的硬件）</p>
+<li><p>Mac 上全新安装 macOS（在官方兼容列表中的硬件）</p>
 <p>如果 Mac 不在官方兼容性列表，请参看：<a href="/blog/install-macos-on-unsupported-mac/" title="在不受支持的 Mac 上安装 macOS (索引页面)">在不受支持的 Mac 上安装 macOS (索引页面)</a>。</p>
 <p>在线升级不在讨论范畴，补丁加补丁笔者向来不推荐。</p>
 </li>
-<li>
-<p>在 ESXi（物理机）、macOS、Linux 和 Windows 系统中安装 macOS 虚拟机</p>
+<li><p>在 ESXi（物理机）、macOS、Linux 和 Windows 系统中安装 macOS 虚拟机</p>
 </li>
 </ul>
 <p><img src="/blog/macOS-Sonoma-boot-iso/macos-sonoma-in-vm.webp" alt="macOS Sonoma 运行在 VMware Fusion 中并启用了 Metal GPU 加速"></p>
 <ul>
-<li>
-<p>本文适用于 macOS Big Sur、macOS Monterey、macOS Ventura、 macOS Sonoma 和 macOS Sequoia，理论上新版也可以参考，除非出现重大改变</p>
+<li><p>本文适用于 macOS Big Sur、macOS Monterey、macOS Ventura、 macOS Sonoma 和 macOS Sequoia，理论上新版也可以参考，除非出现重大改变</p>
 <p>旧版的 macOS 只运行在 Intel 处理上，当然更加简单，需要注意：<a href="/blog/macos-installer-damaged/" title="安装旧版 macOS 时提示：应用程序副本已损坏">安装旧版 macOS 时提示：应用程序副本已损坏</a>。</p>
 </li>
 </ul>
-<h2 id="1-了解-macOS-兼容设备">1. 了解 macOS 兼容设备</h2>
-<p>请识别你的 Mac 机型（ -&gt; 关于本机），了解对应的 macOS 兼容性，下载合适的软件版本。</p>
+<h2 id="1-了解-macOS-兼容设备"><a href="#1-了解-macOS-兼容设备" class="headerlink" title="1. 了解 macOS 兼容设备"></a>1. 了解 macOS 兼容设备</h2><p>请识别你的 Mac 机型（ -&gt; 关于本机），了解对应的 macOS 兼容性，下载合适的软件版本。</p>
 <p>​        <a target="_blank" rel="noopener" href="https://www.apple.com.cn/mac/">进一步了解 Mac&gt;</a></p>
 <p><strong>看看你的 Mac 是否能用 macOS Sequoia</strong>：</p>
 <ul>
-<li>
-<p>MacBook Air 2020 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">进一步了解 &gt;</a></p>
+<li>MacBook Air 2020 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">进一步了解 &gt;</a></li>
+<li><p>MacBook Pro 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">进一步了解 &gt;</a></p>
 </li>
-<li>
-<p>MacBook Pro 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">进一步了解 &gt;</a></p>
+<li><p>Mac mini 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201894">进一步了解 &gt;</a></p>
 </li>
-<li>
-<p>Mac mini 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201894">进一步了解 &gt;</a></p>
+<li>Mac Studio 2022 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT213073">进一步了解 &gt;</a></li>
+<li><p>Mac Pro 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202888">进一步了解 &gt;</a></p>
 </li>
-<li>
-<p>Mac Studio 2022 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT213073">进一步了解 &gt;</a></p>
+<li><p>iMac 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解 &gt;</a></p>
 </li>
-<li>
-<p>Mac Pro 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202888">进一步了解 &gt;</a></p>
-</li>
-<li>
-<p>iMac 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解 &gt;</a></p>
-</li>
-<li>
-<p>iMac Pro 2017 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解 &gt;</a></p>
-</li>
+<li>iMac Pro 2017 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解 &gt;</a></li>
 </ul>
 <p><strong>看看你的 Mac 是否能用 macOS Sonoma</strong>：</p>
 <ul>
-<li>
-<p>iMac 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解</a></p>
+<li>iMac 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解</a></li>
+<li><p>iMac Pro 2017 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解</a></p>
 </li>
-<li>
-<p>iMac Pro 2017 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解</a></p>
+<li><p>Mac Pro 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202888">进一步了解</a></p>
 </li>
-<li>
-<p>Mac Pro 2019 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202888">进一步了解</a></p>
+<li>Mac Studio 2022 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT213073">进一步了解</a></li>
+<li><p>Mac mini 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201894">进一步了解</a></p>
 </li>
-<li>
-<p>Mac Studio 2022 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT213073">进一步了解</a></p>
+<li><p>MacBook Air 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">进一步了解</a></p>
 </li>
-<li>
-<p>Mac mini 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201894">进一步了解</a></p>
-</li>
-<li>
-<p>MacBook Air 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">进一步了解</a></p>
-</li>
-<li>
-<p>MacBook Pro 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">进一步了解</a></p>
-</li>
+<li>MacBook Pro 2018 and later <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">进一步了解</a></li>
 </ul>
 <p><strong>看看你的 Mac 是否能用 macOS Ventura</strong>：</p>
 <ul>
-<li>
-<p>MacBook 2017 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">进一步了解&gt;</a></p>
+<li>MacBook 2017 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">进一步了解&gt;</a></li>
+<li>MacBook Air 2018 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">进一步了解&gt;</a></li>
+<li><p>MacBook Pro 2017 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">进一步了解&gt;</a></p>
 </li>
-<li>
-<p>MacBook Air 2018 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">进一步了解&gt;</a></p>
+<li><p>Mac mini 2018 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201894">进一步了解&gt;</a></p>
 </li>
-<li>
-<p>MacBook Pro 2017 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">进一步了解&gt;</a></p>
+<li>Mac Studio 2022 年机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT213073">进一步了解&gt;</a></li>
+<li><p>Mac Pro 2019 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202888">进一步了解&gt;</a></p>
 </li>
-<li>
-<p>Mac mini 2018 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201894">进一步了解&gt;</a></p>
+<li><p>iMac 2017 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解&gt;</a></p>
 </li>
-<li>
-<p>Mac Studio 2022 年机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT213073">进一步了解&gt;</a></p>
-</li>
-<li>
-<p>Mac Pro 2019 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202888">进一步了解&gt;</a></p>
-</li>
-<li>
-<p>iMac 2017 年及后续机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解&gt;</a></p>
-</li>
-<li>
-<p>iMac Pro 2017 年机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解&gt;</a></p>
-</li>
+<li>iMac Pro 2017 年机型 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">进一步了解&gt;</a></li>
 </ul>
 <p><strong>看看你的 Mac 是否能用 macOS Monterey</strong>：</p>
 <ul>
@@ -648,56 +609,36 @@
 <blockquote>
 <p>如果 Mac 不在官方兼容性列表，请参看：<a href="/blog/install-macos-on-unsupported-mac/" title="在不受支持的 Mac 上安装 macOS (索引页面)">在不受支持的 Mac 上安装 macOS (索引页面)</a></p>
 </blockquote>
-<h2 id="2-获取-macOS-正式版软件包">2. 获取 macOS 正式版软件包</h2>
+<h2 id="2-获取-macOS-正式版软件包"><a href="#2-获取-macOS-正式版软件包" class="headerlink" title="2. 获取 macOS 正式版软件包"></a>2. 获取 macOS 正式版软件包</h2><ul>
+<li><p>下载地址：</p>
 <ul>
-<li>
-<p>下载地址：</p>
-<ul>
-<li>
-<a href="/blog/macOS-Sequoia/" title="macOS Sequoia 15.2 (24C101) 正式版 ISO、IPSW、PKG 下载">macOS Sequoia 15.2 (24C101) 正式版 ISO、IPSW、PKG 下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Sonoma/" title="macOS Sonoma 14.7.2 (23H311) 正式版 ISO、IPSW、PKG 下载">macOS Sonoma 14.7.2 (23H311) 正式版 ISO、IPSW、PKG 下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Ventura/" title="macOS Ventura 13.7.2 (22H313) 正式版 ISO、IPSW、PKG 下载">macOS Ventura 13.7.2 (22H313) 正式版 ISO、IPSW、PKG 下载</a>
-</li>
+<li><a href="/blog/macOS-Sequoia/" title="macOS Sequoia 15.2 (24C101) 正式版 ISO、IPSW、PKG 下载">macOS Sequoia 15.2 (24C101) 正式版 ISO、IPSW、PKG 下载</a></li>
+<li><a href="/blog/macOS-Sonoma/" title="macOS Sonoma 14.7.2 (23H311) 正式版 ISO、IPSW、PKG 下载">macOS Sonoma 14.7.2 (23H311) 正式版 ISO、IPSW、PKG 下载</a></li>
+<li><a href="/blog/macOS-Ventura/" title="macOS Ventura 13.7.2 (22H313) 正式版 ISO、IPSW、PKG 下载">macOS Ventura 13.7.2 (22H313) 正式版 ISO、IPSW、PKG 下载</a></li>
 <li>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></li>
 </ul>
 </li>
-<li>
-<p>可启动 ISO 镜像，可用于虚拟安装</p>
+<li><p>可启动 ISO 镜像，可用于虚拟安装</p>
 <ul>
-<li>
-<a href="/blog/macOS-Sequoia-boot-iso/" title="macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载">macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Sonoma-boot-iso/" title="macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载">macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Ventura-boot-iso/" title="macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载">macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载</a>
-</li>
+<li><a href="/blog/macOS-Sequoia-boot-iso/" title="macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载">macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载</a></li>
+<li><a href="/blog/macOS-Sonoma-boot-iso/" title="macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载">macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载</a></li>
+<li><a href="/blog/macOS-Ventura-boot-iso/" title="macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载">macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载</a></li>
 <li>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></li>
 </ul>
 </li>
-<li>
-<p>Mac App Store<br>
-打开 App Store 直接搜索 macOS 下载即可，下载的是当前最新版。</p>
+<li><p>Mac App Store<br>打开 App Store 直接搜索 macOS 下载即可，下载的是当前最新版。</p>
 </li>
 </ul>
 <p>上述方式，都需要将 <code>Install macOS xxx.app</code> (例如 “安装 macOS Sonoma) 放置于 <code>/Applications</code> （应用程序）下面。</p>
-<h2 id="3-创建可引导的-macOS-安装介质">3. 创建可引导的 macOS 安装介质</h2>
-<p>请参看：<a href="/blog/macos-createinstallmedia/" title="如何创建可引导的 macOS 安装介质">如何创建可引导的 macOS 安装介质</a></p>
-<h3 id="1-确保下载的-macOS-安装程序在-“应用程序”-中">(1) 确保下载的 macOS 安装程序在 “应用程序” 中</h3>
-<p>已经下载了 macOS，再次确认将 <code>Install macOS xxx.app</code> (例如 “安装 macOS Ventura”) 放置于 <code>/Applications</code> （应用程序）下面：</p>
+<h2 id="3-创建可引导的-macOS-安装介质"><a href="#3-创建可引导的-macOS-安装介质" class="headerlink" title="3. 创建可引导的 macOS 安装介质"></a>3. 创建可引导的 macOS 安装介质</h2><p>请参看：<a href="/blog/macos-createinstallmedia/" title="如何创建可引导的 macOS 安装介质">如何创建可引导的 macOS 安装介质</a></p>
+<h3 id="1-确保下载的-macOS-安装程序在-“应用程序”-中"><a href="#1-确保下载的-macOS-安装程序在-“应用程序”-中" class="headerlink" title="(1) 确保下载的 macOS 安装程序在 “应用程序” 中"></a>(1) 确保下载的 macOS 安装程序在 “应用程序” 中</h3><p>已经下载了 macOS，再次确认将 <code>Install macOS xxx.app</code> (例如 “安装 macOS Ventura”) 放置于 <code>/Applications</code> （应用程序）下面：</p>
 <ul>
 <li>ISO 格式打开后可以拖拽到 “应用程序” 文件夹，或者只需要双击挂载更便捷；</li>
 <li>PKG 格式的软件包，打开根据提示自动安装到 “应用程序” 文件夹；</li>
 <li>在 Mac App Store 下载的 App 会自动保存在 “应用程序” 文件夹。</li>
 <li>DMG 格式的软件包，需要打开拖拽到 “应用程序” 文件夹；</li>
 </ul>
-<h3 id="2-准备启动介质：USB-移动存储设备">(2) 准备启动介质：USB 移动存储设备</h3>
-<p>可以使用以下三种介质中的一种：</p>
+<h3 id="2-准备启动介质：USB-移动存储设备"><a href="#2-准备启动介质：USB-移动存储设备" class="headerlink" title="(2) 准备启动介质：USB 移动存储设备"></a>(2) 准备启动介质：USB 移动存储设备</h3><p>可以使用以下三种介质中的一种：</p>
 <ol>
 <li>U 盘：Catalina 及以上版本需要 16G 及以上容量的 U 盘，其他旧版本 8G 容量的 U 盘即可（SD 卡同理）；</li>
 <li>USB 移动硬盘，比如 USB SSD 移动硬盘更佳（推荐！）；</li>
@@ -709,8 +650,7 @@
 <li>GUID 分区图；</li>
 <li>分区名称：sysin（这里示例使用名称，可以自定义，注意下面终端命令中的 sysin 也要改成你自定义的名称）。</li>
 </ol>
-<h3 id="3-在-“终端”-中使用-“createinstallmedia”-命令">(3) 在 “终端” 中使用 “createinstallmedia” 命令</h3>
-<ol>
+<h3 id="3-在-“终端”-中使用-“createinstallmedia”-命令"><a href="#3-在-“终端”-中使用-“createinstallmedia”-命令" class="headerlink" title="(3) 在 “终端” 中使用 “createinstallmedia” 命令"></a>(3) 在 “终端” 中使用 “createinstallmedia” 命令</h3><ol>
 <li>连接要用于保存可引导安装器的 USB 闪存驱动器或其他宗卷。</li>
 <li>打开 “应用程序” 文件夹内 “实用工具” 文件夹中的 “终端”。</li>
 <li>在 “终端” 中键入或粘贴以下命令之一。这些命令假设安装器位于您的 “应用程序” 文件夹中，并且 “sysin” 是您所使用的 USB 闪存驱动器或其他宗卷的名称。如果不是这个名称，请将这些命令中的 <code>sysin</code> 替换为您的宗卷名称。</li>
@@ -737,8 +677,7 @@
 <li>当 “终端” 显示操作已完成时，相应宗卷将拥有与您下载的安装器相同的名称，例如 “安装 macOS Big Sur”。您现在可以退出“终端” 并弹出宗卷。</li>
 </ol>
 <p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Big-Sur/macos-big-sur-terminal-create-bootable-installer.jpg" alt="Apple"></p>
-<h3 id="4-使用可引导安装器">(4) 使用可引导安装器</h3>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">确定您使用的是不是搭载 Apple 芯片的 Mac</a>，然后按照相应的步骤操作：</p>
+<h3 id="4-使用可引导安装器"><a href="#4-使用可引导安装器" class="headerlink" title="(4) 使用可引导安装器"></a>(4) 使用可引导安装器</h3><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">确定您使用的是不是搭载 Apple 芯片的 Mac</a>，然后按照相应的步骤操作：</p>
 <p><strong>Apple 芯片</strong>：</p>
 <ol>
 <li>将可引导安装器插入已连接到互联网且与您要安装的 macOS 版本兼容的 Mac。</li>
@@ -751,37 +690,30 @@
 <li>将可引导安装器插入已连接到互联网且与您要安装的 macOS 版本兼容的 Mac。</li>
 <li>将 Mac 开机或重新启动后，立即按住 Option (Alt) ⌥ 键。</li>
 <li>当您看到显示可引导宗卷的黑屏时，松开 Option 键。</li>
-<li>选择包含可引导安装器的宗卷。然后点按向上箭头或按下 Return 键。<br>
-如果您无法从可引导安装器启动，请确保 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">“启动安全性实用工具” 中的 “外部启动” 设置</a>已设为允许从外部介质启动。</li>
+<li>选择包含可引导安装器的宗卷。然后点按向上箭头或按下 Return 键。<br> 如果您无法从可引导安装器启动，请确保 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">“启动安全性实用工具” 中的 “外部启动” 设置</a>已设为允许从外部介质启动。</li>
 <li>根据提示选取您的语言。</li>
 <li>从 “实用工具” 窗口中选择“安装 macOS”（或“安装 OS X”），然后点按“继续”，并按照屏幕上的说明进行操作。</li>
 </ol>
-<h2 id="4-开始全新安装">4. 开始全新安装</h2>
-<p>⚠️ <strong>警告：抹掉磁盘，所有数据都将清除，请先备份数据。</strong></p>
-<h3 id="1-一般步骤-2">(1) 一般步骤</h3>
-<ol>
-<li>
-<p>如上描述，现在已经使用可引导的安装器启动安装画面。</p>
+<h2 id="4-开始全新安装"><a href="#4-开始全新安装" class="headerlink" title="4. 开始全新安装"></a>4. 开始全新安装</h2><p>⚠️ <strong>警告：抹掉磁盘，所有数据都将清除，请先备份数据。</strong></p>
+<h3 id="1-一般步骤"><a href="#1-一般步骤" class="headerlink" title="(1) 一般步骤"></a>(1) 一般步骤</h3><ol>
+<li><p>如上描述，现在已经使用可引导的安装器启动安装画面。</p>
 <ul>
 <li>配备 Intel 处理器的 Mac 机型，重新启动，按住 Option 键，出现启动选择画面，选择 “Install macOS Big Sur” 图标，进入安装画面。</li>
 <li>搭载 Apple 芯片的 Mac 电脑是按住电源按钮不放，会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。同样选择 “macOS” 图标。</li>
 </ul>
 <p><img src="macos-big-sur-boot-1.webp" alt="macos-big-sur-boot-1"></p>
 </li>
-<li>
-<p>选择磁盘工具，抹掉原有磁盘（默认名称：Macintosh HD，格式：APFS）即可全新安装</p>
+<li><p>选择磁盘工具，抹掉原有磁盘（默认名称：Macintosh HD，格式：APFS）即可全新安装</p>
 <blockquote>
 <p>注意：点击 “磁盘工具” 字符左侧的 “显示” 图标，勾选 “显示所有设备”，默认是 “仅显示卷宗”，点击最上层物理磁盘名称，然后在点击 “抹掉”。</p>
 </blockquote>
 <p><img src="macos-big-sur-boot-2.webp" alt="macos-big-sur-boot-2"></p>
 </li>
-<li>
-<p>关闭磁盘工具，选择 “安装 macOS Big Sur”，根据提示多次点击下一步即可完成安装</p>
+<li><p>关闭磁盘工具，选择 “安装 macOS Big Sur”，根据提示多次点击下一步即可完成安装</p>
 <p>过程比较简单，都是点击下一步，不再赘述。</p>
 </li>
 </ol>
-<h3 id="2-配备-Apple-T2-安全芯片的电脑需要开启外部启动">(2) 配备 Apple T2 安全芯片的电脑需要开启外部启动</h3>
-<p>下列 Mac 电脑配备了 Apple T2 安全芯片：</p>
+<h3 id="2-配备-Apple-T2-安全芯片的电脑需要开启外部启动"><a href="#2-配备-Apple-T2-安全芯片的电脑需要开启外部启动" class="headerlink" title="(2) 配备 Apple T2 安全芯片的电脑需要开启外部启动"></a>(2) 配备 Apple T2 安全芯片的电脑需要开启外部启动</h3><p>下列 Mac 电脑配备了 Apple T2 安全芯片：</p>
 <ul>
 <li>2020 年推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">iMac</a></li>
 <li>iMac Pro</li>
@@ -808,8 +740,7 @@
 <p>此时点选 “允许从外部介质启动”，退出启动安全性实用工具。</p>
 <p>重新启动，按住 option 键不放，选择 “Install macOS Big Sur”，启动安装画面 (sysin)。</p>
 <p>如果出现报错：“需要更新软件才能使用这个启动磁盘。”，请看下文。</p>
-<h3 id="3-配备-Apple-T2-安全芯片的电脑可能需要额外的操作-2">(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作</h3>
-<p>在配备 Apple T2 安全芯片的 Mac 在安装过程中，需要联网验证和下载软件更新，如果 “查找我的 Mac” 没有关闭，需要输入 Apple ID 密码才能继续操作 (sysin)。</p>
+<h3 id="3-配备-Apple-T2-安全芯片的电脑可能需要额外的操作"><a href="#3-配备-Apple-T2-安全芯片的电脑可能需要额外的操作" class="headerlink" title="(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作"></a>(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作</h3><p>在配备 Apple T2 安全芯片的 Mac 在安装过程中，需要联网验证和下载软件更新，如果 “查找我的 Mac” 没有关闭，需要输入 Apple ID 密码才能继续操作 (sysin)。</p>
 <p>在配备 Apple T2 安全芯片的 Mac 启动 “Install macOS Big Sur”，可能报错：“需要更新软件才能使用这个启动磁盘。”</p>
 <p><img src="install-error-1.webp" alt="install-error-1"></p>
 <p>此时需要，连接网络（点击右上角的 Wi-Fi 图标联网）后，点击 “更新” 按钮，等待软件更新，更新完毕自动重启。</p>
@@ -818,64 +749,47 @@
 <p>重启后再次启动 “Install macOS Big Sur”，可能仍然报错如下，确保已经联网，点击 “再试一次”。</p>
 <p><img src="install-error-3.webp" alt="install-error-3"></p>
 <p>按提示重启后，当系统要求您进行身份验证时，点按管理员账号，输入密码，正常进入安装画面。</p>
-<h3 id="4-搭载-Apple-芯片的-Mac-电脑注意事项-2">(4) 搭载 Apple 芯片的 Mac 电脑注意事项</h3>
-<p>搭载 Apple 芯片的 Mac 电脑，允许从外部介质启动，无需修改，只是启动外部介质的操作不同：按住电源按钮不放，会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。此时选择 “Install macOS Big Sur”，即可启动安装画面。</p>
-<p>搭载 Apple 芯片的 Mac 电脑，可以在 DFU 模式恢复 macOS 软件（类似 iOS）。详见笔者另外一篇文章：<a target="_blank" rel="noopener" href="https://sysin.org/blog/apple-silicon-mac-dfu/">在 Apple silicon Mac 上 DFU 模式恢复 macOS 固件</a>。</p>
-<h2 id="5-macOS-系统如何降级安装">5. macOS 系统如何降级安装</h2>
-<h3 id="1-识别机型-2">(1) 识别机型</h3>
-<p>请识别你的 Mac 机型（ -&gt; 关于本机）。</p>
+<h3 id="4-搭载-Apple-芯片的-Mac-电脑注意事项"><a href="#4-搭载-Apple-芯片的-Mac-电脑注意事项" class="headerlink" title="(4) 搭载 Apple 芯片的 Mac 电脑注意事项"></a>(4) 搭载 Apple 芯片的 Mac 电脑注意事项</h3><p>搭载 Apple 芯片的 Mac 电脑，允许从外部介质启动，无需修改，只是启动外部介质的操作不同：按住电源按钮不放，会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。此时选择 “Install macOS Big Sur”，即可启动安装画面。</p>
+<p>搭载 Apple 芯片的 Mac 电脑，可以在 DFU 模式恢复 macOS 软件（类似 iOS）。详见笔者另外一篇文章：<a href="https://sysin.org/blog/apple-silicon-mac-dfu/">在 Apple silicon Mac 上 DFU 模式恢复 macOS 固件</a>。</p>
+<h2 id="5-macOS-系统如何降级安装"><a href="#5-macOS-系统如何降级安装" class="headerlink" title="5. macOS 系统如何降级安装"></a>5. macOS 系统如何降级安装</h2><h3 id="1-识别机型"><a href="#1-识别机型" class="headerlink" title="(1) 识别机型"></a>(1) 识别机型</h3><p>请识别你的 Mac 机型（ -&gt; 关于本机）。</p>
 <p>确定您使用的是否为<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">搭载 Apple T2 安全芯片的 Mac 机型</a>，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">确定您使用的是不是搭载 Apple 芯片的 Mac</a>，然后做相应修改 (sysin)。</p>
 <ol>
-<li>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">搭载 Apple T2 安全芯片的 Mac 机型</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">搭载 Apple T2 安全芯片的 Mac 机型</a></p>
 <p>默认启用 “完整安全性”，“不允许从外部介质或可移动介质启动”，需要将安全启动修改为 “<strong>中等安全性</strong>”，允许的启动介质修改为 “<strong>允许从外部介质或可移动介质启动</strong>”。</p>
 <p>详见：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">关于搭载 Apple T2 安全芯片的 Mac 上的“启动安全性实用工具”</a></p>
 </li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">搭载 Apple 芯片的 Mac 电脑</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">搭载 Apple 芯片的 Mac 电脑</a></p>
 <p>默认启用 “完整安全性”（等于 iOS），需要将安全策略设置为 “<strong>降低安全性</strong>”。</p>
 <p>详见：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchl768f7291/mac">在搭载 Apple 芯片的 Mac 上更改启动磁盘的安全性设置</a>。</p>
 <blockquote>
 <p>备注：搭载 Apple 芯片的 Mac 电脑，外部启动默认允许。</p>
 </blockquote>
 </li>
-<li>
-<p>非上述两种 Mac 机型</p>
+<li><p>非上述两种 Mac 机型</p>
 <p>没有任何限制，使用可引导安装器抹掉磁盘 (sysin)，全新安装即可降级。</p>
 </li>
 </ol>
-<h3 id="2-创建可引导的-macOS-安装介质-2">(2) 创建可引导的 macOS 安装介质</h3>
-<p>请访问：<a href="/blog/macos-createinstallmedia/" title="如何创建可引导的 macOS 安装介质">如何创建可引导的 macOS 安装介质</a></p>
+<h3 id="2-创建可引导的-macOS-安装介质"><a href="#2-创建可引导的-macOS-安装介质" class="headerlink" title="(2) 创建可引导的 macOS 安装介质"></a>(2) 创建可引导的 macOS 安装介质</h3><p>请访问：<a href="/blog/macos-createinstallmedia/" title="如何创建可引导的 macOS 安装介质">如何创建可引导的 macOS 安装介质</a></p>
 <p>按照步骤操作，即可启动到安装 macOS 画面，请先选择<strong>磁盘工具</strong>，<strong>抹掉整个磁盘</strong>（如上述 4 (1) 步骤），开始全新安装，与正常安装并无差别。</p>
 <p>⚠️ <strong>警告：抹掉磁盘，所有数据都将清除，请先备份数据。</strong></p>
-<h2 id="6-虚拟机安装">6. 虚拟机安装</h2>
-<p>安装之前需要准备可引导的 macOS 软件包，默认 Apple 官方提供的软件包都是不可引导的。</p>
-<p>直接下载本站可启动 ISO 镜像，请访问：<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS/">https://sysin.org/blog/macOS/</a>。</p>
+<h2 id="6-虚拟机安装"><a href="#6-虚拟机安装" class="headerlink" title="6. 虚拟机安装"></a>6. 虚拟机安装</h2><p>安装之前需要准备可引导的 macOS 软件包，默认 Apple 官方提供的软件包都是不可引导的。</p>
+<p>直接下载本站可启动 ISO 镜像，请访问：<a href="https://sysin.org/blog/macOS/">https://sysin.org/blog/macOS/</a>。</p>
 <ul>
-<li>
-<a href="/blog/macOS-Sequoia-boot-iso/" title="macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载">macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Sonoma-boot-iso/" title="macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载">macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Ventura-boot-iso/" title="macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载">macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Monterey-boot-iso/" title="macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载">macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载</a>
-</li>
-<li>
-<a href="/blog/macOS-Big-Sur-boot-iso/" title="macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载">macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载</a>
+<li><a href="/blog/macOS-Sequoia-boot-iso/" title="macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载">macOS Sequoia 15.2 (24C101) Boot ISO 原版可引导镜像下载</a></li>
+<li><a href="/blog/macOS-Sonoma-boot-iso/" title="macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载">macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载</a></li>
+<li><a href="/blog/macOS-Ventura-boot-iso/" title="macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载">macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载</a></li>
+<li><a href="/blog/macOS-Monterey-boot-iso/" title="macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载">macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载</a></li>
+<li><a href="/blog/macOS-Big-Sur-boot-iso/" title="macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载">macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载</a>
 </li>
 </ul>
 <p>本例仅测试在 VMware 软件中安装，其他虚机软件未验证，方法类似。</p>
 <p><img src="/blog/macOS-Big-Sur-boot-iso/macos-big-sur-in-vm.webp" alt="macOS Big Sur 运行在 VMware Fusion 中并启用了 Metal GPU 加速"></p>
 <p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
 <ul>
-<li>Server：VMware <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
-<li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
-<li>Linux：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
-<li>Windows：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
 <p>关于 macOS Ventura 虚机兼容性问题</p>
 <p>在 macOS Ventura 发布时，VMware 尚未更新支持 Ventura（Apple 已经转型自研 ARM 架构，VMware 已经不再官方支持虚拟化 macOS）。经过测试，在 VMware 软件中只要支持 Big Sur 就可以正常安装 Ventura 虚机，GPU 加速也可以正常启用。但需要注意以下几点：</p>
@@ -883,37 +797,33 @@
 <li>新建虚机操作系统可以选择 macOS 11.0 或者 12.0 皆可</li>
 <li>虚机网卡要使用 vmxnet3（默认 e1000e 无法驱动）</li>
 <li>安装完毕配置网络时，若无网络可用，选择 “我的电脑不接入互联网”</li>
-<li>安装最新版的 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-tools-12/">VMware Tools</a>，重启后网络正常</li>
+<li>安装最新版的 <a href="https://sysin.org/blog/vmware-tools-12/">VMware Tools</a>，重启后网络正常</li>
 </ul>
-<h3 id="1-在-macOS-中安装虚拟机-2">(1) 在 macOS 中安装虚拟机</h3>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-12/">VMware Fusion 12</a> 及更新版本，<a target="_blank" rel="noopener" href="https://sysin.org/blog/parallels-desktop/">Parallels Desktop 18 for Mac</a> 及更新版本，都可以完全支持 macOS Big Sur 和 macOS Monterey 及更新版本，使用可引导的 ISO，直接安装即可。</p>
-<p><strong><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13/">VMware Fusion 13</a> 现已支持 macOS Sonoma</strong>。</p>
+<h3 id="1-在-macOS-中安装虚拟机"><a href="#1-在-macOS-中安装虚拟机" class="headerlink" title="(1) 在 macOS 中安装虚拟机"></a>(1) 在 macOS 中安装虚拟机</h3><p><a href="https://sysin.org/blog/vmware-fusion-12/">VMware Fusion 12</a> 及更新版本，<a href="https://sysin.org/blog/parallels-desktop/">Parallels Desktop 18 for Mac</a> 及更新版本，都可以完全支持 macOS Big Sur 和 macOS Monterey 及更新版本，使用可引导的 ISO，直接安装即可。</p>
+<p><strong><a href="https://sysin.org/blog/vmware-fusion-13/">VMware Fusion 13</a> 现已支持 macOS Sonoma</strong>。</p>
 <p><img src="/blog/macOS-Sequoia-boot-iso/macos-sequoia-in-vm.webp" alt="macOS Sequoia 运行在 VMware Fusion 中并启用了 Metal GPU 加速"></p>
 <p><img src="/blog/macOS-Sonoma-boot-iso/macos-sonoma-in-vm.webp" alt="macOS Sonoma 运行在 VMware Fusion 中并启用了 Metal GPU 加速"></p>
 <p><img src="/blog/macOS-Ventura-boot-iso/macos-ventura-in-vm.webp" alt="macOS Ventura 运行在 VMware Fusion 中并启用了 Metal GPU 加速"></p>
 <p><img src="/blog/macOS-Monterey-boot-iso/macos-monterey-in-vm.webp" alt="macOS Monterey 运行在 VMware Fusion 中并启用了 Metal GPU 加速"></p>
-<h3 id="2-在-Windows-或者-Linux-中安装虚拟机-2">(2) 在 Windows 或者 Linux 中安装虚拟机</h3>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-16-unlocker/">VMware Workstation 16</a> 已经完全支持 macOS Big Sur 和 macOS Monterey，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/unlocker">unlocker</a></strong> 才可开启。</p>
+<h3 id="2-在-Windows-或者-Linux-中安装虚拟机"><a href="#2-在-Windows-或者-Linux-中安装虚拟机" class="headerlink" title="(2) 在 Windows 或者 Linux 中安装虚拟机"></a>(2) 在 Windows 或者 Linux 中安装虚拟机</h3><p><a href="https://sysin.org/blog/vmware-workstation-16-unlocker/">VMware Workstation 16</a> 已经完全支持 macOS Big Sur 和 macOS Monterey，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/unlocker">unlocker</a></strong> 才可开启。</p>
 <p><img src="vmware-workstation-16-macos.webp" alt="vmware-workstation-16-macos"></p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker/">VMware Workstation 17</a> 已经完全支持 macOS Ventura 和 macOS Sonoma，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/unlocker">unlocker</a></strong> 才可开启。</p>
-<p>笔者已经发布了 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker/">定制版</a>，来方便解决这个问题，定制版支持 macOS，可以直接运行当前的 macOS Sonoma。</p>
-<p><strong><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker/">VMware Workstation 17</a> 现已发布支持 macOS Sonoma</strong>。</p>
+<p><a href="https://sysin.org/blog/vmware-workstation-17-unlocker/">VMware Workstation 17</a> 已经完全支持 macOS Ventura 和 macOS Sonoma，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/unlocker">unlocker</a></strong> 才可开启。</p>
+<p>笔者已经发布了 <a href="https://sysin.org/blog/vmware-workstation-17-unlocker/">定制版</a>，来方便解决这个问题，定制版支持 macOS，可以直接运行当前的 macOS Sonoma。</p>
+<p><strong><a href="https://sysin.org/blog/vmware-workstation-17-unlocker/">VMware Workstation 17</a> 现已发布支持 macOS Sonoma</strong>。</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Changelog-6.1">Version 6.1.16 (2020-10-16)</a> 更新显示可以支持 macOS Big Sur。</p>
 <p><a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Changelog-6.1"><strong>VirtualBox 6.1.30</strong> (released November 22 2021)</a> 更新显示可以支持 macOS Monterey。</p>
 </blockquote>
-<h3 id="3-在物理机-ESXi-中安装虚拟机-2">(3) 在物理机 ESXi 中安装虚拟机</h3>
-<p>本文落笔之时，最新的 ESXi 7.0 Update 1 官方 Guest OS 列表仅支持到 macOS 10.15，但实际上可以正常运行 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/esxi-unlocker">esxi-unlocker</a></strong> 才可开启。</p>
+<h3 id="3-在物理机-ESXi-中安装虚拟机"><a href="#3-在物理机-ESXi-中安装虚拟机" class="headerlink" title="(3) 在物理机 ESXi 中安装虚拟机"></a>(3) 在物理机 ESXi 中安装虚拟机</h3><p>本文落笔之时，最新的 ESXi 7.0 Update 1 官方 Guest OS 列表仅支持到 macOS 10.15，但实际上可以正常运行 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/esxi-unlocker">esxi-unlocker</a></strong> 才可开启。</p>
 <p>新建 VM 时，兼容性选择 ESXi 7.0 U1，可以看到 10.16 即 Big Sur 11.0 (VMware 甚至发布了 macOS 10.17 ？)</p>
 <p>ESXi 7.0 U2 已经可以正常显示 macOS 11 和 macOS 12。</p>
 <p><img src="/blog/vmware-esxi-7-oem/new-vm-7-u2.webp" alt="New VM in ESXi 7.0 U2"></p>
-<p>笔者已经发布一个新版: <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u2-oem/">VMware ESXi 7.0 U2</a> 及<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u2-sysin/">集成驱动版本</a>，可以直接运行 macOS Big Sur。现在已经更新到 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">VMware ESXi 7.0 U3</a> 及<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">集成驱动版本</a>。</p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-oem/">VMware ESXi 8.0</a> 及<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-sysin/">集成驱动版本</a>，现已发布，可以支持 macOS Ventura。</p>
+<p>笔者已经发布一个新版: <a href="https://sysin.org/blog/vmware-esxi-7-u2-oem/">VMware ESXi 7.0 U2</a> 及<a href="https://sysin.org/blog/vmware-esxi-7-u2-sysin/">集成驱动版本</a>，可以直接运行 macOS Big Sur。现在已经更新到 <a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">VMware ESXi 7.0 U3</a> 及<a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">集成驱动版本</a>。</p>
+<p><a href="https://sysin.org/blog/vmware-esxi-8-oem/">VMware ESXi 8.0</a> 及<a href="https://sysin.org/blog/vmware-esxi-8-sysin/">集成驱动版本</a>，现已发布，可以支持 macOS Ventura。</p>
 <p><img src="/blog/vmware-esxi-8-oem/new-vm-in-esxi-8.webp" alt="New VM in ESXi 8"></p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u2-oem/">VMware ESXi 8.0U2</a> 及<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u2-sysin/">集成驱动版本</a>，现已发布，可以支持 macOS Sonoma。</p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">VMware ESXi 8.0U3</a> 及<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">集成驱动版本</a>，现已发布，可以支持 macOS Sequoia。</p>
-<h3 id="4-解决-“BiErrorDomain-Error-3-”-报错-2">(4) 解决 “BiErrorDomain Error 3.” 报错</h3>
-<p>在一些早期版本的虚拟化软件中，尚未完全支持 macOS Big Sur，会出现 “BiErrorDomain Error 3.” 报错，可参照一下方法解决。</p>
+<p><a href="https://sysin.org/blog/vmware-esxi-8-u2-oem/">VMware ESXi 8.0U2</a> 及<a href="https://sysin.org/blog/vmware-esxi-8-u2-sysin/">集成驱动版本</a>，现已发布，可以支持 macOS Sonoma。</p>
+<p><a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">VMware ESXi 8.0U3</a> 及<a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">集成驱动版本</a>，现已发布，可以支持 macOS Sequoia。</p>
+<h3 id="4-解决-“BiErrorDomain-Error-3-”-报错"><a href="#4-解决-“BiErrorDomain-Error-3-”-报错" class="headerlink" title="(4) 解决 “BiErrorDomain Error 3.” 报错"></a>(4) 解决 “BiErrorDomain Error 3.” 报错</h3><p>在一些早期版本的虚拟化软件中，尚未完全支持 macOS Big Sur，会出现 “BiErrorDomain Error 3.” 报错，可参照一下方法解决。</p>
 <p><strong>使用 VMware 安装</strong>：</p>
 <p>在 VMware 中安装 macOS Big Sur，都会提示 “BiErrorDomain Error 3.”，无法继续，需要编辑 vmx 文件添加以下配置：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbios.reflectHost = <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">hw.model = <span class="string">&quot;MacBookPro16,1&quot;</span></span><br><span class="line">board-id = <span class="string">&quot;Mac-E1008331FDC96864&quot;</span></span><br></pre></td></tr></table></figure>
@@ -927,7 +837,7 @@
 <p>VMware ESXi 7.0.0</p>
 <p>VMware Fusion 11.5.5</p>
 <p>VMware Workstation 15.5 Windows x64</p>
-<p><strong>提示</strong>： 不要安装自带的 VM-Tools，可能存在兼容性问题，下载 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-tools-12/">VMware Tools 12.0</a> 或以上版本安装。</p>
+<p><strong>提示</strong>： 不要安装自带的 VM-Tools，可能存在兼容性问题，下载 <a href="https://sysin.org/blog/vmware-tools-12/">VMware Tools 12.0</a> 或以上版本安装。</p>
 <p><strong>使用 VirtualBox 安装</strong>：</p>
 <p>使用 VirtualBox 安装 macOS Big Sur，出现 “BiErrorDomain Error 3.” 报错，解决方法类似：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd “C:\Program Files\Oracle\VirtualBox\”</span><br><span class="line">VBoxManage.exe modifyvm “Your VM Name” -cpuidset <span class="number">00000001</span> <span class="number">000106e5</span> <span class="number">00100800</span> <span class="number">0098e3</span>fd bfebfbff</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiSystemProduct” “iMac19,<span class="number">1</span>”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiSystemVersion” “<span class="number">1.0</span>”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiBoardProduct” “Mac-AA95B1DDAB278B95”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/smc/<span class="number">0</span>/Config/DeviceKey” “ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/smc/<span class="number">0</span>/Config/GetKeyFromRealSMC” <span class="number">1</span></span><br></pre></td></tr></table></figure>
@@ -937,23 +847,19 @@
 <li><code>devices.mac_hw_model=&quot;MacBookPro16,1&quot;</code></li>
 <li><code>devices.smbios.board_id=&quot;Mac-E1008331FDC96864&quot;</code></li>
 </ul>
-<h2 id="7-macOS-Ventura-安装注意事项">7. macOS Ventura 安装注意事项</h2>
-<p><strong>beta 3 Update (22A5295i) 现已修复，请忽略！</strong></p>
+<h2 id="7-macOS-Ventura-安装注意事项"><a href="#7-macOS-Ventura-安装注意事项" class="headerlink" title="7. macOS Ventura 安装注意事项"></a>7. macOS Ventura 安装注意事项</h2><p><strong>beta 3 Update (22A5295i) 现已修复，请忽略！</strong></p>
 <p>如果您下载首个 beta 版进行安装，与以前的版本一样，没有额外注意事项。然后检查软件更新，更新到最新版本即可。</p>
 <blockquote>
-<p>笔者不主张正式版在线更新，但是当前是测试版，仅供 Mac 爱好者和开发者试用，就不停的更新吧…</p>
+<p>笔者不主张正式版在线更新，但是当前是测试版，仅供 Mac 爱好者和开发者试用，就不停的更新吧……</p>
 </blockquote>
 <p>如果您直接安装 beta 2，则会提示输入用户名和密码，就是磁盘上已经安装的 macOS 系统凭据。这样默认是升级安装。如果需要全新安装，请在安装开始后立刻中止安装，此时退回到安装画面，打开磁盘工具抹掉磁盘，再次开始安装，重新输入之前的用户名和密码，即可开始全新安装。</p>
 <p>如果你的磁盘上没有 macOS 系统，比如磁盘已经格式化，或者虚拟化环境新建的空白磁盘，请按如下步骤操作（也适用于已经有 macOS 安装的上一种情形，该方法更加明晰）：</p>
 <ul>
-<li>
-<p>启动到安装画面，<strong>不要点击</strong> “Install macOS Vertura beta”</p>
+<li><p>启动到安装画面，<strong>不要点击</strong> “Install macOS Vertura beta”</p>
 </li>
-<li>
-<p>打开磁盘工具（Disk Utility）抹掉整个磁盘，名称：sysin，格式：APFS，方案：GUID 分区图</p>
+<li><p>打开磁盘工具（Disk Utility）抹掉整个磁盘，名称：sysin，格式：APFS，方案：GUID 分区图</p>
 </li>
-<li>
-<p>退出磁盘工具，点击实用工具（Utilites）菜单，打开终端（Terminal），执行如下命令：</p>
+<li><p>退出磁盘工具，点击实用工具（Utilites）菜单，打开终端（Terminal），执行如下命令：</p>
 <p><code>/Volumes/Image\ Volume/Install\ macOS\ Ventura\ beta.app/Contents/Resources/startosinstall --volume /Volumes/sysin/</code></p>
 <p>注意：</p>
 <ul>
@@ -961,8 +867,7 @@
 <li>sysin 是磁盘名称，默认为 Macintosh HD，如果修改了名称则命令相应修改</li>
 </ul>
 </li>
-<li>
-<p>根据提示输入 A，按回车键开始安装，安装完成会自动重启到系统初始化界面</p>
+<li><p>根据提示输入 A，按回车键开始安装，安装完成会自动重启到系统初始化界面</p>
 </li>
 </ul>
 <p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
@@ -1086,7 +991,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1149,7 +1054,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%BA%86%E8%A7%A3-macOS-%E5%85%BC%E5%AE%B9%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 了解 macOS 兼容设备</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E8%8E%B7%E5%8F%96-macOS-%E6%AD%A3%E5%BC%8F%E7%89%88%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 获取 macOS 正式版软件包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%88%9B%E5%BB%BA%E5%8F%AF%E5%BC%95%E5%AF%BC%E7%9A%84-macOS-%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 创建可引导的 macOS 安装介质</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E7%A1%AE%E4%BF%9D%E4%B8%8B%E8%BD%BD%E7%9A%84-macOS-%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E5%9C%A8-%E2%80%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E2%80%9D-%E4%B8%AD"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">(1) 确保下载的 macOS 安装程序在 “应用程序” 中</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%87%86%E5%A4%87%E5%90%AF%E5%8A%A8%E4%BB%8B%E8%B4%A8%EF%BC%9AUSB-%E7%A7%BB%E5%8A%A8%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">(2) 准备启动介质：USB 移动存储设备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%9C%A8-%E2%80%9C%E7%BB%88%E7%AB%AF%E2%80%9D-%E4%B8%AD%E4%BD%BF%E7%94%A8-%E2%80%9Ccreateinstallmedia%E2%80%9D-%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">(3) 在 “终端” 中使用 “createinstallmedia” 命令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E4%BD%BF%E7%94%A8%E5%8F%AF%E5%BC%95%E5%AF%BC%E5%AE%89%E8%A3%85%E5%99%A8"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">(4) 使用可引导安装器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%BC%80%E5%A7%8B%E5%85%A8%E6%96%B0%E5%AE%89%E8%A3%85"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 开始全新安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4-2"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">(1) 一般步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E9%85%8D%E5%A4%87-Apple-T2-%E5%AE%89%E5%85%A8%E8%8A%AF%E7%89%87%E7%9A%84%E7%94%B5%E8%84%91%E9%9C%80%E8%A6%81%E5%BC%80%E5%90%AF%E5%A4%96%E9%83%A8%E5%90%AF%E5%8A%A8"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">(2) 配备 Apple T2 安全芯片的电脑需要开启外部启动</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E9%85%8D%E5%A4%87-Apple-T2-%E5%AE%89%E5%85%A8%E8%8A%AF%E7%89%87%E7%9A%84%E7%94%B5%E8%84%91%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E9%A2%9D%E5%A4%96%E7%9A%84%E6%93%8D%E4%BD%9C-2"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%90%AD%E8%BD%BD-Apple-%E8%8A%AF%E7%89%87%E7%9A%84-Mac-%E7%94%B5%E8%84%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-2"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">(4) 搭载 Apple 芯片的 Mac 电脑注意事项</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-macOS-%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E9%99%8D%E7%BA%A7%E5%AE%89%E8%A3%85"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. macOS 系统如何降级安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E8%AF%86%E5%88%AB%E6%9C%BA%E5%9E%8B-2"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">(1) 识别机型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%88%9B%E5%BB%BA%E5%8F%AF%E5%BC%95%E5%AF%BC%E7%9A%84-macOS-%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8-2"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">(2) 创建可引导的 macOS 安装介质</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 虚拟机安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E5%9C%A8-macOS-%E4%B8%AD%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA-2"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">(1) 在 macOS 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%9C%A8-Windows-%E6%88%96%E8%80%85-Linux-%E4%B8%AD%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA-2"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">(2) 在 Windows 或者 Linux 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%9C%A8%E7%89%A9%E7%90%86%E6%9C%BA-ESXi-%E4%B8%AD%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA-2"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">(3) 在物理机 ESXi 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E8%A7%A3%E5%86%B3-%E2%80%9CBiErrorDomain-Error-3-%E2%80%9D-%E6%8A%A5%E9%94%99-2"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">(4) 解决 “BiErrorDomain Error 3.” 报错</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-macOS-Ventura-%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. macOS Ventura 安装注意事项</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%BA%86%E8%A7%A3-macOS-%E5%85%BC%E5%AE%B9%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 了解 macOS 兼容设备</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E8%8E%B7%E5%8F%96-macOS-%E6%AD%A3%E5%BC%8F%E7%89%88%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 获取 macOS 正式版软件包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%88%9B%E5%BB%BA%E5%8F%AF%E5%BC%95%E5%AF%BC%E7%9A%84-macOS-%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 创建可引导的 macOS 安装介质</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E7%A1%AE%E4%BF%9D%E4%B8%8B%E8%BD%BD%E7%9A%84-macOS-%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E5%9C%A8-%E2%80%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E2%80%9D-%E4%B8%AD"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">(1) 确保下载的 macOS 安装程序在 “应用程序” 中</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%87%86%E5%A4%87%E5%90%AF%E5%8A%A8%E4%BB%8B%E8%B4%A8%EF%BC%9AUSB-%E7%A7%BB%E5%8A%A8%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">(2) 准备启动介质：USB 移动存储设备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%9C%A8-%E2%80%9C%E7%BB%88%E7%AB%AF%E2%80%9D-%E4%B8%AD%E4%BD%BF%E7%94%A8-%E2%80%9Ccreateinstallmedia%E2%80%9D-%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">(3) 在 “终端” 中使用 “createinstallmedia” 命令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E4%BD%BF%E7%94%A8%E5%8F%AF%E5%BC%95%E5%AF%BC%E5%AE%89%E8%A3%85%E5%99%A8"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">(4) 使用可引导安装器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%BC%80%E5%A7%8B%E5%85%A8%E6%96%B0%E5%AE%89%E8%A3%85"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 开始全新安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">(1) 一般步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E9%85%8D%E5%A4%87-Apple-T2-%E5%AE%89%E5%85%A8%E8%8A%AF%E7%89%87%E7%9A%84%E7%94%B5%E8%84%91%E9%9C%80%E8%A6%81%E5%BC%80%E5%90%AF%E5%A4%96%E9%83%A8%E5%90%AF%E5%8A%A8"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">(2) 配备 Apple T2 安全芯片的电脑需要开启外部启动</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E9%85%8D%E5%A4%87-Apple-T2-%E5%AE%89%E5%85%A8%E8%8A%AF%E7%89%87%E7%9A%84%E7%94%B5%E8%84%91%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E9%A2%9D%E5%A4%96%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%90%AD%E8%BD%BD-Apple-%E8%8A%AF%E7%89%87%E7%9A%84-Mac-%E7%94%B5%E8%84%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">(4) 搭载 Apple 芯片的 Mac 电脑注意事项</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-macOS-%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E9%99%8D%E7%BA%A7%E5%AE%89%E8%A3%85"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. macOS 系统如何降级安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E8%AF%86%E5%88%AB%E6%9C%BA%E5%9E%8B"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">(1) 识别机型</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%88%9B%E5%BB%BA%E5%8F%AF%E5%BC%95%E5%AF%BC%E7%9A%84-macOS-%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">(2) 创建可引导的 macOS 安装介质</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 虚拟机安装</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E5%9C%A8-macOS-%E4%B8%AD%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">(1) 在 macOS 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%9C%A8-Windows-%E6%88%96%E8%80%85-Linux-%E4%B8%AD%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">(2) 在 Windows 或者 Linux 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%9C%A8%E7%89%A9%E7%90%86%E6%9C%BA-ESXi-%E4%B8%AD%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">(3) 在物理机 ESXi 中安装虚拟机</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E8%A7%A3%E5%86%B3-%E2%80%9CBiErrorDomain-Error-3-%E2%80%9D-%E6%8A%A5%E9%94%99"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">(4) 解决 “BiErrorDomain Error 3.” 报错</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-macOS-Ventura-%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. macOS Ventura 安装注意事项</span></a></li></ol>
         
         </div>
       </aside>
@@ -1391,7 +1296,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
@@ -1724,20 +1629,5 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+	</body>
 </html>

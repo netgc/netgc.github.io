@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> VMware Tanzu Community Edition (TCE) 0.12.0 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" VMware Tanzu Community Edition (TCE) 0.12.0 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> VMware Tanzu Community Edition (TCE) 0.12.0 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" VMware Tanzu Community Edition (TCE) 0.12.0 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" VMware Tanzu Community Edition (TCE) 0.12.0 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/vmware-tce/">
+  <link rel="canonical" href="https://sysin.org/blog/vmware-tce/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,11 +466,11 @@
         <!-- pageview_count start -->
         
         <div style="color:gray" align="left">
-        更新日期：Thu May 12 2022 14:59:16 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        更新日期：1652338756000，阅读量: <span class="waline-pageview-count" />
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,7 +487,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/vmware-tce/" title="VMware Tanzu Community Edition (TCE) 0.12.0">VMware Tanzu Community Edition (TCE) 0.12.0</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>该产品已停止开发，请使用替代解决方案：<a href="/blog/vmware-tkg-2/" title="VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案">VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案</a></p>
 <p>VMware 提供免费下载的 VMware Tanzu Kubernetes Grid 来代替 VMware Tanzu 社区版软件，并且即将停用 Tanzu 社区版。在最多 100 个 CPU 核心的非商业环境中免费使用 Tanzu Kubernetes Grid。</p>
@@ -498,8 +496,7 @@
 <blockquote>
 <p>以下 Tanzu Community Edition 介绍翻译自 VMware 相关博客。</p>
 </blockquote>
-<h2 id="什么是-Tanzu-社区版，为什么要关心？">什么是 Tanzu 社区版，为什么要关心？</h2>
-<p>今天，最终用户（管理员、架构师、开发人员、平台运营商等）很难获得 VMware 的 Tanzu 产品组合的第一手经验。一些挑战可能包括下载软件、许可软件以及拥有运行软件所需的资源。</p>
+<h2 id="什么是-Tanzu-社区版，为什么要关心？"><a href="#什么是-Tanzu-社区版，为什么要关心？" class="headerlink" title="什么是 Tanzu 社区版，为什么要关心？"></a>什么是 Tanzu 社区版，为什么要关心？</h2><p>今天，最终用户（管理员、架构师、开发人员、平台运营商等）很难获得 VMware 的 Tanzu 产品组合的第一手经验。一些挑战可能包括下载软件、许可软件以及拥有运行软件所需的资源。</p>
 <p>Tanzu 社区版 旨在为任何想要接触企业级 Kubernetes 平台的人提供无摩擦的体验，该平台具有我们的 <a target="_blank" rel="noopener" href="https://tanzu.vmware.com/tanzu/compare">Tanzu 商业产品</a> 的全部功能 (sysin)。Tanzu 社区版 易于使用，任何人都可以免费下载并用于学习、测试、开发和预生产目的。</p>
 <p>此外，Tanzu 社区版 还包括 Tanzu 商业产品（尚未）中未找到的更新功能以及社区将首先试用的早期实验性功能！随着功能根据社区反馈的进一步发展和成熟，它们最终将进入我们的商业产品。</p>
 <p><img src="https://sysin.org/blog/vmware-tce/tanzu-community-edition-comparison.webp" alt="VMware"></p>
@@ -511,16 +508,14 @@
 <p>如您所见，Tanzu 社区版 不仅仅是我们社区的一个新版本，而是我们 Tanzu 平台的真正基础。</p>
 </blockquote>
 <p>现在让我们仔细研究一下 Tanzu 社区版 及其工作原理。</p>
-<h2 id="简易安装">简易安装</h2>
-<p>您会注意到的第一件事是，包括 在内的 Tanzu 社区版 的安装 <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/docs/latest/architecture/#tanzu-cli">Tanzu CLI</a> 非常简单，您只需几分钟即可启动并运行 (sysin)。与 Tanzu Kubernetes Grid (TKG) 的唯一选择是 tarball 安装不同，您现在可以使用本地操作系统包管理工具（如 Homebrew 和 Chocolatey），只需一个命令即可快速安装 Tanzu 社区版。</p>
+<h2 id="简易安装"><a href="#简易安装" class="headerlink" title="简易安装"></a>简易安装</h2><p>您会注意到的第一件事是，包括 在内的 Tanzu 社区版 的安装 <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/docs/latest/architecture/#tanzu-cli">Tanzu CLI</a> 非常简单，您只需几分钟即可启动并运行 (sysin)。与 Tanzu Kubernetes Grid (TKG) 的唯一选择是 tarball 安装不同，您现在可以使用本地操作系统包管理工具（如 Homebrew 和 Chocolatey），只需一个命令即可快速安装 Tanzu 社区版。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition#homebrew-maclinux">使用 Homebrew 的 macOS/Linux</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition#chocolatey-windows">使用 Chocolatey 的 Windows</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition/releases">macOS/Linux/Windows 使用发布 Tarball</a></li>
 </ul>
 <p><img src="https://sysin.org/blog/vmware-tce/tanzu-community-edition-install-options.webp" alt="VMware"></p>
-<h2 id="新的基础设施提供商">新的基础设施提供商</h2>
-<p>与 <a target="_blank" rel="noopener" href="https://williamlam.com/tag/tanzu-kubernetes-grid">Tanzu Kubernetes Grid (TKG) 类似</a>，Tanzu 社区版 也可以部署到多个云基础设施提供商，这些提供商都利用 <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/cluster-api">集群 API (CAPI)</a> 进行生命周期管理。</p>
+<h2 id="新的基础设施提供商"><a href="#新的基础设施提供商" class="headerlink" title="新的基础设施提供商"></a>新的基础设施提供商</h2><p>与 <a target="_blank" rel="noopener" href="https://williamlam.com/tag/tanzu-kubernetes-grid">Tanzu Kubernetes Grid (TKG) 类似</a>，Tanzu 社区版 也可以部署到多个云基础设施提供商，这些提供商都利用 <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/cluster-api">集群 API (CAPI)</a> 进行生命周期管理。</p>
 <ul>
 <li>vSphere 使用 <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/cluster-api-provider-vsphere">Cluster API for vSphere (CAPV)</a></li>
 <li>Amazon AWS 使用 <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/cluster-api-provider-aws">Cluster API for AWS (CAPA)</a></li>
@@ -529,8 +524,7 @@
 <p><img src="https://sysin.org/blog/vmware-tce/tanzu-community-edition-0.webp" alt="VMware"></p>
 <p>Tanzu Kubernetes Grid (TKG) 的商业产品所不具备的一项非常独特的功能是支持本地 Docker 部署！这也利用了使用 的 <a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/cluster-api/tree/main/test/infrastructure/docker">Cluster API for Docker (CAPD) Cluster API</a> 提供程序。</p>
 <p>并非每个人都可以使用现成的能力进行学习和测试，因此看到 Tanzu 社区版 团队在这个领域进行创新并且不影响功能和整体用户体验真的很酷。</p>
-<h2 id="新的集群部署选项">新的集群部署选项</h2>
-<p>在 Tanzu Kubernetes Grid (TKG) 中，部署将始终由一个本地引导集群组成，该集群将在本地桌面或堡垒 / 跳转主机中运行，然后是一个远程管理集群，后者将管理一组远程工作负载集群) 在给定的云基础架构上运行。对于生产工作负载，这完全没问题，但如果您只想访问基本的 Kubernetes 集群，额外的基础设施和资源需求可能是一个巨大的障碍，而且对大多数用户来说是不可能的。</p>
+<h2 id="新的集群部署选项"><a href="#新的集群部署选项" class="headerlink" title="新的集群部署选项"></a>新的集群部署选项</h2><p>在 Tanzu Kubernetes Grid (TKG) 中，部署将始终由一个本地引导集群组成，该集群将在本地桌面或堡垒 / 跳转主机中运行，然后是一个远程管理集群，后者将管理一组远程工作负载集群) 在给定的云基础架构上运行。对于生产工作负载，这完全没问题，但如果您只想访问基本的 Kubernetes 集群，额外的基础设施和资源需求可能是一个巨大的障碍，而且对大多数用户来说是不可能的。</p>
 <p>通过对 Docker (CAPD) 的支持，Tanzu 社区版 不仅支持优化的本地开发环境，而且还提供了用户希望如何部署工作负载集群的多种选择。第一个称为 <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/docs/latest/architecture/#standalone-clusters">独立集群</a>，这是 Tanzu 社区版 的另一个独特功能，是在几分钟内让 TKG 工作负载集群站起来的最快方法。Bootstrap 和工作负载集群都在您的系统上本地运行，不需要管理集群，如下图所示。</p>
 <p>下一个选项称为 <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/docs/latest/architecture/#standalone-clusters">Managed Clusters</a>，类似于今天的 Tanzu Kubernetes Grid (TKG) 支持。Tanzu 社区版 的不同之处和另一个独特功能是能够在您的机器上本地运行所有三个集群：引导、管理和工作负载集群。最后，您当然可以采用与前面描述的 Tanzu Kubernetes Grid (TKG) 完全相同的方式部署集群。</p>
 <p><img src="https://sysin.org/blog/vmware-tce/tanzu-community-edition-deployment-options.webp" alt="VMware"></p>
@@ -542,8 +536,7 @@
 <li>准备进行一些 E2E 或 CI/CD 健全性测试，使用本地运行的托管集群</li>
 <li>最后，使用在远程云基础设施提供商上运行的托管集群执行预生产部署</li>
 </ul>
-<h2 id="快速部署">快速部署</h2>
-<p>您可以在大约 8 分钟内从 0 转到 Tanzu Kubernetes Grid (TKG) 工作负载集群！</p>
+<h2 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h2><p>您可以在大约 8 分钟内从 0 转到 Tanzu Kubernetes Grid (TKG) 工作负载集群！</p>
 <p>与 Tanzu Kubernetes Grid (TKG) 类似，您可以使用 Tanzu CLI 或 Tanzu Kickstart UI 进行部署。</p>
 <p>以下是使用 UI 启动独立集群选项的示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tanzu standalone-cluster create --ui</span><br></pre></td></tr></table></figure>
@@ -554,9 +547,8 @@
 <p><img src="https://sysin.org/blog/vmware-tce/tanzu-community-edition-3.webp" alt="VMware"></p>
 <p>Tanzu 社区版 也正在与我们的社区公开开发，您可以通过访问以下 Github 存储库参与其中：<a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition">https://github.com/vmware-tanzu/community-edition</a> 和 <a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/tanzu-framework">https://github.com/vmware-tanzu/tanzu-framework</a>。另外一定要查看所有 <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/community/">社区资源</a>，以了解与每个人互动的其他方式！</p>
 <p>你准备好开始了吗？ 如果是这样，请查看 <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/docs/latest/getting-started-standalone/">入门指南</a></p>
-<h2 id="下载地址-502">下载地址</h2>
-<h3 id="Installer-CLI">Installer/CLI</h3>
-<p>2022-05-10 <a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition/releases/tag/v0.12.0">Release Notes</a> | <a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition/blob/main/LICENSE">License</a> | <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/docs/">Getting Started Guide</a></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><h3 id="Installer-CLI"><a href="#Installer-CLI" class="headerlink" title="Installer/CLI"></a>Installer/CLI</h3><p>2022-05-10 <a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition/releases/tag/v0.12.0">Release Notes</a> | <a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition/blob/main/LICENSE">License</a> | <a target="_blank" rel="noopener" href="https://tanzucommunityedition.io/docs/">Getting Started Guide</a></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -587,6 +579,8 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -607,56 +601,25 @@
 <td>zip</td>
 <td><a target="_blank" rel="noopener" href="https://github.com/vmware-tanzu/community-edition/archive/refs/tags/v0.12.0.zip">v0.12.0.zip</a></td>
 <td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>The vSphere Open Virtual Appliance (OVA) files for this release of Tanzu Community Edition can be <a target="_blank" rel="noopener" href="https://customerconnect.vmware.com/en/downloads/details?downloadGroup=TCE-0120&amp;productId=1297&amp;rPId=88398">downloaded here</a>.</p>
-<h3 id="OVAs">OVAs</h3>
-<p>OVAs for VMware Tanzu Community Edition v0.12.0</p>
+<h3 id="OVAs"><a href="#OVAs" class="headerlink" title="OVAs"></a>OVAs</h3><p>OVAs for VMware Tanzu Community Edition v0.12.0</p>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1qCHk6_FigrYrw43ZR0y_Lw">https://pan.baidu.com/s/1qCHk6_FigrYrw43ZR0y_Lw</a>  提取码：3q9l</p>
 <ul>
-<li>
-<p>Photon v3 Kubernetes v1.20.15 OVA<br>
-File size: 914.22 MB<br>
-Name: photon-3-kube-v1.20.15+vmware.1-tkg.1-a71ace977e87c425c893d09b90cae6bd.ova<br>
-Release Date: 2022-05-10<br>
-SHA256SUM: 070542083300f306ee0936e5cab7fb12043757a83306bcab2995635596303a15</p>
+<li><p>Photon v3 Kubernetes v1.20.15 OVA<br>File size: 914.22 MB<br>Name: photon-3-kube-v1.20.15+vmware.1-tkg.1-a71ace977e87c425c893d09b90cae6bd.ova<br>Release Date: 2022-05-10<br>SHA256SUM: 070542083300f306ee0936e5cab7fb12043757a83306bcab2995635596303a15</p>
 </li>
-<li>
-<p>Photon v3 Kubernetes v1.21.11 OVA<br>
-File size: 916.89 MB<br>
-Name: photon-3-kube-v1.21.11+vmware.1-tkg.1-0262f0ab881e294df81498075207f2b5.ova<br>
-Release Date: 2022-05-10<br>
-SHA256SUM: 769684b063437baadd8dbc7f07a0447272ad3b1b4e1f7673de01235add25370d</p>
+<li><p>Photon v3 Kubernetes v1.21.11 OVA<br>File size: 916.89 MB<br>Name: photon-3-kube-v1.21.11+vmware.1-tkg.1-0262f0ab881e294df81498075207f2b5.ova<br>Release Date: 2022-05-10<br>SHA256SUM: 769684b063437baadd8dbc7f07a0447272ad3b1b4e1f7673de01235add25370d</p>
 </li>
-<li>
-<p>Photon v3 Kubernetes v1.22.8 OVA<br>
-File size: 948.52 MB<br>
-Name: photon-3-kube-v1.22.8+vmware.1-tkg.1-d69148b2a4aa7ef6d5380cc365cac8cd.ova<br>
-Release Date: 2022-05-10<br>
-SHA256SUM: 3fbcfb8099f585bad0d67c288d558bee38f1df78ad64ebc5d141e37f939164b3</p>
+<li><p>Photon v3 Kubernetes v1.22.8 OVA<br>File size: 948.52 MB<br>Name: photon-3-kube-v1.22.8+vmware.1-tkg.1-d69148b2a4aa7ef6d5380cc365cac8cd.ova<br>Release Date: 2022-05-10<br>SHA256SUM: 3fbcfb8099f585bad0d67c288d558bee38f1df78ad64ebc5d141e37f939164b3</p>
 </li>
-<li>
-<p>Ubuntu 2004 Kubernetes v1.20.15 OVA<br>
-File size: 1.55 GB<br>
-Name: ubuntu-2004-kube-v1.20.15+vmware.1-tkg.2-839faf7d1fa7fa356be22b72170ce1a8.ova<br>
-Release Date: 2022-05-10<br>
-SHA256SUM: 1769b456c5f2909db64c1e0d9612133d485dbd77ebe6fc65ea4cb87b9103ff77</p>
+<li><p>Ubuntu 2004 Kubernetes v1.20.15 OVA<br>File size: 1.55 GB<br>Name: ubuntu-2004-kube-v1.20.15+vmware.1-tkg.2-839faf7d1fa7fa356be22b72170ce1a8.ova<br>Release Date: 2022-05-10<br>SHA256SUM: 1769b456c5f2909db64c1e0d9612133d485dbd77ebe6fc65ea4cb87b9103ff77</p>
 </li>
-<li>
-<p>Ubuntu 2004 Kubernetes v1.21.11 OVA<br>
-File size: 1.56 GB<br>
-Name: ubuntu-2004-kube-v1.21.11+vmware.1-tkg.2-d788dbbb335710c0a0d1a28670057896.ova<br>
-Release Date: 2022-05-10<br>
-SHA256SUM: 4abb1015d63b8d1c6633db9f9928051d6eee0301640a88c20d3463eda6dfb3c6</p>
+<li><p>Ubuntu 2004 Kubernetes v1.21.11 OVA<br>File size: 1.56 GB<br>Name: ubuntu-2004-kube-v1.21.11+vmware.1-tkg.2-d788dbbb335710c0a0d1a28670057896.ova<br>Release Date: 2022-05-10<br>SHA256SUM: 4abb1015d63b8d1c6633db9f9928051d6eee0301640a88c20d3463eda6dfb3c6</p>
 </li>
-<li>
-<p>Ubuntu 2004 Kubernetes v1.22.8 OVA<br>
-File size: 1.58 GB<br>
-Name: ubuntu-2004-kube-v1.22.8+vmware.1-tkg.2-5eab4250bf00d5e78c0f04257d03360e.ova<br>
-Release Date: 2022-05-10<br>
-SHA256SUM: 968c98331114598170fa88a3cdfd912d3447736cdedc77a95c1a0c950436257b</p>
+<li><p>Ubuntu 2004 Kubernetes v1.22.8 OVA<br>File size: 1.58 GB<br>Name: ubuntu-2004-kube-v1.22.8+vmware.1-tkg.2-5eab4250bf00d5e78c0f04257d03360e.ova<br>Release Date: 2022-05-10<br>SHA256SUM: 968c98331114598170fa88a3cdfd912d3447736cdedc77a95c1a0c950436257b</p>
 </li>
 </ul>
 <p>该产品已停止开发，请使用替代解决方案：<a href="/blog/vmware-tkg-2/" title="VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案">VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案</a></p>
@@ -781,7 +744,7 @@ SHA256SUM: 968c98331114598170fa88a3cdfd912d3447736cdedc77a95c1a0c950436257b</p>
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -844,7 +807,7 @@ SHA256SUM: 968c98331114598170fa88a3cdfd912d3447736cdedc77a95c1a0c950436257b</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Tanzu-%E7%A4%BE%E5%8C%BA%E7%89%88%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%B3%E5%BF%83%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是 Tanzu 社区版，为什么要关心？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">简易安装</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%8F%90%E4%BE%9B%E5%95%86"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">新的基础设施提供商</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E7%9A%84%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E9%80%89%E9%A1%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">新的集群部署选项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">快速部署</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-502"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Installer-CLI"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">Installer&#x2F;CLI</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#OVAs"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">OVAs</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Tanzu-%E7%A4%BE%E5%8C%BA%E7%89%88%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%B3%E5%BF%83%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是 Tanzu 社区版，为什么要关心？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%80%E6%98%93%E5%AE%89%E8%A3%85"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">简易安装</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%8F%90%E4%BE%9B%E5%95%86"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">新的基础设施提供商</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E7%9A%84%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E9%80%89%E9%A1%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">新的集群部署选项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">快速部署</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Installer-CLI"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">Installer&#x2F;CLI</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#OVAs"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">OVAs</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -1088,7 +1051,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
@@ -1421,20 +1384,5 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+	</body>
 </html>

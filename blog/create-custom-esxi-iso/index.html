@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> ESXi 8.0 集成网卡驱动的简单方法 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" ESXi 8.0 集成网卡驱动的简单方法 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> ESXi 8.0 集成网卡驱动的简单方法 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" ESXi 8.0 集成网卡驱动的简单方法 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" ESXi 8.0 集成网卡驱动的简单方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/create-custom-esxi-iso/">
+  <link rel="canonical" href="https://sysin.org/blog/create-custom-esxi-iso/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,11 +466,11 @@
         <!-- pageview_count start -->
         
         <div style="color:gray" align="left">
-        更新日期：Fri Jan 27 2023 17:26:22 GMT+0800，阅读量: <span class="waline-pageview-count" />
+        更新日期：1674811582000，阅读量: <span class="waline-pageview-count" />
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,36 +487,28 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/create-custom-esxi-iso/" title="ESXi 8.0 集成网卡驱动的简单方法">ESXi 8.0 集成网卡驱动的简单方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>添加网卡驱动到 ESXi 镜像，一般使用 PowerCLI，这类文章网上非常多（一搜索满屏皆是），<a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-Cloud-Foundation/5.0/vcf-deploy/GUID-D43A3FAC-682E-46F7-8342-03364EE5D2CC.html">比如官网的参考</a>，也非常容易，这里介绍一种图形界面的操作方法，更加直观。</p>
 <p>集成网卡驱动的方法其实很简单，vSphere 是自带这个功能的，即创建自定义的镜像的功能。</p>
-<h2 id="环境和软件要求">环境和软件要求</h2>
-<ol>
-<li>
-<p>vSphere 8.0 环境。<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8/">下载 vSphere 8.0</a> 或者去<a target="_blank" rel="noopener" href="https://customerconnect.vmware.com/downloads/info/slug/datacenter_cloud_infrastructure/vmware_vsphere/8_0">官网下载</a>最新版。</p>
+<h2 id="环境和软件要求"><a href="#环境和软件要求" class="headerlink" title="环境和软件要求"></a>环境和软件要求</h2><ol>
+<li><p>vSphere 8.0 环境。<a href="https://sysin.org/blog/vmware-vsphere-8/">下载 vSphere 8.0</a> 或者去<a target="_blank" rel="noopener" href="https://customerconnect.vmware.com/downloads/info/slug/datacenter_cloud_infrastructure/vmware_vsphere/8_0">官网下载</a>最新版。</p>
 </li>
-<li>
-<p>ESXi offline bunld 包含在上述 ESXi 8.0 下载中，文件名：VMware-ESXi-8.0-20513097-depot.zip。</p>
+<li><p>ESXi offline bunld 包含在上述 ESXi 8.0 下载中，文件名：VMware-ESXi-8.0-20513097-depot.zip。</p>
 </li>
-<li>
-<p>网卡驱动：联系产品供应商提供，当然不一定所有的网卡都有 ESXi 的驱动，本次使用的示例文件是 <a target="_blank" rel="noopener" href="https://flings.vmware.com/community-networking-driver-for-esxi">Community Networking Driver</a>，点击去下载最新版即可，比如现在是 ESXi800-VMKUSB-NIC-FLING-61054763-component-20826251.zip。</p>
+<li><p>网卡驱动：联系产品供应商提供，当然不一定所有的网卡都有 ESXi 的驱动，本次使用的示例文件是 <a target="_blank" rel="noopener" href="https://flings.vmware.com/community-networking-driver-for-esxi">Community Networking Driver</a>，点击去下载最新版即可，比如现在是 ESXi800-VMKUSB-NIC-FLING-61054763-component-20826251.zip。</p>
 </li>
 </ol>
-<h2 id="操作步骤">操作步骤</h2>
-<ol>
-<li>
-<p>导入组件（Offline Bundle）：</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
+<li><p>导入组件（Offline Bundle）：</p>
 <p>点击左上角的菜单，导航到 Lifecycle Manager，操作 -&gt; 导入更新，浏览到下载的驱动包，本例为 ESXi800-VMKUSB-NIC-FLING-61054763-component-20826251.zip</p>
 <p><img src="create-custom-esxi-iso-01.webp" alt="sysin"></p>
 <p>导入完成后，可以在 “组件” 里面看到新增的 VMware USB NIC Fling Driver。</p>
 </li>
-<li>
-<p>新建一个 Datacenter，填写名称即可。</p>
+<li><p>新建一个 Datacenter，填写名称即可。</p>
 <p><img src="create-custom-esxi-iso-02.webp" alt="sysin"></p>
 </li>
-<li>
-<p>在此 Datacenter 创建一个空白集群， 除了自定义集群名称，其他都默认（无需启用）。</p>
+<li><p>在此 Datacenter 创建一个空白集群， 除了自定义集群名称，其他都默认（无需启用）。</p>
 <blockquote>
 <p>此功能是需要工作在集群级别，所以需要创建一个空白集群，不用担心，即使没有 ESXi 主机也可以创建空白集群。</p>
 </blockquote>
@@ -526,45 +516,27 @@
 <p>选择定义的 ESXi 镜像版本，这里是 8.0 GA。</p>
 <p><img src="create-custom-esxi-iso-04.webp" alt="sysin"></p>
 </li>
-<li>
-<p>浏览到集群的更新页面，如图，点击编辑，选择之前导入的组件，保存。</p>
+<li><p>浏览到集群的更新页面，如图，点击编辑，选择之前导入的组件，保存。</p>
 <p><img src="create-custom-esxi-iso-05.webp" alt="sysin"></p>
 <p>需要“显示详细信息”才能显示“添加组件”，选择导入的组件，本例为 VMware USB NIC Fling Driver。</p>
 <p><img src="create-custom-esxi-iso-06.webp" alt="sysin"></p>
 </li>
-<li>
-<p>再点击编辑按钮右侧的“…”，选择导出，导出 iso 即可。</p>
+<li><p>再点击编辑按钮右侧的“…”，选择导出，导出 iso 即可。</p>
 <p><img src="create-custom-esxi-iso-07.webp" alt="sysin"></p>
 </li>
 </ol>
 <p><strong>操作方法是不是很简单</strong>。</p>
-<h2 id="附：本站-ESXi-8-0-定制版链接">附：本站 ESXi 8.0 定制版链接</h2>
-<p>vSphere 环境也是相当容易，可以使用本站的 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-8-ovf/">vCenter OVF</a> 运行在 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17/">Workstation</a> 或（<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker/">定制版</a>）/ <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13/">Fusion</a> 或（<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">定制版</a>）中直接点下一步就运行了，在你的个人电脑上操作就行，无论你是使用 Windows、Linux 还是 macOS。</p>
+<h2 id="附：本站-ESXi-8-0-定制版链接"><a href="#附：本站-ESXi-8-0-定制版链接" class="headerlink" title="附：本站 ESXi 8.0 定制版链接"></a>附：本站 ESXi 8.0 定制版链接</h2><p>vSphere 环境也是相当容易，可以使用本站的 <a href="https://sysin.org/blog/vmware-vcenter-8-ovf/">vCenter OVF</a> 运行在 <a href="https://sysin.org/blog/vmware-workstation-17/">Workstation</a> 或（<a href="https://sysin.org/blog/vmware-workstation-17-unlocker/">定制版</a>）/ <a href="https://sysin.org/blog/vmware-fusion-13/">Fusion</a> 或（<a href="https://sysin.org/blog/vmware-fusion-13-oem/">定制版</a>）中直接点下一步就运行了，在你的个人电脑上操作就行，无论你是使用 Windows、Linux 还是 macOS。</p>
 <p>附：本站 ESXi 8.0 定制版链接：</p>
 <ul>
-<li>
-<a href="/blog/vmware-esxi-8-oem/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-sysin/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-u1-oem/" title="VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-u1-sysin/" title="VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-u2-oem/" title="VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-u2-sysin/" title="VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+<li><a href="/blog/vmware-esxi-8-oem/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a></li>
+<li><a href="/blog/vmware-esxi-8-sysin/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a></li>
+<li><a href="/blog/vmware-esxi-8-u1-oem/" title="VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a></li>
+<li><a href="/blog/vmware-esxi-8-u1-sysin/" title="VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U1d macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a></li>
+<li><a href="/blog/vmware-esxi-8-u2-oem/" title="VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a></li>
+<li><a href="/blog/vmware-esxi-8-u2-sysin/" title="VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U2c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a></li>
+<li><a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></li>
+<li><a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
 </li>
 </ul>
 <p>如果您需要集成自己的网卡驱动，自己操作即可，ESXi 8.0 的下载在百度网盘公开分享，也可以去官网下载。捐赠是您因本站获得了帮助，用来表示感谢的方式，如果觉得没有帮助，不必捐赠，一切都是自觉自愿的，仅此而已。</p>
@@ -688,7 +660,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -995,7 +967,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
@@ -1328,20 +1300,5 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+	</body>
 </html>
