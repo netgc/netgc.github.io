@@ -492,14 +492,19 @@
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>近期一些读者朋友反馈，在 ESXi 8.0 中无法运行 macOS Ventura。通过测试发现，ESXi 8.0 中运行 macOS Ventura 确实比之前的版本稍微麻烦一点，究其原因还是 Apple 转型 ARM 架构致使 VMware 目前无法支持在 Apple silicon 上运行 ESXi，VMware ESXi 8.0 已经不再官方支持 Mac 硬件和新版 macOS Guest OS。在此前 Mac 上 ESXi 7.0 虚拟化 macOS 是官方支持的 (sysin)。笔者在网站上的一些文章中已描述虚拟化 macOS Ventura 的注意事项，实现也很简单，不过还是直接上 OVF 来的省事一些。</p>
-<p><img src="https://sysin.org/blog/vmware-esxi-8-oem/macos-13-on-vsphere-8.webp" alt="macos-13-on-vsphere-8"><br><em>图 1：macOS Ventura on vSphere 8.0</em></p>
-<p><img src="macos-13-on-esxi-8.webp" alt="macos-13-on-esxi-8"><br><em>图 2：macOS Ventura on ESXi 8.0</em></p>
-<h2 id="系统-软件-要求"><a href="#系统-软件-要求" class="headerlink" title="系统 (软件) 要求"></a>系统 (软件) 要求</h2><p>macOS 12/13 blank OVF for VMware ESXi</p>
+<p><img src="https://sysin.org/blog/vmware-esxi-8-oem/macos-13-on-vsphere-8.webp" alt="macos-13-on-vsphere-8"><br>
+<em>图 1：macOS Ventura on vSphere 8.0</em></p>
+<p><img src="macos-13-on-esxi-8.webp" alt="macos-13-on-esxi-8"><br>
+<em>图 2：macOS Ventura on ESXi 8.0</em></p>
+<h2 id="系统-软件-要求">系统 (软件) 要求</h2>
+<p>macOS 12/13 blank OVF for VMware ESXi</p>
 <ol>
-<li><p>OVF 版本兼容性</p>
+<li>
+<p>OVF 版本兼容性</p>
 <p>vm hardware version 20，兼容 ESXi 8.0 / Fusion 13 / Workstation 17 及以上版本</p>
 </li>
-<li><p>VMware 软件支持</p>
+<li>
+<p>VMware 软件支持</p>
 <p>要求已经 Unlocker 的 ESXi 8.0</p>
 <ul>
 <li>ESXi 8.0 Unlocker version：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">https://sysin.org/blog/vmware-esxi-8-u3-oem/</a></li>
@@ -510,18 +515,24 @@
 <li>Workstation 17 Unlocker version：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker/">https://sysin.org/blog/vmware-workstation-17-unlocker/</a></li>
 </ul>
 </li>
-<li><p>macOS 镜像要求</p>
+<li>
+<p>macOS 镜像要求</p>
 <p>要求可引导的 macOS 镜像</p>
 <ul>
 <li>macOS Monterey boot iso：<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Monterey-boot-iso/">https://sysin.org/blog/macOS-Monterey-boot-iso/</a></li>
 <li>macOS Ventura boot iso：<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Ventura-boot-iso/">https://sysin.org/blog/macOS-Ventura-boot-iso/</a></li>
 </ul>
 </li>
-<li><p>VMware Tools</p>
-<p>macOS 成功运行后，需要安装 VMware Tools 12.1.x 版本<br>当前版本：VMware-Tools-darwin-12.1.1-22484250.iso (与 v12.3.5 同时发布)<br>下载地址：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-tools-12/">https://sysin.org/blog/vmware-tools-12/</a></p>
+<li>
+<p>VMware Tools</p>
+<p>macOS 成功运行后，需要安装 VMware Tools 12.1.x 版本<br>
+当前版本：VMware-Tools-darwin-12.1.1-22484250.iso (与 v12.3.5 同时发布)<br>
+下载地址：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-tools-12/">https://sysin.org/blog/vmware-tools-12/</a></p>
 </li>
 </ol>
-<h2 id="硬件-CPU-要求"><a href="#硬件-CPU-要求" class="headerlink" title="硬件 (CPU) 要求"></a>硬件 (CPU) 要求</h2><p>要求 Intel 第四代酷睿或者同代志强处理器（Haswell 架构）及更新的硬件。现已收到反馈可以支持 Intel 13 代酷睿处理器。<br>具体来讲是要支持 “Instruction Set Extensions: Intel® AVX2” 的 CPU。</p>
+<h2 id="硬件-CPU-要求">硬件 (CPU) 要求</h2>
+<p>要求 Intel 第四代酷睿或者同代志强处理器（Haswell 架构）及更新的硬件。现已收到反馈可以支持 Intel 13 代酷睿处理器。<br>
+具体来讲是要支持 “Instruction Set Extensions: Intel® AVX2” 的 CPU。</p>
 <p><strong>建议使用 Intel 第 7 代酷睿或者同代志强处理器（Kaby Lake 架构）及更新的硬件</strong>。</p>
 <ul>
 <li>Intel® Core™ Processor (Kaby Lake or later)</li>
@@ -529,32 +540,45 @@
 </ul>
 <p><strong>不支持 Intel 赛扬（Celeron®）处理器和奔腾（Pentium®）处理器</strong>。</p>
 <p><strong>不支持 AMD 处理器</strong>。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>请阅读以下注意事项：</p>
+<h2 id="注意事项-3">注意事项</h2>
+<p>请阅读以下注意事项：</p>
 <ol>
-<li><p>这只是一个空白的 OVF，没有包含 macOS 系统。导入 OVF 后挂载本站的 macOS iso 文件即可正常安装。</p>
+<li>
+<p>这只是一个空白的 OVF，没有包含 macOS 系统。导入 OVF 后挂载本站的 macOS iso 文件即可正常安装。</p>
 </li>
-<li><p>默认支持 ESXi 8.0，关于是否适用 Fusion 13 和 Workstation 17，参看下面两条。</p>
+<li>
+<p>默认支持 ESXi 8.0，关于是否适用 Fusion 13 和 Workstation 17，参看下面两条。</p>
 </li>
-<li><p>VMware Fusion 13 无需使用该模板。在 Fusion 中的 macOS 支持 3D 加速，通过其他方式实现。</p>
+<li>
+<p>VMware Fusion 13 无需使用该模板。在 Fusion 中的 macOS 支持 3D 加速，通过其他方式实现。</p>
 </li>
-<li><p>VMware Workstation 17 Unlocker for Windows or Linux 导入后无法识别 GuestOS ID，需要手动修改。</p>
+<li>
+<p>VMware Workstation 17 Unlocker for Windows or Linux 导入后无法识别 GuestOS ID，需要手动修改。</p>
 </li>
-<li><p>VMware Workstation 17 中通过手动修改 GuestOS 也能运行，已验证支持 13 代 CPU（方法已经包含在下载中）。</p>
+<li>
+<p>VMware Workstation 17 中通过手动修改 GuestOS 也能运行，已验证支持 13 代 CPU（方法已经包含在下载中）。</p>
 </li>
-<li><p>如果硬件已经成功运行过上一个版本的 macOS，那么理论上也能成功运行 macOS <strong>Ventura</strong>。</p>
+<li>
+<p>如果硬件已经成功运行过上一个版本的 macOS，那么理论上也能成功运行 macOS <strong>Ventura</strong>。</p>
 </li>
-<li><p>如何调整屏幕分辨率？参看：<a href="/blog/how-to-install-vmware-tools/" title="如何安装 VMware Tools (macOS, Linux, Windows)">如何安装 VMware Tools (macOS, Linux, Windows)</a>。</p>
+<li>
+<p>如何调整屏幕分辨率？参看：<a href="/blog/how-to-install-vmware-tools/" title="如何安装 VMware Tools (macOS, Linux, Windows)">如何安装 VMware Tools (macOS, Linux, Windows)</a>。</p>
 </li>
-<li><p>能运行 macOS <strong>Ventura</strong> 不代表能用来替代 Mac，macOS 开启卓越性能的（唯一）平台是搭载 M 芯片的 Mac。</p>
+<li>
+<p>能运行 macOS <strong>Ventura</strong> 不代表能用来替代 Mac，macOS 开启卓越性能的（唯一）平台是搭载 M 芯片的 Mac。</p>
 </li>
-<li><p>macOS 虚拟机与 Mac 上的 macOS 体验有天壤之别。尽早加入 Apple 阵营，开启卓越体验吧。</p>
+<li>
+<p>macOS 虚拟机与 Mac 上的 macOS 体验有天壤之别。尽早加入 Apple 阵营，开启卓越体验吧。</p>
 </li>
-<li><p>不支持虚拟的 Metal CPU 加速或称 3D 加速，此功能仅限在 Fusion 中启用。这是虚拟化 macOS 卡顿的主要原因。</p>
+<li>
+<p>不支持虚拟的 Metal CPU 加速或称 3D 加速，此功能仅限在 Fusion 中启用。这是虚拟化 macOS 卡顿的主要原因。</p>
 </li>
-<li><p>当前 vGPU RAM Size 最大限制为 256MB（实际只能使用 128MB），OVF 已默认配置。</p>
+<li>
+<p>当前 vGPU RAM Size 最大限制为 256MB（实际只能使用 128MB），OVF 已默认配置。</p>
 </li>
 </ol>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1zE1T_29pYt2-72NRQqIo_Q?pwd=">https://pan.baidu.com/s/1zE1T_29pYt2-72NRQqIo_Q?pwd=</a><code>[本站 ESXi 8 定制版和 Workstation 17 定制版用户专享]</code></p>
+<h2 id="下载地址-253">下载地址</h2>
+<p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1zE1T_29pYt2-72NRQqIo_Q?pwd=">https://pan.baidu.com/s/1zE1T_29pYt2-72NRQqIo_Q?pwd=</a><code>[本站 ESXi 8 定制版和 Workstation 17 定制版用户专享]</code></p>
 <blockquote>
 <p>2023-10-08 更新说明：修改了默认的 vGPU RAM Size 为 256MB，以便自适应当前屏幕分辨率。</p>
 </blockquote>
@@ -741,7 +765,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6-%E8%A6%81%E6%B1%82"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">系统 (软件) 要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%A1%AC%E4%BB%B6-CPU-%E8%A6%81%E6%B1%82"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">硬件 (CPU) 要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">注意事项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6-%E8%A6%81%E6%B1%82"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">系统 (软件) 要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%A1%AC%E4%BB%B6-CPU-%E8%A6%81%E6%B1%82"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">硬件 (CPU) 要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">注意事项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-253"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

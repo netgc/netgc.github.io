@@ -517,7 +517,8 @@
 <p>ESXi 7.0U3d 发布于 2022 年 3 月 29 日，ISO 内部版本 19482537，新增在多个型号的 Dell 服务器上支持 vSphere Quick Boot，另外包含了修补程序解决一些已知问题，详见 <a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-70u3d-release-notes.html">Release Notes</a>。</p>
 <p>继 11 月 20 日（2021 年），VMware vSphere 团队宣布因为产品缺陷从官网下架了 ESXi 7 Update 3 的下载（详见：<a href="/blog/vmware-esxi-7-u3-removed/" title="产品缺陷：请勿在生产环境中使用 ESXi 7 Update 3">产品缺陷：请勿在生产环境中使用 ESXi 7 Update 3</a>），12 月 14 日 VMware 重新发布了 vSphere 7 U3c，但官方 Release Notes 不可用。</p>
 <p>2022.01.27 VMware 再次重新发布了 U3c，Build 号为 19193900，Release Notes 显示以修复 U3 版本的已知 Bug 为主，同时增加了安全更新。本次已经公开发布，替代 U2a 成为官方推荐版本。</p>
-<h2 id="特性概览"><a href="#特性概览" class="headerlink" title="特性概览"></a>特性概览</h2><p>该版本在官方原版基础上新增以下特性：</p>
+<h2 id="特性概览-8">特性概览</h2>
+<p>该版本在官方原版基础上新增以下特性：</p>
 <ul>
 <li>macOS Unlocker：来自 GitHub 的 Unlocker 4，现已支持 macOS Monterey</li>
 <li>OEM BIOS 2.7：使用社区最流行的 OEM BIOS/EFI64，现已支持 Windows Server 2025</li>
@@ -526,7 +527,8 @@
 <li>有限支持第 12 代 Intel CPU 混合架构，可以正常引导和运行（仅限集成驱动版）</li>
 <li>同时提供 Dell、HPE 和 Lenovo 等厂商定制版镜像 (sysin)</li>
 </ul>
-<h3 id="直接运行-macOS-Monterey"><a href="#直接运行-macOS-Monterey" class="headerlink" title="直接运行 macOS Monterey"></a>直接运行 macOS Monterey</h3><p>ESXi 默认是支持创建 macOS 虚拟机的，但该功能仅限于 Apple Mac 硬件上启用。该版本解锁了对 macOS 虚拟化的支持，在任意非 Mac 硬件上可以直接运行 macOS 虚拟机。</p>
+<h3 id="直接运行-macOS-Monterey">直接运行 macOS Monterey</h3>
+<p>ESXi 默认是支持创建 macOS 虚拟机的，但该功能仅限于 Apple Mac 硬件上启用。该版本解锁了对 macOS 虚拟化的支持，在任意非 Mac 硬件上可以直接运行 macOS 虚拟机。</p>
 <p>⚠️ macOS 虚拟机与 Mac 上的 macOS 体验有天壤之别，仅用于体验而已。开启 macOS 卓越性能的唯一平台是搭载 Apple M 芯片的 Mac。</p>
 <p>直接新建虚机，操作系统选择 “Apple macOS 12 (64-bit)”，即可安装和正常启动。</p>
 <p><img src="/blog/vmware-esxi-7-oem/new-vm-7-u2.webp" alt="New VM 7.0 U2"></p>
@@ -534,34 +536,52 @@
 <p><img src="/blog/macOS-Monterey-boot-iso/macos-monterey-in-vm.webp" alt="macOS Monterey in VMware"></p>
 <p>附：</p>
 <ul>
-<li><a href="/blog/macOS-Sonoma-boot-iso/" title="macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载">macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载</a></li>
-<li><a href="/blog/macOS-Ventura-boot-iso/" title="macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载">macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载</a></li>
-<li><a href="/blog/macOS-Monterey-boot-iso/" title="macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载">macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载</a></li>
+<li>
+<a href="/blog/macOS-Sonoma-boot-iso/" title="macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载">macOS Sonoma 14.7.2 (23H311) Boot ISO 原版可引导镜像下载</a>
+</li>
+<li>
+<a href="/blog/macOS-Ventura-boot-iso/" title="macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载">macOS Ventura 13.7.2 (22H313) Boot ISO 原版可引导镜像下载</a>
+</li>
+<li>
+<a href="/blog/macOS-Monterey-boot-iso/" title="macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载">macOS Monterey 12.7.6 (21H1320) Boot ISO 原版可引导镜像下载</a>
+</li>
 <li>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></li>
 </ul>
-<h3 id="VMware-Dell-2-7-BIOS-EFI64"><a href="#VMware-Dell-2-7-BIOS-EFI64" class="headerlink" title="VMware_Dell_2.7_BIOS-EFI64"></a>VMware_Dell_2.7_BIOS-EFI64</h3><p>来自社区最新的 OEM BIOS/EFI64，现已更新支持 Windows Server 2025。</p>
+<h3 id="VMware-Dell-2-7-BIOS-EFI64">VMware_Dell_2.7_BIOS-EFI64</h3>
+<p>来自社区最新的 OEM BIOS/EFI64，现已更新支持 Windows Server 2025。</p>
 <p>BIOS.440 &amp; EFI64.ROM - Dell 2.7 OEM BIOS: NT 6.0 (Vista/Server 2008), NT 6.1 (7/Server 2008 R2), NT 6.2 (Server 2012), NT 6.3 (Server 2012 R2), NT 10.0 (Server 2016/Server 2019/Server 2022/Server 2025)</p>
 <p>Windows Server OVF 系列：</p>
 <ul>
-<li><a href="/blog/windows-server-2025-ovf/" title="Windows Server 2025 OVF (2024 年 11 月更新) - VMware 虚拟机模板">Windows Server 2025 OVF (2024 年 11 月更新) - VMware 虚拟机模板</a></li>
-<li><a href="/blog/windows-server-2022-ovf/" title="Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a></li>
-<li><a href="/blog/windows-server-2019-ovf/" title="Windows Server 2019 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2019 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a></li>
-<li><a href="/blog/windows-server-2016-ovf/" title="Windows Server 2016 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2016 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a></li>
-<li><a href="/blog/windows-server-2008-r2-ovf/" title="Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+<li>
+<a href="/blog/windows-server-2025-ovf/" title="Windows Server 2025 OVF (2024 年 11 月更新) - VMware 虚拟机模板">Windows Server 2025 OVF (2024 年 11 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2022-ovf/" title="Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2022 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2019-ovf/" title="Windows Server 2019 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2019 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2016-ovf/" title="Windows Server 2016 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2016 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/windows-server-2008-r2-ovf/" title="Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a>
 </li>
 </ul>
 <p>其他 OVF：<a href="/blog/rocky-linux-8-ovf/" title="Rocky Linux 8.10 x86_64 OVF (sysin) - VMware 虚拟机模板">Rocky Linux 8.10 x86_64 OVF (sysin) - VMware 虚拟机模板</a>，<a href="/blog/ubuntu-2204-ovf/" title="Ubuntu 22.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板">Ubuntu 22.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板</a>，更多请在本站搜索 “OVF”。</p>
-<h3 id="支持不受官方支持的旧款-CPU"><a href="#支持不受官方支持的旧款-CPU" class="headerlink" title="支持不受官方支持的旧款 CPU"></a>支持不受官方支持的旧款 CPU</h3><p>修改启动参数，在官方不受支持的 CPU 的服务器上可以正常安装。</p>
+<h3 id="支持不受官方支持的旧款-CPU-4">支持不受官方支持的旧款 CPU</h3>
+<p>修改启动参数，在官方不受支持的 CPU 的服务器上可以正常安装。</p>
 <p>根据 <a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html#upgrades-and-installations-disallowed-for-unsupported-cpus-15">VMware vSphere 7.0 Release Notes</a>，以下 CPU 已经不受支持（无法安装或者升级 ESXi 7.0）</p>
 <p>Comparing the processors supported by vSphere 6.7, vSphere 7.0 no longer supports the following processors:</p>
 <ul>
 <li>Intel Family 6, Model = 2C (Westmere-EP)</li>
 <li>Intel Family 6, Model = 2F (Westmere-EX)</li>
 </ul>
-<p>笔者在一台 2010 年发布的服务器上安装运行良好 (sysin)：HP DL 380 G7，Intel(R) Xeon(R) CPU E5606</p>
+<p>笔者在一台 2010 年发布的服务器上安装运行良好 (sysin)：HP DL 380 G7，Intel® Xeon® CPU E5606</p>
 <p><img src="/blog/vmware-esxi-7-oem/esxi-7-on-legacycpu.webp" alt="ESXi 7.0 on LegacyCPU"></p>
 <p>备注：本截图为 7.0 版本</p>
-<h3 id="ESX-OSData-卷大小修改为-4G"><a href="#ESX-OSData-卷大小修改为-4G" class="headerlink" title="ESX-OSData 卷大小修改为 4G"></a>ESX-OSData 卷大小修改为 4G</h3><p>从 ESXi 7.0 开始，对磁盘空间的要求有所变化：</p>
+<h3 id="ESX-OSData-卷大小修改为-4G-4">ESX-OSData 卷大小修改为 4G</h3>
+<p>从 ESXi 7.0 开始，对磁盘空间的要求有所变化：</p>
 <ul>
 <li>8G SD 卡 + 32G 本地磁盘</li>
 <li>32G 本地磁盘</li>
@@ -580,7 +600,8 @@
 <blockquote>
 <p>即使设置值为 min，相比之前的版本所需存储容量还是要大的多。</p>
 </blockquote>
-<h3 id="同时提供标准版和厂商定制版镜像"><a href="#同时提供标准版和厂商定制版镜像" class="headerlink" title="同时提供标准版和厂商定制版镜像"></a>同时提供标准版和厂商定制版镜像</h3><p>提供标准版和 Dell、HPE、Lenovo、Inspur、Cisco 定制版镜像 iso 文件，定制版集成了对应厂商的驱动，建议该厂商产品优先使用。</p>
+<h3 id="同时提供标准版和厂商定制版镜像">同时提供标准版和厂商定制版镜像</h3>
+<p>提供标准版和 Dell、HPE、Lenovo、Inspur、Cisco 定制版镜像 iso 文件，定制版集成了对应厂商的驱动，建议该厂商产品优先使用。</p>
 <ul>
 <li>Standard (标准版)</li>
 <li>Dell (戴尔) PowerEdge 定制版</li>
@@ -593,7 +614,8 @@
 <li>NEC (日电) 定制版</li>
 </ul>
 <p>文件详细信息参看各版本发布页面。</p>
-<h2 id="Dell-戴尔-服务器兼容性"><a href="#Dell-戴尔-服务器兼容性" class="headerlink" title="Dell (戴尔) 服务器兼容性"></a>Dell (戴尔) 服务器兼容性</h2><p>欢迎提供机型和配置（CPU、RAID Controller、网卡）来询。</p>
+<h2 id="Dell-戴尔-服务器兼容性">Dell (戴尔) 服务器兼容性</h2>
+<p>欢迎提供机型和配置（CPU、RAID Controller、网卡）来询。</p>
 <p>请提供以下四个信息：</p>
 <ul>
 <li>机器品牌和型号</li>
@@ -601,7 +623,8 @@
 <li>RAID 卡型号</li>
 <li>网卡型号</li>
 </ul>
-<h2 id="HPE-慧与-服务器兼容性"><a href="#HPE-慧与-服务器兼容性" class="headerlink" title="HPE (慧与) 服务器兼容性"></a>HPE (慧与) 服务器兼容性</h2><p>欢迎提供机型和配置（CPU、RAID Controller、网卡）来询。</p>
+<h2 id="HPE-慧与-服务器兼容性">HPE (慧与) 服务器兼容性</h2>
+<p>欢迎提供机型和配置（CPU、RAID Controller、网卡）来询。</p>
 <p>请提供以下四个信息：</p>
 <ul>
 <li>机器品牌和型号</li>
@@ -609,7 +632,8 @@
 <li>RAID 卡型号</li>
 <li>网卡型号</li>
 </ul>
-<h2 id="常见问题解答-FAQ"><a href="#常见问题解答-FAQ" class="headerlink" title="常见问题解答 (FAQ)"></a>常见问题解答 (FAQ)</h2><p>镜像基于官方原版，内置 60 天试用许可，驱动来自 VMware 及其合作伙伴公开的免费发行包，技术参数修改参考官方文档或者来自（开源）社区的分享。</p>
+<h2 id="常见问题解答-FAQ">常见问题解答 (FAQ)</h2>
+<p>镜像基于官方原版，内置 60 天试用许可，驱动来自 VMware 及其合作伙伴公开的免费发行包，技术参数修改参考官方文档或者来自（开源）社区的分享。</p>
 <p>1️⃣ 该镜像不支持 UEFI Secure Boot。常规 UEFI 引导不受影响。同时建议禁用 TPM。</p>
 <p>2️⃣ 不支持通过 vSphere Lifecycle Manager 导入镜像。</p>
 <p>3️⃣ 更新官方 Patch bundle，将恢复原始状态，定制功能失效。</p>
@@ -618,10 +642,13 @@
 <p>6️⃣ 该镜像仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</p>
 <p>7️⃣ <a href="/blog/macos-13-ovf/" title="macOS 13 Blank OVF - 在 ESXi 8.0 中运行 macOS Ventura 的简单方式">macOS 13 Blank OVF - 在 ESXi 8.0 中运行 macOS Ventura 的简单方式</a></p>
 <p>8️⃣ 平台兼容性除了新增的部分驱动，其他请参照 <a target="_blank" rel="noopener" href="https://compatibilityguide.broadcom.com/">VMware Compatibility Guide</a>。</p>
-<h2 id="新增功能"><a href="#新增功能" class="headerlink" title="新增功能"></a>新增功能</h2><p>请查看官方发行说明：<code>https://docs.vmware.com/en/VMware-vSphere/</code></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><strong>ESXi 8.0 已发布，请访问</strong>：</p>
+<h2 id="新增功能-33">新增功能</h2>
+<p>请查看官方发行说明：<code>https://docs.vmware.com/en/VMware-vSphere/</code></p>
+<h2 id="下载地址-449">下载地址</h2>
+<p><strong>ESXi 8.0 已发布，请访问</strong>：</p>
 <ul>
-<li><a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+<li>
+<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
 </li>
 </ul>
 <p>VMware ESXi 7.0U3 macOS Unlocker &amp; OEM BIOS 系列：</p>
@@ -710,7 +737,9 @@
 <li>Dell (戴尔) PowerEdge 定制版：<code>[EoD]</code></li>
 <li>HPE (慧与) ProLiant 定制版：<code>[EoD]</code></li>
 <li>其他厂商定制版：可更新</li>
-<li>此版本解决的问题：VMware Host Client 无法将现有虚拟磁盘 (VMDK) 附加到虚拟机<br>您可能无法使用用于连接和管理单个 ESXi 主机的 VMware Host Client 将现有虚拟机磁盘 (VMDK) 附加到 VM。该问题不影响 vSphere Client。<br>该问题仍然存在于 ESXi 6.7-202210001、7.0U3k，此定制版已经修复该问题。</li>
+<li>此版本解决的问题：VMware Host Client 无法将现有虚拟磁盘 (VMDK) 附加到虚拟机<br>
+您可能无法使用用于连接和管理单个 ESXi 主机的 VMware Host Client 将现有虚拟机磁盘 (VMDK) 附加到 VM。该问题不影响 vSphere Client。<br>
+该问题仍然存在于 ESXi 6.7-202210001、7.0U3k，此定制版已经修复该问题。</li>
 </ul>
 <p><strong>VMware ESXi 7.0U3l macOS Unlocker &amp; OEM BIOS (2023-03-31)</strong>：</p>
 <p><strong>此版本包含 59 个功能修复，2 个安全修复（详见上述 “更新说明”），属于 “重大更新”，建议运行 7.0 系列的用户立刻更新该版本。</strong></p>
@@ -767,20 +796,42 @@
 </ul>
 <p><strong>VMware ESXi 7.0U3q macOS Unlocker &amp; OEM BIOS (2024-09-26)</strong>：</p>
 <ul>
-<li>发布日期：2024-05-22</li>
-<li>新增功能：安全漏洞修复 CVE-2024-22273，新增十余款品牌服务器的 vSphere Quick Boot 支持。</li>
-<li>解决了 67 个已知问题，详见官方发行说明。</li>
-<li>2024-09-01 更新 OEM BIOS 2.7，现已支持 Windows Server 2025，请在原链接获取更新。</li>
-<li>2024-09-26 定制版镜像更新：Dell A23、HPE Sep2024 和 Lenovo S08，请在原链接获取更新。</li>
-<li><p>2024-11-15 更新 Lenovo S09，请在原链接获取更新。</p>
+<li>
+<p>发布日期：2024-05-22</p>
 </li>
-<li><p><strong>Standard (标准版)</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1X0XSI0j-2h1rWAwuaYlmMQ?pwd=">https://pan.baidu.com/s/1X0XSI0j-2h1rWAwuaYlmMQ?pwd=</a>&lt;专享已公布&gt;</p>
+<li>
+<p>新增功能：安全漏洞修复 CVE-2024-22273，新增十余款品牌服务器的 vSphere Quick Boot 支持。</p>
 </li>
-<li><strong>Dell (戴尔) PowerEdge 定制版</strong> A23：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1EBcxchvp9x7TK0oEOV6viw?pwd=">https://pan.baidu.com/s/1EBcxchvp9x7TK0oEOV6viw?pwd=</a>&lt;专享已公布&gt;</li>
-<li><strong>HPE (慧与) ProLiant 定制版</strong> Sep2024：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1xXVZSwRP62bHLczxryDswg?pwd=">https://pan.baidu.com/s/1xXVZSwRP62bHLczxryDswg?pwd=</a>&lt;专享已公布&gt;</li>
-<li><strong>Lenovo (联想) 定制版</strong> S09：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1lrcRNT_QFpAkm2d78SRAcw?pwd=">https://pan.baidu.com/s/1lrcRNT_QFpAkm2d78SRAcw?pwd=</a>&lt;专享已公布&gt;</li>
-<li><strong>Inspur (浪潮) 定制版</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_8xsqdYIiy5d7brj3GQ-BA?pwd=">https://pan.baidu.com/s/1_8xsqdYIiy5d7brj3GQ-BA?pwd=</a>&lt;专享已公布&gt;</li>
-<li>其他厂商定制版：可更新<ul>
+<li>
+<p>解决了 67 个已知问题，详见官方发行说明。</p>
+</li>
+<li>
+<p>2024-09-01 更新 OEM BIOS 2.7，现已支持 Windows Server 2025，请在原链接获取更新。</p>
+</li>
+<li>
+<p>2024-09-26 定制版镜像更新：Dell A23、HPE Sep2024 和 Lenovo S08，请在原链接获取更新。</p>
+</li>
+<li>
+<p>2024-11-15 更新 Lenovo S09，请在原链接获取更新。</p>
+</li>
+<li>
+<p><strong>Standard (标准版)</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1X0XSI0j-2h1rWAwuaYlmMQ?pwd=">https://pan.baidu.com/s/1X0XSI0j-2h1rWAwuaYlmMQ?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>Dell (戴尔) PowerEdge 定制版</strong> A23：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1EBcxchvp9x7TK0oEOV6viw?pwd=">https://pan.baidu.com/s/1EBcxchvp9x7TK0oEOV6viw?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>HPE (慧与) ProLiant 定制版</strong> Sep2024：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1xXVZSwRP62bHLczxryDswg?pwd=">https://pan.baidu.com/s/1xXVZSwRP62bHLczxryDswg?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>Lenovo (联想) 定制版</strong> S09：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1lrcRNT_QFpAkm2d78SRAcw?pwd=">https://pan.baidu.com/s/1lrcRNT_QFpAkm2d78SRAcw?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>Inspur (浪潮) 定制版</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_8xsqdYIiy5d7brj3GQ-BA?pwd=">https://pan.baidu.com/s/1_8xsqdYIiy5d7brj3GQ-BA?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p>其他厂商定制版：可更新</p>
+<ul>
 <li>Cisco (思科) Custom Image</li>
 <li>Cisco (思科) Custom Image for UCS-E1100D</li>
 <li>Fujitsu (富士通) Custom Image</li>
@@ -798,17 +849,33 @@
 </ul>
 <p><strong>VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS (2024-12-12)</strong>：</p>
 <ul>
-<li>发布日期：2024-12-12</li>
-<li><p>已解决的问题：vSphere vMotion 任务失败，并显示错误 NamespaceMgr could not lock the db file</p>
+<li>
+<p>发布日期：2024-12-12</p>
 </li>
-<li><p><strong>Standard (标准版)</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Zds-sLHYgNZbJP7MFcBp4A?pwd=">https://pan.baidu.com/s/1Zds-sLHYgNZbJP7MFcBp4A?pwd=</a>&lt;专享已公布&gt;</p>
+<li>
+<p>已解决的问题：vSphere vMotion 任务失败，并显示错误 NamespaceMgr could not lock the db file</p>
 </li>
-<li><strong>Dell (戴尔) PowerEdge 定制版</strong> A23：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hbrtJ0Ov3oIuajU89uvumQ?pwd=">https://pan.baidu.com/s/1hbrtJ0Ov3oIuajU89uvumQ?pwd=</a>&lt;专享已公布&gt;</li>
-<li><strong>HPE (慧与) ProLiant 定制版</strong> Sep2024：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1lA-X3Y27cEfXhXqjD0Y4hw?pwd=">https://pan.baidu.com/s/1lA-X3Y27cEfXhXqjD0Y4hw?pwd=</a>&lt;专享已公布&gt;</li>
-<li><strong>Lenovo (联想) 定制版</strong> S09：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1SB9e3BnemFhXbWm-TaCXag?pwd=">https://pan.baidu.com/s/1SB9e3BnemFhXbWm-TaCXag?pwd=</a>&lt;专享已公布&gt;</li>
-<li><strong>Inspur (浪潮) 定制版</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1igp3UzD9vXaul_3OX-w8Bw?pwd=">https://pan.baidu.com/s/1igp3UzD9vXaul_3OX-w8Bw?pwd=</a>&lt;专享已公布&gt;</li>
-<li><code>也可以选择原厂风格定制版，仅包含驱动程序和 OEM 组件，无上述 1-4 通用特性</code></li>
-<li>其他厂商定制版：可更新<ul>
+<li>
+<p><strong>Standard (标准版)</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Zds-sLHYgNZbJP7MFcBp4A?pwd=">https://pan.baidu.com/s/1Zds-sLHYgNZbJP7MFcBp4A?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>Dell (戴尔) PowerEdge 定制版</strong> A23：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hbrtJ0Ov3oIuajU89uvumQ?pwd=">https://pan.baidu.com/s/1hbrtJ0Ov3oIuajU89uvumQ?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>HPE (慧与) ProLiant 定制版</strong> Sep2024：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1lA-X3Y27cEfXhXqjD0Y4hw?pwd=">https://pan.baidu.com/s/1lA-X3Y27cEfXhXqjD0Y4hw?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>Lenovo (联想) 定制版</strong> S09：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1SB9e3BnemFhXbWm-TaCXag?pwd=">https://pan.baidu.com/s/1SB9e3BnemFhXbWm-TaCXag?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><strong>Inspur (浪潮) 定制版</strong>：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1igp3UzD9vXaul_3OX-w8Bw?pwd=">https://pan.baidu.com/s/1igp3UzD9vXaul_3OX-w8Bw?pwd=</a>&lt;专享已公布&gt;</p>
+</li>
+<li>
+<p><code>也可以选择原厂风格定制版，仅包含驱动程序和 OEM 组件，无上述 1-4 通用特性</code></p>
+</li>
+<li>
+<p>其他厂商定制版：可更新</p>
+<ul>
 <li>Cisco (思科) Custom Image</li>
 <li>Cisco (思科) Custom Image for UCS-E1100D</li>
 <li>Fujitsu (富士通) Custom Image</li>
@@ -847,17 +914,20 @@
 <hr>
 <p>集成驱动版本，请访问：</p>
 <ul>
-<li><a href="/blog/vmware-esxi-7-u3-sysin/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+<li>
+<a href="/blog/vmware-esxi-7-u3-sysin/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
 </li>
 </ul>
 <p>官方原版，请访问：</p>
 <ul>
-<li><a href="/blog/vmware-vsphere-7-u3/" title="VMware vSphere 7 Update 3t 下载">VMware vSphere 7 Update 3t 下载</a>
+<li>
+<a href="/blog/vmware-vsphere-7-u3/" title="VMware vSphere 7 Update 3t 下载">VMware vSphere 7 Update 3t 下载</a>
 </li>
 </ul>
 <p>上一个版本，请访问：</p>
 <ul>
-<li><a href="/blog/vmware-esxi-7-u2-oem/" title="VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
+<li>
+<a href="/blog/vmware-esxi-7-u2-oem/" title="VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
 </li>
 </ul>
 <p><strong>新版已发布</strong>：<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></p>
@@ -1045,7 +1115,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E6%80%A7%E6%A6%82%E8%A7%88"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">特性概览</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C-macOS-Monterey"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">直接运行 macOS Monterey</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-Dell-2-7-BIOS-EFI64"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">VMware_Dell_2.7_BIOS-EFI64</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E4%B8%8D%E5%8F%97%E5%AE%98%E6%96%B9%E6%94%AF%E6%8C%81%E7%9A%84%E6%97%A7%E6%AC%BE-CPU"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">支持不受官方支持的旧款 CPU</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ESX-OSData-%E5%8D%B7%E5%A4%A7%E5%B0%8F%E4%BF%AE%E6%94%B9%E4%B8%BA-4G"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">ESX-OSData 卷大小修改为 4G</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%90%8C%E6%97%B6%E6%8F%90%E4%BE%9B%E6%A0%87%E5%87%86%E7%89%88%E5%92%8C%E5%8E%82%E5%95%86%E5%AE%9A%E5%88%B6%E7%89%88%E9%95%9C%E5%83%8F"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">同时提供标准版和厂商定制版镜像</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Dell-%E6%88%B4%E5%B0%94-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Dell (戴尔) 服务器兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HPE-%E6%85%A7%E4%B8%8E-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HPE (慧与) 服务器兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94-FAQ"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">常见问题解答 (FAQ)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E6%80%A7%E6%A6%82%E8%A7%88-8"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">特性概览</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C-macOS-Monterey"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">直接运行 macOS Monterey</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-Dell-2-7-BIOS-EFI64"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">VMware_Dell_2.7_BIOS-EFI64</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E4%B8%8D%E5%8F%97%E5%AE%98%E6%96%B9%E6%94%AF%E6%8C%81%E7%9A%84%E6%97%A7%E6%AC%BE-CPU-4"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">支持不受官方支持的旧款 CPU</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#ESX-OSData-%E5%8D%B7%E5%A4%A7%E5%B0%8F%E4%BF%AE%E6%94%B9%E4%B8%BA-4G-4"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">ESX-OSData 卷大小修改为 4G</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%90%8C%E6%97%B6%E6%8F%90%E4%BE%9B%E6%A0%87%E5%87%86%E7%89%88%E5%92%8C%E5%8E%82%E5%95%86%E5%AE%9A%E5%88%B6%E7%89%88%E9%95%9C%E5%83%8F"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">同时提供标准版和厂商定制版镜像</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Dell-%E6%88%B4%E5%B0%94-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Dell (戴尔) 服务器兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HPE-%E6%85%A7%E4%B8%8E-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HPE (慧与) 服务器兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94-FAQ"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">常见问题解答 (FAQ)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD-33"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-449"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

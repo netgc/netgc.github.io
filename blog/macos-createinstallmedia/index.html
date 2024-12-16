@@ -501,14 +501,17 @@
 <p>当前版本：</p>
 <p><img src="https://developer.apple.com/download/images/macos-13-128x128_2x.png" alt="macOS Ventura"></p>
 <p>您可以将外置驱动器或备用宗卷用作安装 Mac 操作系统的启动磁盘。</p>
-<h2 id="准备和条件"><a href="#准备和条件" class="headerlink" title="准备和条件"></a>准备和条件</h2><h3 id="下载-macOS【直接下载】"><a href="#下载-macOS【直接下载】" class="headerlink" title="下载 macOS【直接下载】"></a>下载 macOS【<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS/">直接下载</a>】</h3><p>要保证下载的安装包 Install macOS *.app（“安装 macOS [版本名称]”的 App）在 “应用程序” 文件夹。</p>
+<h2 id="准备和条件">准备和条件</h2>
+<h3 id="下载-macOS【直接下载】">下载 macOS【<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS/">直接下载</a>】</h3>
+<p>要保证下载的安装包 Install macOS *.app（“安装 macOS [版本名称]”的 App）在 “应用程序” 文件夹。</p>
 <blockquote>
 <p>ISO 格式打开后可以拖拽到 “应用程序” 文件夹，或者只需要双击挂载更便捷；</p>
 <p>PKG 格式的软件包，打开根据提示自动安装到 “应用程序” 文件夹；</p>
 <p>在 Mac App Store 下载的 App 会自动保存在 “应用程序” 文件夹。</p>
 <p>DMG 的软件包，需要打开拖拽到 “应用程序” 文件夹；</p>
 </blockquote>
-<h3 id="准备启动介质：USB-移动存储设备"><a href="#准备启动介质：USB-移动存储设备" class="headerlink" title="准备启动介质：USB 移动存储设备"></a>准备启动介质：USB 移动存储设备</h3><p>可以使用以下三种介质中的一种：</p>
+<h3 id="准备启动介质：USB-移动存储设备">准备启动介质：USB 移动存储设备</h3>
+<p>可以使用以下三种介质中的一种：</p>
 <ul>
 <li>（1）U 盘：Catalina 及以上版本需要 16G 及以上容量的 U 盘，其他旧版本 8G 容量的 U 盘即可（SD 卡同理）；</li>
 <li>（2）USB 移动硬盘，比如 USB SSD 移动硬盘更佳（推荐👍）；</li>
@@ -528,7 +531,8 @@
 <p>上述对话框无法正确呈现？请确保已经显示所有设备（如下图），针对设备级别操作。</p>
 <p><img src="diskutil-show-all-device.webp" alt="磁盘工具--显示所有设备"></p>
 <hr>
-<h2 id="在-“终端”-中使用-“createinstallmedia”-命令"><a href="#在-“终端”-中使用-“createinstallmedia”-命令" class="headerlink" title="在 “终端” 中使用 “createinstallmedia” 命令"></a>在 “终端” 中使用 “createinstallmedia” 命令</h2><ol>
+<h2 id="在-“终端”-中使用-“createinstallmedia”-命令">在 “终端” 中使用 “createinstallmedia” 命令</h2>
+<ol>
 <li>连接要用于保存可引导安装器的 USB 闪存驱动器或其他宗卷。</li>
 <li>打开 “应用程序” 文件夹内 “实用工具” 文件夹中的“终端”。</li>
 <li>在 “终端” 中键入或粘贴以下命令之一。这些命令假设安装器位于您的 “应用程序” 文件夹中，并且 “sysin” 是您所使用的 USB 闪存驱动器或其他宗卷的名称。如果不是这个名称，请将这些命令中的 sysin 替换为您的宗卷名称。</li>
@@ -575,29 +579,35 @@
 <li>出现提示时，请键入您的管理员密码，然后再次按下 Return 键。在您键入密码时，“终端” 不会显示任何字符。</li>
 <li>出现提示时，请键入 <code>Y</code> 以确认您要抹掉宗卷，然后按下 Return 键。在抹掉宗卷的过程中，“终端” 会显示进度。</li>
 <li>宗卷被抹掉后，您可能会看到一条提醒，提示 “终端” 要访问可移除宗卷上的文件。点按 “好” 以允许继续拷贝。</li>
-<li>当 “终端” 显示操作已完成时，相应宗卷将拥有与您下载的安装器相同的名称，例如 “Install macOS Ventura”。您现在可以退出“终端” 并弹出宗卷。<br><img src="https://cdsassets.apple.com/live/7WUAS350/images/macos/ventura/macos-ventura-terminal-command-createinstallmedia.png" alt="终端"></li>
+<li>当 “终端” 显示操作已完成时，相应宗卷将拥有与您下载的安装器相同的名称，例如 “Install macOS Ventura”。您现在可以退出“终端” 并弹出宗卷。<br>
+<img src="https://cdsassets.apple.com/live/7WUAS350/images/macos/ventura/macos-ventura-terminal-command-createinstallmedia.png" alt="终端"></li>
 </ol>
 <p>如果出现 ”mount of outer dmg failed“ 错误，请在终端中执行命令修复权限（Big Sur 为例）：</p>
 <p><code>sudo chmod 755 /Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/createinstallmedia</code></p>
 <hr>
-<h2 id="使用可引导安装器"><a href="#使用可引导安装器" class="headerlink" title="使用可引导安装器"></a>使用可引导安装器</h2><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">确定您使用的是不是搭载 Apple 芯片的 Mac</a>，然后按照相应的步骤操作：</p>
-<h3 id="Apple-芯片"><a href="#Apple-芯片" class="headerlink" title="Apple 芯片"></a>Apple 芯片</h3><ol>
+<h2 id="使用可引导安装器">使用可引导安装器</h2>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">确定您使用的是不是搭载 Apple 芯片的 Mac</a>，然后按照相应的步骤操作：</p>
+<h3 id="Apple-芯片-2">Apple 芯片</h3>
+<ol>
 <li>将可引导安装器插入已连接到互联网且与您要安装的 macOS 版本兼容的 Mac。</li>
 <li>将 Mac 开机并继续按住电源按钮，直到您看到启动选项窗口，其中会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。</li>
 <li>选择包含可引导安装器的宗卷，然后点按 “继续”。</li>
 <li>macOS 安装器打开后，请按照屏幕上的说明操作。</li>
 </ol>
-<h3 id="Intel-处理器"><a href="#Intel-处理器" class="headerlink" title="Intel 处理器"></a>Intel 处理器</h3><ol>
+<h3 id="Intel-处理器-2">Intel 处理器</h3>
+<ol>
 <li>将可引导安装器插入已连接到互联网且与您要安装的 macOS 版本兼容的 Mac。</li>
 <li>将 Mac 开机或重新启动后，立即按住 Option (Alt) ⌥ 键。</li>
 <li>当您看到显示可引导宗卷的黑屏时，松开 Option 键。</li>
-<li>选择包含可引导安装器的宗卷。然后点按向上箭头或按下 Return 键。<br> 如果您无法从可引导安装器启动，请确保 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">“启动安全性实用工具” 中的 “外部启动” 设置</a>已设为允许从外部介质启动。</li>
+<li>选择包含可引导安装器的宗卷。然后点按向上箭头或按下 Return 键。<br>
+如果您无法从可引导安装器启动，请确保 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">“启动安全性实用工具” 中的 “外部启动” 设置</a>已设为允许从外部介质启动。</li>
 <li>根据提示选取您的语言。</li>
 <li>从 “实用工具” 窗口中选择“安装 macOS”（或“安装 OS X”），然后点按“继续”，并按照屏幕上的说明进行操作。</li>
 </ol>
 <hr>
 <p>补充章节：</p>
-<h2 id="在-Windows-下创建-macOS-引导介质"><a href="#在-Windows-下创建-macOS-引导介质" class="headerlink" title="在 Windows 下创建 macOS 引导介质"></a>在 Windows 下创建 macOS 引导介质</h2><p>macOS 是一种 Unix 操作系统，其实这个问题跟如何在 Windows 下如何创建 Linux 引导介质同理。</p>
+<h2 id="在-Windows-下创建-macOS-引导介质-2">在 Windows 下创建 macOS 引导介质</h2>
+<p>macOS 是一种 Unix 操作系统，其实这个问题跟如何在 Windows 下如何创建 Linux 引导介质同理。</p>
 <p>Linux 写入 USB 引导介质，通常需要一个 ISO 镜像，和一个第三方的 USB Boot 创建工具。</p>
 <p>这里推荐使用跨平台的开源免费软件 Etcher，该操作也同样适用于 Linux，在 macOS 下无需这种方式，虽然也是可用的。</p>
 <p><strong>条件</strong>：</p>
@@ -608,19 +618,32 @@
 </ul>
 <p><strong>步骤</strong>：</p>
 <ol>
-<li><p>使用 “磁盘管理” 将 USB 存储介质格式化为 exFAT 格式</p>
+<li>
+<p>使用 “磁盘管理” 将 USB 存储介质格式化为 exFAT 格式</p>
 </li>
-<li><p>打开 balenaEtcher，选择 Flash from file，浏览到下载的 macOS iso 文件<br><img src="etcher1.webp" alt="balenaEtcher--1"><br>注意：会提示 Missing partition table，点击 Continue 即可。<br><img src="etcher2.webp" alt="balenaEtcher--4"></p>
+<li>
+<p>打开 balenaEtcher，选择 Flash from file，浏览到下载的 macOS iso 文件<br>
+<img src="etcher1.webp" alt="balenaEtcher--1"><br>
+注意：会提示 Missing partition table，点击 Continue 即可。<br>
+<img src="etcher2.webp" alt="balenaEtcher--4"></p>
 </li>
-<li><p>选择要写入的 USB 存储介质<br>本例中为 hp x5000m 已自动选择：<br><img src="etcher3.webp" alt="balenaEtcher--3"></p>
+<li>
+<p>选择要写入的 USB 存储介质<br>
+本例中为 hp x5000m 已自动选择：<br>
+<img src="etcher3.webp" alt="balenaEtcher--3"></p>
 </li>
-<li><p>点击 Flash! 开始写入（需要数分钟到数十分钟不等，取决于介质本身）<br>写入成功的截图：<br><img src="etcher4.webp" alt="balenaEtcher--4"></p>
+<li>
+<p>点击 Flash! 开始写入（需要数分钟到数十分钟不等，取决于介质本身）<br>
+写入成功的截图：<br>
+<img src="etcher4.webp" alt="balenaEtcher--4"></p>
 </li>
 </ol>
 <p>⚠️ 提示：写入成功的 USB 存储介质格式为 “Mac OS 扩展（日志式）”，Windows 等第三方系统是无法读取的，显示为 RAW 格式。</p>
-<h2 id="搭载-Apple-芯片的-Mac-使用-IPSW-恢复系统"><a href="#搭载-Apple-芯片的-Mac-使用-IPSW-恢复系统" class="headerlink" title="搭载 Apple 芯片的 Mac 使用 IPSW 恢复系统"></a>搭载 Apple 芯片的 Mac 使用 IPSW 恢复系统</h2><p>本任务适用以下搭载 Apple 芯片的 Mac 电脑，详见：</p>
+<h2 id="搭载-Apple-芯片的-Mac-使用-IPSW-恢复系统">搭载 Apple 芯片的 Mac 使用 IPSW 恢复系统</h2>
+<p>本任务适用以下搭载 Apple 芯片的 Mac 电脑，详见：</p>
 <ul>
-<li><a href="/blog/apple-silicon-mac-dfu/" title="使用 DFU 模式修复或恢复 Mac 固件">使用 DFU 模式修复或恢复 Mac 固件</a>
+<li>
+<a href="/blog/apple-silicon-mac-dfu/" title="使用 DFU 模式修复或恢复 Mac 固件">使用 DFU 模式修复或恢复 Mac 固件</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
@@ -807,7 +830,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%92%8C%E6%9D%A1%E4%BB%B6"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">准备和条件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD-macOS%E3%80%90%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E3%80%91"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">下载 macOS【直接下载】</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%90%AF%E5%8A%A8%E4%BB%8B%E8%B4%A8%EF%BC%9AUSB-%E7%A7%BB%E5%8A%A8%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">准备启动介质：USB 移动存储设备</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%A8-%E2%80%9C%E7%BB%88%E7%AB%AF%E2%80%9D-%E4%B8%AD%E4%BD%BF%E7%94%A8-%E2%80%9Ccreateinstallmedia%E2%80%9D-%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">在 “终端” 中使用 “createinstallmedia” 命令</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%AF%E5%BC%95%E5%AF%BC%E5%AE%89%E8%A3%85%E5%99%A8"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">使用可引导安装器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Apple-%E8%8A%AF%E7%89%87"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Apple 芯片</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Intel-%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Intel 处理器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%A8-Windows-%E4%B8%8B%E5%88%9B%E5%BB%BA-macOS-%E5%BC%95%E5%AF%BC%E4%BB%8B%E8%B4%A8"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">在 Windows 下创建 macOS 引导介质</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%90%AD%E8%BD%BD-Apple-%E8%8A%AF%E7%89%87%E7%9A%84-Mac-%E4%BD%BF%E7%94%A8-IPSW-%E6%81%A2%E5%A4%8D%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">搭载 Apple 芯片的 Mac 使用 IPSW 恢复系统</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%92%8C%E6%9D%A1%E4%BB%B6"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">准备和条件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD-macOS%E3%80%90%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E3%80%91"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">下载 macOS【直接下载】</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%90%AF%E5%8A%A8%E4%BB%8B%E8%B4%A8%EF%BC%9AUSB-%E7%A7%BB%E5%8A%A8%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">准备启动介质：USB 移动存储设备</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%A8-%E2%80%9C%E7%BB%88%E7%AB%AF%E2%80%9D-%E4%B8%AD%E4%BD%BF%E7%94%A8-%E2%80%9Ccreateinstallmedia%E2%80%9D-%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">在 “终端” 中使用 “createinstallmedia” 命令</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%AF%E5%BC%95%E5%AF%BC%E5%AE%89%E8%A3%85%E5%99%A8"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">使用可引导安装器</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Apple-%E8%8A%AF%E7%89%87-2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Apple 芯片</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Intel-%E5%A4%84%E7%90%86%E5%99%A8-2"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Intel 处理器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%A8-Windows-%E4%B8%8B%E5%88%9B%E5%BB%BA-macOS-%E5%BC%95%E5%AF%BC%E4%BB%8B%E8%B4%A8-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">在 Windows 下创建 macOS 引导介质</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%90%AD%E8%BD%BD-Apple-%E8%8A%AF%E7%89%87%E7%9A%84-Mac-%E4%BD%BF%E7%94%A8-IPSW-%E6%81%A2%E5%A4%8D%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">搭载 Apple 芯片的 Mac 使用 IPSW 恢复系统</span></a></li></ol>
         
         </div>
       </aside>

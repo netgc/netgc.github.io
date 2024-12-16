@@ -495,7 +495,8 @@
 <p>开源开放中立的操作系统社区</p>
 <p>OpenCloudOS</p>
 <p>中立、开放、安全、稳定易用、高性能的 Linux 服务器操作系统</p>
-<h2 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h2><p>OpenCloudOS 8.5 基于 Linux 内核自主研发设计，其稳定性、安全性、兼容性和性能等核心能力均已得到长时间充分验证。作为可靠的企业级服务器 Linux 发行版，用户可将 OpenCloudOS 8.5 直接部署应用到生产系统，降低用户的系统运营成本。</p>
+<h2 id="产品介绍">产品介绍</h2>
+<p>OpenCloudOS 8.5 基于 Linux 内核自主研发设计，其稳定性、安全性、兼容性和性能等核心能力均已得到长时间充分验证。作为可靠的企业级服务器 Linux 发行版，用户可将 OpenCloudOS 8.5 直接部署应用到生产系统，降低用户的系统运营成本。</p>
 <p>2021 年底，业界主流的操作系统软件 CentOS8 已经停止维护，这使得大量用户陷于安全风险中。OpenCloudOS 8.5 的内核能在保障企业级稳定性的同时，享有社区的各种新技术和自研优化 (sysin)，基础库和用户态组件完全与 CentOS8 兼容。通过内核层面的优化和增强，OpenCloudOS 8.5 可为用户提供相比于 CentOS8 更优的解决方案。</p>
 <p>据了解，目前 OpenCloudOS 8.5 已经在社交、游戏、金融支付、AI、安全、大数据等真实业务场景中稳定运行超过 2 年，经历了千万级节点的长时间验证，可用性高达 99.999%。相比 CentOS7 和其他开源社区版本，OpenCloudOS 8.5 故障率低 70% 以上，且在典型业务场景中性能提升超 50%。</p>
 <p>当前 OpenCloudOS 8.5 版本采用自动分区、格式化并安装默认软件包的自动化简易安装方式，默认不安装图形环境，相比传统安装方式操作更简单、过程更快。用户也可按需手工安装，能满足绝大部分服务器场景的通用需求。</p>
@@ -503,21 +504,27 @@
 <p>OpenCloudOS 沉淀了多家厂商在软件和开源生态的优势，继承了腾讯在操作系统和内核层面超过 10 年的技术积累，在云原生、稳定性、性能、硬件支持等方面均有坚实支撑，可以平等全面地支持所有硬件平台。</p>
 <p>作为 OpenCloudOS 社区的主要发起方之一，腾讯从 2010 年开始结合自身业务的特性需求、性能需求和安全需求，基于海量业务场景，自研了服务器操作系统 TencentOS Server。在 2019 年，腾讯正式将 TencentOS 内核开源。</p>
 <p>随着 OpenCloudOS 8.5 的正式发布，OpenCloudOS 也将在更多行业和应用场景上，为企业提供稳定高可用的服务，满足业务严苛负载需求。</p>
-<h2 id="典型特性"><a href="#典型特性" class="headerlink" title="典型特性"></a>典型特性</h2><p>OpenCloudOS 移植了社区最新关键特性，并结合不同的业务场景进行了功能和性能优化，典型特性包括：容器资源视图隔离 (cgroupfs)、云原生 SLI、Monitor Buffer、ARM64 热补丁、Page Cache Limit 等。整体上 OpenCloudOS 的内核能在保障企业级稳定性的同时，享有社区的各种新技术和自研优化。</p>
+<h2 id="典型特性">典型特性</h2>
+<p>OpenCloudOS 移植了社区最新关键特性，并结合不同的业务场景进行了功能和性能优化，典型特性包括：容器资源视图隔离 (cgroupfs)、云原生 SLI、Monitor Buffer、ARM64 热补丁、Page Cache Limit 等。整体上 OpenCloudOS 的内核能在保障企业级稳定性的同时，享有社区的各种新技术和自研优化。</p>
 <ul>
-<li><p>容器资源视图隔离 (cgroupfs)</p>
+<li>
+<p>容器资源视图隔离 (cgroupfs)</p>
 <p>云原生场景中，容器的整体隔离性还不完整，其中，/proc、/sys 文件系统中的一些关键资源信息，还没有完整的容器化，导致在物理机/虚拟机中的一些常用命令 (比如 free / top) 在容器中运行时，不能准确展示容器视角的信息，这也是业界的一类顽疾。OpenCloudOS 内核增强了容器资源视图隔离，实现了 cpustat、cpuinfo、loadavg、meminfo、vmstat、uptime、DiskStats 等关键资源视图的隔离，同时支持 iotop 等实用工具，还支持指定 mount 点的隐藏。整体提升了容器隔离性。</p>
 </li>
-<li><p>云原生 SLI</p>
+<li>
+<p>云原生 SLI</p>
 <p>SLI (Service Level Indicator) 是用于观测 Service level 的指标；SLO 是基于 SLI 指定的目标。从云原生的角度看，云原生 SLI 可以理解为针对云原生场景的可用于观测 Service level 的指标，具体来说即容器视角的的一些关键指标，这也是定义容器 SLO 的基础。另一方面，现有 Upstream Kernel 在 Cgroup 基本的统计和监控还比较原始和粗糙，缺乏可用的、容器视角的 SLI 数据采集和抽象。OpenCloudOS 内核设计了云原生 SLI，通过在内核中实时的搜集和计算 (低开销方式)，提供充分的、专业的、不同维度的 SLI 指标，供上层 (K8s) 使用，用户可基于此定个相应的 SLO。</p>
 </li>
-<li><p>Monitor Buffer</p>
+<li>
+<p>Monitor Buffer</p>
 <p>OpenCloudOS 内核提供的云原生常态监控工具，本质是用于监控干扰和抖动的内存区，当关键指标不符合预期 (超限) 时，自动记录相关上下文信息，能有效捕获随机出现的异常上下文，解决业务随机抖动的业界难题。</p>
 </li>
-<li><p>ARM64 热补丁</p>
+<li>
+<p>ARM64 热补丁</p>
 <p>内核热补丁技术是一种无需重启服务器，即可实现修改内核运行时代码的技术。不同厂商推出了自己的热补丁技术，包括 Ksplice、Kgraft、Kpatch、Livepatch，但一直缺乏对 ARM64 架构的完美支持。OpenCloudOS 基于 Kpatch 框架开发了 ARM64 热补丁特性，完整提供了 ARM64 环境中的热补丁解决方案，可在不影响业务正常运行的情况下，修复内核 bug 或者安全漏洞，以 ARM64 平台的运维能力和体验。</p>
 </li>
-<li><p>Page Cache Limit</p>
+<li>
+<p>Page Cache Limit</p>
 <p>page cache 是 linux 内核的一种文件缓存机制，可提升系统的读写性能。但是过多的文件缓存，会占用大量的系统内存，可能会导致各种系统问题。OpenCloudOS 实现了 page cache limit 特性，可以解决因 page cache 过多导致的各种问题，同时可增强实现容器级别的 page cache  limit(包括 slab limit)，可进一步增强容器的隔离性。</p>
 </li>
 </ul>
@@ -530,8 +537,8 @@
 <li>开源数据库：MySQL 8.0；MariaDB 10.5/10.3；PostgreSQL 13/12/10/9.6；Redis 6/5</li>
 </ul>
 <p>特色工具</p>
-<p>  其他特色工具和特性还在持续打磨中，比如：网络包全生命周期跟踪工具 Nettrace；基于 libperf 和 libtraceevent 的灵活而轻量的监控框架。具体详见 github 链接地址：<a target="_blank" rel="noopener" href="https://github.com/OpenCloudOS">https://github.com/OpenCloudOS</a></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><div class="table-container">
+<p>其他特色工具和特性还在持续打磨中，比如：网络包全生命周期跟踪工具 Nettrace；基于 libperf 和 libtraceevent 的灵活而轻量的监控框架。具体详见 github 链接地址：<a target="_blank" rel="noopener" href="https://github.com/OpenCloudOS">https://github.com/OpenCloudOS</a></p>
+<h2 id="下载地址-298">下载地址</h2>
 <table>
 <thead>
 <tr>
@@ -553,7 +560,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>OpenCloudOS 8.5，基于 CentOS 8.5.2111 构建。</p>
 <ul>
 <li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Si9a6tXAOymBZM64D9VjKQ">https://pan.baidu.com/s/1Si9a6tXAOymBZM64D9VjKQ</a>  提取码：vjfl</li>
@@ -744,7 +750,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">产品介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B8%E5%9E%8B%E7%89%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">典型特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">产品介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B8%E5%9E%8B%E7%89%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">典型特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-298"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

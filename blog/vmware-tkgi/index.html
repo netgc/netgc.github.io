@@ -493,11 +493,13 @@
 <hr>
 <p>VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 使运营商能够使用 BOSH 和 Ops Manager 配置、运营和管理企业级 Kubernetes 集群。</p>
 <p>VMware Tanzu Kubernetes Grid Integrated Edition（以前称为 VMware Enterprise PKS）是基于 Kubernetes 的容器解决方案，具有高级网络、私有容器注册表和生命周期管理功能。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Tanzu Kubernetes Grid Integrated Edition 将 Kubernetes 部署到 <a target="_blank" rel="noopener" href="https://bosh.io">BOSH</a>和 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/ops-manager/install/ops-man.html">Ops Manager</a>，并使用 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/svc-sdk/odb/index.html">On-Demand Broker</a>动态地在本地或公共云上实例化、部署和管理高度可用的 Kubernetes 集群。</p>
+<h2 id="概述-9">概述</h2>
+<p>Tanzu Kubernetes Grid Integrated Edition 将 Kubernetes 部署到 <a target="_blank" rel="noopener" href="https://bosh.io">BOSH</a>和 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/ops-manager/install/ops-man.html">Ops Manager</a>，并使用 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/svc-sdk/odb/index.html">On-Demand Broker</a>动态地在本地或公共云上实例化、部署和管理高度可用的 Kubernetes 集群。</p>
 <p>运营商安装TKGI后，开发人员可以使用 TKGI 命令行界面 (TKGI CLI) 来配置 Kubernetes 集群 (sysin)，并使用 Kubernetes CLI 在集群上运行基于容器的工作负载 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/installing-kubectl-cli.html">kubectl</a>。</p>
 <p>操作员将 TKGI 作为磁贴安装在 Ops Manager 安装仪表板上，或从 vSphere 上的 TKGI 管理控制台。</p>
 <p>您可以独立运行 TKGI 或与适用于 VM 的 VMware Tanzu 应用程序服务一起运行在运维管理器上。</p>
-<h2 id="架构概览"><a href="#架构概览" class="headerlink" title="架构概览"></a>架构概览</h2><p>Tanzu Kubernetes Grid Integrated Edition 环境包含一个 TKGI 控制平面以及一个或多个工作负载集群。</p>
+<h2 id="架构概览">架构概览</h2>
+<p>Tanzu Kubernetes Grid Integrated Edition 环境包含一个 TKGI 控制平面以及一个或多个工作负载集群。</p>
 <p>Tanzu Kubernetes Grid Integrated Edition 管理员使用 TKGI Control Plane 部署和管理 Kubernetes 集群。工作负载集群运行开发人员推送的应用程序。</p>
 <p>下面举例说明 Tanzu Kubernetes Grid 集成版组件之间的交互：</p>
 <p><img src="https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid-Integrated-Edition/1.16/tkgi/Images/images-tkgi-overview-ha.png" alt="HA TKGI Control Plane with HA TKGI API VM Group and HA DB VM cluster"></p>
@@ -505,8 +507,8 @@
 <p>在 TKGI 控制平面内，TKGI API 和 TKGI Broker 使用 BOSH 来执行请求的集群管理功能 (sysin)。有关 TKGI 控制平面的信息，请参阅下面的 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/control-plane.html#control-plane">TKGI 控制平面概述</a>。有关安装 TKGI CLI 的说明，请参阅 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/installing-cli.html">安装 TKGI CLI</a>。</p>
 <p>Kubernetes 在 Kubernetes 集群上部署和管理工作负载。管理员使用 Kubernetes CLI，<code>kubectl</code>, 指导 Kubernetes 从他们的本地工作站。有关信息 <code>kubectl</code>，请参阅 <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/kubectl/overview/">概述</a>Kubernetes 文档中的 kubectl。</p>
 <p><a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/control-plane.html">详见</a></p>
-<h2 id="TKGI-为-Kubernetes-添加了什么"><a href="#TKGI-为-Kubernetes-添加了什么" class="headerlink" title="TKGI 为 Kubernetes 添加了什么"></a>TKGI 为 Kubernetes 添加了什么</h2><p>下表详细介绍了 Tanzu Kubernetes Grid Integrated Edition 为 Kubernetes 平台添加的功能。</p>
-<div class="table-container">
+<h2 id="TKGI-为-Kubernetes-添加了什么">TKGI 为 Kubernetes 添加了什么</h2>
+<p>下表详细介绍了 Tanzu Kubernetes Grid Integrated Edition 为 Kubernetes 平台添加的功能。</p>
 <table>
 <thead>
 <tr>
@@ -578,9 +580,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>原英文描述：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -652,8 +652,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h2><p>Tanzu Kubernetes Grid 集成版具有以下特点：</p>
+<h2 id="特征-2">特征</h2>
+<p>Tanzu Kubernetes Grid 集成版具有以下特点：</p>
 <ul>
 <li><strong>Kubernetes 兼容性</strong> ：与 Kubernetes 的当前稳定版本持续兼容</li>
 <li><strong>生产就绪</strong> ：从应用程序到基础设施高度可用，没有单点故障</li>
@@ -661,7 +661,8 @@
 <li><strong>全自动操作</strong> ：全自动部署、扩展、打补丁和升级体验</li>
 <li><strong>多云</strong> ：跨多个云的一致操作体验</li>
 </ul>
-<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><p>关于安装Tanzu Kubernetes Grid Integrated Edition的资源需求信息，请参见您的云提供商对应的主题：</p>
+<h2 id="先决条件">先决条件</h2>
+<p>关于安装Tanzu Kubernetes Grid Integrated Edition的资源需求信息，请参见您的云提供商对应的主题：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/vsphere-requirements.html">vSphere 先决条件和资源要求</a></li>
 <li><a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/vsphere-nsxt-requirements.html">vSphere with NSX-T 版本要求</a>和 <a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/vsphere-nsxt-rpd-mpd.html">Tanzu Kubernetes Grid Integrated Edition on vSphere with NSX-T 的硬件要求</a></li>
@@ -669,7 +670,8 @@
 <li><a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/aws-requirements.html">AWS 先决条件和资源要求</a></li>
 <li><a target="_blank" rel="noopener" href="https://docs.pivotal.io/tkgi/1-16/azure-requirements.html">Azure 先决条件和资源要求</a></li>
 </ul>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><strong>VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 1.15</strong>：</p>
+<h2 id="下载地址-504">下载地址</h2>
+<p><strong>VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 1.15</strong>：</p>
 <ul>
 <li>百度网盘链接：<code>[EoD]</code></li>
 </ul>
@@ -687,25 +689,39 @@
 </ul>
 <p><strong>VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 1.19</strong>：</p>
 <ul>
-<li><p>百度网盘链接：<code>[EoD]</code></p>
+<li>
+<p>百度网盘链接：<code>[EoD]</code></p>
 </li>
-<li><p>Tanzu Kubernetes Grid Integrated Edition 1.19.0</p>
+<li>
+<p>Tanzu Kubernetes Grid Integrated Edition 1.19.0</p>
 </li>
-<li>Tanzu Kubernetes Grid Integrated Edition 1.19.1</li>
-<li>Tanzu Kubernetes Grid Integrated Edition 1.19.2</li>
+<li>
+<p>Tanzu Kubernetes Grid Integrated Edition 1.19.1</p>
+</li>
+<li>
+<p>Tanzu Kubernetes Grid Integrated Edition 1.19.2</p>
+</li>
 </ul>
 <p><strong>VMware Tanzu Kubernetes Grid Integrated Edition (TKGI) 1.20.0</strong>：</p>
 <ul>
 <li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1gL8E3Ss5p2_LVaPwg__iqQ?pwd=d5r6">https://pan.baidu.com/s/1gL8E3Ss5p2_LVaPwg__iqQ?pwd=d5r6</a><code>[本站 ESXi 8 定制版用户和 VMware 相关产品下载捐助者可留言获取]</code></li>
 </ul>
 <p>解决方案组件：</p>
-<p><strong>1. TKG Integrated Edition</strong>：<br>  File info：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1gL8E3Ss5p2_LVaPwg__iqQ?pwd=d5r6">https://pan.baidu.com/s/1gL8E3Ss5p2_LVaPwg__iqQ?pwd=d5r6</a></p>
+<p><strong>1. TKG Integrated Edition</strong>：<br>
+File info：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1gL8E3Ss5p2_LVaPwg__iqQ?pwd=d5r6">https://pan.baidu.com/s/1gL8E3Ss5p2_LVaPwg__iqQ?pwd=d5r6</a></p>
 <ul>
-<li><p>Tanzu Kubernetes Grid Integrated Edition Management Console 1.20.0<br>Name: tkgi-v1.20.0-rev.1-b283b841-24188794.ova<br>File size: 13.37 GB<br>Last Updated: Aug 12, 2024 01.32AM</p>
+<li>
+<p>Tanzu Kubernetes Grid Integrated Edition Management Console 1.20.0<br>
+Name: tkgi-v1.20.0-rev.1-b283b841-24188794.ova<br>
+File size: 13.37 GB<br>
+Last Updated: Aug 12, 2024 01.32AM</p>
 </li>
-<li><p>Tanzu Kubernetes Grid Integrated Edition CLI 1.20.0<br>File info：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1R16QGT0OmTbMiHAcz4sH8g?pwd=gw36">https://pan.baidu.com/s/1R16QGT0OmTbMiHAcz4sH8g?pwd=gw36</a></p>
+<li>
+<p>Tanzu Kubernetes Grid Integrated Edition CLI 1.20.0<br>
+File info：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1R16QGT0OmTbMiHAcz4sH8g?pwd=gw36">https://pan.baidu.com/s/1R16QGT0OmTbMiHAcz4sH8g?pwd=gw36</a></p>
 </li>
-<li><p>VMware Harbor Registry 2.11.0</p>
+<li>
+<p>VMware Harbor Registry 2.11.0</p>
 </li>
 </ul>
 <p><strong>2. Workload Backup and Recovery:</strong>：</p>
@@ -714,7 +730,8 @@
 </ul>
 <p><strong>3. Advanced Container Networking and Security</strong>：</p>
 <ul>
-<li><a href="/blog/vmware-nsx-4/" title="VMware NSX 4.2.1 - 网络安全虚拟化平台">VMware NSX 4.2.1 - 网络安全虚拟化平台</a>
+<li>
+<a href="/blog/vmware-nsx-4/" title="VMware NSX 4.2.1 - 网络安全虚拟化平台">VMware NSX 4.2.1 - 网络安全虚拟化平台</a>
 </li>
 </ul>
 <p>相关产品：<a href="/blog/vmware-tkg-2/" title="VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案">VMware Tanzu Kubernetes Grid (TKG) 2.5.2 - 企业级 Kubernetes 解决方案</a></p>
@@ -902,7 +919,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">架构概览</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#TKGI-%E4%B8%BA-Kubernetes-%E6%B7%BB%E5%8A%A0%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">TKGI 为 Kubernetes 添加了什么</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E5%BE%81"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">特征</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">先决条件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0-9"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">架构概览</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#TKGI-%E4%B8%BA-Kubernetes-%E6%B7%BB%E5%8A%A0%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">TKGI 为 Kubernetes 添加了什么</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%89%B9%E5%BE%81-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">特征</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">先决条件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-504"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
