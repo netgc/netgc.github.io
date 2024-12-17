@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Feature-Policy 退场，欢迎 Permissions-Policy ！ - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Feature-Policy 退场，欢迎 Permissions-Policy ！ - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Feature-Policy 退场，欢迎 Permissions-Policy ！ - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Feature-Policy 退场，欢迎 Permissions-Policy ！ - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Feature-Policy 退场，欢迎 Permissions-Policy ！ "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/feature-policy-renamed-to-permissions-policy/">
+  <link rel="canonical" href="https://sysin.org/blog/feature-policy-renamed-to-permissions-policy/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -405,7 +403,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">508</span> In Total
+              Words <span class="post-count">507</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,7 +466,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,10 +483,9 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/feature-policy-renamed-to-permissions-policy/" title="Feature-Policy 退场，欢迎 Permissions-Policy ！">Feature-Policy 退场，欢迎 Permissions-Policy ！</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="Feature-Policy-介绍">Feature Policy 介绍</h2>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy">Feature Policy</a> 是一个新的 http 响应头属性，允许一个站点开启或者禁止一些浏览器属性和 API，来更好的确保站点的安全性和隐私性。有点类似<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSP">内容安全策略</a>，但是它控制的是浏览器的特征而不是安全行为.</p>
+<h2 id="Feature-Policy-介绍"><a href="#Feature-Policy-介绍" class="headerlink" title="Feature Policy 介绍"></a>Feature Policy 介绍</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy">Feature Policy</a> 是一个新的 http 响应头属性，允许一个站点开启或者禁止一些浏览器属性和 API，来更好的确保站点的安全性和隐私性。有点类似<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSP">内容安全策略</a>，但是它控制的是浏览器的特征而不是安全行为.</p>
 <p>跟其他 http 安全响应头的设置一样，只需要敲定页面具体的限制策略，然后在 http 响应头中返回相应的策略即可：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Feature-Policy: vibrate &#x27;self&#x27;; usermedia &#x27;*&#x27;; sync-xhr &#x27;self&#x27; sysin.org</span><br></pre></td></tr></table></figure>
 <p>语法</p>
@@ -496,34 +493,28 @@
 <p><strong><code>&lt;feature&gt;</code> 允许开启或者禁止的浏览器属性和 API 列表</strong></p>
 <p>允许开启或者禁止的浏览器属性和 API 列表还没有完全敲定，比如 Mozilla 可以使用的指令有（see <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy#Directives">Features list</a>）：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Accelerometer</span><br><span class="line">Ambient light sensor</span><br><span class="line">Autoplay</span><br><span class="line">Camera</span><br><span class="line">Encrypted media</span><br><span class="line">Fullscreen</span><br><span class="line">Geolocation</span><br><span class="line">Gyroscope</span><br><span class="line">Magnetometer</span><br><span class="line">Microphone</span><br><span class="line">Midi</span><br><span class="line">PaymentRequest</span><br><span class="line">Picture-in-picture</span><br><span class="line">USB</span><br><span class="line">VR / XR</span><br></pre></td></tr></table></figure>
-<h2 id="Feature-Policy-更名为-Permissions-Policy">Feature-Policy 更名为 Permissions-Policy</h2>
-<p>2020年 7月 16日，W3C 组织发布规范，Feature Policy 正式更名为 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/permissions-policy/">Permissions Policy</a>。</p>
+<h2 id="Feature-Policy-更名为-Permissions-Policy"><a href="#Feature-Policy-更名为-Permissions-Policy" class="headerlink" title="Feature-Policy 更名为 Permissions-Policy"></a>Feature-Policy 更名为 Permissions-Policy</h2><p>2020年 7月 16日，W3C 组织发布规范，Feature Policy 正式更名为 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/permissions-policy/">Permissions Policy</a>。</p>
 <p>Permissions Policy</p>
 <p>W3C Working Draft, 16 July 2020</p>
 <ul>
-<li>
-<p>This version:</p>
+<li><p>This version:</p>
 <p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/2020/WD-permissions-policy-1-20200716/">https://www.w3.org/TR/2020/WD-permissions-policy-1-20200716/</a></p>
 </li>
-<li>
-<p>Latest published version:</p>
+<li><p>Latest published version:</p>
 <p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a></p>
 </li>
-<li>
-<p>Editor’s Draft:</p>
+<li><p>Editor’s Draft:</p>
 <p><a target="_blank" rel="noopener" href="https://w3c.github.io/webappsec-feature-policy/">https://w3c.github.io/webappsec-feature-policy/</a></p>
 </li>
-<li>
-<p>Previous Versions:</p>
+<li><p>Previous Versions:</p>
 <p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/2019/WD-feature-policy-1-20190416/">https://www.w3.org/TR/2019/WD-feature-policy-1-20190416/</a></p>
 </li>
 </ul>
 <p>Mozilla 官网 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Feature_Policy">Feature Policy 页面</a>也更新了申明，但是具体内容尚未修改同步。</p>
-<p>The Feature-Policy header has now been renamed to Permissions-Policy in the spec, and this article will eventually be updated to reflect that change.</p>
+<p>  The Feature-Policy header has now been renamed to Permissions-Policy in the spec, and this article will eventually be updated to reflect that change.</p>
 <p>9月 7日，知名的 Security Header 检测网站更改测试规则：废弃 Feature Policy (sysin)，增加 Permissions Policy 检测。</p>
-<p><a target="_blank" rel="noopener" href="https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/">Goodbye Feature Policy and hello Permissions Policy!</a></p>
-<h2 id="语法变更">语法变更</h2>
-<p>原有 Feature-Policy 示例：</p>
+<p>  <a target="_blank" rel="noopener" href="https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/">Goodbye Feature Policy and hello Permissions Policy!</a></p>
+<h2 id="语法变更"><a href="#语法变更" class="headerlink" title="语法变更"></a>语法变更</h2><p>原有 Feature-Policy 示例：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Feature-Policy: geolocation &#x27;self&#x27; https://sysin.org; microphone &#x27;none&#x27;</span><br></pre></td></tr></table></figure>
 <p>Permissions-Policy 语法变更为：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permissions-Policy: geolocation=(self &quot;https://sysin.org&quot;), microphone=()</span><br></pre></td></tr></table></figure>
@@ -651,7 +642,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -954,7 +945,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

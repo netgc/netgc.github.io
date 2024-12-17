@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode） - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode） - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode） - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode） - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode） "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/macos-turn-off-monitor-mode/">
+  <link rel="canonical" href="https://sysin.org/blog/macos-turn-off-monitor-mode/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +466,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,17 +483,15 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/macos-turn-off-monitor-mode/" title="Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode）">Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode）</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="问题描述">问题描述</h2>
-<p>启动 Mac 突然发现 WI-FI 无法连接，进入了所谓“监视模式”，状态如下：</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>启动 Mac 突然发现 WI-FI 无法连接，进入了所谓“监视模式”，状态如下：</p>
 <p><img src="monitor-mode-cn.webp" alt="Wi-Fi 监视模式）"></p>
 <p>“网络偏好设置”点来点去也没有找到关闭方法，重启系统也无效。</p>
 <p>按照网上的方法，打开终端：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep airport</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;PID&gt; 换成实际的 PID 数字</span></span><br><span class="line">sudo kill -9 &lt;PID&gt;</span><br></pre></td></tr></table></figure>
 <p>显然无效，都重启过，也不会有进程在运行。</p>
-<h2 id="正确的方法">正确的方法</h2>
-<p>使用<code>airport</code>工具开启监听模式并终止即可。</p>
+<h2 id="正确的方法"><a href="#正确的方法" class="headerlink" title="正确的方法"></a>正确的方法</h2><p>使用<code>airport</code>工具开启监听模式并终止即可。</p>
 <p>airport 默认位于如下路径（当前系统为 macOS 10.15）：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport</span><br></pre></td></tr></table></figure>
 <p>创建链接：</p>
@@ -506,8 +502,7 @@
 <p>开启监听模式，并按 Ctrl+C 终止：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">airport sniff</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">提示：</span></span><br><span class="line">Capturing 802.11 frames on en0.</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">按 Ctrl+C 键</span></span><br><span class="line">^CSession saved to /tmp/airportSniffDsHQ9w.cap.</span><br></pre></td></tr></table></figure>
 <p>此时，Wi-Fi 已经恢复到正常状态。</p>
-<h2 id="延伸阅读">延伸阅读</h2>
-<p>关于监听模式：</p>
+<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>关于监听模式：</p>
 <p>监听模式（Monitor Mode），或 RFMON (Radio Frequency MONitor)，是指无线网卡可以接收所有经过它的数据流的工作方式，对应于 IEEE 802.11 网卡的其他模式，诸如 Master（路由器）、Managed（普通模式的网卡）、Ad-hoc 等。监听模式不区分所接收数据包的目标 MAC 地址，这点和混杂模式类似 (sysin)。然而，和混杂模式不同的是，监听模式的不需要和无线接入点（AP）或 Ad-hoc 网络建立连接。监听模式是无线网卡特有的特殊模式，而混杂模式应用于有线网卡和无线网卡。</p>
 <p>监听模式通常用于网络发现、流量监听和分组分析。Linux、macOS、Windows 以及其他 Unix-like 平台有使用监听模式的网络发现、抓包工具，如 KisMAC、Kismet、Wireshark、Aircrack-ng 等。</p>
 <p>airport sniff 命令示例：</p>
@@ -633,7 +628,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -936,7 +931,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

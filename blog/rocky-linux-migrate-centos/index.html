@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 迁移 CentOS 8 到 Rocky Linux 8 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 迁移 CentOS 8 到 Rocky Linux 8 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 迁移 CentOS 8 到 Rocky Linux 8 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 迁移 CentOS 8 到 Rocky Linux 8 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 迁移 CentOS 8 到 Rocky Linux 8 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/rocky-linux-migrate-centos/">
+  <link rel="canonical" href="https://sysin.org/blog/rocky-linux-migrate-centos/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -409,7 +407,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">808</span> In Total
+              Words <span class="post-count">809</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,41 +487,31 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/rocky-linux-migrate-centos/" title="迁移 CentOS 8 到 Rocky Linux 8">迁移 CentOS 8 到 Rocky Linux 8</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="centos-migrate-alma-rocky-logo.webp" alt="centos-migrate-alma-rocky-logo"></p>
-<h2 id="目标-2">目标</h2>
-<p>从 CentOS 8 直接升级为 Rocky Linux 8，在 CentOS 年底生命周期总结后，继续获得 Rocky Linux 长达 8 年的免费支持。</p>
-<h2 id="支持的系统-2">支持的系统</h2>
-<p>本文适用于 RHEL 8 兼容发行版，包括 REHL 8、CentOS 8、Oracle Linux 8 和 AlmaLinux 8，不过一般只会迁移 CentOS 8 到 Rocky Linux，其他兼容发现都拥有相同长久的生命周期，一般不会考虑迁移到别的发行版。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>从 CentOS 8 直接升级为 Rocky Linux 8，在 CentOS 年底生命周期总结后，继续获得 Rocky Linux 长达 8 年的免费支持。</p>
+<h2 id="支持的系统"><a href="#支持的系统" class="headerlink" title="支持的系统"></a>支持的系统</h2><p>本文适用于 RHEL 8 兼容发行版，包括 REHL 8、CentOS 8、Oracle Linux 8 和 AlmaLinux 8，不过一般只会迁移 CentOS 8 到 Rocky Linux，其他兼容发现都拥有相同长久的生命周期，一般不会考虑迁移到别的发行版。</p>
 <p>不限原有 RHEL 8 兼容发行版的具体版本，迁移成功后都为 Rocky Linux 8 的当前最新版。</p>
-<h2 id="重要提示-2">重要提示</h2>
-<p>生产环境请务必先备份！！！</p>
-<h2 id="迁移步骤-2">迁移步骤</h2>
-<blockquote>
+<h2 id="重要提示"><a href="#重要提示" class="headerlink" title="重要提示"></a>重要提示</h2><p>生产环境请务必先备份！！！</p>
+<h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><blockquote>
 <p>请备份当前系统，非本文讨论范畴，仅作提示！</p>
 </blockquote>
-<h3 id="1-确认当前系统版本-2">1. 确认当前系统版本</h3>
-<p>本例使用 CentOS 8.5.2111 为例，这是最后一版 CentOS。</p>
+<h3 id="1-确认当前系统版本"><a href="#1-确认当前系统版本" class="headerlink" title="1. 确认当前系统版本"></a>1. 确认当前系统版本</h3><p>本例使用 CentOS 8.5.2111 为例，这是最后一版 CentOS。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /etc/redhat-release</span></span><br><span class="line">CentOS Linux release 8.5.2111</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /etc/centos-release</span></span><br><span class="line">CentOS Linux release 8.5.2111</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">uname</span> -a</span></span><br><span class="line">Linux localhost.sysin.org 4.18.0-348.el8.x86_64 #1 SMP Tue Oct 19 15:14:17 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
-<h3 id="2-执行迁移-2">2. 执行迁移</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载 migrate2rocky.sh 脚本:</span></span><br><span class="line">curl -O https://raw.githubusercontent.com/rocky-linux/rocky-tools/main/migrate2rocky/migrate2rocky.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">赋予可执行权限:</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> +x ./migrate2rocky.sh</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看脚本帮助</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./migrate2rocky.sh -h</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下 (sysin)</span></span><br><span class="line">Usage: migrate2rocky.sh [OPTIONS]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">-h Display this help</span><br><span class="line">-r Convert to rocky</span><br><span class="line">-V Verify switch</span><br><span class="line">   !! USE WITH CAUTION !!</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行迁移</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./migrate2rocky.sh -r</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">整个过程大约持续数分钟到数十分钟，主要取决于网络状况和软件包数量。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">笔者测试的最小化安装的空系统几分钟完成了。</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-执行迁移"><a href="#2-执行迁移" class="headerlink" title="2. 执行迁移"></a>2. 执行迁移</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载 migrate2rocky.sh 脚本:</span></span><br><span class="line">curl -O https://raw.githubusercontent.com/rocky-linux/rocky-tools/main/migrate2rocky/migrate2rocky.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">赋予可执行权限:</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> +x ./migrate2rocky.sh</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看脚本帮助</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./migrate2rocky.sh -h</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下 (sysin)</span></span><br><span class="line">Usage: migrate2rocky.sh [OPTIONS]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">-h Display this help</span><br><span class="line">-r Convert to rocky</span><br><span class="line">-V Verify switch</span><br><span class="line">   !! USE WITH CAUTION !!</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行迁移</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./migrate2rocky.sh -r</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">整个过程大约持续数分钟到数十分钟，主要取决于网络状况和软件包数量。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">笔者测试的最小化安装的空系统几分钟完成了。</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://raw.githubusercontent.com">raw.githubusercontent.com</a> 可能被墙，</p>
+<p>raw.githubusercontent.com 可能被墙，</p>
 <p>通过 <a target="_blank" rel="noopener" href="https://www.ipaddress.com">https://www.ipaddress.com</a> 查询，写入 hosts 即可，例如：</p>
-<p><code>sudo sh -c 'echo &quot;185.199.108.133 raw.githubusercontent.com&quot; &gt;&gt; /etc/hosts'</code></p>
+<p><code>sudo sh -c &#39;echo &quot;185.199.108.133 raw.githubusercontent.com&quot; &gt;&gt; /etc/hosts&#39;</code></p>
 </blockquote>
 <p>过程如下，这里首次执行报错了。</p>
-<p>因为配置了排除特定软件包更新，导致报错：<br>
-<code>/etc/yum.conf</code> 中的 <code>exclude=kernel* centos-linux-release</code><br>
-备注：AlmaLinux 不存在该问题。</p>
+<p>因为配置了排除特定软件包更新，导致报错：<br><code>/etc/yum.conf</code> 中的 <code>exclude=kernel* centos-linux-release</code><br>备注：AlmaLinux 不存在该问题。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./migrate2rocky.sh -r</span></span><br><span class="line"></span><br><span class="line">Removing dnf cache</span><br><span class="line">Preparing to migrate CentOS Linux 8 to Rocky Linux 8.</span><br><span class="line"></span><br><span class="line">Determining repository names for CentOS Linux 8.....</span><br><span class="line"></span><br><span class="line">Found the following repositories which map from CentOS Linux 8 to Rocky Linux 8:</span><br><span class="line">CentOS Linux 8  Rocky Linux 8</span><br><span class="line">appstream       appstream</span><br><span class="line">baseos          baseos</span><br><span class="line">extras          extras</span><br><span class="line"></span><br><span class="line">Getting system package names for CentOS Linux 8......Error: No Matches found</span><br><span class="line"></span><br><span class="line">Can&#x27;t get package that provides system-release.</span><br><span class="line"></span><br><span class="line">An error occurred while we were attempting to convert your system to Rocky Linux. Your system may be unstable. Script will now exit to prevent possible damage.</span><br><span class="line"></span><br><span class="line"> A log of this installation can be found at /var/log/migrate2rocky.log</span><br></pre></td></tr></table></figure>
 <p>再次执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./migrate2rocky.sh -r</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Complete!</span><br><span class="line"></span><br><span class="line">Done, please reboot your system.</span><br><span class="line">A log of this installation can be found at /var/log/migrate2rocky.log</span><br></pre></td></tr></table></figure>
-<h3 id="3-验证迁移结果-2">3. 验证迁移结果</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./migrate2rocky.sh -V</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出好简单？</span></span><br><span class="line">Creating a list of RPMs installed: begin</span><br><span class="line">Verifying RPMs installed against RPM database: begin</span><br><span class="line"></span><br><span class="line">A log of this installation can be found at /var/log/migrate2rocky.log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">继续执行如下命令查看</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">check release file</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /etc/redhat-release</span></span><br><span class="line">Rocky Linux release 8.5 (Green Obsidian)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">check that the system boots Rocky Linux kernel by default</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo grubby --info DEFAULT | grep Rocky</span></span><br><span class="line">title=&quot;Rocky Linux (4.18.0-348.2.1.el8_5.x86_64) 8.5 (Green Obsidian)&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="4-重启到-Rocky-Linux">4. 重启到 Rocky Linux</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+<h3 id="3-验证迁移结果"><a href="#3-验证迁移结果" class="headerlink" title="3. 验证迁移结果"></a>3. 验证迁移结果</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./migrate2rocky.sh -V</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出好简单？</span></span><br><span class="line">Creating a list of RPMs installed: begin</span><br><span class="line">Verifying RPMs installed against RPM database: begin</span><br><span class="line"></span><br><span class="line">A log of this installation can be found at /var/log/migrate2rocky.log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">继续执行如下命令查看</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">check release file</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /etc/redhat-release</span></span><br><span class="line">Rocky Linux release 8.5 (Green Obsidian)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">check that the system boots Rocky Linux kernel by default</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo grubby --info DEFAULT | grep Rocky</span></span><br><span class="line">title=&quot;Rocky Linux (4.18.0-348.2.1.el8_5.x86_64) 8.5 (Green Obsidian)&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="4-重启到-Rocky-Linux"><a href="#4-重启到-Rocky-Linux" class="headerlink" title="4. 重启到 Rocky Linux"></a>4. 重启到 Rocky Linux</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 <p>可以看到内核已经出现了 grub 引导画面</p>
 <p><img src="centos-migrate-rockylinux.webp" alt="centos-migrate-rockylinux"></p>
 <blockquote>
@@ -531,8 +519,7 @@
 </blockquote>
 <p>启动成功后，查看内核版本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">uname</span> -r</span></span><br><span class="line">4.18.0-348.2.1.el8_5.x86_64</span><br></pre></td></tr></table></figure>
-<h2 id="已知问题-2">已知问题</h2>
-<p>参看 <a target="_blank" rel="noopener" href="https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky">migrate2rocky</a>。</p>
+<h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2><p>参看 <a target="_blank" rel="noopener" href="https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky">migrate2rocky</a>。</p>
 
 
         <hr>
@@ -653,7 +640,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -716,7 +703,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E6%A0%87-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目标</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E7%B3%BB%E7%BB%9F-2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">支持的系统</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%87%8D%E8%A6%81%E6%8F%90%E7%A4%BA-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">重要提示</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BF%81%E7%A7%BB%E6%AD%A5%E9%AA%A4-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">迁移步骤</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E7%A1%AE%E8%AE%A4%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC-2"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 确认当前系统版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E6%89%A7%E8%A1%8C%E8%BF%81%E7%A7%BB-2"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 执行迁移</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E9%AA%8C%E8%AF%81%E8%BF%81%E7%A7%BB%E7%BB%93%E6%9E%9C-2"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 验证迁移结果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E9%87%8D%E5%90%AF%E5%88%B0-Rocky-Linux"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. 重启到 Rocky Linux</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98-2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">已知问题</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目标</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">支持的系统</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%87%8D%E8%A6%81%E6%8F%90%E7%A4%BA"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">重要提示</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BF%81%E7%A7%BB%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">迁移步骤</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E7%A1%AE%E8%AE%A4%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 确认当前系统版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E6%89%A7%E8%A1%8C%E8%BF%81%E7%A7%BB"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 执行迁移</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E9%AA%8C%E8%AF%81%E8%BF%81%E7%A7%BB%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 验证迁移结果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E9%87%8D%E5%90%AF%E5%88%B0-Rocky-Linux"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. 重启到 Rocky Linux</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">已知问题</span></a></li></ol>
         
         </div>
       </aside>
@@ -960,7 +947,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

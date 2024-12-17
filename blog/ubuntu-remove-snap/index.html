@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Ubuntu 22.04 禁用（彻底移除）Snap - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Ubuntu 22.04 禁用（彻底移除）Snap - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Ubuntu 22.04 禁用（彻底移除）Snap - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Ubuntu 22.04 禁用（彻底移除）Snap - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Ubuntu 22.04 禁用（彻底移除）Snap "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/ubuntu-remove-snap/">
+  <link rel="canonical" href="https://sysin.org/blog/ubuntu-remove-snap/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,7 +485,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/ubuntu-remove-snap/" title="Ubuntu 22.04 禁用（彻底移除）Snap">Ubuntu 22.04 禁用（彻底移除）Snap</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>Snaps 是 Ubuntu 的母公司 Canonical 于 2016 年 4 月发布 Ubuntu 16.04 LTS（Long Term Support，长期支持版）时引入的一种容器化的软件包格式。自 Ubuntu 16.04 LTS 起，Ubuntu 操作系统可以同时支持 Snap 及 Debian 这两种格式的安装包。</p>
 <p>Snap 虽然有一定的优点（请自行搜索），但是不足之处更多。Snap 软件包体积庞大，snapd 进程会导致系统重启等待，并且可能导致卡顿，禁用为佳。</p>
@@ -495,19 +493,15 @@
 <p>Ubuntu 22.04 桌面版中两个关键的程序：软件商店和 Firefox 使用了 Snap 软件包，卡顿明显。</p>
 <p>禁用服务无效示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo systemctl <span class="built_in">disable</span> --now snapd</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo systemctl <span class="built_in">disable</span> --now snapd.socket</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo systemctl <span class="built_in">disable</span> snapd</span></span><br><span class="line">但是重启后，snapd 仍然运行</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证状态</span></span><br><span class="line">systemctl status snapd</span><br></pre></td></tr></table></figure>
-<p><img src="ubuntu-2204-desktop.webp" alt="ubuntu-2204-desktop"><br>
-图：<em>Ubuntu 22.04 中的 Firefox（deb）</em></p>
+<p><img src="ubuntu-2204-desktop.webp" alt="ubuntu-2204-desktop"><br>图：<em>Ubuntu 22.04 中的 Firefox（deb）</em></p>
 <p>现在 Ubuntu OVF 中已经更新 apt_preferences 彻底排除了 Snap。</p>
 <ul>
-<li>
-<a href="/blog/ubuntu-2004-ovf/" title="Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板">Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板</a>
+<li><a href="/blog/ubuntu-2004-ovf/" title="Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板">Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板</a>
 </li>
-<li>
-<a href="/blog/ubuntu-2204-ovf/" title="Ubuntu 22.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板">Ubuntu 22.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+<li><a href="/blog/ubuntu-2204-ovf/" title="Ubuntu 22.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板">Ubuntu 22.04 LTS x86_64 OVF (sysin) - VMware 虚拟机模板</a>
 </li>
 </ul>
-<h2 id="删除-Snap-的方法">删除 Snap 的方法</h2>
-<p>已经确认 snapd 是无法禁用的，只能强制删除。以下操作无需停止 snapd 服务。</p>
+<h2 id="删除-Snap-的方法"><a href="#删除-Snap-的方法" class="headerlink" title="删除 Snap 的方法"></a>删除 Snap 的方法</h2><p>已经确认 snapd 是无法禁用的，只能强制删除。以下操作无需停止 snapd 服务。</p>
 <p>（1）删掉所有的已经安装的 Snap 软件。</p>
 <p><code>snap list</code> 用于查看已经安装的 Snap 软件，通过脚本全部删除：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for p in $(snap list | awk &#x27;&#123;print $1&#125;&#x27;); do</span><br><span class="line">  sudo snap remove $p</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
@@ -534,19 +528,15 @@
 <blockquote>
 <p>该方法也适用于 Ubuntu 20.04，只是 20.04 中 Firefox 不使用 Snap 软件包，不用额外屏蔽，也不用额外安装 deb 格式替代。</p>
 </blockquote>
-<h2 id="安装软件商店和-Firefox">安装软件商店和 Firefox</h2>
-<p>上述操作后，可以安装 deb 格式的软件商店和 Firefox。</p>
-<h3 id="安装-Gnome-软件商店">安装 Gnome 软件商店</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gnome-software</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认没有 snapd 在按 y</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo apt install --install-suggests gnome-software</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">网传使用 `--install-suggests` 参数防止安装上 Snap 版本的软件包管理器，本例无效。</span></span><br></pre></td></tr></table></figure>
-<h3 id="安装-DEB-格式的-Firefox">安装 DEB 格式的 Firefox</h3>
-<p>添加 Firefox 官方 PPA（Personal Package Archives）仓库：</p>
+<h2 id="安装软件商店和-Firefox"><a href="#安装软件商店和-Firefox" class="headerlink" title="安装软件商店和 Firefox"></a>安装软件商店和 Firefox</h2><p>上述操作后，可以安装 deb 格式的软件商店和 Firefox。</p>
+<h3 id="安装-Gnome-软件商店"><a href="#安装-Gnome-软件商店" class="headerlink" title="安装 Gnome 软件商店"></a>安装 Gnome 软件商店</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gnome-software</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">确认没有 snapd 在按 y</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo apt install --install-suggests gnome-software</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">网传使用 `--install-suggests` 参数防止安装上 Snap 版本的软件包管理器，本例无效。</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-DEB-格式的-Firefox"><a href="#安装-DEB-格式的-Firefox" class="headerlink" title="安装 DEB 格式的 Firefox"></a>安装 DEB 格式的 Firefox</h3><p>添加 Firefox 官方 PPA（Personal Package Archives）仓库：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:mozillateam/ppa</span><br></pre></td></tr></table></figure>
 <p>将 Firefox 官方 PPA 仓库中的 firefox 设为高优先级：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c &quot;cat &gt; /etc/apt/preferences.d/mozillateam-firefox.pref&quot; &lt;&lt; EOL</span><br><span class="line">Package: firefox*</span><br><span class="line">Pin: release o=LP-PPA-mozillateam</span><br><span class="line">Pin-Priority: 501</span><br><span class="line">EOL</span><br></pre></td></tr></table></figure>
 <p>现在可以安装最新版的 deb 版 Firefox：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">apt list firefox  #现在已经不是 Snap firefox</span><br><span class="line">sudo apt install firefox</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者 Firefox ESR</span></span><br><span class="line">sudo apt install firefox-esr</span><br></pre></td></tr></table></figure>
-<h2 id="附录：恢复-Snap-的方法">附录：恢复 Snap 的方法</h2>
-<p>只需要删除配置文件，即可重新使用 Snap 软件包。</p>
+<h2 id="附录：恢复-Snap-的方法"><a href="#附录：恢复-Snap-的方法" class="headerlink" title="附录：恢复 Snap 的方法"></a>附录：恢复 Snap 的方法</h2><p> 只需要删除配置文件，即可重新使用 Snap 软件包。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /etc/apt/preferences.d/no-snap.pref</span><br><span class="line">sudo rm /etc/apt/preferences.d/no-firefox.pref</span><br><span class="line">sudo rm /etc/apt/preferences.d/mozillateam-firefox.pref</span><br><span class="line">sudo apt update</span><br><span class="line">sudo snap install snap-store</span><br><span class="line">sudo apt install firefox</span><br></pre></td></tr></table></figure>
 
 
@@ -668,7 +658,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -973,7 +963,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

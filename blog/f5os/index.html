@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 介绍一个新物种：F5 VELOS 和 F5OS - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 介绍一个新物种：F5 VELOS 和 F5OS - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 介绍一个新物种：F5 VELOS 和 F5OS - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 介绍一个新物种：F5 VELOS 和 F5OS - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 介绍一个新物种：F5 VELOS 和 F5OS "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/f5os/">
+  <link rel="canonical" href="https://sysin.org/blog/f5os/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -476,7 +474,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -493,7 +491,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/f5os/" title="介绍一个新物种：F5 VELOS 和 F5OS">介绍一个新物种：F5 VELOS 和 F5OS</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>F5 公司有通过技术文档提前发布产品的传统，比如 BIG-IP iSeriers 平台就是提前在官方文档中发布的。</p>
 <p>最近笔者发现 F5 又有新产品要发布了，VELOS 和 F5OS。文档显示 ”Early Access Only“，官网应该不久要发布。</p>
@@ -503,16 +501,13 @@
 <li>VELOS 相当于 F5 BIG-IP Platform</li>
 <li>F5OS 相当于 F5 BIG-IP Software</li>
 </ul>
-<h2 id="VELOS-逻辑架构">VELOS 逻辑架构</h2>
-<p>VELOS 平台是一种机箱和刀片式结构，旨在满足要处理大量应用程序工作负载的大型企业网络环境的需求。</p>
+<h2 id="VELOS-逻辑架构"><a href="#VELOS-逻辑架构" class="headerlink" title="VELOS 逻辑架构"></a>VELOS 逻辑架构</h2><p>VELOS 平台是一种机箱和刀片式结构，旨在满足要处理大量应用程序工作负载的大型企业网络环境的需求。</p>
 <p>VELOS 系统包括一个称为 F5OS 的平台层，它是系统控制器和机箱分区的组合 (sysin)。机箱分区是一种虚拟系统或机箱的子集，用于管理和分离机箱中不相交的刀片集。您可以将一个机箱划分为多个机箱分区，并且一个机箱分区可以有多个租户。租户是运行软件的来宾系统（例如，一个经典的 BIG-IP 系统）。</p>
 <p><img src="velos-system.webp" alt="Example VELOS system"></p>
 <p>此图显示了使用单个 CX410 机箱的简化 VELOS 部署。这里显示的 VELOS 平台被划分为四个独立的机箱分区。分区 1 有两个刀片，分区 2 和分区 3 各有一个刀片，分区 4 有 4 个刀片。每个刀片都装载入一个插槽，可以配置为具有两个接口（40Gb 或 100Gb），也可以将它们拆分为多个接口（25Gb 或 10Gb）。链路聚合在发生网络故障时提供冗余，并且通过在刀片上分散延迟，您可以在有足够资源可用的情况下防止单个刀片出现故障。</p>
 <p>机箱通过系统控制器进行管理，系统控制器部署在冗余配置中，提供高可用性和增加的性能。系统控制器连接到带外管理网络，其管理接口可以在一个延迟内连接在一起，以增加冗余。每个系统控制器还具有一个专用控制台连接，用于直接访问控制台。</p>
-<h2 id="VELOS-组件">VELOS 组件</h2>
-<ul>
-<li>
-<p>VELOS 硬件组件</p>
+<h2 id="VELOS-组件"><a href="#VELOS-组件" class="headerlink" title="VELOS 组件"></a>VELOS 组件</h2><ul>
+<li><p>VELOS 硬件组件</p>
 <p>VELOS 平台包括三种主要类型的硬件组件：</p>
 <ul>
 <li>机箱，用于装载刀片、系统控制器和其他组件。</li>
@@ -520,8 +515,7 @@
 <li>刀片，处理流量管理功能，包括分解、数据包分类、流量控制等。</li>
 </ul>
 </li>
-<li>
-<p>VELOS 软件组件</p>
+<li><p>VELOS 软件组件</p>
 <p>VELOS 平台包括一个称为 F5OS 的新平台层，它是系统控制器和机箱分区的组合（操作系统）。</p>
 </li>
 </ul>
@@ -529,8 +523,7 @@
 <pre><code>VELOS CX410 chassis (F101)  机箱
 VELOS SX410 system controller  系统控制器
 VELOS BX110 blade (A118)  刀片
-</code></pre>
-<p>连接了可拆卸 LCD 挡板的 VELOS CX410 机箱的前置视图</p>
+</code></pre><p>连接了可拆卸 LCD 挡板的 VELOS CX410 机箱的前置视图</p>
 <p><img src="VELOS-CX410-chassis.webp" alt="VELOS-CX410-chassis"></p>
 <pre><code>1. LCD module LEDs (Status and Alarm)
 2. LCD touchscreen
@@ -538,44 +531,33 @@ VELOS BX110 blade (A118)  刀片
 4. System controller 1
 5. System controller 2
 6. Blades (or Blanks) 4-8
-</code></pre>
-<p>配备 AC 电源的后置视图（当然也有 DC 电源，布局一样，这里不上图了）</p>
+</code></pre><p>配备 AC 电源的后置视图（当然也有 DC 电源，布局一样，这里不上图了）</p>
 <p><img src="Back-view-of-the-AC-chassis.webp" alt="Back-view-of-the-AC-chassis"></p>
 <pre><code>1. Power supply controller 1
 2. Power supply controller 2
 3. Power supply receptacles (1-4)
 4. Chassis ground terminals
 5. Fan tray
-</code></pre>
-<p>X410 Series system controller 前置视图</p>
+</code></pre><p>X410 Series system controller 前置视图</p>
 <p><img src="SX410-system-controller.webp" alt="SX410-system-controller"></p>
 <pre><code>1. System controller indicator LEDs
 2. Management port
 3. Console port
 4. USB port
 5. Jack screw
-</code></pre>
-<p>BX110 Series blade 前置视图</p>
+</code></pre><p>BX110 Series blade 前置视图</p>
 <p><img src="BX110-Series-blade.webp" alt="BX110-Series-blade"></p>
 <pre><code>1. Latch release
 2. Ejector handle
 3. Blade indicator LEDs
 4. USB port (disabled by default)
 5. QSFP28 ports (2)
-</code></pre>
-<h2 id="如何访问-VELOS-和-F5OS">如何访问 VELOS 和 F5OS</h2>
-<p>可以通过终端服务（SSH）和 AOM 来访问和管理 VELOS 及其 F5OS 软件。</p>
-<h3 id="终端（SSH）">终端（SSH）</h3>
-<p>对于 VELOS 机箱，刀片服务器没有物理控制台端口。每个系统控制器都有一个物理控制台端口 (sysin)。机箱中的系统控制器提供终端服务，使授权用户能够使用机箱浮动（floating）地址通过 SSH 访问刀片控制台。</p>
+</code></pre><h2 id="如何访问-VELOS-和-F5OS"><a href="#如何访问-VELOS-和-F5OS" class="headerlink" title="如何访问 VELOS 和 F5OS"></a>如何访问 VELOS 和 F5OS</h2><p>可以通过终端服务（SSH）和 AOM 来访问和管理 VELOS 及其 F5OS 软件。</p>
+<h3 id="终端（SSH）"><a href="#终端（SSH）" class="headerlink" title="终端（SSH）"></a>终端（SSH）</h3><p>对于 VELOS 机箱，刀片服务器没有物理控制台端口。每个系统控制器都有一个物理控制台端口 (sysin)。机箱中的系统控制器提供终端服务，使授权用户能够使用机箱浮动（floating）地址通过 SSH 访问刀片控制台。</p>
 <p>在较高级别上，这些用户角色具有终端服务访问权限：</p>
-<p><strong>Admin</strong><br>
-Users with this role can access any terminals in the chassis.<br>
-Terminal server admin<br>
-<strong>Operator</strong><br>
-Users with this role can access any terminals in the chassis.<br>
-<strong>Partition</strong><br>
-Users with this role are not given access to any terminals in the chassis.</p>
+<p><strong>Admin</strong><br>    Users with this role can access any terminals in the chassis.<br>Terminal server admin<br><strong>Operator</strong><br>    Users with this role can access any terminals in the chassis.<br><strong>Partition</strong><br>    Users with this role are not given access to any terminals in the chassis.</p>
 <p>由于机箱终端服务使用 SSHD，因此客户端可以使用 SSH 进行连接。终端服务使用一系列网络端口号来区分请求到机箱中各个控制台的连接。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -593,26 +575,24 @@ Users with this role are not given access to any terminals in the chassis.</p>
 <td>7200</td>
 </tr>
 <tr>
-<td>Blade &lt;1…x&gt;</td>
+<td>Blade <1...x></td>
 <td>700x</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>访问到系统控制器（System controller）和刀片（Blade）示例：</p>
-<p>使用 SSH 连接到要访问的刀片或系统控制器 (sysin)。</p>
-<p><code>ssh &lt;blade_or_sys_controller_ip_address&gt; -l admin -p &lt;port_number&gt;</code></p>
-<p>此示例以管理员用户的身份打开插槽 1 中刀片服务器的 SSH 会话：</p>
-<p><code>ssh 192.0.2.10 -1 admin -p 7001</code></p>
-<p>此示例以管理员用户的身份打开到插槽 2 中系统控制器的 SSH 会话：</p>
-<p><code>ssh 192.0.2.10 -1 admin -p 7200</code></p>
-<p>如果尚未有活动的终端会话连接到指定的控制台，则会立即连接。如果已经连接了活动的终端会话，则可以选择终止现有的终端会话并替换它。</p>
-<p>完成与刀片或系统控制器的终端会话后，可以通过键入 Enter~ 终止会话。</p>
-<h3 id="Always-On-Management（AOM）">Always-On Management（AOM）</h3>
-<p>在将串行电缆连接到系统控制器的任一控制台端口后，您还可以通过使用始终在线管理（AOM）命令菜单选择所需的刀片服务器来访问任何刀片服务器控制台。</p>
+<p>  使用 SSH 连接到要访问的刀片或系统控制器 (sysin)。</p>
+<p>  <code>ssh &lt;blade_or_sys_controller_ip_address&gt; -l admin -p &lt;port_number&gt;</code></p>
+<p>  此示例以管理员用户的身份打开插槽 1 中刀片服务器的 SSH 会话：</p>
+<p>  <code>ssh 192.0.2.10 -1 admin -p 7001</code></p>
+<p>  此示例以管理员用户的身份打开到插槽 2 中系统控制器的 SSH 会话：</p>
+<p>  <code>ssh 192.0.2.10 -1 admin -p 7200</code></p>
+<p>  如果尚未有活动的终端会话连接到指定的控制台，则会立即连接。如果已经连接了活动的终端会话，则可以选择终止现有的终端会话并替换它。</p>
+<p>  完成与刀片或系统控制器的终端会话后，可以通过键入 Enter~ 终止会话。</p>
+<h3 id="Always-On-Management（AOM）"><a href="#Always-On-Management（AOM）" class="headerlink" title="Always-On Management（AOM）"></a>Always-On Management（AOM）</h3><p>在将串行电缆连接到系统控制器的任一控制台端口后，您还可以通过使用始终在线管理（AOM）命令菜单选择所需的刀片服务器来访问任何刀片服务器控制台。</p>
 <p>系统控制器上的 Always-On Management（AOM）子系统使您能够使用串行控制台远程管理系统，即使刀片服务器已断电。AOM 命令菜单独立于 VELOS 主机操作系统运行。</p>
-<p>操作步骤：<br>
-使用串口线缆连接到 console 口<br>
-按 Esc ( 键打开 AOM 命令菜单</p>
+<p>操作步骤：<br>    使用串口线缆连接到 console 口<br>    按 Esc ( 键打开 AOM 命令菜单</p>
 <p>在本例中，您连接到插槽 1 中刀片的控制台，并连接到插槽 1 中系统控制器的串行端口。</p>
 <pre><code>Active console               : blade 1
 Physically connected console : system controller 1 serial port
@@ -626,9 +606,7 @@ U --- Front panel USB port
 Q --- Quit menu and return to console
 
 Enter Command:
-</code></pre>
-<h2 id="F5OS-下载">F5OS 下载</h2>
-<p>F5OS 1.0.0 已经发布，想要了解产品的细节体验，先下载吧。</p>
+</code></pre><h2 id="F5OS-下载"><a href="#F5OS-下载" class="headerlink" title="F5OS 下载"></a>F5OS 下载</h2><p>F5OS 1.0.0 已经发布，想要了解产品的细节体验，先下载吧。</p>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1lsILHGVjMdxBxaGGaEY7IQ?pwd=vrdo">https://pan.baidu.com/s/1lsILHGVjMdxBxaGGaEY7IQ?pwd=vrdo</a></p>
 <p>更新：BASEOS 仍然是 CentOS 7。</p>
 
@@ -751,7 +729,7 @@ Enter Command:
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1062,7 +1040,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

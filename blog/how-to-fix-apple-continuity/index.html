@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/how-to-fix-apple-continuity/">
+  <link rel="canonical" href="https://sysin.org/blog/how-to-fix-apple-continuity/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,23 +485,19 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/how-to-fix-apple-continuity/" title="修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等">修复 Apple “连续互通” 方法汇总：修复 AirDrop、Apple Watch 解锁 Mac、HandOff 等</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>how-to-fix-apple-continuity-from-sysin</p>
 <p>macOS Big Sur 使 macOS 这款先进的桌面操作系统提升至性能与美学的新境界。通过精致的全新设计，充分体验 Mac 的强大功能。但是 Bug 也不可避免（戏称为 Bug Sir），比如常见的有：</p>
 <ul>
-<li>
-<p>卡顿（特别是中文输入法卡顿（包括系统自带的），11.1 未修复）</p>
+<li><p>卡顿（特别是中文输入法卡顿（包括系统自带的），11.1 未修复）</p>
 </li>
-<li>
-<p>蓝牙问题，影响 AirDrop、Apple Watch Unlock Mac 等连续互通功能</p>
+<li><p>蓝牙问题，影响 AirDrop、Apple Watch Unlock Mac 等连续互通功能</p>
 </li>
 </ul>
 <p>本文描述了修复 Apple 连续互通故障的一般步骤。</p>
 <p>Apple 连续互通故障特别复杂，可能修复一项功能，其他功能全部恢复正常，也可能某个功能独立故障无法修复，必要时请联系 Apple 支持。</p>
-<h2 id="1-了解-Apple-Continuity（连续互通）">1. 了解 Apple Continuity（连续互通）</h2>
-<h3 id="使用-“连续互通”-连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch"><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204681">使用 “连续互通” 连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch</a></h3>
-<p>当您在所有设备上登录您的 Apple ID 后，您便可以使用 “连续互通” 功能在设备之间实现无缝衔接。点按下面的某项功能以了解相关信息，例如，如何在佩戴 Apple Watch 时自动解锁 Mac，或者如何使用 iPad 扩展 Mac 的工作空间。</p>
+<h2 id="1-了解-Apple-Continuity（连续互通）"><a href="#1-了解-Apple-Continuity（连续互通）" class="headerlink" title="1. 了解 Apple Continuity（连续互通）"></a>1. 了解 Apple Continuity（连续互通）</h2><h3 id="使用-“连续互通”-连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch"><a href="#使用-“连续互通”-连接-Mac、iPhone、iPad、iPod-touch-和-Apple-Watch" class="headerlink" title="使用 “连续互通” 连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch"></a><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204681">使用 “连续互通” 连接 Mac、iPhone、iPad、iPod touch 和 Apple Watch</a></h3><p>当您在所有设备上登录您的 Apple ID 后，您便可以使用 “连续互通” 功能在设备之间实现无缝衔接。点按下面的某项功能以了解相关信息，例如，如何在佩戴 Apple Watch 时自动解锁 Mac，或者如何使用 iPad 扩展 Mac 的工作空间。</p>
 <p>​</p>
 <p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/Catalina/continuity-airdrop-icon.png" alt="“隔空投送” 图标"></p>
 <p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT203106">隔空投送</a>：通过无线方式将文稿、照片、视频、网站、地图位置等发送到附近的 iPhone、iPad、iPod touch 或 Mac 上。</p>
@@ -533,49 +527,39 @@
 <p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209460">通用剪贴板</a>：在一台 Apple 设备上拷贝文本、图像、照片和视频等内容，然后在另一台 Apple 设备上粘贴这些内容。</p>
 <p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/macos/monterey/continuity-universal-control-icon.png" alt="“通用控制” 图标"></p>
 <p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT212757">通用控制</a>：使用 Mac 的键盘、鼠标或触控板可控制最多两台附近的其他 Mac 或 iPad 设备，并在它们之间无缝操控。</p>
-<h3 id="系统要求（机型）">系统要求（机型）</h3>
-<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204689">Mac、iPhone、iPad、iPod touch 和 Apple Watch 上 “连续互通” 的系统要求</a></p>
-<h3 id="关于-AirDrop（隔空投送）">关于 AirDrop（隔空投送）</h3>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT203106">在 Mac 上使用 “隔空投送”</a></p>
+<h3 id="系统要求（机型）"><a href="#系统要求（机型）" class="headerlink" title="系统要求（机型）"></a>系统要求（机型）</h3><p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204689">Mac、iPhone、iPad、iPod touch 和 Apple Watch 上 “连续互通” 的系统要求</a></p>
+<h3 id="关于-AirDrop（隔空投送）"><a href="#关于-AirDrop（隔空投送）" class="headerlink" title="关于 AirDrop（隔空投送）"></a>关于 AirDrop（隔空投送）</h3><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT203106">在 Mac 上使用 “隔空投送”</a></p>
 <p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204144">在 iPhone、iPad 或 iPod touch 上 “隔空投送” 的使用方法</a></p>
-<h3 id="关于-Apple-Watch-解锁-Mac">关于 Apple Watch 解锁 Mac</h3>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT206995">通过 Apple Watch 解锁 Mac</a></p>
-<h3 id="关于-Handoff（接力）">关于 Handoff（接力）</h3>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209455">使用接力在其他设备上继续完成任务</a></p>
-<h2 id="2-了解产生问题的原因">2. 了解产生问题的原因</h2>
-<p>“连续互通” 各项特性都依赖三个条件</p>
+<h3 id="关于-Apple-Watch-解锁-Mac"><a href="#关于-Apple-Watch-解锁-Mac" class="headerlink" title="关于 Apple Watch 解锁 Mac"></a>关于 Apple Watch 解锁 Mac</h3><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT206995">通过 Apple Watch 解锁 Mac</a></p>
+<h3 id="关于-Handoff（接力）"><a href="#关于-Handoff（接力）" class="headerlink" title="关于 Handoff（接力）"></a>关于 Handoff（接力）</h3><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209455">使用接力在其他设备上继续完成任务</a></p>
+<h2 id="2-了解产生问题的原因"><a href="#2-了解产生问题的原因" class="headerlink" title="2. 了解产生问题的原因"></a>2. 了解产生问题的原因</h2><p>“连续互通” 各项特性都依赖三个条件</p>
 <ul>
 <li>统一的 iCoud 账号（通常出现在 iCoud 登录和访问上，一般需要退出重新登录解决）</li>
 <li>开启蓝牙（通常是蓝牙模块固件和配置等问题，通过重置配置来解决，某些时候需要系统更新才能彻底解决）</li>
 <li>Wi-Fi 连接（问题通常不会出现）</li>
 </ul>
 <p>第三方应用软件的影响：一些使用蓝牙或者 Wi-Fi 的工具软件可能存在 Bug 影响了 “连续互通” 功能的正常发挥。</p>
-<h2 id="3-第一步骤：通过-“安全模式”-快速修复">3. 第一步骤：通过 “安全模式” 快速修复</h2>
-<p>安全模式可以帮助您确定问题是不是由 Mac 启动时载入的软件所致。</p>
+<h2 id="3-第一步骤：通过-“安全模式”-快速修复"><a href="#3-第一步骤：通过-“安全模式”-快速修复" class="headerlink" title="3. 第一步骤：通过 “安全模式” 快速修复"></a>3. 第一步骤：通过 “安全模式” 快速修复</h2><p>安全模式可以帮助您确定问题是不是由 Mac 启动时载入的软件所致。</p>
 <p>操作步骤：</p>
-<h3 id="Apple-芯片">Apple 芯片</h3>
-<ol>
+<h3 id="Apple-芯片"><a href="#Apple-芯片" class="headerlink" title="Apple 芯片"></a>Apple 芯片</h3><ol>
 <li>将 Mac 关机。</li>
 <li>Mac 启动时，按住键盘上的 <strong>电源按钮</strong> 10 秒钟。</li>
 <li>当您看到 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211873">启动选项</a> 窗口时，松开 <strong>电源按钮</strong>。</li>
 <li>选择您的启动磁盘，按住 <strong>Shift</strong> 键，点按 “继续以安全模式运行”，然后松开 <strong>Shift</strong> 键。</li>
 <li>登录到 Mac。系统可能会要求您再次登录。</li>
 </ol>
-<h3 id="Intel-处理器">Intel 处理器</h3>
-<ol>
+<h3 id="Intel-处理器"><a href="#Intel-处理器" class="headerlink" title="Intel 处理器"></a>Intel 处理器</h3><ol>
 <li>启动或重新启动 Mac，然后在 Mac 启动时立即按住 <strong>Shift</strong> 键。</li>
 <li>看到登录窗口时，松开这个按键，然后登录 Mac。</li>
 <li>系统可能会要求您再次登录。在第一个或第二个登录窗口中，您应该会在窗口的右上角看到 “安全启动”。</li>
 </ol>
-<h3 id="验证问题">验证问题</h3>
-<p>此时我们可以尝试一下 AirDrop（隔空投送）传输文件，或者 Apple Watch 解锁 Mac 等有问题的 “连续互通” 特性。如果在安全模式下工作正常，那么请正常重新启动 Mac 以退出安全模式 (sysin)。然后再次测试是否存在问题。此时问题可能已解决。（恭喜！这是最简单的修复步骤。）</p>
+<h3 id="验证问题"><a href="#验证问题" class="headerlink" title="验证问题"></a>验证问题</h3><p>此时我们可以尝试一下 AirDrop（隔空投送）传输文件，或者 Apple Watch 解锁 Mac 等有问题的 “连续互通” 特性。如果在安全模式下工作正常，那么请正常重新启动 Mac 以退出安全模式 (sysin)。然后再次测试是否存在问题。此时问题可能已解决。（恭喜！这是最简单的修复步骤。）</p>
 <p><strong>如果问题在安全模式下仍然存在。</strong></p>
 <p>如果问题在安全模式下仍然存在，或者在安全模式下启动时您的 Mac 重新启动数次后关机，则应 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204904">重新安装 macOS</a> 并确保您的 Apple 软件和第三方 App 是最新版本。</p>
 <p>如果在安全模式下问题已经解决，重启后问题依旧，可以尝试下述修复步骤。</p>
-<h2 id="4-验证-iCloud-的连续互通性">4. 验证 iCloud 的连续互通性</h2>
-<p>我们可以使用 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209455">接力</a>” 或者 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209460">通用剪贴板</a>” 来测试一下 iCloud 账号是否连续互通。</p>
+<h2 id="4-验证-iCloud-的连续互通性"><a href="#4-验证-iCloud-的连续互通性" class="headerlink" title="4. 验证 iCloud 的连续互通性"></a>4. 验证 iCloud 的连续互通性</h2><p>我们可以使用 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209455">接力</a>” 或者 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT209460">通用剪贴板</a>” 来测试一下 iCloud 账号是否连续互通。</p>
 <ul>
-<li>在 iOS 或者 Mac 上打开 Safari 浏览器，打开一个网页，比如：<a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>，此时查看另外一台 iOS 或者 Mac 的 Docker 栏是否出现了 Safari 的提示图标。</li>
+<li>在 iOS 或者 Mac 上打开 Safari 浏览器，打开一个网页，比如：sysin.org，此时查看另外一台 iOS 或者 Mac 的 Docker 栏是否出现了 Safari 的提示图标。</li>
 <li>在 iOS 或者 Mac 上复制一段字符文本，在然后在另外一台 iOS 或者 Mac 上（比如 Safari 的地址栏）进行粘贴，看是否出现了对应的内容。</li>
 </ul>
 <p>如果以上都没有问题，请继续下一步骤。</p>
@@ -584,20 +568,16 @@
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208242">在 iPhone、iPad、iPod touch、Apple TV 或 Mac 上退出登录 iCloud</a></li>
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204053">使用您的 Apple ID 登录</a></li>
 </ul>
-<h2 id="5-重置和修复蓝牙">5. 重置和修复蓝牙</h2>
-<h3 id="重置蓝牙模块">重置蓝牙模块</h3>
-<p>按住 Shift + Option，同时点按菜单栏的蓝牙图标（控制中心图标中的蓝牙图标也可以）, 出现菜单如下，点击 “还原蓝牙模块”</p>
+<h2 id="5-重置和修复蓝牙"><a href="#5-重置和修复蓝牙" class="headerlink" title="5. 重置和修复蓝牙"></a>5. 重置和修复蓝牙</h2><h3 id="重置蓝牙模块"><a href="#重置蓝牙模块" class="headerlink" title="重置蓝牙模块"></a>重置蓝牙模块</h3><p>按住 Shift + Option，同时点按菜单栏的蓝牙图标（控制中心图标中的蓝牙图标也可以）, 出现菜单如下，点击 “还原蓝牙模块”</p>
 <p><img src="bluetooth-reset-11.webp" alt="bluetooth-reset"></p>
 <p>⚠️ 该配置项在 macOS Monterey 中已经不可用。</p>
-<h3 id="重置蓝牙配置文件">重置蓝牙配置文件</h3>
-<p>关闭蓝牙（某些情况下无法正常关闭，需要执行命令 <code>sudo pkill blued</code>，这也是蓝牙问题的征兆）。</p>
+<h3 id="重置蓝牙配置文件"><a href="#重置蓝牙配置文件" class="headerlink" title="重置蓝牙配置文件"></a>重置蓝牙配置文件</h3><p>关闭蓝牙（某些情况下无法正常关闭，需要执行命令 <code>sudo pkill blued</code>，这也是蓝牙问题的征兆）。</p>
 <p>然后打开终端，执行如下命令删除配置文件：</p>
 <p><code>sudo rm /Library/Preferences/com.apple.Bluetooth.plist</code></p>
 <p>然后重新开启蓝牙。</p>
 <p>⚠️ 该配置项在 macOS Monterey 中已经不可用。</p>
-<h3 id="删除-Apple-Watch-解锁-Mac-配置文件">删除 Apple Watch 解锁 Mac 配置文件</h3>
-<p>（1）打开 钥匙串访问（KeyChain Access），点击菜单 “显示” - “显示不可见项”</p>
-<p>启动台 - 其他 - 钥匙串访问，或者直接搜索 KeyChain。</p>
+<h3 id="删除-Apple-Watch-解锁-Mac-配置文件"><a href="#删除-Apple-Watch-解锁-Mac-配置文件" class="headerlink" title="删除 Apple Watch 解锁 Mac 配置文件"></a>删除 Apple Watch 解锁 Mac 配置文件</h3><p>（1）打开 钥匙串访问（KeyChain Access），点击菜单 “显示” - “显示不可见项”</p>
+<p>  启动台 - 其他 - 钥匙串访问，或者直接搜索 KeyChain。</p>
 <p>（2）搜索 <code>Auto Unlock</code>，将出现的项全部删除</p>
 <p><img src="keychain-auto-unlock.webp" alt="keychain-auto-unlock"></p>
 <p>（3）继续搜索 <code>AutoUnlock</code>，将出现的内容全部删除</p>
@@ -605,20 +585,15 @@
 <p>（4）打开终端，执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm ~/Library/Sharing/AutoUnlock/ltk.plist</span><br><span class="line">rm ~/Library/Sharing/AutoUnlock/pairing-records.plist</span><br></pre></td></tr></table></figure>
 <p>最后重启，验证问题是否解决。</p>
-<h2 id="6-排查-App-问题">6. 排查 App 问题</h2>
-<p>如前所述在安全模式下面如果问题已经得到解决，有可能是系统加载了一些自动启动的 App 影响了蓝牙或者 Wi-Fi 的可用性，此时禁止 App 自动启动来验证问题，可以通过 App 的设置来禁止自动启动，或者使用一些系统优化工具来控制 App 开机启动。</p>
+<h2 id="6-排查-App-问题"><a href="#6-排查-App-问题" class="headerlink" title="6. 排查 App 问题"></a>6. 排查 App 问题</h2><p>如前所述在安全模式下面如果问题已经得到解决，有可能是系统加载了一些自动启动的 App 影响了蓝牙或者 Wi-Fi 的可用性，此时禁止 App 自动启动来验证问题，可以通过 App 的设置来禁止自动启动，或者使用一些系统优化工具来控制 App 开机启动。</p>
 <p>重启系统验证问题是否解决，必要时，使用排除法来确定是哪个 App 的问题，然后更新（或者降版本）确认有问题的 App。</p>
 <p>笔者使用的一款 Wi-Fi 管理工具就是一个例子，因为经常要使用该工具，开机自启动，结果导致 AirDrop 失效，尝试多种方式修复，短暂恢复后再次失效，后来更新到新版 App 才得以彻底修复。</p>
 <p>如果问题依然没有解决，下一步将重置 SMC 和 NVRAM。</p>
-<h2 id="7-重置-Mac-的-SMC">7. 重置 Mac 的 SMC</h2>
-<p>重置系统管理控制器 (SMC) 可以解决某些与电源、电池、风扇和其他功能相关的问题。</p>
-<h3 id="如果您拥有的是搭载-Apple-芯片的-Mac">如果您拥有的是搭载 Apple 芯片的 Mac</h3>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">了解您拥有的是不是搭载 Apple 芯片的 Mac</a></p>
+<h2 id="7-重置-Mac-的-SMC"><a href="#7-重置-Mac-的-SMC" class="headerlink" title="7. 重置 Mac 的 SMC"></a>7. 重置 Mac 的 SMC</h2><p>重置系统管理控制器 (SMC) 可以解决某些与电源、电池、风扇和其他功能相关的问题。</p>
+<h3 id="如果您拥有的是搭载-Apple-芯片的-Mac"><a href="#如果您拥有的是搭载-Apple-芯片的-Mac" class="headerlink" title="如果您拥有的是搭载 Apple 芯片的 Mac"></a>如果您拥有的是搭载 Apple 芯片的 Mac</h3><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">了解您拥有的是不是搭载 Apple 芯片的 Mac</a></p>
 <p>确保 Mac 已插接电源。然后重新启动，或者关机后再开机。对于搭载 Apple 芯片的 Mac 电脑，无需完成其他步骤。</p>
-<h3 id="在配备-T2-芯片的电脑上重置-SMC">在配备 T2 芯片的电脑上重置 SMC</h3>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">如果您的 Mac 配备 Apple T2 安全芯片</a>，请按照以下步骤操作。如果您需要协助，请 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/contact">联系 Apple 支持</a>。</p>
-<h4 id="配备-T2-芯片的笔记本电脑">配备 T2 芯片的笔记本电脑</h4>
-<p>重置 SMC 之前，请尝试以下步骤：</p>
+<h3 id="在配备-T2-芯片的电脑上重置-SMC"><a href="#在配备-T2-芯片的电脑上重置-SMC" class="headerlink" title="在配备 T2 芯片的电脑上重置 SMC"></a>在配备 T2 芯片的电脑上重置 SMC</h3><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">如果您的 Mac 配备 Apple T2 安全芯片</a>，请按照以下步骤操作。如果您需要协助，请 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/contact">联系 Apple 支持</a>。</p>
+<h4 id="配备-T2-芯片的笔记本电脑"><a href="#配备-T2-芯片的笔记本电脑" class="headerlink" title="配备 T2 芯片的笔记本电脑"></a>配备 T2 芯片的笔记本电脑</h4><p>重置 SMC 之前，请尝试以下步骤：</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>。</li>
 <li>按住 <strong>电源按钮</strong> 10 秒钟，然后松开这个按钮。</li>
@@ -627,44 +602,36 @@
 <p>如果问题仍然存在，请按照以下步骤重置 SMC：</p>
 <ol>
 <li>将 Mac 关机。</li>
-<li>在内建键盘上，按住以下所有按键。Mac 可能会开机。
-<ul>
+<li>在内建键盘上，按住以下所有按键。Mac 可能会开机。<ul>
 <li>键盘左侧的 <strong>Control</strong> <img src="macos-catalina-sidecar-sidebar-control-icon.webp" alt="Apple"></li>
 <li>键盘左侧的 <strong>Option</strong> (Alt) <img src="macos-catalina-sidecar-sidebar-option-icon.webp" alt="Apple"></li>
 <li>键盘右侧的 <strong>Shift</strong> <img src="macos-catalina-sidecar-sidebar-shift-icon.webp" alt="Apple"></li>
 </ul>
 </li>
-<li>按住 <strong>全部三个按键</strong> 7 秒钟 (sysin)，然后在不松开按键的情况下按住 <strong>电源按钮</strong>。如果 Mac 处于开机状态，它将在您按住这些按键时关机。<br>
-<img src="2020-macbook-air-keyboard-diagram-smc.webp" alt="Apple"></li>
+<li>按住 <strong>全部三个按键</strong> 7 秒钟 (sysin)，然后在不松开按键的情况下按住 <strong>电源按钮</strong>。如果 Mac 处于开机状态，它将在您按住这些按键时关机。<br> <img src="2020-macbook-air-keyboard-diagram-smc.webp" alt="Apple"></li>
 <li>继续按住 <strong>全部四个按键</strong> 7 秒钟，然后松开这些按键。</li>
 <li>等待几秒钟，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
 </ol>
-<h4 id="配备-T2-芯片的台式电脑">配备 T2 芯片的台式电脑</h4>
-<ol>
+<h4 id="配备-T2-芯片的台式电脑"><a href="#配备-T2-芯片的台式电脑" class="headerlink" title="配备 T2 芯片的台式电脑"></a>配备 T2 芯片的台式电脑</h4><ol>
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>，然后拔下电源线。</li>
 <li>等待 15 秒钟，然后重新接回电源线。</li>
 <li>等待 5 秒钟，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
 </ol>
-<h3 id="在其他电脑上重置-SMC">在其他电脑上重置 SMC</h3>
-<p>如果您的 Mac 没有配备 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">Apple T2 安全芯片</a>，请按照以下步骤操作。如果您需要协助，请 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/contact">联系 Apple 支持</a>。</p>
-<h4 id="装有不可拆卸电池的笔记本电脑">装有不可拆卸电池的笔记本电脑</h4>
-<p>这类电脑包括 2009 年中至 2017 年推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">MacBook Pro</a> 机型、2017 年或之前推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">MacBook Air</a> 机型，以及所有 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">MacBook</a> 机型，但 MacBook（13 英寸，2009 年中）除外。</p>
+<h3 id="在其他电脑上重置-SMC"><a href="#在其他电脑上重置-SMC" class="headerlink" title="在其他电脑上重置 SMC"></a>在其他电脑上重置 SMC</h3><p>如果您的 Mac 没有配备 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">Apple T2 安全芯片</a>，请按照以下步骤操作。如果您需要协助，请 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/contact">联系 Apple 支持</a>。</p>
+<h4 id="装有不可拆卸电池的笔记本电脑"><a href="#装有不可拆卸电池的笔记本电脑" class="headerlink" title="装有不可拆卸电池的笔记本电脑"></a>装有不可拆卸电池的笔记本电脑</h4><p>这类电脑包括 2009 年中至 2017 年推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">MacBook Pro</a> 机型、2017 年或之前推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201862">MacBook Air</a> 机型，以及所有 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">MacBook</a> 机型，但 MacBook（13 英寸，2009 年中）除外。</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>。</li>
-<li>在内建键盘上，按住以下所有按键：
-<ul>
+<li>在内建键盘上，按住以下所有按键：<ul>
 <li>键盘左侧的 <strong>Shift</strong> <img src="macos-catalina-sidecar-sidebar-shift-icon.webp" alt="Apple"></li>
 <li>键盘左侧的 <strong>Control</strong> <img src="macos-catalina-sidecar-sidebar-control-icon.webp" alt="Apple"></li>
 <li>键盘左侧的 <strong>Option</strong> (Alt) <img src="macos-catalina-sidecar-sidebar-option-icon.webp" alt="Apple"></li>
 </ul>
 </li>
-<li>在按住 <strong>全部三个按键</strong> 的情况下，按住 <strong>电源按钮</strong>。<br>
-<img src="2016-macbook-keyboard-diagram-smc.webp" alt="全部 4 个按键已被按下的笔记本电脑键盘"></li>
+<li>在按住 <strong>全部三个按键</strong> 的情况下，按住 <strong>电源按钮</strong>。<br> <img src="2016-macbook-keyboard-diagram-smc.webp" alt="全部 4 个按键已被按下的笔记本电脑键盘"></li>
 <li>按住 <strong>全部四个按键</strong> 10 秒钟。</li>
 <li>松开所有按键，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
 </ol>
-<h4 id="装有可拆卸电池的笔记本电脑">装有可拆卸电池的笔记本电脑</h4>
-<p>这类电脑包括 2009 年初或之前推出的所有 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">MacBook Pro</a> 和 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">MacBook</a> 机型，以及 MacBook（13 英寸，2009 年中）。</p>
+<h4 id="装有可拆卸电池的笔记本电脑"><a href="#装有可拆卸电池的笔记本电脑" class="headerlink" title="装有可拆卸电池的笔记本电脑"></a>装有可拆卸电池的笔记本电脑</h4><p>这类电脑包括 2009 年初或之前推出的所有 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201300">MacBook Pro</a> 和 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201608">MacBook</a> 机型，以及 MacBook（13 英寸，2009 年中）。</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>。</li>
 <li>拆下电池。（如果您需要拆卸电池方面的协助，请联系 <a target="_blank" rel="noopener" href="http://www.apple.com/cn/retail/storelist/">Apple Store 商店</a> 或 <a target="_blank" rel="noopener" href="https://locate.apple.com/cn/zh/">Apple 授权服务提供商</a>。）</li>
@@ -672,14 +639,12 @@
 <li>重新安装电池。</li>
 <li>按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
 </ol>
-<h4 id="台式电脑">台式电脑</h4>
-<ol>
+<h4 id="台式电脑"><a href="#台式电脑" class="headerlink" title="台式电脑"></a>台式电脑</h4><ol>
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201150">将 Mac 关机</a>，然后拔下电源线。</li>
 <li>等待 15 秒钟，然后重新接回电源线。</li>
 <li>等待 5 秒钟，然后按下 <strong>电源按钮</strong> 以将 Mac 开机。</li>
 </ol>
-<h2 id="8-重置-Mac-上的-NVRAM-或-PRAM">8. 重置 Mac 上的 NVRAM 或 PRAM</h2>
-<p>如果您拥有的是搭载 Apple 芯片的 Mac：</p>
+<h2 id="8-重置-Mac-上的-NVRAM-或-PRAM"><a href="#8-重置-Mac-上的-NVRAM-或-PRAM" class="headerlink" title="8. 重置 Mac 上的 NVRAM 或 PRAM"></a>8. 重置 Mac 上的 NVRAM 或 PRAM</h2><p>如果您拥有的是搭载 Apple 芯片的 Mac：</p>
 <p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">了解您拥有的是不是搭载 Apple 芯片的 Mac</a></p>
 <p>重置 NVRAM 的步骤不适用于搭载 Apple 芯片的 Mac 电脑，这类电脑也不需要完成这些步骤。</p>
 <p>如果您拥有的是基于 Intel 的 Mac：</p>
@@ -688,6 +653,7 @@
 <p>可储存在 NVRAM 中的设置包括音量、显示屏分辨率、启动磁盘选择、时区，以及最近的内核崩溃信息 (sysin)。储存在 NVRAM 中的设置取决于您的 Mac 以及与这台 Mac 搭配使用的设备。</p>
 <p>如果您遇到与这些设置或其他设置有关的问题，那么重置 NVRAM 可能会有帮助。例如，如果 Mac 并非从 “启动磁盘” 偏好设置中选定的磁盘启动，或者在 Mac 启动前短暂地显示了一个问号图标，则可能需要重置 NVRAM。</p>
 <p><strong>如何重置 NVRAM</strong>：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -712,6 +678,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>将 Mac 关机，然后开机并立即同时按住以下四个按键：Option、Command、P 和 R。您可以在大约 20 秒后松开这些按键，在此期间您的 Mac 可能看似在重新启动。</p>
 <ul>
 <li>在会发出 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT202768">启动声</a> 的 Mac 电脑上，您可以在两次启动声之后松开这些按键。</li>
@@ -719,21 +686,15 @@
 </ul>
 <p>如果您的 Mac 使用了 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204455">固件密码</a>，这个组合键将不起任何作用或导致您的 Mac 从 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201314">macOS 恢复功能</a> 启动。要重置 NVRAM，请先关闭固件密码。</p>
 <p>在您的 Mac 完成启动后，您可能需要打开 “系统偏好设置” 并调整已重置的任何设置，例如音量、显示屏分辨率、启动磁盘选择或时区。</p>
-<h2 id="9-软件更新">9. 软件更新</h2>
-<p>什么？系统已经是 macOS 11.5 + iOS 14.5 (12.5 + 15.5)，在等等看吧…</p>
-<h2 id="10-系统恢复">10. 系统恢复</h2>
-<p>无力回天只能 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204904">重新安装 macOS</a>。</p>
-<h2 id="11-联系-Apple-Support">11. 联系 Apple Support</h2>
-<p>都重新安装了系统，也无法解决？</p>
+<h2 id="9-软件更新"><a href="#9-软件更新" class="headerlink" title="9. 软件更新"></a>9. 软件更新</h2><p>什么？系统已经是 macOS 11.5 + iOS 14.5 (12.5 + 15.5)，在等等看吧……</p>
+<h2 id="10-系统恢复"><a href="#10-系统恢复" class="headerlink" title="10. 系统恢复"></a>10. 系统恢复</h2><p>无力回天只能 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204904">重新安装 macOS</a>。</p>
+<h2 id="11-联系-Apple-Support"><a href="#11-联系-Apple-Support" class="headerlink" title="11. 联系 Apple Support"></a>11. 联系 Apple Support</h2><p>都重新安装了系统，也无法解决？</p>
 <ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn">欢迎使用 Apple 支持</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn">欢迎使用 Apple 支持</a></p>
 </li>
-<li>
-<p>请致电 400-666-8800</p>
+<li><p>请致电 400-666-8800</p>
 </li>
-<li>
-<p>到全国任意一家 <a target="_blank" rel="noopener" href="https://www.apple.com.cn/retail/">Apple Store 零售店</a></p>
+<li><p>到全国任意一家 <a target="_blank" rel="noopener" href="https://www.apple.com.cn/retail/">Apple Store 零售店</a></p>
 </li>
 </ul>
 <p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
@@ -857,7 +818,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1162,7 +1123,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

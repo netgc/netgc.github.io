@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 在 macOS 上运行无限许可的 Nessus 10 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 在 macOS 上运行无限许可的 Nessus 10 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 在 macOS 上运行无限许可的 Nessus 10 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 在 macOS 上运行无限许可的 Nessus 10 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 在 macOS 上运行无限许可的 Nessus 10 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/nessus-unlimited-on-macos/">
+  <link rel="canonical" href="https://sysin.org/blog/nessus-unlimited-on-macos/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,19 +487,16 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/nessus-unlimited-on-macos/" title="在 macOS 上运行无限许可的 Nessus 10">在 macOS 上运行无限许可的 Nessus 10</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="1-下载">1. 下载</h2>
-<p>下载 macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS/">https://sysin.org/blog/macOS/</a></p>
-<p>下载 Nessus：<a target="_blank" rel="noopener" href="https://sysin.org/blog/nessus-10/">https://sysin.org/blog/nessus-10/</a></p>
-<p>下载插件：<a target="_blank" rel="noopener" href="https://sysin.org/blog/nessus-10/">https://sysin.org/blog/nessus-10/</a></p>
+<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h2><p>下载 macOS：<a href="https://sysin.org/blog/macOS/">https://sysin.org/blog/macOS/</a></p>
+<p>下载 Nessus：<a href="https://sysin.org/blog/nessus-10/">https://sysin.org/blog/nessus-10/</a></p>
+<p>下载插件：<a href="https://sysin.org/blog/nessus-10/">https://sysin.org/blog/nessus-10/</a></p>
 <p>官网下载插件（需要注册）：<a target="_blank" rel="noopener" href="https://plugins.nessus.org/v2/offline.php">Nessus offline Page</a></p>
-<h2 id="2-安装">2. 安装</h2>
-<p>下载的 dmg 文件打开后是一个 pkg 安装包，双击直接下一步即可。</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>下载的 dmg 文件打开后是一个 pkg 安装包，双击直接下一步即可。</p>
 <p>也可以使用命令完成安装：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo hdiutil attach Nessus-&lt;Nessus_Version&gt;.dmg</span><br><span class="line">sudo installer -package /Volumes/Nessus\ Install/Install\ Nessus.pkg -target /</span><br><span class="line">sudo hdiutil detach /Volumes/Nessus\ Install</span><br></pre></td></tr></table></figure>
-<h2 id="3-初始化登录">3. 初始化登录</h2>
-<p>（1）启动服务</p>
+<h2 id="3-初始化登录"><a href="#3-初始化登录" class="headerlink" title="3. 初始化登录"></a>3. 初始化登录</h2><p>（1）启动服务</p>
 <p>默认已经启动并且自动启动，在 “ -&gt; 系统偏好设置…” 中点击 Nessus 图标，可以停止和启动服务以及设置是否自动启动。</p>
 <p>或者使用以下命令：</p>
 <ul>
@@ -520,8 +515,7 @@
 <p>（7）自动登录，安装成功</p>
 <p>此时只有 “Setting”（没有 “Scans”）且显示未注册。</p>
 <p><img src="nessus-05-darwin.webp" alt="nessus-05"></p>
-<h2 id="4-安装插件和创建配置文件">4. 安装插件和创建配置文件</h2>
-<blockquote>
+<h2 id="4-安装插件和创建配置文件"><a href="#4-安装插件和创建配置文件" class="headerlink" title="4. 安装插件和创建配置文件"></a>4. 安装插件和创建配置文件</h2><blockquote>
 <p>此时下面两个配置文件都是空白的</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/Library/Nessus/run/var/nessus/plugin_feed_info.inc</span><br><span class="line">/Library/Nessus/run/lib/nessus/plugins/plugin_feed_info.inc</span><br></pre></td></tr></table></figure>
@@ -535,8 +529,7 @@
 <blockquote>
 <p>上述 PLUGIN_SET 后的数字（日期）并没有严格要求，根据日期来写以便识别版本（安装插件时会显示版本号）。</p>
 </blockquote>
-<h2 id="5-重启服务编译插件">5. 重启服务编译插件</h2>
-<p>（1）停止服务</p>
+<h2 id="5-重启服务编译插件"><a href="#5-重启服务编译插件" class="headerlink" title="5. 重启服务编译插件"></a>5. 重启服务编译插件</h2><p>（1）停止服务</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl unload -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist</span><br></pre></td></tr></table></figure>
 <p>（2）启动服务</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /Library/LaunchDaemons/com.tenablesecurity.nessusd.plist</span><br></pre></td></tr></table></figure>
@@ -554,16 +547,14 @@
 <p>可以看到 “Licensed Hosts Unlimited” 和 “Plugin Set” 的版本。</p>
 <p><img src="nessus-09-darwin.webp" alt="nessus-09"></p>
 <p>已经成功。</p>
-<h2 id="6-验证">6. 验证</h2>
-<p>（1）点击 “Scans” - “My Scans”，“Create a new scan”</p>
+<h2 id="6-验证"><a href="#6-验证" class="headerlink" title="6. 验证"></a>6. 验证</h2><p>（1）点击 “Scans” - “My Scans”，“Create a new scan”</p>
 <p><img src="nessus-10.webp" alt="nessus-10"></p>
 <p>（2）可以看到模板都出来了</p>
 <p><img src="nessus-11.webp" alt="nessus-11"></p>
 <p>（3）点击 Advanced Scan，可以看到插件数量</p>
 <p><img src="nessus-12.webp" alt="nessus-12"></p>
 <p>创建一个 Scan 试试吧。</p>
-<h2 id="7-如何更新插件">7. 如何更新插件</h2>
-<p>（1）下载新版插件离线包</p>
+<h2 id="7-如何更新插件"><a href="#7-如何更新插件" class="headerlink" title="7. 如何更新插件"></a>7. 如何更新插件</h2><p>（1）下载新版插件离线包</p>
 <p>（2）更新命令：<code>sudo /Library/Nessus/run/sbin/nessuscli update all-2.0.tar.gz</code></p>
 <p>（3）验证配置文件（修改版本日期）</p>
 <p>（4）重启服务并验证</p>
@@ -571,20 +562,14 @@
 <hr>
 <p>发布 Nessus 试用版自动化安装程序，支持 macOS Sequoia、RHEL 9 和 Ubuntu 24.04</p>
 <ul>
-<li>
-<a href="/blog/nessus-auto-install-for-macos/" title="Nessus Professional 10.8.3 Auto Installer for macOS Sequoia (updated Nov 2024)">Nessus Professional 10.8.3 Auto Installer for macOS Sequoia (updated Nov 2024)</a>
-</li>
-<li>
-<a href="/blog/nessus-auto-install-for-rhel-9/" title="Nessus Professional 10.8.3 Auto Installer for RHEL 9, AlmaLinux 9, Rocky Linux 9 (updated Nov 2024)">Nessus Professional 10.8.3 Auto Installer for RHEL 9, AlmaLinux 9, Rocky Linux 9 (updated Nov 2024)</a>
-</li>
-<li>
-<a href="/blog/nessus-auto-install-for-ubuntu/" title="Nessus Professional 10.8.3 Auto Installer for Ubuntu 24.04 (updated Nov 2024)">Nessus Professional 10.8.3 Auto Installer for Ubuntu 24.04 (updated Nov 2024)</a>
+<li><a href="/blog/nessus-auto-install-for-macos/" title="Nessus Professional 10.8.3 Auto Installer for macOS Sequoia (updated Nov 2024)">Nessus Professional 10.8.3 Auto Installer for macOS Sequoia (updated Nov 2024)</a></li>
+<li><a href="/blog/nessus-auto-install-for-rhel-9/" title="Nessus Professional 10.8.3 Auto Installer for RHEL 9, AlmaLinux 9, Rocky Linux 9 (updated Nov 2024)">Nessus Professional 10.8.3 Auto Installer for RHEL 9, AlmaLinux 9, Rocky Linux 9 (updated Nov 2024)</a></li>
+<li><a href="/blog/nessus-auto-install-for-ubuntu/" title="Nessus Professional 10.8.3 Auto Installer for Ubuntu 24.04 (updated Nov 2024)">Nessus Professional 10.8.3 Auto Installer for Ubuntu 24.04 (updated Nov 2024)</a>
 </li>
 </ul>
 <p>Nessus 10 系列版本索引</p>
 <ul>
-<li>
-<a href="/blog/nessus-10/" title="Tenable Nessus 10.8.3 (macOS, Linux, Windows) - 领先的漏洞评估解决方案">Tenable Nessus 10.8.3 (macOS, Linux, Windows) - 领先的漏洞评估解决方案</a>
+<li><a href="/blog/nessus-10/" title="Tenable Nessus 10.8.3 (macOS, Linux, Windows) - 领先的漏洞评估解决方案">Tenable Nessus 10.8.3 (macOS, Linux, Windows) - 领先的漏洞评估解决方案</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/http/" title="HTTP 协议与安全">HTTP 协议与安全</a></p>
@@ -708,7 +693,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1015,7 +1000,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

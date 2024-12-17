@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 西部数据 SN550 “23 固件门” 检测方法 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 西部数据 SN550 “23 固件门” 检测方法 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 西部数据 SN550 “23 固件门” 检测方法 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 西部数据 SN550 “23 固件门” 检测方法 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 西部数据 SN550 “23 固件门” 检测方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/ssd-firmware-check/">
+  <link rel="canonical" href="https://sysin.org/blog/ssd-firmware-check/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,21 +487,18 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/ssd-firmware-check/" title="西部数据 SN550 “23 固件门” 检测方法">西部数据 SN550 “23 固件门” 检测方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="事件简介：西数-SN550-缓外速度减半">事件简介：<a target="_blank" rel="noopener" href="https://news.mydrivers.com/1/779/779435.htm">西数 SN550 缓外速度减半</a></h2>
-<p>作为市场上最受欢迎的 NVMe SSD 之一，西数 SN550 受到了很多 DIY 玩家的欢迎。</p>
+<h2 id="事件简介：西数-SN550-缓外速度减半"><a href="#事件简介：西数-SN550-缓外速度减半" class="headerlink" title="事件简介：西数 SN550 缓外速度减半"></a>事件简介：<a target="_blank" rel="noopener" href="https://news.mydrivers.com/1/779/779435.htm">西数 SN550 缓外速度减半</a></h2><p>作为市场上最受欢迎的 NVMe SSD 之一，西数 SN550 受到了很多 DIY 玩家的欢迎。</p>
 <p>但是在近期，这款 SSD 被网友发现在新批次中偷偷更换了闪存颗粒，固件号也变了。</p>
 <p><strong>新版的闪存颗粒使用的是 002031 1T00，固件版本号是 233010WD；旧版闪存是 60523 1T00，固件号则是 211070WD。</strong></p>
 <p>使用了新版闪存的 SN550，<strong>在缓外性能方面，顺序写入速度只能达到 390MB/s，为旧版的一半</strong>，这表现也就比更低端的 SN350 略好一些。</p>
 <p>诡异的是，SN550 的新版固件编号，和 SN350 同样为 23 开头，反而和 SN550 旧版固件编号区别非常大，事情就变得很有意思了。</p>
 <p>笔者一直是 SN550 用户，给身边朋友推荐了这个产品 (sysin)，用来做移动硬盘（USB NVMe SSD），毕竟同级别产品似乎无敌手（同级别：Intel、三星和镁光性价比略差）。</p>
 <p>近期购买 SN550 的用户要注意了，7 月份及以后生产日期的基本是 23 固件版本，23 固件版本相比降价了，21 固件版本价格略有上涨，两者差价超过 50。个别商家根据生产日期售卖 21 版本，因为商家不能拆封验证，所以购买后还是需要自己验证一下。以下是笔者总结的通用检测方法。</p>
-<h2 id="通用检测方法">通用检测方法</h2>
-<p>因为驱动的原因或者系统的限制，在 Windows 或者 Windows 虚机下可以更好的识别到 NVME 的 <strong>S.M.A.R.T.</strong> 状态数据，虚拟化 Windows 是跨平台的，我们姑且称为通用检测方法。</p>
-<p>关于 smartmontools 的介绍，可以参看本站 <a target="_blank" rel="noopener" href="https://sysin.org/blog/smartmontools/">另外一篇文章</a>。</p>
-<h3 id="Windows-11">Windows</h3>
-<p>打开 Windows Powershell，复制如下命令执行：</p>
+<h2 id="通用检测方法"><a href="#通用检测方法" class="headerlink" title="通用检测方法"></a>通用检测方法</h2><p>因为驱动的原因或者系统的限制，在 Windows 或者 Windows 虚机下可以更好的识别到 NVME 的 <strong>S.M.A.R.T.</strong> 状态数据，虚拟化 Windows 是跨平台的，我们姑且称为通用检测方法。</p>
+<p>关于 smartmontools 的介绍，可以参看本站 <a href="https://sysin.org/blog/smartmontools/">另外一篇文章</a>。</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>打开 Windows Powershell，复制如下命令执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br><span class="line">choco install smartmontools</span><br><span class="line"><span class="built_in">Set-Location</span> <span class="string">&quot;C:\Program Files\smartmontools\bin&quot;</span></span><br><span class="line"> .\smartctl.exe <span class="literal">--all</span> /dev/sdb</span><br></pre></td></tr></table></figure>
 <p>注意最后一行，sda 是第一块硬盘，如果是将 SSD 插入电脑安装系统的就是 sda，如果是第二块硬盘就是 sdb，然后是 sdc，以此类推。</p>
 <p>效果如图：Firmware Version：21 开头，则没有问题。</p>
@@ -512,8 +507,7 @@
 <p>其他检测软件：<a target="_blank" rel="noopener" href="http://crystalmark.info/en/software/CrystalDiskInfo/">CrystalDiskInfo</a>，<a target="_blank" rel="noopener" href="http://www.hdtune.com/">HD Tune</a>，可能无法检测到外置 USB NVME 设备的固件，本例控制芯片为 JMS583 测试失败（另外两个常用的控制芯片 RTL9210 和 ASM2362 暂无条件测试）。</p>
 </blockquote>
 <p>在 Windows 下的命令 <code>wmic diskdrive get caption, firmwarerevision</code> 也可以获取固件版本，但仍限于本地磁盘。</p>
-<h3 id="macOS-7">macOS</h3>
-<p>在 macOS 中需要第三方 <a target="_blank" rel="noopener" href="https://binaryfruit.com/download/mac/satsmartdriver/SATSMARTDriver-0.10.zip">驱动（SAT SMART Driver）</a> 来检测外部 USB 存储设备的 SMART 数据。macOS 11 Big Sur 在启动过程中不会加载任何非 Apple 驱动程序。因此，如果在系统启动之前或期间连接了外部驱动器，macOS 将不会为其加载第三方驱动程序。以前，这种行为（所谓的 “安全启动”）适用于带有 T2 芯片的 Mac，因为 Big Sur 现在适用于所有 Mac（即使没有 T2 芯片）。</p>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>在 macOS 中需要第三方 <a target="_blank" rel="noopener" href="https://binaryfruit.com/download/mac/satsmartdriver/SATSMARTDriver-0.10.zip">驱动（SAT SMART Driver）</a> 来检测外部 USB 存储设备的 SMART 数据。macOS 11 Big Sur 在启动过程中不会加载任何非 Apple 驱动程序。因此，如果在系统启动之前或期间连接了外部驱动器，macOS 将不会为其加载第三方驱动程序。以前，这种行为（所谓的 “安全启动”）适用于带有 T2 芯片的 Mac，因为 Big Sur 现在适用于所有 Mac（即使没有 T2 芯片）。</p>
 <p>解决方法：系统启动结束后，物理断开（拔下）外部 USB 驱动器并重新连接。这将强制 macOS 为新连接的驱动器加载驱动程序。</p>
 <p>打开终端执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install smartmontools &amp;&amp; smartctl --all /dev/disk0</span><br></pre></td></tr></table></figure>
@@ -524,8 +518,8 @@
 <p>目前，没有适用于 macOS 的 NVMe SMART over USB 驱动程序。macOS 不支持此功能，并且没有第三方驱动程序（内核扩展）。此外，目前还没有来自 NVM Express Workgroup 的 NVMe SMART over USB 官方规范。目前只有供应商特定的解决方法可用，如 JMicron 和 AMedia，但没有通用标准。内部基于 NVMe SSD 的外部 USB SSD 的一些示例：Samsung Portable T7 Touch SSD、Crucial X8 Portable SSD。</p>
 <p>在 macOS 上目前只能读取 USB SATA SSD 的 SMART 数据，WD SN550 当然是 NVMe SSD，目前只能通过 Windows 虚机的方式来检测。</p>
 <p><strong>要求</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-12-oem/">VMware Fusion 12</a></p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
+<p><a href="https://sysin.org/blog/vmware-fusion-12-oem/">VMware Fusion 12</a></p>
+<p><a href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
 <p><strong>注意点</strong>：</p>
 <p>使用虚拟 USB 控制器:</p>
 <p><img src="fusion-usb-connect.webp" alt="fusion-usb-connect"></p>
@@ -535,16 +529,15 @@
 <p>登录 Windows 虚机，打开 Windows Powershell，复制如下命令执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br><span class="line">choco install smartmontools</span><br><span class="line"><span class="built_in">Set-Location</span> <span class="string">&quot;C:\Program Files\smartmontools\bin&quot;</span></span><br><span class="line"> .\smartctl.exe <span class="literal">--all</span> /dev/sdb</span><br></pre></td></tr></table></figure>
 <p>注意最后一行，虚机默认一块磁盘，主机连接的 USB 存储设备，通常就是 sdb。</p>
-<h3 id="Linux-7">Linux</h3>
-<p>如果是电脑内置 SSD，查看方法如下：</p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>如果是电脑内置 SSD，查看方法如下：</p>
 <p>CentOS：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install smartmontools &amp;&amp; smartctl --all /dev/nvme0n1  #/dev/* 具体名称请运行 sudo fdisk -l 查看</span><br></pre></td></tr></table></figure>
 <p>Ubuntu：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install smartmontools &amp;&amp; sudo smartctl --all /dev/nvme0n1   #/dev/* 具体名称请运行 sudo fdisk -l 查看</span><br></pre></td></tr></table></figure>
 <p>如果是外接 USB NVME SSD，同样可能需要虚机来解决。</p>
 <p><strong>要求</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-16-unlocker/">WMware Workstation 16 for Linux</a></p>
-<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
+<p><a href="https://sysin.org/blog/vmware-workstation-16-unlocker/">WMware Workstation 16 for Linux</a></p>
+<p><a href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
 <p>操作方法具体参看上述 macOS 部分，类似的：</p>
 <p>登录 Windows 虚机，打开 Windows Powershell，复制如下命令执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br><span class="line">choco install smartmontools</span><br><span class="line"><span class="built_in">Set-Location</span> <span class="string">&quot;C:\Program Files\smartmontools\bin&quot;</span></span><br><span class="line"> .\smartctl.exe <span class="literal">--all</span> /dev/sdb</span><br></pre></td></tr></table></figure>
@@ -669,7 +662,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -732,7 +725,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%AE%80%E4%BB%8B%EF%BC%9A%E8%A5%BF%E6%95%B0-SN550-%E7%BC%93%E5%A4%96%E9%80%9F%E5%BA%A6%E5%87%8F%E5%8D%8A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">事件简介：西数 SN550 缓外速度减半</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E7%94%A8%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">通用检测方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows-11"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#macOS-7"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-7"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Linux</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%AE%80%E4%BB%8B%EF%BC%9A%E8%A5%BF%E6%95%B0-SN550-%E7%BC%93%E5%A4%96%E9%80%9F%E5%BA%A6%E5%87%8F%E5%8D%8A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">事件简介：西数 SN550 缓外速度减半</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E7%94%A8%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">通用检测方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#macOS"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Linux</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -976,7 +969,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
