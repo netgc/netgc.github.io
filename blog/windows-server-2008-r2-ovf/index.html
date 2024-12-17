@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/windows-server-2008-r2-ovf/">
+  <link rel="canonical" href="https://sysin.org/blog/windows-server-2008-r2-ovf/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -474,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -491,11 +489,13 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/windows-server-2008-r2-ovf/" title="Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板">Windows Server 2008 R2 OVF (2024 年 10 月更新) - VMware 虚拟机模板</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版<br>Version 6.1, Build 7601, updated Oct 2024</p>
+<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版<br>
+Version 6.1, Build 7601, updated Oct 2024</p>
 <p><img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" alt="Microsoft"> Windows Server 2008 R2</p>
-<h2 id="部署截图及说明"><a href="#部署截图及说明" class="headerlink" title="部署截图及说明"></a>部署截图及说明</h2><p><img src="windows-server-2008-r2-ovf-02.webp" alt="计算资源选项"></p>
+<h2 id="部署截图及说明-18">部署截图及说明</h2>
+<p><img src="windows-server-2008-r2-ovf-02.webp" alt="计算资源选项"></p>
 <p>CPU 和内存配置选项，可以部署完毕后任意编辑</p>
 <p><img src="windows-server-2008-r2-ovf-03.webp" alt="用户账号和网络配置"></p>
 <p>请注意：</p>
@@ -504,7 +504,8 @@
 <ul>
 <li>不能包含用户的帐户名，不能包含用户姓名中超过两个连续字符的部分</li>
 <li>至少有六个字符长</li>
-<li>包含以下四类字符中的三类字符：<ul>
+<li>包含以下四类字符中的三类字符：
+<ul>
 <li>英文大写字母 (A 到 Z)</li>
 <li>英文小写字母 (a 到 z)</li>
 <li>10 个基本数字 (0 到 9)</li>
@@ -525,12 +526,15 @@
 <li>推荐 3 种示例：全部字母，字母和数字组合，字母-数字或者数字-字母（中间允许多个-）</li>
 <li>不要全部用数字（NetBIOS 名称可以支持，但 DNS 名称不允许）</li>
 </ul>
-<h2 id="OVF-特性"><a href="#OVF-特性" class="headerlink" title="OVF 特性"></a>OVF 特性</h2><h3 id="1-OVF-版本"><a href="#1-OVF-版本" class="headerlink" title="1. OVF 版本"></a>1. OVF 版本</h3><ol>
+<h2 id="OVF-特性-19">OVF 特性</h2>
+<h3 id="1-OVF-版本-16">1. OVF 版本</h3>
+<ol>
 <li>默认 VM 硬件版本 11（GuestOS ID 最低要求 7，可升级至最新版），兼容 ESXi 6.0、Fusion 7、Workstation 11 及以上；</li>
 <li>启用 CPU、内存热插拔 (sysin)</li>
 <li>VM-Tools 版本：12.5.0（当前）</li>
 </ol>
-<h3 id="2-系统配置"><a href="#2-系统配置" class="headerlink" title="2. 系统配置"></a>2. 系统配置</h3><ol>
+<h3 id="2-系统配置">2. 系统配置</h3>
+<ol>
 <li>时间和货币格式：本次使用简体中文版，默认</li>
 <li>系统版本：Windows Server 2008 R2 Datacenter, 完整安装</li>
 <li>分区：System Reserve（100M），C 盘 40G 整数分区（可自由调整）</li>
@@ -539,44 +543,65 @@
 <li>添加了 “Command Prompt” 和 “PowerShell” 右键快捷命令菜单</li>
 <li>Windows Update 默认配置未启用，服务禁用（主流支持已经结束）</li>
 </ol>
-<h3 id="3-OEM-BIOS-支持"><a href="#3-OEM-BIOS-支持" class="headerlink" title="3. OEM BIOS 支持"></a>3. OEM BIOS 支持</h3><p>支持 Dell OEM 2.2 及以上版本的 BIOS。</p>
-<h3 id="4-系统组件"><a href="#4-系统组件" class="headerlink" title="4. 系统组件"></a>4. 系统组件</h3><ol>
+<h3 id="3-OEM-BIOS-支持">3. OEM BIOS 支持</h3>
+<p>支持 Dell OEM 2.2 及以上版本的 BIOS。</p>
+<h3 id="4-系统组件">4. 系统组件</h3>
+<ol>
 <li>添加组件：Telnet Client、SNMP-Service、Windows Backup</li>
 <li>添加组件：.NETFX 3.5 (自带)</li>
 <li>更新 PowerShell 5.1，即 .NETFX 4.8 + WMF 5.1</li>
 <li>补丁更新至当月版本，通过 dism 集成（主流支持 2020 年 1 月已经结束）</li>
 </ol>
-<h3 id="5-应用软件"><a href="#5-应用软件" class="headerlink" title="5. 应用软件"></a>5. 应用软件</h3><ol>
+<h3 id="5-应用软件">5. 应用软件</h3>
+<ol>
 <li>AutoRuns 13.1000 (14 已不支持)、7-Zip 22.00、Unlocker 1.9.2 等（全部为免费软件）</li>
 <li>浏览器：Firefox 115 (120 已不支持)，仅针所有用户配置，通过策略禁用自动更新</li>
 </ol>
 <blockquote>
 <p>说明：以上软件版本描述的是更新版本，旧版 OVF 包含的版本可能略低。</p>
 </blockquote>
-<h3 id="6-个性化配置"><a href="#6-个性化配置" class="headerlink" title="6. 个性化配置"></a>6. 个性化配置</h3><p>无。</p>
-<h3 id="7-关于-sysprep"><a href="#7-关于-sysprep" class="headerlink" title="7. 关于 sysprep"></a>7. 关于 sysprep</h3><p>由于产品历史原因，自动运行 sysprep 将导致部署时间过长。故放弃此项配置，现在可以支持手动运行 sysprep。</p>
-<h2 id="适用的-VMware-软件下载"><a href="#适用的-VMware-软件下载" class="headerlink" title="适用的 VMware 软件下载"></a>适用的 VMware 软件下载</h2><p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
+<h3 id="6-个性化配置">6. 个性化配置</h3>
+<p>无。</p>
+<h3 id="7-关于-sysprep">7. 关于 sysprep</h3>
+<p>由于产品历史原因，自动运行 sysprep 将导致部署时间过长。故放弃此项配置，现在可以支持手动运行 sysprep。</p>
+<h2 id="适用的-VMware-软件下载-36">适用的 VMware 软件下载</h2>
+<p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
 <ul>
-<li>Server：VMware <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
-<li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
-<li>Linux：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
-<li>Windows：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
-<h2 id="OVF-版本兼容性和部署方式"><a href="#OVF-版本兼容性和部署方式" class="headerlink" title="OVF 版本兼容性和部署方式"></a>OVF 版本兼容性和部署方式</h2><p>现已支持 ESXi Host Client 2.5 及以上版本部署，即无需 vCenter Server（vSphere Client）也可以正常部署。具体要求如下：</p>
+<h2 id="OVF-版本兼容性和部署方式-18">OVF 版本兼容性和部署方式</h2>
+<p>现已支持 ESXi Host Client 2.5 及以上版本部署，即无需 vCenter Server（vSphere Client）也可以正常部署。具体要求如下：</p>
 <ul>
-<li>ESXi 8.0 及以上任意版本，推荐使用本站定制版启用完整功能：<ul>
-<li><a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></li>
-<li><a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a></li>
+<li>ESXi 8.0 及以上任意版本，推荐使用本站定制版启用完整功能：
+<ul>
+<li>
+<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+<li>
+<a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+</li>
 </ul>
 </li>
-<li>ESXi 7.0U3o 及更新版本，推荐使用本站定制版启用完整功能：<ul>
-<li><a href="/blog/vmware-esxi-7-u3-oem/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></li>
-<li><a href="/blog/vmware-esxi-7-u3-sysin/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a></li>
+<li>ESXi 7.0U3o 及更新版本，推荐使用本站定制版启用完整功能：
+<ul>
+<li>
+<a href="/blog/vmware-esxi-7-u3-oem/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+<li>
+<a href="/blog/vmware-esxi-7-u3-sysin/" title="VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 7.0U3r macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+</li>
 </ul>
 </li>
-<li>ESXi 6.7U3 本站定制版，不支持其他版本：<ul>
-<li><a href="/blog/vmware-esxi-6-oem/" title="VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></li>
-<li><a href="/blog/vmware-esxi-6-sysin/" title="VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 集成 Realtek 网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 集成 Realtek 网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+<li>ESXi 6.7U3 本站定制版，不支持其他版本：
+<ul>
+<li>
+<a href="/blog/vmware-esxi-6-oem/" title="VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+<li>
+<a href="/blog/vmware-esxi-6-sysin/" title="VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 集成 Realtek 网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 6.7U3u macOS Unlocker &amp; OEM BIOS 2.7 集成 Realtek 网卡驱动和 NVMe 驱动 (集成驱动版)</a>
 </li>
 </ul>
 </li>
@@ -594,16 +619,18 @@
 </blockquote>
 <p>客户端系统和软件要求：</p>
 <ul>
-<li><p>支持的客户端操作系统</p>
+<li>
+<p>支持的客户端操作系统</p>
 <ul>
-<li>macOS（推荐 <a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a>）</li>
-<li>Windows 32-bit and 64-bit（推荐 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）<blockquote>
+<li>macOS（推荐 <a href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a>、<a href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a>、<a href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a>）</li>
+<li>Windows 32-bit and 64-bit（推荐 <a href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）</li>
+</ul>
+<blockquote>
 <p>主流 Linux 桌面发行版理论上支持，未经官方验证。</p>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p>支持以下浏览器版本【<a target="_blank" rel="noopener" href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
+<li>
+<p>支持以下浏览器版本【<a href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
 <ul>
 <li>Google Chrome 89 or later</li>
 <li>Mozilla Firefox 80 or later</li>
@@ -611,10 +638,20 @@
 </ul>
 </li>
 </ul>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>保留最近三个版本。</p>
-<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版 (updated Jun 2024)<br>  百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=">https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=</a>&lt;专享已公布&gt;<br>  SHA256SUM: 自动校验<br>  文件大小：约 6GB</p>
-<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版 (updated Aug 2024)<br>  百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=">https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=</a>&lt;专享已公布&gt;<br>  SHA256SUM: 自动校验<br>  文件大小：约 6GB</p>
-<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版 (<strong>updated Oct 2024</strong>)<br>  百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=">https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=</a>&lt;专享已公布&gt;<br>  SHA256SUM: 自动校验<br>  文件大小：约 6GB</p>
+<h2 id="下载地址-567">下载地址</h2>
+<p>保留最近三个版本。</p>
+<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版 (updated Jun 2024)<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=">https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=</a>&lt;专享已公布&gt;<br>
+SHA256SUM: 自动校验<br>
+文件大小：约 6GB</p>
+<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版 (updated Aug 2024)<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=">https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=</a>&lt;专享已公布&gt;<br>
+SHA256SUM: 自动校验<br>
+文件大小：约 6GB</p>
+<p>Windows Server 2008 R2 SP1 Datacenter 64Bit 简体中文版 (<strong>updated Oct 2024</strong>)<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=">https://pan.baidu.com/s/1NsG6I4mmOd8kehTzHw8JkQ?pwd=</a>&lt;专享已公布&gt;<br>
+SHA256SUM: 自动校验<br>
+文件大小：约 6GB</p>
 <p><strong>✅ 公布获取此专享资源的正确方式：</strong></p>
 <p>为保证本站持续发展，该资源通过<code>捐赠</code>获取，捐赠是一种可以附加条件的行为，按照下面<code>指定方式</code>捐赠即可获得该项下载。</p>
 <ul>
@@ -755,7 +792,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -818,7 +855,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-OEM-BIOS-%E6%94%AF%E6%8C%81"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. OEM BIOS 支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 应用软件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 个性化配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E5%85%B3%E4%BA%8E-sysprep"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. 关于 sysprep</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E-18"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7-19"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC-16"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-OEM-BIOS-%E6%94%AF%E6%8C%81"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. OEM BIOS 支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统组件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 应用软件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 个性化配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E5%85%B3%E4%BA%8E-sysprep"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. 关于 sysprep</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD-36"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F-18"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-567"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
@@ -1064,7 +1101,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> OpenBSD 7.5 正式版发布 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" OpenBSD 7.5 正式版发布 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> OpenBSD 7.5 正式版发布 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" OpenBSD 7.5 正式版发布 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" OpenBSD 7.5 正式版发布 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/openbsd/">
+  <link rel="canonical" href="https://sysin.org/blog/openbsd/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,7 +485,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/openbsd/" title="OpenBSD 7.5 正式版发布">OpenBSD 7.5 正式版发布</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="https://www.openbsd.org/images/puffy75.gif" alt="[OpenBSD 7.5]"></p>
 <p>默认安装中只有两个远程漏洞，在很长一段时间内！</p>
@@ -495,30 +493,42 @@
 <p>OpenBSD 可从我们的下载网站免费获取。</p>
 <p>当前版本是 OpenBSD 7.5，于 2024 年 4 月 5 日发布。这是第 56 个版本。新增功能<a target="_blank" rel="noopener" href="https://www.openbsd.org/75.html">详见</a>。</p>
 <p>OpenBSD 完全由志愿者开发 (sysin)。该项目的开发环境和开发者活动由 OpenBSD 基金会收集的捐款资助。贡献确保 OpenBSD 将继续成为一个充满活力且免费的操作系统。</p>
-<h2 id="项目目标"><a href="#项目目标" class="headerlink" title="项目目标"></a>项目目标</h2><p>显然，每个使用 OpenBSD 的开发人员都有自己的目标和优先事项，但可以对我们共同的目标进行分类：</p>
+<h2 id="项目目标">项目目标</h2>
+<p>显然，每个使用 OpenBSD 的开发人员都有自己的目标和优先事项，但可以对我们共同的目标进行分类：</p>
 <ul>
-<li><p>提供最好的开发平台。为开发人员和用户提供完整的源代码访问权限，包括能够直接查看 CVS 树的变化。用户甚至可以直接在网络上查看我们的源代码树并进行更改！</p>
+<li>
+<p>提供最好的开发平台。为开发人员和用户提供完整的源代码访问权限，包括能够直接查看 CVS 树的变化。用户甚至可以直接在网络上查看我们的源代码树并进行更改！</p>
 </li>
-<li><p>将任何来源的良好代码与可接受的集成许可证。首选 ISC 或伯克利风格许可证，不接受 GPL 添加新代码时，保密协议是不可接受的。我们希望提供任何人都可以用于任何目的的源代码 目的，没有任何限制。我们努力使我们的软件健壮且安全，并鼓励 公司可以使用他们想要的任何部分 (sysin)。有 OpenBSD 的商业衍生产品。</p>
+<li>
+<p>将任何来源的良好代码与可接受的集成许可证。首选 ISC 或伯克利风格许可证，不接受 GPL 添加新代码时，保密协议是不可接受的。我们希望提供任何人都可以用于任何目的的源代码 目的，没有任何限制。我们努力使我们的软件健壮且安全，并鼓励 公司可以使用他们想要的任何部分 (sysin)。有 OpenBSD 的商业衍生产品。</p>
 </li>
-<li><p>注意安全问题并先于其他人修复它们。（努力成为排名第一的安全操作系统。）</p>
+<li>
+<p>注意安全问题并先于其他人修复它们。（努力成为排名第一的安全操作系统。）</p>
 </li>
-<li><p>加密软件的更大集成。OpenBSD 是由加拿大开发和发布的，并且由于加拿大法律向世界出口加密货币是合法的（如由加拿大人研究并作为记录在加拿大出口管制清单中）。</p>
+<li>
+<p>加密软件的更大集成。OpenBSD 是由加拿大开发和发布的，并且由于加拿大法律向世界出口加密货币是合法的（如由加拿大人研究并作为记录在加拿大出口管制清单中）。</p>
 </li>
-<li><p>跟踪和实施标准（ANSI、POSIX、X/Open 的一部分等）</p>
+<li>
+<p>跟踪和实施标准（ANSI、POSIX、X/Open 的一部分等）</p>
 </li>
-<li><p>努力建立一个完全独立于机器的源代码树 (sysin)。支持尽可能多的不同系统和硬件尽可能可行。</p>
+<li>
+<p>努力建立一个完全独立于机器的源代码树 (sysin)。支持尽可能多的不同系统和硬件尽可能可行。</p>
 </li>
-<li><p>尽可能远离政治；解决方案应根据技术优势的基础。</p>
+<li>
+<p>尽可能远离政治；解决方案应根据技术优势的基础。</p>
 </li>
-<li><p>注重在各个方面以开发者为导向，包括持有仅限开发人员参加的活动，称为黑客马拉松。</p>
+<li>
+<p>注重在各个方面以开发者为导向，包括持有仅限开发人员参加的活动，称为黑客马拉松。</p>
 </li>
-<li><p>不要让严重的问题得不到解决。</p>
+<li>
+<p>不要让严重的问题得不到解决。</p>
 </li>
-<li><p>大约每六个月发布一次。</p>
+<li>
+<p>大约每六个月发布一次。</p>
 </li>
 </ul>
-<h2 id="支持的硬件平台"><a href="#支持的硬件平台" class="headerlink" title="支持的硬件平台"></a>支持的硬件平台</h2><p>Supported platforms</p>
+<h2 id="支持的硬件平台">支持的硬件平台</h2>
+<p>Supported platforms</p>
 <p>OpenBSD 在以下平台上得到官方支持。官方支持意味着已知发布安装介质可以工作 (sysin)，体系结构可以自编译，并且大多数基本工具都存在于体系结构上。此外，新版本总是存在的，并且有人尝试定期提供快照。</p>
 <p>OpenBSD is officially supported on the following platforms. Official support means that the release install media is known to work, that the architecture can self-compile itself, and that most of the basic tools exist on the architecture (sysin). As well, new releases always exist, and there are attempts to make snapshots available on a regular basis.</p>
 <ul>
@@ -537,78 +547,52 @@
 <li>riscv64 - 64-bit RISC-V systems</li>
 <li>sparc64 - Sun UltraSPARC and Fujitsu SPARC64 systems</li>
 </ul>
-<h2 id="下载-OpenBSD"><a href="#下载-OpenBSD" class="headerlink" title="下载 OpenBSD"></a>下载 OpenBSD</h2><p><strong>OpenBSD 7.5</strong> x86_64 &amp; aarch64 iso</p>
+<h2 id="下载-OpenBSD">下载 OpenBSD</h2>
+<p><strong>OpenBSD 7.5</strong> x86_64 &amp; aarch64 iso</p>
 <ul>
 <li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1JUPfY8g7BHCDJnk4h5KgpA?pwd=h5cy">https://pan.baidu.com/s/1JUPfY8g7BHCDJnk4h5KgpA?pwd=h5cy</a></li>
 </ul>
 <p>The following installation images are available:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th><em>*install75.img</em>-</th>
-<th>A disk image that can be written to a USB flash drive or similar device. Includes the <a target="_blank" rel="noopener" href="https://www.openbsd.org/faq/faq4.html#FilesNeeded">file sets</a>. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/install75.img">amd64</a> \</th>
-<th><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64/install75.img">arm64</a> \</th>
-<th><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/install75.img">i386</a> \</th>
-<th><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/octeon/install75.img">octeon</a> \</th>
-<th><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64/install75.img">powerpc64</a> \</th>
-<th><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/riscv64/install75.img">riscv64</a> \</th>
-<th><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/install75.img">sparc64</a></th>
+<th>*<em>install75.img</em>-</th>
+<th>A disk image that can be written to a USB flash drive or similar device. Includes the <a target="_blank" rel="noopener" href="https://www.openbsd.org/faq/faq4.html#FilesNeeded">file sets</a>. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/install75.img">amd64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64/install75.img">arm64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/install75.img">i386</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/octeon/install75.img">octeon</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64/install75.img">powerpc64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/riscv64/install75.img">riscv64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/install75.img">sparc64</a></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><em>*miniroot75.img</em>-</td>
-<td>The same as above, but file sets are not included. They can be pulled down from the internet or from a local disk. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha/miniroot75.img">alpha</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/miniroot75.img">amd64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64/miniroot75.img">arm64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7/">armv7</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/miniroot75.img">i386</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/landisk/miniroot75.img">landisk</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/loongson/miniroot75.img">loongson</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/luna88k/miniroot75.img">luna88k</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/octeon/miniroot75.img">octeon</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64/miniroot75.img">powerpc64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/riscv64/miniroot75.img">riscv64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/miniroot75.img">sparc64</a></td>
+<td>*<em>miniroot75.img</em>-</td>
+<td>The same as above, but file sets are not included. They can be pulled down from the internet or from a local disk. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha/miniroot75.img">alpha</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/miniroot75.img">amd64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64/miniroot75.img">arm64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/armv7/">armv7</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/miniroot75.img">i386</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/landisk/miniroot75.img">landisk</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/loongson/miniroot75.img">loongson</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/luna88k/miniroot75.img">luna88k</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/octeon/miniroot75.img">octeon</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64/miniroot75.img">powerpc64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/riscv64/miniroot75.img">riscv64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/miniroot75.img">sparc64</a></td>
 </tr>
 <tr>
-<td><em>*install75.iso</em>-</td>
-<td>An ISO 9660 image that can be used to create an install CD/DVD. Includes the file sets. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha/install75.iso">alpha</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/install75.iso">amd64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64/install75.iso">arm64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/hppa/install75.iso">hppa</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/install75.iso">i386</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/macppc/install75.iso">macppc</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64/install75.iso">powerpc64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/install75.iso">sparc64</a></td>
+<td>*<em>install75.iso</em>-</td>
+<td>An ISO 9660 image that can be used to create an install CD/DVD. Includes the file sets. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha/install75.iso">alpha</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/install75.iso">amd64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/arm64/install75.iso">arm64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/hppa/install75.iso">hppa</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/install75.iso">i386</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/macppc/install75.iso">macppc</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/powerpc64/install75.iso">powerpc64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/install75.iso">sparc64</a></td>
 </tr>
 <tr>
-<td><em>*cd75.iso</em>-</td>
-<td>The same as above, but file sets are not included. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha/cd75.iso">alpha</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/cd75.iso">amd64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/hppa/cd75.iso">hppa</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/cd75.iso">i386</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/loongson/cd75.iso">loongson</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/macppc/cd75.iso">macppc</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/cd75.iso">sparc64</a></td>
+<td>*<em>cd75.iso</em>-</td>
+<td>The same as above, but file sets are not included. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/alpha/cd75.iso">alpha</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/cd75.iso">amd64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/hppa/cd75.iso">hppa</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/cd75.iso">i386</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/loongson/cd75.iso">loongson</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/macppc/cd75.iso">macppc</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/cd75.iso">sparc64</a></td>
 </tr>
 <tr>
-<td><em>*floppy75.img</em>-</td>
-<td>Supports some older machines that lack other booting options. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/floppy75.img">amd64</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/floppy75.img">i386</a> \</td>
-<td><a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/floppy75.img">sparc64</a></td>
+<td>*<em>floppy75.img</em>-</td>
+<td>Supports some older machines that lack other booting options. <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/amd64/floppy75.img">amd64</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/i386/floppy75.img">i386</a> | <a target="_blank" rel="noopener" href="https://cdn.openbsd.org/pub/OpenBSD/7.5/sparc64/floppy75.img">sparc64</a></td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>Images can also be downloaded from a number of alternate <a target="_blank" rel="noopener" href="https://www.openbsd.org/ftp.html">mirror sites</a>.</p>
 <p>相关产品：</p>
 <ul>
-<li><a href="/blog/freebsd-13/" title="FreeBSD 13.4 正式版发布">FreeBSD 13.4 正式版发布</a></li>
-<li><a href="/blog/freebsd-14/" title="FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版">FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版</a></li>
-<li><a href="/blog/netbsd/" title="NetBSD 10.0 - 类 UNIX 操作系统">NetBSD 10.0 - 类 UNIX 操作系统</a></li>
-<li><a href="/blog/openbsd/" title="OpenBSD 7.5 正式版发布">OpenBSD 7.5 正式版发布</a>
+<li>
+<a href="/blog/freebsd-13/" title="FreeBSD 13.4 正式版发布">FreeBSD 13.4 正式版发布</a>
+</li>
+<li>
+<a href="/blog/freebsd-14/" title="FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版">FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版</a>
+</li>
+<li>
+<a href="/blog/netbsd/" title="NetBSD 10.0 - 类 UNIX 操作系统">NetBSD 10.0 - 类 UNIX 操作系统</a>
+</li>
+<li>
+<a href="/blog/openbsd/" title="OpenBSD 7.5 正式版发布">OpenBSD 7.5 正式版发布</a>
 </li>
 </ul>
 
@@ -731,7 +715,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1036,7 +1020,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
