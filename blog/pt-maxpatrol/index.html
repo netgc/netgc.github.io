@@ -487,8 +487,10 @@
         <p>请访问原文链接：<a href="/blog/pt-maxpatrol/" title="MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统">MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统</a> 查看最新版。原创作品，转载请保留出处。</p>
 <p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<p><img src="/blog/pt-network-attack-discovery/pt-logo-small.png" alt="Positive Technologies"><br><em>Positive Technologies</em></p>
-<h2 id="关于-MaxPatrol-10"><a href="#关于-MaxPatrol-10" class="headerlink" title="关于 MaxPatrol 10"></a>关于 MaxPatrol 10</h2><p>Positive Technologies MaxPatrol 10 (MaxPatrol 10) 是一个收集、存储和分析公司 IT 基础设施中发生的事件数据的系统。这确保了对整个 IT 基础设施以及各个细分、主机和应用程序的信息安全监控。</p>
+<p><img src="/blog/pt-network-attack-discovery/pt-logo-small.png" alt="Positive Technologies"><br>
+<em>Positive Technologies</em></p>
+<h2 id="关于-MaxPatrol-10">关于 MaxPatrol 10</h2>
+<p>Positive Technologies MaxPatrol 10 (MaxPatrol 10) 是一个收集、存储和分析公司 IT 基础设施中发生的事件数据的系统。这确保了对整个 IT 基础设施以及各个细分、主机和应用程序的信息安全监控。</p>
 <p>MaxPatrol 10 提供以下基本功能：</p>
 <ul>
 <li>资产库存。该系统定期收集有关网络主机及其之间交互的数据。</li>
@@ -507,7 +509,8 @@
 <li>发送通知。通知操作员有关企业 IT 基础设施的变化、数据收集任务的操作、正在收集的事件以及检测到的信息安全事件。</li>
 <li>与 PT NAD 集成。基于会话和攻击的事件注册。</li>
 </ul>
-<h2 id="MaxPatrol-10-架构"><a href="#MaxPatrol-10-架构" class="headerlink" title="MaxPatrol 10 架构"></a>MaxPatrol 10 架构</h2><p>MaxPatrol 10 由可部署在单个或多个服务器上的软件组件组成。这种结构确保了在任何规模的企业中部署系统的可扩展性。对于高生产力系统（每秒超过 3,000 个事件），建议分布式安装 MaxPatrol 10。</p>
+<h2 id="MaxPatrol-10-架构">MaxPatrol 10 架构</h2>
+<p>MaxPatrol 10 由可部署在单个或多个服务器上的软件组件组成。这种结构确保了在任何规模的企业中部署系统的可扩展性。对于高生产力系统（每秒超过 3,000 个事件），建议分布式安装 MaxPatrol 10。</p>
 <p>1、<strong>MaxPatrol 10 Core component</strong></p>
 <p>MaxPatrol 10 Core 组件（MP 10 Core）是系统的主要组件和管理服务器。MP 10 Core 安装在企业总部或主要区域办事处或职能部门 (sysin)，提供以下功能：</p>
 <ul>
@@ -556,7 +559,7 @@
 <p>PT UCS 使用 SaltStack 软件向组件提供新版本：Salt Master 模块安装在 PT UCS 服务器上，Salt Minion 模块安装在 MaxPatrol 10 组件服务器上 (sysin)。PT UCS 从 Positive Technologies 全局更新服务器下载组件的新版本，并将其发送到 Salt Minion 模块，以便使用 Salt Master 模块进行安装。</p>
 <p>9、<strong>PT Cybsi Provider component</strong></p>
 <p>PT Cybsi Provider 组件 (PT CP) 提供有关信息安全威胁和危害指标的实时企业特定数据。妥协指标是在网络或操作系统中观察到的工件，并且是基础设施中恶意活动的迹象。</p>
-<p>作为信息安全威胁和危害指标的数据来源，PT CP 支持卡巴斯基、Positive Technologies 和 Group-IB 的声誉服务。要获取卡巴斯基和 Group-IB 信誉服务的许可证，请联系供应商（有关更多信息，请访问 kaspersky.com 和 group-ib.com ）。</p>
+<p>作为信息安全威胁和危害指标的数据来源，PT CP 支持卡巴斯基、Positive Technologies 和 Group-IB 的声誉服务。要获取卡巴斯基和 Group-IB 信誉服务的许可证，请联系供应商（有关更多信息，请访问 <a target="_blank" rel="noopener" href="http://kaspersky.com">kaspersky.com</a> 和 <a target="_blank" rel="noopener" href="http://group-ib.com">group-ib.com</a> ）。</p>
 <p>10、<strong>PT Retro Correlator component</strong></p>
 <p>PT Retro Correlator 组件 (PT RC) 使用相关规则来重新检查之前收到的事件。该组件由服务 mpagent.service 和 siemserver-retrocontroller.service 组成。</p>
 <p>11、<strong>PT Security Intelligence Portal component</strong></p>
@@ -580,15 +583,23 @@
 <li>PT RC 使用新的关联规则和表格列表数据对已收到的事件进行回顾性检查。</li>
 <li>PT UCS 更新系统组件和知识库。</li>
 </ul>
-<h2 id="部署选项-MaxPatrol-SIEM"><a href="#部署选项-MaxPatrol-SIEM" class="headerlink" title="部署选项 MaxPatrol SIEM"></a>部署选项 MaxPatrol SIEM</h2><p><strong>MaxPatrol SIEM</strong> 提供基础设施 360° 可视性并检测安全事件。定期更新 Positive Technologies 专家的知识。轻松适应网络变化。</p>
-<p><strong>检测重要威胁</strong><br>我们的专家用于查明最新威胁的专业知识定期封装在 PT 知识库提供的专业知识包中。<br>MaxPatrol SIEM 借助 PT KB 不断 “变得更加智能”，可帮助用户在严重后果出现之前检测到攻击者 TTP。</p>
-<p><strong>减轻内部专家的负担</strong><br>专业知识包基于对新威胁的持续监控、攻击分析和事件调查 (sysin)。这减轻了负责监控威胁和编写规则的内部安全专家的负担。专业知识包中包含的规则不需要繁琐的调整，只需简单配置即可使用。</p>
-<p><strong>提供基础设施 360° 可视性</strong><br>IT 基础设施对安全人员变得透明：借助 MaxPatrol 漏洞和合规性管理系统的库存技术，MaxPatrol SIEM 可以全面枚举资产和安全漏洞。从 300 多种类型的系统中主动和被动收集数据。</p>
+<h2 id="部署选项-MaxPatrol-SIEM">部署选项 MaxPatrol SIEM</h2>
+<p><strong>MaxPatrol SIEM</strong> 提供基础设施 360° 可视性并检测安全事件。定期更新 Positive Technologies 专家的知识。轻松适应网络变化。</p>
+<p><strong>检测重要威胁</strong><br>
+我们的专家用于查明最新威胁的专业知识定期封装在 PT 知识库提供的专业知识包中。<br>
+MaxPatrol SIEM 借助 PT KB 不断 “变得更加智能”，可帮助用户在严重后果出现之前检测到攻击者 TTP。</p>
+<p><strong>减轻内部专家的负担</strong><br>
+专业知识包基于对新威胁的持续监控、攻击分析和事件调查 (sysin)。这减轻了负责监控威胁和编写规则的内部安全专家的负担。专业知识包中包含的规则不需要繁琐的调整，只需简单配置即可使用。</p>
+<p><strong>提供基础设施 360° 可视性</strong><br>
+IT 基础设施对安全人员变得透明：借助 MaxPatrol 漏洞和合规性管理系统的库存技术，MaxPatrol SIEM 可以全面枚举资产和安全漏洞。从 300 多种类型的系统中主动和被动收集数据。</p>
 <p>​<img src="https://www.ptsecurity.com/upload/corporate/ww-en/images/mp-siem/screen_5.jpg" alt="评估攻击的可行性"></p>
-<p><strong>评估攻击的可行性</strong><br>MaxPatrol SIEM 自动映射网络拓扑并在发生变化时更新此信息。可视化有助于更好地了解基础设施、检查资产端口、评估攻击的可行性并调查事件。</p>
+<p><strong>评估攻击的可行性</strong><br>
+MaxPatrol SIEM 自动映射网络拓扑并在发生变化时更新此信息。可视化有助于更好地了解基础设施、检查资产端口、评估攻击的可行性并调查事件。</p>
 <p>​<img src="https://www.ptsecurity.com/upload/corporate/ww-en/images/mp-siem/screen_1.jpg" alt="维护完整的企业范围安全状况"></p>
-<p><strong>维护完整的企业范围安全状况</strong><br>通过显示事件、事故、资产漏洞和触发规则的仪表板，一目了然地查看整个安全状况。用户可以通过从 20 个默认小部件中进行选择或创建自己的小部件来自定义仪表板。</p>
-<h2 id="部署选项-MaxPatrol-VM"><a href="#部署选项-MaxPatrol-VM" class="headerlink" title="部署选项 MaxPatrol VM"></a>部署选项 MaxPatrol VM</h2><p>MaxPatrol VM：下一代漏洞管理系统</p>
+<p><strong>维护完整的企业范围安全状况</strong><br>
+通过显示事件、事故、资产漏洞和触发规则的仪表板，一目了然地查看整个安全状况。用户可以通过从 20 个默认小部件中进行选择或创建自己的小部件来自定义仪表板。</p>
+<h2 id="部署选项-MaxPatrol-VM">部署选项 MaxPatrol VM</h2>
+<p>MaxPatrol VM：下一代漏洞管理系统</p>
 <p>VMNG——改变了什么？</p>
 <p>如何检测和管理漏洞是任何信息安全专业人士都关心的问题，无论哪个行业。为了解决这些任务，公司使用安全分析工具。他们以自动模式对所有系统进行深度扫描，以识别漏洞和硬件配置错误。然而，扫描后问题仍然存在。要实施漏洞管理，还需要确定哪些漏洞对基础设施最关键、从哪些方面入手、如何正确确定消除任务的优先级以及如何评估哪些行动影响公司的安全级别 (sysin)。下一代漏洞管理系统不仅能够及时识别漏洞，还能帮助构建整个漏洞管理流程。</p>
 <p><strong>MaxPatrol VM</strong> 是下一代漏洞管理系统。该解决方案允许您构建完善的漏洞管理流程，并在日常操作和紧急扫描期间对其进行控制。</p>
@@ -602,8 +613,10 @@
 </ul>
 <p>MaxPatrol VM 基于独特的安全资产管理（SAM）技术。这允许 MaxPatrol VM 使用主动和被动数据收集，随时构建所观察的 IT 基础设施的完整且持续更新的模型。通过了解 IT 环境，该解决方案在所有公司系统中采用并自动化漏洞管理，同时考虑到网络组件和基础设施变更的重要性。</p>
 <p><img src="https://www.ptsecurity.com/upload/corporate/ww-en/images/mp-vm/screen1.png" alt="MaxPatrol VM 交互式仪表板监控公司 IT 资产的安全性"></p>
-<p><strong>MaxPatrol VM 交互式仪表板</strong><br>交互式仪表板有助于跟踪关键资产扫描的状态和有效性、新的未经评估的网络资产的出现、高严重性漏洞的数量以及漏洞消除指标。</p>
-<h2 id="Positive-Technologies-产品和服务"><a href="#Positive-Technologies-产品和服务" class="headerlink" title="Positive Technologies 产品和服务"></a>Positive Technologies 产品和服务</h2><p>Positive Technologies 是注重结果的网络安全领域的行业领导者，也是信息安全解决方案的主要全球提供商。我们的使命是保护企业和整个行业免受网络攻击和不可容忍的损害。全球有超过 3,300 个组织使用我们公司开发的技术和服务。</p>
+<p><strong>MaxPatrol VM 交互式仪表板</strong><br>
+交互式仪表板有助于跟踪关键资产扫描的状态和有效性、新的未经评估的网络资产的出现、高严重性漏洞的数量以及漏洞消除指标。</p>
+<h2 id="Positive-Technologies-产品和服务-2">Positive Technologies 产品和服务</h2>
+<p>Positive Technologies 是注重结果的网络安全领域的行业领导者，也是信息安全解决方案的主要全球提供商。我们的使命是保护企业和整个行业免受网络攻击和不可容忍的损害。全球有超过 3,300 个组织使用我们公司开发的技术和服务。</p>
 <p>Positive Technologies 是俄罗斯第一家也是唯一一家在莫斯科交易所上市的网络安全公司（MOEX：POSI），拥有 180,000 名股东，而且还在不断增加。</p>
 <p>我们的新型解决方案——元产品——专注于以结果为导向的网络安全方法。Positive Technologies 的首款元产品 MaxPatrol O2 可以在对公司造成不可容忍的损害之前自动检测并阻止攻击 (sysin)。MaxPatrol O2 可以替代安防监控中心的整个团队，并且只需要一个人来管理。该保护系统只需要专家最少的知识和精力。</p>
 <p>为了证明以结果为导向的信息安全方法确实有效，我们进行了网络演习（在我们自己的基础设施以及其他基础设施上）并公开测试我们的产品。我们的解决方案基于数百名信息安全专家 20 年的研究经验和专业知识。</p>
@@ -637,16 +650,26 @@
 <li>我们积极为一流大学制定教育计划，帮助学生做好职业准备，在职业生涯中取得领先地位：由我们公司专家编写的积极教育材料已在超过 65 所大学使用。</li>
 <li>我们举行了世界上最大的网络战 “对峙”，它汇集了进攻性和防御性网络安全方面最优秀的俄罗斯和外国专家。该网络靶场包含不同行业典型的生产链、业务场景和技术景观的全保真复制品。专家分析了引发不可容忍事件的可能性以及预防方法。</li>
 </ul>
-<h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>Software requirements</p>
+<h2 id="系统要求-80">系统要求</h2>
+<p>Software requirements</p>
 <p>所有 MaxPatrol 10 组件均支持 Linux 系列 64 位操作系统，例如 Astra Linux Special Edition 1.7（基于 Linux 内核版本 5.4、5.10 或 5.15）或 Debian 10.3-10.13。您还可以在 Microsoft Windows Server 2012、2012 R2、2016、2019 或 2022 上安装 MP 10 Agent 组件。</p>
 <p>推荐使用：<a href="/blog/debian-10-ovf/" title="Debian 10.13 x86_64 OVF (sysin) - VMware 虚拟机模板">Debian 10.13 x86_64 OVF (sysin) - VMware 虚拟机模板</a></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>Positive Technologies MaxPatrol 10 v26.0<br>  百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/16wN_kUUPgJ_mCgY3LbnS1Q?pwd=sg5k">https://pan.baidu.com/s/16wN_kUUPgJ_mCgY3LbnS1Q?pwd=sg5k</a></p>
+<h2 id="下载地址-333">下载地址</h2>
+<p>Positive Technologies MaxPatrol 10 v26.0<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/16wN_kUUPgJ_mCgY3LbnS1Q?pwd=sg5k">https://pan.baidu.com/s/16wN_kUUPgJ_mCgY3LbnS1Q?pwd=sg5k</a></p>
 <p>相关产品：</p>
 <ul>
-<li><a href="/blog/pt-application-inspector/" title="PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试">PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试</a></li>
-<li><a href="/blog/pt-maxpatrol/" title="MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统">MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统</a></li>
-<li><a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a></li>
-<li><a href="/blog/pt-nad-ovf/" title="PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
+<li>
+<a href="/blog/pt-application-inspector/" title="PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试">PT Application Inspector 4.5 (Linux) - 静态、动态和交互式应用程序安全测试</a>
+</li>
+<li>
+<a href="/blog/pt-maxpatrol/" title="MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统">MaxPatrol 10 (MaxPatrol SIEM, MaxPatrol VM) - 安全信息和事件管理 (SIEM), 下一代漏洞管理系统</a>
+</li>
+<li>
+<a href="/blog/pt-network-attack-discovery/" title="PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 (Linux) - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
+</li>
+<li>
+<a href="/blog/pt-nad-ovf/" title="PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统">PT Network Attack Discovery 11 OVF - 网络检测和响应 (NDR&#x2F;NTA) 系统</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/http/" title="HTTP 协议与安全">HTTP 协议与安全</a></p>
@@ -833,7 +856,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-MaxPatrol-10"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 MaxPatrol 10</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#MaxPatrol-10-%E6%9E%B6%E6%9E%84"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">MaxPatrol 10 架构</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E9%80%89%E9%A1%B9-MaxPatrol-SIEM"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">部署选项 MaxPatrol SIEM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E9%80%89%E9%A1%B9-MaxPatrol-VM"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">部署选项 MaxPatrol VM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Positive-Technologies-%E4%BA%A7%E5%93%81%E5%92%8C%E6%9C%8D%E5%8A%A1"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Positive Technologies 产品和服务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">系统要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-MaxPatrol-10"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 MaxPatrol 10</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#MaxPatrol-10-%E6%9E%B6%E6%9E%84"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">MaxPatrol 10 架构</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E9%80%89%E9%A1%B9-MaxPatrol-SIEM"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">部署选项 MaxPatrol SIEM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E9%80%89%E9%A1%B9-MaxPatrol-VM"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">部署选项 MaxPatrol VM</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Positive-Technologies-%E4%BA%A7%E5%93%81%E5%92%8C%E6%9C%8D%E5%8A%A1-2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Positive Technologies 产品和服务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82-80"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">系统要求</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-333"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

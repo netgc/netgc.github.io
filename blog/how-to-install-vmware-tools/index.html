@@ -493,7 +493,8 @@
 <hr>
 <p>如何安装 macOS、Linux、Windows 和 FreeBSD 虚拟机中安装 VMware Tools。</p>
 <p><img src="vmware-tools.png" alt="vmware-tools"></p>
-<h2 id="VMware-Tools-简介"><a href="#VMware-Tools-简介" class="headerlink" title="VMware Tools 简介"></a>VMware Tools 简介</h2><p>VMware Tools 中包含一系列服务和模块，可在 VMware 产品中实现多种功能，从而使用户能够更好地管理客户机操作系统，以及与客户机操作系统进行无缝交互。</p>
+<h2 id="VMware-Tools-简介">VMware Tools 简介</h2>
+<p>VMware Tools 中包含一系列服务和模块，可在 VMware 产品中实现多种功能，从而使用户能够更好地管理客户机操作系统，以及与客户机操作系统进行无缝交互。</p>
 <p>VMware Tools 具备以下功能：</p>
 <ul>
 <li>将消息从主机操作系统传递到客户机操作系统。</li>
@@ -506,22 +507,43 @@
 <p>可以将虚拟机配置为在每次打开虚拟机电源时自动检查并应用 VMware Tools 升级。</p>
 <p>安装 VMware Tools 是创建新的虚拟机过程的一部分，而升级 VMware Tools 是使虚拟机符合最新标准过程的一部分。尽管客户机操作系统在未安装 VMware Tools 的情况下仍可运行，但许多 VMware 功能只有在安装 VMware Tools 后才可用。安装 VMware Tools 以后，套件中的实用程序会提高虚拟机中客户机操作系统的性能和改善虚拟机管理。</p>
 <p>VMware Tools 安装程序是 ISO 映像文件。客户机操作系统中的 CD-ROM 会检测 ISO 映像文件。每种类型的客户机操作系统（包括 Windows、Linux 和 Mac OS X）具有一个 ISO 映像文件。在选择命令以安装或升级 VMware Tools 时，虚拟机的第一个虚拟 CD-ROM 磁盘驱动器暂时连接到客户机操作系统的 VMware Tools ISO 文件。</p>
-<h2 id="macOS-虚拟机"><a href="#macOS-虚拟机" class="headerlink" title="macOS 虚拟机"></a>macOS 虚拟机</h2><h3 id="官方指南"><a href="#官方指南" class="headerlink" title="官方指南"></a>官方指南</h3><p>如果在具有 Apple 标签的电脑上使用 VMware Fusion 或 ESXi，您可以创建 Mac OS X Server（10.5 或更高版本）虚拟机并安装 VMware Tools。</p>
+<h2 id="macOS-虚拟机">macOS 虚拟机</h2>
+<h3 id="官方指南">官方指南</h3>
+<p>如果在具有 Apple 标签的电脑上使用 VMware Fusion 或 ESXi，您可以创建 Mac OS X Server（10.5 或更高版本）虚拟机并安装 VMware Tools。</p>
 <ol>
-<li><p>选择菜单命令以在客户机操作系统中装载并打开 VMware Tools 虚拟光盘。</p>
-<p>| VMware 产品    | 菜单命令                                                                                                         |<br>|:———————-|:————————————————————————————————————————————————————————-|<br>| vSphere Client | 右键点按虚拟机，选择客户机操作系统 &gt; 安装（或升级）VMware Tools…，然后选择交互式 Tools 安装或交互式 Tools 升级 |<br>| Fusion         | 虚拟机 &gt; 安装（或升级）VMware Tools                                                                              |</p>
+<li>
+<p>选择菜单命令以在客户机操作系统中装载并打开 VMware Tools 虚拟光盘。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">VMware 产品</th>
+<th style="text-align:left">菜单命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">vSphere Client</td>
+<td style="text-align:left">右键点按虚拟机，选择客户机操作系统 &gt; 安装（或升级）VMware Tools…，然后选择交互式 Tools 安装或交互式 Tools 升级</td>
+</tr>
+<tr>
+<td style="text-align:left">Fusion</td>
+<td style="text-align:left">虚拟机 &gt; 安装（或升级）VMware Tools</td>
+</tr>
+</tbody>
+</table>
 </li>
-<li><p>在 VMware Tools 虚拟光盘上打开安装 VMware Tools，按照安装程序助理中的提示进行操作，然后点按好 (sysin)。</p>
+<li>
+<p>在 VMware Tools 虚拟光盘上打开安装 VMware Tools，按照安装程序助理中的提示进行操作，然后点按好 (sysin)。</p>
 </li>
 </ol>
-<h3 id="非官方支持"><a href="#非官方支持" class="headerlink" title="非官方支持"></a>非官方支持</h3><p>运行于第三方硬件（非 Apple Mac）上的 VMware Workstation 或 ESXi，创建 macOS 虚拟机需要 Unlocker，参看：</p>
+<h3 id="非官方支持">非官方支持</h3>
+<p>运行于第三方硬件（非 Apple Mac）上的 VMware Workstation 或 ESXi，创建 macOS 虚拟机需要 Unlocker，参看：</p>
 <ul>
 <li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
 <li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
 <li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
 <p>下载地址：<a href="/blog/vmware-tools-12/" title="VMware Tools 12.5.0 下载 - 客户机操作系统无缝交互必备组件">VMware Tools 12.5.0 下载 - 客户机操作系统无缝交互必备组件</a></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -540,7 +562,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <blockquote>
 <p>以下具体步骤也同样适用于 Fusion。</p>
 </blockquote>
@@ -548,20 +569,24 @@
 <p><img src="install-vmware-tools-on-macos-01.webp" alt="install-vmware-tools-on-macos"></p>
 <p>注意以下两点：</p>
 <ol>
-<li><p>允许系统扩展</p>
+<li>
+<p>允许系统扩展</p>
 <p>根据提示点击 “打开系统设置”。</p>
 <p><img src="install-vmware-tools-on-macos-02.webp" alt="install-vmware-tools-on-macos"></p>
 <p>此时在 “系统设置 - 隐私与安全性” 页面，点击 “允许”，根据提示重启系统完成安装。</p>
 <p><img src="install-vmware-tools-on-macos-03.webp" alt="install-vmware-tools-on-macos"></p>
 </li>
-<li><p>允许同主机间拖拽共享文件</p>
+<li>
+<p>允许同主机间拖拽共享文件</p>
 <p>将宿主机中的文件拖拽到客户机（或者反向操作）会出现提示 “vmware-tools-deamon” 想使用辅助功能来控制这台电脑，点击 “<strong>打开系统设置</strong>”。</p>
 <p><img src="install-vmware-tools-on-macos-04-l.webp" alt="install-vmware-tools-on-macos"></p>
 <p>此时将自动打开 “系统设置 - 隐私和安全性 - 辅助功能” 页面，点按 vmware-tools-deamon 即可。</p>
 <p><img src="install-vmware-tools-on-macos-05-l.webp" alt="install-vmware-tools-on-macos"></p>
 </li>
 </ol>
-<h2 id="Linux-虚拟机"><a href="#Linux-虚拟机" class="headerlink" title="Linux 虚拟机"></a>Linux 虚拟机</h2><h3 id="现代-Linux-使用-open-vm-tools"><a href="#现代-Linux-使用-open-vm-tools" class="headerlink" title="现代 Linux 使用 open-vm-tools"></a>现代 Linux 使用 open-vm-tools</h3><p>现代 Linux 发行版使用开源的 <a target="_blank" rel="noopener" href="https://github.com/vmware/open-vm-tools/tree/master">open-vm-tools</a>，内置于主流的 Linux 发行版自带的软件包管理系统中。并且一些发行版检测到 VMware 虚拟机安装时，会自动安装该组件。手动安装示例如下 (sysin)：</p>
+<h2 id="Linux-虚拟机">Linux 虚拟机</h2>
+<h3 id="现代-Linux-使用-open-vm-tools">现代 Linux 使用 open-vm-tools</h3>
+<p>现代 Linux 发行版使用开源的 <a target="_blank" rel="noopener" href="https://github.com/vmware/open-vm-tools/tree/master">open-vm-tools</a>，内置于主流的 Linux 发行版自带的软件包管理系统中。并且一些发行版检测到 VMware 虚拟机安装时，会自动安装该组件。手动安装示例如下 (sysin)：</p>
 <p>Debian 11/12，Ubuntu 20.04/22.04</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 16.04 在 VMware 软件中安装系统时已经自动安装了 open-vm-tools（18.04、20.04、22.04 相同）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Debian 11、12 也会自动安装</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如需手动安装，命令如下</span></span><br><span class="line">sudo apt install open-vm-tools</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">桌面环境增加一个 open-vm-tools-desktop：</span></span><br><span class="line">sudo apt install open-vm-tools-desktop</span><br></pre></td></tr></table></figure>
 <p>查看状态如下：</p>
@@ -571,9 +596,11 @@
 <p>在系统安装时候勾选了 “Guest Agent”（AlmaLinux 和 Rocky Linux 都无此选项），将自动安装 open-vm-tools。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">手动安装 open-vm-tools：</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://kb.vmware.com/s/article/2073803</span></span><br><span class="line">yum -y install open-vm-tools</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果是桌面发行版，额外安装以下组件</span></span><br><span class="line">yum -y install install open-vm-tools-desktop</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启服务</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">chkconfig vmtoolsd on</span></span><br><span class="line">systemctl enable vmtoolsd.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动服务</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">service vmtoolsd start</span></span><br><span class="line">systemctl start vmtoolsd</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看版本</span></span><br><span class="line">vmtoolsd -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例输出 11.3.5</span></span><br><span class="line">VMware Tools daemon, version 11.3.5.31214 (build-18557794)</span><br></pre></td></tr></table></figure>
 <p>其他发行版也是类似的方法，使用您熟悉的软件包管理命令操作即可。</p>
-<h3 id="传统-Linux-虚拟机安装方式"><a href="#传统-Linux-虚拟机安装方式" class="headerlink" title="传统 Linux 虚拟机安装方式"></a>传统 Linux 虚拟机安装方式</h3><p>适用于 Linux 虚拟机的 VMware Tar 工具的功能已在版本 10.3.10 中被冻结，因此 Workstation Player 中包含的 tar 工具 (linux.iso) 为 10.3.10 版本，且不会进行更新。由于此更改，系统为以下 Linux 虚拟机禁用了 “安装 / 更新 / 重新安装 VMware Tools” 菜单：</p>
+<h3 id="传统-Linux-虚拟机安装方式">传统 Linux 虚拟机安装方式</h3>
+<p>适用于 Linux 虚拟机的 VMware Tar 工具的功能已在版本 10.3.10 中被冻结，因此 Workstation Player 中包含的 tar 工具 (linux.iso) 为 10.3.10 版本，且不会进行更新。由于此更改，系统为以下 Linux 虚拟机禁用了 “安装 / 更新 / 重新安装 VMware Tools” 菜单：</p>
 <ul>
-<li>tar 工具尚不正式支持现代 Linux 发行版。<ul>
+<li>tar 工具尚不正式支持现代 Linux 发行版。
+<ul>
 <li>Red Hat Enterprise Linux 8 及更高版本。</li>
 <li>CentOS 8 及更高版本。</li>
 <li>Oracle Linux 8 及更高版本。</li>
@@ -586,7 +613,6 @@
 <p>对于安装了 Open VM Tools 但不在上述范围内的 Linux 虚拟机，将启用安装 / 更新 / 重新安装 VMware Tools 菜单，以便您可以在 Open VM Tools 上安装捆绑的 tar 工具以获得共享文件夹 (HGFS) 功能支持。</p>
 <p>对于 Open VM Tools 不支持的旧版 Linux 虚拟机，请执行以下步骤来安装 tar 工具。</p>
 <p>在客户机操作系统中选择菜单命令以装载 VMware Tools 虚拟磁盘。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -613,10 +639,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>简言之，<strong>挂载 iso 后，复制其中的 VMwareTools-x.x.x-yyyy.tar.gz 并解压，然后运行安装程序（<code>sudo ./vmware-install.pl</code>）即可</strong>。</p>
-<h2 id="Windows-虚拟机"><a href="#Windows-虚拟机" class="headerlink" title="Windows 虚拟机"></a>Windows 虚拟机</h2><p>在客户机操作系统中选择菜单命令以装载 VMware Tools 虚拟磁盘。</p>
-<div class="table-container">
+<h2 id="Windows-虚拟机">Windows 虚拟机</h2>
+<p>在客户机操作系统中选择菜单命令以装载 VMware Tools 虚拟磁盘。</p>
 <table>
 <thead>
 <tr>
@@ -643,19 +668,22 @@
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
-<li><p>如果使用 vCenter Server 并执行升级或重新安装，请在安装 / 升级 VMware Tools 对话框中选择交互式 Tools 安装或交互式 Tools 升级，然后点按好。</p>
+<li>
+<p>如果使用 vCenter Server 并执行升级或重新安装，请在安装 / 升级 VMware Tools 对话框中选择交互式 Tools 安装或交互式 Tools 升级，然后点按好。</p>
 </li>
-<li><p>如果首次安装 VMware Tools，请在 “安装 VMware Tools” 信息页中点按好。</p>
+<li>
+<p>如果首次安装 VMware Tools，请在 “安装 VMware Tools” 信息页中点按好。</p>
 <ul>
 <li>如果在客户机操作系统中为 CD-ROM 驱动器启用了自动运行，则会启动 VMware Tools 安装向导。</li>
 <li>如果未启用自动运行，要手动启动向导，请点按 CD-ROM 驱动器 中的 setup.exe 进行安装。对于 64 位 Windows 客户机操作系统，请使用 setup64.exe 进行安装。</li>
 </ul>
 </li>
 </ul>
-<h2 id="FreeBSD-虚拟机"><a href="#FreeBSD-虚拟机" class="headerlink" title="FreeBSD 虚拟机"></a>FreeBSD 虚拟机</h2><p>FreeBSD 同一般 Linux 发行版略有差异，这里单独说明一下。</p>
-<p>For a desktop system (with X11) : pkg install open-vm-tools<br>For a server system (no X11) : pkg install open-vm-tools-nox11</p>
+<h2 id="FreeBSD-虚拟机">FreeBSD 虚拟机</h2>
+<p>FreeBSD 同一般 Linux 发行版略有差异，这里单独说明一下。</p>
+<p>For a desktop system (with X11) : pkg install open-vm-tools<br>
+For a server system (no X11) : pkg install open-vm-tools-nox11</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pkg search open-vm-tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通常版本非常新，与官方同步</span></span><br><span class="line">open-vm-tools-12.1.0,2         Open VMware tools for FreeBSD VMware guests</span><br><span class="line">open-vm-tools-nox11-12.1.0,2   Open VMware tools for FreeBSD VMware guests (without X11)</span><br></pre></td></tr></table></figure>
 <p>服务器直接安装：<code>pkg install open-vm-tools-nox11</code></p>
 <p>下载地址：<a href="/blog/vmware-tools-12/" title="VMware Tools 12.5.0 下载 - 客户机操作系统无缝交互必备组件">VMware Tools 12.5.0 下载 - 客户机操作系统无缝交互必备组件</a></p>

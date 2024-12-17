@@ -514,10 +514,14 @@
 <p>2020.09.17：描述文件可用于 iOS 14.0，iPadOS 14.0 和 watchOS 7.0。</p>
 </blockquote>
 <p>快速阅读提示：有效期内只需查看 <code>2.2 下载描述文件 (有效期内直接屏蔽)</code> 章节即可完成屏蔽。</p>
-<h2 id="1-关闭自动更新"><a href="#1-关闭自动更新" class="headerlink" title="1. 关闭自动更新"></a>1. 关闭自动更新</h2><p>“设置” ⚙️ &gt; “通用” &gt; “软件更新”，确保自动更新已经关闭。</p>
-<h2 id="2-使用配置描述文件屏蔽更新"><a href="#2-使用配置描述文件屏蔽更新" class="headerlink" title="2. 使用配置描述文件屏蔽更新"></a>2. 使用配置描述文件屏蔽更新</h2><h3 id="2-1-什么是配置描述文件？"><a href="#2-1-什么是配置描述文件？" class="headerlink" title="2.1 什么是配置描述文件？"></a>2.1 什么是配置描述文件？</h3><p><strong>配置描述文件</strong> 是一个 XML 文件（以 .mobileconfig 结尾），其中包含将设置和授权信息载入到 Apple 设备的有效负载。它会自动配置设置、帐户、访问限制和凭证。这些文件可通过 MDM 解决方案或 Apple Configurator 2 创建，也可手动创建 (sysin)。</p>
+<h2 id="1-关闭自动更新">1. 关闭自动更新</h2>
+<p>“设置” ⚙️ &gt; “通用” &gt; “软件更新”，确保自动更新已经关闭。</p>
+<h2 id="2-使用配置描述文件屏蔽更新">2. 使用配置描述文件屏蔽更新</h2>
+<h3 id="2-1-什么是配置描述文件？">2.1 什么是配置描述文件？</h3>
+<p><strong>配置描述文件</strong> 是一个 XML 文件（以 .mobileconfig 结尾），其中包含将设置和授权信息载入到 Apple 设备的有效负载。它会自动配置设置、帐户、访问限制和凭证。这些文件可通过 MDM 解决方案或 Apple Configurator 2 创建，也可手动创建 (sysin)。</p>
 <p>由于配置描述文件可被加密和签名，因此您可以将其限制用于特定的 Apple 设备，并阻止除拥有用户名和密码外的任何人更改其中的设置。您还可以将配置描述文件标记为被锁定到设备。</p>
-<h3 id="2-2-下载描述文件（有效期内直接屏蔽）"><a href="#2-2-下载描述文件（有效期内直接屏蔽）" class="headerlink" title="2.2 下载描述文件（有效期内直接屏蔽）"></a>2.2 下载描述文件（有效期内直接屏蔽）</h3><p><a href="tvOS_Beta_Profile.mobileconfig"><img src="ios-block-ota.webp" alt="点击安装描述文件"></a></p>
+<h3 id="2-2-下载描述文件（有效期内直接屏蔽）">2.2 下载描述文件（有效期内直接屏蔽）</h3>
+<p><a href="tvOS_Beta_Profile.mobileconfig"><img src="ios-block-ota.webp" alt="点击安装描述文件"></a></p>
 <p>(1) 使用 iPhone 或者 iPad 上用 <strong>safari 浏览器</strong>打开本页面，点击下面的链接或者上面的橙色带有 “Block OTA” 字样的图片。</p>
 <p>描述文件下载地址：<a href="tvOS_Beta_Profile.mobileconfig">tvOS_Beta_Profile.mobileconfig</a></p>
 <blockquote>
@@ -540,11 +544,13 @@
 <p>此时软件更新已经屏蔽成功，打开 “设置” ⚙️ &gt; “通用” &gt; “软件更新” 去验证一下吧。</p>
 <p><strong>屏蔽原理</strong>：下载的是 “tvOS Beta Software Profile” 描述文件，作用是让 Apple 服务器将 iPhone、iPad 或者 Watch 识别为 Apple TV，从而不推送 iOS 的更新。</p>
 <p><strong>该配置文件是 Apple 官方提供，官方签名，所以不用担心，这不是什么插件，如果想要继续接收软件更新，删除描述文件即可。</strong></p>
-<h3 id="2-3-删除描述文件（恢复软件更新）"><a href="#2-3-删除描述文件（恢复软件更新）" class="headerlink" title="2.3 删除描述文件（恢复软件更新）"></a>2.3 删除描述文件（恢复软件更新）</h3><p>iPhone/iPad：</p>
+<h3 id="2-3-删除描述文件（恢复软件更新）">2.3 删除描述文件（恢复软件更新）</h3>
+<p>iPhone/iPad：</p>
 <p>如果需要继续接收软件更新，在 “设置” ⚙️ &gt; “通用” &gt; “描述文件” （或者为 “描述文件与设备管理”）中可查看您所安装的描述文件。点击描述文件即可查看详细信息或者移除。</p>
 <p>在 iOS/iPadOS 15 及更新版本中，描述文件的位置略有变化：“设置” ⚙️ &gt; “通用” &gt; <strong>“VPN 与设备管理”</strong> 下面的 “配置描述文件”。</p>
 <p>Apple Watch：打开 iPhone 上的 “Watch” App，“通用” &gt; “描述文件”，点击描述文件即可查看详细信息或者移除。</p>
-<h3 id="2-4-安装过期的描述文件"><a href="#2-4-安装过期的描述文件" class="headerlink" title="2.4 安装过期的描述文件"></a>2.4 安装过期的描述文件</h3><p>如果描述文件在官方签名的有效期内，屏蔽更新任务已经完成了，仅当证书过期才有必要查看下面的步骤。</p>
+<h3 id="2-4-安装过期的描述文件">2.4 安装过期的描述文件</h3>
+<p>如果描述文件在官方签名的有效期内，屏蔽更新任务已经完成了，仅当证书过期才有必要查看下面的步骤。</p>
 <p>如果描述文件过期，其实仍然可以使用特定方法安装：</p>
 <p><a href="tvOS_Beta_Profile.mobileconfig"><img src="ios-block-ota.webp" alt="点击安装描述文件"></a></p>
 <p>(1) 使用 iPhone 或者 iPad 上用 <strong>safari 浏览器</strong>打开本页面，点击下面的链接或者上面的橙色带有 “Block OTA” 字样的图片。</p>
@@ -573,23 +579,28 @@
 <p><img src="disable-ios-update-26.webp" alt="disable-ios-update-26"></p>
 <p>“Watch” &gt; “通用” &gt; “软件更新”，效果相同！</p>
 <p><img src="disable-ios-update-27.webp" alt="disable-ios-update-27"></p>
-<h3 id="2-5-关于报错提示"><a href="#2-5-关于报错提示" class="headerlink" title="2.5 关于报错提示"></a>2.5 关于报错提示</h3><blockquote>
+<h3 id="2-5-关于报错提示">2.5 关于报错提示</h3>
+<blockquote>
 <p>现在按照上述安装过期描述文件的步骤操作，不会出现报错了。</p>
 </blockquote>
 <p>由于修改了系统时间，访问网站或者系统可能会弹出各种报错提示，直接忽略，操作完成后恢复时间设置并重启即可恢复正常。</p>
 <p>比如提示：“您的时钟设置不正确”，点击 “显示详细信息”，“访问此网站”。</p>
 <p>比如提示：“无法验证服务器身份”，点击 “取消”。</p>
-<h2 id="3-通过网络屏蔽（不推荐）"><a href="#3-通过网络屏蔽（不推荐）" class="headerlink" title="3. 通过网络屏蔽（不推荐）"></a>3. 通过网络屏蔽（不推荐）</h2><blockquote>
+<h2 id="3-通过网络屏蔽（不推荐）">3. 通过网络屏蔽（不推荐）</h2>
+<blockquote>
 <p>该方法效果稍差，网络环境通常无法控制，Apple 官方提供的地址也有变数，仅供参考 (sysin)。</p>
 </blockquote>
 <p>在上述描述文件有效的情况下直接安装描述文件可以有效的屏蔽更新。即使描述文件过期，也可以通过修改时间来安装。在某些集中管理的环境中，可能需要通过屏蔽特定 URL 来禁用自动检测和下载更新。</p>
-<h3 id="3-1-去除更新标记（红点数字-1）"><a href="#3-1-去除更新标记（红点数字-1）" class="headerlink" title="3.1 去除更新标记（红点数字 1）"></a>3.1 去除更新标记（红点数字 1）</h3><p>通常在 ”Wi-Fi + 充电 “的条件下，系统会自动检测和下载更新，此时在 “设置” ⚙️ &gt; “通用” &gt; “iPhone 存储空间”，找到软件更新文件删除，必要时重启系统，标记即可消失。</p>
+<h3 id="3-1-去除更新标记（红点数字-1）">3.1 去除更新标记（红点数字 1）</h3>
+<p>通常在 ”Wi-Fi + 充电 “的条件下，系统会自动检测和下载更新，此时在 “设置” ⚙️ &gt; “通用” &gt; “iPhone 存储空间”，找到软件更新文件删除，必要时重启系统，标记即可消失。</p>
 <p>打开 “设置” ⚙️ &gt; “通用” &gt; “软件更新” &gt; “自动更新”，打开 “下载 iOS 更新”，关闭 “安装 iOS 更新” ，然后连接 Wi-Fi，连接充电器，软件开始自动下载，此时在 “设置” ⚙️ &gt; “通用” &gt; “iPhone 存储空间”，找到软件更新文件删除，标记即可消失。</p>
 <p>但总有一些顽固的更新标记，一般通过以下方法可以去除：</p>
 <ul>
-<li><p>方法一：退出 iCloud 登录（前往 “设置” &gt; “[您的姓名]” &gt; 退出登录），还原网络设置（可能需要），标记可以去除，重新登录 iCloud</p>
+<li>
+<p>方法一：退出 iCloud 登录（前往 “设置” &gt; “[您的姓名]” &gt; 退出登录），还原网络设置（可能需要），标记可以去除，重新登录 iCloud</p>
 </li>
-<li><p>方法二：“设置” ⚙️ &gt; “通用” &gt; “还原” &gt; “还原所有设置”</p>
+<li>
+<p>方法二：“设置” ⚙️ &gt; “通用” &gt; “还原” &gt; “还原所有设置”</p>
 </li>
 </ul>
 <p><strong>关于 “还原” 的详细说明</strong>：</p>
@@ -597,19 +608,21 @@
 <p>选取一个选项：</p>
 <p><strong>【警告】</strong> 如果选取 “抹掉所有内容和设置” 选项，那么您的所有内容都会被移除。请参阅 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/iphone/iph7a2a9399b/14.0/ios/14.0">抹掉 iPhone</a>。</p>
 <ul>
-<li><p><em>还原所有设置：</em> 所有设置（包括网络设置、键盘词典、主屏幕布局、位置设置、隐私设置和 Apple Pay 卡片）都将移除或还原至默认状态。不会删除数据或媒体。</p>
+<li>
+<p><em>还原所有设置：</em> 所有设置（包括网络设置、键盘词典、主屏幕布局、位置设置、隐私设置和 Apple Pay 卡片）都将移除或还原至默认状态。不会删除数据或媒体。</p>
 </li>
-<li><p><em>还原网络设置：</em> 所有网络设置都会移除。此外，在 “设置” &gt; “通用” &gt; “关于本机” 中分配的设备名称会还原为 “iPhone”，且手动信任的证书（如网站的证书）会变为不受信任。(由配置描述文件或移动设备管理 (MDM) 安装的 VPN 设置会保留)</p>
+<li>
+<p><em>还原网络设置：</em> 所有网络设置都会移除。此外，在 “设置” &gt; “通用” &gt; “关于本机” 中分配的设备名称会还原为 “iPhone”，且手动信任的证书（如网站的证书）会变为不受信任。(由配置描述文件或移动设备管理 (MDM) 安装的 VPN 设置会保留)</p>
 </li>
 </ul>
-<h3 id="3-2-屏蔽更新网址"><a href="#3-2-屏蔽更新网址" class="headerlink" title="3.2 屏蔽更新网址"></a>3.2 屏蔽更新网址</h3><p>在网关设备（比如路由器或者防火墙）上屏蔽 iOS 更新网址，或者是通过写 hosts 的方式填写如下条目：</p>
+<h3 id="3-2-屏蔽更新网址">3.2 屏蔽更新网址</h3>
+<p>在网关设备（比如路由器或者防火墙）上屏蔽 iOS 更新网址，或者是通过写 hosts 的方式填写如下条目：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 mesu.apple.com</span><br><span class="line">127.0.0.1 appldnld.apple.com</span><br><span class="line">127.0.0.1 xp.apple.com</span><br><span class="line">127.0.0.1 gdmf.apple.com</span><br><span class="line">127.0.0.1 ns.itunes.apple.com</span><br><span class="line">127.0.0.1 gg.apple.com</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>具体网关设备配置方法可以咨询一下厂商客服或者自行搜索。</p>
 </blockquote>
 <p>必要时可以考虑屏蔽更多的地址，参看下表。</p>
 <p><strong>iOS 设备软件更新使用的主机和端口列表</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -623,7 +636,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">appldnld.apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://appldnld.apple.com">appldnld.apple.com</a></td>
 <td>80</td>
 <td>TCP</td>
 <td style="text-align:left">仅限 iOS</td>
@@ -631,7 +644,7 @@
 <td style="text-align:left">—</td>
 </tr>
 <tr>
-<td style="text-align:left">gg.apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://gg.apple.com">gg.apple.com</a></td>
 <td>443、80</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -639,7 +652,7 @@
 <td style="text-align:left">是</td>
 </tr>
 <tr>
-<td style="text-align:left">mesu.apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://mesu.apple.com">mesu.apple.com</a></td>
 <td>443、80</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -647,7 +660,7 @@
 <td style="text-align:left">—</td>
 </tr>
 <tr>
-<td style="text-align:left">ns.itunes.apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://ns.itunes.apple.com">ns.itunes.apple.com</a></td>
 <td>443</td>
 <td>TCP</td>
 <td style="text-align:left">仅限 iOS</td>
@@ -655,7 +668,7 @@
 <td style="text-align:left">是</td>
 </tr>
 <tr>
-<td style="text-align:left">updates-http.cdn-apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://updates-http.cdn-apple.com">updates-http.cdn-apple.com</a></td>
 <td>80</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -663,7 +676,7 @@
 <td style="text-align:left">—</td>
 </tr>
 <tr>
-<td style="text-align:left">updates.cdn-apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://updates.cdn-apple.com">updates.cdn-apple.com</a></td>
 <td>443</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -671,7 +684,7 @@
 <td style="text-align:left">—</td>
 </tr>
 <tr>
-<td style="text-align:left">xp.apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://xp.apple.com">xp.apple.com</a></td>
 <td>443</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -679,7 +692,7 @@
 <td style="text-align:left">是</td>
 </tr>
 <tr>
-<td style="text-align:left">gdmf.apple.com</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="http://gdmf.apple.com">gdmf.apple.com</a></td>
 <td>443</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -688,18 +701,32 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="4-禁用-App-Store-自动更新和去除更新标记"><a href="#4-禁用-App-Store-自动更新和去除更新标记" class="headerlink" title="4. 禁用 App Store 自动更新和去除更新标记"></a>4. 禁用 App Store 自动更新和去除更新标记</h2><h3 id="4-1-禁用-App-Store-自动更新"><a href="#4-1-禁用-App-Store-自动更新" class="headerlink" title="4.1 禁用 App Store 自动更新"></a>4.1 禁用 App Store 自动更新</h3><p>“设置” ⚙️ &gt; “App Store”，关闭 “App 更新” 和 “自动下载”，如图：</p>
+<h2 id="4-禁用-App-Store-自动更新和去除更新标记">4. 禁用 App Store 自动更新和去除更新标记</h2>
+<h3 id="4-1-禁用-App-Store-自动更新">4.1 禁用 App Store 自动更新</h3>
+<p>“设置” ⚙️ &gt; “App Store”，关闭 “App 更新” 和 “自动下载”，如图：</p>
 <p><img src="disable-ios-update-30.webp" alt="disable-ios-update-30"></p>
-<h3 id="4-2-禁用-App-Store-更新标记"><a href="#4-2-禁用-App-Store-更新标记" class="headerlink" title="4.2 禁用 App Store 更新标记"></a>4.2 禁用 App Store 更新标记</h3><p>“设置” ⚙️ &gt; “通知” &gt; “App Store”，关闭 “标记”，或者直接关闭 “允许通知”。</p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>相关文章：</p>
+<h3 id="4-2-禁用-App-Store-更新标记">4.2 禁用 App Store 更新标记</h3>
+<p>“设置” ⚙️ &gt; “通知” &gt; “App Store”，关闭 “标记”，或者直接关闭 “允许通知”。</p>
+<h2 id="附录-4">附录</h2>
+<p>相关文章：</p>
 <ul>
-<li><a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a></li>
-<li><a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a></li>
-<li><a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a></li>
-<li><a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a></li>
-<li><a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a></li>
-<li><a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
+<li>
+<a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a>
+</li>
+<li>
+<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a>
+</li>
+<li>
+<a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
 </li>
 </ul>
 
@@ -885,7 +912,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 关闭自动更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%E5%B1%8F%E8%94%BD%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 使用配置描述文件屏蔽更新</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 什么是配置描述文件？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2-%E4%B8%8B%E8%BD%BD%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%EF%BC%88%E6%9C%89%E6%95%88%E6%9C%9F%E5%86%85%E7%9B%B4%E6%8E%A5%E5%B1%8F%E8%94%BD%EF%BC%89"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 下载描述文件（有效期内直接屏蔽）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-3-%E5%88%A0%E9%99%A4%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%EF%BC%88%E6%81%A2%E5%A4%8D%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0%EF%BC%89"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">2.3 删除描述文件（恢复软件更新）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-4-%E5%AE%89%E8%A3%85%E8%BF%87%E6%9C%9F%E7%9A%84%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">2.4 安装过期的描述文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-5-%E5%85%B3%E4%BA%8E%E6%8A%A5%E9%94%99%E6%8F%90%E7%A4%BA"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">2.5 关于报错提示</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E9%80%9A%E8%BF%87%E7%BD%91%E7%BB%9C%E5%B1%8F%E8%94%BD%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 通过网络屏蔽（不推荐）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E5%8E%BB%E9%99%A4%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E7%BA%A2%E7%82%B9%E6%95%B0%E5%AD%97-1%EF%BC%89"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 去除更新标记（红点数字 1）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E5%B1%8F%E8%94%BD%E6%9B%B4%E6%96%B0%E7%BD%91%E5%9D%80"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 屏蔽更新网址</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E7%A6%81%E7%94%A8-App-Store-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%92%8C%E5%8E%BB%E9%99%A4%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 禁用 App Store 自动更新和去除更新标记</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-1-%E7%A6%81%E7%94%A8-App-Store-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">4.1 禁用 App Store 自动更新</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-2-%E7%A6%81%E7%94%A8-App-Store-%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">4.2 禁用 App Store 更新标记</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">附录</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%85%B3%E9%97%AD%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 关闭自动更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%E5%B1%8F%E8%94%BD%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 使用配置描述文件屏蔽更新</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 什么是配置描述文件？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2-%E4%B8%8B%E8%BD%BD%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%EF%BC%88%E6%9C%89%E6%95%88%E6%9C%9F%E5%86%85%E7%9B%B4%E6%8E%A5%E5%B1%8F%E8%94%BD%EF%BC%89"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 下载描述文件（有效期内直接屏蔽）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-3-%E5%88%A0%E9%99%A4%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6%EF%BC%88%E6%81%A2%E5%A4%8D%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0%EF%BC%89"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">2.3 删除描述文件（恢复软件更新）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-4-%E5%AE%89%E8%A3%85%E8%BF%87%E6%9C%9F%E7%9A%84%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">2.4 安装过期的描述文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-5-%E5%85%B3%E4%BA%8E%E6%8A%A5%E9%94%99%E6%8F%90%E7%A4%BA"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">2.5 关于报错提示</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E9%80%9A%E8%BF%87%E7%BD%91%E7%BB%9C%E5%B1%8F%E8%94%BD%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 通过网络屏蔽（不推荐）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E5%8E%BB%E9%99%A4%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E7%BA%A2%E7%82%B9%E6%95%B0%E5%AD%97-1%EF%BC%89"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 去除更新标记（红点数字 1）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E5%B1%8F%E8%94%BD%E6%9B%B4%E6%96%B0%E7%BD%91%E5%9D%80"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 屏蔽更新网址</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E7%A6%81%E7%94%A8-App-Store-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%92%8C%E5%8E%BB%E9%99%A4%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 禁用 App Store 自动更新和去除更新标记</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-1-%E7%A6%81%E7%94%A8-App-Store-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">4.1 禁用 App Store 自动更新</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-2-%E7%A6%81%E7%94%A8-App-Store-%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">4.2 禁用 App Store 更新标记</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95-4"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">附录</span></a></li></ol>
         
         </div>
       </aside>

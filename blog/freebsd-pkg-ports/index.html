@@ -490,18 +490,24 @@
 <p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>名词说明：在英文文档中有 packages、package 和 ports、port 复数单数形式同时出现，官方中文文档中也有两种形式，所以两者是等价的。本文档试图将 Packages 和 Ports 作为专有名词来理解，所以统一使用复数形式，相关系统目录和网站目录都是默认使用了复数形式。</p>
-<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>FreeBSD 与丰富的系统工具集合捆绑在一起作为基本系统的一部分。此外 FreeBSD 提供了两种用于安装第三方软件的互补技术：FreeBSD Ports Collection 用于从源代码安装以及 Packages 用于从预先构建的二进制文件安装。这两种方法都可用于从本地媒体或网络安装软件。</p>
+<h2 id="1-概述">1. 概述</h2>
+<p>FreeBSD 与丰富的系统工具集合捆绑在一起作为基本系统的一部分。此外 FreeBSD 提供了两种用于安装第三方软件的互补技术：FreeBSD Ports Collection 用于从源代码安装以及 Packages 用于从预先构建的二进制文件安装。这两种方法都可用于从本地媒体或网络安装软件。</p>
 <p>在 UNIX® 系统上安装第三方软件的典型步骤包括：</p>
 <ul>
-<li><p>查找并下载可能以源代码格式或二进制形式分发的软件。</p>
+<li>
+<p>查找并下载可能以源代码格式或二进制形式分发的软件。</p>
 </li>
-<li><p>从其分发格式中解压缩软件。这通常是使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=compress&amp;sektion=1&amp;format=html">compress(1)</a>, <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=gzip&amp;sektion=1&amp;format=html">gzip(1)</a>, <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=bzip2&amp;sektion=1&amp;format=html">bzip2(1)</a> 或者 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=xz&amp;sektion=1&amp;format=html">xz(1)</a> 等程序压缩的 tarball。</p>
+<li>
+<p>从其分发格式中解压缩软件。这通常是使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=compress&amp;sektion=1&amp;format=html">compress(1)</a>, <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=gzip&amp;sektion=1&amp;format=html">gzip(1)</a>, <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=bzip2&amp;sektion=1&amp;format=html">bzip2(1)</a> 或者 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=xz&amp;sektion=1&amp;format=html">xz(1)</a> 等程序压缩的 tarball。</p>
 </li>
-<li><p>在 INSTALL、README 或 doc/ 子目录中的某个文件中找到文档 并阅读有关如何安装该软件的信息。</p>
+<li>
+<p>在 INSTALL、README 或 doc/ 子目录中的某个文件中找到文档 并阅读有关如何安装该软件的信息。</p>
 </li>
-<li><p>如果软件是以源格式分发的 请编译它。这可能涉及编辑 Makefile 或运行配置脚本。</p>
+<li>
+<p>如果软件是以源格式分发的 请编译它。这可能涉及编辑 Makefile 或运行配置脚本。</p>
 </li>
-<li><p>测试并安装软件。</p>
+<li>
+<p>测试并安装软件。</p>
 </li>
 </ul>
 <p>FreeBSD Ports 是一组文件旨在自动化从源代码编译应用程序的过程。组成 Ports 的文件包含自动下载、提取、修补、编译和安装应用程序所需的所有信息 (sysin)。</p>
@@ -513,27 +519,36 @@
 <p>虽然这两种技术相似，但 Packages 和 Ports 各有其优势。请根据需要选择符合特定应用程序要求的技术来安装。</p>
 <p>Packages 优势</p>
 <ul>
-<li><p>压缩包 tarball 通常小于包含应用程序源代码的压缩 tarball。</p>
+<li>
+<p>压缩包 tarball 通常小于包含应用程序源代码的压缩 tarball。</p>
 </li>
-<li><p>Packages 不需要编译时间。对于大型应用程序 例如 Mozilla、KDE 或 GNOME，这在速度较慢的系统上可能很重要。</p>
+<li>
+<p>Packages 不需要编译时间。对于大型应用程序 例如 Mozilla、KDE 或 GNOME，这在速度较慢的系统上可能很重要。</p>
 </li>
-<li><p>Packages 不需要对在 FreeBSD 上编译软件所涉及的过程有任何了解。</p>
+<li>
+<p>Packages 不需要对在 FreeBSD 上编译软件所涉及的过程有任何了解。</p>
 </li>
 </ul>
 <p>Ports 优势</p>
 <ul>
-<li><p>Packages 通常使用保守的选项编译，因为它们必须在最大数量的系统上运行。通过从 Ports 编译，可以更改编译选项。</p>
+<li>
+<p>Packages 通常使用保守的选项编译，因为它们必须在最大数量的系统上运行。通过从 Ports 编译，可以更改编译选项。</p>
 </li>
-<li><p>某些应用程序具有与安装哪些功能相关的编译时选项。例如，可以使用各种不同的内置选项配置 Apache。在某些情况下，同一应用程序将存在多个 Packages 以指定某些设置。例如 Ghostscript 可以作为 ghostscript Packages 和 ghostscript-nox11 Packages 使用，具体取决于是否安装了 Xorg。如果应用程序有一个或两个以上不同的编译时选项，则不可能快速创建多个 Packages。</p>
+<li>
+<p>某些应用程序具有与安装哪些功能相关的编译时选项。例如，可以使用各种不同的内置选项配置 Apache。在某些情况下，同一应用程序将存在多个 Packages 以指定某些设置。例如 Ghostscript 可以作为 ghostscript Packages 和 ghostscript-nox11 Packages 使用，具体取决于是否安装了 Xorg。如果应用程序有一个或两个以上不同的编译时选项，则不可能快速创建多个 Packages。</p>
 </li>
-<li><p>某些软件的许可条件禁止二进制分发。此类软件必须作为源代码分发，最终用户必须对其进行编译。</p>
+<li>
+<p>某些软件的许可条件禁止二进制分发。此类软件必须作为源代码分发，最终用户必须对其进行编译。</p>
 </li>
-<li><p>有些人不信任二进制发行版, 或者更喜欢通读源代码以查找潜在问题。</p>
+<li>
+<p>有些人不信任二进制发行版, 或者更喜欢通读源代码以查找潜在问题。</p>
 </li>
-<li><p>需要源代码才能应用自定义补丁。</p>
+<li>
+<p>需要源代码才能应用自定义补丁。</p>
 </li>
 </ul>
-<h2 id="2-查找（搜索）软件"><a href="#2-查找（搜索）软件" class="headerlink" title="2. 查找（搜索）软件"></a>2. 查找（搜索）软件</h2><p>Packages</p>
+<h2 id="2-查找（搜索）软件">2. 查找（搜索）软件</h2>
+<p>Packages</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg search &lt;pkg-name&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg search -o  &lt;pkg-name&gt; #origin 列出每个包的来源</span><br></pre></td></tr></table></figure>
 <p>查看安装到哪里了</p>
@@ -542,8 +557,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make search name=lsof</span></span><br></pre></td></tr></table></figure>
 <p>显示更少的信息 请使用 <code>quicksearch</code> 功能:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make quicksearch name=lsof</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-pkg-二进制包管理"><a href="#3-pkg-二进制包管理" class="headerlink" title="3. pkg 二进制包管理"></a>3. pkg 二进制包管理</h2><p>pkg 是传统 FreeBSD 包管理工具的下一代替代品，提供了许多使处理二进制包更快、更容易的功能。对于希望只使用来自 FreeBSD 镜像的预构建二进制包的站点 (sysin)，使用 pkg 管理包就足够了。但是对于那些从源代码构建或使用自己的存储库的站点，将需要一个单独的 Ports 管理工具。由于 pkg 仅适用于二进制包，因此它不能替代此类工具。这些工具可用于从二进制包和 Ports Collection 安装软件，而 pkg 仅安装二进制包。</p>
-<h3 id="3-1-启动-pkg"><a href="#3-1-启动-pkg" class="headerlink" title="3.1 启动 pkg"></a>3.1 启动 pkg</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pkg install git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果首次使用 pkg 会提示安装</span></span><br><span class="line">The package management tool is not yet installed on your system.</span><br><span class="line">Do you want to fetch and install it now? [y/N]:</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">该过程需要联网下载</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-pkg-二进制包管理">3. pkg 二进制包管理</h2>
+<p>pkg 是传统 FreeBSD 包管理工具的下一代替代品，提供了许多使处理二进制包更快、更容易的功能。对于希望只使用来自 FreeBSD 镜像的预构建二进制包的站点 (sysin)，使用 pkg 管理包就足够了。但是对于那些从源代码构建或使用自己的存储库的站点，将需要一个单独的 Ports 管理工具。由于 pkg 仅适用于二进制包，因此它不能替代此类工具。这些工具可用于从二进制包和 Ports Collection 安装软件，而 pkg 仅安装二进制包。</p>
+<h3 id="3-1-启动-pkg">3.1 启动 pkg</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pkg install git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果首次使用 pkg 会提示安装</span></span><br><span class="line">The package management tool is not yet installed on your system.</span><br><span class="line">Do you want to fetch and install it now? [y/N]:</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">该过程需要联网下载</span></span><br></pre></td></tr></table></figure>
 <p>如果首次使用 pkg 命令，会提示初始化，也可以手动启动初始化过程。</p>
 <p>FreeBSD 10.<em>X</em>. 及以上版本按如下两种方式开始使用 pkg：</p>
 <p>直接执行命令：</p>
@@ -554,14 +571,17 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg2ng</span></span><br></pre></td></tr></table></figure>
 <p>使用帮助：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">help</span> install</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">man pkg-install</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-2-Quarterly（季度）和-Latest（最新）分支"><a href="#3-2-Quarterly（季度）和-Latest（最新）分支" class="headerlink" title="3.2 Quarterly（季度）和 Latest（最新）分支"></a>3.2 Quarterly（季度）和 Latest（最新）分支</h3><p><code>Quarterly</code> 分支为用户提供了更可预测和更稳定的 Ports 和 Packages 安装和升级体验。这基本上是通过只允许非功能更新来完成的。季度分支旨在接收安全修复（可能是版本更新或提交的反向移植）、错误修复和 Ports 合规性或框架更改。Quarterly 分支在每个（年度）季度的 1 月、4 月、7 月和 10 月开始时从 HEAD 中删除。分支根据创建的年份（YYYY）和季度（Q1-4）命名。例如 2016 年 1 月创建的季度分支命名为 2016Q1。而 <code>Latest</code> 分支为用户提供最新版本的软件包。要从季度分支切换到最新分支请运行以下命令：</p>
+<h3 id="3-2-Quarterly（季度）和-Latest（最新）分支">3.2 Quarterly（季度）和 Latest（最新）分支</h3>
+<p><code>Quarterly</code> 分支为用户提供了更可预测和更稳定的 Ports 和 Packages 安装和升级体验。这基本上是通过只允许非功能更新来完成的。季度分支旨在接收安全修复（可能是版本更新或提交的反向移植）、错误修复和 Ports 合规性或框架更改。Quarterly 分支在每个（年度）季度的 1 月、4 月、7 月和 10 月开始时从 HEAD 中删除。分支根据创建的年份（YYYY）和季度（Q1-4）命名。例如 2016 年 1 月创建的季度分支命名为 2016Q1。而 <code>Latest</code> 分支为用户提供最新版本的软件包。要从季度分支切换到最新分支请运行以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">mkdir</span> -p /usr/local/etc/pkg/repos</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cp</span> /etc/pkg/FreeBSD.conf /usr/local/etc/pkg/repos/FreeBSD.conf</span></span><br></pre></td></tr></table></figure>
 <p>编辑 <code>/usr/local/etc/pkg/repos/FreeBSD.conf</code> 在  <code>url:</code>  这一行 将 <em>quarterly</em> 修改为 <em>latest</em>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FreeBSD: &#123;</span><br><span class="line">  url: &quot;pkg+http://pkg.FreeBSD.org/$&#123;ABI&#125;/latest&quot;,</span><br><span class="line">  mirror_type: &quot;srv&quot;,</span><br><span class="line">  signature_type: &quot;fingerprints&quot;,</span><br><span class="line">  fingerprints: &quot;/usr/share/keys/pkg&quot;,</span><br><span class="line">  enabled: yes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>更新 latest repository metadata：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg update -f</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-3-获取-pkg-信息"><a href="#3-3-获取-pkg-信息" class="headerlink" title="3.3 获取 pkg 信息"></a>3.3 获取 pkg 信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg info pkg</span></span><br><span class="line">pkg-1.1.4_1</span><br></pre></td></tr></table></figure>
-<h3 id="3-4-安装和删除"><a href="#3-4-安装和删除" class="headerlink" title="3.4 安装和删除"></a>3.4 安装和删除</h3><p>安装 Packages：</p>
+<h3 id="3-3-获取-pkg-信息">3.3 获取 pkg 信息</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg info pkg</span></span><br><span class="line">pkg-1.1.4_1</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-安装和删除">3.4 安装和删除</h3>
+<p>安装 Packages：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg install packagename</span></span><br></pre></td></tr></table></figure>
 <p>示例，安装 curl:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg install curl</span></span><br><span class="line">Updating repository catalogue</span><br><span class="line">/usr/local/tmp/All/curl-7.31.0_1.txz          100% of 1181 kB 1380 kBps 00m01s</span><br><span class="line"></span><br><span class="line">/usr/local/tmp/All/ca_root_nss-3.15.1_1.txz   100% of  288 kB 1700 kBps 00m00s</span><br><span class="line"></span><br><span class="line">Updating repository catalogue</span><br><span class="line">The following 2 packages will be installed:</span><br><span class="line"></span><br><span class="line">-     Installing ca_root_nss: 3.15.1_1</span><br><span class="line">    -     Installing curl: 7.31.0_1</span><br><span class="line"></span><br><span class="line">The installation will require 3 MB more space</span><br><span class="line"></span><br><span class="line">0 B to be downloaded</span><br><span class="line"></span><br><span class="line">Proceed with installing packages [y/N]: y</span><br><span class="line">Checking integrity... done</span><br><span class="line">[1/2] Installing ca_root_nss-3.15.1_1... done</span><br><span class="line">[2/2] Installing curl-7.31.0_1... done</span><br><span class="line">Cleaning up cache files...Done</span><br></pre></td></tr></table></figure>
@@ -570,14 +590,18 @@
 <blockquote>
 <p><code>pkg remove</code> 等价，常见的软件包管理工具都使用 remove 这个词汇，如 yum、apt 和 brew。</p>
 </blockquote>
-<h3 id="3-5-升级已经安装的-Packages"><a href="#3-5-升级已经安装的-Packages" class="headerlink" title="3.5 升级已经安装的 Packages"></a>3.5 升级已经安装的 Packages</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg upgrade</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-6-对已经安装的-Packages-进行审计（检查是否有安全漏洞）"><a href="#3-6-对已经安装的-Packages-进行审计（检查是否有安全漏洞）" class="headerlink" title="3.6 对已经安装的 Packages 进行审计（检查是否有安全漏洞）"></a>3.6 对已经安装的 Packages 进行审计（检查是否有安全漏洞）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg audit -F</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-7-自动移除不在使用的-Packages"><a href="#3-7-自动移除不在使用的-Packages" class="headerlink" title="3.7 自动移除不在使用的 Packages"></a>3.7 自动移除不在使用的 Packages</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg autoremove</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-5-升级已经安装的-Packages">3.5 升级已经安装的 Packages</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg upgrade</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-6-对已经安装的-Packages-进行审计（检查是否有安全漏洞）">3.6 对已经安装的 Packages 进行审计（检查是否有安全漏洞）</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg audit -F</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-7-自动移除不在使用的-Packages">3.7 自动移除不在使用的 Packages</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg autoremove</span></span><br></pre></td></tr></table></figure>
 <p>作为依赖项安装的 Packages 称为 <em>automatic</em> Packages。非自动 Packages，即明确安装 的Packages 不是作为对另一个 Packages 的依赖项，可以使用以下方法列出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg prime-list</span></span><br><span class="line">nginx</span><br><span class="line">openvpn</span><br><span class="line">sudo</span><br></pre></td></tr></table></figure>
 <p><code>pkg prime-list</code> 是定义在 /usr/local/etc/pkg.conf 中的命令别名，其他命令如 <code>pkg prime-origins</code> 用于获取上述列表的源 Ports 目录：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg prime-origins</span></span><br><span class="line">www/nginx</span><br><span class="line">security/openvpn</span><br><span class="line">security/sudo</span><br></pre></td></tr></table></figure>
-<h3 id="3-8-恢复-Packages-Database"><a href="#3-8-恢复-Packages-Database" class="headerlink" title="3.8 恢复 Packages Database"></a>3.8 恢复 Packages Database</h3><p>与传统的包管理系统不同 pkg 有自己的包数据库备份机制。默认情况下此功能启用。</p>
+<h3 id="3-8-恢复-Packages-Database">3.8 恢复 Packages Database</h3>
+<p>与传统的包管理系统不同 pkg 有自己的包数据库备份机制。默认情况下此功能启用。</p>
 <blockquote>
 <p>如果需要禁用该功能 在  <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=periodic.conf&amp;sektion=5&amp;format=html">periodic.conf</a>  中设置 <code>daily_backup_pkgdb_enable=&quot;NO&quot;</code></p>
 </blockquote>
@@ -585,47 +609,59 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg backup -r /path/to/pkg.sql</span></span><br></pre></td></tr></table></figure>
 <p>手动备份 pkg database:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg backup -d /path/to/pkg.sql</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-9-删除陈旧的-Packages"><a href="#3-9-删除陈旧的-Packages" class="headerlink" title="3.9 删除陈旧的 Packages"></a>3.9 删除陈旧的 Packages</h3><p>默认情况下 pkg 将二进制包存储在 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=pkg.conf&amp;sektion=5&amp;format=html">pkg.conf</a> 定义的  <code>PKG_CACHEDIR</code> 中。仅保留最新安装的软件包的副本。旧版本的 pkg 保留了所有以前的软件包。要删除这些过时的二进制包，请运行：</p>
+<h3 id="3-9-删除陈旧的-Packages">3.9 删除陈旧的 Packages</h3>
+<p>默认情况下 pkg 将二进制包存储在 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=pkg.conf&amp;sektion=5&amp;format=html">pkg.conf</a> 定义的  <code>PKG_CACHEDIR</code> 中。仅保留最新安装的软件包的副本。旧版本的 pkg 保留了所有以前的软件包。要删除这些过时的二进制包，请运行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg clean</span></span><br></pre></td></tr></table></figure>
 <p>清理整个缓存目录：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg clean -a</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-10-修改-Packages-元数据（Metadata）"><a href="#3-10-修改-Packages-元数据（Metadata）" class="headerlink" title="3.10 修改 Packages 元数据（Metadata）"></a>3.10 修改 Packages 元数据（Metadata）</h3><p>FreeBSD Ports Collection 中的软件可以进行主要版本号更改 (sysin)。为了解决这个问题 pkg 有一个内置命令来更新包来源。例如，如果 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php5/pkg-descr">lang/php5</a> 重命名为 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php53/pkg-descr">lang/php53</a> 这样 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php5/pkg-descr">lang/php5</a> 现在可以代表版本 <code>5.4</code>。</p>
+<h3 id="3-10-修改-Packages-元数据（Metadata）">3.10 修改 Packages 元数据（Metadata）</h3>
+<p>FreeBSD Ports Collection 中的软件可以进行主要版本号更改 (sysin)。为了解决这个问题 pkg 有一个内置命令来更新包来源。例如，如果 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php5/pkg-descr">lang/php5</a> 重命名为 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php53/pkg-descr">lang/php53</a> 这样 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/php5/pkg-descr">lang/php5</a> 现在可以代表版本 <code>5.4</code>。</p>
 <p>示例:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">set</span> -o lang/php5:lang/php53</span></span><br></pre></td></tr></table></figure>
 <p>另外一个例子，升级 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/ruby18/pkg-descr">lang/ruby18</a> 到 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/lang/ruby19/pkg-descr">lang/ruby19</a>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">set</span> -o lang/ruby18:lang/ruby19</span></span><br></pre></td></tr></table></figure>
 <p>作为最后一个示例，将 libglut 共享库的来源从 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/graphics/libglut/pkg-descr">graphics/libglut</a> 更改为 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/graphics/freeglut/pkg-descr">graphics /freeglut</a> 运行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg <span class="built_in">set</span> -o graphics/libglut:graphics/freeglut</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-Ports-Collection"><a href="#4-Ports-Collection" class="headerlink" title="4. Ports Collection"></a>4. Ports Collection</h2><p>Ports Collection 是一组 Makefile、补丁和描述文件。这些文件的每一组都用于在 FreeBSD 上编译和安装一个单独的应用程序，称为 Ports。</p>
+<h2 id="4-Ports-Collection">4. Ports Collection</h2>
+<p>Ports Collection 是一组 Makefile、补丁和描述文件。这些文件的每一组都用于在 FreeBSD 上编译和安装一个单独的应用程序，称为 Ports。</p>
 <p>默认情况下 Ports Collection 本身存储在 <code>/usr/ports</code> 的子目录中。</p>
 <blockquote>
 <p>在安装和使用 Ports Collection 之前，请注意 将 Ports Collection 与通过 pkg 提供的二进制包结合使用来安装软件通常是不明智的。默认情况下 pkg 跟踪 Ports 树的季度分支版本，而不是 HEAD。与季度分支版本中的对应项相比 HEAD 中的 Ports 的依赖项可能不同，这可能导致 pkg 安装的依赖项与 Ports Collection 中的依赖项之间发生冲突。如果必须将 Ports Collection 和 pkg 结合使用，那么请确保您的 Ports Collection 和 pkg 在 Ports 树的同一分支版本上。</p>
 </blockquote>
 <p>Ports Collection 包含软件类别的目录。每个类别内都有用于各个应用程序的子目录。每个应用程序子目录都包含一组文件，这些文件告诉 FreeBSD 如何编译和安装该程序，称为 Ports 框架（备注：英文 Ports skeleton）。每个 Ports 框架包括以下文件和目录：</p>
 <ul>
-<li><p>Makefile：包含指定应如何编译应用程序及其组件应安装在何处的语句。</p>
+<li>
+<p>Makefile：包含指定应如何编译应用程序及其组件应安装在何处的语句。</p>
 </li>
-<li><p>distinfo：包含必须下载以构建 Ports 的文件的名称和校验和。</p>
+<li>
+<p>distinfo：包含必须下载以构建 Ports 的文件的名称和校验和。</p>
 </li>
-<li><p>files/：该目录包含程序在 FreeBSD 上编译和安装所需的任何补丁。该目录还可能包含用于构建 Ports 的其他文件。</p>
+<li>
+<p>files/：该目录包含程序在 FreeBSD 上编译和安装所需的任何补丁。该目录还可能包含用于构建 Ports 的其他文件。</p>
 </li>
-<li><p>pkg-descr：提供更详细的程序描述。</p>
+<li>
+<p>pkg-descr：提供更详细的程序描述。</p>
 </li>
-<li><p>pkg-plist：Ports 将安装的所有文件的列表。它还告诉 Ports 系统在卸载时要删除哪些文件。</p>
+<li>
+<p>pkg-plist：Ports 将安装的所有文件的列表。它还告诉 Ports 系统在卸载时要删除哪些文件。</p>
 </li>
 </ul>
 <p>一些 Ports 包括 pkg-message 或其他文件来处理特殊情况。有关这些文件的更多详细信息以及 Ports 的一般信息 请参阅 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/en/books/porters-handbook/">FreeBSD Porter’s Handbook</a>。</p>
 <p>该 Ports 不包括实际的源代码 也称为 distfile。构建 Ports 的提取部分会自动将下载的源保存到 /usr/ports/distfiles。</p>
-<h3 id="4-1-安装-Ports-Collection"><a href="#4-1-安装-Ports-Collection" class="headerlink" title="4.1 安装 Ports Collection"></a>4.1 安装 Ports Collection</h3><p><strong>步骤: Portsnap 方法</strong>：</p>
+<h3 id="4-1-安装-Ports-Collection">4.1 安装 Ports Collection</h3>
+<p><strong>步骤: Portsnap 方法</strong>：</p>
 <p>FreeBSD base system 包含 Portsnap。</p>
 <ol>
-<li><p>下载 Ports Collection 的压缩 snapshot 到 /var/db/portsnap:</p>
+<li>
+<p>下载 Ports Collection 的压缩 snapshot 到 /var/db/portsnap:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap fetch</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>解压 snapshot 到 /usr/ports:</p>
+<li>
+<p>解压 snapshot 到 /usr/ports:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap extract</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>上面是首次使用的步骤，也可以根据需要更新 /usr/ports 命令如下：</p>
+<li>
+<p>上面是首次使用的步骤，也可以根据需要更新 /usr/ports 命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap fetch</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap update</span></span><br></pre></td></tr></table></figure>
 <p>这两个命令可以连续执行如下:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsnap fetch update</span></span><br></pre></td></tr></table></figure>
@@ -633,25 +669,31 @@
 </ol>
 <p><strong>步骤: Git 方法</strong>：</p>
 <ol>
-<li><p>使用 Ports 安装 git：</p>
+<li>
+<p>使用 Ports 安装 git：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/devel/git</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install clean</span></span><br></pre></td></tr></table></figure>
 <p>使用 pkg 安装 git：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg install git</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>签出 Ports tree 的 HEAD 分支的副本</p>
+<li>
+<p>签出 Ports tree 的 HEAD 分支的副本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git <span class="built_in">clone</span> https://git.FreeBSD.org/ports.git /usr/ports</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>或者签出季度分支:</p>
+<li>
+<p>或者签出季度分支:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git <span class="built_in">clone</span> https://git.FreeBSD.org/ports.git -b 2020Q3 /usr/ports</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>根据需要在初始 Git 签出后更新 /usr/ports：</p>
+<li>
+<p>根据需要在初始 Git 签出后更新 /usr/ports：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git -C /usr/ports pull</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>根据需要将 /usr/ports 切换到不同的季度分支：</p>
+<li>
+<p>根据需要将 /usr/ports 切换到不同的季度分支：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git -C /usr/ports switch 2020Q4</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="4-2-安装-Ports"><a href="#4-2-安装-Ports" class="headerlink" title="4.2 安装 Ports"></a>4.2 安装 Ports</h3><p>使用 Ports Collection 假定 Internet 连接正常。它还需要超级用户权限。</p>
+<h3 id="4-2-安装-Ports">4.2 安装 Ports</h3>
+<p>使用 Ports Collection 假定 Internet 连接正常。它还需要超级用户权限。</p>
 <p>要编译和安装 Ports 请切换到要安装的 Ports 的目录 然后在提示符下键入 <code>make install</code>。消息将指示进度：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/sysutils/lsof</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install</span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt; lsof_4.88D.freebsd.tar.gz doesn<span class="string">&#x27;t seem to exist in /usr/ports/distfiles/.</span></span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash"><span class="string">&gt; Attempting to fetch from ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/.</span></span></span><br><span class="line">===&gt;  Extracting for lsof-4.88</span><br><span class="line">...</span><br><span class="line">[extraction output snipped]</span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash"><span class="string">&gt; Checksum OK for lsof_4.88D.freebsd.tar.gz.</span></span></span><br><span class="line">===&gt;  Patching for lsof-4.88.d,8</span><br><span class="line">===&gt;  Applying FreeBSD patches for lsof-4.88.d,8</span><br><span class="line">===&gt;  Configuring for lsof-4.88.d,8</span><br><span class="line">...</span><br><span class="line">[configure output snipped]</span><br><span class="line">...</span><br><span class="line">===&gt;  Building for lsof-4.88.d,8</span><br><span class="line">...</span><br><span class="line">[compilation output snipped]</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">===&gt;  Installing for lsof-4.88.d,8</span><br><span class="line">...</span><br><span class="line">[installation output snipped]</span><br><span class="line">...</span><br><span class="line">===&gt;   Generating temporary packing list</span><br><span class="line">===&gt;   Compressing manual pages for lsof-4.88.d,8</span><br><span class="line">===&gt;   Registering installation for lsof-4.88.d,8</span><br><span class="line">===&gt;  SECURITY NOTE:</span><br><span class="line">-   This port has installed the following binaries which execute with</span><br><span class="line">-   increased privileges.</span><br><span class="line">/usr/local/sbin/lsof</span><br><span class="line"><span class="meta prompt_">#</span></span><br></pre></td></tr></table></figure>
 <p>由于 <code>lsof</code> 是一个以更高权限运行的程序，因此在安装时会显示安全警告。安装完成后将返回提示。</p>
@@ -659,7 +701,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make clean</span></span><br><span class="line">===&gt;  Cleaning for lsof-88.d,8</span><br><span class="line"><span class="meta prompt_">#</span></span><br></pre></td></tr></table></figure>
 <p>直接合并成一条命令执行即可：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install clean lsof</span><br></pre></td></tr></table></figure>
-<h3 id="4-3-自定义-Ports-安装"><a href="#4-3-自定义-Ports-安装" class="headerlink" title="4.3 自定义 Ports 安装"></a>4.3 自定义 Ports 安装</h3><p>某些 Ports 提供构建选项，可用于启用或禁用应用程序组件、提供安全选项或允许其他自定义。示例包括 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/www/firefox/pkg-descr">www/firefox</a>、<a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/security/gpgme/pkg-descr">security/gpgme</a> 和 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/mail/sylpheed-claws/pkg-descr">mail/sylpheed-claws</a>。如果 Ports 依赖于具有可配置选项的其他 Ports 它可能会暂停几次以供用户交互，因为默认行为是提示用户从菜单中选择选项。为了避免这种情况并批量完成所有配置，请在 Ports 框架内运行 <code>make config-recursive</code>。然后 运行 <code>make install [clean]</code> 来编译和安装 ports。</p>
+<h3 id="4-3-自定义-Ports-安装">4.3 自定义 Ports 安装</h3>
+<p>某些 Ports 提供构建选项，可用于启用或禁用应用程序组件、提供安全选项或允许其他自定义。示例包括 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/www/firefox/pkg-descr">www/firefox</a>、<a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/security/gpgme/pkg-descr">security/gpgme</a> 和 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/mail/sylpheed-claws/pkg-descr">mail/sylpheed-claws</a>。如果 Ports 依赖于具有可配置选项的其他 Ports 它可能会暂停几次以供用户交互，因为默认行为是提示用户从菜单中选择选项。为了避免这种情况并批量完成所有配置，请在 Ports 框架内运行 <code>make config-recursive</code>。然后 运行 <code>make install [clean]</code> 来编译和安装 ports。</p>
 <blockquote>
 <p>使用 <code>config-recursive</code> 时要配置的 Ports 列表由 <code>all-depends-list</code> 目标收集。建议运行 <code>make config-recursive</code> 直到定义了所有依赖 Ports 选项 并且不再出现 Ports 选项屏幕，以确保所有依赖选项都已配置。</p>
 </blockquote>
@@ -676,14 +719,18 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make WRKDIRPREFIX=../ports PREFIX=../local install</span></span><br></pre></td></tr></table></figure>
 <p>将两者结合。</p>
 <p>这些也可以设置为环境变量。有关如何设置环境变量的说明 请参阅 shell 的手册页。</p>
-<h3 id="4-4-移除安装的-Ports"><a href="#4-4-移除安装的-Ports" class="headerlink" title="4.4 移除安装的 Ports"></a>4.4 移除安装的 Ports</h3><p>安装的 Ports 可以使用 <code>pkg delete</code> 来删除 也可以在 Ports 目录下执行 <code>make deinstall</code> 命令:</p>
+<h3 id="4-4-移除安装的-Ports">4.4 移除安装的 Ports</h3>
+<p>安装的 Ports 可以使用 <code>pkg delete</code> 来删除 也可以在 Ports 目录下执行 <code>make deinstall</code> 命令:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/sysutils/lsof</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make deinstall</span></span><br><span class="line">===&gt;  Deinstalling for sysutils/lsof</span><br><span class="line">===&gt;   Deinstalling</span><br><span class="line">Deinstallation has been requested for the following 1 packages:</span><br><span class="line"></span><br><span class="line"> lsof-4.88.d,8</span><br><span class="line"></span><br><span class="line">The deinstallation will free 229 kB</span><br><span class="line">[1/1] Deleting lsof-4.88.d,8... done</span><br></pre></td></tr></table></figure>
-<h3 id="4-5-升级-Ports"><a href="#4-5-升级-Ports" class="headerlink" title="4.5 升级 Ports"></a>4.5 升级 Ports</h3><p>升级 Ports 前请先更新 Ports tree 参看上述 “安装 Ports Collection” 部分。FreeBSD 10 及以上版本使用 pkg 命令列出已经安装过期 Ports:</p>
+<h3 id="4-5-升级-Ports">4.5 升级 Ports</h3>
+<p>升级 Ports 前请先更新 Ports tree 参看上述 “安装 Ports Collection” 部分。FreeBSD 10 及以上版本使用 pkg 命令列出已经安装过期 Ports:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg version -l <span class="string">&quot;&lt;&quot;</span></span></span><br></pre></td></tr></table></figure>
 <p>FreeBSD 9.<em>X</em> 及以下版本使用以下命令出列已经安装的过期 Ports：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pkg_version -l <span class="string">&quot;&lt;&quot;</span></span></span><br></pre></td></tr></table></figure>
-<h4 id="4-5-1-升级和管理-Ports-的工具"><a href="#4-5-1-升级和管理-Ports-的工具" class="headerlink" title="4.5.1 升级和管理 Ports 的工具"></a>4.5.1 升级和管理 Ports 的工具</h4><p>过去大多数安装使用 Portmaster 或 Portupgrade。Synth 是一种较新的替代方案。</p>
-<h4 id="4-5-2-使用-Portmaster-升级-Ports"><a href="#4-5-2-使用-Portmaster-升级-Ports" class="headerlink" title="4.5.2 使用 Portmaster 升级 Ports"></a>4.5.2 使用 Portmaster 升级 Ports</h4><p><a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portmaster/pkg-descr">ports-mgmt/portmaster</a> 是一个非常小的实用程序，用于升级已安装的 ports。它旨在使用随 FreeBSD 基本系统安装的工具，而不依赖于其他 ports 或数据库。将此实用程序安装为 ports：</p>
+<h4 id="4-5-1-升级和管理-Ports-的工具">4.5.1 升级和管理 Ports 的工具</h4>
+<p>过去大多数安装使用 Portmaster 或 Portupgrade。Synth 是一种较新的替代方案。</p>
+<h4 id="4-5-2-使用-Portmaster-升级-Ports">4.5.2 使用 Portmaster 升级 Ports</h4>
+<p><a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portmaster/pkg-descr">ports-mgmt/portmaster</a> 是一个非常小的实用程序，用于升级已安装的 ports。它旨在使用随 FreeBSD 基本系统安装的工具，而不依赖于其他 ports 或数据库。将此实用程序安装为 ports：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/ports-mgmt/portmaster</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install clean</span></span><br></pre></td></tr></table></figure>
 <p>Portmaster 定义了四类 Ports:</p>
 <ul>
@@ -704,7 +751,8 @@
 <p>Portmaster 还可用于在系统上安装新 ports，在构建和安装新 Ports 之前升级所有依赖项。要使用此功能，请在 Ports Collection 中指定 Ports 的位置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portmaster shells/bash</span></span><br></pre></td></tr></table></figure>
 <p>有关 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portmaster/pkg-descr">ports-mgmt/portmaster</a> 的更多信息可以在其 pkg-descr 中找到。</p>
-<h4 id="4-5-3-使用-Portupgrade-升级-Ports"><a href="#4-5-3-使用-Portupgrade-升级-Ports" class="headerlink" title="4.5.3 使用 Portupgrade 升级 Ports"></a>4.5.3 使用 Portupgrade 升级 Ports</h4><p><a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portupgrade/pkg-descr">ports-mgmt/portupgrade</a> 是另一个可用于升级 Ports 的实用程序。它安装了一套可用于管理 Ports 的应用程序。但是它依赖于 Ruby。安装此 ports：</p>
+<h4 id="4-5-3-使用-Portupgrade-升级-Ports">4.5.3 使用 Portupgrade 升级 Ports</h4>
+<p><a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portupgrade/pkg-descr">ports-mgmt/portupgrade</a> 是另一个可用于升级 Ports 的实用程序。它安装了一套可用于管理 Ports 的应用程序。但是它依赖于 Ruby。安装此 ports：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cd</span> /usr/ports/ports-mgmt/portupgrade</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make install clean</span></span><br></pre></td></tr></table></figure>
 <p>在使用此实用程序执行升级之前，建议使用 <code>pkgdb -F</code> 扫描已安装 Ports 的列表并修复它报告的所有不一致之处。</p>
 <p>要升级系统上安装的所有过时 ports，请使用 <code>portupgrade -a</code>。或者包括 <code>-i</code> 以要求确认每个单独的升级：</p>
@@ -715,7 +763,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portupgrade -PP gnome3</span></span><br></pre></td></tr></table></figure>
 <p>如果指定了 <code>-P</code> 只获取 Ports distfiles 或 packages，而不构建或安装任何东西，请使用 <code>-F</code>。有关所有可用选项的更多信息，请参阅 “portupgrade” 的手册页。</p>
 <p>有关 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/portupgrade/pkg-descr">ports-mgmt/portupgrade</a> 的更多信息可以在其 pkg-descr 中找到。</p>
-<h3 id="4-6-Ports-和磁盘空间"><a href="#4-6-Ports-和磁盘空间" class="headerlink" title="4.6 Ports 和磁盘空间"></a>4.6 Ports 和磁盘空间</h3><p>随着时间的推移，使用 Ports Collection 将耗尽磁盘空间。在构建和安装 Ports 后 在 Ports 框架内运行 <code>make clean</code> 将清理临时工作目录。如果使用 Portmaster 安装 Ports 除非指定了 <code>-K</code> 否则它会自动删除此目录。如果安装了 Portupgrade，以下命令将删除在 Ports 集合的本地副本中找到的所有工作目录：</p>
+<h3 id="4-6-Ports-和磁盘空间">4.6 Ports 和磁盘空间</h3>
+<p>随着时间的推移，使用 Ports Collection 将耗尽磁盘空间。在构建和安装 Ports 后 在 Ports 框架内运行 <code>make clean</code> 将清理临时工作目录。如果使用 Portmaster 安装 Ports 除非指定了 <code>-K</code> 否则它会自动删除此目录。如果安装了 Portupgrade，以下命令将删除在 Ports 集合的本地副本中找到的所有工作目录：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsclean -C</span></span><br></pre></td></tr></table></figure>
 <p>此外 过时的源代码分发文件会随着时间的推移而堆积在 /usr/ports/distfiles 中。要使用 Portupgrade 删除不再被任何 Ports 引用的所有 distfiles：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portsclean -D</span></span><br></pre></td></tr></table></figure>
@@ -724,17 +773,22 @@
 <p>如果安装了 Portmaster 使用如下命令:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">portmaster --clean-distfiles</span></span><br></pre></td></tr></table></figure>
 <p>默认情况下 此命令是交互式的 并提示用户确认是否应删除 distfile。除了这些命令之外 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/pkg_cutleaves/pkg-descr">ports-mgmt/pkg_cutleaves</a> 自动执行删除不再需要的已安装 Ports 的任务。</p>
-<h2 id="5-使用-Poudriere-构建-Packages"><a href="#5-使用-Poudriere-构建-Packages" class="headerlink" title="5. 使用 Poudriere 构建 Packages"></a>5. 使用 Poudriere 构建 Packages</h2><p>Poudriere 是一个 BSD 许可的实用程序 用于创建和测试 FreeBSD 软件包。它使用 FreeBSD jails 来设置隔离的编译环境。这些 jail 可用于为与安装它的系统不同的 FreeBSD 版本构建 Packages，如果主机是 amd64 系统，也可以为 i386 构建包。构建 P ackages 后，它们的布局与官方镜像相同。这些包可供 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=pkg&amp;sektion=8&amp;format=html">pkg(8)</a> 和其他包管理工具使用。</p>
+<h2 id="5-使用-Poudriere-构建-Packages">5. 使用 Poudriere 构建 Packages</h2>
+<p>Poudriere 是一个 BSD 许可的实用程序 用于创建和测试 FreeBSD 软件包。它使用 FreeBSD jails 来设置隔离的编译环境。这些 jail 可用于为与安装它的系统不同的 FreeBSD 版本构建 Packages，如果主机是 amd64 系统，也可以为 i386 构建包。构建 P ackages 后，它们的布局与官方镜像相同。这些包可供 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/man.cgi?query=pkg&amp;sektion=8&amp;format=html">pkg(8)</a> 和其他包管理工具使用。</p>
 <p>Poudriere 是使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/ports-mgmt/poudriere/pkg-descr">ports-mgmt/poudriere</a> Packages 或 Ports 安装的。安装包括一个示例配置文件 /usr/local/etc/poudriere.conf.sample。将此文件复制到 /usr/local/etc/poudriere.conf。编辑复制的文件以适合本地配置。</p>
 <p>虽然在运行 poudriere 的系统上不需要 ZFS 但它是有益的。使用 ZFS 时 必须在 /usr/local/etc/poudriere.conf 中指定 ZPOOL 并将 FREEBSD_HOST 设置为附近的镜像。定义 CCACHE_DIR 可以使用 <a target="_blank" rel="noopener" href="https://www.freebsd.org/cgi/url.cgi?ports/devel/ccache/pkg-descr">devel/ccache</a> 来缓存编译并减少频繁编译代码的构建时间。将 poudriere 数据集放在安装在 /poudriere 的孤立树中可能会很方便。其他配置值的默认值就足够了。</p>
 <p>检测到的处理器内核数用于定义并行运行的构建数量。提供足够的虚拟内存包括 RAM 或交换空间。如果虚拟内存耗尽，编译监狱将停止并被拆除，从而导致奇怪的错误消息。</p>
-<h2 id="6-安装后注意事项"><a href="#6-安装后注意事项" class="headerlink" title="6. 安装后注意事项"></a>6. 安装后注意事项</h2><p>无论软件是从二进制 Packages 还是 Ports 安装的，大多数第三方应用程序在安装后都需要某种级别的配置。以下命令和位置可用于帮助确定与应用程序一起安装的内容。</p>
+<h2 id="6-安装后注意事项">6. 安装后注意事项</h2>
+<p>无论软件是从二进制 Packages 还是 Ports 安装的，大多数第三方应用程序在安装后都需要某种级别的配置。以下命令和位置可用于帮助确定与应用程序一起安装的内容。</p>
 <ul>
-<li><p>大多数应用程序在 /usr/local/etc 中至少安装一个默认配置文件。在应用程序有大量配置文件的情况下，将创建一个子目录来保存它们。通常会安装以 .sample 等后缀结尾的示例配置文件。应审查并可能编辑配置文件以满足系统的需要。要编辑示例文件 ，请先复制它而不带 .sample 扩展名。</p>
+<li>
+<p>大多数应用程序在 /usr/local/etc 中至少安装一个默认配置文件。在应用程序有大量配置文件的情况下，将创建一个子目录来保存它们。通常会安装以 .sample 等后缀结尾的示例配置文件。应审查并可能编辑配置文件以满足系统的需要。要编辑示例文件 ，请先复制它而不带 .sample 扩展名。</p>
 </li>
-<li><p>提供文档的应用程序会将其安装到 /usr/local/share/doc 中，许多应用程序也会安装手册页。在继续之前应查阅此文档。</p>
+<li>
+<p>提供文档的应用程序会将其安装到 /usr/local/share/doc 中，许多应用程序也会安装手册页。在继续之前应查阅此文档。</p>
 </li>
-<li><p>某些应用程序运行的服务必须在启动应用程序之前添加到 /etc/rc.conf 中。这些应用程序通常在 /usr/local/etc/rc.d 中安装启动脚本。有关更多信息 请参阅 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/en/books/handbook/config/#configtuning-starting-services">Starting Services</a>。</p>
+<li>
+<p>某些应用程序运行的服务必须在启动应用程序之前添加到 /etc/rc.conf 中。这些应用程序通常在 /usr/local/etc/rc.d 中安装启动脚本。有关更多信息 请参阅 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/en/books/handbook/config/#configtuning-starting-services">Starting Services</a>。</p>
 </li>
 </ul>
 <blockquote>

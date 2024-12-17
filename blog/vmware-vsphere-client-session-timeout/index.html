@@ -493,10 +493,12 @@
 <hr>
 <p>vSphere Client 中会话每 120 分钟自动超时，然后必须重新登录到 vSphere Client。</p>
 <p>适用于 vSphere 8.0 和 vSphere 7.0，旧版请参看官方 KB：<code>https://kb.vmware.com/s/article/2040626</code>。</p>
-<h2 id="通过-vSphere-Client-配置"><a href="#通过-vSphere-Client-配置" class="headerlink" title="通过 vSphere Client 配置"></a>通过 vSphere Client 配置</h2><p>浏览到 Administration - Deployment - Client Configuration，点击 Edit，默认值为 120 分钟。</p>
+<h2 id="通过-vSphere-Client-配置">通过 vSphere Client 配置</h2>
+<p>浏览到 Administration - Deployment - Client Configuration，点击 Edit，默认值为 120 分钟。</p>
 <p><img src="edit-vsphere-client-session-timeout-setting.webp" alt="Setting"></p>
 <p>如果需要将会话时间设置为永不超时（不推荐），即设置为 0，此界面不支持，需要登录 Shell 编辑配置文件。</p>
-<h2 id="通过-Shell-配置"><a href="#通过-Shell-配置" class="headerlink" title="通过 Shell 配置"></a>通过 Shell 配置</h2><p>1、SSH 登录到 vCenter Server Apliance。</p>
+<h2 id="通过-Shell-配置">通过 Shell 配置</h2>
+<p>1、SSH 登录到 vCenter Server Apliance。</p>
 <p>2、登录 BASH，执行命令：</p>
 <p><code>shell</code></p>
 <p>3、查看配置文件：</p>
@@ -506,7 +508,8 @@
 <p><code>cp /etc/vmware/vsphere-ui/webclient.properties /etc/vmware/vsphere-ui/webclient.properties.bak</code></p>
 <p>5、编辑配置文件：</p>
 <p><code>vi /etc/vmware/vsphere-ui/webclient.properties</code></p>
-<p>修改如下内容：<br>session.timeout = *value （默认120，单位分钟）</p>
+<p>修改如下内容：<br>
+session.timeout = *value （默认120，单位分钟）</p>
 <p>例如：<code>session.timeout = 0</code> 表示会话不过期。</p>
 <p>例如：<code>session.timeout = 10080</code> 表示 7 天。</p>
 <p>6、重启服务后生效：</p>
@@ -514,8 +517,11 @@
 <p><code>service-control --start vsphere-ui</code></p>
 <p><strong>本站定制镜像</strong>：</p>
 <ul>
-<li><a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></li>
-<li><a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+<li>
+<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
+</li>
+<li>
+<a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>

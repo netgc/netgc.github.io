@@ -488,36 +488,43 @@
 <p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>说明：本文描述问题同样适用于其他版本的 macOS，因历史原因在 Catalina 中出现问题的情况最多。</p>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>提示：“应用程序” 已损坏，无法打开。您应该将它移到废纸篓。</p>
+<h2 id="现象">现象</h2>
+<p>提示：“应用程序” 已损坏，无法打开。您应该将它移到废纸篓。</p>
 <p><img src="dialog-1.webp" alt="dialog-1"></p>
 <p>提示：无法打开 “应用程序”，因为无法验证开发者。macOS 无法验证此 App 不包含恶意软件。</p>
 <p><img src="dialog-2.webp" alt="dialog-2"></p>
 <p>提示：“应用程序” 将对您的电脑造成伤害。您应该将它移到废纸篓。</p>
 <p><img src="dialog-3.webp" alt="dialog-3"></p>
 <hr>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>一般情况下，只需要 1 和 2 两步即可。</p>
-<h3 id="1-允许-“任何来源”-下载的-App-运行"><a href="#1-允许-“任何来源”-下载的-App-运行" class="headerlink" title="1. 允许 “任何来源” 下载的 App 运行"></a>1. 允许 “任何来源” 下载的 App 运行</h3><p>打开 “终端” 执行如下命令（根据提示输入您的密码即可）：</p>
+<h2 id="解决方法">解决方法</h2>
+<p>一般情况下，只需要 1 和 2 两步即可。</p>
+<h3 id="1-允许-“任何来源”-下载的-App-运行">1. 允许 “任何来源” 下载的 App 运行</h3>
+<p>打开 “终端” 执行如下命令（根据提示输入您的密码即可）：</p>
 <p><code>sudo spctl --master-disable</code></p>
-<p>打开 “系统偏好设置…” - “安全性与隐私”，”通用” 标签页，如图勾选：</p>
+<p>打开 “系统偏好设置…” - “安全性与隐私”，“通用” 标签页，如图勾选：</p>
 <p><img src="allow-anywhere.webp" alt="allow-anywherep"></p>
-<p>macOS Ventura 略有变化，位于：系统设置 — 隐私和安全性，“安全性”（参看下述第 3 点截图）。</p>
-<h3 id="2-移除应用的安全隔离属性"><a href="#2-移除应用的安全隔离属性" class="headerlink" title="2. 移除应用的安全隔离属性"></a>2. 移除应用的安全隔离属性</h3><p>打开 “终端” 执行如下命令（根据提示输入您的密码即可）：</p>
+<p>macOS Ventura 略有变化，位于：系统设置 – 隐私和安全性，“安全性”（参看下述第 3 点截图）。</p>
+<h3 id="2-移除应用的安全隔离属性">2. 移除应用的安全隔离属性</h3>
+<p>打开 “终端” 执行如下命令（根据提示输入您的密码即可）：</p>
 <p><code>sudo xattr -dr com.apple.quarantine /Applications/name.app</code></p>
 <p><code>/Applications/name.app</code> 如果不知道该如何输入，将 App 直接拖拽 <code>sudo xattr -rd com.apple.quarantine</code>（中间有个空格）后面即可。</p>
 <p>一般情况下，多余的扩展属性都可以清除（个别应用例外）：</p>
 <p>可以直接输入：<code>sudo xattr -cr /Applications/*</code></p>
-<h3 id="3-macOS-Ventura-额外步骤"><a href="#3-macOS-Ventura-额外步骤" class="headerlink" title="3. macOS Ventura 额外步骤"></a>3. macOS Ventura 额外步骤</h3><p>macOS Ventura 的系统安全性又上升到一个新的高度，上述两个步骤后，需要在 “系统设置” 中打开应用。</p>
-<p>系统设置 — 隐私和安全性，“安全性” 下面出现提示，点击 “仍要打开”，当然该操作仅需要一次，以后可以正常打开。</p>
+<h3 id="3-macOS-Ventura-额外步骤">3. macOS Ventura 额外步骤</h3>
+<p>macOS Ventura 的系统安全性又上升到一个新的高度，上述两个步骤后，需要在 “系统设置” 中打开应用。</p>
+<p>系统设置 – 隐私和安全性，“安全性” 下面出现提示，点击 “仍要打开”，当然该操作仅需要一次，以后可以正常打开。</p>
 <p><img src="system-setting-security.webp" alt="system-setting-security"></p>
 <p>以上同样适用于 macOS Sonoma 和 macOS Sequoia。</p>
-<h3 id="4-重新签名"><a href="#4-重新签名" class="headerlink" title="4. 重新签名"></a>4. 重新签名</h3><p>多数情况下，App 已经可以正常运行了，很多和谐软件因为证书问题，仍然无法打开。此时可以重新签名。</p>
+<h3 id="4-重新签名">4. 重新签名</h3>
+<p>多数情况下，App 已经可以正常运行了，很多和谐软件因为证书问题，仍然无法打开。此时可以重新签名。</p>
 <p>打开 “终端”，执行如下命令：</p>
 <p><code>codesign --force --deep --sign - /Applications/name.app</code></p>
 <p><strong>前提条件</strong>: 安装 Command Line Tools for Xcode</p>
 <p>此时会提示安装，或者使用终端命令在线安装：</p>
 <p><code>xcode-select --install</code></p>
 <p>也可以到这里下载 Command Line Tools for Xcode：<a href="/blog/apple-xcode-14/" title="Xcode 14.3.1 (14E300c) - Apple 平台 IDE">Xcode 14.3.1 (14E300c) - Apple 平台 IDE</a></p>
-<h3 id="5-覆盖恶意软件保护"><a href="#5-覆盖恶意软件保护" class="headerlink" title="5. 覆盖恶意软件保护"></a>5. 覆盖恶意软件保护</h3><p>还有一种情况，</p>
+<h3 id="5-覆盖恶意软件保护">5. 覆盖恶意软件保护</h3>
+<p>还有一种情况，</p>
 <p>提示：“应用程序” 将对您的电脑造成伤害。您应该将它移到废纸篓。</p>
 <p>以上步骤操作后还是无法打开。</p>
 <p>解决办法：</p>

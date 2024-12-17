@@ -493,16 +493,22 @@
 <p>2024.09.18，iOS 18/iPadOS 18 发布了，同样适用。</p>
 <p>本文是 <a href="/blog/apple-ios-dfu/" title="使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件">使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件</a> 的 Windows 简化版，因为 iOS 用户也有使用 Windows 的特例，特多此一举增加此文。</p>
 <p>为什么手动更新 iOS 软件，简单来类比 Windows 更新，自动更新会产生大量临时文件，可能出现卡顿或者异常。使用本方法来手动更新 iOS 软件，相当于重装系统，但是所有 App 和数据都不会丢失，可以保持系统运行在更佳状态 (sysin)。</p>
-<h2 id="简明步骤"><a href="#简明步骤" class="headerlink" title="简明步骤"></a>简明步骤</h2><ol>
-<li><p>下载 ipsw 固件：访问 <code>https://ipsw.me/</code> 选择设备类型和机型，根据提示下载即可。</p>
+<h2 id="简明步骤">简明步骤</h2>
+<ol>
+<li>
+<p>下载 ipsw 固件：访问 <code>https://ipsw.me/</code> 选择设备类型和机型，根据提示下载即可。</p>
 </li>
-<li><p>重启 iPhone，并使用线缆（自带的充电线）与电脑相连。</p>
+<li>
+<p>重启 iPhone，并使用线缆（自带的充电线）与电脑相连。</p>
 </li>
-<li><p>如果使用 Windows 10 电脑，需要下载并安装 <a target="_blank" rel="noopener" href="https://www.apple.com/itunes/">iTunes</a>，按住 Shift 键，点击 “更新”（或者 “检测更新”）按钮，浏览到下载的 ipsw 文件，根据提示完成更新。</p>
+<li>
+<p>如果使用 Windows 10 电脑，需要下载并安装 <a target="_blank" rel="noopener" href="https://www.apple.com/itunes/">iTunes</a>，按住 Shift 键，点击 “更新”（或者 “检测更新”）按钮，浏览到下载的 ipsw 文件，根据提示完成更新。</p>
 </li>
 </ol>
 <p>就这么简单，如果需要了解一下详细步骤，看下面的描述吧。</p>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-准备电脑和软件"><a href="#1-准备电脑和软件" class="headerlink" title="1. 准备电脑和软件"></a>1. 准备电脑和软件</h3><p>(1) Windows 10（32 位或者 64 位），因 iTunes 官方要求中仅支持 Windows 10，建议使用 Windows 10 电脑。经过测试 Windows 11 也可以使用（毕竟其版本号仍然是 10），但可能存在驱动异常。</p>
+<h2 id="具体步骤">具体步骤</h2>
+<h3 id="1-准备电脑和软件">1. 准备电脑和软件</h3>
+<p>(1) Windows 10（32 位或者 64 位），因 iTunes 官方要求中仅支持 Windows 10，建议使用 Windows 10 电脑。经过测试 Windows 11 也可以使用（毕竟其版本号仍然是 10），但可能存在驱动异常。</p>
 <p>(2) 下载 <a target="_blank" rel="noopener" href="https://www.apple.com/itunes/">iTunes</a> 软件，现代电脑几乎都是运行 64 位的 Windows，直接下载 64-bit 的 iTunes。</p>
 <blockquote>
 <p>如果是 32 位的 Windows 10 系统，请下载 32-bit 的 iTunes</p>
@@ -510,7 +516,8 @@
 <p>iTunes 存档 - 百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hildAbZbBVYo9GC2jpRlCQ?pwd=72tk">https://pan.baidu.com/s/1hildAbZbBVYo9GC2jpRlCQ?pwd=72tk</a></p>
 <p>(3) 下载 iOS 系统软件（或称 ipsw 固件），访问 <code>https://ipsw.me/</code> 选择设备类型（iPhone 或者 iPad），然后选择具体的机型，点开可以看到 Signed IPSWs，点击出现 “Download” 按钮，下载保存即可 (sysin)。</p>
 <p><img src="ios-ipsw.webp" alt="sysin"></p>
-<h3 id="2-准备-iPhone"><a href="#2-准备-iPhone" class="headerlink" title="2. 准备 iPhone"></a>2. 准备 iPhone</h3><p>(1) 重启 iPhone：“设置” ⚙️ &gt; 通用 &gt; 关机，然后重新开机，确保 iPhone 运行状态良好，一次性更新成功。</p>
+<h3 id="2-准备-iPhone">2. 准备 iPhone</h3>
+<p>(1) 重启 iPhone：“设置” ⚙️ &gt; 通用 &gt; 关机，然后重新开机，确保 iPhone 运行状态良好，一次性更新成功。</p>
 <blockquote>
 <p>重要提示，iOS 由于其可靠性极高，用户可能常年不关机重启，但这样在更新完整固件的时候容易出错，重启后可以保证不会出现异常。</p>
 </blockquote>
@@ -519,7 +526,8 @@
 <p>不同的机型和软件版本对存储空间要求有所差异，可能需要至少 5GB 及以上剩余空间，建议确保有 10GB 及以上的可用容量。</p>
 </blockquote>
 <p>(3) 使用线缆（自带的充电线）与电脑相连。</p>
-<h3 id="3-使用-iTunes-更新软件"><a href="#3-使用-iTunes-更新软件" class="headerlink" title="3. 使用 iTunes 更新软件"></a>3. 使用 iTunes 更新软件</h3><p>(1) 打开 iTunes，出现 “欢迎使用” 画面，点击 “不，谢谢” 即可。</p>
+<h3 id="3-使用-iTunes-更新软件">3. 使用 iTunes 更新软件</h3>
+<p>(1) 打开 iTunes，出现 “欢迎使用” 画面，点击 “不，谢谢” 即可。</p>
 <p><img src="itunes-windows-01.webp" alt="sysin"></p>
 <p>(2) 出现提示是否允许这台电脑访问 iPhone 上的信息，点击 “继续”。</p>
 <p><img src="itunes-windows-02.webp" alt="imag"></p>
@@ -544,7 +552,8 @@
 <p><img src="itunes-windows-09.webp" alt="sysin"></p>
 <p>(10) 查看更新结果。</p>
 <p>可以看到 iTunes 中显示了新的 iOS 版本号，打开 iPhone “设置” -&gt; “通用” -&gt; “关于本机” 查看（截图略）。</p>
-<h2 id="屏蔽自动更新"><a href="#屏蔽自动更新" class="headerlink" title="屏蔽自动更新"></a>屏蔽自动更新</h2><p>如何屏蔽自动更新，去除更新通知和标记？</p>
+<h2 id="屏蔽自动更新">屏蔽自动更新</h2>
+<p>如何屏蔽自动更新，去除更新通知和标记？</p>
 <p>虽然现在 iOS 默认不会自动更新，但是新版本出现时，会出现顽固的数字小红点通知，没有必要更新所有小版本，通常一个大版本发布，用户体验和功能上有很大改进（流畅度可能不佳），发布到 x.5 版本时流畅度达到最佳，此后版本几乎为安全更新，除非是为了支持新发布的硬件，一般可以忽略 (sysin)。</p>
 <p>本章节也可以参看全文：<a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a></p>
 <p>(1) 关闭自动更新</p>
@@ -557,7 +566,8 @@
 <p>如果需要继续接收软件更新，在 “设置” ⚙️ &gt; “通用” &gt; “描述文件”（或者为 “描述文件与设备管理”）中可查看您所安装的描述文件。点击描述文件即可查看详细信息或者移除 (sysin)。</p>
 <p>在 iOS 15 中，描述文件的位置略有变化：“设置” ⚙️ &gt; “通用” &gt; <strong>“VPN 与设备管理”</strong> 下面的 “配置描述文件”。</p>
 </blockquote>
-<h2 id="特色功能介绍"><a href="#特色功能介绍" class="headerlink" title="特色功能介绍"></a>特色功能介绍</h2><p>“实况文本” 和 “戴口罩面容解锁” 简介。</p>
+<h2 id="特色功能介绍">特色功能介绍</h2>
+<p>“实况文本” 和 “戴口罩面容解锁” 简介。</p>
 <p>iOS 15 更新亮点中，简单说一下两个实用功能：实况文本和戴口罩面容解锁，笔者感触较深。其实新功能太多，详见 <a target="_blank" rel="noopener" href="https://www.apple.com.cn/ios/ios-15/features/">iOS 15 新功能</a>。</p>
 <p>(1) <strong>实况文本（Live Text）</strong>：</p>
 <p>即照片中的实况文本</p>

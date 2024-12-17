@@ -485,13 +485,15 @@
         <p>请访问原文链接：<a href="/blog/macos-turn-off-monitor-mode/" title="Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode）">Mac 如何关闭 Wi-Fi 监视模式（Monitor Mode）</a> 查看最新版。原创作品，转载请保留出处。</p>
 <p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>启动 Mac 突然发现 WI-FI 无法连接，进入了所谓“监视模式”，状态如下：</p>
+<h2 id="问题描述">问题描述</h2>
+<p>启动 Mac 突然发现 WI-FI 无法连接，进入了所谓“监视模式”，状态如下：</p>
 <p><img src="monitor-mode-cn.webp" alt="Wi-Fi 监视模式）"></p>
 <p>“网络偏好设置”点来点去也没有找到关闭方法，重启系统也无效。</p>
 <p>按照网上的方法，打开终端：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -A | grep airport</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;PID&gt; 换成实际的 PID 数字</span></span><br><span class="line">sudo kill -9 &lt;PID&gt;</span><br></pre></td></tr></table></figure>
 <p>显然无效，都重启过，也不会有进程在运行。</p>
-<h2 id="正确的方法"><a href="#正确的方法" class="headerlink" title="正确的方法"></a>正确的方法</h2><p>使用<code>airport</code>工具开启监听模式并终止即可。</p>
+<h2 id="正确的方法">正确的方法</h2>
+<p>使用<code>airport</code>工具开启监听模式并终止即可。</p>
 <p>airport 默认位于如下路径（当前系统为 macOS 10.15）：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport</span><br></pre></td></tr></table></figure>
 <p>创建链接：</p>
@@ -502,7 +504,8 @@
 <p>开启监听模式，并按 Ctrl+C 终止：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">airport sniff</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">提示：</span></span><br><span class="line">Capturing 802.11 frames on en0.</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">按 Ctrl+C 键</span></span><br><span class="line">^CSession saved to /tmp/airportSniffDsHQ9w.cap.</span><br></pre></td></tr></table></figure>
 <p>此时，Wi-Fi 已经恢复到正常状态。</p>
-<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><p>关于监听模式：</p>
+<h2 id="延伸阅读">延伸阅读</h2>
+<p>关于监听模式：</p>
 <p>监听模式（Monitor Mode），或 RFMON (Radio Frequency MONitor)，是指无线网卡可以接收所有经过它的数据流的工作方式，对应于 IEEE 802.11 网卡的其他模式，诸如 Master（路由器）、Managed（普通模式的网卡）、Ad-hoc 等。监听模式不区分所接收数据包的目标 MAC 地址，这点和混杂模式类似 (sysin)。然而，和混杂模式不同的是，监听模式的不需要和无线接入点（AP）或 Ad-hoc 网络建立连接。监听模式是无线网卡特有的特殊模式，而混杂模式应用于有线网卡和无线网卡。</p>
 <p>监听模式通常用于网络发现、流量监听和分组分析。Linux、macOS、Windows 以及其他 Unix-like 平台有使用监听模式的网络发现、抓包工具，如 KisMAC、Kismet、Wireshark、Aircrack-ng 等。</p>
 <p>airport sniff 命令示例：</p>

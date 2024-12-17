@@ -490,32 +490,43 @@
 <hr>
 <p><strong>macfz：请停止抄袭！</strong></p>
 <blockquote>
-<p>2022-06-05 更新：简化步骤和逻辑，更新版本：<a href="/blog/how-to-install-macos/" title="如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura">如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura</a>。<br>2021-04-23 更新：更新到 ESXi 7.0 U2 Unlocker，修正个别链接错误。<br>2020-12-29 更新：增加 VMware Workstation 16.1 Patch，直接运行 macOS Big Sur。<br>2020-11-30 更新：增加 ESXi 7.0 U1 Unlocker，直接运行 macOS Big Sur。<br>2020.11.17 更新：增加配备 Apple T2 安全芯片的 Mac 额外操作步骤。</p>
+<p>2022-06-05 更新：简化步骤和逻辑，更新版本：<a href="/blog/how-to-install-macos/" title="如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura">如何在 Mac 和虚拟机上安装 macOS Sequoia、macOS Sonoma 和 macOS Ventura</a>。<br>
+2021-04-23 更新：更新到 ESXi 7.0 U2 Unlocker，修正个别链接错误。<br>
+2020-12-29 更新：增加 VMware Workstation 16.1 Patch，直接运行 macOS Big Sur。<br>
+2020-11-30 更新：增加 ESXi 7.0 U1 Unlocker，直接运行 macOS Big Sur。<br>
+2020.11.17 更新：增加配备 Apple T2 安全芯片的 Mac 额外操作步骤。</p>
 </blockquote>
 <p>本文适用以下场景：</p>
 <ul>
-<li><p>Mac 上全新安装 macOS Big Sur（在官方兼容列表中的硬件）</p>
+<li>
+<p>Mac 上全新安装 macOS Big Sur（在官方兼容列表中的硬件）</p>
 <p>如果 Mac 不在官方兼容性列表，请参看：<a href="https://sysin.org/blog/install-macos-11-on-unsupported-mac/">在不受支持的 Mac 上安装 macOS Big Sur</a></p>
-<p>在线升级不在讨论范畴，补丁加补丁……</p>
+<p>在线升级不在讨论范畴，补丁加补丁…</p>
 </li>
-<li><p>在 ESXi（物理机）、macOS、Linux 和 Windows 中安装 macOS Big Sur 虚机</p>
+<li>
+<p>在 ESXi（物理机）、macOS、Linux 和 Windows 中安装 macOS Big Sur 虚机</p>
 <p><img src="/blog/macOS-Big-Sur-boot-iso/macos-big-sur-in-vm.webp" alt="macos-big-sur-in-vm"></p>
 </li>
 </ul>
-<h2 id="1-获取-macOS-Big-Sur-正式版软件包"><a href="#1-获取-macOS-Big-Sur-正式版软件包" class="headerlink" title="1. 获取 macOS Big Sur 正式版软件包"></a>1. 获取 macOS Big Sur 正式版软件包</h2><ul>
-<li><p>百度网盘链接：</p>
+<h2 id="1-获取-macOS-Big-Sur-正式版软件包">1. 获取 macOS Big Sur 正式版软件包</h2>
+<ul>
+<li>
+<p>百度网盘链接：</p>
 <p>请访问：<a href="/blog/macOS-Big-Sur/" title="macOS Big Sur 11.7.10 (20G1427) 正式版 ISO、PKG、DMG、IPSW 下载">macOS Big Sur 11.7.10 (20G1427) 正式版 ISO、PKG、DMG、IPSW 下载</a></p>
 </li>
-<li><p>可启动 ISO 镜像，可用于虚拟安装</p>
+<li>
+<p>可启动 ISO 镜像，可用于虚拟安装</p>
 <p>请访问：<a href="/blog/macOS-Big-Sur-boot-iso/" title="macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载">macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载</a></p>
 </li>
-<li><p>Mac App Store</p>
+<li>
+<p>Mac App Store</p>
 <p><a target="_blank" rel="noopener" href="https://apps.apple.com/app/macos-big-sur/id1526878132?mt=12">https://apps.apple.com/app/macos-big-sur/id1526878132?mt=12</a></p>
 <p>或者打开 App Store 搜索 macOS Big Sur 下载即可。</p>
 </li>
 </ul>
 <p>上述方式，都会将 Install macOS Big Sur.app 放置于 /Applications （应用程序）下面。</p>
-<h2 id="2-了解-macOS-Big-Sur-兼容设备"><a href="#2-了解-macOS-Big-Sur-兼容设备" class="headerlink" title="2. 了解 macOS Big Sur 兼容设备"></a>2. 了解 macOS Big Sur 兼容设备</h2><ul>
+<h2 id="2-了解-macOS-Big-Sur-兼容设备">2. 了解 macOS Big Sur 兼容设备</h2>
+<ul>
 <li>MacBook 2015 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201608">Learn more</a></li>
 <li>MacBook Air 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201862">Learn more</a></li>
 <li>MacBook Pro Late 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201300">Learn more</a></li>
@@ -525,18 +536,25 @@
 <li>Mac Pro 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT202888">Learn more</a></li>
 </ul>
 <p>如果您的 Mac 不在兼容性列表请参看这里：<a href="https://sysin.org/blog/install-macos-11-on-unsupported-mac/">在不受支持的 Mac 上安装 macOS Big Sur</a></p>
-<h2 id="3-使用移动存储介质全新安装"><a href="#3-使用移动存储介质全新安装" class="headerlink" title="3. 使用移动存储介质全新安装"></a>3. 使用移动存储介质全新安装</h2><h3 id="1-一般步骤"><a href="#1-一般步骤" class="headerlink" title="(1) 一般步骤"></a>(1) 一般步骤</h3><ol>
-<li><p>确保已经下载好 <code>Install macOS Big Sur.app</code>（安装 macOS Big Sur）并放置于 <code>/Applications</code>（应用程序）下</p>
+<h2 id="3-使用移动存储介质全新安装">3. 使用移动存储介质全新安装</h2>
+<h3 id="1-一般步骤">(1) 一般步骤</h3>
+<ol>
+<li>
+<p>确保已经下载好 <code>Install macOS Big Sur.app</code>（安装 macOS Big Sur）并放置于 <code>/Applications</code>（应用程序）下</p>
 <ul>
-<li><p>DMG 或者 ISO 格式的软件包，需要打开拖拽到 “应用程序” 文件夹</p>
+<li>
+<p>DMG 或者 ISO 格式的软件包，需要打开拖拽到 “应用程序” 文件夹</p>
 </li>
-<li><p>PKG 格式的软件包，打开根据提示自动安装到 “应用程序” 文件夹</p>
+<li>
+<p>PKG 格式的软件包，打开根据提示自动安装到 “应用程序” 文件夹</p>
 </li>
-<li><p>在 Mac App Store 下载的 App 会自动保存在 “应用程序” 文件夹</p>
+<li>
+<p>在 Mac App Store 下载的 App 会自动保存在 “应用程序” 文件夹</p>
 </li>
 </ul>
 </li>
-<li><p>创建启动 U 盘</p>
+<li>
+<p>创建启动 U 盘</p>
 <p>准备一个 16G 或者以上的 U 盘，打开 “实用工具&gt; 磁盘工具”，选择 U 盘，点击 “抹掉”，格式如下：</p>
 <blockquote>
 <p>提示：U 盘也可以使用移动硬盘替代，特别是 SSD 移动硬盘，速度更快。</p>
@@ -553,23 +571,27 @@
 </blockquote>
 <p>参看：<a href="/blog/macos-createinstallmedia/" title="如何创建可引导的 macOS 安装介质">如何创建可引导的 macOS 安装介质</a></p>
 </li>
-<li><p>使用 U 盘启动安装</p>
+<li>
+<p>使用 U 盘启动安装</p>
 <p>重新启动，按住 option 键不放，直到出现启动选择画面，选择 Install macOS Big Sur 图标，启动安装画面。</p>
 <blockquote>
 <p>搭载 Apple 芯片的 Mac 电脑是按住电源按钮不放，会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。</p>
 </blockquote>
 <p><img src="macos-big-sur-boot-1.webp" alt="macos-big-sur-boot-1"></p>
 </li>
-<li><p>选择磁盘工具，抹掉原有磁盘（默认名称：Macintosh HD，格式：APFS）即可全新安装</p>
+<li>
+<p>选择磁盘工具，抹掉原有磁盘（默认名称：Macintosh HD，格式：APFS）即可全新安装</p>
 <blockquote>
 <p>注意：点击 “磁盘工具” 字符左侧的 “显示” 图标，勾选 “显示所有设备”，默认是 “仅显示卷宗”，点击最上层物理磁盘名称，然后在点击 “抹掉”。</p>
 </blockquote>
 <p><img src="macos-big-sur-boot-2.webp" alt="macos-big-sur-boot-2"></p>
 </li>
-<li><p>关闭磁盘工具，选择 “安装 macOS Big Sur”，根据提示多次点击下一步即可完成安装</p>
+<li>
+<p>关闭磁盘工具，选择 “安装 macOS Big Sur”，根据提示多次点击下一步即可完成安装</p>
 </li>
 </ol>
-<h3 id="2-配备-Apple-T2-安全芯片的电脑需要允许从外部介质启动"><a href="#2-配备-Apple-T2-安全芯片的电脑需要允许从外部介质启动" class="headerlink" title="(2) 配备 Apple T2 安全芯片的电脑需要允许从外部介质启动"></a>(2) 配备 Apple T2 安全芯片的电脑需要允许从外部介质启动</h3><p>下列 Mac 电脑配备了 Apple T2 安全芯片：</p>
+<h3 id="2-配备-Apple-T2-安全芯片的电脑需要允许从外部介质启动">(2) 配备 Apple T2 安全芯片的电脑需要允许从外部介质启动</h3>
+<p>下列 Mac 电脑配备了 Apple T2 安全芯片：</p>
 <ul>
 <li>2020 年推出的 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201634">iMac</a></li>
 <li>iMac Pro</li>
@@ -599,7 +621,8 @@
 <p>搭载 Apple 芯片的 Mac 电脑是按住电源按钮不放，会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。</p>
 </blockquote>
 <p>如果出现报错：“需要更新软件才能使用这个启动磁盘。”，请看下文。</p>
-<h3 id="3-配备-Apple-T2-安全芯片的电脑可能需要额外的操作"><a href="#3-配备-Apple-T2-安全芯片的电脑可能需要额外的操作" class="headerlink" title="(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作"></a>(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作</h3><p>在配备 Apple T2 安全芯片的 Mac 在安装过程中，需要联网验证和下载软件更新，如果 “查找我的 Mac” 没有关闭，需要输入 Apple ID 密码才能继续操作 (sysin)。</p>
+<h3 id="3-配备-Apple-T2-安全芯片的电脑可能需要额外的操作">(3) 配备 Apple T2 安全芯片的电脑可能需要额外的操作</h3>
+<p>在配备 Apple T2 安全芯片的 Mac 在安装过程中，需要联网验证和下载软件更新，如果 “查找我的 Mac” 没有关闭，需要输入 Apple ID 密码才能继续操作 (sysin)。</p>
 <p>在配备 Apple T2 安全芯片的 Mac 启动 “Install macOS Big Sur”，可能报错：“需要更新软件才能使用这个启动磁盘。”</p>
 <p><img src="install-error-1.webp" alt="install-error-1"></p>
 <p>此时需要，连接网络（点击右上角的 Wi-Fi 图标联网）后，点击 “更新” 按钮，等待软件更新，更新完毕自动重启。</p>
@@ -608,53 +631,69 @@
 <p>重启后再次启动 “Install macOS Big Sur”，可能仍然报错如下，确保已经联网，点击 “再试一次”。</p>
 <p><img src="install-error-3.webp" alt="install-error-3"></p>
 <p>按提示重启后，当系统要求您进行身份验证时，点按管理员账号，输入密码，正常进入安装画面。</p>
-<h3 id="4-搭载-Apple-芯片的-Mac-电脑注意事项"><a href="#4-搭载-Apple-芯片的-Mac-电脑注意事项" class="headerlink" title="(4) 搭载 Apple 芯片的 Mac 电脑注意事项"></a>(4) 搭载 Apple 芯片的 Mac 电脑注意事项</h3><p>搭载 Apple 芯片的 Mac 电脑，允许从外部介质启动，无需修改，只是启动外部介质的操作不同：按住电源按钮不放，会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。此时选择 “Install macOS Big Sur”，即可启动安装画面。</p>
+<h3 id="4-搭载-Apple-芯片的-Mac-电脑注意事项">(4) 搭载 Apple 芯片的 Mac 电脑注意事项</h3>
+<p>搭载 Apple 芯片的 Mac 电脑，允许从外部介质启动，无需修改，只是启动外部介质的操作不同：按住电源按钮不放，会显示可引导宗卷和一个标有 “选项” 字样的齿轮图标。此时选择 “Install macOS Big Sur”，即可启动安装画面。</p>
 <p>搭载 Apple 芯片的 Mac 电脑，可以在 DFU 模式恢复 macOS 软件（类似 iOS）。详见笔者另外一篇文章：<a href="https://sysin.org/blog/apple-silicon-mac-dfu/">在 Apple silicon Mac 上 DFU 模式恢复 macOS 固件</a>。</p>
-<h2 id="4-macOS-系统如何降级安装"><a href="#4-macOS-系统如何降级安装" class="headerlink" title="4. macOS 系统如何降级安装"></a>4. macOS 系统如何降级安装</h2><h3 id="1-识别机型"><a href="#1-识别机型" class="headerlink" title="(1) 识别机型"></a>(1) 识别机型</h3><p>请识别你的 Mac 机型（ -&gt; 关于本机）。</p>
+<h2 id="4-macOS-系统如何降级安装">4. macOS 系统如何降级安装</h2>
+<h3 id="1-识别机型">(1) 识别机型</h3>
+<p>请识别你的 Mac 机型（ -&gt; 关于本机）。</p>
 <p>确定您使用的是否为<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">搭载 Apple T2 安全芯片的 Mac 机型</a>，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">确定您使用的是不是搭载 Apple 芯片的 Mac</a>，然后做相应修改 (sysin)。</p>
 <ol>
-<li><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">搭载 Apple T2 安全芯片的 Mac 机型</a></p>
+<li>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208862">搭载 Apple T2 安全芯片的 Mac 机型</a></p>
 <p>默认启用 “完整安全性”，“不允许从外部介质或可移动介质启动”，需要将安全启动修改为 “<strong>中等安全性</strong>”，允许的启动介质修改为 “<strong>允许从外部介质或可移动介质启动</strong>”。</p>
 <p>详见：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">关于搭载 Apple T2 安全芯片的 Mac 上的“启动安全性实用工具”</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">搭载 Apple 芯片的 Mac 电脑</a></p>
+<li>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">搭载 Apple 芯片的 Mac 电脑</a></p>
 <p>默认启用 “完整安全性”（等于 iOS），需要将安全策略设置为 “<strong>降低安全性</strong>”。</p>
 <p>详见：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchl768f7291/mac">在搭载 Apple 芯片的 Mac 上更改启动磁盘的安全性设置</a>。</p>
 <blockquote>
 <p>备注：搭载 Apple 芯片的 Mac 电脑，外部启动默认允许。</p>
 </blockquote>
 </li>
-<li><p>非上述两种 Mac 机型</p>
+<li>
+<p>非上述两种 Mac 机型</p>
 <p>没有任何限制，使用可引导安装器抹掉磁盘 (sysin)，全新安装即可降级。</p>
 </li>
 </ol>
-<h3 id="2-创建可引导的-macOS-安装介质"><a href="#2-创建可引导的-macOS-安装介质" class="headerlink" title="(2) 创建可引导的 macOS 安装介质"></a>(2) 创建可引导的 macOS 安装介质</h3><p>请访问：<a href="/blog/macos-createinstallmedia/" title="如何创建可引导的 macOS 安装介质">如何创建可引导的 macOS 安装介质</a></p>
+<h3 id="2-创建可引导的-macOS-安装介质">(2) 创建可引导的 macOS 安装介质</h3>
+<p>请访问：<a href="/blog/macos-createinstallmedia/" title="如何创建可引导的 macOS 安装介质">如何创建可引导的 macOS 安装介质</a></p>
 <p>按照步骤操作，即可启动到安装 macOS 画面，请先选择<strong>磁盘工具</strong>，<strong>抹掉整个磁盘</strong>，开始全新安装。</p>
-<h2 id="5-虚拟机安装"><a href="#5-虚拟机安装" class="headerlink" title="5. 虚拟机安装"></a>5. 虚拟机安装</h2><p>安装之前需要准备可引导的 macOS 软件包，默认 Apple 官方提供的软件包都是不可引导的。</p>
+<h2 id="5-虚拟机安装">5. 虚拟机安装</h2>
+<p>安装之前需要准备可引导的 macOS 软件包，默认 Apple 官方提供的软件包都是不可引导的。</p>
 <p>直接下载可启动 ISO 镜像，请访问：<a href="/blog/macOS-Big-Sur-boot-iso/" title="macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载">macOS Big Sur 11.7.10 (20G1427) Boot ISO 原版可引导镜像下载</a></p>
 <p>本例仅测试在 VMware 软件中安装，其他虚机软件未验证，方法类似。</p>
 <ul>
-<li><p>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a>，<a href="https://sysin.org/blog/vmware-esxi-8-oem/">ESXi 8.0</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8/">vCenter Server 8.0</a></p>
+<li>
+<p>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a>，<a href="https://sysin.org/blog/vmware-esxi-8-oem/">ESXi 8.0</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8/">vCenter Server 8.0</a></p>
 </li>
-<li><p>macOS：<a href="https://sysin.org/blog/vmware-fusion-12-oem/">VMware Fusion 12</a></p>
+<li>
+<p>macOS：<a href="https://sysin.org/blog/vmware-fusion-12-oem/">VMware Fusion 12</a></p>
 </li>
-<li><p>Linux：<a href="https://sysin.org/blog/vmware-workstation-16-unlocker-linux/">VMware Workstation 16 for Linux</a></p>
+<li>
+<p>Linux：<a href="https://sysin.org/blog/vmware-workstation-16-unlocker-linux/">VMware Workstation 16 for Linux</a></p>
 </li>
-<li><p>Windows：<a href="https://sysin.org/blog/vmware-workstation-16-unlocker-windows/">VMware Workstation 16 for Windows</a></p>
+<li>
+<p>Windows：<a href="https://sysin.org/blog/vmware-workstation-16-unlocker-windows/">VMware Workstation 16 for Windows</a></p>
 </li>
 </ul>
-<h3 id="1-在-macOS-中安装虚拟机"><a href="#1-在-macOS-中安装虚拟机" class="headerlink" title="(1) 在 macOS 中安装虚拟机"></a>(1) 在 macOS 中安装虚拟机</h3><p><a href="https://sysin.org/blog/vmware-fusion-12/">VMware Fusion 12</a> 和 <a href="https://sysin.org/blog/parallels-desktop/">Parallels Desktop 16 for Mac</a> 都可以完全支持 macOS Big Sur，使用可引导的 ISO，直接安装即可。</p>
+<h3 id="1-在-macOS-中安装虚拟机">(1) 在 macOS 中安装虚拟机</h3>
+<p><a href="https://sysin.org/blog/vmware-fusion-12/">VMware Fusion 12</a> 和 <a href="https://sysin.org/blog/parallels-desktop/">Parallels Desktop 16 for Mac</a> 都可以完全支持 macOS Big Sur，使用可引导的 ISO，直接安装即可。</p>
 <p><img src="vmware-fusion-12-macos.webp" alt="vmware-fusion-12-macos"></p>
-<h3 id="2-在-Windows-或者-Linux-中安装虚拟机"><a href="#2-在-Windows-或者-Linux-中安装虚拟机" class="headerlink" title="(2) 在 Windows 或者 Linux 中安装虚拟机"></a>(2) 在 Windows 或者 Linux 中安装虚拟机</h3><p><a href="https://sysin.org/blog/vmware-workstation-16-unlocker/">VMware Workstation 16</a> 已经完全支持 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/unlocker">unlocker</a></strong> 才可开启。</p>
+<h3 id="2-在-Windows-或者-Linux-中安装虚拟机">(2) 在 Windows 或者 Linux 中安装虚拟机</h3>
+<p><a href="https://sysin.org/blog/vmware-workstation-16-unlocker/">VMware Workstation 16</a> 已经完全支持 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/unlocker">unlocker</a></strong> 才可开启。</p>
 <p>笔者已经发布一个 <a href="https://sysin.org/blog/vmware-workstation-16-unlocker/">补丁</a>，来方便解决这个问题，补丁后支持 macOS，可以直接运行 macOS Big Sur。</p>
 <p><img src="vmware-workstation-16-macos.webp" alt="vmware-workstation-16-macos"></p>
 <p><a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> <a target="_blank" rel="noopener" href="https://www.virtualbox.org/manual/UserManual.html#idp19714672">Version 6.1.16 (2020-10-16)</a> 更新显示可以支持 macOS Big Sur。</p>
-<h3 id="3-在物理机-ESXi-中安装虚拟机"><a href="#3-在物理机-ESXi-中安装虚拟机" class="headerlink" title="(3) 在物理机 ESXi 中安装虚拟机"></a>(3) 在物理机 ESXi 中安装虚拟机</h3><p>本文落笔之时，最新的 ESXi 7.0 Update 1 官方 Guest OS 列表仅支持到 macOS 10.15，但实际上可以正常运行 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/esxi-unlocker">esxi-unlocker</a></strong> 才可开启。</p>
+<h3 id="3-在物理机-ESXi-中安装虚拟机">(3) 在物理机 ESXi 中安装虚拟机</h3>
+<p>本文落笔之时，最新的 ESXi 7.0 Update 1 官方 Guest OS 列表仅支持到 macOS 10.15，但实际上可以正常运行 macOS Big Sur，当然运行在非 Mac 硬件上需要 <strong><a target="_blank" rel="noopener" href="https://github.com/netgc/esxi-unlocker">esxi-unlocker</a></strong> 才可开启。</p>
 <p>新建 vm 时，兼容性选择 ESXi 7.0 U1，可以看到 10.16 即 Big Sur 11.0 (VMware 甚至发布了 macOS 10.17 ？)</p>
 <p><img src="ESXi7U1-New-macOS.webp" alt="ESXi7U1-New-macOS"></p>
 <p>可以使用本站的 <a href="https://sysin.org/blog/vmware-esxi-7-oem/">ESXi 7.0</a>，配合以下第 6 条解决报错。安装过程这里就不再赘述。</p>
 <p>笔者已经发布一个新版: <a href="https://sysin.org/blog/vmware-esxi-7-u2-oem/">VMware ESXi 7.0 U2</a>，可以直接运行 macOS Big Sur。</p>
-<h3 id="4-解决-“BiErrorDomain-Error-3-”-报错"><a href="#4-解决-“BiErrorDomain-Error-3-”-报错" class="headerlink" title="(4) 解决 “BiErrorDomain Error 3.” 报错"></a>(4) 解决 “BiErrorDomain Error 3.” 报错</h3><p>在一些早期版本的虚拟化软件中，尚未完全支持 macOS Big Sur，会出现 “BiErrorDomain Error 3.” 报错，可参照一下方法解决。</p>
+<h3 id="4-解决-“BiErrorDomain-Error-3-”-报错">(4) 解决 “BiErrorDomain Error 3.” 报错</h3>
+<p>在一些早期版本的虚拟化软件中，尚未完全支持 macOS Big Sur，会出现 “BiErrorDomain Error 3.” 报错，可参照一下方法解决。</p>
 <p><strong>使用 VMware 安装</strong>：</p>
 <p>在 VMware 中安装 macOS Big Sur，都会提示 “BiErrorDomain Error 3.”，无法继续，需要编辑 vmx 文件添加以下配置：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbios.reflectHost = <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">hw.model = <span class="string">&quot;MacBookPro16,1&quot;</span></span><br><span class="line">board-id = <span class="string">&quot;Mac-E1008331FDC96864&quot;</span></span><br></pre></td></tr></table></figure>

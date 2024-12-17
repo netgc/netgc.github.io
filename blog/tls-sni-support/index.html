@@ -493,7 +493,8 @@
 <hr>
 <p>TLS Server Name Indication (TLS SNI)，used when a single virtual IP server needs to host multiple domains.</p>
 <p>TLS SNI Support 即一个 IP 地址上支持多个域名的 SSL 站点，或者说一个 IP 上支持绑定多个 SSL 证书。</p>
-<h2 id="支持-TLS-SNI-的浏览器"><a href="#支持-TLS-SNI-的浏览器" class="headerlink" title="支持 TLS SNI 的浏览器"></a>支持 TLS SNI 的浏览器</h2><p>Browsers/clients with support for TLS server name indication:</p>
+<h2 id="支持-TLS-SNI-的浏览器">支持 TLS SNI 的浏览器</h2>
+<p>Browsers/clients with support for TLS server name indication:</p>
 <ul>
 <li>Opera 8.0 and later (the TLS 1.1 protocol must be enabled)</li>
 <li>Internet Explorer 7 or later (under Windows Vista and later only, not under Windows XP)</li>
@@ -503,7 +504,8 @@
 <li>Safari 3.0 or later (under OS X 10.5.6 or later and under Windows Vista and later)</li>
 </ul>
 <p>To find out if your browser supports SNI, you can go to <a target="_blank" rel="noopener" href="https://alice.sni.velox.ch/">https://alice.sni.velox.ch/</a>.</p>
-<h2 id="F5-BIG-IP-TLS-SNI-Support"><a href="#F5-BIG-IP-TLS-SNI-Support" class="headerlink" title="F5 BIG-IP TLS SNI Support"></a>F5 BIG-IP TLS SNI Support</h2><ul>
+<h2 id="F5-BIG-IP-TLS-SNI-Support">F5 BIG-IP TLS SNI Support</h2>
+<ul>
 <li>版本支持</li>
 </ul>
 <p>主流支持版本（v11.6及以上）都可以支持，参看官方文档：<a target="_blank" rel="noopener" href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-11-6-0/5.html">v11.6</a>，<a target="_blank" rel="noopener" href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-system-ssl-administration-12-1-1/5.html">v12.1</a>，<a target="_blank" rel="noopener" href="https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-1-0/5.html">v13.1</a></p>
@@ -512,7 +514,7 @@
 </ul>
 <p>参看：<a target="_blank" rel="noopener" href="https://support.f5.com/csp/article/K13452">K13452</a></p>
 <p>分别创建多个域名的（Client or Server）SSL Profile</p>
-<p>Server Name，分别填写域名（可选），如 www.sysin.org，支持通配符 <code>*.sysin.org</code>，也支持 * 代表任意域名，另外一个如 www.b.com</p>
+<p>Server Name，分别填写域名（可选），如 <a target="_blank" rel="noopener" href="http://www.sysin.org">www.sysin.org</a>，支持通配符 <code>*.sysin.org</code>，也支持 * 代表任意域名，另外一个如 <a target="_blank" rel="noopener" href="http://www.b.com">www.b.com</a></p>
 <p>Default SSL Profile for SNI，其中一个域名需要勾选作为默认</p>
 <p>Virtual Servers 的 SSL Profile（Client or Server）同时选择上述创建的多个 SSL Profile</p>
 <p>注意：在 BIG-IP 13.x 及以前版本，多个 SSL Profile 的 Ciphers 和 Client Authentication 属性需要配置一致（14.x 及以后版本无此要求）</p>
@@ -522,11 +524,12 @@
 <p>另外请注意，没有自动机制允许 BIG-IP 根据在客户端 SSL Hello 消息中接收到的 “Server Name” 值来选择 SSL Profile。</p>
 <p>不过，在 iRule 的额外帮助下，您可以根据从客户机收到的初始 HTTP 请求中接收的“主机名”报头值强制选择正确的 serverssl profile。</p>
 <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_REQUEST &#123;</span><br><span class="line">    <span class="keyword">set</span> hostname [getfield [HTTP::host] <span class="string">&quot;:&quot;</span> <span class="number">1</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">when SERVER_CONNECTED &#123;</span><br><span class="line">    <span class="keyword">switch</span> -<span class="keyword">glob</span> [<span class="keyword">string</span> tolower <span class="variable">$hostname</span>] &#123;</span><br><span class="line">    <span class="string">&quot;siteA.com&quot;</span> &#123;</span><br><span class="line">        SSL::profile serverssl-siteA</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">&quot;siteB.com&quot;</span> &#123;</span><br><span class="line">        SSL::profile serverssl-siteB</span><br><span class="line">    &#125;</span><br><span class="line">    default &#123;</span><br><span class="line"><span class="comment">    #default serversssl profile to be selected if Host header value cannot be matched with predefined values</span></span><br><span class="line">        SSL::profile serverssl</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Nginx-TLS-SNI-Support"><a href="#Nginx-TLS-SNI-Support" class="headerlink" title="Nginx TLS SNI Support"></a>Nginx TLS SNI Support</h2><ul>
+<h2 id="Nginx-TLS-SNI-Support">Nginx TLS SNI Support</h2>
+<ul>
 <li>版本支持</li>
 </ul>
 <p>参看<a target="_blank" rel="noopener" href="https://nginx.org/en/docs/http/configuring_https_servers.html">官方文档</a></p>
-<p>OpenSSL supports SNI since 0.9.8f version if it was built with config option “—enable-tlsext”. Since OpenSSL 0.9.8j this option is enabled by default. If nginx was built with SNI support, then nginx will show this when run with the “-V” switch:</p>
+<p>OpenSSL supports SNI since 0.9.8f version if it was built with config option “–enable-tlsext”. Since OpenSSL 0.9.8j this option is enabled by default. If nginx was built with SNI support, then nginx will show this when run with the “-V” switch:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nginx -V</span></span><br><span class="line">...</span><br><span class="line">TLS SNI support enabled</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>Nginx 0.x 版本已经支持 TLS SNI</p>
 <blockquote>
@@ -541,14 +544,16 @@
 <li>Version 1.0.5 and later: the default SSL ciphers are “<code>HIGH:!aNULL:!MD5</code>”.</li>
 <li>Version 0.7.65, 0.8.20 and later: the default SSL ciphers are “<code>HIGH:!ADH:!MD5</code>”.</li>
 <li>Version 0.8.19: the default SSL ciphers are “<code>ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM</code>”.</li>
-<li>Version 0.7.64, 0.8.18 and earlier: the default SSL ciphers are<br>“<code>ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP</code>”.</li>
+<li>Version 0.7.64, 0.8.18 and earlier: the default SSL ciphers are<br>
+“<code>ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP</code>”.</li>
 </ul>
 </blockquote>
 <ul>
 <li>一般配置方法</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       443 ssl http2;</span><br><span class="line">        server_name  a.sysin.org;</span><br><span class="line">        ssl_certificate     a.sysin.org.crt;</span><br><span class="line">        ssl_certificate_key a.sysin.org.key;</span><br><span class="line">        ssl_protocols       TLSv1.2 TLSv1.3;</span><br><span class="line">        ssl_ciphers &#x27;AES128+EECDH:AES128+EDH&#x27;;</span><br><span class="line">        add_header Strict-Transport-Security &quot;max-age=31536000; includeSubdomains; preload&quot;;</span><br><span class="line"></span><br><span class="line">        charset utf-8;</span><br><span class="line">        #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       443 ssl http2;</span><br><span class="line">        server_name  b.sysin.org;</span><br><span class="line">        ssl_certificate     b.sysin.org.crt;</span><br><span class="line">        ssl_certificate_key b.sysin.org.key;</span><br><span class="line">        ssl_protocols       TLSv1.2 TLSv1.3;</span><br><span class="line">        ssl_ciphers &#x27;AES128+EECDH:AES128+EDH&#x27;;</span><br><span class="line">        add_header Strict-Transport-Security &quot;max-age=31536000; includeSubdomains; preload&quot;;</span><br><span class="line"></span><br><span class="line">        charset utf-8;</span><br><span class="line">        #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="IIS-TSL-SNI-Support"><a href="#IIS-TSL-SNI-Support" class="headerlink" title="IIS TSL SNI Support"></a>IIS TSL SNI Support</h2><p>参看<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-8/iis-80-server-name-indication-sni-ssl-scalability">官方文档</a></p>
+<h2 id="IIS-TSL-SNI-Support">IIS TSL SNI Support</h2>
+<p>参看<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-8/iis-80-server-name-indication-sni-ssl-scalability">官方文档</a></p>
 <ul>
 <li>版本支持</li>
 </ul>

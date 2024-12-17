@@ -487,7 +487,8 @@
         <p>请访问原文链接：<a href="/blog/centos-8-install/" title="CentOS 8 安装笔记">CentOS 8 安装笔记</a> 查看最新版。原创作品，转载请保留出处。</p>
 <p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="第一部分-概述"><a href="#第一部分-概述" class="headerlink" title="第一部分 概述"></a>第一部分 概述</h2><p>初始版本：CentOS 8.0.1905</p>
+<h2 id="第一部分-概述-2">第一部分 概述</h2>
+<p>初始版本：CentOS 8.0.1905</p>
 <p>继 RHEL 8 发布之后，CentOS 社区也发布了让人期待已久的 CentOS 8，并发布了两种模式：</p>
 <ul>
 <li>CentOS stream：滚动发布的 Linux 发行版，适用于需要频繁更新的开发者</li>
@@ -498,24 +499,34 @@
 <p>由于首个版本没有提供类似于 CentOS 7 的 Minimal 版本，这里使用 CentOS-8-x86_64-1905-boot.iso 进行安装，安装过程中选择 Minimal 安装，不过需要指定 repo 地址 (sysin)。</p>
 <p>更新：CentOS 8.2.2004 终于增加了 Minimal iso。</p>
 <p>因 CentOS 8 生命周期已于 2021.12.31 终结，本文更新加入了 AlmaLinux 8、Rocky Linux 8 的内容，笔者在后续文章尽量以 <code>RHEL 8 兼容发行版</code> 或者 <code>RHEL 8 系列</code> 来概称这集中发行版，因为它们是二进制兼容的发行版，仅仅在某些软件包名称和少量配置上略有差异。</p>
-<h2 id="1-CentOS-8-的新特性"><a href="#1-CentOS-8-的新特性" class="headerlink" title="1. CentOS 8 的新特性"></a>1. CentOS 8 的新特性</h2><ul>
-<li><p>DNF 成为了默认的软件包管理器，同时 yum 仍然是可用的</p>
+<h2 id="1-CentOS-8-的新特性">1. CentOS 8 的新特性</h2>
+<ul>
+<li>
+<p>DNF 成为了默认的软件包管理器，同时 yum 仍然是可用的</p>
 </li>
-<li><p>使用网络管理器（<code>nmcli</code> 和 <code>nmtui</code>）进行网络配置，移除了网络脚本</p>
+<li>
+<p>使用网络管理器（<code>nmcli</code> 和 <code>nmtui</code>）进行网络配置，移除了网络脚本</p>
 </li>
-<li><p>使用 Podman 进行容器管理</p>
+<li>
+<p>使用 Podman 进行容器管理</p>
 </li>
-<li><p>引入了两个新的包仓库：BaseOS 和 AppStream</p>
+<li>
+<p>引入了两个新的包仓库：BaseOS 和 AppStream</p>
 </li>
-<li><p>使用 Cockpit 作为默认的系统管理工具</p>
+<li>
+<p>使用 Cockpit 作为默认的系统管理工具</p>
 </li>
-<li><p>默认使用 Wayland 作为显示服务器 (sysin)</p>
+<li>
+<p>默认使用 Wayland 作为显示服务器 (sysin)</p>
 </li>
-<li><p><code>iptables</code> 将被 <code>nftables</code> 取代</p>
+<li>
+<p><code>iptables</code> 将被 <code>nftables</code> 取代</p>
 </li>
-<li><p>使用 Linux 内核 4.18</p>
+<li>
+<p>使用 Linux 内核 4.18</p>
 </li>
-<li><p>动态编程语言、Web 和数据库服务器</p>
+<li>
+<p>动态编程语言、Web 和数据库服务器</p>
 <ul>
 <li><code>Python 3.6</code> 是默认的 Python 环境，有限支持 Python 2.7</li>
 <li><code>Node.js</code> 是在 RHEL 最新包含的，其他动态语言更新包括: <code>PHP 7.2</code>，<code>Ruby 2.5</code>，<code>Perl 5.26</code>，<code>SWIG 3.0</code></li>
@@ -525,7 +536,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="2-版本历史"><a href="#2-版本历史" class="headerlink" title="2. 版本历史"></a>2. 版本历史</h2><div class="table-container">
+<h2 id="2-版本历史">2. 版本历史</h2>
 <table>
 <thead>
 <tr>
@@ -588,59 +599,78 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="3-安装要点"><a href="#3-安装要点" class="headerlink" title="3. 安装要点"></a>3. 安装要点</h2><p>详细步骤参看 CentOS 8 安装截图，这里列出几个注意点。</p>
+<h2 id="3-安装要点">3. 安装要点</h2>
+<p>详细步骤参看 CentOS 8 安装截图，这里列出几个注意点。</p>
 <blockquote>
 <p>推荐使用 Minimal 安装介质（8.0 和 8.1 未发布 Minimal iso）。</p>
 <p>先配置网络，否则某些项目无法配置。</p>
 </blockquote>
 <ul>
-<li><p>Network &amp; Hostname：点击 OFF 按钮为 ON，点击 Configure… 按钮，General 页面注意勾选 “Connect automatically with priority”，根据需要手动配置 IP 地址和 DNS。</p>
+<li>
+<p>Network &amp; Hostname：点击 OFF 按钮为 ON，点击 Configure… 按钮，General 页面注意勾选 “Connect automatically with priority”，根据需要手动配置 IP 地址和 DNS。</p>
 </li>
-<li><p>Keyboard：默认  English (US)。</p>
+<li>
+<p>Keyboard：默认  English (US)。</p>
 </li>
-<li><p>Language Support：下拉到最下面 “中文”，勾选 “简体中文” 和两个 “繁体中文”。</p>
+<li>
+<p>Language Support：下拉到最下面 “中文”，勾选 “简体中文” 和两个 “繁体中文”。</p>
 </li>
-<li><p>Time &amp; Date：点选 Asia/Shanghai，Network Time 自动 ON（前面先配置了网络）。</p>
+<li>
+<p>Time &amp; Date：点选 Asia/Shanghai，Network Time 自动 ON（前面先配置了网络）。</p>
 </li>
-<li><p>Installation Source：如果是 Minimal 或者 DVD 介质，默认是 Local media。</p>
+<li>
+<p>Installation Source：如果是 Minimal 或者 DVD 介质，默认是 Local media。</p>
 <p>如果是 boot 安装介质 (sysin)，配置网络后自动修改为 Cloest mirror，也可以根据需要手动指定，比如可以使用 163 或者阿里云镜像：</p>
-<p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/CentOS/8/BaseOS/x86_64/os/">https://mirrors.aliyun.com/CentOS/8/BaseOS/x86_64/os/</a><br><a target="_blank" rel="noopener" href="https://mirrors.163.com/CentOS/8/BaseOS/x86_64/os/">https://mirrors.163.com/CentOS/8/BaseOS/x86_64/os/</a></p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/CentOS/8/BaseOS/x86_64/os/">https://mirrors.aliyun.com/CentOS/8/BaseOS/x86_64/os/</a><br>
+<a target="_blank" rel="noopener" href="https://mirrors.163.com/CentOS/8/BaseOS/x86_64/os/">https://mirrors.163.com/CentOS/8/BaseOS/x86_64/os/</a></p>
 <p>如果已经发布新版，安装旧版需要使用手动填写 vault 地址：<a target="_blank" rel="noopener" href="https://vault.centos.org/8.0.1905/BaseOS/x86_64/os/">https://vault.centos.org/8.0.1905/BaseOS/x86_64/os/</a>，URL Type 为 repository URL。</p>
 </li>
-<li><p>Software Selection：Minimal Install，请勿勾选 “Development Tools”（实际上安装的组件有限，需要手动安装），虚机勾选 “Guest Agent”（Rocky Linux 和 AlmaLinux 无此选项）。</p>
+<li>
+<p>Software Selection：Minimal Install，请勿勾选 “Development Tools”（实际上安装的组件有限，需要手动安装），虚机勾选 “Guest Agent”（Rocky Linux 和 AlmaLinux 无此选项）。</p>
 </li>
-<li><p>Installation Destination：创建分区，可选两种参考方案。</p>
+<li>
+<p>Installation Destination：创建分区，可选两种参考方案。</p>
 <ul>
-<li><p>默认分区方案：点选 Custom，默认使用 LVM，点击 “Click here to create them automatically” 自动创建，手动调整：删除 /home，将 SWAP 修改为整数 4 GiB，/boot 默认 1024 MiB，剩余分配给 /。</p>
+<li>
+<p>默认分区方案：点选 Custom，默认使用 LVM，点击 “Click here to create them automatically” 自动创建，手动调整：删除 /home，将 SWAP 修改为整数 4 GiB，/boot 默认 1024 MiB，剩余分配给 /。</p>
 </li>
-<li><p><strong>在 VM 环境中，简化分区方便调整大小</strong>：</p>
+<li>
+<p><strong>在 VM 环境中，简化分区方便调整大小</strong>：</p>
 <ul>
-<li><p>新建虚机，默认磁盘可以根据需要调整大小，比如 60G，这个直接用于 / 目录（可以合并 /boot），本例创建独立 <code>/boot</code>（容量 2G，默认 1G）。</p>
+<li>
+<p>新建虚机，默认磁盘可以根据需要调整大小，比如 60G，这个直接用于 / 目录（可以合并 /boot），本例创建独立 <code>/boot</code>（容量 2G，默认 1G）。</p>
 </li>
-<li><p>新增一块磁盘用作 SWAP，比如默认 4G。或者不创建 swap 分区，进入系统后创建文件如 <code>/swap.img</code> 作为 swap 分区。</p>
+<li>
+<p>新增一块磁盘用作 SWAP，比如默认 4G。或者不创建 swap 分区，进入系统后创建文件如 <code>/swap.img</code> 作为 swap 分区。</p>
 <p>这样扩容就非常方便，虚机环境可能用不上 LVM 的便利。</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>KDUMP：默认启用。</p>
+<li>
+<p>KDUMP：默认启用。</p>
 </li>
-<li><p>Security Policy：暂无，忽略。</p>
+<li>
+<p>Security Policy：暂无，忽略。</p>
 </li>
-<li><p>Root Password：创建 root 密码。</p>
+<li>
+<p>Root Password：创建 root 密码。</p>
 </li>
-<li><p>User Creation：新建额外的（管理员）账号，可选。</p>
+<li>
+<p>User Creation：新建额外的（管理员）账号，可选。</p>
 </li>
 </ul>
 <p>“Development Tools” 有哪些软件？</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dnf groupinfo <span class="string">&quot;Development Tools&quot;</span></span></span><br><span class="line">Updating Subscription Management repositories.</span><br><span class="line"></span><br><span class="line">Group: Development Tools</span><br><span class="line"> Description: A basic development environment.</span><br><span class="line"> Mandatory Packages:</span><br><span class="line">   autoconf</span><br><span class="line">   automake</span><br><span class="line">   binutils</span><br><span class="line">   bison</span><br><span class="line">   flex</span><br><span class="line">   gcc</span><br><span class="line">   gcc-c++</span><br><span class="line">   gdb</span><br><span class="line">   glibc-devel</span><br><span class="line">   libtool</span><br><span class="line">   make</span><br><span class="line">   pkgconf</span><br><span class="line">   pkgconf-m4</span><br><span class="line">   pkgconf-pkg-config</span><br><span class="line">   redhat-rpm-config</span><br><span class="line">   rpm-build</span><br><span class="line">   rpm-sign</span><br><span class="line">   strace</span><br><span class="line"> Default Packages:</span><br><span class="line">   asciidoc</span><br><span class="line">   byacc</span><br><span class="line">   ctags</span><br><span class="line">   diffstat</span><br><span class="line">   git</span><br><span class="line">   intltool</span><br><span class="line">   ltrace</span><br><span class="line">   patchutils</span><br><span class="line">   perl-Fedora-VSP</span><br><span class="line">   perl-generators</span><br><span class="line">   pesign</span><br><span class="line">   source-highlight</span><br><span class="line">   systemtap</span><br><span class="line">   valgrind</span><br><span class="line"> Optional Packages:</span><br><span class="line">   cmake</span><br><span class="line">   expect</span><br><span class="line">   rpmdevtools</span><br><span class="line">   rpmlint</span><br></pre></td></tr></table></figure>
 <p>手动安装开发工具命令：<code>dnf groupinstall &quot;Development Tools&quot;</code></p>
-<h2 id="第二部分-配置"><a href="#第二部分-配置" class="headerlink" title="第二部分 配置"></a>第二部分 配置</h2><h2 id="1-创建文件作为-SWAP-分区"><a href="#1-创建文件作为-SWAP-分区" class="headerlink" title="1. 创建文件作为 SWAP 分区"></a>1. 创建文件作为 SWAP 分区</h2><p>如果在安装时候没有创建 SWAP 分区，我们手动创建。</p>
+<h2 id="第二部分-配置-2">第二部分 配置</h2>
+<h2 id="1-创建文件作为-SWAP-分区">1. 创建文件作为 SWAP 分区</h2>
+<p>如果在安装时候没有创建 SWAP 分区，我们手动创建。</p>
 <p>这是最简单的方式，直接在 / 目录下创建一个文件作为交换分区，可以非常灵活完美的启用和禁用 swap 并在线调整大小。</p>
 <p>（1）创建要作为 swap 分区的文件 (sysin):</p>
 <p>增加 4GB 大小的交换分区，则命令写法如下，其中的 count 等于想要的块的数量（bs*count = 文件大小）。</p>
@@ -661,7 +691,8 @@
 <blockquote>
 <p>Ubuntu 20.04 中默认使用 <code>/swap.img</code> 文件作为 SWAP 分区，可以直接 swapoff 并删除原文件，然后重新创建同名文件来简单扩容。我们这里借鉴了 Ubuntu 的做法，并推荐使用该种方式。</p>
 </blockquote>
-<h2 id="2-格式化网卡命名"><a href="#2-格式化网卡命名" class="headerlink" title="2. 格式化网卡命名"></a>2. 格式化网卡命名</h2><p>即禁用 consistent interface device naming</p>
+<h2 id="2-格式化网卡命名">2. 格式化网卡命名</h2>
+<p>即禁用 consistent interface device naming</p>
 <p>(1) 编辑 grub 配置文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接用 sed 命令替换</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 8</span></span><br><span class="line">sed -i &#x27;s/rhgb/net.ifnames=0 rhgb/&#x27; /etc/default/grub</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 7</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sed -i <span class="string">&#x27;s/rhgb/net.ifnames=0 biosdevname=0 rhgb/&#x27;</span> /etc/default/grub</span></span><br></pre></td></tr></table></figure>
 <p>(2) 运行如下命令重建 grub.cfg 文件</p>
@@ -671,7 +702,8 @@
 <p>(4) 重启生效</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
 <p>参考：<a target="_blank" rel="noopener" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/consistent-network-interface-device-naming_configuring-and-managing-networking">官方文档</a></p>
-<h2 id="3-配置网络"><a href="#3-配置网络" class="headerlink" title="3. 配置网络"></a>3. 配置网络</h2><p>RHEL 8 系列完全使用 nmcli 来管理网络 (sysin)，虽然仍然保留了旧版的 <code>network-scripts</code> 及 network.service，但是将在 RHEL 9 中废弃。</p>
+<h2 id="3-配置网络">3. 配置网络</h2>
+<p>RHEL 8 系列完全使用 nmcli 来管理网络 (sysin)，虽然仍然保留了旧版的 <code>network-scripts</code> 及 network.service，但是将在 RHEL 9 中废弃。</p>
 <p>推荐使用 nmcli 命令行工具，另外有文本图形界面的 nmtui 操作比较简单，这里不再赘述。</p>
 <p><strong>nmcli 命令帮助</strong>：</p>
 <p>命令不支持自动补全，但是可以通过 - h 参数逐步获得帮助</p>
@@ -687,7 +719,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart NetworkManager.service</span><br><span class="line">nmcli networking off &amp;&amp; nmcli networking on</span><br></pre></td></tr></table></figure>
 <p>备注：CentOS 8 (默认安装) 重启网络 “systemctl restart network” 已经不可用。</p>
 <p>RHEL 8 系列也可以手工配置 ifcfg，使用 nmcli 来生效新的网络配置（不推荐）</p>
-<h2 id="4-修改主机名"><a href="#4-修改主机名" class="headerlink" title="4. 修改主机名"></a>4. 修改主机名</h2><p>说明：与 CentOS 7 方法相同</p>
+<h2 id="4-修改主机名">4. 修改主机名</h2>
+<p>说明：与 CentOS 7 方法相同</p>
 <ul>
 <li>即时生效</li>
 </ul>
@@ -696,49 +729,65 @@
 <li>永久生效</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hostname #编辑配置文件</span><br><span class="line">sysin   #修改 localhost.localdomain 为 sysin</span><br><span class="line">:x  #保存退出</span><br><span class="line"></span><br><span class="line">或者使用命令：`hostnamectl set-hostname sysin`</span><br><span class="line"></span><br><span class="line">同时修改 hosts 文件：</span><br><span class="line">vi /etc/hosts #编辑配置文件</span><br><span class="line">127.0.0.1   sysin   #增加一条</span><br><span class="line">:x  #保存退出</span><br></pre></td></tr></table></figure>
-<h2 id="5-激活-cockpit-web-console"><a href="#5-激活-cockpit-web-console" class="headerlink" title="5. 激活 cockpit web console"></a>5. 激活 cockpit web console</h2><p>CentOS 8 默认集成了 cockpit，登录画面提示激活方法（模板未启用）：</p>
+<h2 id="5-激活-cockpit-web-console">5. 激活 cockpit web console</h2>
+<p>CentOS 8 默认集成了 cockpit，登录画面提示激活方法（模板未启用）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable --now cockpit.socket</span><br></pre></td></tr></table></figure>
 <p>然后通过浏览器访问：<code>http://&lt;IP&gt;:9090</code></p>
-<h2 id="6-关闭-SELinux"><a href="#6-关闭-SELinux" class="headerlink" title="6. 关闭 SELinux"></a>6. 关闭 SELinux</h2><p>SELinux 是 Linux 中最古老的一种 MAC（强制访问控制，Mandatory Access Control）模型，它是美国国家安全局的产品。除了在一些对安全有强制的要求的行业，SELinux 更多的以难以管理和排错而 “闻名”，通常认为其 “弊大于利”，许多应用安装文档中都要求关闭 SELinux。</p>
+<h2 id="6-关闭-SELinux">6. 关闭 SELinux</h2>
+<p>SELinux 是 Linux 中最古老的一种 MAC（强制访问控制，Mandatory Access Control）模型，它是美国国家安全局的产品。除了在一些对安全有强制的要求的行业，SELinux 更多的以难以管理和排错而 “闻名”，通常认为其 “弊大于利”，许多应用安装文档中都要求关闭 SELinux。</p>
 <p>编辑配置文件 <code>/etc/selinux/config</code>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改 SELINUX=enforcing 为 SELINUX=disabled，即替换行</span></span><br><span class="line">sed -i &#x27;/^SELINUX=.*/c SELINUX=disabled&#x27; /etc/selinux/config</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者：sed -i <span class="string">&#x27;/^SELINUX=enforcing/c SELINUX=disabled&#x27;</span> /etc/selinux/config</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注释 SELINUXTYPE=targeted</span></span><br><span class="line">sed -i &#x27;s/^SELINUXTYPE=targeted/#&amp;/&#x27; /etc/selinux/config</span><br></pre></td></tr></table></figure>
 <p>使配置生效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0  #0=permissive, SELinux prints warnings instead of enforcing.</span><br><span class="line">shutdown -r now  #最终重启系统生效</span><br></pre></td></tr></table></figure>
-<h2 id="7-配置-firewalld"><a href="#7-配置-firewalld" class="headerlink" title="7. 配置 firewalld"></a>7. 配置 firewalld</h2><p><strong>关闭 firewalld</strong>（模板配置）</p>
+<h2 id="7-配置-firewalld">7. 配置 firewalld</h2>
+<p><strong>关闭 firewalld</strong>（模板配置）</p>
 <p>CentOS 8 主要改动和 RedHat Enterprise Linux 8 是一致的，基于 Fedora 28 和内核版本 <code>4.18</code>，其中网络方面的主要改动是 <strong>用 nftables 框架替代 iptables 框架作为默认的网络包过滤工具。</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service  #停止 firewall</span><br><span class="line">systemctl disable firewalld.service  #禁止 firewall 开机启动</span><br><span class="line">firewall-cmd --state  #查看状态</span><br></pre></td></tr></table></figure>
-<h2 id="8-安装-EPEL"><a href="#8-安装-EPEL" class="headerlink" title="8. 安装 EPEL"></a>8. 安装 EPEL</h2><p>EPEL 的全称叫 Extra Packages for Enterprise Linux。EPEL 是由 Fedora 社区打造，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集。EPEL 适用于 RHEL 及衍生发行版如 CentOS 等。</p>
+<h2 id="8-安装-EPEL">8. 安装 EPEL</h2>
+<p>EPEL 的全称叫 Extra Packages for Enterprise Linux。EPEL 是由 Fedora 社区打造，用以创建、维护以及管理针对企业版 Linux 的一个高质量附加软件包集。EPEL 适用于 RHEL 及衍生发行版如 CentOS 等。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line"></span><br><span class="line">或者 (EL8):</span><br><span class="line">rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm</span><br><span class="line">rpm -import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8</span><br></pre></td></tr></table></figure>
-<h2 id="9-更换国内镜像"><a href="#9-更换国内镜像" class="headerlink" title="9. 更换国内镜像"></a>9. 更换国内镜像</h2><p>示例更换为阿里云镜像：</p>
+<h2 id="9-更换国内镜像">9. 更换国内镜像</h2>
+<p>示例更换为阿里云镜像：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">替换</span></span><br><span class="line">sed -e &#x27;s|^mirrorlist=|#mirrorlist=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=http://mirror.centos.org/$contentdir|baseurl=https://mirrors.aliyun.com/centos|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/CentOS-*.repo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">epel (url 不一样)</span></span><br><span class="line">sed -e &#x27;s/metalink=/#metalink=/g&#x27; \</span><br><span class="line">    -e &#x27;s/#baseurl=/baseurl=/g&#x27; \</span><br><span class="line">    -e &#x27;s/https:\/\/download.example\/pub/https:\/\/mirrors.aliyun.com/g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel*.repo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者</span></span><br><span class="line">sed -e &#x27;s|^metalink=|#metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=https://download.example/pub|baseurl=https://mirrors.aliyun.com|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel*.repo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Rocky Linux 中 <span class="comment">#baseurl=https://download.example/pub</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">与 CentOS 相同，而 AlmaLinux <span class="comment">#baseurl=https://download.fedoraproject.org/pub</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清空缓存</span></span><br><span class="line">dnf clean all</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新列表</span></span><br><span class="line">dnf makecache</span><br></pre></td></tr></table></figure>
-<h2 id="10-排除不需要的更新包"><a href="#10-排除不需要的更新包" class="headerlink" title="10. 排除不需要的更新包"></a>10. 排除不需要的更新包</h2><p>修改配置文件：</p>
+<h2 id="10-排除不需要的更新包">10. 排除不需要的更新包</h2>
+<p>修改配置文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;exclude=kernel* centos-linux-release&#x27; &gt;&gt; /etc/yum.conf</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">备注：安装某些软件包需要新版内核支持，需要删除以上配置。</span><br></pre></td></tr></table></figure>
-<h2 id="11-更新软件包"><a href="#11-更新软件包" class="headerlink" title="11. 更新软件包"></a>11. 更新软件包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">清理</span></span><br><span class="line">dnf autoremove</span><br><span class="line">dnf clean all</span><br><span class="line">rm -rf /var/cache/dnf</span><br><span class="line"></span><br><span class="line">dnf mackecache  #缓存软件包信息</span><br><span class="line">dnf upgrade  # = dnf update，更新软件包，包括内核及系统版本</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">再次清理</span></span><br><span class="line">dnf autoremove</span><br><span class="line">dnf clean all</span><br><span class="line">rm -rf /var/cache/dnf</span><br><span class="line"></span><br><span class="line">rm -rf /tmp/*  #清空临时文件目录</span><br></pre></td></tr></table></figure>
-<h2 id="12-安装一些必备工具"><a href="#12-安装一些必备工具" class="headerlink" title="12. 安装一些必备工具"></a>12. 安装一些必备工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 一些基本工具最小化安装可能没有 (经测 vim 和 wget 等没有安装)</span></span></span><br><span class="line">yum -y install vim wget zip unzip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开发工具</span></span><br><span class="line">yum groupinstall &quot;Development Tools&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下网络工具已经不存在</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum -y install setuptool system-config-network-tui system-config-firewall-tui</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认安装没有 ifconfig 命令，安装 net-tools</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ifconfig、netstat、route 等命令集</span></span><br><span class="line">yum -y install net-tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">host、dig 和 nslookup</span></span><br><span class="line">yum -y install bind-utils</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更好的 top 工具</span></span><br><span class="line">yum -y install htop</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">文件传输：sz 和 rz</span></span><br><span class="line">yum -y install lrzsz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志神器 Log file Navigator</span></span><br><span class="line">yum -y install lnav</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc:</span></span><br><span class="line">yum -y install nc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">lsof:</span></span><br><span class="line">yum -y install lsof</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tree:</span></span><br><span class="line">yum -y install tree</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pstree:</span></span><br><span class="line">yum -y install psmisc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ncdu：NCurses Disk Usage</span></span><br><span class="line">yum -y install ncdu</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dstat 监控 CPU、磁盘和网络使用率</span></span><br><span class="line">yum -y install dstat</span><br></pre></td></tr></table></figure>
+<h2 id="11-更新软件包">11. 更新软件包</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">清理</span></span><br><span class="line">dnf autoremove</span><br><span class="line">dnf clean all</span><br><span class="line">rm -rf /var/cache/dnf</span><br><span class="line"></span><br><span class="line">dnf mackecache  #缓存软件包信息</span><br><span class="line">dnf upgrade  # = dnf update，更新软件包，包括内核及系统版本</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">再次清理</span></span><br><span class="line">dnf autoremove</span><br><span class="line">dnf clean all</span><br><span class="line">rm -rf /var/cache/dnf</span><br><span class="line"></span><br><span class="line">rm -rf /tmp/*  #清空临时文件目录</span><br></pre></td></tr></table></figure>
+<h2 id="12-安装一些必备工具">12. 安装一些必备工具</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 一些基本工具最小化安装可能没有 (经测 vim 和 wget 等没有安装)</span></span></span><br><span class="line">yum -y install vim wget zip unzip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开发工具</span></span><br><span class="line">yum groupinstall &quot;Development Tools&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下网络工具已经不存在</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum -y install setuptool system-config-network-tui system-config-firewall-tui</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认安装没有 ifconfig 命令，安装 net-tools</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ifconfig、netstat、route 等命令集</span></span><br><span class="line">yum -y install net-tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">host、dig 和 nslookup</span></span><br><span class="line">yum -y install bind-utils</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更好的 top 工具</span></span><br><span class="line">yum -y install htop</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">文件传输：sz 和 rz</span></span><br><span class="line">yum -y install lrzsz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志神器 Log file Navigator</span></span><br><span class="line">yum -y install lnav</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc:</span></span><br><span class="line">yum -y install nc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">lsof:</span></span><br><span class="line">yum -y install lsof</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tree:</span></span><br><span class="line">yum -y install tree</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pstree:</span></span><br><span class="line">yum -y install psmisc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ncdu：NCurses Disk Usage</span></span><br><span class="line">yum -y install ncdu</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dstat 监控 CPU、磁盘和网络使用率</span></span><br><span class="line">yum -y install dstat</span><br></pre></td></tr></table></figure>
 <p>fd 命令（fd-find，强烈推荐）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">musl libc 编译版本 (推荐)</span></span><br><span class="line">wget https://ghproxy.com/https://github.com/sharkdp/fd/releases/download/v8.0.0/fd-v8.0.0-x86_64-unknown-linux-musl.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装：</span></span><br><span class="line">tar -zxvf fd-v8.0.0-x86_64-unknown-linux-musl.tar.gz</span><br><span class="line">cp fd-v8.0.0-x86_64-unknown-linux-musl/fd /usr/local/bin/</span><br><span class="line">cp fd-v8.0.0-x86_64-unknown-linux-musl/fd.1 /usr/local/share/man/man1/</span><br></pre></td></tr></table></figure>
-<h2 id="13-配置网络时间同步-NTP"><a href="#13-配置网络时间同步-NTP" class="headerlink" title="13. 配置网络时间同步 NTP"></a>13. 配置网络时间同步 NTP</h2><p>CentOS 7 开始默认使用 chrony 时间同步，可以使用恢复使用 ntp。</p>
+<h2 id="13-配置网络时间同步-NTP">13. 配置网络时间同步 NTP</h2>
+<p>CentOS 7 开始默认使用 chrony 时间同步，可以使用恢复使用 ntp。</p>
 <p>默认配置文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/chrony.conf</span><br></pre></td></tr></table></figure>
 <p>查看状态：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chronyc sources -v</span><br><span class="line">chronyc sourcestats -v</span><br></pre></td></tr></table></figure>
-<h2 id="14-安装-SNMP"><a href="#14-安装-SNMP" class="headerlink" title="14. 安装 SNMP"></a>14. 安装 SNMP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-devel net-snmp-libs net-snmp-utils</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">因为是模板，这里暂不配置</span></span><br></pre></td></tr></table></figure>
-<h2 id="15-虚机安装-VM-tools"><a href="#15-虚机安装-VM-tools" class="headerlink" title="15. 虚机安装 VM-tools"></a>15. 虚机安装 VM-tools</h2><p>在系统安装时候勾选了 “Guest Agent”，将自动安装 open-vm-tools</p>
+<h2 id="14-安装-SNMP">14. 安装 SNMP</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-devel net-snmp-libs net-snmp-utils</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">因为是模板，这里暂不配置</span></span><br></pre></td></tr></table></figure>
+<h2 id="15-虚机安装-VM-tools">15. 虚机安装 VM-tools</h2>
+<p>在系统安装时候勾选了 “Guest Agent”，将自动安装 open-vm-tools</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">手动安装 open-vm-tools：</span></span><br><span class="line">yum -y install open-vm-tools</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启服务</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">chkconfig vmtoolsd on</span></span><br><span class="line">systemctl enable vmtoolsd.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动服务</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">service vmtoolsd start</span></span><br><span class="line">systemctl start vmtoolsd</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看版本</span></span><br><span class="line">vmtoolsd -v</span><br><span class="line">VMware Tools daemon, version 11.2.5.26209 (build-17337674)</span><br></pre></td></tr></table></figure>
-<h2 id="16-安装图形界面"><a href="#16-安装图形界面" class="headerlink" title="16. 安装图形界面"></a>16. 安装图形界面</h2><p>基于特定场景需要，一般不用安装</p>
+<h2 id="16-安装图形界面">16. 安装图形界面</h2>
+<p>基于特定场景需要，一般不用安装</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum grouplist  #查看可安装的组件</span><br><span class="line"></span><br><span class="line">yum groupinstall &quot;Server with GUI&quot;  #安装 GNOME 图形界面 (与 CentOS 7 名称不一样)</span><br><span class="line">yum groupinstall &quot;Graphical Administration Tools&quot;  #将自动安装</span><br><span class="line"></span><br><span class="line">startx  #启动图形界面</span><br></pre></td></tr></table></figure>
-<h2 id="17-Shell-配置"><a href="#17-Shell-配置" class="headerlink" title="17. Shell 配置"></a>17. Shell 配置</h2><p>Zsh</p>
+<h2 id="17-Shell-配置">17. Shell 配置</h2>
+<p>Zsh</p>
 <p>这里是针对当前用户配置。<a href="https://sysin.org/blog/linux-zsh-all/">全局配置请参看其他文章</a>，<strong>这里直接使用全局配置文件即可</strong>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Zsh</span></span><br><span class="line">yum -y install zsh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">or</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">dnf -y install zsh</span></span><br><span class="line">yum -y install util-linux-user</span><br><span class="line"></span><br><span class="line">chsh -s /bin/zsh</span><br><span class="line"></span><br><span class="line">yum -y install git</span><br><span class="line"></span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br><span class="line"></span><br><span class="line">sed -i &#x27;/^ZSH_THEME=.*/c ZSH_THEME=&quot;ys&quot;&#x27; ~/.zshrc</span><br><span class="line"></span><br><span class="line">echo &#x27;alias ll=&quot;ls -lahF --color --time-style=long-iso&quot;&#x27; &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line">sed -i &#x27;/^plugins=.*/c plugins=(git zsh-syntax-highlighting)&#x27; ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h2 id="18-清理并制作镜像模板"><a href="#18-清理并制作镜像模板" class="headerlink" title="18. 清理并制作镜像模板"></a>18. 清理并制作镜像模板</h2><p>清理 dnf/yum 缓存</p>
+<h2 id="18-清理并制作镜像模板">18. 清理并制作镜像模板</h2>
+<p>清理 dnf/yum 缓存</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dnf autoremove</span><br><span class="line">dnf clean all</span><br><span class="line">rm -rf /var/cache/dnf</span><br></pre></td></tr></table></figure>
 <p>清理临时文件夹</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">正确方式两句命令</span></span><br><span class="line">rm -rf /tmp/.*</span><br><span class="line">rm -rf /tmp/*</span><br></pre></td></tr></table></figure>
 <p>清空历史记录</p>
-<h2 id="第三部分-OVF-下载"><a href="#第三部分-OVF-下载" class="headerlink" title="第三部分 OVF 下载"></a>第三部分 OVF 下载</h2><p>下载地址：</p>
+<h2 id="第三部分-OVF-下载">第三部分 OVF 下载</h2>
+<p>下载地址：</p>
 <ul>
-<li><a href="/blog/centos-8-ovf/" title="CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板">CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+<li>
+<a href="/blog/centos-8-ovf/" title="CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板">CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
 </li>
 </ul>
 
@@ -924,7 +973,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">第一部分 概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-CentOS-8-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1. CentOS 8 的新特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E7%89%88%E6%9C%AC%E5%8E%86%E5%8F%B2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2. 版本历史</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%AE%89%E8%A3%85%E8%A6%81%E7%82%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3. 安装要点</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">第二部分 配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BA-SWAP-%E5%88%86%E5%8C%BA"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">1. 创建文件作为 SWAP 分区</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%BD%91%E5%8D%A1%E5%91%BD%E5%90%8D"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">2. 格式化网卡命名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">3. 配置网络</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">4. 修改主机名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E6%BF%80%E6%B4%BB-cockpit-web-console"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">5. 激活 cockpit web console</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E5%85%B3%E9%97%AD-SELinux"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">6. 关闭 SELinux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E9%85%8D%E7%BD%AE-firewalld"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">7. 配置 firewalld</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E5%AE%89%E8%A3%85-EPEL"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">8. 安装 EPEL</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">9. 更换国内镜像</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-%E6%8E%92%E9%99%A4%E4%B8%8D%E9%9C%80%E8%A6%81%E7%9A%84%E6%9B%B4%E6%96%B0%E5%8C%85"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">10. 排除不需要的更新包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-nav-number">16.</span> <span class="toc-nav-text">11. 更新软件包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#12-%E5%AE%89%E8%A3%85%E4%B8%80%E4%BA%9B%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">17.</span> <span class="toc-nav-text">12. 安装一些必备工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#13-%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5-NTP"><span class="toc-nav-number">18.</span> <span class="toc-nav-text">13. 配置网络时间同步 NTP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#14-%E5%AE%89%E8%A3%85-SNMP"><span class="toc-nav-number">19.</span> <span class="toc-nav-text">14. 安装 SNMP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#15-%E8%99%9A%E6%9C%BA%E5%AE%89%E8%A3%85-VM-tools"><span class="toc-nav-number">20.</span> <span class="toc-nav-text">15. 虚机安装 VM-tools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#16-%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="toc-nav-number">21.</span> <span class="toc-nav-text">16. 安装图形界面</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#17-Shell-%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">22.</span> <span class="toc-nav-text">17. Shell 配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#18-%E6%B8%85%E7%90%86%E5%B9%B6%E5%88%B6%E4%BD%9C%E9%95%9C%E5%83%8F%E6%A8%A1%E6%9D%BF"><span class="toc-nav-number">23.</span> <span class="toc-nav-text">18. 清理并制作镜像模板</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-OVF-%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">24.</span> <span class="toc-nav-text">第三部分 OVF 下载</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E6%A6%82%E8%BF%B0-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">第一部分 概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-CentOS-8-%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1. CentOS 8 的新特性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E7%89%88%E6%9C%AC%E5%8E%86%E5%8F%B2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2. 版本历史</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%AE%89%E8%A3%85%E8%A6%81%E7%82%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3. 安装要点</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E9%85%8D%E7%BD%AE-2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">第二部分 配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BA-SWAP-%E5%88%86%E5%8C%BA"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">1. 创建文件作为 SWAP 分区</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%BD%91%E5%8D%A1%E5%91%BD%E5%90%8D"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">2. 格式化网卡命名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">3. 配置网络</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">4. 修改主机名</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E6%BF%80%E6%B4%BB-cockpit-web-console"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">5. 激活 cockpit web console</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E5%85%B3%E9%97%AD-SELinux"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">6. 关闭 SELinux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E9%85%8D%E7%BD%AE-firewalld"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">7. 配置 firewalld</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E5%AE%89%E8%A3%85-EPEL"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">8. 安装 EPEL</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#9-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="toc-nav-number">14.</span> <span class="toc-nav-text">9. 更换国内镜像</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#10-%E6%8E%92%E9%99%A4%E4%B8%8D%E9%9C%80%E8%A6%81%E7%9A%84%E6%9B%B4%E6%96%B0%E5%8C%85"><span class="toc-nav-number">15.</span> <span class="toc-nav-text">10. 排除不需要的更新包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#11-%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-nav-number">16.</span> <span class="toc-nav-text">11. 更新软件包</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#12-%E5%AE%89%E8%A3%85%E4%B8%80%E4%BA%9B%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">17.</span> <span class="toc-nav-text">12. 安装一些必备工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#13-%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5-NTP"><span class="toc-nav-number">18.</span> <span class="toc-nav-text">13. 配置网络时间同步 NTP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#14-%E5%AE%89%E8%A3%85-SNMP"><span class="toc-nav-number">19.</span> <span class="toc-nav-text">14. 安装 SNMP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#15-%E8%99%9A%E6%9C%BA%E5%AE%89%E8%A3%85-VM-tools"><span class="toc-nav-number">20.</span> <span class="toc-nav-text">15. 虚机安装 VM-tools</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#16-%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="toc-nav-number">21.</span> <span class="toc-nav-text">16. 安装图形界面</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#17-Shell-%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">22.</span> <span class="toc-nav-text">17. Shell 配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#18-%E6%B8%85%E7%90%86%E5%B9%B6%E5%88%B6%E4%BD%9C%E9%95%9C%E5%83%8F%E6%A8%A1%E6%9D%BF"><span class="toc-nav-number">23.</span> <span class="toc-nav-text">18. 清理并制作镜像模板</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-OVF-%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">24.</span> <span class="toc-nav-text">第三部分 OVF 下载</span></a></li></ol>
         
         </div>
       </aside>

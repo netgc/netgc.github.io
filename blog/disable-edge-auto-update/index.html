@@ -489,18 +489,22 @@
 <hr>
 <p>禁用浏览器自动更新系列文章：</p>
 <ul>
-<li><a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a>
+<li>
+<a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a>
 </li>
-<li><a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a>
+<li>
+<a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a>
 </li>
-<li><a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
+<li>
+<a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
 </li>
 </ul>
-<p>不同于 Firefox 官方提供了禁用自动更新的配置功能，Google Chrome 及基于其开源版本 Chromium 实现的衍生浏览器【国外各种（Microsoft Edge 等），国产各种……】不仅没有禁用自动更新的配置，而且是强制自动更新如同病毒病毒肆虐一般难以控制，非常不尊重用户。即使我们使用变通方法屏蔽了自动更新，它们竟然还会不停的提示软件已经过期。</p>
+<p>不同于 Firefox 官方提供了禁用自动更新的配置功能，Google Chrome 及基于其开源版本 Chromium 实现的衍生浏览器【国外各种（Microsoft Edge 等），国产各种…】不仅没有禁用自动更新的配置，而且是强制自动更新如同病毒病毒肆虐一般难以控制，非常不尊重用户。即使我们使用变通方法屏蔽了自动更新，它们竟然还会不停的提示软件已经过期。</p>
 <p><strong>适用的版本</strong>：</p>
 <p>本文写作时以 Microsoft Edge 88 版本为例，验证到 105 版本可用，不排除新版本将来可能有所变更。</p>
 <p>如果方法失效，欢迎反馈，笔者将及时修正和更新，谢谢！</p>
-<h2 id="Microsoft-Edge-for-Windows"><a href="#Microsoft-Edge-for-Windows" class="headerlink" title="Microsoft Edge for Windows"></a>Microsoft Edge for Windows</h2><p><strong>Microsoft Edge 如何自动更新？</strong></p>
+<h2 id="Microsoft-Edge-for-Windows">Microsoft Edge for Windows</h2>
+<p><strong>Microsoft Edge 如何自动更新？</strong></p>
 <blockquote>
 <p>Edge 在 Windows 平台同时发布两个版本，分别是：</p>
 <p>企业版（或者称为商业版）即 Windows System Setup，安装在 <code>Program Files</code> 文件夹下，需要管理员权限安装；</p>
@@ -523,7 +527,7 @@
 <p>打开 Windows PowerShell 直接复制以下脚本运行一下更加方便：</p>
 <blockquote>
 <p>或者将脚本保存为 <code>disable-edge-auto-update.ps1</code> 文件，右键点击 “使用 PowerShell 运行” 即可快速完成。</p>
-<p>不让运行脚本？—&gt; <code>Set-ExecutionPolicy unrestricted</code></p>
+<p>不让运行脚本？–&gt; <code>Set-ExecutionPolicy unrestricted</code></p>
 </blockquote>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ([<span class="type">Environment</span>]::Is64BitOperatingSystem <span class="operator">-eq</span> <span class="string">&quot;True&quot;</span>) &#123;</span><br><span class="line">    <span class="comment">#Write-Host &quot;64-bit OS&quot;</span></span><br><span class="line">    <span class="variable">$PF</span>=<span class="variable">$</span>&#123;env:ProgramFiles(x86)&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">#Write-Host &quot;32-bit OS&quot;</span></span><br><span class="line">    <span class="variable">$PF</span>=<span class="variable">$env:ProgramFiles</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$</span>(<span class="built_in">Test-Path</span> <span class="string">&quot;<span class="variable">$PF</span>\Microsoft\Edge\Application\msedge.exe&quot;</span>) <span class="operator">-eq</span> <span class="string">&quot;True&quot;</span>) &#123;</span><br><span class="line">    <span class="comment"># 结束进程</span></span><br><span class="line">    taskkill /im MicrosoftEdgeUpdate.exe /f</span><br><span class="line">    taskkill /im msedge.exe /f</span><br><span class="line">    <span class="comment"># Microsoft Edge 更新服务 (sysin)</span></span><br><span class="line">    <span class="comment">#这里也可以使用 sc.exe stop &quot;service name&quot;</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">&quot;edgeupdate&quot;</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">&quot;edgeupdatem&quot;</span></span><br><span class="line">    <span class="built_in">Stop-Service</span> <span class="literal">-Name</span> <span class="string">&quot;MicrosoftEdgeElevationService&quot;</span></span><br><span class="line">    <span class="comment"># Windows 10 默认 PS 版本 5.1 没有 Remove-Service 命令</span></span><br><span class="line">    <span class="comment"># This cmdlet was added in PS v6. See https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6#cmdlet-updates.</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name &quot;edgeupdate&quot;</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name &quot;edgeupdatem&quot;</span></span><br><span class="line">    <span class="comment">#Remove-Service -Name &quot;MicrosoftEdgeElevationService&quot;</span></span><br><span class="line">    <span class="comment"># sc 在 PowerShell 中是 Set-Content 别名，所以要使用 sc.exe 否则执行后无任何效果</span></span><br><span class="line">    sc.exe delete <span class="string">&quot;edgeupdate&quot;</span></span><br><span class="line">    sc.exe delete <span class="string">&quot;edgeupdatem&quot;</span></span><br><span class="line">    sc.exe delete <span class="string">&quot;MicrosoftEdgeElevationService&quot;</span></span><br><span class="line">    <span class="comment"># 任务计划企业版</span></span><br><span class="line">    <span class="comment">#schtasks.exe /Delete /TN \MicrosoftEdgeUpdateBrowserReplacementTask /F</span></span><br><span class="line">    <span class="comment">#schtasks.exe /Delete /TN \MicrosoftEdgeUpdateTaskMachineCore /F</span></span><br><span class="line">    <span class="comment">#schtasks.exe /Delete /TN \MicrosoftEdgeUpdateTaskMachineUA /F</span></span><br><span class="line">    <span class="built_in">Get-ScheduledTask</span> <span class="literal">-taskname</span> MicrosoftEdgeUpdate* | <span class="built_in">Unregister-ScheduledTask</span> <span class="literal">-Confirm</span>: <span class="variable">$false</span></span><br><span class="line">    <span class="comment"># 移除更新程序</span></span><br><span class="line">    <span class="built_in">Remove-Item</span> <span class="string">&quot;<span class="variable">$PF</span>\Microsoft\EdgeUpdate&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span></span><br><span class="line">    <span class="built_in">Write-Output</span> <span class="string">&quot;Disable Microsoft Edge Enterprise Auto Update Successful!&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">elseif</span> (<span class="variable">$</span>(<span class="built_in">Test-Path</span> <span class="string">&quot;<span class="variable">$env:USERPROFILE</span>\AppData\Local\Microsoft\Edge\Application\msedge.exe&quot;</span>) <span class="operator">-eq</span> <span class="string">&quot;True&quot;</span>) &#123;</span><br><span class="line">    <span class="comment"># 结束进程</span></span><br><span class="line">    taskkill /im MicrosoftEdgeUpdate.exe /f</span><br><span class="line">    taskkill /im msedge.exe /f</span><br><span class="line">    <span class="comment"># 用户版没有创建服务</span></span><br><span class="line">    <span class="comment"># 获取SID方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Get-CurrentUserSID</span></span> &#123;</span><br><span class="line">        <span class="function">[<span class="type">CmdletBinding</span>()]</span></span><br><span class="line">        <span class="keyword">param</span>(</span><br><span class="line">        )</span><br><span class="line">        <span class="built_in">Add-Type</span> <span class="literal">-AssemblyName</span> System.DirectoryServices.AccountManagement</span><br><span class="line">        <span class="keyword">return</span> ([<span class="type">System.DirectoryServices.AccountManagement.UserPrincipal</span>]::Current).SID.Value</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment"># 用户版任务计划</span></span><br><span class="line">    schtasks.exe /Delete /TN \MicrosoftEdgeUpdateTaskUser<span class="variable">$</span>(<span class="built_in">Get-CurrentUserSID</span>)Core /F</span><br><span class="line">    schtasks.exe /Delete /TN \MicrosoftEdgeUpdateTaskUser<span class="variable">$</span>(<span class="built_in">Get-CurrentUserSID</span>)UA /F</span><br><span class="line">    <span class="comment">#Get-ScheduledTask -taskname MicrosoftEdgeUpdate* | Unregister-ScheduledTask -Confirm: $false</span></span><br><span class="line">    <span class="comment"># 移除更新程序</span></span><br><span class="line">    <span class="built_in">Remove-Item</span> <span class="string">&quot;<span class="variable">$env:USERPROFILE</span>\AppData\Local\Microsoft\EdgeUpdate&quot;</span> <span class="literal">-Recurse</span> <span class="literal">-Force</span></span><br><span class="line">    <span class="built_in">Write-Output</span> <span class="string">&quot;Disable Microsoft Edge Users Setup Auto Update Successful!&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">Write-Output</span> <span class="string">&quot;No Microsoft Edge Installation Detected!&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>效果图：</p>
@@ -531,7 +535,8 @@
 <p><strong>使用绿色版，不带更新功能。</strong></p>
 <p>Edge 用户版即 Windows User Setup 直接双击安装，是带更新程序的，但是使用 7-zip 解压出一个名为 MSEDGE.7z 的压缩包，再次解压的文件夹中找到 msedge.exe 就可以运行，这就是绿色版，不带更新程序。</p>
 <p><strong>使用组策略配置禁用 Edge 更新</strong>，仅限域客户端，请<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/deployedge/configure-microsoft-edge">参看</a>。</p>
-<h2 id="Microsoft-Edge-for-Linux"><a href="#Microsoft-Edge-for-Linux" class="headerlink" title="Microsoft Edge for Linux"></a>Microsoft Edge for Linux</h2><p>Edge Linux 版（deb 和 rpm）首个版本为 95.0.1020.38 发布于 2021 年 10 月 28 日，值得庆幸的是，Linux 版并没有自动更新功能，以后的版本是否有变数还无法确定。</p>
+<h2 id="Microsoft-Edge-for-Linux">Microsoft Edge for Linux</h2>
+<p>Edge Linux 版（deb 和 rpm）首个版本为 95.0.1020.38 发布于 2021 年 10 月 28 日，值得庆幸的是，Linux 版并没有自动更新功能，以后的版本是否有变数还无法确定。</p>
 <p>Linux 软件更新通常依赖于系统级别的包管理机制（例如 apt 和 yum），我们可以手动来控制是否更新。</p>
 <blockquote>
 <p>Microsoft Edge 稳定版（正式版）在 Linux 中的软件包名称为：microsoft-edge-stable</p>
@@ -540,7 +545,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-mark hold microsoft-edge-stable</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo apt-mark unhold microsoft-edge-stable</span></span><br></pre></td></tr></table></figure>
 <p>在 Redhat 及衍生系统中禁用 Edge 更新：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;exclude=microsoft-edge-stable&#x27; &gt;&gt; /etc/yum.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编辑 /etc/yum.conf 删除 exclude=microsoft-edge-stable</span></span><br></pre></td></tr></table></figure>
-<h2 id="Microsoft-Edge-for-Mac"><a href="#Microsoft-Edge-for-Mac" class="headerlink" title="Microsoft Edge for Mac"></a>Microsoft Edge for Mac</h2><p>⚠️ 警告：网上下载的 Microsoft Edge pkg 安装包需要管理员权限安装（即使通过 brew 安装），慎用！</p>
+<h2 id="Microsoft-Edge-for-Mac">Microsoft Edge for Mac</h2>
+<p>⚠️ 警告：网上下载的 Microsoft Edge pkg 安装包需要管理员权限安装（即使通过 brew 安装），慎用！</p>
 <p>我们需要将下载的 pkg 格式软件包解开，提取其中的 “Microsoft Edge.app”，将其拖拽到 “应用程序” 中，在删除其内置的 EdgeUpdater.app，这样无需管理员权限，也没有强制更新程序。</p>
 <p>可以使用本站 DMG 格式的 Microsoft Edge，不带更新程序，不存在自动更新。当然并不会那么频繁的更新版本，目前按照 0 和 5 版本跟进。</p>
 <p>⚠️：Edge 不过是 Google Chromuim 的一个发行版，广告太多了，不推荐使用。</p>
@@ -571,22 +577,41 @@
 <p>补充说明：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新任务在 Edge 运行后创建</span></span><br><span class="line">~/Library/LaunchAgents/com.microsoft.EdgeUpdater.update.plist</span><br><span class="line">~/Library/LaunchAgents/com.microsoft.EdgeUpdater.update-internal.&lt;x.x.x.x&gt;.plist</span><br><span class="line">~/Library/LaunchAgents/com.microsoft.EdgeUpdater.wake.&lt;x.x.x.x&gt;.plist</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">&lt;x.x.x.x&gt; 为 4 位版本号</span></span><br></pre></td></tr></table></figure>
 <p>若要恢复自动更新，重新安装官方原版即可。</p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>相关下载</p>
+<h2 id="附录-2">附录</h2>
+<p>相关下载</p>
 <ul>
-<li><a href="/blog/chrome-firefox-download/" title="Firefox 130, Chrome 130, Chromium 130 官网离线下载 (macOS, Linux, Windows)">Firefox 130, Chrome 130, Chromium 130 官网离线下载 (macOS, Linux, Windows)</a></li>
-<li><a href="/blog/apple-safari-18/" title="Apple Safari 18.2 - macOS 专属浏览器 (独立安装包下载)">Apple Safari 18.2 - macOS 专属浏览器 (独立安装包下载)</a></li>
-<li><a href="/blog/apple-safari-17/" title="Apple Safari 17.6 - macOS 专属浏览器 (独立安装包下载)">Apple Safari 17.6 - macOS 专属浏览器 (独立安装包下载)</a></li>
-<li><a href="/blog/apple-safari-16/" title="Apple Safari 16.5 - macOS 专属浏览器 (独立安装包下载)">Apple Safari 16.5 - macOS 专属浏览器 (独立安装包下载)</a>
+<li>
+<a href="/blog/chrome-firefox-download/" title="Firefox 130, Chrome 130, Chromium 130 官网离线下载 (macOS, Linux, Windows)">Firefox 130, Chrome 130, Chromium 130 官网离线下载 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/apple-safari-18/" title="Apple Safari 18.2 - macOS 专属浏览器 (独立安装包下载)">Apple Safari 18.2 - macOS 专属浏览器 (独立安装包下载)</a>
+</li>
+<li>
+<a href="/blog/apple-safari-17/" title="Apple Safari 17.6 - macOS 专属浏览器 (独立安装包下载)">Apple Safari 17.6 - macOS 专属浏览器 (独立安装包下载)</a>
+</li>
+<li>
+<a href="/blog/apple-safari-16/" title="Apple Safari 16.5 - macOS 专属浏览器 (独立安装包下载)">Apple Safari 16.5 - macOS 专属浏览器 (独立安装包下载)</a>
 </li>
 </ul>
 <p>相关文章：</p>
 <ul>
-<li><a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a></li>
-<li><a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a></li>
-<li><a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a></li>
-<li><a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a></li>
-<li><a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a></li>
-<li><a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
+<li>
+<a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a>
+</li>
+<li>
+<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a>
+</li>
+<li>
+<a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
 </li>
 </ul>
 
@@ -772,7 +797,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Microsoft-Edge-for-Windows"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Microsoft Edge for Windows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Microsoft-Edge-for-Linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Microsoft Edge for Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Microsoft-Edge-for-Mac"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Microsoft Edge for Mac</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">附录</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Microsoft-Edge-for-Windows"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Microsoft Edge for Windows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Microsoft-Edge-for-Linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Microsoft Edge for Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Microsoft-Edge-for-Mac"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Microsoft Edge for Mac</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">附录</span></a></li></ol>
         
         </div>
       </aside>
