@@ -498,7 +498,7 @@
 <p>由社区提供的免费 Linux 操作系统</p>
 <p>一个开源、社区拥有和管理、永远免费的企业 Linux 发行版，专注于长期稳定性，提供强大的生产级平台。AlmaLinux OS 与 RHEL 二进制兼容。</p>
 <p>注：既 Redhat “闭源事件” 之后，AlmaLinux OS 基金会董事会决定放弃与 RHEL 1:1 的目标。AlmaLinux 操作系统的目标是与 RHEL 二进制兼容。</p>
-<h2 id="部署截图及说明-2">部署截图及说明</h2>
+<h2 id="部署截图及说明-3">部署截图及说明</h2>
 <p><img src="https://sysin.org/blog/almalinux-9-ovf/almalinux-9-ovf-02.webp" alt="almalinux-9-ovf"></p>
 <p><img src="https://sysin.org/blog/almalinux-9-ovf/almalinux-9-ovf-03.webp" alt="almalinux-9-ovf"></p>
 <p><img src="https://sysin.org/blog/almalinux-9-ovf/almalinux-9-ovf-04.webp" alt="almalinux-9-ovf"></p>
@@ -538,15 +538,15 @@
 </li>
 </ul>
 <p>RHEL/CentOS 系列发行版部署完毕后不重启系统，可以通过控制台按回车查看主机名的变化，来确认部署成功。</p>
-<h2 id="OVF-特性-2">OVF 特性</h2>
-<h3 id="1-OVF-版本-2">1. OVF 版本</h3>
+<h2 id="OVF-特性-3">OVF 特性</h2>
+<h3 id="1-OVF-版本-3">1. OVF 版本</h3>
 <p>默认 VM 硬件版本 18（GuestOS ID 最低要求，可升级至最新版）；<br>
 兼容 ESXi 7.0 U1 (7.0.1)、Fusion 12.x 及更新版本；<br>
 启用 CPU、内存热插拔。</p>
-<h3 id="2-系统账号-2">2. 系统账号</h3>
+<h3 id="2-系统账号-3">2. 系统账号</h3>
 <p>root 密码部署时设定，可选启用 SSH 密码登录 (sysin)。<br>
 可以选择创建新的管理员账号并设定密码。</p>
-<h3 id="3-分区-2">3. 分区</h3>
+<h3 id="3-分区-3">3. 分区</h3>
 <p>标准分区：</p>
 <p>NAME     FILESYSTEM  SIZE  TYPE  MOUNTPOINT<br>
 sda      Linux    - 80G  disk<br>
@@ -554,7 +554,7 @@ sda      Linux    - 80G  disk<br>
 └─sda2   xfs    -   78G  part  /</p>
 <p>SWAP：/swap.img    - 4G [SWAP]</p>
 <p>分区扩容请参看：<a target="_blank" rel="noopener" href="https://sysin.org/blog/linux-partition-expansion/">Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）</a></p>
-<h3 id="4-系统配置-2">4. 系统配置</h3>
+<h3 id="4-系统配置-3">4. 系统配置</h3>
 <ul>
 <li>格式化网卡命名为 eth0</li>
 <li>禁用 SELinux</li>
@@ -572,13 +572,13 @@ vim, wget, net-tools, bind-utils, htop, lrzsz, lnav, nc, lsof, tree, ncdu, dstat
 参看：<a href="/blog/linux-zsh-all/" title="Linux 全局安装配置 zsh + oh-my-zsh">Linux 全局安装配置 zsh + oh-my-zsh</a></li>
 </ul>
 <p>参考：<a href="/blog/almalinux-8-install/" title="AlmaLinux 8 安装笔记">AlmaLinux 8 安装笔记</a></p>
-<h2 id="适用的-VMware-软件下载-2">适用的 VMware 软件下载</h2>
+<h2 id="适用的-VMware-软件下载-3">适用的 VMware 软件下载</h2>
 <p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
 <ul>
 <li>Server：VMware ESXi-arm 7.0 (experimental)</li>
 <li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
 </ul>
-<h2 id="OVF-版本兼容性和部署方式-2">OVF 版本兼容性和部署方式</h2>
+<h2 id="OVF-版本兼容性和部署方式-3">OVF 版本兼容性和部署方式</h2>
 <p>默认 VM 硬件版本 18（GuestOS ID 最低要求，可升级至最新版）；兼容 ESXi 7.0 U1 (7.0.1)、Fusion 12.x 及更新版本。</p>
 <p>支持通过以下客户端部署：</p>
 <ul>
@@ -610,9 +610,9 @@ vim, wget, net-tools, bind-utils, htop, lrzsz, lnav, nc, lsof, tree, ncdu, dstat
 </ul>
 </li>
 </ul>
-<h2 id="下个版本何时更新-2">下个版本何时更新</h2>
+<h2 id="下个版本何时更新-3">下个版本何时更新</h2>
 <p>预计 AlmaLinux 9.10 或者 10.0 发布时，将同步更新。</p>
-<h2 id="下载地址-39">下载地址</h2>
+<h2 id="下载地址-40">下载地址</h2>
 <p>AlmaLinux 9 aarch64 OVF (sysin)</p>
 <p>百度网盘链接：&lt;待更新&gt;</p>
 <hr>
@@ -800,7 +800,7 @@ vim, wget, net-tools, bind-utils, htop, lrzsz, lnav, nc, lsof, tree, ncdu, dstat
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7-2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC-2"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E8%B4%A6%E5%8F%B7-2"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统账号</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%88%86%E5%8C%BA-2"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-2"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E4%B8%AA%E7%89%88%E6%9C%AC%E4%BD%95%E6%97%B6%E6%9B%B4%E6%96%B0-2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下个版本何时更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-39"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7-3"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC-3"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E8%B4%A6%E5%8F%B7-3"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统账号</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%88%86%E5%8C%BA-3"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-3"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD-3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F-3"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E4%B8%AA%E7%89%88%E6%9C%AC%E4%BD%95%E6%97%B6%E6%9B%B4%E6%96%B0-3"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下个版本何时更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-40"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
