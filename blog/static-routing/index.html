@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 静态路由实例：如何在 macOS、FreeBSD、Linux、Windows、Cisco 和 VMware 上添加静态路由 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 静态路由实例：如何在 macOS、FreeBSD、Linux、Windows、Cisco 和 VMware 上添加静态路由 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 静态路由实例：如何在 macOS、FreeBSD、Linux、Windows、Cisco 和 VMware 上添加静态路由 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 静态路由实例：如何在 macOS、FreeBSD、Linux、Windows、Cisco 和 VMware 上添加静态路由 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 静态路由实例：如何在 macOS、FreeBSD、Linux、Windows、Cisco 和 VMware 上添加静态路由 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/static-routing/">
+  <link rel="canonical" href="https://sysin.cn/blog/static-routing/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -474,7 +476,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -491,11 +493,11 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/static-routing/" title="静态路由实例：如何在 macOS、FreeBSD、Linux、Windows、Cisco 和 VMware 上添加静态路由">静态路由实例：如何在 macOS、FreeBSD、Linux、Windows、Cisco 和 VMware 上添加静态路由</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="router.png" alt="router"></p>
 <p>本文描述主流系统和产品添加静态路由的方法，一些具备 WEB 管理界面的产品不在讨论范围，比如防火墙、路由器等多数产品具备直观的操作界面。</p>
-<h2 id="macOS-7">macOS</h2>
+<h2 id="macOS-8">macOS</h2>
 <p>1、添加路由命令（临时）</p>
 <blockquote>
 <p>与 Linux 类似，但是网关没有 gw 参数（同 FreeBSD）</p>
@@ -554,14 +556,14 @@
 </table>
 <p>Add following to /etc/rc.conf</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">static_routes=&quot;lan mumoffice foo&quot;</span><br><span class="line">route_lan=&quot;-net 192.168.1.0/24 192.168.1.254&quot;</span><br><span class="line">route_mumoffice=&quot;-net 10.0.0.0/8 10.30.110.5&quot;</span><br><span class="line">route_foo=&quot;-host 169.254.1.1 -iface lo0&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="Windows-11">Windows</h2>
+<h2 id="Windows-12">Windows</h2>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">route add -p <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span> mask <span class="number">255.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.16</span><span class="number">.1</span></span><br><span class="line"><span class="comment">// -p 参数永久添加，不用 -p 为临时生效</span></span><br><span class="line">route add -p <span class="number">10.10</span><span class="number">.11</span><span class="number">.0</span> mask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br><span class="line">route add -p <span class="number">10.10</span><span class="number">.13</span><span class="number">.0</span> mask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br><span class="line">route add -p <span class="number">10.10</span><span class="number">.14</span><span class="number">.0</span> mask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
 <h2 id="Cisco">Cisco</h2>
 <h3 id="Cisco-IOS、IOS-XE">Cisco IOS、IOS-XE</h3>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">255.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.200</span><span class="number">.2254</span></span><br><span class="line">ip route <span class="number">10.10</span><span class="number">.11</span><span class="number">.0</span> <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span> <span class="number">10.10</span><span class="number">.12</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
 <h3 id="Cisco-NX-OS">Cisco NX-OS</h3>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">N7K(config)<span class="meta">#vrf context management</span></span><br><span class="line">N7K(config-vrf)<span class="meta"># ip route 0.0.0.0/0 <span class="string">&lt;下一跳 IP&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="Linux-7">Linux</h2>
+<h2 id="Linux-8">Linux</h2>
 <h3 id="Linux（通用，临时）">Linux（通用，临时）</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add -net 10.10.11.0/24 gw 10.10.1.1</span><br></pre></td></tr></table></figure>
 <h3 id="CentOS（永久）">CentOS（永久）</h3>
@@ -742,7 +744,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -805,7 +807,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-7"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FreeBSD"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FreeBSD</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-11"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Cisco"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Cisco</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Cisco-IOS%E3%80%81IOS-XE"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">Cisco IOS、IOS-XE</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Cisco-NX-OS"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">Cisco NX-OS</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-7"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Linux</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux%EF%BC%88%E9%80%9A%E7%94%A8%EF%BC%8C%E4%B8%B4%E6%97%B6%EF%BC%89"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Linux（通用，临时）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CentOS%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">CentOS（永久）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Debian%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">Debian（永久）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ubuntu-16-04%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">Ubuntu 16.04（永久）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#NetPlan%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">NetPlan（永久）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">VMware</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-ESXi-3"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">VMware ESXi</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#NSX-T"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">NSX-T</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-vRealize-Network-Insight"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">VMware vRealize Network Insight</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-Photon-OS"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">VMware Photon OS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-Cloud-Director-Availability-4-0"><span class="toc-nav-number">6.5.</span> <span class="toc-nav-text">VMware Cloud Director Availability 4.0</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-8"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FreeBSD"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FreeBSD</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-12"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Cisco"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Cisco</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Cisco-IOS%E3%80%81IOS-XE"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">Cisco IOS、IOS-XE</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Cisco-NX-OS"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">Cisco NX-OS</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-8"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Linux</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux%EF%BC%88%E9%80%9A%E7%94%A8%EF%BC%8C%E4%B8%B4%E6%97%B6%EF%BC%89"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Linux（通用，临时）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CentOS%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">CentOS（永久）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Debian%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">Debian（永久）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Ubuntu-16-04%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">Ubuntu 16.04（永久）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#NetPlan%EF%BC%88%E6%B0%B8%E4%B9%85%EF%BC%89"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">NetPlan（永久）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">VMware</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-ESXi-3"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">VMware ESXi</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#NSX-T"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">NSX-T</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-vRealize-Network-Insight"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">VMware vRealize Network Insight</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-Photon-OS"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">VMware Photon OS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#VMware-Cloud-Director-Availability-4-0"><span class="toc-nav-number">6.5.</span> <span class="toc-nav-text">VMware Cloud Director Availability 4.0</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -1053,7 +1055,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
