@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何彻底禁止 macOS Catalina 自动更新，去除更新标记和通知 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 如何彻底禁止 macOS Catalina 自动更新，去除更新标记和通知 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 如何彻底禁止 macOS Catalina 自动更新，去除更新标记和通知 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 如何彻底禁止 macOS Catalina 自动更新，去除更新标记和通知 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 如何彻底禁止 macOS Catalina 自动更新，去除更新标记和通知 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/disable-macos-catalina-update/">
+  <link rel="canonical" href="https://sysin.cn/blog/disable-macos-catalina-update/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,7 +489,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>禁用 macOS 更新系列文章：</p>
 <ul>
@@ -513,7 +515,7 @@
 <p>以下步骤主要针对 macOS Catalina，<em>macOS Mojave</em> 有限适用，更低的版本不适用。</p>
 <p>如果是新安装系统，暂时不要联网，确保完美屏蔽更新。</p>
 </blockquote>
-<h2 id="1-取消自动更新选项">1. 取消自动更新选项</h2>
+<h2 id="1-取消自动更新选项-2">1. 取消自动更新选项</h2>
 <p>请选取苹果菜单  &gt;&gt; “系统偏好设置”，然后点按“软件更新”。</p>
 <p>取消勾选：“自动保持我的 Mac 最新”</p>
 <p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchla7037245/mac">在 Mac 上更改“软件更新”偏好设置</a></p>
@@ -521,12 +523,12 @@
 <p>如果已经检测到更新，可以使用如下方法临时去除更新通知标记。</p>
 <p>打开“终端”，执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.systempreferences AttentionPrefBundleIDs 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></table></figure>
-<h2 id="3-屏蔽网络访问">3. 屏蔽网络访问</h2>
-<h3 id="3-1-编辑-hosts-文件，添加如下内容">3.1 编辑 hosts 文件，添加如下内容</h3>
+<h2 id="3-屏蔽网络访问-2">3. 屏蔽网络访问</h2>
+<h3 id="3-1-编辑-hosts-文件，添加如下内容-2">3.1 编辑 hosts 文件，添加如下内容</h3>
 <p>手动编辑：<code>sudo vi /etc/hosts</code></p>
 <p>或者使用 <a target="_blank" rel="noopener" href="https://github.com/oldj/SwitchHosts/releases">SwitchHosts</a>（免费软件）。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 swscan.apple.com</span><br><span class="line">127.0.0.1 swcdn.apple.com</span><br><span class="line">127.0.0.1 swdist.apple.com</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-或者（或同时）使用防火墙软件屏蔽">3.2 或者（或同时）使用防火墙软件屏蔽</h3>
+<h3 id="3-2-或者（或同时）使用防火墙软件屏蔽-2">3.2 或者（或同时）使用防火墙软件屏蔽</h3>
 <p>推荐 <a target="_blank" rel="noopener" href="https://www.obdev.at/products/littlesnitch/">Little Snitch</a>，这是一个商业软件 (sysin)</p>
 <p><strong>新建规则 1</strong>：</p>
 <p>Process Name：/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated</p>
@@ -556,19 +558,19 @@
 <p>备注：取消 /Library/Updates 文件夹的写入权限（默认权限位是 755）：<code>chmod -R 444 Library/Updates/</code>，没有实际意义，仍然会写入到其他文件夹（未知）。</p>
 </blockquote>
 <p>退出终端，重启电脑，操作完毕。</p>
-<h2 id="5-如果需要更新">5. 如果需要更新</h2>
+<h2 id="5-如果需要更新-2">5. 如果需要更新</h2>
 <p>不建议补丁打补丁的方式安装，可以使用完整软件包升级或者全新安装：</p>
 <ul>
 <li>
 <p>下载本站 macOS 镜像，完整安装。<br>
-<a href="https://sysin.org/blog/macOS-Catalina/">macOS Catalina</a><br>
-<a href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur</a></p>
+<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Catalina/">macOS Catalina</a><br>
+<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur</a></p>
 </li>
 <li>
 <p>取消上述第 3 条的屏蔽，访问 App Store 下载 macOS 完整软件包，下载后会自动保存在“应用程序”下面，直接安装即可。</p>
 </li>
 </ul>
-<h2 id="附录-6">附录</h2>
+<h2 id="附录-7">附录</h2>
 <p>相关文章：</p>
 <ul>
 <li>
@@ -710,7 +712,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -773,7 +775,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%8F%96%E6%B6%88%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E9%80%89%E9%A1%B9"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 取消自动更新选项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%B8%85%E9%99%A4%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E7%BA%A2%E7%82%B9-1%EF%BC%89"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 清除系统更新标记（红点 1）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%B1%8F%E8%94%BD%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 屏蔽网络访问</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E7%BC%96%E8%BE%91-hosts-%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 编辑 hosts 文件，添加如下内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E6%88%96%E8%80%85%EF%BC%88%E6%88%96%E5%90%8C%E6%97%B6%EF%BC%89%E4%BD%BF%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99%E8%BD%AF%E4%BB%B6%E5%B1%8F%E8%94%BD"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 或者（或同时）使用防火墙软件屏蔽</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 修改权限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 如果需要更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95-6"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">附录</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%8F%96%E6%B6%88%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E9%80%89%E9%A1%B9-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 取消自动更新选项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%B8%85%E9%99%A4%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E7%BA%A2%E7%82%B9-1%EF%BC%89"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 清除系统更新标记（红点 1）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E5%B1%8F%E8%94%BD%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 屏蔽网络访问</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E7%BC%96%E8%BE%91-hosts-%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9-2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 编辑 hosts 文件，添加如下内容</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E6%88%96%E8%80%85%EF%BC%88%E6%88%96%E5%90%8C%E6%97%B6%EF%BC%89%E4%BD%BF%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99%E8%BD%AF%E4%BB%B6%E5%B1%8F%E8%94%BD-2"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 或者（或同时）使用防火墙软件屏蔽</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 修改权限</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E6%9B%B4%E6%96%B0-2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 如果需要更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95-7"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">附录</span></a></li></ol>
         
         </div>
       </aside>
@@ -1017,7 +1019,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
