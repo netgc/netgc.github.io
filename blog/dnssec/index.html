@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> DNSSEC 实战 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" DNSSEC 实战 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> DNSSEC 实战 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" DNSSEC 实战 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" DNSSEC 实战 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/dnssec/">
+  <link rel="canonical" href="https://sysin.cn/blog/dnssec/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,7 +487,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/dnssec/" title="DNSSEC 实战">DNSSEC 实战</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <h2 id="1-DNS-欺骗和缓存污染">1. DNS 欺骗和缓存污染</h2>
 <p>客户端（PC 等）发起域名请求的时候（例如访问：<a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a>），如果在本地缓存没有的情况下，会往递归服务器发送域名查询请求（我们也称之为 localdns），递归服务器再一层层递归从 . 到 com. 再到 <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a>.（即到 . 的权威服务器 --&gt; com. 的权威服务器 --&gt; <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a>. 的权威服务器)，最终取到 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a>. 对应的解析 A 记录返回给客户端。在整个查询过程中，攻击者可以假冒任何一个应答方：递归服务器 --&gt; . 的权威服务器 --&gt; com. 的权威服务器 --&gt; <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a>. 的权威服务器，给请求方发送一个伪造的响应（UDP 包极其容易伪造），其中响应的解析记录给了一个错误的 IP 地址或者其他类型的解析记录（比如 NXDomain、ServFail 或者 cname 到错误的域名地址去等）。客户端或者是解析服务器在没有经过数据来源正确性校验的情况下接受了伪造的应答，直接将导致客户端无法正常访问网站或者其他资源或者客户端请求重定向到了伪造的网站上去 (sysin)。另外由于 DNS 当中存在着缓存，这种错误的记录将随着攻击者设定的 TTL 进行存活缓存，如果是递归服务器受到 DNS 欺骗那将会导致自身以及大面积的客户端缓存了错误的解析记录（可以通过清除缓存解决）。</p>
@@ -547,13 +549,13 @@
 <p>Google Domain：Google Cloud DNS 中启用 DNSSEC 功能需要付费，参看 <a target="_blank" rel="noopener" href="https://cloud.google.com/community/tutorials/dnssec-cloud-dns-domains"><strong>ctivating DNSSEC for Cloud DNS domains - Google Cloud</strong></a>。</p>
 <p>Cloudflare：免费一键开启 DNSSEC 功能，当然 Cloudflare 不是域名注册商，需要在域名注册商处添加 DS 记录（<a target="_blank" rel="noopener" href="https://support.cloudflare.com/hc/en-us/articles/360006660072">参看这里</a>）。</p>
 <h2 id="6-配置-DNSSEC-示例">6. 配置 DNSSEC 示例</h2>
-<p>本例中，<a href="http://sysin.org">sysin.org</a> 使用 Cloudflare DNS，域名注册在阿里云。</p>
+<p>本例中，<a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a> 使用 Cloudflare DNS，域名注册在阿里云。</p>
 <h3 id="在-Cloudflare-启用-DNSSEC">在 Cloudflare 启用 DNSSEC</h3>
 <p>登录 Cloudflare，选择你的域名，点击 “DNS” 图标，下拉可以看到 “DNSSEC”，点击 “Enable DNSSEC”，可以看到提示需要到域名注册商添加 DS 记录：</p>
 <p><img src="cloudflare-ds-changed.webp" alt="cloudflare-ds-changed"></p>
 <p>Digest 已经做处理😁。</p>
 <h3 id="在阿里云域名管理添加资源记录">在阿里云域名管理添加资源记录</h3>
-<p>登录阿里云控制台，选择 “域名”，则进入 “域名列表”，可以看到域名 “<a href="http://sysin.org">sysin.org</a>”，点击操作最后面的 “管理”，则进入 “基本信息 / <a href="http://sysin.org">sysin.org</a>” 页面，点击左侧的 “DNSSEC 设置”，点击 “添加 DS 记录”</p>
+<p>登录阿里云控制台，选择 “域名”，则进入 “域名列表”，可以看到域名 “<a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>”，点击操作最后面的 “管理”，则进入 “基本信息 / <a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>” 页面，点击左侧的 “DNSSEC 设置”，点击 “添加 DS 记录”</p>
 <p><img src="aliyun-ds.webp" alt="aliyun-ds"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 关键标签：即 Key Tag，复制上述 Key Tag 内容粘贴进来</span><br><span class="line"></span><br><span class="line">* 加密算法：即 Algorithm，下拉选择 13</span><br><span class="line"></span><br><span class="line">* 摘要类型：即 Digest Type，选择 2-SHA-256</span><br><span class="line"></span><br><span class="line">* 摘要：即 Digest，复制上述 Digest 内容粘贴进来</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -563,11 +565,11 @@
 <h3 id="验证-2">验证</h3>
 <p>使用 <a target="_blank" rel="noopener" href="https://dnsviz.net/">测试工具</a> 输入域名进行测试</p>
 <p>测试页面中如每一级都显示出了 <strong>DS</strong>，且无红色报错框，说明已开启 DS，并已生效。</p>
-<p>在 Cloudflare 上述页面也会显示：Success! <a href="http://sysin.org">sysin.org</a> is protected with DNSSEC.</p>
+<p>在 Cloudflare 上述页面也会显示：Success! <a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a> is protected with DNSSEC.</p>
 <h2 id="7-查询和验证-DNSSEC">7. 查询和验证 DNSSEC</h2>
 <h3 id="dig-命令">dig 命令</h3>
 <p><strong>检查一个有 DNSSEC 签名的域名的 RRSIG (Resource Record Signature)。</strong></p>
-<p><strong>查看有 DNSSEC 签名的域名 (<a href="http://sysin.org">sysin.org</a>) 需要通过一个支持 DNSSEC 的 DNS 服务器 (8.8.8.8)。</strong></p>
+<p><strong>查看有 DNSSEC 签名的域名 (<a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>) 需要通过一个支持 DNSSEC 的 DNS 服务器 (8.8.8.8)。</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">% </span><span class="language-bash">dig sysin.org +dnssec @8.8.8.8</span></span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; sysin.org +dnssec @8.8.8.8</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 63155</span><br><span class="line">;; flags: qr rd ra ad; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags: do; udp: 512</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;sysin.org.    IN    A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">sysin.org.    299    IN    A    104.27.163.41</span><br><span class="line">sysin.org.    299    IN    A    172.67.214.128</span><br><span class="line">sysin.org.    299    IN    A    104.27.162.41</span><br><span class="line">sysin.org.    299    IN    RRSIG    A 13 2 300 20200829022403 20200827002403 34505 sysin.org. 93sJ5e/HTDsFWOYbgw+kw4snha1Bvq1SPSjxWbto8DYvRdaLgZtVVH/N k81Gw086yUTJTpXLLOLDfCel0r//gA==</span><br><span class="line"></span><br><span class="line">;; Query time: 133 msec</span><br><span class="line">;; SERVER: 8.8.8.8#53(8.8.8.8)</span><br><span class="line">;; WHEN: Fri Aug 28 09:24:03 CST 2020</span><br><span class="line">;; MSG SIZE  rcvd: 191</span><br></pre></td></tr></table></figure>
 <h3 id="在线检测网站">在线检测网站</h3>
 <p><a target="_blank" rel="noopener" href="https://dnsviz.net/">https://dnsviz.net/</a></p>
@@ -696,7 +698,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1001,7 +1003,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
