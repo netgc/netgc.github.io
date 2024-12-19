@@ -493,22 +493,17 @@
 <hr>
 <p>防火墙 HA 配置系列文章：</p>
 <ul>
-<li>
-<a href="/blog/cisco-firepower-ha-config/" title="Cisco Firepower FTD HA 配置文档">Cisco Firepower FTD HA 配置文档</a>
+<li><a href="/blog/cisco-firepower-ha-config/" title="Cisco Firepower FTD HA 配置文档">Cisco Firepower FTD HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a>
+<li><a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/pan-os-ha-config/" title="Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档">Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档</a>
+<li><a href="/blog/pan-os-ha-config/" title="Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档">Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/juniper-srx-jsrp-config/" title="Juniper SRX JSRP 配置文档">Juniper SRX JSRP 配置文档</a>
+<li><a href="/blog/juniper-srx-jsrp-config/" title="Juniper SRX JSRP 配置文档">Juniper SRX JSRP 配置文档</a>
 </li>
 </ul>
 <p><img src="pan-logo-dark.png" alt="Palo Alto Logo"></p>
-<h2 id="1-概述：HA-模式">1. 概述：HA 模式</h2>
-<p>您可以按照以下两种模式来设置防火墙的 HA：</p>
+<h2 id="1-概述：HA-模式"><a href="#1-概述：HA-模式" class="headerlink" title="1. 概述：HA 模式"></a>1. 概述：HA 模式</h2><p>您可以按照以下两种模式来设置防火墙的 HA：</p>
 <ul>
 <li>主动/被动 — 一个防火墙主动管理通信，而另一个防火墙保持同步并随时准备在主动设备发生故障时转换为主动状态。在此配置中，两个防火墙共享相同的配置设置，一台主动管理通信，直到发生路径、链接、系统或网络故障。当主动防火墙发生故障时，被动设备将无缝接管并实施相同的策略，以维持网络的安全性。主动/被动高可用性在 Virtual Wire、第 2 层和第 3 层部署中受支持。</li>
 <li>主动/主动 — HA 对中的两个防火墙都是主动设备，同时处理通信，并且同步处理会话设置和会话所有权。两个防火墙会分别获取会话表及路由表，并彼此进行同步。主动/主动高可用性在 Virtual Wire、第 2层和第 3 层部署中受支持。处于主动/主动 HA 模式的防火墙不支持 DHCP 客户端。而且，仅主动-主要防火墙具备 DHCP 中继功能。主动-辅助防火墙会丢弃其收到的 DHCP 广播数据包。</li>
@@ -526,53 +521,35 @@
 </blockquote>
 <p>本例使用主动/被动模式（参考拓扑如下图）。</p>
 <p><img src="panos-ap-ha-topology.png" alt="topology"></p>
-<h2 id="2-不同步的配置">2. 不同步的配置</h2>
-<blockquote>
+<h2 id="2-不同步的配置"><a href="#2-不同步的配置" class="headerlink" title="2. 不同步的配置"></a>2. 不同步的配置</h2><blockquote>
 <p>详细参见 <a target="_blank" rel="noopener" href="https://docs.paloaltonetworks.com/pan-os/9-0/pan-os-admin/high-availability/reference-ha-synchronization.html">PAN-OS® Administrator’s Guide, Reference: HA Synchronization</a></p>
 </blockquote>
 <p>以下部分的配置无法通过 HA 同步配置，必须在节点上独立配置</p>
 <ul>
-<li>
-<p>Device &gt; Setup（管理接口、主机名、域名、时区、DNS、NTP、SNMP等）</p>
+<li><p>Device &gt; Setup（管理接口、主机名、域名、时区、DNS、NTP、SNMP等）</p>
 </li>
-<li>
-<p>Device &gt; Scheduled Log Export</p>
+<li><p>Device &gt; Scheduled Log Export</p>
 </li>
-<li>
-<p>Device &gt; Software</p>
+<li>Device &gt; Software</li>
+<li>Device &gt; GlobalProtect Client</li>
+<li>Device &gt; Dynamic Updates</li>
+<li>Device &gt; Licenses</li>
+<li>Device &gt; Support</li>
+<li><p>Device &gt; Master Key and Diagnostics</p>
 </li>
-<li>
-<p>Device &gt; GlobalProtect Client</p>
+<li><p>Device &gt; High Availability（HA 配置页面）</p>
 </li>
-<li>
-<p>Device &gt; Dynamic Updates</p>
-</li>
-<li>
-<p>Device &gt; Licenses</p>
-</li>
-<li>
-<p>Device &gt; Support</p>
-</li>
-<li>
-<p>Device &gt; Master Key and Diagnostics</p>
-</li>
-<li>
-<p>Device &gt; High Availability（HA 配置页面）</p>
-</li>
-<li>
-<p>Reports, logs, and Dashboard Settings</p>
+<li><p>Reports, logs, and Dashboard Settings</p>
 </li>
 </ul>
-<h2 id="3-创建-HA-的要求">3. 创建 HA 的要求</h2>
-<ul>
+<h2 id="3-创建-HA-的要求"><a href="#3-创建-HA-的要求" class="headerlink" title="3. 创建 HA 的要求"></a>3. 创建 HA 的要求</h2><ul>
 <li>防火墙型号相同</li>
 <li>PAN-OS 版本相同</li>
 <li>接口类型相同：管理接口、HA1、HA2</li>
 <li>许可相同</li>
 </ul>
-<h2 id="4-接口">4. 接口</h2>
-<p>PA-800 系列及以上有专用 HA1 和 HA2 接口</p>
-<p>PA-500、PA-200 及 PA-VM 需使用 in‐band 接口作为 HA 接口，至少 2 个（Network–Interface–Ethernet，创建 Interface Type 为 HA 的接口）</p>
+<h2 id="4-接口"><a href="#4-接口" class="headerlink" title="4. 接口"></a>4. 接口</h2><p>PA-800 系列及以上有专用 HA1 和 HA2 接口</p>
+<p>PA-500、PA-200 及 PA-VM 需使用 in‐band 接口作为 HA 接口，至少 2 个（Network—Interface—Ethernet，创建 Interface Type 为 HA 的接口）</p>
 <p>HA 接口可以使用网线直连</p>
 <blockquote>
 <p>For firewalls without dedicated HA ports such as the PA‐200, PA‐220, and PA‐500 firewalls, as a best practice use the dataplane port for the HA port, and use the management port as the HA1 backup.</p>
@@ -593,8 +570,7 @@
 <li>无专有 HA 接口：</li>
 </ul>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HA1: In‐band port</span><br><span class="line">HA1 Backup: In‐band port</span><br><span class="line">Recommendation: Enable Heartbeat Backup</span><br><span class="line"></span><br><span class="line">HA1: Management port</span><br><span class="line">HA1 Backup: In‐band port</span><br><span class="line">Recommendation: Do not enable Heartbeat Backup</span><br></pre></td></tr></table></figure>
-<h2 id="5-配置-HA（分别在主备节点配置）">5. 配置 HA（分别在主备节点配置）</h2>
-<p><strong>前提配置</strong>：</p>
+<h2 id="5-配置-HA（分别在主备节点配置）"><a href="#5-配置-HA（分别在主备节点配置）" class="headerlink" title="5. 配置 HA（分别在主备节点配置）"></a>5. 配置 HA（分别在主备节点配置）</h2><p><strong>前提配置</strong>：</p>
 <ul>
 <li>管理接口配置</li>
 <li>无专有HA接口需要配置 2 个 In-band 接口作为 HA 接口</li>
@@ -605,7 +581,7 @@
 <ul>
 <li>Control link (HA1)  //专有 HA1 或者 in‐band 接口，需要配置 IP</li>
 <li>Control link (HA1 Backup)  //通常使用管理接口</li>
-<li>Data link (HA2)  //专有 HA2 或者 in‐band 接口，若为直连接口默认 Transport 为 Ethernet，无需配置 IP。若需要路由需要将 Transport 选为 IP 或者 UDP，并且配置 IP 地址信息。勾选&quot;Enable Session Synchronization&quot;。</li>
+<li>Data link (HA2)  //专有 HA2 或者 in‐band 接口，若为直连接口默认 Transport 为 Ethernet，无需配置 IP。若需要路由需要将 Transport 选为 IP 或者 UDP，并且配置 IP 地址信息。勾选”Enable Session Synchronization”。</li>
 <li>Data link (HA2 Backup)  //可以不配置</li>
 </ul>
 <p>左侧</p>
@@ -629,29 +605,23 @@
 <p>实际测试以上步骤并无严格顺序要求。</p>
 </blockquote>
 <p>保存配置：Commit</p>
-<h2 id="6-同步配置">6. 同步配置</h2>
-<ul>
+<h2 id="6-同步配置"><a href="#6-同步配置" class="headerlink" title="6. 同步配置"></a>6. 同步配置</h2><ul>
 <li>分别在主备节点添加 High Avaliabilty widget.</li>
 <li>Dashboard &gt; Widgets &gt; System &gt; High Avaliabilty</li>
 <li>在 Active 节点点击 Sync to peer</li>
 <li>以后配置将自动同步</li>
 </ul>
-<h2 id="7-定义-HA-Failover-条件">7. 定义 HA Failover 条件</h2>
-<p>Device &gt; High Availability &gt; Link and Path Monitoring</p>
+<h2 id="7-定义-HA-Failover-条件"><a href="#7-定义-HA-Failover-条件" class="headerlink" title="7. 定义 HA Failover 条件"></a>7. 定义 HA Failover 条件</h2><p>Device &gt; High Availability &gt; Link and Path Monitoring</p>
 <p>分别添加 Link Group 和 Path Group</p>
-<h2 id="8-Failover">8. Failover</h2>
-<p>Device &gt; High Availability &gt; Operational Commands</p>
+<h2 id="8-Failover"><a href="#8-Failover" class="headerlink" title="8. Failover"></a>8. Failover</h2><p>Device &gt; High Availability &gt; Operational Commands</p>
 <p>点击 Suspend local device</p>
 <p>在 Dashboard 的High Availability widget 查看状态</p>
 <p>点击 Make local device functional，此时节点将变为 passive 状态</p>
-<h2 id="9-相关产品下载">9. 相关产品下载</h2>
-<p>下载 PAN-OS：</p>
+<h2 id="9-相关产品下载"><a href="#9-相关产品下载" class="headerlink" title="9. 相关产品下载"></a>9. 相关产品下载</h2><p>下载 PAN-OS：</p>
 <ul>
-<li>
-<a href="/blog/pan-os-10/" title="Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙">Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙</a>
+<li><a href="/blog/pan-os-10/" title="Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙">Palo Alto PAN-OS 10 for ESXi &amp; KVM - 全球首个基于机器学习的新一代防火墙</a>
 </li>
-<li>
-<a href="/blog/pan-os-11/" title="Palo Alto PAN-OS 11.0 for ESXi &amp; KVM - ML 驱动的 NGFW">Palo Alto PAN-OS 11.0 for ESXi &amp; KVM - ML 驱动的 NGFW</a>
+<li><a href="/blog/pan-os-11/" title="Palo Alto PAN-OS 11.0 for ESXi &amp; KVM - ML 驱动的 NGFW">Palo Alto PAN-OS 11.0 for ESXi &amp; KVM - ML 驱动的 NGFW</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/firewall/" title="Firewall 产品链接汇总">Firewall 产品链接汇总</a></p>

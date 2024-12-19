@@ -491,16 +491,13 @@
         <p>请访问原文链接：<a href="/blog/how-to-change-file-date/" title="如何修改文件的 “创建时间” 和 “修改时间” (macOS, Linux, Windows)">如何修改文件的 “创建时间” 和 “修改时间” (macOS, Linux, Windows)</a> 查看最新版。原创作品，转载请保留出处。</p>
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="1-macOS（创建时间，修改时间）">1. macOS（创建时间，修改时间）</h2>
-<h3 id="图形界面（GUI）">图形界面（GUI）</h3>
-<p>在 macOS 中，点击文件右键 “显示简介”，显示 “创建时间” 和 “修改时间”。</p>
+<h2 id="1-macOS（创建时间，修改时间）"><a href="#1-macOS（创建时间，修改时间）" class="headerlink" title="1. macOS（创建时间，修改时间）"></a>1. macOS（创建时间，修改时间）</h2><h3 id="图形界面（GUI）"><a href="#图形界面（GUI）" class="headerlink" title="图形界面（GUI）"></a>图形界面（GUI）</h3><p>在 macOS 中，点击文件右键 “显示简介”，显示 “创建时间” 和 “修改时间”。</p>
 <p><img src="macos-file-time.webp" alt="macOS 显示简介"></p>
 <p>在 Finder（访达）中，除了上述两个时间，同时会有 “上次打开日期” 和 “添加日期” 这两个特殊的文件属性。“上次打开日期” 记录了上次打开这个文件的最后时间，无论是否编辑和更改文件内容。“添加日期” 记录了文件在当前位置产生的时间，比如是新创建的一个文件，该时间等于创建时间，如果是复制的文件，或者通过网络下载的文件，该时间只是在当前位置产生的时间，与创建时间无关。这两个特殊的文件属性默认无法修改。</p>
 <p><strong>修改 “创建时间” 和 “修改时间”</strong>：</p>
 <p>推荐使用这个 App：A Better Finder Attributes（商业软件，自行搜索），操作简单便捷。</p>
 <p><img src="abfa.webp" alt="A Better Finder Attributes"></p>
-<h3 id="终端（Terminal）">终端（Terminal）</h3>
-<p>在 Darwin 系统部分（Darwin 一般是指 macOS 的命令行部分），类似于 Linux 有 atime、mtime 和 ctime，但是还多了 birthtime 即创建时间。</p>
+<h3 id="终端（Terminal）"><a href="#终端（Terminal）" class="headerlink" title="终端（Terminal）"></a>终端（Terminal）</h3><p>在 Darwin 系统部分（Darwin 一般是指 macOS 的命令行部分），类似于 Linux 有 atime、mtime 和 ctime，但是还多了 birthtime 即创建时间。</p>
 <p>直接使用 stat 命令可以查看文件时间属性，可以看到有 4 个时间，但是不友好，没法直接辨别。其实分别是：Access、Modify、Change 和 Birth。</p>
 <p>但作为正统 Unix 系统，Darwin 的 stat 命令有额外的参数：</p>
 <p>现在加上 -x 参数可以看到 Access、Modify、Change 和 Birth 四个时间。</p>
@@ -514,22 +511,17 @@
 <p>实例</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:32:50]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> -mt 202305181505 sysin.txt</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:34:18]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">stat</span> -x sysin.txt</span></span><br><span class="line">  File: &quot;sysin.txt&quot;</span><br><span class="line">  Size: 0            FileType: Regular File</span><br><span class="line">  Mode: (0644/-rw-r--r--)         Uid: (  501/      sysin)  Gid: (   20/   staff)</span><br><span class="line">Device: 1,9   Inode: 9617704    Links: 1</span><br><span class="line">Access: Thu Feb  2 17:32:28 2023 #没有变化</span><br><span class="line">Modify: Thu May 18 15:05:00 2023</span><br><span class="line">Change: Thu Feb  2 17:34:18 2023 #变更为命令执行的时间</span><br><span class="line"> Birth: Thu Feb  2 17:32:28 2023 #没有变化</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:34:24]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> -t 202305191505 sysin.txt</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:36:13]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">stat</span> -x sysin.txt</span></span><br><span class="line">  File: &quot;sysin.txt&quot;</span><br><span class="line">  Size: 0            FileType: Regular File</span><br><span class="line">  Mode: (0644/-rw-r--r--)         Uid: (  501/      sysin)  Gid: (   20/   staff)</span><br><span class="line">Device: 1,9   Inode: 9617704    Links: 1</span><br><span class="line">Access: Fri May 19 15:05:00 2023</span><br><span class="line">Modify: Fri May 19 15:05:00 2023</span><br><span class="line">Change: Thu Feb  2 17:36:13 2023 #变更为命令执行的时间</span><br><span class="line"> Birth: Thu Feb  2 17:32:28 2023 #没有变化</span><br></pre></td></tr></table></figure>
 <p>setfile（创建时间和修改时间）</p>
-<p>需要安装 Xcode command line tools（命令：xcode-select --install）</p>
+<p>需要安装 Xcode command line tools（命令：xcode-select —install）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setfile</span><br><span class="line">Usage: SetFile [option...] file...</span><br><span class="line">    -a attributes     # attributes (lowercase = 0, uppercase = 1)*</span><br><span class="line">    -c creator        # file creator</span><br><span class="line">    -d date           # creation date (mm/dd/[yy]yy [hh:mm[:ss] [AM | PM]])*</span><br><span class="line">    -m date           # modification date (mm/dd/[yy]yy [hh:mm[:ss] [AM | PM]])*</span><br><span class="line">    -P                # perform action on symlink instead of following it</span><br><span class="line">    -t type           # file type</span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<p>修改创建日期：<code>setfile -d mm/dd/yy hh:mm:ss filename</code><br>
-示例：<code>setfile -d '1/1/2023 18:18:0' sysin.txt</code></p>
+<li><p>修改创建日期：<code>setfile -d mm/dd/yy hh:mm:ss filename</code><br>示例：<code>setfile -d &#39;1/1/2023 18:18:0&#39; sysin.txt</code></p>
 </li>
-<li>
-<p>修改修改日期：<code>setfile -m mm/dd/yy hh:mm:ss filename</code><br>
-示例：<code>setfile -m '1/1/2023 20:18:0' sysin.txt</code></p>
+<li><p>修改修改日期：<code>setfile -m mm/dd/yy hh:mm:ss filename</code><br>示例：<code>setfile -m &#39;1/1/2023 20:18:0&#39; sysin.txt</code></p>
 </li>
 </ul>
 <p>实例</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:44:44]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">setfile -d <span class="string">&#x27;1/1/2023 18:18:0&#x27;</span> sysin.txt</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:44:49]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">stat</span> -x sysin.txt</span></span><br><span class="line">  File: &quot;sysin.txt&quot;</span><br><span class="line">  Size: 0            FileType: Regular File</span><br><span class="line">  Mode: (0644/-rw-r--r--)         Uid: (  501/      sysin)  Gid: (   20/   staff)</span><br><span class="line">Device: 1,9   Inode: 9617704    Links: 1</span><br><span class="line">Access: Fri May 19 15:05:00 2023 #无变化</span><br><span class="line">Modify: Fri May 19 15:05:00 2023 #无变化</span><br><span class="line">Change: Thu Feb  2 17:44:49 2023 #变更为命令执行的时间</span><br><span class="line"> Birth: Sun Jan  1 18:18:00 2023</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:44:51]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">setfile -m <span class="string">&#x27;1/1/2023 20:18:0&#x27;</span> sysin.txt</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ macOS <span class="keyword">in</span> ~/Desktop [17:45:09]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">stat</span> -x sysin.txt</span></span><br><span class="line">  File: &quot;sysin.txt&quot;</span><br><span class="line">  Size: 0            FileType: Regular File</span><br><span class="line">  Mode: (0644/-rw-r--r--)         Uid: (  501/      sysin)  Gid: (   20/   staff)</span><br><span class="line">Device: 1,9   Inode: 9617704    Links: 1</span><br><span class="line">Access: Fri May 19 15:05:00 2023 #无变化</span><br><span class="line">Modify: Sun Jan  1 20:18:00 2023</span><br><span class="line">Change: Thu Feb  2 17:45:09 2023 #变更为命令执行的时间</span><br><span class="line"> Birth: Sun Jan  1 18:18:00 2023 #无变化</span><br></pre></td></tr></table></figure>
-<h2 id="2-Linux（修改时间，访问时间）">2. Linux（修改时间，访问时间）</h2>
-<blockquote>
+<h2 id="2-Linux（修改时间，访问时间）"><a href="#2-Linux（修改时间，访问时间）" class="headerlink" title="2. Linux（修改时间，访问时间）"></a>2. Linux（修改时间，访问时间）</h2><blockquote>
 <p>这里仅描述 shell 中的情形，图形界面中未有关注。</p>
 </blockquote>
 <p>注意：Linux（包括传统 Unix）中没有 “创建（creation）” 时间的概念。</p>
@@ -558,9 +550,7 @@
 <li><code>*</code> 包含 <code>*.*</code>，<code>*.*</code> 表示文件名中有 <code>.</code> 的文件，或称有扩展名。</li>
 <li>如果当前目录下仅有隐藏文件和目录，或者没有任何文件和目录，此命令将创建一个名称为 <code>*</code> 的特殊文件。</li>
 </ul>
-<h2 id="3-Windows（创建时间，修改时间，访问时间）">3. Windows（创建时间，修改时间，访问时间）</h2>
-<h3 id="图形界面">图形界面</h3>
-<p>点击一个文件右键 “属性” 即可查看文件的时间属性，可以看到有 “创建时间”、“修改时间” 和 “访问时间” 三个属性。</p>
+<h2 id="3-Windows（创建时间，修改时间，访问时间）"><a href="#3-Windows（创建时间，修改时间，访问时间）" class="headerlink" title="3. Windows（创建时间，修改时间，访问时间）"></a>3. Windows（创建时间，修改时间，访问时间）</h2><h3 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h3><p>点击一个文件右键 “属性” 即可查看文件的时间属性，可以看到有 “创建时间”、“修改时间” 和 “访问时间” 三个属性。</p>
 <p><img src="windows-file-time.webp" alt="Windows 文件属性"></p>
 <ul>
 <li>创建时间：该文件在本载体本地址上创建的时间</li>
@@ -576,8 +566,7 @@
 </ul>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1753tq2vPgHdZ7SfPXQGPLg">https://pan.baidu.com/s/1753tq2vPgHdZ7SfPXQGPLg</a>  提取码：phrb</p>
 <p><img src="attribute-changer.webp" alt="Attribute Changer 10"></p>
-<h3 id="命令行修改">命令行修改</h3>
-<p><strong>CMD</strong>：</p>
+<h3 id="命令行修改"><a href="#命令行修改" class="headerlink" title="命令行修改"></a>命令行修改</h3><p><strong>CMD</strong>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改当前系统时间</span></span><br><span class="line">date 2021/01/01</span><br><span class="line">time 10:59:30</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改时间，注意是连续两个英文逗号</span></span><br><span class="line">copy 文件名 +,,</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改时间和访问时间，注意是连续两个英文句号</span></span><br><span class="line">copy 文件名 +..</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意修改完毕需要将系统时间修改过来（或者等待 NTP 同步）</span></span><br></pre></td></tr></table></figure>
 <p>小技巧：在文件夹上添加 “命令提示符” 右键快捷访问菜单</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo Shell Menu: Command Prompt</span><br><span class="line">reg add &quot;HKEY_CLASSES_ROOT\Folder\shell\CmdPrompt&quot; /v &quot;&quot; /t REG_SZ /d &quot;Command Prompt&quot; /f</span><br><span class="line">reg add &quot;HKEY_CLASSES_ROOT\Folder\shell\CmdPrompt\command&quot; /v &quot;&quot; /t REG_SZ /d &quot;cmd.exe /k cd %%l&quot; /f</span><br></pre></td></tr></table></figure>
@@ -585,17 +574,13 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set t &#x27;01/01/202 01:01:01&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">时间格式：MM/DD/YYYY hh:mm:ss</span></span><br><span class="line">echo $t</span><br><span class="line">ls &#x27;sysin.txt&#x27; | foreach-object &#123;$_.LastWriteTime = $t; $_.CreationTime = $t; $_.LastAccessTime = $t&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">也可以单独设置不同的时间</span></span><br><span class="line">ls &#x27;sysin.txt&#x27; | foreach-object &#123;$_.LastWriteTime = &#x27;01/01/2021 01:01:01&#x27;; $_.CreationTime = &#x27;02/02/2021 01:01:01&#x27;; $_.LastAccessTime = &#x27;03/03/2021 01:01:01&#x27;&#125;</span><br></pre></td></tr></table></figure>
 <p>小技巧：在文件夹上添加 “PowerShell” 右键快捷访问菜单</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo Shell Menu: PowerShell</span><br><span class="line">reg add &quot;HKEY_CLASSES_ROOT\Folder\shell\PowerShellMenu&quot; /v &quot;&quot; /t REG_SZ /d &quot;PowerShell&quot; /f</span><br><span class="line">reg add &quot;HKEY_CLASSES_ROOT\Folder\shell\PowerShellMenu\command&quot; /v &quot;&quot; /t REG_SZ /d &quot;powershell.exe -NoExit -Command Set-Location -LiteralPath &#x27;%%L&#x27;&quot; /f</span><br></pre></td></tr></table></figure>
-<h2 id="讨论">讨论</h2>
-<p>讨论：文件的时间属性存储在哪里？</p>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><p>讨论：文件的时间属性存储在哪里？</p>
 <ul>
-<li>
-<p>如果存储在文件本身之中，那么修改文件时间属性，为什么 hash 不会变化？</p>
+<li><p>如果存储在文件本身之中，那么修改文件时间属性，为什么 hash 不会变化？</p>
 </li>
-<li>
-<p>如果存储在当前系统的文件系统之中，那为什么文件经过传输，时间属性却没有变化，或者有时候时间属性都改变了？</p>
+<li><p>如果存储在当前系统的文件系统之中，那为什么文件经过传输，时间属性却没有变化，或者有时候时间属性都改变了？</p>
 </li>
-<li>
-<p>压缩包或者可以包含文件及目录的载体如 iso 文件，时间属性变更了，其中包含的文件时间属性为什么可以保持不变？</p>
+<li><p>压缩包或者可以包含文件及目录的载体如 iso 文件，时间属性变更了，其中包含的文件时间属性为什么可以保持不变？</p>
 </li>
 </ul>
 

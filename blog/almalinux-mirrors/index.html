@@ -494,17 +494,14 @@
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="/blog/almalinux-8/almalinux-logo-black.png" alt="almalinux-logo"></p>
-<p>高校镜像推荐 <a target="_blank" rel="noopener" href="http://mirror.sjtu.edu.cn">mirror.sjtu.edu.cn</a> 和 <a target="_blank" rel="noopener" href="http://mirrors.zju.edu.cn">mirrors.zju.edu.cn</a>。<br>
-商业公司镜像推荐 <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com">mirrors.aliyun.com</a>。<br>
-其他多数镜像不全，要么没有 almalinux，要么没有 rocky。<br>
-当然可以根据个人喜好、地理位置、访问体验等因素来选择。</p>
+<p>高校镜像推荐 mirror.sjtu.edu.cn 和 mirrors.zju.edu.cn。<br>商业公司镜像推荐 mirrors.aliyun.com。<br>其他多数镜像不全，要么没有 almalinux，要么没有 rocky。<br>当然可以根据个人喜好、地理位置、访问体验等因素来选择。</p>
 <p>AlmaLinux</p>
 <p>该项配置方法兼容 AlmaLinux 8 和 9。</p>
 <p>AlmaLinux 9 默认 repo 如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# dnf repolist</span><br><span class="line">repo id                                               repo name</span><br><span class="line">appstream                                             AlmaLinux 9 - AppStream</span><br><span class="line">baseos                                                AlmaLinux 9 - BaseOS</span><br><span class="line">extras                                                AlmaLinux 9 - Extras</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 epel 后增加</span></span><br><span class="line">epel                                                  Extra Packages for Enterprise Linux 9 - x86_64</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">文件列表如下</span></span><br><span class="line">[root@localhost ~]# ll /etc/yum.repos.d/</span><br><span class="line">almalinux-appstream.repo</span><br><span class="line">almalinux-baseos.repo</span><br><span class="line">almalinux-crb.repo</span><br><span class="line">almalinux-extras.repo</span><br><span class="line">almalinux-highavailability.repo</span><br><span class="line">almalinux-nfv.repo</span><br><span class="line">almalinux-plus.repo</span><br><span class="line">almalinux-resilientstorage.repo</span><br><span class="line">almalinux-rt.repo</span><br><span class="line">almalinux-sap.repo</span><br><span class="line">almalinux-saphana.repo</span><br><span class="line">epel-testing.repo</span><br><span class="line">epel.repo</span><br></pre></td></tr></table></figure>
-<h2 id="官方镜像列表">官方镜像列表</h2>
-<p>官方列表：<a target="_blank" rel="noopener" href="https://mirrors.almalinux.org/">https://mirrors.almalinux.org/</a>，CN 开头的站点。</p>
+<h2 id="官方镜像列表"><a href="#官方镜像列表" class="headerlink" title="官方镜像列表"></a>官方镜像列表</h2><p>官方列表：<a target="_blank" rel="noopener" href="https://mirrors.almalinux.org/">https://mirrors.almalinux.org/</a>，CN 开头的站点。</p>
 <p>例如：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -522,7 +519,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com">mirrors.aliyun.com</a></td>
+<td>mirrors.aliyun.com</td>
 <td><a target="_blank" rel="noopener" href="https://www.aliyun.com/">Alibaba Cloud Computing Co.,Ltd.</a></td>
 <td>ok</td>
 <td>Asia</td>
@@ -534,7 +531,7 @@
 <td>✓</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://mirror.sjtu.edu.cn">mirror.sjtu.edu.cn</a></td>
+<td>mirror.sjtu.edu.cn</td>
 <td><a target="_blank" rel="noopener" href="https://net.sjtu.edu.cn">Shanghai Jiao Tong University Network Information Center</a></td>
 <td>expired</td>
 <td>AS</td>
@@ -547,8 +544,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="基本系统">基本系统</h2>
-<p>AlmaLinux 国内镜像源更换方法如下。</p>
+</div>
+<h2 id="基本系统"><a href="#基本系统" class="headerlink" title="基本系统"></a>基本系统</h2><p>AlmaLinux 国内镜像源更换方法如下。</p>
 <p>阿里云示例（本次模板使用）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意：“<span class="comment"># baseurl” 中间有个空格（AlmaLinux 专有）</span></span></span><br><span class="line">sed -e &#x27;s|^mirrorlist=|#mirrorlist=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^# baseurl=https://repo.almalinux.org|baseurl=https://mirrors.aliyun.com|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/almalinux*.repo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复 (sysin)</span></span><br><span class="line">sed -e &#x27;s|^#mirrorlist=|mirrorlist=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^baseurl=https://mirrors.aliyun.com|# baseurl=https://repo.almalinux.org|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/almalinux*.repo</span><br></pre></td></tr></table></figure>
 <p>上海交通大学示例（mirror 没有 s）：</p>
@@ -557,19 +554,18 @@
 <p>更换其他镜像，对应按照上面替换 Mirror Name 即可。</p>
 <p>例如：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="http://mirrors.nju.edu.cn">mirrors.nju.edu.cn</a></li>
+<li>mirrors.nju.edu.cn</li>
 </ul>
-<h2 id="EPEL">EPEL</h2>
-<p>若安装了 epel，同时修改如下：</p>
+<h2 id="EPEL"><a href="#EPEL" class="headerlink" title="EPEL"></a>EPEL</h2><p>若安装了 epel，同时修改如下：</p>
 <p>阿里云 epel 示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sed -e &#x27;s|^metalink=|#metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=https://download.example/pub|baseurl=https://mirrors.aliyun.com|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=https://download.fedoraproject.org/pub|baseurl=https://mirrors.aliyun.com|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel*.repo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意 (sysin)：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 8、AlmaLinux 9 与 Rocky Linux 8/9 中 <span class="comment">#baseurl=https://download.example/pub</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">而 AlmaLinux 8 早期版本是：<span class="comment">#baseurl=https://download.fedoraproject.org/pub</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">故增加一句上述地址的替换</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复</span></span><br><span class="line">sed -e &#x27;s|^#metalink=|metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^baseurl=https://mirrors.aliyun.com|#baseurl=https://download.example/pub|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel*.repo</span><br></pre></td></tr></table></figure>
 <p>上海交通大学 epel 示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意 (sysin)：上海交通大学地址多一个 fedora</span></span><br><span class="line">sed -e &#x27;s|^metalink=|#metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=https://download.example/pub|baseurl=https://mirror.sjtu.edu.cn/fedora|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=https://download.fedoraproject.org/pub|baseurl=https://mirror.sjtu.edu.cn/fedora|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel*.repo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意 (sysin)：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 8、AlmaLinux 9 与 Rocky Linux 8/9 中 <span class="comment">#baseurl=https://download.example/pub</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">而 AlmaLinux 8 早期版本是：<span class="comment">#baseurl=https://download.fedoraproject.org/pub</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">故增加一句上述地址的替换</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复</span></span><br><span class="line">sed -e &#x27;s|^#metalink=|metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^baseurl=https://mirror.sjtu.edu.cn/fedora|#baseurl=https://download.example/pub|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel*.repo</span><br></pre></td></tr></table></figure>
 <p>其他替换地址如：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="http://mirrors.zju.edu.cn">mirrors.zju.edu.cn</a></li>
-<li><a target="_blank" rel="noopener" href="http://mirrors.nju.edu.cn">mirrors.nju.edu.cn</a>（无 rocky）</li>
-<li><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn">mirrors.ustc.edu.cn</a>（无 almalinux）</li>
+<li>mirrors.zju.edu.cn</li>
+<li>mirrors.nju.edu.cn（无 rocky）</li>
+<li>mirrors.ustc.edu.cn（无 almalinux）</li>
 </ul>
 <p>清理并重新生成软件包信息缓存</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备注：yum=dnf</span></span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line">yum makecache</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">yum autoremove <span class="comment">#此命令需要已经 makecache</span></span></span><br></pre></td></tr></table></figure>

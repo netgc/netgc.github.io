@@ -502,8 +502,7 @@
 </blockquote>
 <p><img src="https://www.ietf.org/media/images/TLS1.3-Badge-Horizontal-Color-1024px.original.png" alt="TLS 1.3 Badge"></p>
 <p><a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/rfc8446/">TLS 1.3</a> 由 IETF 于 2018 年 8 月正式发布。</p>
-<h2 id="1-为什么要使用-TLSv1-3">1. 为什么要使用 TLSv1.3</h2>
-<p>SSL：Secure Sockets Layer 安全套接字层。</p>
+<h2 id="1-为什么要使用-TLSv1-3"><a href="#1-为什么要使用-TLSv1-3" class="headerlink" title="1. 为什么要使用 TLSv1.3"></a>1. 为什么要使用 TLSv1.3</h2><p>SSL：Secure Sockets Layer 安全套接字层。</p>
 <p>TLS：Transport Layer Security，传输层安全。</p>
 <p>TLS 是 IETF 在 <strong>SSL3.0</strong> 基础上设计的协议，实际上相当于 SSL 的后续版本。</p>
 <p>TLS（Transport Layer Security）是一种加密协议，旨在通过 IP 网络提供安全通信。它是当今非常常见的协议，用于保护 Web 浏览器和 Web 服务器之间的 HTTP 通信。当使用 TLS 保护 HTTP 时，它通常被称为 HTTPS（HTTP Secure）。TLS/SSL 是安全传输层协议，是介于 TCP 和 HTTP 之间的一层安全协议，不影响原有的 TCP 协议和 HTTP 协议。</p>
@@ -522,6 +521,7 @@
 <p><strong>TLS 1.0 和 TLS 1.1 是分别于 1996 年和 2006 年发布的老版协议，使用的是弱加密算法和系统</strong>。比如 SHA-1 和 MD5，这些算法和系统十分脆弱，存在重大安全漏洞，容易受到降级攻击的严重影响，而在 2008 年和 2017 年分别发布了协议的新版本，即 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc5246">TLS 1.2</a> 和 <a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/rfc8446/">TLS 1.3</a>，无疑更优于旧版本，使用起来也更安全。</p>
 <p>2018 年，在春季 TLS 1.3 版本发布之后，苹果、谷歌、Mozilla 和微软四大浏览器制造商于 2018 年 10 月联合宣布计划在 2020 年初取消对 TLS 1.0 和 TLS 1.1 的支持。</p>
 <p>主流浏览器客户端都提供了禁用 TLS 1.0 和 TLS 1.1 协议的大致期限：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -548,6 +548,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>备注：由于受 COVID-19 影响，浏览器厂商推迟了 TLS 1.0 和 1.1 版本协议的淘汰时间。</p>
 <p>参考：</p>
 <ul>
@@ -557,11 +558,10 @@
 <li>Modernizing Transport Security: <a target="_blank" rel="noopener" href="https://security.googleblog.com/2018/10/modernizing-transport-security.html">https://security.googleblog.com/2018/10/modernizing-transport-security.html</a></li>
 <li>Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS): <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7525">https://tools.ietf.org/html/rfc7525</a></li>
 </ul>
-<h2 id="2-客户端支持">2. 客户端支持</h2>
-<h3 id="2-1-浏览器（Chrome、Firefox、Safari）">2.1 浏览器（Chrome、Firefox、Safari）</h3>
-<p>现代主流操作系统（Unix、Linux、Windows，包括移动操作系统 Andriod 和 iOS）中的浏览器及相关组件都可以支持 TLS 1.3。</p>
+<h2 id="2-客户端支持"><a href="#2-客户端支持" class="headerlink" title="2. 客户端支持"></a>2. 客户端支持</h2><h3 id="2-1-浏览器（Chrome、Firefox、Safari）"><a href="#2-1-浏览器（Chrome、Firefox、Safari）" class="headerlink" title="2.1 浏览器（Chrome、Firefox、Safari）"></a>2.1 浏览器（Chrome、Firefox、Safari）</h3><p>现代主流操作系统（Unix、Linux、Windows，包括移动操作系统 Andriod 和 iOS）中的浏览器及相关组件都可以支持 TLS 1.3。</p>
 <p>最低版本要求如下：</p>
 <p><strong>Modern</strong>: Modern clients that support TLS 1.3, with no need for backwards compatibility</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -584,7 +584,7 @@
 <td>10.0</td>
 <td>70</td>
 <td>75</td>
-<td>–</td>
+<td>—</td>
 <td>11</td>
 <td>1.1.1</td>
 <td>57</td>
@@ -592,30 +592,26 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>参看：<a target="_blank" rel="noopener" href="https://wiki.mozilla.org/Security/Server_Side_TLS">https://wiki.mozilla.org/Security/Server_Side_TLS</a></p>
 <blockquote>
 <p>Microsoft Internet Explorer 不支持 TLS 1.3，其替代产品 Microsoft Edge 沿袭 Google Chrome 相关特性。</p>
 </blockquote>
-<h3 id="2-2-curl">2.2 curl</h3>
-<p>curl 是请求访问 Web 服务器的命令行工具，7.52.0 &amp; + 版本支持 TLSv1.3。</p>
+<h3 id="2-2-curl"><a href="#2-2-curl" class="headerlink" title="2.2 curl"></a>2.2 curl</h3><p>curl 是请求访问 Web 服务器的命令行工具，7.52.0 &amp; + 版本支持 TLSv1.3。</p>
 <blockquote>
-<p>7.52.0 - December 21 2016，curl: introduce the --tlsv1.3 option to force TLS 1.3</p>
+<p>7.52.0 - December 21 2016，curl: introduce the —tlsv1.3 option to force TLS 1.3</p>
 </blockquote>
 <p>使用参数 <code>--tlsv1.3</code>，可以通过 <code>curl --help</code> 查看是否支持该参数</p>
-<h2 id="3-服务端支持">3. 服务端支持</h2>
-<h3 id="3-1-F5-BIG-IP">3.1 F5 BIG-IP</h3>
-<p>BIG-IP® 系统是一组应用交付产品，它们协同工作以确保高可用性、改进的性能、应用安全和访问控制。BIG-IP 系统的主要功能之一是将不同类型的协议和应用程序流量定向到适当的目标服务器。系统通过其 Local Traffic Manager™ 模块实现这一点，该模块可以将流量直接转发到负载平衡服务器池，或将流量发送到下一跳路由器、路由器池或直接发送到网络上的选定节点。BIG-IP 系统上可用的其他模块提供关键功能，例如将安全策略应用于网络流量、加速 HTTP 连接以及优化广域网中的连接。</p>
+<h2 id="3-服务端支持"><a href="#3-服务端支持" class="headerlink" title="3. 服务端支持"></a>3. 服务端支持</h2><h3 id="3-1-F5-BIG-IP"><a href="#3-1-F5-BIG-IP" class="headerlink" title="3.1 F5 BIG-IP"></a>3.1 F5 BIG-IP</h3><p>BIG-IP® 系统是一组应用交付产品，它们协同工作以确保高可用性、改进的性能、应用安全和访问控制。BIG-IP 系统的主要功能之一是将不同类型的协议和应用程序流量定向到适当的目标服务器。系统通过其 Local Traffic Manager™ 模块实现这一点，该模块可以将流量直接转发到负载平衡服务器池，或将流量发送到下一跳路由器、路由器池或直接发送到网络上的选定节点。BIG-IP 系统上可用的其他模块提供关键功能，例如将安全策略应用于网络流量、加速 HTTP 连接以及优化广域网中的连接。</p>
 <p><strong>F5 BIG-IP 当前 LTS 版本 14.1.0、15.1.0、16.1.0 及以上版本都可以完整支持 TLSv1_3。</strong></p>
 <p><a target="_blank" rel="noopener" href="https://support.f5.com/csp/article/K10251520">BIG-IP v14 开始支持 TLSv1_3</a>（In BIG-IP 14.0.0, the BIG-IP system adds limited support for Transport Layer Security (TLS) 1.3. Starting in BIG-IP 14.1.0.1 and later, this support was updated to provide production level support for TLS 1.3.）</p>
 <p>By default, TLS 1.3 is disabled. To enable TLS 1.3, you must remove the <strong>No TLSv1.3</strong> option from the <strong>Enabled Options</strong> list in the Configuration utility for the Client SSL and Server SSL profiles</p>
 <p>You can view a list of TLS 1.3 supported ciphers and groups using the following TMOS Shell (<strong>tmsh</strong>) commands:</p>
 <ul>
-<li>
-<p>To view the supported client-side ciphers, use the following command:</p>
+<li><p>To view the supported client-side ciphers, use the following command:</p>
 <p>tmsh run util clientssl-ciphers TLSv1_3</p>
 </li>
-<li>
-<p>To view the supported server-side ciphers, use the following command:</p>
+<li><p>To view the supported server-side ciphers, use the following command:</p>
 <p>tmsh run util serverssl-ciphers TLSv1_3</p>
 </li>
 </ul>
@@ -624,22 +620,19 @@
 <p>Ciphers：选择 Cipher Group，下拉选择 f5-secure</p>
 <p>Options：Options List…</p>
 <p>Enabled Options，</p>
-<p>Disable No TLSv1.3</p>
-<p>添加，No TLSv1 和 TLSv1.1，保留默认的 “Don’t insert empty fragments”</p>
+<p>   Disable No TLSv1.3</p>
+<p>   添加，No TLSv1 和 TLSv1.1，保留默认的 “Don’t insert empty fragments”</p>
 <blockquote>
 <p>注意：TLSv1_3 是 F5 产品中的写法，与其他开源产品中的 TLSv1.3 不同。</p>
 </blockquote>
-<h3 id="3-2-Windows-IIS">3.2 Windows &amp; IIS</h3>
-<p>Windows® Server 的 Internet 信息服务 (IIS) 是一种灵活、安全且可管理的 Web 服务器，用于托管 Web 上的任何内容。从媒体流到 Web 应用程序，IIS 的可扩展和开放架构已准备好处理最苛刻的任务。</p>
+<h3 id="3-2-Windows-amp-IIS"><a href="#3-2-Windows-amp-IIS" class="headerlink" title="3.2 Windows &amp; IIS"></a>3.2 Windows &amp; IIS</h3><p>Windows® Server 的 Internet 信息服务 (IIS) 是一种灵活、安全且可管理的 Web 服务器，用于托管 Web 上的任何内容。从媒体流到 Web 应用程序，IIS 的可扩展和开放架构已准备好处理最苛刻的任务。</p>
 <p>2021 年 8 月发布的 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a> 正式支持 HTTP/3、QUIC 和 TLS 1.3 相关特性。</p>
 <p>在 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a> 中的 IIS 新建一个站点将默认启用 TLS 1.3 以及 QUIC，除非手动勾选禁用。</p>
 <p><img src="windows-2022-iis.webp" alt="Windows Server 2022 IIS"></p>
 <blockquote>
 <p>备注：IIS 10 &amp; Windows Server 2019 以及之前版本无法支持，<a target="_blank" rel="noopener" href="https://forums.iis.net/t/1250687.aspx?IIS+10+TLS+1+3+support">参看</a>。</p>
 </blockquote>
-<h3 id="3-3-Nginx">3.3 Nginx</h3>
-<p>nginx [engine x] 是一个 HTTP 和反向代理服务器，邮件代理服务器，和一个通用的 TCP/UDP 代理服务器，最初由 <a target="_blank" rel="noopener" href="http://sysoev.ru/en/">Igor Sysoev</a> 编写。在许多负载很重的俄罗斯网站上运行了很久，包括 <a target="_blank" rel="noopener" href="http://www.yandex.ru">Yandex</a>、<a target="_blank" rel="noopener" href="http://mail.ru">Mail.Ru</a>、<a target="_blank" rel="noopener" href="http://vk.com">VK</a> 和 <a target="_blank" rel="noopener" href="http://www.rambler.ru">Rambler</a>。根据 Netcraft 的说法，nginx 服务或代理 <a target="_blank" rel="noopener" href="https://news.netcraft.com/archives/2021/11/23/november-2021-web-server-survey.html">22.36% 最繁忙的网站 (2021 年 11 月)</a>。<br>
-以下是一些成功案例：<a target="_blank" rel="noopener" href="https://blogs.dropbox.com/tech/2017/09/optimizing-web-servers-for-high-throughput-and-low-latency/">Dropbox</a>、<a target="_blank" rel="noopener" href="https://openconnect.netflix.com/en/software/">Netflix</a>、<a target="_blank" rel="noopener" href="https://www.nginx.com/case-studies/nginx-wordpress-com/">Wordpress.com</a>、<a target="_blank" rel="noopener" href="http://blog.fastmail.fm/2007/01/04/webimappop-frontend-proxies-changed-to-nginx/">FastMail.FM</a>。</p>
+<h3 id="3-3-Nginx"><a href="#3-3-Nginx" class="headerlink" title="3.3 Nginx"></a>3.3 Nginx</h3><p>nginx [engine x] 是一个 HTTP 和反向代理服务器，邮件代理服务器，和一个通用的 TCP/UDP 代理服务器，最初由 <a target="_blank" rel="noopener" href="http://sysoev.ru/en/">Igor Sysoev</a> 编写。在许多负载很重的俄罗斯网站上运行了很久，包括 <a target="_blank" rel="noopener" href="http://www.yandex.ru">Yandex</a>、<a target="_blank" rel="noopener" href="http://mail.ru">Mail.Ru</a>、<a target="_blank" rel="noopener" href="http://vk.com">VK</a> 和 <a target="_blank" rel="noopener" href="http://www.rambler.ru">Rambler</a>。根据 Netcraft 的说法，nginx 服务或代理 <a target="_blank" rel="noopener" href="https://news.netcraft.com/archives/2021/11/23/november-2021-web-server-survey.html">22.36% 最繁忙的网站 (2021 年 11 月)</a>。<br>以下是一些成功案例：<a target="_blank" rel="noopener" href="https://blogs.dropbox.com/tech/2017/09/optimizing-web-servers-for-high-throughput-and-low-latency/">Dropbox</a>、<a target="_blank" rel="noopener" href="https://openconnect.netflix.com/en/software/">Netflix</a>、<a target="_blank" rel="noopener" href="https://www.nginx.com/case-studies/nginx-wordpress-com/">Wordpress.com</a>、<a target="_blank" rel="noopener" href="http://blog.fastmail.fm/2007/01/04/webimappop-frontend-proxies-changed-to-nginx/">FastMail.FM</a>。</p>
 <p>Nginx 1.13.0 开始支持 TLSv1.3（2017-04-25 nginx-1.13.0 mainline version has been released. ）。</p>
 <ul>
 <li>The <code>TLSv1.1</code> and <code>TLSv1.2</code> parameters (1.1.13, 1.0.12) work only when OpenSSL 1.0.1 or higher is used.</li>
@@ -649,8 +642,7 @@
 <p>参考配置：启用 HTTP/2、TLSv1.3、推荐的 Ciphers、HSTS</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       443 ssl http2; # HTTP/2 Enable</span><br><span class="line">    server_name  www.sysin.org;</span><br><span class="line">    ssl_certificate     www.sysin.org.crt;</span><br><span class="line">    ssl_certificate_key www.sysin.org.key;</span><br><span class="line">    ssl_protocols       TLSv1.2 TLSv1.3; # Requires nginx &gt;= 1.13.0 else use TLSv1.2</span><br><span class="line">    ssl_ciphers  ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384;</span><br><span class="line">    add_header Strict-Transport-Security &quot;max-age=31536000; includeSubdomains; preload&quot;;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>NGINX 1.21.4 引入了 Kernel TLS 特性 （<a target="_blank" rel="noopener" href="https://hg.nginx.org/nginx/rev/65946a191197">introduces support for kTLS</a> ）大幅提高了 TLS 传输性能，要求 OpenSSL 3.0 + FreeBSD 13/Linux Kernel 4.17+，详见：<a target="_blank" rel="noopener" href="https://www.nginx.com/blog/improving-nginx-performance-with-kernel-tls/">Improving NGINX Performance with Kernel TLS and SSL_sendfile( )</a>。</p>
-<h3 id="3-4-Apache-httpd">3.4 Apache httpd</h3>
-<p>Apache HTTP Server 项目致力于开发和维护一个用于现代操作系统的开源 HTTP 服务器，包括 UNIX 和 Windows。该项目的目标是提供一个安全、高效和提供与当前 HTTP 同步的 HTTP 服务的可扩展服务器标准。</p>
+<h3 id="3-4-Apache-httpd"><a href="#3-4-Apache-httpd" class="headerlink" title="3.4 Apache httpd"></a>3.4 Apache httpd</h3><p>Apache HTTP Server 项目致力于开发和维护一个用于现代操作系统的开源 HTTP 服务器，包括 UNIX 和 Windows。该项目的目标是提供一个安全、高效和提供与当前 HTTP 同步的 HTTP 服务的可扩展服务器标准。</p>
 <p>Apache HTTP 服务器（“httpd”）于 1995 年推出，自 1995 年以来一直是 Internet 上最受欢迎的 Web 服务器。1996 年 4 月。它在 2020 年 2 月庆祝了它作为一个项目的 25 岁生日。</p>
 <p><strong>版本要求</strong>：</p>
 <ul>
@@ -666,8 +658,7 @@
 <p>配置项如下所示:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:443&gt;</span><br><span class="line">    ServerName www.sysin.org</span><br><span class="line">    DocumentRoot /var/www/html</span><br><span class="line"></span><br><span class="line">    SSLEngine on</span><br><span class="line">    SSLProtocol -all +TLSv1.2 +TLSv1.3</span><br><span class="line">    SSLCertificateFile &quot;/path/to/www.sysin.org.cert&quot;</span><br><span class="line">    SSLCertificateKeyFile &quot;/path/to/www.sysin.org.key&quot;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 <p>记得重启 Apache 服务才能生效。</p>
-<h3 id="3-5-Apache-Tomcat">3.5 Apache Tomcat</h3>
-<p>Apache Tomcat® 软件是 Jakarta Servlet、Jakarta Server Pages、Jakarta Expression Language、Jakarta WebSocket、Jakarta Annotations 和 Jakarta Authentication 规范的开源实现。这些规范是 Jakarta EE 平台的一部分。Jakarta EE 平台是 Java EE 平台的演变。Tomcat 10 及更高版本实现了作为 Jakarta EE 一部分开发的规范。Tomcat 9 及更早版本实现了作为 Java EE 一部分开发的规范。</p>
+<h3 id="3-5-Apache-Tomcat"><a href="#3-5-Apache-Tomcat" class="headerlink" title="3.5 Apache Tomcat"></a>3.5 Apache Tomcat</h3><p>Apache Tomcat® 软件是 Jakarta Servlet、Jakarta Server Pages、Jakarta Expression Language、Jakarta WebSocket、Jakarta Annotations 和 Jakarta Authentication 规范的开源实现。这些规范是 Jakarta EE 平台的一部分。Jakarta EE 平台是 Java EE 平台的演变。Tomcat 10 及更高版本实现了作为 Jakarta EE 一部分开发的规范。Tomcat 9 及更早版本实现了作为 Java EE 一部分开发的规范。</p>
 <p>当前最新的 Tomcat 7.0+ Release 都可以支持 TLSv1.3，具体版本如下：</p>
 <p>2018-11-15 Tomcat 7.0.92 Released</p>
 <ul>
@@ -689,12 +680,10 @@
 <p>重启 Tomcat 生效。</p>
 <p>protocols 写法：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">The names of the protocols to support when communicating with clients. This should be a list of any combination of the following:</span><br><span class="line"></span><br><span class="line">    SSLv2Hello</span><br><span class="line">    SSLv3</span><br><span class="line">    TLSv1</span><br><span class="line">    TLSv1.1</span><br><span class="line">    TLSv1.2</span><br><span class="line">    TLSv1.3</span><br><span class="line">    all</span><br><span class="line"></span><br><span class="line">列表中的每个标记都可以以加号（“+”）或减号（“-”）为前缀。加号添加协议，减号将其从当前列表中删除。该列表是从一个空列表开始构建的。</span><br><span class="line"></span><br><span class="line">字符 all 是 SSLv2Hello,TLSv1,TLSv1.1,TLSv1.2,TLSv1.3 的别名。</span><br><span class="line"></span><br><span class="line">请注意，只有在使用实现 TLSv1.3 的 JVM 时，JSSE 才支持 TLSv1.3。</span><br><span class="line"></span><br><span class="line">请注意，对于基于 OpenSSL 的安全连接器，将忽略 SSLv2Hello。如果为基于 OpenSSL 的安全连接器指定了多个协议，它将始终支持 SSLv2Hello。如果指定了单个协议，它将不支持 SSLv2Hello。</span><br><span class="line"></span><br><span class="line">请注意，SSLv2 和 SSLv3 本质上是不安全的。</span><br><span class="line"></span><br><span class="line">如果未指定，则将使用 all 的默认值。</span><br></pre></td></tr></table></figure>
-<h3 id="3-6-HAProxy">3.6 HAProxy</h3>
-<p>HAProxy 是一种免费、快速且可靠的反向代理，可为基于 TCP 和 HTTP 的应用程序提供高可用性、负载平衡和代理。它特别适用于流量非常高的网站，并为世界上大部分访问量最大的网站提供支持。多年来，它已成为事实上的标准开源负载均衡器，现在随大多数主流 Linux 发行版一起提供，并且通常默认部署在云平台中。由于它不做广告，我们只知道它在管理员报告时被使用:-)</p>
+<h3 id="3-6-HAProxy"><a href="#3-6-HAProxy" class="headerlink" title="3.6 HAProxy"></a>3.6 HAProxy</h3><p>HAProxy 是一种免费、快速且可靠的反向代理，可为基于 TCP 和 HTTP 的应用程序提供高可用性、负载平衡和代理。它特别适用于流量非常高的网站，并为世界上大部分访问量最大的网站提供支持。多年来，它已成为事实上的标准开源负载均衡器，现在随大多数主流 Linux 发行版一起提供，并且通常默认部署在云平台中。由于它不做广告，我们只知道它在管理员报告时被使用:-)</p>
 <p>要求：HAProxy 1.8.1 及以上，OpenSSL 1.1.1 及以上。</p>
 <p>参数：ssl-default-bind-ciphersuites，参看 <a target="_blank" rel="noopener" href="https://sysin.org/blog/get-a-plus-rating-on-ssl-test/">https://sysin.org/blog/get-a-plus-rating-on-ssl-test/</a> SSL cipher 部分的描述。</p>
-<h3 id="3-7-Varnish-with-Hitch">3.7 Varnish with Hitch</h3>
-<p>Varnish Cache 是一种 web 应用程序加速器，同时以被用于缓存的 HTTP 反向代理而闻名。Varnish HTTP/2 前端通过 Hitch 代理实现。Hitch 是 Varnish Software 开发的基于 libev 的高性能 SSL/TLS 开源代理软件。</p>
+<h3 id="3-7-Varnish-with-Hitch"><a href="#3-7-Varnish-with-Hitch" class="headerlink" title="3.7 Varnish with Hitch"></a>3.7 Varnish with Hitch</h3><p>Varnish Cache 是一种 web 应用程序加速器，同时以被用于缓存的 HTTP 反向代理而闻名。Varnish HTTP/2 前端通过 Hitch 代理实现。Hitch 是 Varnish Software 开发的基于 libev 的高性能 SSL/TLS 开源代理软件。</p>
 <p>笔者写了一篇文章描述了整个配置过程，访问这里查看：<a target="_blank" rel="noopener" href="https://sysin.org/blog/varnish-with-hitch-http2/">Varnish with Hitch HTTP/2 implement on CentOS 8.0</a></p>
 <p><a target="_blank" rel="noopener" href="https://sysin.org/blog/get-a-plus-rating-on-ssl-test/">hitch 参考配置：Ciphers，HTTP/2 和 TLSv1.3</a></p>
 <p>版本要求：</p>
@@ -886,7 +875,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-TLSv1-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 为什么要使用 TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%94%AF%E6%8C%81"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 客户端支持</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1-%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%88Chrome%E3%80%81Firefox%E3%80%81Safari%EF%BC%89"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 浏览器（Chrome、Firefox、Safari）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2-curl"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 curl</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%94%AF%E6%8C%81"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 服务端支持</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-F5-BIG-IP"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 F5 BIG-IP</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-Windows-IIS"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 Windows &amp; IIS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-3-Nginx"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3.3 Nginx</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-4-Apache-httpd"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3.4 Apache httpd</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-5-Apache-Tomcat"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">3.5 Apache Tomcat</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-6-HAProxy"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">3.6 HAProxy</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-7-Varnish-with-Hitch"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">3.7 Varnish with Hitch</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8-TLSv1-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 为什么要使用 TLSv1.3</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%94%AF%E6%8C%81"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 客户端支持</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-1-%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%88Chrome%E3%80%81Firefox%E3%80%81Safari%EF%BC%89"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">2.1 浏览器（Chrome、Firefox、Safari）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-2-curl"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2.2 curl</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%94%AF%E6%8C%81"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 服务端支持</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-F5-BIG-IP"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">3.1 F5 BIG-IP</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-Windows-amp-IIS"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">3.2 Windows &amp; IIS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-3-Nginx"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3.3 Nginx</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-4-Apache-httpd"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3.4 Apache httpd</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-5-Apache-Tomcat"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">3.5 Apache Tomcat</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-6-HAProxy"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">3.6 HAProxy</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-7-Varnish-with-Hitch"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">3.7 Varnish with Hitch</span></a></li></ol></li></ol>
         
         </div>
       </aside>

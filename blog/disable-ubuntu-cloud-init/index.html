@@ -512,11 +512,9 @@
 <li><a target="_blank" rel="noopener" href="https://build.opensuse.org/package/show/Cloud:Tools/cloud-init">OpenSUSE, Get packages</a></li>
 </ul>
 <p>非云环境，可以选择关闭它，或者彻底删除，方法如下：</p>
-<h2 id="方法-1-通过创建文件禁用-cloud-init">方法 1: 通过创建文件禁用 cloud-init</h2>
-<p>这是最简单最安全的方法 (sysin)，在 <code>/etc/cloud</code> 目录下创建 <code>cloud-init.disabled</code> 文件重启后生效。删除该文件就可以恢复。</p>
+<h2 id="方法-1-通过创建文件禁用-cloud-init"><a href="#方法-1-通过创建文件禁用-cloud-init" class="headerlink" title="方法 1: 通过创建文件禁用 cloud-init"></a>方法 1: 通过创建文件禁用 cloud-init</h2><p>这是最简单最安全的方法 (sysin)，在 <code>/etc/cloud</code> 目录下创建 <code>cloud-init.disabled</code> 文件重启后生效。删除该文件就可以恢复。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/cloud/cloud-init.disabled</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">init 6</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<h2 id="方法-2-移除-cloud-init-软件包及文件夹">方法 2: 移除 cloud-init 软件包及文件夹</h2>
-<p>该方法彻底移除 cloud-init。</p>
+<h2 id="方法-2-移除-cloud-init-软件包及文件夹"><a href="#方法-2-移除-cloud-init-软件包及文件夹" class="headerlink" title="方法 2: 移除 cloud-init 软件包及文件夹"></a>方法 2: 移除 cloud-init 软件包及文件夹</h2><p>该方法彻底移除 cloud-init。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge cloud-init -y</span><br><span class="line"></span><br><span class="line">sudo rm -rf /etc/cloud &amp;&amp; sudo rm -rf /var/lib/cloud/</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
 

@@ -494,8 +494,7 @@
 <blockquote>
 <p>请注意：Linux Kernel 5.15 当前在 ELRepo 中仍然属于 mainline stable，有可能在 RHEL 9 系列发布后正式成为 LTS。</p>
 </blockquote>
-<h2 id="引言：Linux-Kernel-5-15-LTS">引言：Linux Kernel 5.15 LTS</h2>
-<p>11 月 21 日，著名的 Linux 内核开发人员 Greg Kroah-Hartman 宣布发布 Linux 内核 5.14.21，这是第 21 个维护更新，也是该系列的最后一个 (sysin)。是的，没错，Linux 5.14 现在在 上被标记为 EOL（生命周期结束），<a target="_blank" rel="noopener" href="https://kernel.org">kernel.org</a> 网站 并且将不再受支持。</p>
+<h2 id="引言：Linux-Kernel-5-15-LTS"><a href="#引言：Linux-Kernel-5-15-LTS" class="headerlink" title="引言：Linux Kernel 5.15 LTS"></a>引言：Linux Kernel 5.15 LTS</h2><p>11 月 21 日，著名的 Linux 内核开发人员 Greg Kroah-Hartman 宣布发布 Linux 内核 5.14.21，这是第 21 个维护更新，也是该系列的最后一个 (sysin)。是的，没错，Linux 5.14 现在在 上被标记为 EOL（生命周期结束），<a target="_blank" rel="noopener" href="https://kernel.org">kernel.org</a> 网站 并且将不再受支持。</p>
 <blockquote>
 <p>“请注意，这是最新的 5.14.y 内核版本。现在是生命的尽头。请在此时移至 5.15.y 内核分支” Greg Kroah-Hartman 在 <a target="_blank" rel="noopener" href="http://lkml.iu.edu/hypermail/linux/kernel/2111.2/05433.html">邮件列表公告中说</a>。</p>
 </blockquote>
@@ -506,6 +505,7 @@
 <p>可以预见，未来的 Linux 发行版可能大量采用 5.15 内核版本，目前 RHEL 9 Beta 是 5.14 版本。</p>
 </blockquote>
 <p>Longterm release kernels</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -560,10 +560,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="为什么要更新内核">为什么要更新内核</h2>
-<p>升级内核一般是为了支持新特性、新设备、新功能。为了测试最新的软硬件产品特性，升级内核比较常见。使用 ELRepo 升级内核变得非常简单。</p>
-<h2 id="ELRepo-简介">ELRepo 简介</h2>
-<p>项目主页：<a target="_blank" rel="noopener" href="http://elrepo.org">http://elrepo.org</a></p>
+</div>
+<h2 id="为什么要更新内核"><a href="#为什么要更新内核" class="headerlink" title="为什么要更新内核"></a>为什么要更新内核</h2><p>升级内核一般是为了支持新特性、新设备、新功能。为了测试最新的软硬件产品特性，升级内核比较常见。使用 ELRepo 升级内核变得非常简单。</p>
+<h2 id="ELRepo-简介"><a href="#ELRepo-简介" class="headerlink" title="ELRepo 简介"></a>ELRepo 简介</h2><p>项目主页：<a target="_blank" rel="noopener" href="http://elrepo.org">http://elrepo.org</a></p>
 <p>欢迎使用 ELRepo，这是 Enterprise Linux 软件包的 RPM 存储库。ELRepo 支持 Red Hat Enterprise Linux (RHEL) 及其衍生产品，如 Scientific Linux、CentOS Linux、AlmaLinux 和 Rocky Linux。</p>
 <p>ELRepo 项目专注于与硬件相关的软件包，以增强您对 Enterprise Linux 的体验。这包括文件系统驱动程序、图形驱动程序、网络驱动程序、声音驱动程序、网络摄像头和视频驱动程序。</p>
 <p>ELRepo 存储库内容</p>
@@ -573,53 +572,45 @@
 </ul>
 <p>这是主通道，默认启用。由于此频道不应包含发行版中也存在的软件包，因此在启用此存储库频道的情况下运行 “yum 更新” 应该是安全的。</p>
 <p>例如安装 kmod-r8168（Realtek r8168 网卡驱动）：</p>
-<p><code>yum install kmod-r8168</code></p>
+<p> <code>yum install kmod-r8168</code></p>
 <p>根据正在安装的软件包或存储库设置，可能需要禁用非 elrepo 存储库：</p>
-<p><code>yum --disablerepo=\* --enablerepo=elrepo install kmod-nvidia</code></p>
+<p> <code>yum --disablerepo=\* --enablerepo=elrepo install kmod-nvidia</code></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://elrepo.org/linux/extras/">elrepo-extras</a></li>
 </ul>
-<p>elrepo-extras 频道提供了替换 / 更新 RHEL 分发包的包及其依赖项。它可以在 /etc/yum.repos.d/elrepo.repo 文件中启用或与 “yum --enablerepo=elrepo-extras” 一起使用。</p>
+<p>elrepo-extras 频道提供了替换 / 更新 RHEL 分发包的包及其依赖项。它可以在 /etc/yum.repos.d/elrepo.repo 文件中启用或与 “yum —enablerepo=elrepo-extras” 一起使用。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://elrepo.org/linux/testing/">elrepo-testing</a></li>
 </ul>
-<p>elrepo-testing 频道提供尚未发布到主频道的软件包，默认情况下处于禁用状态。它可以在 /etc/yum.repos.d/elrepo.repo 文件中启用或与 “yum --enablerepo=elrepo-testing” 一起使用。</p>
+<p>elrepo-testing 频道提供尚未发布到主频道的软件包，默认情况下处于禁用状态。它可以在 /etc/yum.repos.d/elrepo.repo 文件中启用或与 “yum —enablerepo=elrepo-testing” 一起使用。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://elrepo.org/linux/kernel/">elrepo-kernel</a></li>
 </ul>
-<p>elrepo-kernel 频道使用 <a target="_blank" rel="noopener" href="https://www.kernel.org">Linux Kernel Archives</a> 长期支持内核（已为 RHEL-7 配置）和最新的稳定主线内核（已为 RHEL-8 和 RHEL-7 配置）。请参阅 <a target="_blank" rel="noopener" href="http://elrepo.org/tiki/kernel-lt">kernel-lt</a> 或 <a target="_blank" rel="noopener" href="http://elrepo.org/tiki/kernel-ml">kernel-ml</a> 页面以获取更多详细信息。该频道可以在 <code>/etc/yum.repos.d/elrepo.repo</code> 文件中启用或与 “yum --enablerepo=elrepo-kernel” 一起使用。</p>
-<h2 id="启用-ELRepo">启用 ELRepo</h2>
-<p>从 CentOS 8 开始，ELRepo 已经加入到官方软件仓库中，名称为 “elrepo-release”。</p>
+<p>elrepo-kernel 频道使用 <a target="_blank" rel="noopener" href="https://www.kernel.org">Linux Kernel Archives</a> 长期支持内核（已为 RHEL-7 配置）和最新的稳定主线内核（已为 RHEL-8 和 RHEL-7 配置）。请参阅 <a target="_blank" rel="noopener" href="http://elrepo.org/tiki/kernel-lt">kernel-lt</a> 或 <a target="_blank" rel="noopener" href="http://elrepo.org/tiki/kernel-ml">kernel-ml</a> 页面以获取更多详细信息。该频道可以在 <code>/etc/yum.repos.d/elrepo.repo</code> 文件中启用或与 “yum —enablerepo=elrepo-kernel” 一起使用。</p>
+<h2 id="启用-ELRepo"><a href="#启用-ELRepo" class="headerlink" title="启用 ELRepo"></a>启用 ELRepo</h2><p>从 CentOS 8 开始，ELRepo 已经加入到官方软件仓库中，名称为 “elrepo-release”。</p>
 <p>AlmaLinux 和 Rocky Linux 同样适用。</p>
 <p>启用 ELRepo 只需要执行命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dnf -y install elrepo-release</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">or</span></span><br><span class="line">yum -y install elrepo-release</span><br></pre></td></tr></table></figure>
 <p>以下为 rpm 包在线安装方法：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Import the public key:</span></span><br><span class="line">rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">To install ELRepo <span class="keyword">for</span> RHEL-**8** or CentOS-**8**:</span></span><br><span class="line">yum install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">To install ELRepo <span class="keyword">for</span> RHEL-**7**, SL-**7** or CentOS-**7**:</span></span><br><span class="line">yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">To make use of our mirror system, **please also install yum-plugin-fastestmirror**.</span></span><br></pre></td></tr></table></figure>
-<h2 id="升级内核">升级内核</h2>
-<p>升级内核步骤如下：</p>
+<h2 id="升级内核"><a href="#升级内核" class="headerlink" title="升级内核"></a>升级内核</h2><p>升级内核步骤如下：</p>
 <ol>
-<li>
-<p>查询 ELRepo 中的 kernel 版本</p>
+<li><p>查询 ELRepo 中的 kernel 版本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">列出可用的内核相关包：</span></span><br><span class="line">yum --disablerepo=&quot;*&quot; --enablerepo=&quot;elrepo-kernel&quot; list available</span><br><span class="line">yum --disablerepo=&quot;*&quot; --enablerepo=&quot;elrepo-kernel&quot; list available --showduplicates #查看所有版本</span><br></pre></td></tr></table></figure>
 <p>术语解释</p>
 <ul>
-<li>kernel-ml<br>
-kernel-ml 中的 ml 是英文 “mainline stable” 的缩写，elrepo-kernel 中列出来的是最新的稳定主线版本。</li>
-<li>kernel-lt<br>
-kernel-lt 中的 lt 是英文 “long term support” 的缩写，elrepo-kernel 中列出来的长期支持版本。</li>
+<li>kernel-ml<br> kernel-ml 中的 ml 是英文 “mainline stable” 的缩写，elrepo-kernel 中列出来的是最新的稳定主线版本。</li>
+<li>kernel-lt<br> kernel-lt 中的 lt 是英文 “long term support” 的缩写，elrepo-kernel 中列出来的长期支持版本。</li>
 </ul>
 </li>
-<li>
-<p>查询安装的 kernel 包</p>
+<li><p>查询安装的 kernel 包</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查询所有 kernel 包</span></span><br><span class="line">rpm -qa|grep kernel</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例输出如下 (sysin)：</span></span><br><span class="line">kernel-core-4.18.0-348.el8.x86_64</span><br><span class="line">kernel-4.18.0-348.2.1.el8_5.x86_64</span><br><span class="line">kernel-core-4.18.0-348.2.1.el8_5.x86_64</span><br><span class="line">kernel-modules-4.18.0-348.2.1.el8_5.x86_64</span><br><span class="line">kernel-devel-4.18.0-348.2.1.el8_5.x86_64</span><br><span class="line">kernel-modules-4.18.0-348.el8.x86_64</span><br><span class="line">kernel-tools-libs-4.18.0-348.2.1.el8_5.x86_64</span><br><span class="line">kernel-headers-4.18.0-348.2.1.el8_5.x86_64</span><br><span class="line">kernel-4.18.0-348.el8.x86_64</span><br><span class="line">kernel-tools-4.18.0-348.2.1.el8_5.x86_64</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>安装 kernel</p>
+<li><p>安装 kernel</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据上述查询结果，安装内核相关包</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装新内核</span></span><br><span class="line">yum --disablerepo=\* --enablerepo=elrepo-kernel install -y kernel-ml.x86_64</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">kernel-core、kernel-modules 与 kernel 依赖自动更新</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装新内核相关软件</span></span><br><span class="line">yum --disablerepo=\* --enablerepo=elrepo-kernel install -y kernel-ml-devel kernel-ml-tools kernel-ml-tools-libs kernel-ml-tools-libs-devel kernel-ml-headers --skip-broken</span><br></pre></td></tr></table></figure>
 <p>新内核将成为默认启动内核，可以根据需要调整默认启动项，如下文描述。</p>
 </li>
-<li>
-<p>查看和设置默认启动项</p>
+<li><p>查看和设置默认启动项</p>
 <p>grubby 是一个命令行工具，用于更新和显示有关 grub2 和 zipl 引导加载程序的配置文件的信息。它主要设计用于安装新内核并需要查找有关当前引导环境的信息的脚本。同时也可以对启动内核的各项信息参数进行修改。</p>
 <p>在 CentOS 8 在已经自带该命令，如果没有通过 <code>yum install grubby</code> 来安装即可。</p>
 <p>查看当前的默认启动内核：</p>
@@ -630,20 +621,18 @@ kernel-lt 中的 lt 是英文 “long term support” 的缩写，elrepo-kernel 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"> grubby --info=/boot/vmlinuz-4.18.0-348.el8.x86_64</span></span><br><span class="line">index=1</span><br><span class="line">kernel=&quot;/boot/vmlinuz-4.18.0-348.el8.x86_64&quot;</span><br><span class="line">args=&quot;ro crashkernel=auto net.ifnames=0 $tuned_params&quot;</span><br><span class="line">root=&quot;UUID=56c34ece-6010-480e-aeac-dea98b8ffcd3&quot;</span><br><span class="line">initrd=&quot;/boot/initramfs-4.18.0-348.el8.x86_64.img $tuned_initrd&quot;</span><br><span class="line">title=&quot;AlmaLinux (4.18.0-348.el8.x86_64) 8.5 (Arctic Sphynx)&quot;</span><br><span class="line">id=&quot;032ed95ba9c0471381bbb6b416eff523-4.18.0-348.el8.x86_64&quot;</span><br></pre></td></tr></table></figure>
 <p>设置新的默认启动内核：</p>
 <ul>
-<li>使用路径来指定内核，可以使用 --set-default=kernel-path</li>
+<li>使用路径来指定内核，可以使用 —set-default=kernel-path</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">grubby --set-default=/boot/vmlinuz-4.18.0-348.el8.x86_64</span></span><br><span class="line">The default is /boot/loader/entries/032ed95ba9c0471381bbb6b416eff523-4.18.0-348.el8.x86_64.conf with index 1 and kernel /boot/vmlinuz-4.18.0-348.el8.x86_64</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">grubby --default-kernel</span></span><br><span class="line">/boot/vmlinuz-4.18.0-348.el8.x86_64</span><br></pre></td></tr></table></figure>
 <ul>
-<li>使用 index 来指定内核，则使用 --set-default-index=entry-index</li>
+<li>使用 index 来指定内核，则使用 —set-default-index=entry-index</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">grubby --set-default-index=1</span></span><br><span class="line">The default is /boot/loader/entries/032ed95ba9c0471381bbb6b416eff523-4.18.0-348.el8.x86_64.conf with index 1 and kernel /boot/vmlinuz-4.18.0-348.el8.x86_64</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">grubby --default-kernel</span></span><br><span class="line">/boot/vmlinuz-4.18.0-348.el8.x86_64</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>重启后生效</p>
+<li><p>重启后生效</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot   #重启</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>删除旧内核（可选）</p>
+<li><p>删除旧内核（可选）</p>
 <p>从启动项中删除旧内核</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grubby --remove-kernel=/boot/vmlinuz-4.18.0-348.el8.x86_64</span><br></pre></td></tr></table></figure>
 <p>删除旧内核文件</p>

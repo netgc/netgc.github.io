@@ -499,8 +499,7 @@
 <li>这些说明包含有关发布的重要信息和一些细节 CentOS QA 团队发布的内容。这些笔记不断更新以包含问题并纳入来自用户。</li>
 </ul>
 <p>请记住，<strong>您不应该在生产中使用 CentOS Linux 8</strong>，否则您之前应该有迁移到不同操作系统的计划 2021 年 12 月 31 日。我们只会进行上述详细说明的更新停产链接。</p>
-<h2 id="主要变化">主要变化</h2>
-<p><strong>Upstream changes:</strong></p>
+<h2 id="主要变化"><a href="#主要变化" class="headerlink" title="主要变化"></a>主要变化</h2><p><strong>Upstream changes:</strong></p>
 <p>Later versions of the following components are now available as new module streams:</p>
 <ul>
 <li>Ruby 3.0</li>
@@ -523,6 +522,7 @@
 <p>See the <a target="_blank" rel="noopener" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/8.5_release_notes/overview">Overview section</a> of the upstream RHEL 8.5 release notes for more changes.</p>
 <p><strong>Yum repo file and repoid changes:</strong></p>
 <p>During the 8.3.2011 release we changed our yum repo IDs and file names to make the process of migrating from CentOS Linux 8 to CentOS Stream 8 easier (sysin).</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -577,12 +577,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>If you are updating from 8.2.2004 or earlier and have local customizations to the repo files, check in <code>/etc/yum.repos.d/</code> for any <code>.rpmsave</code> or <code>.rpmnew</code> files that need to be merged.  You may also want to update any scripts or tools that you have that specify repo IDs using the <code>--enablerepo</code> or <code>--disablerepo</code> flags.</p>
-<h2 id="下载地址-82">下载地址</h2>
-<p>CentOS 8 2111：</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>CentOS 8 2111：</p>
 <blockquote>
 <p>该版本暂未 minimal iso</p>
 </blockquote>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -595,26 +596,32 @@
 <tr>
 <td><a target="_blank" rel="noopener" href="http://isoredirect.centos.org/centos/8/isos/x86_64/">x86_64</a></td>
 <td><a target="_blank" rel="noopener" href="http://mirror.centos.org/centos/8/">RPMs</a></td>
-<td>Cloud | <a target="_blank" rel="noopener" href="https://hub.docker.com/_/centos/">Containers</a> | <a target="_blank" rel="noopener" href="https://app.vagrantup.com/centos/boxes/8">Vagrant</a></td>
+<td>Cloud \</td>
+<td><a target="_blank" rel="noopener" href="https://hub.docker.com/_/centos/">Containers</a> \</td>
+<td><a target="_blank" rel="noopener" href="https://app.vagrantup.com/centos/boxes/8">Vagrant</a></td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="http://isoredirect.centos.org/centos/8/isos/aarch64/">ARM64 (aarch64)</a></td>
 <td><a target="_blank" rel="noopener" href="http://mirror.centos.org/centos/8/">RPMs</a></td>
-<td>Cloud | <a target="_blank" rel="noopener" href="https://hub.docker.com/_/centos/">Containers</a> | Vagrant</td>
+<td>Cloud \</td>
+<td><a target="_blank" rel="noopener" href="https://hub.docker.com/_/centos/">Containers</a> \</td>
+<td>Vagrant</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="http://isoredirect.centos.org/centos/8/isos/ppc64le/">IBM Power (ppc64le)</a></td>
 <td><a target="_blank" rel="noopener" href="http://mirror.centos.org/centos/8/">RPMs</a></td>
-<td>Cloud | <a target="_blank" rel="noopener" href="https://hub.docker.com/_/centos/">Containers</a> | Vagrant</td>
+<td>Cloud \</td>
+<td><a target="_blank" rel="noopener" href="https://hub.docker.com/_/centos/">Containers</a> \</td>
+<td>Vagrant</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>CentOS 8 系列 x86_64 镜像合集</strong>：</p>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1IX7OytdsiJKIJ54BmBlmmg?pwd=bo1o">https://pan.baidu.com/s/1IX7OytdsiJKIJ54BmBlmmg?pwd=bo1o</a></p>
 <p>虚机模板下载：</p>
 <ul>
-<li>
-<a href="/blog/centos-8-ovf/" title="CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板">CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+<li><a href="/blog/centos-8-ovf/" title="CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板">CentOS 8.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
 </li>
 </ul>
 
@@ -800,7 +807,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8F%98%E5%8C%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">主要变化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-82"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8F%98%E5%8C%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">主要变化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

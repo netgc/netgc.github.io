@@ -498,37 +498,28 @@
 <p>SHA256SUM: 1d71add20daea6319d61a5d2ae5a024d2248b34d97d1639c960d25734b4d3703</p>
 <p>某些提供了校验文件：例如：Install_macOS_Monterey_12.5_21G72.iso.sha2.txt</p>
 <p>以下分别以 macOS、Linux 和 Windows 为例说明校验方法。</p>
-<h2 id="macOS-5">macOS</h2>
-<p>打开终端执行如下命令：</p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><p>打开终端执行如下命令：</p>
 <ul>
-<li>
-<p>查看 sha256sum，对比原有值：</p>
+<li><p>查看 sha256sum，对比原有值：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">shasum -a 256 文件名</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-a 指定算法，现在一般是用 256，未来可能会使用 384 或者 512</span></span><br><span class="line">shasum -a 256 Install_macOS_Monterey_12.5_21G72.iso</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下值，对比一下判断是否正确</span></span><br><span class="line">1d71add20daea6319d61a5d2ae5a024d2248b34d97d1639c960d25734b4d3703</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>从校验文件中读取对比（示例）：</p>
+<li><p>从校验文件中读取对比（示例）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">shasum -a 256 -c 校验文件</span></span><br><span class="line">shasum -a 256 -c Install_macOS_Monterey_12.5_21G72.iso.sha2.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出 OK 即正确：</span></span><br><span class="line">Install_macOS_Monterey_12.5_21G72.iso: OK</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Linux-5">Linux</h2>
-<ul>
-<li>
-<p>Ubuntu 直接使用 shasum 命令，用法参看上述 macOS，不再赘述。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><ul>
+<li><p>Ubuntu 直接使用 shasum 命令，用法参看上述 macOS，不再赘述。</p>
 </li>
-<li>
-<p>CentOS 默认没有 shasum，需要手动安装：<code>yum -y install perl-Digest-SHA</code>，然后命令也是一样，参考 macOS。</p>
+<li><p>CentOS 默认没有 shasum，需要手动安装：<code>yum -y install perl-Digest-SHA</code>，然后命令也是一样，参考 macOS。</p>
 </li>
 </ul>
-<h2 id="Windows-9">Windows</h2>
-<ul>
-<li>
-<p>PowerShell</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><ul>
+<li><p>PowerShell</p>
 <p>Windows PowerShell 通过 Get-FileHash cmdlet 查看和获取文件校验和，并且默认使用 sha256 算法。</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-FileHash</span> D:\Download\Install_macOS_Monterey_12.<span class="number">5</span>_21G72.iso | <span class="built_in">Format-List</span></span><br><span class="line"></span><br><span class="line">Algorithm : SHA256</span><br><span class="line">Hash      : <span class="number">1</span>d71add20daea6319d61a5d2ae5a024d2248b34d97d1639c960d25734b4d3703</span><br><span class="line">Path      : D:\Download\Install_macOS_Monterey_12.<span class="number">5</span>_21G72.iso</span><br></pre></td></tr></table></figure>
 <p>如果需要指定算法使用 <code>-Algorithm</code> 参数，例如 sha384：<code>Get-FileHash D:\Download\Install_macOS_Monterey_12.5_21G72.iso -Algorithm SHA384 | Format-List</code></p>
 </li>
-<li>
-<p>第三方软件</p>
+<li><p>第三方软件</p>
 <p>推荐使用 <a target="_blank" rel="noopener" href="https://www.7-zip.org/">7-Zip</a>，免费的全能压缩解压软件，安装后，在资源管理器点击文件的右键菜单后多出一个 “CRC SHA”，点击 “SHA-256” 即可，也可以点击 “*” 查看所有校验类型。</p>
 </li>
 </ul>
@@ -715,7 +706,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-5"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-5"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-9"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Windows</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Windows</span></a></li></ol>
         
         </div>
       </aside>

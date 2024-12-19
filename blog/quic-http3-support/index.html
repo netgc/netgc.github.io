@@ -498,20 +498,16 @@
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="http3.webp" alt="HTTP/3"></p>
-<h2 id="1-相关概念">1. 相关概念</h2>
-<h3 id="1-1-TLSv1-3">1.1 TLSv1.3</h3>
-<p><a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/rfc8446/">TLS 1.3</a> 由 IETF 于 2018 年 8 月正式发布。</p>
+<h2 id="1-相关概念"><a href="#1-相关概念" class="headerlink" title="1. 相关概念"></a>1. 相关概念</h2><h3 id="1-1-TLSv1-3"><a href="#1-1-TLSv1-3" class="headerlink" title="1.1 TLSv1.3"></a>1.1 TLSv1.3</h3><p><a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/rfc8446/">TLS 1.3</a> 由 IETF 于 2018 年 8 月正式发布。</p>
 <p>SSL 即 Secure Sockets Layer 安全套接字层。TLS 即 Transport Layer Security，传输层安全。TLS 是 IETF 在 <strong>SSL3.0</strong> 基础上设计的协议，实际上相当于 SSL 的后续版本。</p>
 <p>TLS（Transport Layer Security）是一种加密协议，旨在通过 IP 网络提供安全通信。它是当今非常常见的协议，用于保护 Web 浏览器和 Web 服务器之间的 HTTP 通信。当使用 TLS 保护 HTTP 时，它通常被称为 HTTPS（HTTP Secure）。TLS/SSL 是安全传输层协议，是介于 TCP 和 HTTP 之间的一层安全协议，不影响原有的 TCP 协议和 HTTP 协议。</p>
 <p>TLS 1.3 是时隔九年对 TLS 1.2 等之前版本的新升级，也是迄今为止改动最大的一次。针对目前已知的安全威胁，IETF（Internet Engineering Task Force，互联网工程任务组）制定 TLS 1.3 的新标准，使其有望成为有史以来最安全，但也最复杂的 TLS 协议。</p>
-<h3 id="1-2-OpenSSL-3-0">1.2 OpenSSL 3.0</h3>
-<p>OpenSSL 项目开发和维护 OpenSSL 软件 - 一个强大的、商业级的、功能齐全的工具包，用于通用密码学和安全通信。OpenSSL 是 TLS/SSL 协议的开源实现，提供开发库和命令行程序。OpenSSL 使用 C 语言作为开发语言，拥有良好的跨平台性能，支持 Linux、Windows、BSD、Mac、VMS 等多个平台使用。</p>
+<h3 id="1-2-OpenSSL-3-0"><a href="#1-2-OpenSSL-3-0" class="headerlink" title="1.2 OpenSSL 3.0"></a>1.2 OpenSSL 3.0</h3><p>OpenSSL 项目开发和维护 OpenSSL 软件 - 一个强大的、商业级的、功能齐全的工具包，用于通用密码学和安全通信。OpenSSL 是 TLS/SSL 协议的开源实现，提供开发库和命令行程序。OpenSSL 使用 C 语言作为开发语言，拥有良好的跨平台性能，支持 Linux、Windows、BSD、Mac、VMS 等多个平台使用。</p>
 <p>OpenSSL 3.0 是 OpenSSL 1.1.1 之后的重大更新版本，OpenSSL 3.0 是一个主要版本，并且不完全向后兼容以前的版本。大多数应用程序与 OpenSSL 1.1.1 一起工作仍将保持不变，只需要重新编译（尽管您可能会看到许多关于使用的编译警告已弃用的 API）。某些应用程序可能需要进行更改才能编译和工作正确，并且需要更改许多应用程序以避免弃用警告。我们整理了一个 <a target="_blank" rel="noopener" href="https://www.openssl.org/docs/man3.0/man7/migration_guide.html">迁移指南</a> 描述 OpenSSL 3.0 与以前版本相比的主要区别。</p>
 <p>OpenSSL 3.0 引入了许多新概念，应用程序开发人员和 OpenSSL 的用户应该知道。有关 libcrypto 关键概念的概述可在 <a target="_blank" rel="noopener" href="https://www.openssl.org/docs/man3.0/man7/crypto.html">libcrypto</a> 手册页中查看。</p>
 <p>OpenSSL 3.0 的一个关键特性是新的 FIPS 模块。我们的实验室正在测试模块并立即整理我们 FIPS 140-2 验证的文书工作。我们预计将在本月（2021 年 9 月）晚些时候<a target="_blank" rel="noopener" href="https://www.openssl.org/blog/blog/2021/09/22/OpenSSL3-fips-submission/">提交</a>。最终证书不是预计明年发布。</p>
-<h3 id="1-3-LibresSSL-是什么">1.3 LibresSSL 是什么</h3>
-<p><a target="_blank" rel="noopener" href="http://www.libressl.org/">LibreSSL</a> 是 <a target="_blank" rel="noopener" href="https://www.openbsd.org/">OpenBSD</a> 开发者在 OpenSSL 爆出心脏出血漏洞之后 fork 的一个分支，旨在提供一个比 OpenSSL 更安全的替代品。它的 <a target="_blank" rel="noopener" href="http://www.libressl.org/favicon.ico">收藏夹图标（favicon）</a> 就是 OpenSSL 心脏出血漏洞的图标。OpenBSD 是一个以安全著称的操作系统，LibreSSL 遵循其他 OpenBSD 项目的安全指导原则。</p>
-<p>LibreSSL 与 OpenSSL 都是传输层安全（TLS，Transport Layer Security）协议的开源实现，如需了解 TLS 可参见其 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E5%8D%94%E8%AD%B0">维基词条</a> 或自行搜索。</p>
+<h3 id="1-3-LibresSSL-是什么"><a href="#1-3-LibresSSL-是什么" class="headerlink" title="1.3 LibresSSL 是什么"></a>1.3 LibresSSL 是什么</h3><p><a target="_blank" rel="noopener" href="http://www.libressl.org/">LibreSSL</a> 是 <a target="_blank" rel="noopener" href="https://www.openbsd.org/">OpenBSD</a> 开发者在 OpenSSL 爆出心脏出血漏洞之后 fork 的一个分支，旨在提供一个比 OpenSSL 更安全的替代品。它的 <a target="_blank" rel="noopener" href="http://www.libressl.org/favicon.ico">收藏夹图标（favicon）</a> 就是 OpenSSL 心脏出血漏洞的图标。OpenBSD 是一个以安全著称的操作系统，LibreSSL 遵循其他 OpenBSD 项目的安全指导原则。</p>
+<p>LibreSSL 与 OpenSSL 都是传输层安全（TLS，Transport Layer Security）协议的开源实现，如需了解 TLS 可参见其 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/傳輸層安全協議">维基词条</a> 或自行搜索。</p>
 <p>字面上看，LibreSSL 有两种断词方式：</p>
 <ul>
 <li>Libre-SSL，Libre 来自拉丁语，意为 “自由”，大家应该并不陌生，因为 LibreOffice 已经事实上取代了 OpenOffice，没准 LibreSSL 也会有这一天。</li>
@@ -523,8 +519,7 @@
 <li><a target="_blank" rel="noopener" href="https://medium.com/@FredericJacobs/apple-ios-9-security-privacy-features-8d82d9da10eb#3ae7">Mac OS X 自 10.11 El Capitan 起</a></li>
 <li><a target="_blank" rel="noopener" href="https://lists.alpinelinux.org/alpine-announce/0022.html">Alpine Linux 自 3.5.0 起</a></li>
 </ul>
-<h3 id="1-4-什么是-QUIC">1.4 什么是 QUIC</h3>
-<p>主页：<a target="_blank" rel="noopener" href="https://www.chromium.org/quic">https://www.chromium.org/quic</a></p>
+<h3 id="1-4-什么是-QUIC"><a href="#1-4-什么是-QUIC" class="headerlink" title="1.4 什么是 QUIC"></a>1.4 什么是 QUIC</h3><p>主页：<a target="_blank" rel="noopener" href="https://www.chromium.org/quic">https://www.chromium.org/quic</a></p>
 <p>描述：QUIC, a multiplexed transport over UDP（QUIC，一种基于 UDP 的多路传输）</p>
 <p>QUIC 是一种建立在 UDP 之上的新型多路复用传输。HTTP/3 旨在利用 QUIC 的功能，包括缺少流之间的 Head-Of-Line 阻塞。</p>
 <p>QUIC 项目最初是作为 TCP+TLS+HTTP/2 的替代方案，旨在改善用户体验，尤其是页面加载时间。IETF <a target="_blank" rel="noopener" href="https://www.anonymizing.com/index.php?q=nNjVqNhuaGLGkaeRrNaTyaKap2POx6qdlNOqmpKql2Ol2cqblJWbotekYg">QUIC 工作组</a>明确定义了传输<a target="_blank" rel="noopener" href="https://www.anonymizing.com/index.php?q=nNjVqNhuaGLGkaeRrNaTyaKap2POx6qdlNOqmpKXn5djzNWl0WOrmcVpY2Bo">QUIC</a>) 和应用 (HTTP/3) 层之间的边界。并从 QUIC Crypto 迁移到 <a target="_blank" rel="noopener" href="https://www.anonymizing.com/index.php?q=nNjVqNhuaGLGkaeRrNaTyaKap2POx6qdlNOqmpKXn5djzNWl0WOrmcVoZ2Ru">TLS 1.3</a>。</p>
@@ -547,11 +542,9 @@
 <li>HTTP/3 - IESG 批准的 <a target="_blank" rel="noopener" href="https://www.anonymizing.com/index.php?q=nNjVqNhuaGLGkaeRrNaTyaKap2POx6qdlNOqmpKXn5djzNWl0WOdpcOWp12hyabMZKaqnsiPnqva1A">草案</a></li>
 <li>QPACK - IESG 批准的 <a target="_blank" rel="noopener" href="https://www.anonymizing.com/index.php?q=nNjVqNhuaGLGkaeRrNaTyaKap2POx6qdlNOqmpKXn5djzNWl0WOdpcOWp12hyabMZKaqnsiPp6fHx6M">草案</a></li>
 </ul>
-<h3 id="1-5-了解-HTTP-3">1.5 了解 HTTP/3</h3>
-<p>运行在 QUIC 之上的 HTTP 协议被称为 HTTP/3 (HTTP-over-QUIC)。QUIC 协议 (Quick UDP Internet Connection) 基于 UDP，正是看中了 UDP 的速度与效率。同时 QUIC 也整合了 TCP、TLS 和 HTTP/2 的优点，并加以优化。</p>
+<h3 id="1-5-了解-HTTP-3"><a href="#1-5-了解-HTTP-3" class="headerlink" title="1.5 了解 HTTP/3"></a>1.5 了解 HTTP/3</h3><p>运行在 QUIC 之上的 HTTP 协议被称为 HTTP/3 (HTTP-over-QUIC)。QUIC 协议 (Quick UDP Internet Connection) 基于 UDP，正是看中了 UDP 的速度与效率。同时 QUIC 也整合了 TCP、TLS 和 HTTP/2 的优点，并加以优化。</p>
 <ul>
-<li>
-<p>特点:</p>
+<li><p>特点:</p>
 <ul>
 <li>减少了握手的延迟 (1-RTT 或 0-RTT)</li>
 <li>多路复用，并且没有 TCP 的阻塞问题</li>
@@ -559,186 +552,85 @@
 <li>集成了 TLS 1.3 加密</li>
 </ul>
 </li>
-<li>
-<p>HTTP/3 与 HTTP/1.1 和 HTTP/2 没有直接的关系，也不是 HTTP/2 的扩展</p>
+<li><p>HTTP/3 与 HTTP/1.1 和 HTTP/2 没有直接的关系，也不是 HTTP/2 的扩展</p>
 </li>
-<li>
-<p>HTTP/3 将会是一个全新的 WEB 协议</p>
-</li>
-<li>
-<p>HTTP/3 目前处于制订和测试阶段</p>
-</li>
+<li>HTTP/3 将会是一个全新的 WEB 协议</li>
+<li>HTTP/3 目前处于制订和测试阶段</li>
 </ul>
-<h3 id="1-6-总结">1.6 总结</h3>
-<p>QUIC 是传输层协议，基于 UDP（对比的概念是 TCP），HTTP/3 是应用层协议，同协议层的概念是 FTP、SMTP、DNS 等等。</p>
+<h3 id="1-6-总结"><a href="#1-6-总结" class="headerlink" title="1.6 总结"></a>1.6 总结</h3><p>QUIC 是传输层协议，基于 UDP（对比的概念是 TCP），HTTP/3 是应用层协议，同协议层的概念是 FTP、SMTP、DNS 等等。</p>
 <p>HTTP/3 默认使用 TLSv1.3 在 QUIC 传输层加密，而 OpenSSL 是实现 TLSv1.3 的一种开源软件和工具。</p>
 <p>通过以下服务端软件将最终交付 HTTP/3（QUIC、TLSv1.3）给客户端，最终用户通过浏览器客户端（Firefox、Chrome、Safari 等）访问获得高效快速的互联网体验。</p>
-<h2 id="2-服务端">2. 服务端</h2>
-<h3 id="2-1-F5-BIG-IP-HTTP-3">2.1 F5 BIG-IP HTTP/3</h3>
-<p>官方参考：</p>
+<h2 id="2-服务端"><a href="#2-服务端" class="headerlink" title="2. 服务端"></a>2. 服务端</h2><h3 id="2-1-F5-BIG-IP-HTTP-3"><a href="#2-1-F5-BIG-IP-HTTP-3" class="headerlink" title="2.1 F5 BIG-IP HTTP/3"></a>2.1 F5 BIG-IP HTTP/3</h3><p>官方参考：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://support.f5.com/csp/article/K60235402">K60235402: Overview of the BIG-IP HTTP/3 and QUIC profiles</a></li>
 <li><a target="_blank" rel="noopener" href="https://support.f5.com/csp/article/K16240003">K16240003: Configuring HTTP/3 discovery for BIG-IP virtual server</a></li>
 </ul>
 <p>从 BIG-IP 15.1.0.1 开始，F5 引入了 HTTP/3 和 QUIC 作为实验特性。BIG-IP 系统的中 HTTP/3 和 QUIC profiles 分别基于 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/draft-ietf-quic-http-24">draft-ietf-quic-http-24</a> 和 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/draft-ietf-quic-transport-24">draft-ietf-quic-transport-24</a> 实验性实现。</p>
 <p>HTTP/3 是 HTTP/2 之后的下一个 HTTP 协议版本。与早期版本不同，HTTP/3 不使用 TCP，而是依赖 QUIC 作为 UDP 协议之上的底层传输协议。因此，QUIC 可以被视为提供了先前由 TCP、TLS 和 HTTP/2 提供的功能。</p>
-<h4 id="使用-TMUI-创建-HTTP-3-virtual-server">使用 TMUI 创建 HTTP/3 virtual server</h4>
-<p>具体步骤如下：</p>
+<h4 id="使用-TMUI-创建-HTTP-3-virtual-server"><a href="#使用-TMUI-创建-HTTP-3-virtual-server" class="headerlink" title="使用 TMUI 创建 HTTP/3 virtual server"></a>使用 TMUI 创建 HTTP/3 virtual server</h4><p>具体步骤如下：</p>
 <ol>
-<li>
-<p>Log in to the Configuration utility.</p>
+<li><p>Log in to the Configuration utility.</p>
 </li>
-<li>
-<p>Go to <strong>Local Traffic</strong> &gt; <strong>Virtual Servers</strong>.</p>
+<li><p>Go to <strong>Local Traffic</strong> &gt; <strong>Virtual Servers</strong>.</p>
 </li>
-<li>
-<p>Select <strong>Create</strong>.</p>
+<li><p>Select <strong>Create</strong>.</p>
 </li>
-<li>
-<p>Provide appropriate values for <strong>Name</strong>, <strong>Destination Address/Mask</strong>.</p>
+<li><p>Provide appropriate values for <strong>Name</strong>, <strong>Destination Address/Mask</strong>.</p>
 </li>
-<li>
-<p>For <strong>Service Port</strong>, enter an appropriate port number. For example, <strong>4433</strong>.</p>
+<li><p>For <strong>Service Port</strong>, enter an appropriate port number. For example, <strong>4433</strong>.</p>
 </li>
-<li>
-<p>For Protocol , select UDP . <strong>Note</strong>: HTTP/3 and QUIC use the <strong>UDP</strong> protocol. By selecting <strong>UDP</strong>, options for HTTP/3 and QUIC profiles will be available for selection in the <strong>Acceleration</strong> section of the page.</p>
+<li><p>For Protocol , select UDP . <strong>Note</strong>: HTTP/3 and QUIC use the <strong>UDP</strong> protocol. By selecting <strong>UDP</strong>, options for HTTP/3 and QUIC profiles will be available for selection in the <strong>Acceleration</strong> section of the page.</p>
 </li>
-<li>
-<p>For Protocol Profile (Server) , select tcp . <strong>Note</strong>: As HTTP/3 server side is currently not supported, you cannot use any of the UDP protocols on the server side.</p>
+<li><p>For Protocol Profile (Server) , select tcp . <strong>Note</strong>: As HTTP/3 server side is currently not supported, you cannot use any of the UDP protocols on the server side.</p>
 </li>
-<li>
-<p>For <strong>HTTP Profile (Client)</strong>, select <strong>http</strong>.</p>
+<li><p>For <strong>HTTP Profile (Client)</strong>, select <strong>http</strong>.</p>
 </li>
-<li>
-<p>For <strong>SSL Profile (Client)</strong>, select <strong>clientssl-quic</strong>.</p>
+<li><p>For <strong>SSL Profile (Client)</strong>, select <strong>clientssl-quic</strong>.</p>
 </li>
-<li>
-<p>For <strong>SSL Profile (Server)</strong>, select an appropriate Server SSL profile to communicate with your pool member.</p>
+<li><p>For <strong>SSL Profile (Server)</strong>, select an appropriate Server SSL profile to communicate with your pool member.</p>
 </li>
-<li>
-<p>Optional: For <strong>Source Address Translation</strong>, select <strong>Auto Map</strong>.</p>
+<li><p>Optional: For <strong>Source Address Translation</strong>, select <strong>Auto Map</strong>.</p>
 </li>
-<li>
-<p>Select the <strong>HTTP MRF Router</strong> check box.</p>
+<li><p>Select the <strong>HTTP MRF Router</strong> check box.</p>
 </li>
-<li>
-<p>For  QUIC Profile (experimental) , select  quic.<br>
-<strong>Note</strong>: To create your own QUIC profile, go to <strong>Local Traffic</strong> &gt; <strong>Profiles</strong> &gt; <strong>Services</strong> &gt; <strong>QUIC (experimental)</strong> and select <strong>Create</strong>.</p>
+<li><p>For  QUIC Profile (experimental) , select  quic.<br><strong>Note</strong>: To create your own QUIC profile, go to <strong>Local Traffic</strong> &gt; <strong>Profiles</strong> &gt; <strong>Services</strong> &gt; <strong>QUIC (experimental)</strong> and select <strong>Create</strong>.</p>
 </li>
-<li>
-<p>For  HTTP/3 Profile (experimental) , select  http3.<br>
-<strong>Note</strong>: To create your own HTTP/3 profile, go to <strong>Local Traffic</strong> &gt; <strong>Profiles</strong> &gt; <strong>Services</strong> &gt; <strong>HTTP/3 (experimental)</strong> and select <strong>Create</strong>.</p>
+<li><p>For  HTTP/3 Profile (experimental) , select  http3.<br><strong>Note</strong>: To create your own HTTP/3 profile, go to <strong>Local Traffic</strong> &gt; <strong>Profiles</strong> &gt; <strong>Services</strong> &gt; <strong>HTTP/3 (experimental)</strong> and select <strong>Create</strong>.</p>
 </li>
-<li>
-<p>Under <strong>Default Pool</strong>, select your pool.</p>
+<li><p>Under <strong>Default Pool</strong>, select your pool.</p>
 </li>
-<li>
-<p>Select <strong>Finished</strong>.</p>
+<li><p>Select <strong>Finished</strong>.</p>
 </li>
 </ol>
-<h4 id="使用-tmsh-创建-HTTP-3-virtual-server">使用 tmsh 创建 HTTP/3 virtual server</h4>
-<p>具体步骤如下：</p>
+<h4 id="使用-tmsh-创建-HTTP-3-virtual-server"><a href="#使用-tmsh-创建-HTTP-3-virtual-server" class="headerlink" title="使用 tmsh 创建 HTTP/3 virtual server"></a>使用 tmsh 创建 HTTP/3 virtual server</h4><p>具体步骤如下：</p>
 <ol>
-<li>
-<p>Log in to the TMOS Shell (tmsh) by entering the following command: tmsh</p>
+<li><p>Log in to the TMOS Shell (tmsh) by entering the following command: tmsh</p>
 </li>
-<li>
-<p>To create an HTTP/3 virtual server, use the following command syntax:</p>
+<li><p>To create an HTTP/3 virtual server, use the following command syntax:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create ltm virtual &lt;vs_name&gt; ip-protocol udp destination &lt;ipaddress&gt;:&lt;port_number&gt; pool &lt;pool_name&gt; source-address-translation &#123;type &lt;type&gt;&#125; profiles add &#123; udp &#123; context clientside &#125; tcp &#123; context serverside &#125; &lt;clientssl_profile&gt; &#123; context clientside &#125; &lt;serverssl_profile&gt; &#123;context serverside &#125; &lt;quic_profile&gt; &#123; context clientside &#125; &lt;http3_profile&gt; &#123; context clientside &#125; &lt;http_profile&gt; httprouter &#125;</span><br></pre></td></tr></table></figure>
 <p>For example, enter the following command to create an HTTP/3 virtual server that contains the attributes in the table that follows:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create ltm virtual quic_vs ip-protocol udp destination 10.10.10.10:4433 pool example_pool source-address-translation &#123;type automap&#125; profiles add &#123; udp &#123; context clientside &#125; tcp &#123; context serverside &#125; clientssl-quic &#123; context clientside &#125; serverssl &#123;context serverside &#125; quic &#123; context clientside &#125; http3 &#123; context clientside &#125; http httprouter &#125;</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Virtual Server name</td>
-<td>quic_vs</td>
-</tr>
-<tr>
-<td>Destination Address/Mask</td>
-<td>10.10.10.10</td>
-</tr>
-<tr>
-<td>Service Port</td>
-<td>4433</td>
-</tr>
-<tr>
-<td>Protocol</td>
-<td>UDP</td>
-</tr>
-<tr>
-<td>Protocol Profile (Client)</td>
-<td>udp</td>
-</tr>
-<tr>
-<td>Protocol Profile (Server)</td>
-<td>tcp</td>
-</tr>
-<tr>
-<td>HTTP Profile</td>
-<td>http</td>
-</tr>
-<tr>
-<td>SSL Profile (Client)</td>
-<td>clientssl-quic</td>
-</tr>
-<tr>
-<td>SSL Profile (Server)</td>
-<td>serverssl</td>
-</tr>
-<tr>
-<td>Source Address Translation</td>
-<td>Auto Map</td>
-</tr>
-<tr>
-<td>HTTP MRF Router</td>
-<td>Enabled</td>
-</tr>
-<tr>
-<td>QUIC Profile (experimental)</td>
-<td>quic</td>
-</tr>
-<tr>
-<td>HTTP/3 Profile (experimental)</td>
-<td>http3</td>
-</tr>
-<tr>
-<td>Pool</td>
-<td>example_pool</td>
-</tr>
-</tbody>
-</table>
+<p>| Option                        | Value          |<br>| ——————————————- | ——————— |<br>| Virtual Server name           | quic_vs        |<br>| Destination Address/Mask      | 10.10.10.10    |<br>| Service Port                  | 4433           |<br>| Protocol                      | UDP            |<br>| Protocol Profile (Client)     | udp            |<br>| Protocol Profile (Server)     | tcp            |<br>| HTTP Profile                  | http           |<br>| SSL Profile (Client)          | clientssl-quic |<br>| SSL Profile (Server)          | serverssl      |<br>| Source Address Translation    | Auto Map       |<br>| HTTP MRF Router               | Enabled        |<br>| QUIC Profile (experimental)   | quic           |<br>| HTTP/3 Profile (experimental) | http3          |<br>| Pool                          | example_pool   |</p>
 </li>
 </ol>
-<h3 id="2-2-Nginx-HTTP-3">2.2 Nginx HTTP/3</h3>
-<h4 id="技术预览">技术预览</h4>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.nginx.com/blog/introducing-technology-preview-nginx-support-for-quic-http-3/">Introducing a Technology Preview of NGINX Support for QUIC and HTTP/3</a></p>
+<h3 id="2-2-Nginx-HTTP-3"><a href="#2-2-Nginx-HTTP-3" class="headerlink" title="2.2 Nginx HTTP/3"></a>2.2 Nginx HTTP/3</h3><h4 id="技术预览"><a href="#技术预览" class="headerlink" title="技术预览"></a>技术预览</h4><p>参考：<a target="_blank" rel="noopener" href="https://www.nginx.com/blog/introducing-technology-preview-nginx-support-for-quic-http-3/">Introducing a Technology Preview of NGINX Support for QUIC and HTTP/3</a></p>
 <p>2020 年 6 月 10 日，NGINX 宣布了 NGINX 的官方 QUIC 和 HTTP/3 实现的初始版本，即 http_v3_module。这是一个技术预览，应该被视为实验性的 - 它不适用于生产环境。在编写本文时，<a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/draft-ietf-quic-transport/">QUIC 标准</a> 尚未定稿，并且此初始版本是针对当前草案的一个子集实现的。</p>
 <p>经过几个月的设计和开发，http_v3_module 已经准备好进行互操作性测试。我们也欢迎一般的反馈和代码贡献。请注意，http_v3_module 在 NGINX 开源主线开发分支中不可用（也不是 NGINX Plus 的任何版本）；因为它仍处于试验阶段，所以它是一个独立的开发分支，位于 <a target="_blank" rel="noopener" href="https://hg.nginx.org/nginx-quic">https://hg.nginx.org/nginx-quic</a>。</p>
 <p>还请注意，这个 QUIC + HTTP/3 的实现是全新的，与 Cloudflare 作为其 <a target="_blank" rel="noopener" href="https://blog.cloudflare.com/experience-with-http-3-using-nginx-and-quiche/">quiche 项目</a> 的一部分提供的修补程序无关。</p>
 <p>对于那些熟悉 NGINX 配置的人来说，启用 QUIC + HTTP/3 非常简单。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;              # TCP listener for HTTP/1.1</span><br><span class="line">    listen 443 http3 reuseport;  # UDP listener for QUIC+HTTP/3</span><br><span class="line"></span><br><span class="line">    ssl_protocols       TLSv1.3; # QUIC requires TLS 1.3</span><br><span class="line">    ssl_certificate     ssl/www.sysin.org.crt;</span><br><span class="line">    ssl_certificate_key ssl/www.sysin.org.key;</span><br><span class="line"></span><br><span class="line">    add_header Alt-Svc &#x27;quic=&quot;:443&quot;&#x27;; # Advertise that QUIC is available</span><br><span class="line">    add_header QUIC-Status $quic;     # Sent when QUIC was used</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="quiche：Cloudflare-NGINX-Build">quiche：Cloudflare NGINX Build</h4>
-<p>早在 2018 年，Cloudflare 已经实验性的支持 QUIC 和 HTTP/3，只需要在控制台点击一个按钮即可启用，后来发布了一个可以本地部署的 nginx build，详见：<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/experiment-with-http-3-using-nginx-and-quiche/">Experiment with HTTP/3 using NGINX and quiche</a>。</p>
-<h4 id="正式版（待发布）">正式版（待发布）</h4>
-<p>预计在 2021 年底合并 nginx-quic development branch 到 NGINX mainline branch，并优化性能。参看：<a target="_blank" rel="noopener" href="https://www.nginx.com/blog/our-roadmap-quic-http-3-support-nginx/">Our Roadmap for QUIC and HTTP/3 Support in NGINX</a>。</p>
+<h4 id="quiche：Cloudflare-NGINX-Build"><a href="#quiche：Cloudflare-NGINX-Build" class="headerlink" title="quiche：Cloudflare NGINX Build"></a>quiche：Cloudflare NGINX Build</h4><p>早在 2018 年，Cloudflare 已经实验性的支持 QUIC 和 HTTP/3，只需要在控制台点击一个按钮即可启用，后来发布了一个可以本地部署的 nginx build，详见：<a target="_blank" rel="noopener" href="https://blog.cloudflare.com/experiment-with-http-3-using-nginx-and-quiche/">Experiment with HTTP/3 using NGINX and quiche</a>。</p>
+<h4 id="正式版（待发布）"><a href="#正式版（待发布）" class="headerlink" title="正式版（待发布）"></a>正式版（待发布）</h4><p>预计在 2021 年底合并 nginx-quic development branch 到 NGINX mainline branch，并优化性能。参看：<a target="_blank" rel="noopener" href="https://www.nginx.com/blog/our-roadmap-quic-http-3-support-nginx/">Our Roadmap for QUIC and HTTP/3 Support in NGINX</a>。</p>
 <blockquote>
 <p>有可能是 nginx 1.22 stable version？</p>
 </blockquote>
-<h3 id="2-3-Microsoft-MsQuic">2.3 Microsoft MsQuic</h3>
-<p><strong>Windows Server 2022 和 Windows 11 中的 QUIC 已经可用。</strong></p>
+<h3 id="2-3-Microsoft-MsQuic"><a href="#2-3-Microsoft-MsQuic" class="headerlink" title="2.3 Microsoft MsQuic"></a>2.3 Microsoft MsQuic</h3><p><strong>Windows Server 2022 和 Windows 11 中的 QUIC 已经可用。</strong></p>
 <p>2021 年 8 月发布的 Windows Server 2022 和 2021 年 10 月发布的 Windows 11，已经支持 QUIC，在 IIS 中新建站点时将默认启用。</p>
 <p>项目主页：<a target="_blank" rel="noopener" href="https://github.com/microsoft">microsoft</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/microsoft/msquic">msquic</a></strong></p>
 <p>Microsoft 正在开发开源的 QUIC library，叫做 <a target="_blank" rel="noopener" href="https://github.com/microsoft/msquic">MsQuic</a>, 在 GitHub 基于 <a target="_blank" rel="noopener" href="https://github.com/microsoft/msquic/blob/master/LICENSE">MIT license</a>. MsQuic 是一个跨平台的通用库，它实现了 <a target="_blank" rel="noopener" href="https://quicwg.org/">QUIC</a> 传输协议。QUIC 正在由 <a target="_blank" rel="noopener" href="https://www.ietf.org/">互联网工程工作组</a>（IETF）制定标准。MsQuic 是一个针对多种使用模式优化的客户机和服务器解决方案，并被多个 Microsoft 产品和服务使用。MsQuic 目前处于预览阶段，支持 Windows 和 Linux。</p>
 <p>Microsoft 早期在最新的  <a target="_blank" rel="noopener" href="https://insider.windows.com/en-us/">Windows Insider Preview Builds</a> 中支持 QUIC 和 HTTP/3，并将其开源，名为 <a target="_blank" rel="noopener" href="https://github.com/microsoft/msquic">MsQuic</a>。终于在 2021 年 8 月发布的 Windows Server 2022 中集成了 MsQuic v1.0 (LTSC)。</p>
 <p>在 Windows 上，MsQuic 依赖于 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/com/schannel">Schannel</a> 对于 TLS 1.3 功能的内置支持。MsQuic 以 <code>msquic.sys</code> 驱动程序的方式封装在 Windows 内核之中，以支持内置的 HTTP 和 SMB 功能。用户模式应用程序使用 <code>msquic.dll</code>（从这里构建）并将其与他们的应用程序打包。</p>
-<h4 id="MsQuic-v1-0-LTSC">MsQuic v1.0 (LTSC)</h4>
-<p>MsQuic v1.0 是第一个官方支持的版本。此版本的主要交付产品是 Windows Server 2022 版本。目前没有正式的、已签名的二进制文件计划发布。Linux 支持被视为此版本的预览版 (sysin)。QUIC 规范目前 “提交给 IESG 发布”，因此此版本支持 v1 和草案 29 版本。</p>
+<h4 id="MsQuic-v1-0-LTSC"><a href="#MsQuic-v1-0-LTSC" class="headerlink" title="MsQuic v1.0 (LTSC)"></a>MsQuic v1.0 (LTSC)</h4><p>MsQuic v1.0 是第一个官方支持的版本。此版本的主要交付产品是 Windows Server 2022 版本。目前没有正式的、已签名的二进制文件计划发布。Linux 支持被视为此版本的预览版 (sysin)。QUIC 规范目前 “提交给 IESG 发布”，因此此版本支持 v1 和草案 29 版本。</p>
 <p><strong>Important</strong> 未完全实现的 QUIC 协议功能：</p>
 <ul>
 <li>0-RTT</li>
@@ -750,27 +642,21 @@
 <ul>
 <li><code>GetParam</code> for <code>QUIC_PARAM_CONN_STATISTICS</code> does not populate <code>Handshake.*</code> fields.</li>
 </ul>
-<h4 id="配置选项">配置选项</h4>
-<p>以下是在 Windows Insider Build 20175 中的 IIS 绑定一个 HTTPS 站点的截图，可以看到如同 HTTP/2 的设置，TLS 1.3 和 QUIC 默认将启用，除非手动勾选禁用。</p>
+<h4 id="配置选项"><a href="#配置选项" class="headerlink" title="配置选项"></a>配置选项</h4><p>以下是在 Windows Insider Build 20175 中的 IIS 绑定一个 HTTPS 站点的截图，可以看到如同 HTTP/2 的设置，TLS 1.3 和 QUIC 默认将启用，除非手动勾选禁用。</p>
 <p><img src="windows-2022-iis.webp" alt="windows-2022-iis"></p>
-<h3 id="2-4-Apache-httpd">2.4 Apache httpd</h3>
-<p>暂时没有 Apache httpd 支持 HTTP/3 的消息。Apache 目前还没有承诺何时进行相关的支持工作。（笔者无法查询到相关资料，仅供参考。）</p>
+<h3 id="2-4-Apache-httpd"><a href="#2-4-Apache-httpd" class="headerlink" title="2.4 Apache httpd"></a>2.4 Apache httpd</h3><p>暂时没有 Apache httpd 支持 HTTP/3 的消息。Apache 目前还没有承诺何时进行相关的支持工作。（笔者无法查询到相关资料，仅供参考。）</p>
 <p><a target="_blank" rel="noopener" href="https://docs.litespeedtech.com/products/lsws/">LiteSpeed Web Server</a> 是 Apache 的替代品。它可以直接加载 Apache 配置文件，并与所有最流行的控制面板集成。众所周知，LSWS 可以在不牺牲性能的情况下节省资源。由于 LiteSpeed Web Server 取代了 Apache  的所有功能，它简化了使用，并使向新服务器的过渡变得轻松方便。</p>
 <p>参看 <a target="_blank" rel="noopener" href="https://docs.litespeedtech.com/cp/cpanel/quic-http3/">Enable or Disable QUIC and HTTP/3</a></p>
 <p>请注意：LiteSpeed Web Server 是商业软件，免费许可有明显限制，无法简单用来替代 apache httpd。</p>
-<h3 id="2-5-HAProxy">2.5 HAProxy</h3>
-<p>2021.11.23，<a target="_blank" rel="noopener" href="https://www.haproxy.com/blog/announcing-haproxy-2-5/">HAProxy 2.5</a> early support for QUIC and HTTP/3。</p>
+<h3 id="2-5-HAProxy"><a href="#2-5-HAProxy" class="headerlink" title="2.5 HAProxy"></a>2.5 HAProxy</h3><p>2021.11.23，<a target="_blank" rel="noopener" href="https://www.haproxy.com/blog/announcing-haproxy-2-5/">HAProxy 2.5</a> early support for QUIC and HTTP/3。</p>
 <p>您可以接收 HTTP/3 请求，并在您的 HAProxy 实例上处理它们或将它们转发到 HTTP/1、HTTP/2 或 FastCGI 后端服务器。</p>
 <p>该功能处于预实验阶段，仅用于开发。错误处理仍然非常有限。</p>
 <p>您可以 <a target="_blank" rel="noopener" href="https://github.com/haproxy/haproxy/blob/master/INSTALL">构建具有 QUIC 支持 的 HAProxy</a> 使用，以了解该功能的内部工作原理，并且使用 <a target="_blank" rel="noopener" href="https://github.com/quictls/openssl">QUICTLS</a> SSL 库替代 OpenSSL。</p>
-<h3 id="2-6-Tomcat">2.6 Tomcat</h3>
-<p>暂无相关消息</p>
-<h3 id="2-7-Varnish">2.7 Varnish</h3>
-<p>测试中，参看：<a target="_blank" rel="noopener" href="http://varnish-cache.org/docs/trunk/phk/quic.html#quic-visions-of-osi">QUIC visions of OSI</a></p>
+<h3 id="2-6-Tomcat"><a href="#2-6-Tomcat" class="headerlink" title="2.6 Tomcat"></a>2.6 Tomcat</h3><p>暂无相关消息</p>
+<h3 id="2-7-Varnish"><a href="#2-7-Varnish" class="headerlink" title="2.7 Varnish"></a>2.7 Varnish</h3><p>测试中，参看：<a target="_blank" rel="noopener" href="http://varnish-cache.org/docs/trunk/phk/quic.html#quic-visions-of-osi">QUIC visions of OSI</a></p>
 <p>GitHub: <a target="_blank" rel="noopener" href="https://github.com/vtest">vtest</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/vtest/VTest">VTest</a></strong></p>
-<h3 id="2-8-小结">2.8 小结</h3>
-<p>2021 年底了，正式支持 QUIC 和 HTTP/3 的只有 F5 和 Microsoft 两家的商业产品，比较遗憾，开源产品都无法友好支持。</p>
-<h2 id="3-客户端">3. 客户端</h2>
+<h3 id="2-8-小结"><a href="#2-8-小结" class="headerlink" title="2.8 小结"></a>2.8 小结</h3><p>2021 年底了，正式支持 QUIC 和 HTTP/3 的只有 F5 和 Microsoft 两家的商业产品，比较遗憾，开源产品都无法友好支持。</p>
+<h2 id="3-客户端"><a href="#3-客户端" class="headerlink" title="3. 客户端"></a>3. 客户端</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -812,20 +698,19 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>As of April 2021, the HTTP/3 protocol is an Internet Draft and has multiple implementations. Google Chrome supports HTTP/3 by default since April 2020 (including Chrome for Android, as well as Microsoft Edge, which is based on it).</p>
 <p>参考：</p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/HTTP/3">https://en.wikipedia.org/wiki/HTTP/3</a></p>
 <p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/http3/intro">https://developers.cloudflare.com/http3/intro</a></p>
 <p><a target="_blank" rel="noopener" href="https://quic.nginx.org/README">https://quic.nginx.org/README</a></p>
-<h3 id="3-1-Firefox">3.1 Firefox</h3>
-<p>Firefox 88 开始默认支持 HTTP/3，无需配置。</p>
+<h3 id="3-1-Firefox"><a href="#3-1-Firefox" class="headerlink" title="3.1 Firefox"></a>3.1 Firefox</h3><p>Firefox 88 开始默认支持 HTTP/3，无需配置。</p>
 <blockquote>
 <p>Firefox 75 及以上版本支持 HTTP/3（具体版本网上资料有些差异，现在都已经默认支持，不做深究）。</p>
 <p>启用方法：在地址栏输入’about:config’，配置 network.http.http3.enabled = true</p>
 </blockquote>
 <p>通过 “Web 开发者” 可以看到 “版本: HTTP/3” “协议版本:: TLSv1.3”</p>
-<h3 id="3-2-Chrome">3.2 Chrome</h3>
-<p>在浏览器地址栏输入 <code>chrome://flags</code> 回车，搜索 “quic” 可以看到 “Experimental QUIC Protocol” 点击下拉框选择 “Enabled”。</p>
+<h3 id="3-2-Chrome"><a href="#3-2-Chrome" class="headerlink" title="3.2 Chrome"></a>3.2 Chrome</h3><p>在浏览器地址栏输入 <code>chrome://flags</code> 回车，搜索 “quic” 可以看到 “Experimental QUIC Protocol” 点击下拉框选择 “Enabled”。</p>
 <p>Chrome 83 及以上版本支持 HTTP/3，使用命令行增加如下启动参数：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./chrome --enable-quic --quic-version=h3-27</span><br></pre></td></tr></table></figure>
 <p><strong>Running on Windows</strong>：</p>
@@ -835,22 +720,18 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-quic --quic-version=h3-27</span><br></pre></td></tr></table></figure>
 <p>Microsoft Edge (based on Chromium) 与 Chrome 同步支持，例如在 macOS 中运行 Edge：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Microsoft\ Edge.app//Contents/MacOS/Microsoft\ Edge --enable-quic --quic-version=h3-27</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-Safari">3.3 Safari</h3>
-<blockquote>
+<h3 id="3-3-Safari"><a href="#3-3-Safari" class="headerlink" title="3.3 Safari"></a>3.3 Safari</h3><blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.apple.com/safari/technology-preview/">Safari Technology Preview</a> Release 104 <a target="_blank" rel="noopener" href="https://webkit.org/blog/10264/release-notes-for-safari-technology-preview-104/">which was just released</a> has added HTTP3 as an experimental feature. To enable it, you’ll first need to enable the “Develop” menu through its settings.</p>
 </blockquote>
 <p>macOS Big Sur 11 和 iOS 14 中的 Safari 开始实验性的支持 HTTP/3，但是默认没有启用，开启方法如下：</p>
-<p>在 macOS Big Sur 11 中的 Safari 14 （或更高版本），偏好设置…–高级，勾选【在菜单栏中显示“开发”菜单】。然后在点击“开发”菜单–实验性功能，点击勾选 HTTP/3。</p>
+<p>在 macOS Big Sur 11 中的 Safari 14 （或更高版本），偏好设置…—高级，勾选【在菜单栏中显示“开发”菜单】。然后在点击“开发”菜单—实验性功能，点击勾选 HTTP/3。</p>
 <p><img src="https://www.bram.us/wordpress/wp-content/uploads/2020/04/safari-preferences.png" alt="sysin"></p>
-<p>在 iOS 14 和 iOS 15 中，设置–Safari 浏览器–高级–Experimental Features，可以找到 HTTP/3 并点击启用。</p>
-<h3 id="3-4-Curl">3.4 Curl</h3>
-<p>文档显示 Curl <a target="_blank" rel="noopener" href="https://daniel.haxx.se/blog/2019/09/11/curl-7-66-0-the-parallel-http-3-future-is-here/">7.66</a> 及以上支持 HTTP/3，使用 --http3 参数，但实际上需要额外配置才能支持！</p>
+<p>在 iOS 14 和 iOS 15 中，设置—Safari 浏览器—高级—Experimental Features，可以找到 HTTP/3 并点击启用。</p>
+<h3 id="3-4-Curl"><a href="#3-4-Curl" class="headerlink" title="3.4 Curl"></a>3.4 Curl</h3><p>文档显示 Curl <a target="_blank" rel="noopener" href="https://daniel.haxx.se/blog/2019/09/11/curl-7-66-0-the-parallel-http-3-future-is-here/">7.66</a> 及以上支持 HTTP/3，使用 —http3 参数，但实际上需要额外配置才能支持！</p>
 <ul>
-<li>
-<p>Ubuntu 20.04 自带 7.68 但不可直接使用</p>
+<li><p>Ubuntu 20.04 自带 7.68 但不可直接使用</p>
 </li>
-<li>
-<p>CentOS 8 自带 7.61，更新也不可直接使用：</p>
+<li><p>CentOS 8 自带 7.61，更新也不可直接使用：</p>
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh http://www.city-fan.org/ftp/contrib/yum-repo/rhel8/x86_64/city-fan.org-release-2-2.rhel8.noarch.rpm</span><br><span class="line">dnf --enablerepo=city-fan.org install libcurl libcurl-devel</span><br></pre></td></tr></table></figure>
@@ -861,8 +742,7 @@
 <p>报错如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl --http3 -s -o /dev/null -v https://sysin.org</span><br><span class="line"></span><br><span class="line">curl: option --http3: the installed libcurl version doesn&#x27;t support this</span><br><span class="line">curl: try &#x27;curl --help&#x27; or &#x27;curl --manual&#x27; for more information</span><br></pre></td></tr></table></figure>
 <p>解决办法：创建支持 HTTP/3 的 curl：参看 <a target="_blank" rel="noopener" href="https://github.com/curl/curl/blob/master/docs/HTTP3.md">HTTP3 (and QUIC)</a></p>
-<h4 id="ngtcp2-version（Linux）">ngtcp2 version（Linux）</h4>
-<ul>
+<h4 id="ngtcp2-version（Linux）"><a href="#ngtcp2-version（Linux）" class="headerlink" title="ngtcp2 version（Linux）"></a>ngtcp2 version（Linux）</h4><ul>
 <li>Build with OpenSSL</li>
 </ul>
 <p>Build (patched) OpenSSL</p>
@@ -885,8 +765,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">git clone https://github.com/ngtcp2/ngtcp2</span><br><span class="line">cd ngtcp2</span><br><span class="line">autoreconf -fi</span><br><span class="line">./configure PKG_CONFIG_PATH=&lt;somewhere1&gt;/lib/pkgconfig:&lt;somewhere2&gt;/lib/pkgconfig LDFLAGS=&quot;-Wl,-rpath,&lt;somewhere1&gt;/lib&quot; --prefix=&lt;somewhere3&gt; --enable-lib-only --with-gnutls</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <p>Build curl</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">git clone https://github.com/curl/curl</span><br><span class="line">cd curl</span><br><span class="line">autoreconf -fi</span><br><span class="line">./configure --without-openssl --with-gnutls=&lt;somewhere1&gt; --with-nghttp3=&lt;somewhere2&gt; --with-ngtcp2=&lt;somewhere3&gt;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<h4 id="quiche-version（Linux）">quiche version（Linux）</h4>
-<ul>
+<h4 id="quiche-version（Linux）"><a href="#quiche-version（Linux）" class="headerlink" title="quiche version（Linux）"></a>quiche version（Linux）</h4><ul>
 <li>build</li>
 </ul>
 <p>Build quiche and BoringSSL:</p>
@@ -894,8 +773,7 @@
 <p>Build curl:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">git clone https://github.com/curl/curl</span><br><span class="line">cd curl</span><br><span class="line">autoreconf -fi</span><br><span class="line">./configure LDFLAGS=&quot;-Wl,-rpath,$PWD/../quiche/target/release&quot; --with-openssl=$PWD/../quiche/deps/boringssl/src --with-quiche=$PWD/../quiche/target/release</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <p>If <code>make install</code> results in <code>Permission denied</code> error, you will need to prepend it with <code>sudo</code>.</p>
-<h4 id="macOS：Curl-Quiche">macOS：Curl + Quiche</h4>
-<p>Homebrew formula for curl + quiche to easily build and test HTTP/3 on MacOS.</p>
+<h4 id="macOS：Curl-Quiche"><a href="#macOS：Curl-Quiche" class="headerlink" title="macOS：Curl + Quiche"></a>macOS：Curl + Quiche</h4><p>Homebrew formula for curl + quiche to easily build and test HTTP/3 on MacOS.</p>
 <p><strong>Requirement</strong>：</p>
 <p>Install homebrew from <a target="_blank" rel="noopener" href="https://brew.sh/">https://brew.sh/</a></p>
 <p><strong>Build</strong>：</p>
@@ -919,14 +797,12 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --help | egrep &#x27;alt-svc|http3&#x27;</span><br><span class="line">     --alt-svc &lt;file name&gt; Enable alt-svc with this cache file</span><br><span class="line">     --http3         Use HTTP v3</span><br></pre></td></tr></table></figure>
 <p>Now, you can try curl on any H3 enabled sites.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl --http3 -I https://sysin.org</span><br><span class="line">curl --http3 -I https://cloudflare-quic.com</span><br></pre></td></tr></table></figure>
-<h4 id="用法">用法</h4>
-<p>Use HTTP/3 directly:</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>Use HTTP/3 directly:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --http3 https://nghttp2.org:4433/</span><br></pre></td></tr></table></figure>
 <p>Upgrade via Alt-Svc:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --alt-svc altsvc.cache https://quic.aiortc.org/</span><br></pre></td></tr></table></figure>
 <p>See this <a target="_blank" rel="noopener" href="https://bagder.github.io/HTTP3-test/">list of public HTTP/3 servers</a></p>
-<h3 id="3-5-在线检测网站">3.5 在线检测网站</h3>
-<p><a target="_blank" rel="noopener" href="https://http3check.net/">https://http3check.net/</a></p>
+<h3 id="3-5-在线检测网站"><a href="#3-5-在线检测网站" class="headerlink" title="3.5 在线检测网站"></a>3.5 在线检测网站</h3><p><a target="_blank" rel="noopener" href="https://http3check.net/">https://http3check.net/</a></p>
 <p><a target="_blank" rel="noopener" href="https://gf.dev/http3-test">https://gf.dev/http3-test</a></p>
 
 

@@ -498,10 +498,8 @@
 <blockquote>
 <p>本文内容基于 FreeBSD 13，其他版本理论上也适用。</p>
 </blockquote>
-<h2 id="准备-zsh">准备 zsh</h2>
-<ul>
-<li>
-<p>查看当前 shell</p>
+<h2 id="准备-zsh"><a href="#准备-zsh" class="headerlink" title="准备 zsh"></a>准备 zsh</h2><ul>
+<li><p>查看当前 shell</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
 <p>返回结果:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/csh</span><br></pre></td></tr></table></figure>
@@ -511,91 +509,73 @@
 <p>注意：以下全局配置相关命令需要 root 权限，请切换到 root 账号，或者使用 sudo（需手动安装配置）。</p>
 </blockquote>
 <ul>
-<li>
-<p>安装 zsh</p>
+<li><p>安装 zsh</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install zsh</span><br></pre></td></tr></table></figure>
 <p>提示消息：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Message from zsh-5.8:</span><br><span class="line"></span><br><span class="line">--</span><br><span class="line">==========================================================</span><br><span class="line"></span><br><span class="line">By default, zsh looks for system-wide defaults in</span><br><span class="line">/usr/local/etc.</span><br><span class="line"></span><br><span class="line">If you previously set up /etc/zprofile, /etc/zshenv, etc.,</span><br><span class="line">either move them to /usr/local/etc or rebuild zsh with the</span><br><span class="line">ETCDIR option enabled.</span><br><span class="line"></span><br><span class="line">==========================================================</span><br></pre></td></tr></table></figure>
 <p>注意：在 FreeBSD 中非系统自带 shell 安装路径如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">% </span><span class="language-bash"><span class="built_in">type</span> zsh</span></span><br><span class="line">zsh is /usr/local/bin/zsh</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>设置默认 shell</p>
+<li><p>设置默认 shell</p>
 <p>根据 FreeBSD 安全建议，不要为 root 用户切换为非系统内置 shell，因为 FreeBSD 中 非内置 shell 安装路径为 <code>/usr/local/bin/</code>（不同于 Linux 安装在 <code>/bin/</code>），意外情况下可能导致文件系统无法挂载，root 用户无法访问自己的 shell。但是可以将 toor 账号配置使用 zsh 作为默认 shell。</p>
 <p>为非 root 用户切换默认 shell：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /usr/local/bin/zsh &lt;username&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;username&gt; 替换为实际用户名</span></span><br><span class="line">chsh -s /usr/local/bin/zsh toor</span><br></pre></td></tr></table></figure>
 <p>退出重新登录生效。</p>
 </li>
-<li>
-<p>安装 git</p>
+<li><p>安装 git</p>
 <p>执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install git</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="全局配置-zsh">全局配置 zsh</h2>
-<p>在 FreeBSD 中，用户安装的程序都是放在 <code>/usr/local</code> 下，配置文件在 <code>/usr/local/etc</code> 目录下。不同于 Linux 各发行版有自己的安装程序路径规则，BSD 系统都使用统一的规范来管理。我们将 oh-my-zsh 主目录放置在 <code>/usr/local/etc</code> 目录下。</p>
+<h2 id="全局配置-zsh"><a href="#全局配置-zsh" class="headerlink" title="全局配置 zsh"></a>全局配置 zsh</h2><p>在 FreeBSD 中，用户安装的程序都是放在 <code>/usr/local</code> 下，配置文件在 <code>/usr/local/etc</code> 目录下。不同于 Linux 各发行版有自己的安装程序路径规则，BSD 系统都使用统一的规范来管理。我们将 oh-my-zsh 主目录放置在 <code>/usr/local/etc</code> 目录下。</p>
 <ul>
-<li>
-<p>使用 GNU sed 替代 BSD sed</p>
+<li><p>使用 GNU sed 替代 BSD sed</p>
 <p>以下 sed 命令部分请用 gsed 替代，或者使用 alias。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pkg install gsed #FreeBSD</span><br><span class="line">gsed --v #安装后命令都是 gsed</span><br><span class="line">alias sed=gsed #可用别名替代 BSD sed</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>切换成 root</p>
+<li><p>切换成 root</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su #切换到 root 账号，pwd 不变</span><br><span class="line">su - #切换到 root 账号，pwd 同时变为 root 主目录</span><br><span class="line">sudo -i #同上</span><br><span class="line">alias sed=gsed #用 GNU sed 替代 BSD sed</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>全局安装 zsh 到 <code>/usr/local/etc/</code> 目录</p>
+<li><p>全局安装 zsh 到 <code>/usr/local/etc/</code> 目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git /usr/local/etc/oh-my-zsh</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>从模板文件复制 .zshrc 创建默认配置文件（新用户将使用该配置文件）</p>
+<li><p>从模板文件复制 .zshrc 创建默认配置文件（新用户将使用该配置文件）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/etc/oh-my-zsh/templates/zshrc.zsh-template /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
 <p>FreeBSD 用户默认配置文件目录是 <code>/usr/share/skel/</code>，Linux 默认为 <code>/etc/skel/</code></p>
 <p>注意：<code>/usr/share/skel/</code> 中点开头的文件和文件夹（隐藏属性）都加上 dot，非隐藏文件和文件夹命名不变。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">ls</span> -ahlFTo</span></span><br><span class="line">total 49</span><br><span class="line">drwxr-xr-x   2 root  wheel  uarch   10B Sep  7 04:38:19 2022 ./</span><br><span class="line">drwxr-xr-x  32 root  wheel  uarch   32B May 12 16:15:22 2022 ../</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  962B May 12 16:29:31 2022 dot.cshrc</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  323B May 12 16:29:31 2022 dot.login</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch   91B May 12 16:29:31 2022 dot.login_conf</span><br><span class="line">-rw-------   1 root  wheel  uarch  301B May 12 16:29:31 2022 dot.mail_aliases</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  267B May 12 16:29:31 2022 dot.mailrc</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  978B May 12 16:29:31 2022 dot.profile</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  695B May 12 16:29:31 2022 dot.shrc</span><br><span class="line">-rw-r--r--   1 root  wheel  uarch  3.8K Sep  7 04:38:19 2022 dot.zshrc</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>修改 on-my-zsh 的安装目录 <code>export ZSH=$HOME/.oh-my-zsh</code> 为 <code>export ZSH=/usr/local/etc/oh-my-zsh</code></p>
+<li><p>修改 on-my-zsh 的安装目录 <code>export ZSH=$HOME/.oh-my-zsh</code> 为 <code>export ZSH=/usr/local/etc/oh-my-zsh</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s|$HOME/.oh-my-zsh|/usr/local/etc/oh-my-zsh|g&#x27; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>为每个用户配置独立的 cache 目录</p>
+<li><p>为每个用户配置独立的 cache 目录</p>
 <p>编辑 <code>/usr/share/skel/dot.zshrc</code> 在 <code>export ZSH=/usr/local/etc/oh-my-zsh</code> 下添加一句：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ZSH_CACHE_DIR=&quot;$&#123;XDG_CACHE_HOME:-$HOME/.cache&#125;/oh-my-zsh&quot;</span><br></pre></td></tr></table></figure>
 <p>注意：必须在 <code>export ZSH=/usr/local/etc/oh-my-zsh</code> 之后 <code>source $ZSH/oh-my-zsh.sh</code> 之前添加，否则会混乱。</p>
-<p>在 <a target="_blank" rel="noopener" href="http://oh-my-zsh.sh">oh-my-zsh.sh</a> 中定义了 ZSH_CACHE_DIR 路径：</p>
+<p>在 oh-my-zsh.sh 中定义了 ZSH_CACHE_DIR 路径：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Set ZSH_CACHE_DIR to the path <span class="built_in">where</span> cache files should be created</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">or <span class="keyword">else</span> we will use the default cache/</span></span><br><span class="line">if [[ -z &quot;$ZSH_CACHE_DIR&quot; ]]; then</span><br><span class="line">ZSH_CACHE_DIR=&quot;$ZSH/cache&quot;</span><br><span class="line">fi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Make sure <span class="variable">$ZSH_CACHE_DIR</span> is writable, otherwise use a directory <span class="keyword">in</span> <span class="variable">$HOME</span></span></span><br><span class="line">if [[ ! -w &quot;$ZSH_CACHE_DIR&quot; ]]; then</span><br><span class="line">ZSH_CACHE_DIR=&quot;$&#123;XDG_CACHE_HOME:-$HOME/.cache&#125;/oh-my-zsh&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>初始安装 “$ZSH/cache” 存在为空目录。<br>
-如果不添加上述语句，默认 root 用户对 “$ZSH/cache” 有写权限，会直接将 “$ZSH/cache” 作为 cache 目录。<br>
-如果在 <code>source $ZSH/oh-my-zsh.sh</code> 之后添加，root 在登录后先将 “$ZSH/cache” 作为 cache 目录，然后再更改为自定义路径。<br>
-对于普通用户，默认将使用 “${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh” 作为 cache 目录，经测试自定义其他路径无效。</p>
+<p>初始安装 “$ZSH/cache” 存在为空目录。<br>如果不添加上述语句，默认 root 用户对 “$ZSH/cache” 有写权限，会直接将 “$ZSH/cache” 作为 cache 目录。<br>如果在 <code>source $ZSH/oh-my-zsh.sh</code> 之后添加，root 在登录后先将 “$ZSH/cache” 作为 cache 目录，然后再更改为自定义路径。<br>对于普通用户，默认将使用 “${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh” 作为 cache 目录，经测试自定义其他路径无效。</p>
 </li>
-<li>
-<p>更改默认主题（默认 robbyrussell，推荐 ys）</p>
+<li><p>更改默认主题（默认 robbyrussell，推荐 ys）</p>
 <p>编辑 <code>/usr/share/skel/dot.zshrc</code> 文件修改：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;/^ZSH_THEME=*/c ZSH_THEME=&quot;ys&quot;&#x27; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>取消每周自动检查更新</p>
-<p>取消注释 <code>/usr/share/skel/dot.zshrc</code> 中的 “# DISABLE_AUTO_UPDATE=“true””</p>
+<li><p>取消每周自动检查更新</p>
+<p>取消注释 <code>/usr/share/skel/dot.zshrc</code> 中的 “# DISABLE_AUTO_UPDATE=”true””</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/^#[ ]\(DISABLE_AUTO_UPDATE=&quot;true&quot;\)/\1/&#x27; /usr/share/skel/dot.zshrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-i 写入文件</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">&quot;&quot;</span> Unix sed 备份机制，直接引号表示不备份</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">s 替换指定字符</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">^ 匹配行开始</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[ ] 中括号中间有空格表示要替换的内容是一个空格，注意被替换的内容是空格用 <span class="string">&quot; &quot;</span>（双引号中间有空格）表示。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">\1 的意思就类似于前面的 (DISABLE_AUTO_UPDATE=<span class="string">&quot;true&quot;</span>\)，\1 就是复制这个位置的内容，</span></span><br></pre></td></tr></table></figure>
 <p>上述配置在 2022年6月仍有效，现在已经更新为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Uncomment one of the following lines to change the auto-update behavior</span></span><br><span class="line">zstyle &#x27;:omz:update&#x27; mode disabled  # disable automatic updates</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">zstyle</span> <span class="string">&#x27;:omz:update&#x27;</span> mode auto      <span class="comment"># update automatically without asking</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">zstyle</span> <span class="string">&#x27;:omz:update&#x27;</span> mode reminder  <span class="comment"># just remind me to update when it&#x27;s time</span></span></span><br></pre></td></tr></table></figure>
 <p>手动更新：<code>omz update</code>（旧版命令：upgrade_oh_my_zsh）</p>
 </li>
-<li>
-<p>配置 ll 别名（可选）</p>
+<li><p>配置 ll 别名（可选）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;alias ll=&quot;ls -lahFTo&quot;&#x27; &gt;&gt; /usr/share/skel/dot.zshrc</span><br><span class="line">echo &#x27;alias sed=gsed&#x27; &gt;&gt; /usr/share/skel/dot.zshrc</span><br><span class="line">echo &#x27;alias vi=vim&#x27; &gt;&gt; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>内容如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">alias</span></span></span><br><span class="line">alias ll=&quot;ls -lahFTo&quot;</span><br><span class="line">alias sed=gsed</span><br><span class="line">alias vi=vim</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ture off NOMATCH shell option <span class="built_in">set</span>, error like: <span class="string">&quot;zsh: no matches found&quot;</span></span></span><br><span class="line">unsetopt NOMATCH</span><br></pre></td></tr></table></figure>
-<h2 id="全局配置插件">全局配置插件</h2>
-<p>全局安装插件（安装到 <code>/usr/local/etc/oh-my-zsh/custom/plugins/</code>）</p>
+<h2 id="全局配置插件"><a href="#全局配置插件" class="headerlink" title="全局配置插件"></a>全局配置插件</h2><p>全局安装插件（安装到 <code>/usr/local/etc/oh-my-zsh/custom/plugins/</code>）</p>
 <ul>
-<li>
-<p><strong>zsh-syntax-highlighting：语法高亮插件。</strong></p>
+<li><p><strong>zsh-syntax-highlighting：语法高亮插件。</strong></p>
 <p>作用：命令错误会显示红色，直到你输入正确才会变绿色，另外路径正确会显示下划线。</p>
 <p>安装：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/local/etc/oh-my-zsh/custom/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
@@ -607,42 +587,35 @@
 <p>快速修改：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;/^plugins=*/c plugins=(git zsh-syntax-highlighting)&#x27; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><strong><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>，额外的自动补全。</strong></p>
+<li><p><strong><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions">zsh-completions</a>，额外的自动补全。</strong></p>
 <p>额外的自动补全功能，用于补充 zsh 中尚不支持的命令补全，该项目将在完善时合并到 zsh。</p>
 <ul>
-<li>
-<p>Clone the repository inside your oh-my-zsh repo:</p>
+<li><p>Clone the repository inside your oh-my-zsh repo:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-completions /usr/local/etc/oh-my-zsh/custom/plugins/zsh-completions</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Add it to <code>FPATH</code> in your <code>.zshrc</code> by adding the following line before <code>source &quot;$ZSH/oh-my-zsh.sh&quot;</code>:</p>
+<li><p>Add it to <code>FPATH</code> in your <code>.zshrc</code> by adding the following line before <code>source &quot;$ZSH/oh-my-zsh.sh&quot;</code>:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fpath+=$&#123;ZSH_CUSTOM:-$&#123;ZSH:-~/.oh-my-zsh&#125;/custom&#125;/plugins/zsh-completions/src</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>Note: adding it as a regular Oh My ZSH! plugin will not work properly (see <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions/issues/603">#603</a>).</p>
 </li>
-<li>
-<p><strong>zsh-autosuggestions：作用是根据历史输入命令的记录即时的提示（建议补全），然后按 → 键即可补全。</strong></p>
+<li><p><strong>zsh-autosuggestions：作用是根据历史输入命令的记录即时的提示（建议补全），然后按 → 键即可补全。</strong></p>
 <p>下载：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git /usr/local/etc/oh-my-zsh/custom/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
 <p>编辑 <code>/usr/share/skel/dot.zshrc</code>，找到 plugins=(git) 这一行，修改为：</p>
 <p>plugins=(git zsh-autosuggestions)</p>
 </li>
-<li>
-<p><strong>增强的实时自动命令补全插件：<a target="_blank" rel="noopener" href="https://mimosa-pudica.net/zsh-incremental.html">Incremental completion on zsh</a>。</strong></p>
+<li><p><strong>增强的实时自动命令补全插件：<a target="_blank" rel="noopener" href="https://mimosa-pudica.net/zsh-incremental.html">Incremental completion on zsh</a>。</strong></p>
 </li>
 </ul>
 <blockquote>
 <p>该插件对性能似乎有一点点影响，请根据需要启用。</p>
 </blockquote>
-<p>作用如图：</p>
-<p><img src="https://mimosa-pudica.net/img/zsh.gif" alt="incr"></p>
+<p>  作用如图：</p>
+<p>  <img src="https://mimosa-pudica.net/img/zsh.gif" alt="incr"></p>
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/etc/oh-my-zsh/custom/plugins/incr</span><br><span class="line">curl -fsSL https://mimosa-pudica.net/src/incr-0.2.zsh -o /usr/local/etc/oh-my-zsh/custom/plugins/incr/incr.zsh</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启用该功能</span></span><br><span class="line">echo &quot;source $ZSH_CUSTOM/plugins/incr/incr.zsh&quot; &gt;&gt; /usr/share/skel/dot.zshrc</span><br></pre></td></tr></table></figure>
-<h2 id="使用用户配置文件">使用用户配置文件</h2>
-<ul>
-<li>
-<p>改变新建用户的默认 shell 行为（可选）</p>
+<h2 id="使用用户配置文件"><a href="#使用用户配置文件" class="headerlink" title="使用用户配置文件"></a>使用用户配置文件</h2><ul>
+<li><p>改变新建用户的默认 shell 行为（可选）</p>
 <p>FreeBSD 中可以修改 adduser 命令默认 shell</p>
 <p>编辑 <code>/usr/sbin/adduser</code></p>
 <p>将 “DEFAULTSHELL=/bin/sh” 修改为 “DEFAULTSHELL=/usr/local/bin/zsh”</p>
@@ -652,13 +625,11 @@
 <p>修改后，使用 <code>useradd</code> 命令无需 <code>-s /bin/zsh</code>，用户默认使用 zsh，当然也可以不修改此项，<code>useradd</code> 命令继续追加 <code>-s /bin/zsh</code> 参数。</p>
 <p>新用户登录后，将自动复制 .zshrc 和上述 cache 目录到用户主目录下，并自动加载 zsh 配置。</p>
 </li>
-<li>
-<p>针对现有用户</p>
+<li><p>针对现有用户</p>
 <p>直接复制 <code>/usr/share/skel/dot.zshrc</code> 到 <code>~/</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/skel/dot.zshrc ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>新建一个用户并指定 zsh 为默认 Shell</p>
+<li><p>新建一个用户并指定 zsh 为默认 Shell</p>
 <p>FreeBSD 安装 sudo 后，并且配置 wheel 组获得 sudo 权限，新建一个管理员账号并使用 zsh 作为默认 shell：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pw useradd -n &lt;username&gt; -G wheel -s /usr/local/bin/zsh -m &amp;&amp; passwd &lt;username&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;username&gt; 替换为实际用户名</span></span><br></pre></td></tr></table></figure>
 <p>以下是 Linux 中的配置，备忘：</p>

@@ -489,9 +489,7 @@
         <p>请访问原文链接：<a href="/blog/centos-7-install/" title="CentOS 7 安装笔记">CentOS 7 安装笔记</a> 查看最新版。原创作品，转载请保留出处。</p>
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="第一部分-概述">第一部分 概述</h2>
-<h2 id="1-CentOS-7-新特性">1. CentOS 7 新特性</h2>
-<p>一如每个主要版本的首个发行本，多数组件都已作出改动及更新至较新版本。列出所有改动是本文档的范围以外的事情。最重大的改动计有：</p>
+<h2 id="第一部分-概述"><a href="#第一部分-概述" class="headerlink" title="第一部分 概述"></a>第一部分 概述</h2><h2 id="1-CentOS-7-新特性"><a href="#1-CentOS-7-新特性" class="headerlink" title="1. CentOS 7 新特性"></a>1. CentOS 7 新特性</h2><p>一如每个主要版本的首个发行本，多数组件都已作出改动及更新至较新版本。列出所有改动是本文档的范围以外的事情。最重大的改动计有：</p>
 <ul>
 <li>内核更新至 <strong>3.10.0</strong></li>
 <li>支持 Linux 容器</li>
@@ -507,7 +505,7 @@
 <li>在兼容硬件上支持以 UEFI 安全引导模式进行安装</li>
 </ul>
 <p>详见 <a target="_blank" rel="noopener" href="https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7">CentOS 7 Release Notes</a>。</p>
-<h2 id="2-CentOS-7-版本历史">2. CentOS 7 版本历史</h2>
+<h2 id="2-CentOS-7-版本历史"><a href="#2-CentOS-7-版本历史" class="headerlink" title="2. CentOS 7 版本历史"></a>2. CentOS 7 版本历史</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -562,71 +560,51 @@
 </tr>
 </tbody>
 </table>
-<h2 id="3-下载-CentOS-7">3. 下载 CentOS 7</h2>
-<p>下载 ISO 镜像：<a target="_blank" rel="noopener" href="https://sysin.org/blog/centos-7-ovf/">https://sysin.org/blog/centos-7-ovf/</a><br>
-官网下载：<a target="_blank" rel="noopener" href="https://wiki.centos.org/Download">https://wiki.centos.org/Download</a><br>
-下载 OVF：<a target="_blank" rel="noopener" href="https://sysin.org/blog/centos-7-ovf/">https://sysin.org/blog/centos-7-ovf/</a></p>
-<h2 id="4-安装摘要">4. 安装摘要</h2>
-<p>语言选择：尽量选择 English，English (United States)</p>
+</div>
+<h2 id="3-下载-CentOS-7"><a href="#3-下载-CentOS-7" class="headerlink" title="3. 下载 CentOS 7"></a>3. 下载 CentOS 7</h2><p>下载 ISO 镜像：<a target="_blank" rel="noopener" href="https://sysin.org/blog/centos-7-ovf/">https://sysin.org/blog/centos-7-ovf/</a><br>官网下载：<a target="_blank" rel="noopener" href="https://wiki.centos.org/Download">https://wiki.centos.org/Download</a><br>下载 OVF：<a target="_blank" rel="noopener" href="https://sysin.org/blog/centos-7-ovf/">https://sysin.org/blog/centos-7-ovf/</a></p>
+<h2 id="4-安装摘要"><a href="#4-安装摘要" class="headerlink" title="4. 安装摘要"></a>4. 安装摘要</h2><p>语言选择：尽量选择 English，English (United States)</p>
 <blockquote>
 <p>推荐使用 Minimal 安装介质。</p>
 <p>先配置网络，否则某些项目无法配置。</p>
 </blockquote>
 <ul>
-<li>
-<p>Network &amp; Hostname：点击 OFF 按钮为 ON，点击 Configure… 按钮，General 页面注意勾选 “Connect automatically with priority”，根据需要手动配置 IP 地址和 DNS。</p>
+<li><p>Network &amp; Hostname：点击 OFF 按钮为 ON，点击 Configure… 按钮，General 页面注意勾选 “Connect automatically with priority”，根据需要手动配置 IP 地址和 DNS。</p>
 </li>
-<li>
-<p>Keyboard：默认  English (US)。</p>
+<li><p>Keyboard：默认  English (US)。</p>
 </li>
-<li>
-<p>Language Support：下拉到最下面 “中文”，勾选 “简体中文” 和两个 “繁体中文”。</p>
+<li><p>Language Support：下拉到最下面 “中文”，勾选 “简体中文” 和两个 “繁体中文”。</p>
 </li>
-<li>
-<p>Time &amp; Date：点选 Asia/Shanghai，Network Time 自动 ON（前面先配置了网络）。</p>
+<li><p>Time &amp; Date：点选 Asia/Shanghai，Network Time 自动 ON（前面先配置了网络）。</p>
 </li>
-<li>
-<p>Installation Source：如果是 Minimal 或者 DVD 介质，默认是 Local media。</p>
+<li><p>Installation Source：如果是 Minimal 或者 DVD 介质，默认是 Local media。</p>
 </li>
-<li>
-<p>Software Selection：Minimal Install，请勿勾选 “Development Tools”（实际上安装的组件有限，需要手动安装），虚机勾选 “Guest Agent”。</p>
+<li><p>Software Selection：Minimal Install，请勿勾选 “Development Tools”（实际上安装的组件有限，需要手动安装），虚机勾选 “Guest Agent”。</p>
 </li>
-<li>
-<p>Installation Destination：创建分区，可选两种参考方案 (sysin)。</p>
+<li><p>Installation Destination：创建分区，可选两种参考方案 (sysin)。</p>
 <ul>
-<li>
-<p>默认分区方案：点选 Custom，默认使用 LVM，点击 “Click here to create them automatically” 自动创建，手动调整：删除 /home，将 SWAP 修改为整数 4 GiB，/boot 默认 1024 MiB，剩余分配给 /。</p>
+<li><p>默认分区方案：点选 Custom，默认使用 LVM，点击 “Click here to create them automatically” 自动创建，手动调整：删除 /home，将 SWAP 修改为整数 4 GiB，/boot 默认 1024 MiB，剩余分配给 /。</p>
 </li>
-<li>
-<p><strong>在 VM 环境中，简化分区方便调整大小</strong>：</p>
+<li><p><strong>在 VM 环境中，简化分区方便调整大小</strong>：</p>
 <ul>
-<li>
-<p>新建虚机，默认磁盘可以根据需要调整大小，比如 00G，这个直接用于 / 目录（可以合并 /boot），本例创建独立 <code>/boot</code>（容量 2G，默认 1G）。</p>
+<li><p>新建虚机，默认磁盘可以根据需要调整大小，比如 00G，这个直接用于 / 目录（可以合并 /boot），本例创建独立 <code>/boot</code>（容量 2G，默认 1G）。</p>
 </li>
-<li>
-<p>新增一块磁盘用作 SWAP，比如默认 4G。或者不创建 swap 分区，进入系统后创建文件如 <code>/swap.img</code> 作为 swap 分区。</p>
+<li><p>新增一块磁盘用作 SWAP，比如默认 4G。或者不创建 swap 分区，进入系统后创建文件如 <code>/swap.img</code> 作为 swap 分区。</p>
 <p>这样扩容就非常方便，虚机环境可能用不上 LVM 的便利。</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p>KDUMP：默认启用。</p>
+<li><p>KDUMP：默认启用。</p>
 </li>
-<li>
-<p>Security Policy：暂无，忽略。</p>
+<li><p>Security Policy：暂无，忽略。</p>
 </li>
-<li>
-<p>Root Password：创建 root 账号密码。</p>
+<li><p>Root Password：创建 root 账号密码。</p>
 </li>
-<li>
-<p>User Creation：新建额外的（管理员账号）账号，可选。</p>
+<li><p>User Creation：新建额外的（管理员账号）账号，可选。</p>
 </li>
 </ul>
-<h2 id="第二部分-配置">第二部分 配置</h2>
-<h2 id="1-格式化网卡命名">1. 格式化网卡命名</h2>
-<p>即禁用 consistent interface device naming</p>
+<h2 id="第二部分-配置"><a href="#第二部分-配置" class="headerlink" title="第二部分 配置"></a>第二部分 配置</h2><h2 id="1-格式化网卡命名"><a href="#1-格式化网卡命名" class="headerlink" title="1. 格式化网卡命名"></a>1. 格式化网卡命名</h2><p>即禁用 consistent interface device naming</p>
 <p>(1) 编辑 grub 配置文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/rhgb/net.ifnames=0 biosdevname=0 rhgb/&#x27; /etc/default/grub</span><br></pre></td></tr></table></figure>
 <p>(2) 运行如下命令重建 grub.cfg 文件</p>
@@ -635,65 +613,50 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/sysconfig/network-scripts/ifcfg-ens160 /etc/sysconfig/network-scripts/ifcfg-eth0</span><br><span class="line">sed -i &#x27;s/ens160/eth0/g&#x27; /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
 <p>(4) 重启生效</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure>
-<h2 id="2-配置网络">2. 配置网络</h2>
-<p>配置文件示例如下：</p>
+<h2 id="2-配置网络"><a href="#2-配置网络" class="headerlink" title="2. 配置网络"></a>2. 配置网络</h2><p>配置文件示例如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">cat</span> /etc/sysconfig/network-scripts/ifcfg-eth0</span></span><br><span class="line">TYPE=Ethernet</span><br><span class="line">BOOTPROTO=none</span><br><span class="line">DEFROUTE=yes</span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">NAME=eth0</span><br><span class="line">DEVICE=eth0</span><br><span class="line">UUID=547230df-5ab0-43cb-adae-4d3058664efc</span><br><span class="line">ONBOOT=yes</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">HWADDR=00:50:56:AE:2D:97</span></span><br><span class="line">IPADDR0=10.19.188.2</span><br><span class="line">PREFIX0=24</span><br><span class="line">GATEWAY0=10.19.188.1</span><br><span class="line">DNS1=10.19.190.11</span><br><span class="line">DOMAIN=sgec.corp</span><br><span class="line">IPV6_PEERDNS=yes</span><br><span class="line">IPV6_PEERROUTES=yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">cat</span> /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=localhost.localdomain</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">cat</span> /etc/resolv.conf</span></span><br><span class="line">nameserver 10.19.190.11</span><br></pre></td></tr></table></figure>
 <p>修改后重启网络服务使配置生效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">即原来的 service network restart</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-关闭-SELinux">3. 关闭 SELinux</h2>
-<p>SELinux 是 Linux 中最古老的一种 MAC（强制访问控制，Mandatory Access Control）模型，它是美国国家安全局的产品。除了在一些对安全有强制的要求的行业，SELinux 更多的以难以管理和排错而 “闻名”，通常认为其 “弊大于利”，许多应用安装文档中都要求关闭 SELinux。</p>
+<h2 id="3-关闭-SELinux"><a href="#3-关闭-SELinux" class="headerlink" title="3. 关闭 SELinux"></a>3. 关闭 SELinux</h2><p>SELinux 是 Linux 中最古老的一种 MAC（强制访问控制，Mandatory Access Control）模型，它是美国国家安全局的产品。除了在一些对安全有强制的要求的行业，SELinux 更多的以难以管理和排错而 “闻名”，通常认为其 “弊大于利”，许多应用安装文档中都要求关闭 SELinux。</p>
 <p>编辑配置文件 <code>/etc/selinux/config</code>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/selinux/config</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">SELINUX=enforcing       <span class="comment">#注释掉</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">SELINUXTYPE=targeted    <span class="comment">#注释掉</span></span></span><br><span class="line">SELINUX=disabled         #增加</span><br><span class="line">:x  #保存，关闭</span><br></pre></td></tr></table></figure>
 <p>使配置生效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0  #0=permissive, SELinux prints warnings instead of enforcing.</span><br><span class="line">shutdown -r now  #最终重启系统生效</span><br></pre></td></tr></table></figure>
-<h2 id="4-防火墙配置">4. 防火墙配置</h2>
-<p>在旧版本的 CentOS 中，是使用 iptables 命令来设置防火墙的。但是，从 CentOS 7 开始，默认就没有安装 iptables，而是改用 firewall 来配置防火墙。</p>
+<h2 id="4-防火墙配置"><a href="#4-防火墙配置" class="headerlink" title="4. 防火墙配置"></a>4. 防火墙配置</h2><p>在旧版本的 CentOS 中，是使用 iptables 命令来设置防火墙的。但是，从 CentOS 7 开始，默认就没有安装 iptables，而是改用 firewall 来配置防火墙。</p>
 <p>本次模板仅仅禁用了 firewalld，暂未安装 iptables。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">关闭 firewall：</span></span><br><span class="line">systemctl stop firewalld.service #停止 firewall</span><br><span class="line">systemctl disable firewalld.service #禁止 firewall 开机启动</span><br><span class="line">firewall-cmd --state #验证</span><br></pre></td></tr></table></figure>
-<h2 id="5-安装-EPEL">5. 安装 EPEL</h2>
-<p>EPEL = Extra Packages for Enterprise Linux</p>
+<h2 id="5-安装-EPEL"><a href="#5-安装-EPEL" class="headerlink" title="5. 安装 EPEL"></a>5. 安装 EPEL</h2><p>EPEL = Extra Packages for Enterprise Linux</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br></pre></td></tr></table></figure>
-<h2 id="6-排除内核或特定软件包更新">6. 排除内核或特定软件包更新</h2>
-<p>修改配置文件：</p>
+<h2 id="6-排除内核或特定软件包更新"><a href="#6-排除内核或特定软件包更新" class="headerlink" title="6. 排除内核或特定软件包更新"></a>6. 排除内核或特定软件包更新</h2><p>修改配置文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;exclude=kernel* centos-release&#x27; &gt;&gt; /etc/yum.conf</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>排除了 centos-release，更新后版本也保持在原有版本。</p>
 </blockquote>
-<h2 id="7-更换国内镜像-yum-源">7. 更换国内镜像 yum 源</h2>
-<p><strong>使用阿里云镜像（模板配置）</strong>：</p>
+<h2 id="7-更换国内镜像-yum-源"><a href="#7-更换国内镜像-yum-源" class="headerlink" title="7. 更换国内镜像 yum 源"></a>7. 更换国内镜像 yum 源</h2><p><strong>使用阿里云镜像（模板配置）</strong>：</p>
 <p>阿里云镜像速度一般比较快（Ping 延迟低），但出现过一些问题，比如安装 Oracle 无法检测到依赖包。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">yum install wget #CentOS 默认不自带</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 第一步：备份</span></span></span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup</span><br><span class="line">mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 第二步：下载</span></span></span><br><span class="line">CentOS 7</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line">wget -O /etc/yum.repos.d/epel-testing.repo http://mirrors.aliyun.com/repo/epel-testing.repo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 第三步：运行 yum makecache 生成缓存</span></span></span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
-<h2 id="8-软件更新">8. 软件更新</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">清理</span></span><br><span class="line">yum autoremove</span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line"></span><br><span class="line">yum makecache  #缓存软件包信息</span><br><span class="line">yum upgrade  #更新软件包，包括内核及系统版本</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">再次清理</span></span><br><span class="line">yum autoremove</span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line"></span><br><span class="line">rm -rf /tmp/*  #清空临时文件目录</span><br></pre></td></tr></table></figure>
-<h2 id="9-安装一些必备工具">9. 安装一些必备工具</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">一些基本工具最小化安装可能没有 (经测 wget 等没有安装)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 7 中 vi = vim，需要第三方 repo 安装 vim v8</span></span><br><span class="line">yum -y install wget zip unzip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开发工具</span></span><br><span class="line">yum -y groupinstall &quot;Development Tools&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过 setup 配置网络</span></span><br><span class="line">yum -y install setuptool system-config-network-tui system-config-firewall-tui</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认安装没有 ifconfig 命令，安装 net-tools：ifconfig、netstat、route 等命令集</span></span><br><span class="line">yum -y install net-tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更好的 top 工具，包含在 EPEL repo 中</span></span><br><span class="line">yum -y install htop</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">host、dig 和 nslookup (sysin)</span></span><br><span class="line">yum -y install bind-utils</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件传输：sz 和 rz</span></span><br><span class="line">yum -y install lrzsz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看日志神器 Log file Navigator，EPEL</span></span><br><span class="line">yum -y install lnav</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc:</span></span><br><span class="line">yum -y install nc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">lsof:</span></span><br><span class="line">yum -y install lsof</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tree:</span></span><br><span class="line">yum -y install tree</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pstree:</span></span><br><span class="line">yum -y install psmisc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ncdu：NCurses Disk Usage</span></span><br><span class="line">yum -y install ncdu #新增工具，模板尚未加入，下个版本更新</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dstat 监控 CPU、磁盘和网络使用率</span></span><br><span class="line">yum -y install dstat</span><br></pre></td></tr></table></figure>
+<h2 id="8-软件更新"><a href="#8-软件更新" class="headerlink" title="8. 软件更新"></a>8. 软件更新</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">清理</span></span><br><span class="line">yum autoremove</span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line"></span><br><span class="line">yum makecache  #缓存软件包信息</span><br><span class="line">yum upgrade  #更新软件包，包括内核及系统版本</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">再次清理</span></span><br><span class="line">yum autoremove</span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line"></span><br><span class="line">rm -rf /tmp/*  #清空临时文件目录</span><br></pre></td></tr></table></figure>
+<h2 id="9-安装一些必备工具"><a href="#9-安装一些必备工具" class="headerlink" title="9. 安装一些必备工具"></a>9. 安装一些必备工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">一些基本工具最小化安装可能没有 (经测 wget 等没有安装)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 7 中 vi = vim，需要第三方 repo 安装 vim v8</span></span><br><span class="line">yum -y install wget zip unzip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开发工具</span></span><br><span class="line">yum -y groupinstall &quot;Development Tools&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过 setup 配置网络</span></span><br><span class="line">yum -y install setuptool system-config-network-tui system-config-firewall-tui</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认安装没有 ifconfig 命令，安装 net-tools：ifconfig、netstat、route 等命令集</span></span><br><span class="line">yum -y install net-tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更好的 top 工具，包含在 EPEL repo 中</span></span><br><span class="line">yum -y install htop</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">host、dig 和 nslookup (sysin)</span></span><br><span class="line">yum -y install bind-utils</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">文件传输：sz 和 rz</span></span><br><span class="line">yum -y install lrzsz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看日志神器 Log file Navigator，EPEL</span></span><br><span class="line">yum -y install lnav</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc:</span></span><br><span class="line">yum -y install nc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">lsof:</span></span><br><span class="line">yum -y install lsof</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">tree:</span></span><br><span class="line">yum -y install tree</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pstree:</span></span><br><span class="line">yum -y install psmisc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ncdu：NCurses Disk Usage</span></span><br><span class="line">yum -y install ncdu #新增工具，模板尚未加入，下个版本更新</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dstat 监控 CPU、磁盘和网络使用率</span></span><br><span class="line">yum -y install dstat</span><br></pre></td></tr></table></figure>
 <p>fd 命令（fd-find，强烈推荐）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- 下载（二选一）：</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">gcc 编译版本</span></span><br><span class="line">wget https://github.com/sharkdp/fd/releases/download/v8.0.0/fd-v8.0.0-x86_64-unknown-linux-gnu.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">musl libc 编译版本</span></span><br><span class="line">wget https://github.com/sharkdp/fd/releases/download/v8.0.0/fd-v8.0.0-x86_64-unknown-linux-musl.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 ghproxy 解决 github 无法访问问题</span></span><br><span class="line">wget https://ghproxy.com/https://github.com/sharkdp/fd/releases/download/v8.0.0/fd-v8.0.0-x86_64-unknown-linux-musl.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># CentOS 7 自带 glibc 版本过低，要求 GLIBC_2.18，故使用 musl 编译版本</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装：</span></span><br><span class="line">tar -zxvf fd-v8.0.0-x86_64-unknown-linux-musl.tar.gz</span><br><span class="line">cd fd-v8.0.0-x86_64-unknown-linux-musl</span><br><span class="line"></span><br><span class="line">cp ./fd /usr/local/bin/</span><br><span class="line">cp ./fd.1 /usr/local/share/man/man1/</span><br><span class="line">mandb</span><br></pre></td></tr></table></figure>
-<h2 id="10-安装配置-SNMP">10. 安装配置 SNMP</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-devel net-snmp-libs net-snmp-perl net-snmp-utils</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">模板暂不配置</span></span><br></pre></td></tr></table></figure>
-<h2 id="11-网络时间同步-NTP">11. 网络时间同步 NTP</h2>
-<p>CentOS 7 开始默认使用 chrony 进行网络时间同步。</p>
+<h2 id="10-安装配置-SNMP"><a href="#10-安装配置-SNMP" class="headerlink" title="10. 安装配置 SNMP"></a>10. 安装配置 SNMP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install net-snmp net-snmp-devel net-snmp-libs net-snmp-perl net-snmp-utils</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">模板暂不配置</span></span><br></pre></td></tr></table></figure>
+<h2 id="11-网络时间同步-NTP"><a href="#11-网络时间同步-NTP" class="headerlink" title="11. 网络时间同步 NTP"></a>11. 网络时间同步 NTP</h2><p>CentOS 7 开始默认使用 chrony 进行网络时间同步。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CentOS 7 开始默认使用 chrony，模板使用系统自带 chrony，默认配置如下</span></span><br><span class="line">cat /etc/chrony.conf</span><br></pre></td></tr></table></figure>
 <p>查看时间同步状态：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chronyc sources -v</span><br><span class="line">chronyc sourcestats -v</span><br></pre></td></tr></table></figure>
-<h2 id="12-虚机安装-VM-tools">12. 虚机安装 VM-tools</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yum -y install open-vm-tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启服务</span></span><br><span class="line">chkconfig vmtoolsd on</span><br><span class="line">systemctl enable vmtoolsd.service</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动服务</span></span><br><span class="line">service vmtoolsd start</span><br><span class="line">systemctl start vmtoolsd.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看版本</span></span><br><span class="line">vmtoolsd -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示如下</span></span><br><span class="line">VMware Tools daemon, version 11.0.5.17716 (build-15389592)</span><br></pre></td></tr></table></figure>
-<h2 id="13-安装图形界面">13. 安装图形界面</h2>
-<p>基于特定场景要求，一般不用安装。</p>
+<h2 id="12-虚机安装-VM-tools"><a href="#12-虚机安装-VM-tools" class="headerlink" title="12. 虚机安装 VM-tools"></a>12. 虚机安装 VM-tools</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">yum -y install open-vm-tools</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启服务</span></span><br><span class="line">chkconfig vmtoolsd on</span><br><span class="line">systemctl enable vmtoolsd.service</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动服务</span></span><br><span class="line">service vmtoolsd start</span><br><span class="line">systemctl start vmtoolsd.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看版本</span></span><br><span class="line">vmtoolsd -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示如下</span></span><br><span class="line">VMware Tools daemon, version 11.0.5.17716 (build-15389592)</span><br></pre></td></tr></table></figure>
+<h2 id="13-安装图形界面"><a href="#13-安装图形界面" class="headerlink" title="13. 安装图形界面"></a>13. 安装图形界面</h2><p>基于特定场景要求，一般不用安装。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装 GNOME 图形界面：</span></span><br><span class="line">yum grouplist</span><br><span class="line">yum groupinstall &quot;GNOME Desktop&quot;</span><br><span class="line">startx</span><br></pre></td></tr></table></figure>
-<h2 id="14-Shell-配置">14. Shell 配置</h2>
-<p>Zsh</p>
+<h2 id="14-Shell-配置"><a href="#14-Shell-配置" class="headerlink" title="14. Shell 配置"></a>14. Shell 配置</h2><p>Zsh</p>
 <p>这里是针对当前用户配置。<a target="_blank" rel="noopener" href="https://sysin.org/blog/linux-zsh-all/">全局配置请参看其他文章</a>，<strong>这里直接使用全局配置文件即可</strong>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Zsh</span></span><br><span class="line">yum -y install zsh</span><br><span class="line">yum -y install util-linux-user</span><br><span class="line"></span><br><span class="line">chsh -s /bin/zsh</span><br><span class="line"></span><br><span class="line">yum -y install git</span><br><span class="line"></span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br><span class="line"></span><br><span class="line">sed -i &#x27;/^ZSH_THEME=.*/c ZSH_THEME=&quot;ys&quot;&#x27; ~/.zshrc</span><br><span class="line"></span><br><span class="line">echo &#x27;alias ll=&quot;ls -lahF --color --time-style=long-iso&quot;&#x27; &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line">sed -i &#x27;/^plugins=.*/c plugins=(git zsh-syntax-highlighting)&#x27; ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h2 id="16-清理并制作镜像模板">16. 清理并制作镜像模板</h2>
-<p>清理 yum 缓存</p>
+<h2 id="16-清理并制作镜像模板"><a href="#16-清理并制作镜像模板" class="headerlink" title="16. 清理并制作镜像模板"></a>16. 清理并制作镜像模板</h2><p>清理 yum 缓存</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum autoremove</span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br></pre></td></tr></table></figure>
 <p>清理临时文件夹</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /tmp/*  #清空临时文件夹</span><br></pre></td></tr></table></figure>
 <p>清空历史记录</p>
 <p>至此，基本配置已经完成，可以制作模板了。</p>
-<h2 id="第三部分-下载-OVF">第三部分 下载 OVF</h2>
-<a href="/blog/centos-7-ovf/" title="CentOS 7.9 x86_64 OVF (sysin) - VMware 虚拟机模板">CentOS 7.9 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+<h2 id="第三部分-下载-OVF"><a href="#第三部分-下载-OVF" class="headerlink" title="第三部分 下载 OVF"></a>第三部分 下载 OVF</h2><a href="/blog/centos-7-ovf/" title="CentOS 7.9 x86_64 OVF (sysin) - VMware 虚拟机模板">CentOS 7.9 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
 
 
         <hr>

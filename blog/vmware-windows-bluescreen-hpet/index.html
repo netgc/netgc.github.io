@@ -488,33 +488,26 @@
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>笔者这几天在制作 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022-ovf/">Windows Server 2022 OVF</a> 的时候，发现镜像在 ESXi 上明明运行良好，部署到 Fusion 或者 Workstation 上就蓝屏无法启动了，多次搜索蓝屏报错提示才找到问题所在。</p>
-<h2 id="现象描述">现象描述</h2>
-<p>具体是这样的，通过 vCenter（本例为 vSphere 7.0 U2）导出的虚机，使用标准 ovf 配置，默认不会导出扩展属性（后来对比分析得出），导出的虚机在 Fusion 或者 Workstation 上无法启动，蓝屏报错：SYSTEM_THREAD_EXCEPTION_NOT_HANDLED。</p>
+<h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><p>具体是这样的，通过 vCenter（本例为 vSphere 7.0 U2）导出的虚机，使用标准 ovf 配置，默认不会导出扩展属性（后来对比分析得出），导出的虚机在 Fusion 或者 Workstation 上无法启动，蓝屏报错：SYSTEM_THREAD_EXCEPTION_NOT_HANDLED。</p>
 <p><img src="hpet-bluescreen-win2022.webp" alt="hpet-bluescreen-win2022"></p>
 <p>而同样的虚机通过 ESXi host Client 导出，默认包含了所有扩展属性 (sysin)，导出的虚机在 Fusion 或者 Workstation 上可以正常运行。</p>
-<h2 id="原因">原因</h2>
-<p>在目前版本的 Fusion 12.1 或者 Workstation 16.1 上默认没有启动 High Precision Event Timer (HPET)，中文直译为高精度事件定时器，在 ESXi 7.0 中默认启用，而新版的 Windows 10 需要此功能。具体从何版本未验证，相关文档显示 Windows 10 1809 开始需要此功能，但是 Windows 2019 基于 1809 没有此问题，Windows 2022 基于 21H2 存在该问题。如有了解真相的读者还望留言告知，先谢过😄。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在目前版本的 Fusion 12.1 或者 Workstation 16.1 上默认没有启动 High Precision Event Timer (HPET)，中文直译为高精度事件定时器，在 ESXi 7.0 中默认启用，而新版的 Windows 10 需要此功能。具体从何版本未验证，相关文档显示 Windows 10 1809 开始需要此功能，但是 Windows 2019 基于 1809 没有此问题，Windows 2022 基于 21H2 存在该问题。如有了解真相的读者还望留言告知，先谢过😄。</p>
 <p>HPET 是什么？（下面是 <a target="_blank" rel="noopener" href="https://blog.csdn.net/borisjineman/article/details/51050216">网上摘抄</a> 的，看起来有点玄乎。）</p>
 <p>HPET（High Precision Event Timer, 高精度时钟），是 Intel 和微软为了替换之前 PIT 或 RTC（都可以当定时器用的一个东西）所设计的一个硬件。它由一个主的计数器和比较器组成 (sysin)，计数器一般是 64 位的，比较器至少有 3 个最多 32 个（这个我没考察过，只是翻译），通常比较器是 32 位或 64 位的。HPET 通过内存映射 IO 来操作，内存的基地址可以从 ACPI 中找到。</p>
-<h2 id="解决方案-3">解决方案</h2>
-<p>编辑虚机 vmx 加入：hpet0.present=true</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>编辑虚机 vmx 加入：hpet0.present=true</p>
 <p>或者在 OVF 中加入如下配置：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vmw:ExtraConfig</span> <span class="attr">ovf:required</span>=<span class="string">&quot;false&quot;</span> <span class="attr">vmw:key</span>=<span class="string">&quot;hpet0.present&quot;</span> <span class="attr">vmw:value</span>=<span class="string">&quot;TRUE&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>提示：ovftool 中需要使用 --ExtraConfig 参数启用该项配置。</p>
+<p>提示：ovftool 中需要使用 —ExtraConfig 参数启用该项配置。</p>
 <blockquote>
 <p>未来展望：新版的 Fusion 和 Workstation 可能会更改默认启用 HPET。</p>
 </blockquote>
 <p>目前非微软系统都没有该项要求。</p>
-<h2 id="搜索到的参考文章">搜索到的参考文章</h2>
-<ul>
-<li>
-<p>微软 <a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/sbs/windows/%e8%a7%a3%e5%86%b3%e8%93%9d%e5%b1%8f%e9%94%99%e8%af%af-5c62726c-6489-52da-a372-3f73142c14ad?ui=zh-CN&amp;rs=zh-CN&amp;ad=CN">蓝屏错误疑难解答</a></p>
+<h2 id="搜索到的参考文章"><a href="#搜索到的参考文章" class="headerlink" title="搜索到的参考文章"></a>搜索到的参考文章</h2><ul>
+<li><p>微软 <a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/sbs/windows/%e8%a7%a3%e5%86%b3%e8%93%9d%e5%b1%8f%e9%94%99%e8%af%af-5c62726c-6489-52da-a372-3f73142c14ad?ui=zh-CN&amp;rs=zh-CN&amp;ad=CN">蓝屏错误疑难解答</a></p>
 </li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://michlstechblog.info/blog/vmware-workstation-downloaded-ovf-template-does-not-boot-system-thread-exception-not-handled/">VMware Workstation: Downloaded ovf template does not boot: SYSTEM THREAD EXCEPTION NOT HANDLED</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://michlstechblog.info/blog/vmware-workstation-downloaded-ovf-template-does-not-boot-system-thread-exception-not-handled/">VMware Workstation: Downloaded ovf template does not boot: SYSTEM THREAD EXCEPTION NOT HANDLED</a></p>
 </li>
-<li>
-<p>类似解决方案，问题本身无关，但是解释了相同的原因：<a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/67175">Windows 10 1809 desktops experience performance issues and may become “Agent Unreachable” state if the High Precision Event Timer (HPET) is disabled. (67175)</a></p>
+<li><p>类似解决方案，问题本身无关，但是解释了相同的原因：<a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/67175">Windows 10 1809 desktops experience performance issues and may become “Agent Unreachable” state if the High Precision Event Timer (HPET) is disabled. (67175)</a></p>
 </li>
 </ul>
 
@@ -700,7 +693,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%8E%B0%E8%B1%A1%E6%8F%8F%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">现象描述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">原因</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">解决方案</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%90%9C%E7%B4%A2%E5%88%B0%E7%9A%84%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">搜索到的参考文章</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%8E%B0%E8%B1%A1%E6%8F%8F%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">现象描述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">原因</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">解决方案</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%90%9C%E7%B4%A2%E5%88%B0%E7%9A%84%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">搜索到的参考文章</span></a></li></ol>
         
         </div>
       </aside>

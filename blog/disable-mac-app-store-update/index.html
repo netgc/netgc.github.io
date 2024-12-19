@@ -409,7 +409,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">886</span> In Total
+              Words <span class="post-count">888</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -492,26 +492,21 @@
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="disable-mac-app-store-update.webp" alt="disable-mac-app-store-update"></p>
-<h2 id="1-取消-“自动更新”">1. 取消 “自动更新”</h2>
-<p>App Store &gt; 偏好设置…，取消勾选 “自动更新”（默认）。</p>
-<h2 id="2-清除更新标记（数字角标）">2. 清除更新标记（数字角标）</h2>
-<p>如果已经检测到更新，App Store 图标上出现红点数字，打开终端执行如下命令可以清除：</p>
+<h2 id="1-取消-“自动更新”"><a href="#1-取消-“自动更新”" class="headerlink" title="1. 取消 “自动更新”"></a>1. 取消 “自动更新”</h2><p>App Store &gt; 偏好设置…，取消勾选 “自动更新”（默认）。</p>
+<h2 id="2-清除更新标记（数字角标）"><a href="#2-清除更新标记（数字角标）" class="headerlink" title="2. 清除更新标记（数字角标）"></a>2. 清除更新标记（数字角标）</h2><p>如果已经检测到更新，App Store 图标上出现红点数字，打开终端执行如下命令可以清除：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.appstored.plist BadgeCount 0</span><br><span class="line">Killall Dock</span><br></pre></td></tr></table></figure>
 <p>App Store 左侧的更新条目通知也会清空 (sysin)。</p>
-<h2 id="3-禁用标记-App-图标（禁用数字角标）">3. 禁用标记 App 图标（禁用数字角标）</h2>
-<p>系统偏好设置… &gt; 通知与专注模式，通知，选择 “App Store” 取消勾选 “标记 App 图标”（也可以完全关闭该项通知）。</p>
+<h2 id="3-禁用标记-App-图标（禁用数字角标）"><a href="#3-禁用标记-App-图标（禁用数字角标）" class="headerlink" title="3. 禁用标记 App 图标（禁用数字角标）"></a>3. 禁用标记 App 图标（禁用数字角标）</h2><p>系统偏好设置… &gt; 通知与专注模式，通知，选择 “App Store” 取消勾选 “标记 App 图标”（也可以完全关闭该项通知）。</p>
 <blockquote>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/devicemanagement/appstore">https://developer.apple.com/documentation/devicemanagement/appstore</a></p>
 </blockquote>
-<h2 id="4-可选步骤（仅供参考）">4. 可选步骤（仅供参考）</h2>
-<p><strong>上述步骤已经可以禁用更新了，以下内容是非必要的，一般忽略即可。</strong></p>
+<h2 id="4-可选步骤（仅供参考）"><a href="#4-可选步骤（仅供参考）" class="headerlink" title="4. 可选步骤（仅供参考）"></a>4. 可选步骤（仅供参考）</h2><p><strong>上述步骤已经可以禁用更新了，以下内容是非必要的，一般忽略即可。</strong></p>
 <p>但是如果检测到了更新以下两处仍然会有提示（非 MAS App 不受影响）：</p>
 <ul>
 <li>Apple logo 菜单下的 App Store… 会提示有 “x项更新” （可以重复 “6.2 清除更新标记（数字角标）”）</li>
 <li>打开 App Store 右侧会提示可更新的 App 列表</li>
 </ul>
-<h3 id="禁用全局-App-更新通知">禁用全局 App 更新通知</h3>
-<p><strong>编辑 hosts 文件，添加如下内容</strong>：</p>
+<h3 id="禁用全局-App-更新通知"><a href="#禁用全局-App-更新通知" class="headerlink" title="禁用全局 App 更新通知"></a>禁用全局 App 更新通知</h3><p><strong>编辑 hosts 文件，添加如下内容</strong>：</p>
 <p>手动编辑：打开终端，执行命令<code>sudo vi /etc/hosts</code>，添加以下条目：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 gsp64-ssl.ls.apple.com</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -521,14 +516,14 @@
 <p><strong>或者（或同时）使用防火墙软件屏蔽</strong>：</p>
 <p>例如 Little Snitch，这是一个商业软件。</p>
 <ul>
-<li>
-<p>新建规则 1：禁止下载更新相关的数据</p>
+<li><p>新建规则 1：禁止下载更新相关的数据</p>
 <p>Process Name：<code>/usr/libexec/nsurlsessiond</code></p>
 <p>Deny  Outgoing Connections</p>
 </li>
 </ul>
 <p><strong>App Store 更新 App 时可能需要访问以下主机</strong>：</p>
 <p>以下是 Apple 官方提供的列表，请根据需要屏蔽。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -566,7 +561,7 @@
 <td>—</td>
 </tr>
 <tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="http://itunes.apple.com">itunes.apple.com</a></td>
+<td style="text-align:left">itunes.apple.com</td>
 <td>443、80</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -574,7 +569,7 @@
 <td>是</td>
 </tr>
 <tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="http://ppq.apple.com">ppq.apple.com</a></td>
+<td style="text-align:left">ppq.apple.com</td>
 <td>443</td>
 <td>TCP</td>
 <td style="text-align:left">iOS、Apple tvOS 和 macOS</td>
@@ -583,33 +578,21 @@
 </tr>
 </tbody>
 </table>
-<h3 id="禁用单个-App-更新通知">禁用单个 App 更新通知</h3>
-<p>打开 Finder（访达），浏览到侧边栏 Applications（应用程序），找到不需要更新的 App，点击右键 “显示包内容”，此时出现 Content 文件夹，展开该文件夹，可以看到下面有个 <strong>_MASReceipt</strong> 文件夹，下面有个 <strong>receipt</strong> 文件。将 <strong>receipt</strong> 文件内容清空或者直接将 <strong>_MASReceipt</strong> 文件夹删除，即可禁用该 App 自动检测 App Store 软件更新（有限支持）。</p>
+</div>
+<h3 id="禁用单个-App-更新通知"><a href="#禁用单个-App-更新通知" class="headerlink" title="禁用单个 App 更新通知"></a>禁用单个 App 更新通知</h3><p>打开 Finder（访达），浏览到侧边栏 Applications（应用程序），找到不需要更新的 App，点击右键 “显示包内容”，此时出现 Content 文件夹，展开该文件夹，可以看到下面有个 <strong>_MASReceipt</strong> 文件夹，下面有个 <strong>receipt</strong> 文件。将 <strong>receipt</strong> 文件内容清空或者直接将 <strong>_MASReceipt</strong> 文件夹删除，即可禁用该 App 自动检测 App Store 软件更新（有限支持）。</p>
 <p>在终端中执行的示例，这里以微信（Wechat）为例：</p>
 <ul>
-<li>清空 <strong>receipt</strong> 文件内容：<code>echo '' &gt; /Applications/WeChat.app/Contents/_MASReceipt/receipt</code></li>
+<li>清空 <strong>receipt</strong> 文件内容：<code>echo &#39;&#39; &gt; /Applications/WeChat.app/Contents/_MASReceipt/receipt</code></li>
 <li>删除 <strong>_MASReceipt</strong> 文件夹：<code>rm -rf /Applications/WeChat.app/Contents/_MASReceipt/</code></li>
 </ul>
-<h2 id="附录-5">附录</h2>
-<p>相关文章：</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>相关文章：</p>
 <ul>
-<li>
-<a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a>
-</li>
-<li>
-<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a>
-</li>
-<li>
-<a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a>
-</li>
-<li>
-<a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a>
-</li>
-<li>
-<a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a>
-</li>
-<li>
-<a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
+<li><a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a></li>
+<li><a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a></li>
+<li><a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a></li>
+<li><a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a></li>
+<li><a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a></li>
+<li><a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
 </li>
 </ul>
 
@@ -795,7 +778,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%8F%96%E6%B6%88-%E2%80%9C%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E2%80%9D"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 取消 “自动更新”</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%B8%85%E9%99%A4%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E6%95%B0%E5%AD%97%E8%A7%92%E6%A0%87%EF%BC%89"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 清除更新标记（数字角标）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E7%A6%81%E7%94%A8%E6%A0%87%E8%AE%B0-App-%E5%9B%BE%E6%A0%87%EF%BC%88%E7%A6%81%E7%94%A8%E6%95%B0%E5%AD%97%E8%A7%92%E6%A0%87%EF%BC%89"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 禁用标记 App 图标（禁用数字角标）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%8F%AF%E9%80%89%E6%AD%A5%E9%AA%A4%EF%BC%88%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%EF%BC%89"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 可选步骤（仅供参考）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%85%A8%E5%B1%80-App-%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">禁用全局 App 更新通知</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%8D%95%E4%B8%AA-App-%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">禁用单个 App 更新通知</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95-5"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">附录</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%8F%96%E6%B6%88-%E2%80%9C%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E2%80%9D"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 取消 “自动更新”</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%B8%85%E9%99%A4%E6%9B%B4%E6%96%B0%E6%A0%87%E8%AE%B0%EF%BC%88%E6%95%B0%E5%AD%97%E8%A7%92%E6%A0%87%EF%BC%89"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 清除更新标记（数字角标）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E7%A6%81%E7%94%A8%E6%A0%87%E8%AE%B0-App-%E5%9B%BE%E6%A0%87%EF%BC%88%E7%A6%81%E7%94%A8%E6%95%B0%E5%AD%97%E8%A7%92%E6%A0%87%EF%BC%89"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 禁用标记 App 图标（禁用数字角标）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%8F%AF%E9%80%89%E6%AD%A5%E9%AA%A4%EF%BC%88%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%EF%BC%89"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. 可选步骤（仅供参考）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%85%A8%E5%B1%80-App-%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">禁用全局 App 更新通知</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%8D%95%E4%B8%AA-App-%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">禁用单个 App 更新通知</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">附录</span></a></li></ol>
         
         </div>
       </aside>

@@ -490,11 +490,9 @@
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><strong>借助 vSphere Bitfusion 实现硬件加速。</strong></p>
-<h2 id="vSphere-Bitfusion-是什么？">vSphere Bitfusion 是什么？</h2>
-<p>vSphere Bitfusion 通过虚拟化 GPU 等硬件加速器为基于 AI 和 ML 的工作负载提供支持。多供应商硬件加速器及其周围的生态系统是交付现代应用的关键组件。无论身处环境中的哪个位置，都可以使用这些加速器。</p>
+<h2 id="vSphere-Bitfusion-是什么？"><a href="#vSphere-Bitfusion-是什么？" class="headerlink" title="vSphere Bitfusion 是什么？"></a>vSphere Bitfusion 是什么？</h2><p>vSphere Bitfusion 通过虚拟化 GPU 等硬件加速器为基于 AI 和 ML 的工作负载提供支持。多供应商硬件加速器及其周围的生态系统是交付现代应用的关键组件。无论身处环境中的哪个位置，都可以使用这些加速器。</p>
 <p>VMware vSphere Bitfusion 共享图形处理单元 (GPU) 等加速器以提供共享网络可访问资源池，从而支持资源密集型人工智能 (AI) 和机器学习 (ML) 工作负载。vSphere Bitfusion 可在 AI 框架、云站点、网络以及虚拟机、容器和笔记本等环境中运行。</p>
-<h2 id="vSphere-Bitfusion-的工作原理是什么？">vSphere Bitfusion 的工作原理是什么？</h2>
-<p>Bitfusion 要解决的是以下问题：</p>
+<h2 id="vSphere-Bitfusion-的工作原理是什么？"><a href="#vSphere-Bitfusion-的工作原理是什么？" class="headerlink" title="vSphere Bitfusion 的工作原理是什么？"></a>vSphere Bitfusion 的工作原理是什么？</h2><p>Bitfusion 要解决的是以下问题：</p>
 <ul>
 <li>有些团队在利用机器学习进行研究时没有 GPU 可以用来加速学习速度 (sysin)；</li>
 <li>而另一些团队已经拥有了 GPU，但是他们没有完全利用 GPU 的处理能力，很多 GPU 资源在白白闲置。</li>
@@ -504,8 +502,7 @@
 <li><strong>Bitfusion 服务器</strong>：把 GPU 安装在 vSphere 服务器上 (要求 vSphere 7 以上版本)，然后在上面运行 Bitfusion Server (以 OVA 格式提供的 virtual appliance)，Bitfusion Server 可以把物理 GPU 资源虚拟化，共享给多个用户使用。</li>
 <li><strong>Bitfusion 客户机</strong>：Bitfusion Client 是运行在其他 vSphere 服务器上的 Linux 虚机 (要求 vSphere 6.7 以上版本)，机器学习 ML (Machine Learning) 工作负载运行在这些虚拟机上 (sysin)，Bitfusion 会把它们对于GPU 的服务请求通过网络传输给 Bitfusion Server，计算完成后再返回结果。对于 ML 工作负载来说，远程 GPU 是完全透明的，它就像是在使用本地的 GPU 硬件。</li>
 </ul>
-<h2 id="vSphere-Bitfusion-2-5-0-的新增功能">vSphere Bitfusion 2.5.0 的新增功能</h2>
-<ul>
+<h2 id="vSphere-Bitfusion-2-5-0-的新增功能"><a href="#vSphere-Bitfusion-2-5-0-的新增功能" class="headerlink" title="vSphere Bitfusion 2.5.0 的新增功能"></a>vSphere Bitfusion 2.5.0 的新增功能</h2><ul>
 <li>支持裸机客户端</li>
 <li>扩展了运行状况检查并改进了可用性</li>
 <li>支持 2.0.0 及更高版本的 vSphere Bitfusion 客户端</li>
@@ -516,63 +513,55 @@
 <li>支持 TensorRT 7.1.3</li>
 </ul>
 <p>详见：<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-vSphere-Bitfusion/2.5.0/rn/VMware-vSphere-Bitfusion-250-Release-Notes.html">VMware vSphere Bitfusion 2.5.0 发行说明</a></p>
-<h2 id="下载地址-544">下载地址</h2>
-<p>Version：2.5.0</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>Version：2.5.0</p>
 <p>Documentation：<a target="_blank" rel="noopener" href="https://docs.vmware.com/en/VMware-vSphere-Bitfusion/2.5.0/rn/VMware-vSphere-Bitfusion-250-Release-Notes.html">Release Notes</a></p>
 <p>Release Date：2020-11-05</p>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NjsTyf1xTey-aIxfK9WyiA">https://pan.baidu.com/s/1NjsTyf1xTey-aIxfK9WyiA</a>  提取码：whm6</p>
 <p><strong>文件列表</strong>：</p>
 <ul>
-<li>
-<p>Bitfusion Server</p>
+<li><p>Bitfusion Server</p>
 <ul>
 <li>File size: 499.78 MB</li>
 <li>Name: bitfusion-server-2.5.0-10.ova</li>
 <li>SHA256SUM: 69ce2733bd3ff1e502311422a4ebc3383b1c85cee47902c44e1e775686145972</li>
 </ul>
 </li>
-<li>
-<p>Bitfusion Client CentOS 7 Package</p>
+<li><p>Bitfusion Client CentOS 7 Package</p>
 <ul>
 <li>File size: 17.54 MB</li>
 <li>Name: bitfusion-client-centos7-2.5.0-10.x86_64.rpm</li>
 <li>SHA256SUM: d0bd7632544e29dab7bc1780a97bfb3abf9a7911f52a519b43d19fc9f32e721e</li>
 </ul>
 </li>
-<li>
-<p>Bitfusion Client CentOS 8 Package</p>
+<li><p>Bitfusion Client CentOS 8 Package</p>
 <ul>
 <li>File size: 17.52 MB</li>
 <li>Name: bitfusion-client-centos8-2.5.0-10.x86_64.rpm</li>
 <li>SHA256SUM: a30732c3657d7be12663315361e6b32be500fa315787fa6d306e1849086f929e</li>
 </ul>
 </li>
-<li>
-<p>Bitfusion Client Ubuntu 16.04 Package</p>
+<li><p>Bitfusion Client Ubuntu 16.04 Package</p>
 <ul>
 <li>File size: 17.59 MB</li>
 <li>Name: bitfusion-client-ubuntu1604_2.5.0-10_amd64.deb</li>
 <li>SHA256SUM: 7faf7b8f8258daa22a9d87540fa99c46b8e8ae8d703198783b649b148d005845</li>
 </ul>
 </li>
-<li>
-<p>Bitfusion Client Ubuntu 18.04 Package</p>
+<li><p>Bitfusion Client Ubuntu 18.04 Package</p>
 <ul>
 <li>File size: 17.64 MB</li>
 <li>Name: bitfusion-client-ubuntu1804_2.5.0-10_amd64.deb</li>
 <li>SHA256SUM: 96a830ce7484112aad9edab84463c2828170ece543c8740649e5ceb560140354</li>
 </ul>
 </li>
-<li>
-<p>Bitfusion Client Ubuntu 20.04 Package</p>
+<li><p>Bitfusion Client Ubuntu 20.04 Package</p>
 <ul>
 <li>File size: 17.77 MB</li>
 <li>Name: bitfusion-client-ubuntu2004_2.5.0-10_amd64.deb</li>
 <li>SHA256SUM: 3bfb7cab75312674a27b4d514c0b6282dc2cf6b5f2f23b740a5c1ba2e5783c98</li>
 </ul>
 </li>
-<li>
-<p>Bitfusion Client Package Signature Verification Public Key</p>
+<li><p>Bitfusion Client Package Signature Verification Public Key</p>
 <ul>
 <li>File size: 1.74 KB</li>
 <li>Name: vmware.bitfusion.key</li>
@@ -765,7 +754,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">vSphere Bitfusion 是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere Bitfusion 的工作原理是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-2-5-0-%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">vSphere Bitfusion 2.5.0 的新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-544"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">vSphere Bitfusion 是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">vSphere Bitfusion 的工作原理是什么？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vSphere-Bitfusion-2-5-0-%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">vSphere Bitfusion 2.5.0 的新增功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

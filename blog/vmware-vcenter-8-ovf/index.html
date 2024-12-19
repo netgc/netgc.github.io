@@ -491,27 +491,24 @@
         <p>请访问原文链接：<a href="/blog/vmware-vcenter-8-ovf/" title="vCenter Server 8.0U3 OVF：在 Fusion 和 Workstation 中快速部署 vCSA">vCenter Server 8.0U3 OVF：在 Fusion 和 Workstation 中快速部署 vCSA</a> 查看最新版。原创作品，转载请保留出处。</p>
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="新的-IA-GA-模型">新的 IA/GA 模型</h2>
-<p>vSphere 8 版本发布转向了新的 IA/GA（初始可用性 / 通用可用性）模型。发布周期如下：</p>
+<h2 id="新的-IA-GA-模型"><a href="#新的-IA-GA-模型" class="headerlink" title="新的 IA/GA 模型"></a>新的 IA/GA 模型</h2><p>vSphere 8 版本发布转向了新的 IA/GA（初始可用性 / 通用可用性）模型。发布周期如下：</p>
 <p>所有主要和更新的 vSphere 版本都将首先交付，并带有 IA 名称。IA 版本是符合所有 GA 质量标准的生产质量版本，并且完全通过了合作伙伴认证。IA 版本将在 IA 阶段提供给所有客户进行生产部署。</p>
 <p>一旦确定每个版本都已获得足够广泛的采用，将跟进并宣布该版本过渡到 GA 指定 (sysin)。预计这通常会在 IA 后 4-6 周后发生。当前 IA 版本已经发布，预计年底将发布 vSphere 8.0 GA。</p>
 <p><img src="vSphereReleaseModel.webp" alt="VMware"></p>
 <p><strong>现在 vCenter Server 8.0U1 发布模型有了新的变化，发布即 GA</strong>。</p>
-<h2 id="VCSA-8-OVF-的变化">VCSA 8 OVF 的变化</h2>
-<p>在 VCSA 中提供了图形界面和命令行安装程序，可以在跨平台（macOS、Linux 和 Windows）运行，但是部署到的目标虚拟化主机只能是 ESXi 主机或者 vCenter Server。在实验环境中，我们需要将 VCSA 部署到桌面系统（macOS、Linux 和 Windows）中， 可以通过直接部署 OVF 的方式实现。</p>
+<h2 id="VCSA-8-OVF-的变化"><a href="#VCSA-8-OVF-的变化" class="headerlink" title="VCSA 8 OVF 的变化"></a>VCSA 8 OVF 的变化</h2><p>在 VCSA 中提供了图形界面和命令行安装程序，可以在跨平台（macOS、Linux 和 Windows）运行，但是部署到的目标虚拟化主机只能是 ESXi 主机或者 vCenter Server。在实验环境中，我们需要将 VCSA 部署到桌面系统（macOS、Linux 和 Windows）中， 可以通过直接部署 OVF 的方式实现。</p>
 <p>与上一版本不同的是，vCSA 8 IA 所包含的 OVF 直接部署在 Fusion 或者 Workstation 中，第二阶段会报错，导致部署失败。</p>
 <blockquote>
 <p>报错忘了截图了，后续在补充。</p>
 </blockquote>
-<p>经查找 VMware 专家的相关文章，要将 guestinfo.cis.upgrade.import.directory 中的参数修改为 ovf:userConfigurable=“true” 可以解决该问题 (sysin)。本站修改了该 OVF 配置，如果是使用 DHCP 配置网络，那么仅需填写密码即可，部署变得相当简单。</p>
+<p>经查找 VMware 专家的相关文章，要将 guestinfo.cis.upgrade.import.directory 中的参数修改为 ovf:userConfigurable=”true” 可以解决该问题 (sysin)。本站修改了该 OVF 配置，如果是使用 DHCP 配置网络，那么仅需填写密码即可，部署变得相当简单。</p>
 <p>现在分享一下三个修改的 OVA 文件：</p>
 <ul>
 <li>-dhcp.ova 标识了 DHCP 环境的配置，仅需要输入密码，第二阶段填写 NTP 和 SSO 凭据即可。</li>
 <li>-static.ova 标识了 IPv4 静态地址和 FQDN 的配置。</li>
 <li>-fix.ova 原版风格，未做标识。</li>
 </ul>
-<h2 id="DHCP-模板使用说明">DHCP 模板使用说明</h2>
-<p>双击 OVA 文件进行部署，仅仅填写密码，其他都默认值即可。</p>
+<h2 id="DHCP-模板使用说明"><a href="#DHCP-模板使用说明" class="headerlink" title="DHCP 模板使用说明"></a>DHCP 模板使用说明</h2><p>双击 OVA 文件进行部署，仅仅填写密码，其他都默认值即可。</p>
 <p><img src="vcsa-ovf-deploy-dhcp.webp" alt="VMware"></p>
 <p><strong>密码规则：长度 8-20 位，4 种字符全包含的复杂密码。</strong></p>
 <p>该密码必须符合以下要求：</p>
@@ -540,8 +537,7 @@
 <p>下面是 static 版本的截图，在配置上做了提示和标识。</p>
 <p><img src="vcsa-ovf-deploy-static.webp" alt="VMware"></p>
 <p>标注 required 是必填项，标注 default 使用默认值即可。</p>
-<h2 id="下载地址-515">下载地址</h2>
-<p>vCenter Server 8.0.0 OVF for Fusion &amp; Workstation</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>vCenter Server 8.0.0 OVF for Fusion &amp; Workstation</p>
 <ul>
 <li>DHCP：VMware-vCenter-Server-Appliance-8.0.0.10000-20519528_OVF10-dhcp.ova</li>
 <li>Static：VMware-vCenter-Server-Appliance-8.0.0.10000-20519528_OVF10-static.ova</li>
@@ -754,7 +750,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E7%9A%84-IA-GA-%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">新的 IA&#x2F;GA 模型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VCSA-8-OVF-%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">VCSA 8 OVF 的变化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#DHCP-%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">DHCP 模板使用说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-515"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B0%E7%9A%84-IA-GA-%E6%A8%A1%E5%9E%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">新的 IA&#x2F;GA 模型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VCSA-8-OVF-%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">VCSA 8 OVF 的变化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#DHCP-%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">DHCP 模板使用说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>

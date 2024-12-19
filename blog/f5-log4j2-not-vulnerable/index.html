@@ -488,9 +488,8 @@
 <p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>Apache Log4j2 Remote Code Execution vulnerability <a target="_blank" rel="noopener" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228">CVE-2021-44228</a></p>
-<h2 id="安全建议描述">安全建议描述</h2>
-<p>Apache Log4j2 &lt;=2.14.1 在配置、日志消息和参数中使用的 JNDI 功能不能防止攻击者控制的 LDAP 和其他 JNDI 相关端点。当启用消息查找替换时，可以控制日志消息或日志消息参数的攻击者可以执行从 LDAP 服务器加载的任意代码。从 log4j 2.15.0 开始，默认情况下已禁用此行为 (sysin)。在以前的版本 (&gt;2.10) 中，可以通过将系统属性 “log4j2.formatMsgNoLookups” 设置为 “true” 或从类路径中删除 JndiLookup 类来缓解这种行为（例如：zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class）。Java 8u121（参见：<code>https://www.oracle.com/java/technologies/javase/8u121-relnotes.html</code>）通过设置默认 “com.sun.jndi.rmi.object.trustURLCodebase” 和 “com.sun.jndi.cosnaming.object.trustURLCodebase” 为 “false” 来防止远程执行代码。(<a target="_blank" rel="noopener" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228">CVE-2021-44228</a>)</p>
-<h2 id="安全建议状态">安全建议状态</h2>
+<h2 id="安全建议描述"><a href="#安全建议描述" class="headerlink" title="安全建议描述"></a>安全建议描述</h2><p>Apache Log4j2 &lt;=2.14.1 在配置、日志消息和参数中使用的 JNDI 功能不能防止攻击者控制的 LDAP 和其他 JNDI 相关端点。当启用消息查找替换时，可以控制日志消息或日志消息参数的攻击者可以执行从 LDAP 服务器加载的任意代码。从 log4j 2.15.0 开始，默认情况下已禁用此行为 (sysin)。在以前的版本 (&gt;2.10) 中，可以通过将系统属性 “log4j2.formatMsgNoLookups” 设置为 “true” 或从类路径中删除 JndiLookup 类来缓解这种行为（例如：zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class）。Java 8u121（参见：<code>https://www.oracle.com/java/technologies/javase/8u121-relnotes.html</code>）通过设置默认 “com.sun.jndi.rmi.object.trustURLCodebase” 和 “com.sun.jndi.cosnaming.object.trustURLCodebase” 为 “false” 来防止远程执行代码。(<a target="_blank" rel="noopener" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228">CVE-2021-44228</a>)</p>
+<h2 id="安全建议状态"><a href="#安全建议状态" class="headerlink" title="安全建议状态"></a>安全建议状态</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -677,6 +676,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>1 F5 evaluates only software versions that have not yet reached the End of Technical Support (EoTS) phase of their lifecycle.</p>
 <p>2 The CVSSv3 score link takes you to a  resource outside of AskF5, and it is possible that the document may be  removed without our knowledge.</p>
 

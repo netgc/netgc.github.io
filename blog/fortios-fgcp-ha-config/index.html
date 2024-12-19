@@ -491,22 +491,17 @@
 <hr>
 <p>防火墙 HA 配置系列文章：</p>
 <ul>
-<li>
-<a href="/blog/cisco-firepower-ha-config/" title="Cisco Firepower FTD HA 配置文档">Cisco Firepower FTD HA 配置文档</a>
+<li><a href="/blog/cisco-firepower-ha-config/" title="Cisco Firepower FTD HA 配置文档">Cisco Firepower FTD HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a>
+<li><a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/pan-os-ha-config/" title="Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档">Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档</a>
+<li><a href="/blog/pan-os-ha-config/" title="Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档">Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/juniper-srx-jsrp-config/" title="Juniper SRX JSRP 配置文档">Juniper SRX JSRP 配置文档</a>
+<li><a href="/blog/juniper-srx-jsrp-config/" title="Juniper SRX JSRP 配置文档">Juniper SRX JSRP 配置文档</a>
 </li>
 </ul>
 <p><img src="fortinet-logo.png" alt="fortinet-logo"></p>
-<h2 id="概述-3">概述</h2>
-<p>FortiOS 提供 6 种冗余解决方案，工业标准的 VRRP 和 5 种专有的解决方案：</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>FortiOS 提供 6 种冗余解决方案，工业标准的 VRRP 和 5 种专有的解决方案：</p>
 <ul>
 <li>FortiGate Cluster Protocol (FGCP) high availability，</li>
 <li>FortiGate Session Life Support Protocol (FGSP) high availability，</li>
@@ -517,16 +512,14 @@
 <p>FGCP HA 是 ForitOS 最常用的 HA 配置方式，也是本文描述的内容。</p>
 <p>FGCP HA 参考拓扑：</p>
 <p><img src="fgcp-ha-topology.png" alt="fgcp-ha-topology"></p>
-<h3 id="FGCP-HA">FGCP HA</h3>
-<p>FortiGate HA 集群由为 HA 操作配置的两到四个 FortiGate 组成。集群中的每个 FortiGate 称为集群设备。所有集群设备必须是相同的 ForitGate 型号，安装相同的 FortiOS 固件版本。所有集群设备还必须具有相同的硬件配置 (例如，相同数量的硬盘等等)，并以相同的操作模式 (NAT 模式或透明模式) 运行。</p>
+<h3 id="FGCP-HA"><a href="#FGCP-HA" class="headerlink" title="FGCP HA"></a>FGCP HA</h3><p>FortiGate HA 集群由为 HA 操作配置的两到四个 FortiGate 组成。集群中的每个 FortiGate 称为集群设备。所有集群设备必须是相同的 ForitGate 型号，安装相同的 FortiOS 固件版本。所有集群设备还必须具有相同的硬件配置 (例如，相同数量的硬盘等等)，并以相同的操作模式 (NAT 模式或透明模式) 运行。</p>
 <blockquote>
 <p>您可以创建最多由四个 FortiGate 组成的 FGCP 集群。</p>
 </blockquote>
 <p>此外，集群设备必须能够通过心跳接口彼此通信。创建集群并继续运行集群需要这种心跳通信。没有它，集群就像独立 FortiGate 的集合。</p>
 <p>在启动时，使用相同的 HA 配置配置集群设备并连接它们的心跳接口之后，集群设备使用 FortiGate 集群协议 (FGCP) 査找为 HA 操作配置的其他 FortiGate，并协商创建集群。在集群操作期间，FGCP 通过心跳接口链接在集群设备之间共享通信和同步信息。这种通信和同步称为 FGCP 心跳或者 HA 心跳。通常，简称为心跳。</p>
 <p>集群使用 FGCP 选择主设备，并提供设备、链接和会话故障转移。FGCP 还管理两种 HA 模式：主动 - 被动 (故障转移 HA) 和主动 - 主动 (负载均衡 HA)。</p>
-<h3 id="不同步的配置">不同步的配置</h3>
-<p>FGCP 使用增量同步和周期性同步的组合，以确保所有集群设备的配置与主设备的配置同步。这意味着在大多数情况下，你只需进行—次配置更改，就可以将其同步到所有集群设备。这包括包含额外信息的特殊配置设置 (例如，第三方证书、替换消息文本文件和图形等)。</p>
+<h3 id="不同步的配置"><a href="#不同步的配置" class="headerlink" title="不同步的配置"></a>不同步的配置</h3><p>FGCP 使用增量同步和周期性同步的组合，以确保所有集群设备的配置与主设备的配置同步。这意味着在大多数情况下，你只需进行—次配置更改，就可以将其同步到所有集群设备。这包括包含额外信息的特殊配置设置 (例如，第三方证书、替换消息文本文件和图形等)。</p>
 <p>某些配置设置不同步，以支持 FortiGate 某些特定操作。以下设置在集群设备之间不同步：</p>
 <ul>
 <li>FortiGate 主机名。允许你识别集群设备。</li>
@@ -541,8 +534,7 @@
 <li>OSPF summary-addresses 设置。</li>
 </ul>
 <p>此外，许可证是不同步的，因为每个 FortiGate 必须单独许可。这包括 FortiCloud 激活和 FortiClient 许可，如果你购买了超过 10 个虚拟域 (VDOM)，则输入一个许可密钥。</p>
-<h3 id="HA-工作模式">HA 工作模式</h3>
-<p><strong>Active-Passive（A-P）模式</strong>：</p>
+<h3 id="HA-工作模式"><a href="#HA-工作模式" class="headerlink" title="HA 工作模式"></a>HA 工作模式</h3><p><strong>Active-Passive（A-P）模式</strong>：</p>
 <p>集群中的所有防火墙必须工作在同一个模式下。可以对运行中的 HA 集群进行模式的修改，但会造成一定的延时，因为集群需要重新协商并选取新的主设备。A-P 模式提供了备机保护。HA 集群中由一台主设备，和一台以上到从设备组成。</p>
 <p>从设备与主设备一样连接到网络，但不处理任何的数据包，从设备处于备用状态。从设备会自动同步主设备的配置，并时刻监视主设备到运行状态。整个失效保护的过程是透明的，一旦主设备失效，从设备会自动接替其工作。如果设备的接口或链路出现故障，集群内会更新链路状态数据库，重新选举新的主设备。</p>
 <p><strong>Active-Active（A-A）模式</strong>：</p>
@@ -550,63 +542,34 @@
 <p>AA 模式下，集群中的主设备负责对所有通信会话的处理，然后将部分负载分发到所有从设备上。从设备可以说是活动的，因为要处理 UTM 的相关会话。但从设备只处理由主设备分配的数据，不会响应 arp 等。其他方面 AA 模式和 AP 模式是相同的。</p>
 <p>单机配置同步、单机会话同步模式</p>
 <p>从 5.0 版本开始，全新 NGFW 下一代防火墙支持单机配置同步、会话同步功能，在一些应用场景中它可以代替双机 HA 功能，实现控制异步流量的目的。</p>
-<h3 id="HA-配置要求">HA 配置要求</h3>
-<p>进行 HA 配置，硬件和软件版本需满足如下要求：</p>
+<h3 id="HA-配置要求"><a href="#HA-配置要求" class="headerlink" title="HA 配置要求"></a>HA 配置要求</h3><p>进行 HA 配置，硬件和软件版本需满足如下要求：</p>
 <ol>
-<li>
-<p>防火墙硬件型号相同；</p>
+<li><p>防火墙硬件型号相同；</p>
 </li>
-<li>
-<p>同型号硬件要求硬件版本，内存容量，CPU 型号，硬盘容量等相同；</p>
+<li><p>同型号硬件要求硬件版本，内存容量，CPU 型号，硬盘容量等相同；</p>
 </li>
-<li>
-<p>相同的软件版本；</p>
+<li><p>相同的软件版本；</p>
 </li>
-<li>
-<p>设备的所有接口不能工作在 DHCP，PPPOE 模式下。没有使用的接口 IP 地址模式也需要选择为 “自定义”；</p>
+<li><p>设备的所有接口不能工作在 DHCP，PPPOE 模式下。没有使用的接口 IP 地址模式也需要选择为 “自定义”；</p>
 </li>
 </ol>
 <p>假如 HA 的两台 FGT 存在上述不一致的情况，那么做为备机的 FGT 将会被 Shutdown 主动关闭。</p>
 <p>串口下将会打印 shutdown 并提示原因：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slave and master have different hdisk status. Cannot work with HA master. Shutdown the box!</span><br><span class="line"></span><br><span class="line">The system is going down NOW</span><br><span class="line"></span><br><span class="line">The system is halted.</span><br></pre></td></tr></table></figure>
-<h3 id="HA-配置步骤">HA 配置步骤</h3>
-<p>步骤 1、配置设备 1 的 HA</p>
+<h3 id="HA-配置步骤"><a href="#HA-配置步骤" class="headerlink" title="HA 配置步骤"></a>HA 配置步骤</h3><p>步骤 1、配置设备 1 的 HA</p>
 <p>步骤 2、配置设备 2 的 HA</p>
 <p>步骤 3、组建 HA</p>
 <p>步骤 4、查看 HA 集群</p>
-<h3 id="HA-配置建议">HA 配置建议</h3>
-<ol>
-<li>
-<p>进行 HA 环境下更换设备前，进行配置备份，防止操作失误而造成的配置丢失。</p>
-</li>
-<li>
-<p>建议配置两条以上的心跳线缆，防止单心跳故障造成 HA 机群崩溃，使用独立的心跳接口，尽量避免与业务口混用。</p>
-</li>
-<li>
-<p>优先使用光纤接口。</p>
-</li>
-<li>
-<p>开启会话同步：set session-pickup enable(默认关闭) 或者在 WEB 上启用 “会话交接”</p>
-</li>
-<li>
-<p>谨慎使用 override 功能。开启 override 后设备选举过程中 HA 优先级参数高于设备运行时间参数，可能造成期望成为备机的设备被选举为主设备，造成反向同步配置信息。</p>
-</li>
-<li>
-<p>更改默认的 HA 组的 ID，避免同一个广播域内存在多个 HA 机群，而造成接口的虚拟 MAC 冲突</p>
-</li>
-<li>
-<p>选择正确的监控端口和心跳端口，在开启 vdom 虚拟 cluster 时候，每个 cluster 需要单独配置。</p>
-</li>
-<li>
-<p>如果开启 ping server 功能，则需要再 HA 配置中添加相应的配置命令。</p>
-</li>
-<li>
-<p>建议将与防火墙相连的交换机接口配置为 stp portfast 模式，发生接口 Up/Down 切换时，交换机的接口可立刻进入转发状态，而不需要 stp 状态进行侦听、学习、转发等延迟步骤后接口才转发数据。</p>
-</li>
-</ol>
-<h2 id="FGCP-HA-配置实例">FGCP HA 配置实例</h2>
-<h3 id="1-配置任务概述：两台设备配置主备模式">1. 配置任务概述：两台设备配置主备模式</h3>
-<p>网口：</p>
+<h3 id="HA-配置建议"><a href="#HA-配置建议" class="headerlink" title="HA 配置建议"></a>HA 配置建议</h3><p>1) 进行 HA 环境下更换设备前，进行配置备份，防止操作失误而造成的配置丢失。</p>
+<p>2) 建议配置两条以上的心跳线缆，防止单心跳故障造成 HA 机群崩溃，使用独立的心跳接口，尽量避免与业务口混用。</p>
+<p>3) 优先使用光纤接口。</p>
+<p>4) 开启会话同步：set session-pickup enable(默认关闭) 或者在 WEB 上启用 “会话交接”</p>
+<p>5) 谨慎使用 override 功能。开启 override 后设备选举过程中 HA 优先级参数高于设备运行时间参数，可能造成期望成为备机的设备被选举为主设备，造成反向同步配置信息。</p>
+<p>6) 更改默认的 HA 组的 ID，避免同一个广播域内存在多个 HA 机群，而造成接口的虚拟 MAC 冲突</p>
+<p>7) 选择正确的监控端口和心跳端口，在开启 vdom 虚拟 cluster 时候，每个 cluster 需要单独配置。</p>
+<p>8) 如果开启 ping server 功能，则需要再 HA 配置中添加相应的配置命令。</p>
+<p>9) 建议将与防火墙相连的交换机接口配置为 stp portfast 模式，发生接口 Up/Down 切换时，交换机的接口可立刻进入转发状态，而不需要 stp 状态进行侦听、学习、转发等延迟步骤后接口才转发数据。</p>
+<h2 id="FGCP-HA-配置实例"><a href="#FGCP-HA-配置实例" class="headerlink" title="FGCP HA 配置实例"></a>FGCP HA 配置实例</h2><h3 id="1-配置任务概述：两台设备配置主备模式"><a href="#1-配置任务概述：两台设备配置主备模式" class="headerlink" title="1. 配置任务概述：两台设备配置主备模式"></a>1. 配置任务概述：两台设备配置主备模式</h3><p>网口：</p>
 <ul>
 <li>port1 用作内网口</li>
 <li>port2 用作外网口</li>
@@ -634,19 +597,11 @@
 <li>Connecting it to the FortiGate already on the network.</li>
 </ul>
 <p>The new FortiGate becomes the backup unit and its configuration is overwritten by the primary unit.</p>
-<h3 id="2-配置群集">2. 配置群集</h3>
-<h4 id="1）主设备">1）主设备</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">config system global</span><br><span class="line">  <span class="built_in">set</span> hostname FGSYSIN01</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">200</span></span><br><span class="line"> <span class="built_in">set</span> override enable  <span class="comment">// 全新机器不需要启用 override</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"><span class="comment">//port3 和 port4 为两个心跳接口 (sysin)</span></span><br></pre></td></tr></table></figure>
-<p>清空 arp 表<br>
-arp -d<br>
-查看 MAC 地址更新<br>
-get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
-<h4 id="2）备机">2）备机</h4>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">execute factoryreset</span><br><span class="line"><span class="comment">// 非新机器时执行</span></span><br><span class="line"></span><br><span class="line">config system global</span><br><span class="line"> <span class="built_in">set</span> hostname FGSYSIN02</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">100</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"><span class="comment">//mode、group-id、group-name、password 个心跳端口设置相同，priority 优先级低，不配置 override</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-连接群集">3. 连接群集</h3>
-<p>将 heartbeat 端口网线直连，这里是 port3 和 port4，这是主备设备将发现对方并协商创建群集，主设备将配置同步到备机上。</p>
-<h3 id="4-校验群集并禁用-orveride">4. 校验群集并禁用 orveride</h3>
-<p>登录主机执行如下命令</p>
+<h3 id="2-配置群集"><a href="#2-配置群集" class="headerlink" title="2. 配置群集"></a>2. 配置群集</h3><h4 id="1）主设备"><a href="#1）主设备" class="headerlink" title="1）主设备"></a>1）主设备</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">config system global</span><br><span class="line">  <span class="built_in">set</span> hostname FGSYSIN01</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">200</span></span><br><span class="line"> <span class="built_in">set</span> override enable  <span class="comment">// 全新机器不需要启用 override</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"><span class="comment">//port3 和 port4 为两个心跳接口 (sysin)</span></span><br></pre></td></tr></table></figure>
+<p>清空 arp 表<br>arp -d<br>查看 MAC 地址更新<br>get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
+<h4 id="2）备机"><a href="#2）备机" class="headerlink" title="2）备机"></a>2）备机</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">execute factoryreset</span><br><span class="line"><span class="comment">// 非新机器时执行</span></span><br><span class="line"></span><br><span class="line">config system global</span><br><span class="line"> <span class="built_in">set</span> hostname FGSYSIN02</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">config system ha</span><br><span class="line"> <span class="built_in">set</span> mode a-p</span><br><span class="line"> <span class="built_in">set</span> group-id <span class="number">8</span></span><br><span class="line"> <span class="built_in">set</span> group-name FG-HA</span><br><span class="line"> <span class="built_in">set</span> password</span><br><span class="line"> <span class="built_in">set</span> priority <span class="number">100</span></span><br><span class="line"> <span class="built_in">set</span> hbdev port3 <span class="number">200</span> port4 <span class="number">100</span></span><br><span class="line">end</span><br><span class="line"><span class="comment">//mode、group-id、group-name、password 个心跳端口设置相同，priority 优先级低，不配置 override</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-连接群集"><a href="#3-连接群集" class="headerlink" title="3. 连接群集"></a>3. 连接群集</h3><p>将 heartbeat 端口网线直连，这里是 port3 和 port4，这是主备设备将发现对方并协商创建群集，主设备将配置同步到备机上。</p>
+<h3 id="4-校验群集并禁用-orveride"><a href="#4-校验群集并禁用-orveride" class="headerlink" title="4. 校验群集并禁用 orveride"></a>4. 校验群集并禁用 orveride</h3><p>登录主机执行如下命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diagnose sys ha checksum cluster</span><br></pre></td></tr></table></figure>
 <p>可以看到所有群集成员的 checksum 相同，表示已经同步完成。</p>
 <p>也可以在 web 界面的 HA Status Dashboard 查看群集同步状态</p>
@@ -654,28 +609,23 @@ get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config system ha</span><br><span class="line"> set override disable</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <p>查看最近的 HA 系统状态时间</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show HA Historical Events</span><br></pre></td></tr></table></figure>
-<h3 id="5-测试故障转移">5. 测试故障转移</h3>
-<p>在内网长 ping 8.8.8.8</p>
+<h3 id="5-测试故障转移"><a href="#5-测试故障转移" class="headerlink" title="5. 测试故障转移"></a>5. 测试故障转移</h3><p>在内网长 ping 8.8.8.8</p>
 <p>关闭主设备</p>
 <p>可以观察有丢包产生，网络仍然可以正常访问</p>
-<h3 id="6-相关命令">6. 相关命令</h3>
-<ul>
-<li>
-<p>重启和切换</p>
+<h3 id="6-相关命令"><a href="#6-相关命令" class="headerlink" title="6. 相关命令"></a>6. 相关命令</h3><ul>
+<li><p>重启和切换</p>
 <ul>
 <li>软切换：diagnose sys ha reset-uptime</li>
 <li>重启防火墙：exec reboot （只重启主防火墙，将导致主备切换）</li>
 </ul>
 </li>
-<li>
-<p>查看设备系统状态</p>
+<li><p>查看设备系统状态</p>
 <ul>
 <li>查看系统基本信息：get sys status</li>
 <li>查看系统状态信息：get sys performance status</li>
 </ul>
 </li>
-<li>
-<p>查看接口状态</p>
+<li><p>查看接口状态</p>
 <ul>
 <li>查看单接口状态：diagnose hardware deviceinfo nic 接口名</li>
 <li>查看聚合接口状态：diagnose netlink aggregate name 聚合接口名</li>
@@ -685,42 +635,31 @@ get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
 <p>注：该配置只在工作机有效（diagnose 命令），当设备切换时，原备机没有这个配置</p>
 </blockquote>
 </li>
-<li>
-<p>查看 HA 状态</p>
+<li><p>查看 HA 状态</p>
 <ul>
-<li>
-<p>登录备墙，需要先用 admin 登录到主防火墙后执行：exec ha manage 0 或 1</p>
-</li>
-<li>
-<p>查看主备机配置是否同步：diag sys ha showcsum</p>
+<li>登录备墙，需要先用 admin 登录到主防火墙后执行：exec ha manage 0 或 1</li>
+<li><p>查看主备机配置是否同步：diag sys ha showcsum</p>
 <blockquote>
 <p>查看主备机输出是否一致，如果一致则表明配置已同步。</p>
 </blockquote>
 </li>
-<li>
-<p>查看 HA 状态：get sys ha status</p>
+<li><p>查看 HA 状态：get sys ha status</p>
 </li>
 </ul>
 </li>
-<li>
-<p>查看会话</p>
+<li><p>查看会话</p>
 <p>查看会话：diagnose sys session stat 或 diagnose sys session full-stat</p>
 </li>
-<li>
-<p>查看系统 ARP 表项</p>
+<li><p>查看系统 ARP 表项</p>
 <ul>
 <li>查看 ARP 表：get sys arp</li>
 <li>查看丰富 ARP 信息：diagnose ip arp list</li>
 </ul>
 </li>
-<li>
-<p>查看当前系统进程</p>
+<li><p>查看当前系统进程</p>
 <ul>
-<li>
-<p>查看系统进程：diagnose sys top 5 99</p>
-</li>
-<li>
-<p>杀进程：diagnose sys kill 11 进程 ID 或 dia sys kill 9 进程 ID</p>
+<li>查看系统进程：diagnose sys top 5 99</li>
+<li><p>杀进程：diagnose sys kill 11 进程 ID 或 dia sys kill 9 进程 ID</p>
 <blockquote>
 <p>注意：kill 11 有日志，kill 9 没有日志。</p>
 </blockquote>
@@ -728,30 +667,22 @@ get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
 </ul>
 </li>
 </ul>
-<h2 id="HA-Cluster-不中断升级过程">HA-Cluster 不中断升级过程</h2>
-<ol>
-<li>
-<p>在主机 Web 界面上点击升级按钮。</p>
+<h2 id="HA-Cluster-不中断升级过程"><a href="#HA-Cluster-不中断升级过程" class="headerlink" title="HA-Cluster 不中断升级过程"></a>HA-Cluster 不中断升级过程</h2><ol>
+<li><p>在主机 Web 界面上点击升级按钮。</p>
 </li>
-<li>
-<p>主机把 OS 发给备机，备机准备并开始升级，然后自动重启，此过程需要 5 分钟（或更长时间），请耐心等待。</p>
+<li><p>主机把 OS 发给备机，备机准备并开始升级，然后自动重启，此过程需要 5 分钟（或更长时间），请耐心等待。</p>
 </li>
-<li>
-<p>备机升级完成，并切换成主机。</p>
+<li><p>备机升级完成，并切换成主机。</p>
 </li>
-<li>
-<p>主机观察到备机升级成功并切换为新的主机后，开始准备升级，此过程需要 5 分钟（或更长时间），请耐心等待。</p>
+<li><p>主机观察到备机升级成功并切换为新的主机后，开始准备升级，此过程需要 5 分钟（或更长时间），请耐心等待。</p>
 </li>
-<li>
-<p>一旦准备完成，主机（此时为备）自动重启加载升级后 OS ，重启约 2 分钟。</p>
+<li><p>一旦准备完成，主机（此时为备）自动重启加载升级后 OS ，重启约 2 分钟。</p>
 </li>
-<li>
-<p>主机（此时为备）重启后，形成 HA。主机从原来的备同步配置（外部配置和内部配置），约 1~3 分钟。</p>
+<li><p>主机（此时为备）重启后，形成 HA。主机从原来的备同步配置（外部配置和内部配置），约 1~3 分钟。</p>
 </li>
 </ol>
 <p>此时，HA 重新建立，但是主备关系发生了切换，需要在此时的主（最开始的备）手工执行切换 diagnose sys ha reset uptime 切换原来的主备关系。</p>
-<h2 id="HA-配置命令集参考">HA 配置命令集参考</h2>
-<p>HA 配置命令 <code>config system ha</code>，如下是常用的配置命令。</p>
+<h2 id="HA-配置命令集参考"><a href="#HA-配置命令集参考" class="headerlink" title="HA 配置命令集参考"></a>HA 配置命令集参考</h2><p>HA 配置命令 <code>config system ha</code>，如下是常用的配置命令。</p>
 <p>1.set group-id 0</p>
 <p>配置 HA 机群的组 ID，一个机群内的成员必须有相同的组 ID. 该 ID 会成为生成防火墙接口的的虚拟 MAC 的一个组成因素，因此当同一个广播域有２组以上的 HA 机群的时候需要配置不同的组 ID，防止 MAC 地址冲突.</p>
 <p>2.set group-name “FGT-HA”</p>
@@ -809,10 +740,9 @@ get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
 <p>28.set pingserver-flip-timeout 60</p>
 <p>两次 pingserver 失效切换之间的间隔。如 A 发生失效，切换到 B. 切过去之后发现 B 也是失效的，则需要等待 60 分钟的时间允许切换回 A.</p>
 <p>29.set ha-mgmt-status  enable HA 的带外管理配置命令</p>
-<p>set ha-mgmt-interface port1</p>
-<p>set ha-mgmt-interface-gateway  x.x.x.x</p>
-<h2 id="相关产品下载">相关产品下载</h2>
-<a href="/blog/fortios-7/" title="Fortinet FortiOS 7.6.0 (FortiGate VM deployment Images) - 混合架构防火墙">Fortinet FortiOS 7.6.0 (FortiGate VM deployment Images) - 混合架构防火墙</a>
+<p>  set ha-mgmt-interface port1</p>
+<p>  set ha-mgmt-interface-gateway  x.x.x.x</p>
+<h2 id="相关产品下载"><a href="#相关产品下载" class="headerlink" title="相关产品下载"></a>相关产品下载</h2><a href="/blog/fortios-7/" title="Fortinet FortiOS 7.6.0 (FortiGate VM deployment Images) - 混合架构防火墙">Fortinet FortiOS 7.6.0 (FortiGate VM deployment Images) - 混合架构防火墙</a>
 
 
         <hr>
@@ -996,7 +926,7 @@ get hardware nic (或者 diagnose hardware deviceinfo nic)</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#FGCP-HA"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">FGCP HA</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8D%E5%90%8C%E6%AD%A5%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">不同步的配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HA 工作模式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E8%A6%81%E6%B1%82"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">HA 配置要求</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">HA 配置步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E5%BB%BA%E8%AE%AE"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">HA 配置建议</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FGCP-HA-%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FGCP HA 配置实例</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0%EF%BC%9A%E4%B8%A4%E5%8F%B0%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE%E4%B8%BB%E5%A4%87%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. 配置任务概述：两台设备配置主备模式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E9%85%8D%E7%BD%AE%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 配置群集</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1%EF%BC%89%E4%B8%BB%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1）主设备</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2%EF%BC%89%E5%A4%87%E6%9C%BA"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2）备机</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E8%BF%9E%E6%8E%A5%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 连接群集</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%A0%A1%E9%AA%8C%E7%BE%A4%E9%9B%86%E5%B9%B6%E7%A6%81%E7%94%A8-orveride"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 校验群集并禁用 orveride</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E6%B5%8B%E8%AF%95%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 测试故障转移</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 相关命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HA-Cluster-%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8D%87%E7%BA%A7%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HA-Cluster 不中断升级过程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E9%9B%86%E5%8F%82%E8%80%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">HA 配置命令集参考</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%B8%E5%85%B3%E4%BA%A7%E5%93%81%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">相关产品下载</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#FGCP-HA"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">FGCP HA</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%8D%E5%90%8C%E6%AD%A5%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">不同步的配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HA 工作模式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E8%A6%81%E6%B1%82"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">HA 配置要求</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">HA 配置步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E5%BB%BA%E8%AE%AE"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">HA 配置建议</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FGCP-HA-%E9%85%8D%E7%BD%AE%E5%AE%9E%E4%BE%8B"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FGCP HA 配置实例</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0%EF%BC%9A%E4%B8%A4%E5%8F%B0%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE%E4%B8%BB%E5%A4%87%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. 配置任务概述：两台设备配置主备模式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E9%85%8D%E7%BD%AE%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 配置群集</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1%EF%BC%89%E4%B8%BB%E8%AE%BE%E5%A4%87"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">1）主设备</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2%EF%BC%89%E5%A4%87%E6%9C%BA"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">2）备机</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E8%BF%9E%E6%8E%A5%E7%BE%A4%E9%9B%86"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 连接群集</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%A0%A1%E9%AA%8C%E7%BE%A4%E9%9B%86%E5%B9%B6%E7%A6%81%E7%94%A8-orveride"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 校验群集并禁用 orveride</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E6%B5%8B%E8%AF%95%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 测试故障转移</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 相关命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HA-Cluster-%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8D%87%E7%BA%A7%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">HA-Cluster 不中断升级过程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HA-%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E9%9B%86%E5%8F%82%E8%80%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">HA 配置命令集参考</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%B8%E5%85%B3%E4%BA%A7%E5%93%81%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">相关产品下载</span></a></li></ol>
         
         </div>
       </aside>

@@ -497,22 +497,17 @@
 <hr>
 <p>防火墙 HA 配置系列文章：</p>
 <ul>
-<li>
-<a href="/blog/cisco-firepower-ha-config/" title="Cisco Firepower FTD HA 配置文档">Cisco Firepower FTD HA 配置文档</a>
+<li><a href="/blog/cisco-firepower-ha-config/" title="Cisco Firepower FTD HA 配置文档">Cisco Firepower FTD HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a>
+<li><a href="/blog/fortios-fgcp-ha-config/" title="FortiGate FGCP HA 配置文档">FortiGate FGCP HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/pan-os-ha-config/" title="Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档">Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档</a>
+<li><a href="/blog/pan-os-ha-config/" title="Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档">Palo Alto PAN-OS Active&#x2F;Passive HA 配置文档</a>
 </li>
-<li>
-<a href="/blog/juniper-srx-jsrp-config/" title="Juniper SRX JSRP 配置文档">Juniper SRX JSRP 配置文档</a>
+<li><a href="/blog/juniper-srx-jsrp-config/" title="Juniper SRX JSRP 配置文档">Juniper SRX JSRP 配置文档</a>
 </li>
 </ul>
 <p><img src="firepower.jpg" alt="firepower"></p>
-<h2 id="0-名词解释">0. 名词解释</h2>
-<p><strong>FTD 和 FTDv</strong>：</p>
+<h2 id="0-名词解释"><a href="#0-名词解释" class="headerlink" title="0. 名词解释"></a>0. 名词解释</h2><p><strong>FTD 和 FTDv</strong>：</p>
 <ul>
 <li>Cisco Firepower Threat Defense 简称 Cisco FTD</li>
 <li>Cisco Firepower Threat Defense Virtual 简称 Cisco FTDv</li>
@@ -531,16 +526,14 @@
 </ul>
 <p>Firepower 系统基于 Linux kernel。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Cisco Fire Linux OS v6.7.0 (build 62)</span><br><span class="line">Cisco Firepower Threat Defense for VMware v6.7.0 (build 65)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">show version</span></span><br><span class="line">-----------------[ ftdv.sysin.org ]-----------------</span><br><span class="line">Model                     : Cisco Firepower Threat Defense for VMware (75) Version 6.7.0 (Build 65)</span><br><span class="line">UUID                      : 04f149c2-b88a-11eb-b23f-b33c620f26d7</span><br><span class="line">VDB version               : 338</span><br><span class="line">----------------------------------------------------</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">expert</span></span><br><span class="line">admin@ftdv:~$ uname -a</span><br><span class="line">Linux ftdv.sysin.org 4.18.45-yocto-standard #1 SMP Wed Oct 21 20:56:12 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line">admin@ftdv:~$</span><br></pre></td></tr></table></figure>
-<h2 id="1-Firepower-高可用性和扩展简介">1. Firepower 高可用性和扩展简介</h2>
-<p>高可用性（故障转移）</p>
+<h2 id="1-Firepower-高可用性和扩展简介"><a href="#1-Firepower-高可用性和扩展简介" class="headerlink" title="1. Firepower 高可用性和扩展简介"></a>1. Firepower 高可用性和扩展简介</h2><p>高可用性（故障转移）</p>
 <p>配置高可用性（也称为故障转移）需要两个相同的 Firepower 威胁防御设备通过专用的故障转移链路以及状态链路相互连接。Firepower 威胁防御支持主动/备用故障转移，其中一个单元是活动单元并通过流量。备用单元不会主动传递流量，但会同步活动单元的配置和其他状态信息。发生故障转移时，活动单元将故障转移到备用单元，然后备用单元变为活动状态。</p>
 <p>群集</p>
 <p>Firepower 群集，可以将多个设备组成一个逻辑单元，接口通过 EtherChannels (或者称为 port channels) 实现扩展。群集仅适用于 Firepower 4100/9300 Chassis，详见<a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/td/docs/security/firepower/650/configuration/guide/fpmc-config-guide-v65/clustering_for_the_firepower_threat_defense.html">官方文档</a>。</p>
 <p>本文描述 High Availability 配置过程，细节可以参看以下官方文档（英文）。</p>
 <p><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/td/docs/security/firepower/650/configuration/guide/fpmc-config-guide-v65/high_availability_for_firepower_threat_defense.html">High Availability for Firepower Threat Defense</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/support/docs/security/firepower-management-center/212699-configure-ftd-high-availability-on-firep.html">Configure FTD High Availability on Firepower Appliances</a></p>
-<h2 id="2-创建-HA-的条件">2. 创建 HA 的条件</h2>
-<p>总结：相同的硬件型号和软件配置（软件版本和许可相同，不支持有 DHCP 和 PPPoE 的接口配置），不同的主机名</p>
+<h2 id="2-创建-HA-的条件"><a href="#2-创建-HA-的条件" class="headerlink" title="2. 创建 HA 的条件"></a>2. 创建 HA 的条件</h2><p>总结：相同的硬件型号和软件配置（软件版本和许可相同，不支持有 DHCP 和 PPPoE 的接口配置），不同的主机名</p>
 <ul>
 <li>Are the same model.</li>
 <li>Same version (this  applies to FXOS and to FTD - (major (first number), minor (second  number), and maintenance (third number) must be equal))</li>
@@ -553,8 +546,7 @@
 <li>Do not have DHCP or PPPoE configured in any of their interfaces.</li>
 <li>Different hostname (Fully Qualified Domain Name (FQDN)) for both chassis.</li>
 </ul>
-<h2 id="3-网线连接">3. 网线连接</h2>
-<p>指定一个接口作为 Failover Link，可选指定一个接口作为 Stateful Failover Link（可以共用 Failover Link 接口），两台相同接口网线直连。</p>
+<h2 id="3-网线连接"><a href="#3-网线连接" class="headerlink" title="3. 网线连接"></a>3. 网线连接</h2><p>指定一个接口作为 Failover Link，可选指定一个接口作为 Stateful Failover Link（可以共用 Failover Link 接口），两台相同接口网线直连。</p>
 <blockquote>
 <p>提示：应该使用相同的接口号 (sysin)，比如两台设备都使用 GigabitEthernet0/6 作为 Failover Link。</p>
 </blockquote>
@@ -563,20 +555,16 @@
 <p><img src="Connecting-with-a-Cable.jpg" alt="Connecting with a Cable"></p>
 <p>Connecting with Inter-switch Links</p>
 <p><img src="Connecting-with-Inter-switch-Links.jpg" alt="Connecting with Inter-switch Links"></p>
-<h2 id="4-配置过程">4. 配置过程</h2>
-<p>通过 FDM 配置：</p>
+<h2 id="4-配置过程"><a href="#4-配置过程" class="headerlink" title="4. 配置过程"></a>4. 配置过程</h2><p>通过 FDM 配置：</p>
 <ol>
-<li>
-<p>确保两个接口主机名不同</p>
+<li><p>确保两个接口主机名不同</p>
 <p>Device &gt; System Setting &gt; Hostname</p>
 </li>
-<li>
-<p>指定 HA 接口</p>
+<li><p>指定 HA 接口</p>
 <p>本例分别使用 GigabitEthernet0/6 和 GigabitEthernet0/7</p>
 <p>分别在两个节点启用接口（Device &gt; Interfaces）</p>
 </li>
-<li>
-<p>启用 HA</p>
+<li><p>启用 HA</p>
 </li>
 </ol>
 <ul>
@@ -599,12 +587,10 @@
 <p>配置完成后，High Availability 页面出现设备状态：</p>
 <p><strong>Primary Device.</strong></p>
 <p>Current Device Mode: <strong>Active</strong>  Peer: <strong>Syncing</strong></p>
-<p><strong>Secondary Device.</strong><br>
-Current Device Mode: <strong>Standby</strong>  Peer: <strong>Active</strong></p>
+<p><strong>Secondary Device.</strong><br>Current Device Mode: <strong>Standby</strong>  Peer: <strong>Active</strong></p>
 <p>此时在 Secondary Device 上操作，会退出登录，出现 Server busy 画面，稍后重新登录，提示如下：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">This device is part of a high availability (HA) pair and is currently in standby state. With few exceptions, you cannot edit the configuration for this device.</span><br><span class="line">To make any changes, please log into the active unit. Learn More</span><br></pre></td></tr></table></figure>
-<h2 id="5-查看-HA-状态">5. 查看 HA 状态</h2>
-<ul>
+<h2 id="5-查看-HA-状态"><a href="#5-查看-HA-状态" class="headerlink" title="5. 查看 HA 状态"></a>5. 查看 HA 状态</h2><ul>
 <li>FDM</li>
 </ul>
 <p>Devices &gt; Device Management</p>
@@ -615,8 +601,7 @@ Current Device Mode: <strong>Standby</strong>  Peer: <strong>Active</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">show failover state</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">主设备</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">show running-config failover</span></span><br><span class="line">failover</span><br><span class="line">failover lan unit primary</span><br><span class="line">failover lan interface failover-link GigabitEthernet0/6</span><br><span class="line">failover replication http</span><br><span class="line">failover link stateful-failover-link GigabitEthernet0/7</span><br><span class="line">failover interface ip failover-link 192.168.10.1 255.255.255.0 standby 192.168.10.2</span><br><span class="line">failover interface ip stateful-failover-link 192.168.11.1 255.255.255.0 standby 192.168.11.2</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">备设备</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">show running-config failover</span></span><br><span class="line">failover</span><br><span class="line">failover lan unit secondary</span><br><span class="line">failover lan interface failover-link GigabitEthernet0/6</span><br><span class="line">failover replication http</span><br><span class="line">failover link stateful-failover-link GigabitEthernet0/7</span><br><span class="line">failover interface ip failover-link 192.168.10.1 255.255.255.0 standby 192.168.10.2</span><br><span class="line">failover interface ip stateful-failover-link 192.168.11.1 255.255.255.0 standby 192.168.11.2</span><br></pre></td></tr></table></figure>
-<h2 id="6-切换-Failover">6. 切换 Failover</h2>
-<ul>
+<h2 id="6-切换-Failover"><a href="#6-切换-Failover" class="headerlink" title="6. 切换 Failover"></a>6. 切换 Failover</h2><ul>
 <li>FDM</li>
 </ul>
 <p>Device &gt; High Availability，点击右侧的齿轮图标，Switch Mode</p>
@@ -626,8 +611,7 @@ Current Device Mode: <strong>Standby</strong>  Peer: <strong>Active</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">failover</span></span><br><span class="line">  active          Make this system to be the active unit of the failover pair</span><br><span class="line">  exec            Execute command on the designated unit</span><br><span class="line">  reload-standby  Force standby unit to reboot</span><br><span class="line">  reset           Force a unit or failover group to an unfailed state</span><br></pre></td></tr></table></figure>
 <p>切换主备</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">failover reset</span></span><br></pre></td></tr></table></figure>
-<h2 id="7-下载相关产品">7. 下载相关产品</h2>
-<p>请访问：<a href="/blog/cisco/" title="Cisco 产品下载链接汇总">Cisco 产品下载链接汇总</a></p>
+<h2 id="7-下载相关产品"><a href="#7-下载相关产品" class="headerlink" title="7. 下载相关产品"></a>7. 下载相关产品</h2><p>请访问：<a href="/blog/cisco/" title="Cisco 产品下载链接汇总">Cisco 产品下载链接汇总</a></p>
 
 
         <hr>
