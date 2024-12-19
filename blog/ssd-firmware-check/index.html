@@ -500,7 +500,7 @@
 <h2 id="通用检测方法">通用检测方法</h2>
 <p>因为驱动的原因或者系统的限制，在 Windows 或者 Windows 虚机下可以更好的识别到 NVME 的 <strong>S.M.A.R.T.</strong> 状态数据，虚拟化 Windows 是跨平台的，我们姑且称为通用检测方法。</p>
 <p>关于 smartmontools 的介绍，可以参看本站 <a href="https://sysin.org/blog/smartmontools/">另外一篇文章</a>。</p>
-<h3 id="Windows-11">Windows</h3>
+<h3 id="Windows-12">Windows</h3>
 <p>打开 Windows Powershell，复制如下命令执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br><span class="line">choco install smartmontools</span><br><span class="line"><span class="built_in">Set-Location</span> <span class="string">&quot;C:\Program Files\smartmontools\bin&quot;</span></span><br><span class="line"> .\smartctl.exe <span class="literal">--all</span> /dev/sdb</span><br></pre></td></tr></table></figure>
 <p>注意最后一行，sda 是第一块硬盘，如果是将 SSD 插入电脑安装系统的就是 sda，如果是第二块硬盘就是 sdb，然后是 sdc，以此类推。</p>
@@ -510,7 +510,7 @@
 <p>其他检测软件：<a target="_blank" rel="noopener" href="http://crystalmark.info/en/software/CrystalDiskInfo/">CrystalDiskInfo</a>，<a target="_blank" rel="noopener" href="http://www.hdtune.com/">HD Tune</a>，可能无法检测到外置 USB NVME 设备的固件，本例控制芯片为 JMS583 测试失败（另外两个常用的控制芯片 RTL9210 和 ASM2362 暂无条件测试）。</p>
 </blockquote>
 <p>在 Windows 下的命令 <code>wmic diskdrive get caption, firmwarerevision</code> 也可以获取固件版本，但仍限于本地磁盘。</p>
-<h3 id="macOS-7">macOS</h3>
+<h3 id="macOS-8">macOS</h3>
 <p>在 macOS 中需要第三方 <a target="_blank" rel="noopener" href="https://binaryfruit.com/download/mac/satsmartdriver/SATSMARTDriver-0.10.zip">驱动（SAT SMART Driver）</a> 来检测外部 USB 存储设备的 SMART 数据。macOS 11 Big Sur 在启动过程中不会加载任何非 Apple 驱动程序。因此，如果在系统启动之前或期间连接了外部驱动器，macOS 将不会为其加载第三方驱动程序。以前，这种行为（所谓的 “安全启动”）适用于带有 T2 芯片的 Mac，因为 Big Sur 现在适用于所有 Mac（即使没有 T2 芯片）。</p>
 <p>解决方法：系统启动结束后，物理断开（拔下）外部 USB 驱动器并重新连接。这将强制 macOS 为新连接的驱动器加载驱动程序。</p>
 <p>打开终端执行：</p>
@@ -533,7 +533,7 @@
 <p>登录 Windows 虚机，打开 Windows Powershell，复制如下命令执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br><span class="line">choco install smartmontools</span><br><span class="line"><span class="built_in">Set-Location</span> <span class="string">&quot;C:\Program Files\smartmontools\bin&quot;</span></span><br><span class="line"> .\smartctl.exe <span class="literal">--all</span> /dev/sdb</span><br></pre></td></tr></table></figure>
 <p>注意最后一行，虚机默认一块磁盘，主机连接的 USB 存储设备，通常就是 sdb。</p>
-<h3 id="Linux-7">Linux</h3>
+<h3 id="Linux-8">Linux</h3>
 <p>如果是电脑内置 SSD，查看方法如下：</p>
 <p>CentOS：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install smartmontools &amp;&amp; smartctl --all /dev/nvme0n1  #/dev/* 具体名称请运行 sudo fdisk -l 查看</span><br></pre></td></tr></table></figure>
@@ -730,7 +730,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%AE%80%E4%BB%8B%EF%BC%9A%E8%A5%BF%E6%95%B0-SN550-%E7%BC%93%E5%A4%96%E9%80%9F%E5%BA%A6%E5%87%8F%E5%8D%8A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">事件简介：西数 SN550 缓外速度减半</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E7%94%A8%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">通用检测方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows-11"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#macOS-7"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-7"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Linux</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%AE%80%E4%BB%8B%EF%BC%9A%E8%A5%BF%E6%95%B0-SN550-%E7%BC%93%E5%A4%96%E9%80%9F%E5%BA%A6%E5%87%8F%E5%8D%8A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">事件简介：西数 SN550 缓外速度减半</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E7%94%A8%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">通用检测方法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Windows-12"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#macOS-8"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-8"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Linux</span></a></li></ol></li></ol>
         
         </div>
       </aside>
