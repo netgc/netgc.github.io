@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何在 GitHub 上创建新的空白分支 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 如何在 GitHub 上创建新的空白分支 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 如何在 GitHub 上创建新的空白分支 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 如何在 GitHub 上创建新的空白分支 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 如何在 GitHub 上创建新的空白分支 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/creat-blank-branch-on-github/">
+  <link rel="canonical" href="https://sysin.org/blog/creat-blank-branch-on-github/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,14 +485,16 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/creat-blank-branch-on-github/" title="如何在 GitHub 上创建新的空白分支">如何在 GitHub 上创建新的空白分支</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="creat-blank-branch-on-github.webp" alt="配图"></p>
-<h2 id="Web-页面创建分支"><a href="#Web-页面创建分支" class="headerlink" title="Web 页面创建分支"></a>Web 页面创建分支</h2><p>Web 页面 Code 点击当前分支名称的下拉剪头，在内容为 “Find or create a branch…” 空白处输入新的 Branch 名称（已有则搜索，这里输入 hello），会出现提示 “Create branch: hello from ‘main’”，点击则自动创建名称为 “hello” 的 Branch，内容来自 “main”。</p>
+<h2 id="Web-页面创建分支">Web 页面创建分支</h2>
+<p>Web 页面 Code 点击当前分支名称的下拉剪头，在内容为 “Find or create a branch…” 空白处输入新的 Branch 名称（已有则搜索，这里输入 hello），会出现提示 “Create branch: hello from ‘main’”，点击则自动创建名称为 “hello” 的 Branch，内容来自 “main”。</p>
 <blockquote>
 <p>由于受到 “Black Lives Matter” 运动的影响，GitHub 从 2020 年 10 月 1 日起，在该平台上创建的所有新的源代码仓库将默认被命名为 “main”，而不是原先的 “master”。原有仓库中的 “master” 不受影响。</p>
 </blockquote>
-<h2 id="git-命令创建分支和空白分支"><a href="#git-命令创建分支和空白分支" class="headerlink" title="git 命令创建分支和空白分支"></a>git 命令创建分支和空白分支</h2><p>克隆项目：</p>
+<h2 id="git-命令创建分支和空白分支">git 命令创建分支和空白分支</h2>
+<p>克隆项目：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/&lt;usename&gt;/&lt;repositories&gt;</span></span><br><span class="line">git clone https://github.com/netgc/test</span><br><span class="line">cd test</span><br></pre></td></tr></table></figure>
 <p>查看 branch：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看本地分支</span></span></span><br><span class="line">git branch</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看远程分支 (sysin)</span></span></span><br><span class="line">git branch -r</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 查看所有的分支</span></span></span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
@@ -623,7 +623,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -928,7 +928,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

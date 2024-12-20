@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Ubuntu 20.04 更新到 Linux Kernel 5.15 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Ubuntu 20.04 更新到 Linux Kernel 5.15 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Ubuntu 20.04 更新到 Linux Kernel 5.15 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Ubuntu 20.04 更新到 Linux Kernel 5.15 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Ubuntu 20.04 更新到 Linux Kernel 5.15 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/ubuntu-2004-upgrade-kernel/">
+  <link rel="canonical" href="https://sysin.org/blog/ubuntu-2004-upgrade-kernel/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -407,7 +405,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">897</span> In Total
+              Words <span class="post-count">898</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,12 +485,13 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/ubuntu-2004-upgrade-kernel/" title="Ubuntu 20.04 更新到 Linux Kernel 5.15">Ubuntu 20.04 更新到 Linux Kernel 5.15</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>Canonical 已于昨日（2022.09.01）发布了 Ubuntu 22.04.5，除了常规更新，重点带来了内核版本的升级。</p>
 <p>Linux Kernel 5.15 LTS 是 Ubuntu 22.04 的内置内核版本，现在已经来到了 Ubuntu 20.04 中。</p>
 <p>下载 Ubuntu 22.04.5：<a href="/blog/ubuntu-2004/" title="Ubuntu 20.04.5 LTS (Focal Fossa), with Linux kernel 5.15 LTS">Ubuntu 20.04.5 LTS (Focal Fossa), with Linux kernel 5.15 LTS</a></p>
-<h2 id="Linux-Kernel-5-15-New-Features"><a href="#Linux-Kernel-5-15-New-Features" class="headerlink" title="Linux Kernel 5.15 New Features"></a>Linux Kernel 5.15 New Features</h2><p>Linux 内核 5.15 有许多新的功能、硬件支持和安全更新。Linux 内核 5.15 进一步改善了AMD CPU 和 GPU 的支持, 支持 Intel 第 12 代 CPU，改善了对 Apple M1 的支持，并带来了新的功能，如 NTFS3，in-kernel SMB3 (ksmbd)。</p>
+<h2 id="Linux-Kernel-5-15-New-Features">Linux Kernel 5.15 New Features</h2>
+<p>Linux 内核 5.15 有许多新的功能、硬件支持和安全更新。Linux 内核 5.15 进一步改善了AMD CPU 和 GPU 的支持, 支持 Intel 第 12 代 CPU，改善了对 Apple M1 的支持，并带来了新的功能，如 NTFS3，in-kernel SMB3 (ksmbd)。</p>
 <p>以下是改进和功能摘要:</p>
 <ul>
 <li>AMD RDNA2 Graphics card initial support.</li>
@@ -502,13 +501,15 @@
 <li>New Wifi driver support</li>
 <li>In-kernel SMB file server</li>
 </ul>
-<h2 id="Update-Operating-System"><a href="#Update-Operating-System" class="headerlink" title="Update Operating System"></a>Update Operating System</h2><p>本例使用的是 20.04 原始版本：</p>
+<h2 id="Update-Operating-System">Update Operating System</h2>
+<p>本例使用的是 20.04 原始版本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">uname</span> -a</span></span><br><span class="line">Linux u20 5.4.0-26-generic #30-Ubuntu SMP Mon Apr 20 16:58:30 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
 <p>更新 Ubuntu 操作系统已经所有软件包:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新 repo 列表</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="comment"># 升级系统和软件（可选）</span></span><br><span class="line">sudo apt upgrade -y</span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 <p>更新后为 20.04.5</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">uname</span> -a</span></span><br><span class="line">Linux u20 5.4.0-125-generic #141-Ubuntu SMP Wed Aug 10 13:42:03 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsb_release -a</span></span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 20.04.5 LTS</span><br><span class="line">Release:        20.04</span><br><span class="line">Codename:       focal</span><br></pre></td></tr></table></figure>
-<h2 id="Installing-Linux-Kernel-5-15"><a href="#Installing-Linux-Kernel-5-15" class="headerlink" title="Installing Linux Kernel 5.15"></a>Installing Linux Kernel 5.15</h2><p>现在开始升级 Linux Kernel 5.15。</p>
+<h2 id="Installing-Linux-Kernel-5-15">Installing Linux Kernel 5.15</h2>
+<p>现在开始升级 Linux Kernel 5.15。</p>
 <p><strong>Install kernel-generic</strong>：通用内核，一般 PC 及 Server</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出可用的 5.15 内核版本</span></span><br><span class="line">apt list linux-headers-5.15.*-*-generic linux-image-5.15.*-*-generic</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下将安装所有的 5.15 版本，一般不用</span></span><br><span class="line">sudo apt install linux-headers-5.15.*-*-generic linux-image-5.15.*-*-generic</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定版本即可，比如当前为 5.15.0-46</span></span><br><span class="line">sudo apt install linux-headers-5.15.0-46-generic linux-image-5.15.0-46-generic</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启后生效</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 <p><strong>Install low-latency kernel</strong>：低延迟内核，适用于工业嵌入式系统（Industrial embedded systems）</p>
@@ -520,9 +521,11 @@
 </blockquote>
 <p><img src="ubuntu-2004-upgrade-kernel.webp" alt="ubuntu-2004-upgrade-kernel"></p>
 <p>恭喜，升级成功！</p>
-<h2 id="下载-OVF"><a href="#下载-OVF" class="headerlink" title="下载 OVF"></a>下载 OVF</h2><p>虚拟机模板下载：</p>
+<h2 id="下载-OVF-4">下载 OVF</h2>
+<p>虚拟机模板下载：</p>
 <ul>
-<li><a href="/blog/ubuntu-2004-ovf/" title="Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板">Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板</a>
+<li>
+<a href="/blog/ubuntu-2004-ovf/" title="Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板">Ubuntu 20.04.5 LTS x86_64 OVF (sysin) optional kernel 5.15 - VMware 虚拟机模板</a>
 </li>
 </ul>
 
@@ -645,7 +648,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -708,7 +711,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-Kernel-5-15-New-Features"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Linux Kernel 5.15 New Features</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Update-Operating-System"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Update Operating System</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Installing-Linux-Kernel-5-15"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Installing Linux Kernel 5.15</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD-OVF"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载 OVF</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-Kernel-5-15-New-Features"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Linux Kernel 5.15 New Features</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Update-Operating-System"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Update Operating System</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Installing-Linux-Kernel-5-15"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Installing Linux Kernel 5.15</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD-OVF-4"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">下载 OVF</span></a></li></ol>
         
         </div>
       </aside>
@@ -950,7 +953,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

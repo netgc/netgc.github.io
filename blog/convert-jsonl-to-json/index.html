@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> LeanCloud 数据导出和导入：JSON Lines 转换为 JSON - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" LeanCloud 数据导出和导入：JSON Lines 转换为 JSON - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> LeanCloud 数据导出和导入：JSON Lines 转换为 JSON - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" LeanCloud 数据导出和导入：JSON Lines 转换为 JSON - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" LeanCloud 数据导出和导入：JSON Lines 转换为 JSON "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/convert-jsonl-to-json/">
+  <link rel="canonical" href="https://sysin.org/blog/convert-jsonl-to-json/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +466,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,21 +483,26 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/convert-jsonl-to-json/" title="LeanCloud 数据导出和导入：JSON Lines 转换为 JSON">LeanCloud 数据导出和导入：JSON Lines 转换为 JSON</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="convert-jsonl-to-json.webp" alt="Convert JSON Lines to JSON"></p>
-<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>LeanCloud 数据导出和导入操作这里不赘述，导出的文件格式为 <a target="_blank" rel="noopener" href="https://jsonlines.org/">JSON Lines</a>，而数据导入格式支持 <a target="_blank" rel="noopener" href="https://json.org/">JSON</a> 和 CSV，这里就需要将 JSON Lines 转换为 JSON。</p>
+<h2 id="场景">场景</h2>
+<p>LeanCloud 数据导出和导入操作这里不赘述，导出的文件格式为 <a target="_blank" rel="noopener" href="https://jsonlines.org/">JSON Lines</a>，而数据导入格式支持 <a target="_blank" rel="noopener" href="https://json.org/">JSON</a> 和 CSV，这里就需要将 JSON Lines 转换为 JSON。</p>
 <blockquote>
 <p>LeanCloud 简介：领先的 BaaS 提供商,提供数据存储、文件存储、云引擎、容器、即时通讯、消息推送、短信、游戏云等多项服务,为移动开发提供强有力的后端支持。</p>
 <p>BaaS：Backend as a Service，后端即服务。</p>
 </blockquote>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;1s/^/[/; $!s/$/,/; $s/$/]/&#x27; in.jsonl &gt; out.json</span><br></pre></td></tr></table></figure>
-<h2 id="释义"><a href="#释义" class="headerlink" title="释义"></a>释义</h2><p>sed 脚本由三个单独的替换组成 (sysin)：</p>
+<h2 id="方法">方法</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;1s/^/[/; $!s/$/,/; $s/$/]/&#x27; in.jsonl &gt; out.json</span><br></pre></td></tr></table></figure>
+<h2 id="释义">释义</h2>
+<p>sed 脚本由三个单独的替换组成 (sysin)：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1s/^/[/      # 在第一行的开头插入一个左括号</span><br><span class="line">$!s/$/,/     # 除了最后一行之外的所有地方都附加一个逗号</span><br><span class="line">$s/$/]/      # 在最后一行附加一个右括号 (sysin)</span><br></pre></td></tr></table></figure>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>注意导出的 JSON Lines 通常有注释的头部，转换后需要删除，导入的时候手动输入 class 名称。</p>
+<h2 id="注意事项-2">注意事项</h2>
+<p>注意导出的 JSON Lines 通常有注释的头部，转换后需要删除，导入的时候手动输入 class 名称。</p>
 <p>注释部分例如：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#filetype<span class="punctuation">:</span>JSON-streaming <span class="punctuation">&#123;</span><span class="attr">&quot;type&quot;</span><span class="punctuation">:</span><span class="string">&quot;Class&quot;</span><span class="punctuation">,</span><span class="attr">&quot;class&quot;</span><span class="punctuation">:</span><span class="string">&quot;Comment&quot;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45456414/convert-json-lines-to-json-array-using-jq">Convert JSON Lines to JSON array using jq</a></p>
+<h2 id="参考">参考</h2>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45456414/convert-json-lines-to-json-array-using-jq">Convert JSON Lines to JSON array using jq</a></p>
 
 
         <hr>
@@ -620,7 +623,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -683,7 +686,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">场景</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%87%8A%E4%B9%89"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">释义</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">注意事项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">参考</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%BA%E6%99%AF"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">场景</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">方法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%87%8A%E4%B9%89"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">释义</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">注意事项</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">参考</span></a></li></ol>
         
         </div>
       </aside>
@@ -923,7 +926,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

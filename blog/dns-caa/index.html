@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> DNS CAA 记录及创建方法 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" DNS CAA 记录及创建方法 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> DNS CAA 记录及创建方法 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" DNS CAA 记录及创建方法 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" DNS CAA 记录及创建方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/dns-caa/">
+  <link rel="canonical" href="https://sysin.org/blog/dns-caa/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,40 +485,48 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/dns-caa/" title="DNS CAA 记录及创建方法">DNS CAA 记录及创建方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <blockquote>
 <p>2021-12-08 更新：修正一些细节描述。</p>
 </blockquote>
 <p><img src="dns-caa.webp" alt="dns-caa"></p>
-<h2 id="关于-CAA"><a href="#关于-CAA" class="headerlink" title="关于 CAA"></a>关于 CAA</h2><p>有一百多个被称为证书颁发机构的组织，可以颁发 SSL 证书来保证您的域的身份。如果您和大多数域所有者一样，您可能只从少数几个证书颁发机构获得证书。CAA（Certificate Authority Authorization，证书颁发机构授权）允许您声明您实际使用的证书颁发机构，禁止其他机构为您的域颁发证书。</p>
+<h2 id="关于-CAA">关于 CAA</h2>
+<p>有一百多个被称为证书颁发机构的组织，可以颁发 SSL 证书来保证您的域的身份。如果您和大多数域所有者一样，您可能只从少数几个证书颁发机构获得证书。CAA（Certificate Authority Authorization，证书颁发机构授权）允许您声明您实际使用的证书颁发机构，禁止其他机构为您的域颁发证书。</p>
 <p>以下是您使用 CAA 的一些原因：</p>
 <ul>
-<li><p>您希望降低来自不安全证书颁发机构的风险。您可以使用 CAA 将您的域限制为您信任的证书颁发机构，而您信任这些机构不会颁发未经授权的证书。</p>
+<li>
+<p>您希望降低来自不安全证书颁发机构的风险。您可以使用 CAA 将您的域限制为您信任的证书颁发机构，而您信任这些机构不会颁发未经授权的证书。</p>
 </li>
-<li><p>您希望阻止员工从未经授权的供应商处获取证书。</p>
+<li>
+<p>您希望阻止员工从未经授权的供应商处获取证书。</p>
 </li>
 </ul>
 <p>设置 CAA 很容易。使用便捷的 CAA 生成器检查您授权的证书颁发机构。然后在域的 DNS 中发布生成的 DNS 记录 (sysin)。您的域需要由支持 CAA 的 DNS 提供商托管。幸运的是，主要的 DNS 提供商现在都支持 CAA。</p>
 <p>CAA 是由 <a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/html/rfc6844">RFC 6844</a> 定义的 IETF 标准。自 2017 年 9 月 8 日起，所有公共证书颁发机构都必须遵守 CAA 记录。在为域颁发证书之前，他们必须检查域中的 CAA 记录，如果 CAA 记录集没有授权它们，则拒绝颁发证书。（如果没有 CAA 记录，则允许其发布。）</p>
-<h3 id="CAA-和子域"><a href="#CAA-和子域" class="headerlink" title="CAA 和子域"></a>CAA 和子域</h3><p>域的 CAA 记录集也适用于所有子域。如果子域有它自己的 CAA 记录集，它将优先。</p>
-<p>例如，在证书颁发机构为颁发证书之前 www.sysin.org 网站，它将按以下顺序查询域中的 CAA 记录集，并使用它找到的第一个记录集：</p>
-<p>www.sysin.org</p>
-<p>sysin.org</p>
-<h3 id="CAA-和-CNAME"><a href="#CAA-和-CNAME" class="headerlink" title="CAA 和 CNAME"></a>CAA 和 CNAME</h3><p>如果域名创建了 CNAME（也称为别名）指向另外一个域名（CNAME 目标），则证书颁发机构还会在 CNAME 目标以及目标的所有父域中查找 CAA 记录集。如果没有找到 CAA 记录集，证书颁发机构将继续搜索原始域名的父域。</p>
-<p>例如，如果 blog.sysin.org 的 CNAME 记录指向 blog.example.net，则证书颁发机构按以下顺序查找 CAA 记录集：</p>
+<h3 id="CAA-和子域">CAA 和子域</h3>
+<p>域的 CAA 记录集也适用于所有子域。如果子域有它自己的 CAA 记录集，它将优先。</p>
+<p>例如，在证书颁发机构为颁发证书之前 <a target="_blank" rel="noopener" href="http://www.sysin.org">www.sysin.org</a> 网站，它将按以下顺序查询域中的 CAA 记录集，并使用它找到的第一个记录集：</p>
+<p><a target="_blank" rel="noopener" href="http://www.sysin.org">www.sysin.org</a></p>
+<p><a href="http://sysin.org">sysin.org</a></p>
+<h3 id="CAA-和-CNAME">CAA 和 CNAME</h3>
+<p>如果域名创建了 CNAME（也称为别名）指向另外一个域名（CNAME 目标），则证书颁发机构还会在 CNAME 目标以及目标的所有父域中查找 CAA 记录集。如果没有找到 CAA 记录集，证书颁发机构将继续搜索原始域名的父域。</p>
+<p>例如，如果 <a target="_blank" rel="noopener" href="http://blog.sysin.org">blog.sysin.org</a> 的 CNAME 记录指向 <a target="_blank" rel="noopener" href="http://blog.example.net">blog.example.net</a>，则证书颁发机构按以下顺序查找 CAA 记录集：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blog.example.net</span><br><span class="line">example.net</span><br><span class="line">sysin.org</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>也就是说自己的域名如果 CNAME 指向了第三方域名（比如常用在 CDN 和智能 DNS），你的域名 CAA 策略由第三方域名 CAA 记录优先决定，如果第三方域名没有 CAA 记录，自己的域名 CAA 策略才完全有效。</p>
-<p>当然，这个并不是全局的限制，比如上述 blog.sysin.org 这个域名要申请 SSL 证书会受到 blog.example.net 及其父域 example.net 的 CAA 策略限制，www.sysin.org 没有 CNAME 记录并不受此限。</p>
+<p>当然，这个并不是全局的限制，比如上述 <a target="_blank" rel="noopener" href="http://blog.sysin.org">blog.sysin.org</a> 这个域名要申请 SSL 证书会受到 <a target="_blank" rel="noopener" href="http://blog.example.net">blog.example.net</a> 及其父域 <a target="_blank" rel="noopener" href="http://example.net">example.net</a> 的 CAA 策略限制，<a target="_blank" rel="noopener" href="http://www.sysin.org">www.sysin.org</a> 没有 CNAME 记录并不受此限。</p>
 <p>但是，在上述 CNAME 记录存在的情况下，申请通配符证书 <code>*.sysin.org</code> 情况会怎样？理论上会受到第三方域名 CAA 记录的限制。</p>
 </blockquote>
-<h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><p>不管 CAA 怎么说，一个恶意或完全被破坏的证书颁发机构都可以为您的域颁发证书。此外，DNS 记录可以被强大的攻击者欺骗，欺骗证书颁发机构认为它已被授权。</p>
+<h3 id="局限性">局限性</h3>
+<p>不管 CAA 怎么说，一个恶意或完全被破坏的证书颁发机构都可以为您的域颁发证书。此外，DNS 记录可以被强大的攻击者欺骗，欺骗证书颁发机构认为它已被授权。</p>
 <p>然而，在实践中，CAA 可以保护域所有者不受证书颁发机构中最近的许多安全漏洞的影响。尽管存在局限性 (sysin)，发布 CAA 政策是一种非常明智的安全措施。</p>
 <p>为了增加保护，请使用证书透明度监视器（如 <a target="_blank" rel="noopener" href="https://sslmate.com/signup?for=certspotter">Cert Spotter</a>）在颁发的证书违反您的 CAA 策略时向您发出警报。</p>
-<h2 id="支持-CAA-的-DNS"><a href="#支持-CAA-的-DNS" class="headerlink" title="支持 CAA 的 DNS"></a>支持 CAA 的 DNS</h2><h3 id="服务商"><a href="#服务商" class="headerlink" title="服务商"></a>服务商</h3><p>主流的域名服务商，国内如 <strong>阿里云解析 DNS</strong> 和 <strong>DSNPOD（腾讯云）</strong>，国外如 Cloudflare、Azure DNS、AWS Route 53 和 Google Cloud DNS，都可以支持 CAA 记录。</p>
+<h2 id="支持-CAA-的-DNS">支持 CAA 的 DNS</h2>
+<h3 id="服务商">服务商</h3>
+<p>主流的域名服务商，国内如 <strong>阿里云解析 DNS</strong> 和 <strong>DSNPOD（腾讯云）</strong>，国外如 Cloudflare、Azure DNS、AWS Route 53 和 Google Cloud DNS，都可以支持 CAA 记录。</p>
 <p>更多厂商列表可以参考这里：<a target="_blank" rel="noopener" href="https://sslmate.com/caa/support">https://sslmate.com/caa/support</a></p>
-<h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><div class="table-container">
+<h3 id="软件-2">软件</h3>
 <table>
 <thead>
 <tr>
@@ -538,7 +544,7 @@
 <tr>
 <td>dnsmasq</td>
 <td>Yes</td>
-<td>Use —dns-rr option with hex data</td>
+<td>Use --dns-rr option with hex data</td>
 </tr>
 <tr>
 <td>Knot DNS</td>
@@ -582,9 +588,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="CAA-记录格式"><a href="#CAA-记录格式" class="headerlink" title="CAA 记录格式"></a>CAA 记录格式</h2><p>CAA 记录由以下元素组成：</p>
-<div class="table-container">
+<h2 id="CAA-记录格式">CAA 记录格式</h2>
+<p>CAA 记录由以下元素组成：</p>
 <table>
 <thead>
 <tr>
@@ -607,7 +612,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>CAA 记录的规范的表示法是：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CAA &lt;flags&gt; &lt;tag&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <p>RFC 目前定义了 3 个可用的 tag：</p>
@@ -616,7 +620,8 @@
 <li><code>issuewild</code>：明确授权单个证书颁发机构为主机名颁发通配符证书（只有通配符）。</li>
 <li><code>iodef</code>：指定认证机构可以向其报告策略违规的 URL 或邮箱。</li>
 </ul>
-<h2 id="创建-CAA-记录"><a href="#创建-CAA-记录" class="headerlink" title="创建 CAA 记录"></a>创建 CAA 记录</h2><p>可以使用 <a target="_blank" rel="noopener" href="https://sslmate.com/caa/">https://sslmate.com/caa/</a> 来生成，示例：</p>
+<h2 id="创建-CAA-记录">创建 CAA 记录</h2>
+<p>可以使用 <a target="_blank" rel="noopener" href="https://sslmate.com/caa/">https://sslmate.com/caa/</a> 来生成，示例：</p>
 <p>通用（适用于一般 DNS 服务商或者域名注册商）</p>
 <blockquote>
 <p>For Google Cloud DNS, Route 53, DNSimple, and other hosted DNS services</p>
@@ -624,18 +629,23 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Name        Type  Value</span><br><span class="line">sysin.org.  CAA   0 issue &quot;digicert.com&quot;</span><br><span class="line">                  0 issue &quot;letsencrypt.org&quot;</span><br></pre></td></tr></table></figure>
 <p>添加 CAA 记录 (sysin)</p>
 <ul>
-<li><p>记录类型选择 CAA</p>
+<li>
+<p>记录类型选择 CAA</p>
 </li>
-<li><p>Name 或者主机记录填写 @ 表示顶级域名，会自动应用到多级域名。</p>
+<li>
+<p>Name 或者主机记录填写 @ 表示顶级域名，会自动应用到多级域名。</p>
 </li>
-<li><p>记录值填写 <code>0 issue &quot;证书颁发机构域名&quot;</code>。</p>
+<li>
+<p>记录值填写 <code>0 issue &quot;证书颁发机构域名&quot;</code>。</p>
 <p>如果如果你用 Let’s Encrypt 颁发的免费证书，<code>CAA data</code> 部分直接填写 <code>0 issue&quot;letsencrypt.org&quot;</code> 即可。</p>
 <p>允许多个证书颁发机构，添加多条即可。</p>
 </li>
-<li><p>你还可以添加一条为 <code>0 iodef &quot;mailto: 你的邮箱&quot;</code> 的 CAA 记录，表示如果发现违背 CAA 记录的情况给这个邮箱发邮件通知。</p>
+<li>
+<p>你还可以添加一条为 <code>0 iodef &quot;mailto: 你的邮箱&quot;</code> 的 CAA 记录，表示如果发现违背 CAA 记录的情况给这个邮箱发邮件通知。</p>
 </li>
 </ul>
-<h2 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h2><p>dig</p>
+<h2 id="检测方法">检测方法</h2>
+<p>dig</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dig sslmate.com caa</span></span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.13-RedHat-9.11.13-5.el8_2 &lt;&lt;&gt;&gt; sslmate.com caa</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 21947</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;sslmate.com.                   IN      CAA</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 issue &quot;sectigo.com&quot;</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 issuewild &quot;;&quot;</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 iodef &quot;mailto:security@opsmate.com&quot;</span><br><span class="line">sslmate.com.            7200    IN      CAA     0 issue &quot;letsencrypt.org&quot;</span><br></pre></td></tr></table></figure>
 <p>nslookup</p>
 <blockquote>
@@ -764,7 +774,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -827,7 +837,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-CAA"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 CAA</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CAA-%E5%92%8C%E5%AD%90%E5%9F%9F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">CAA 和子域</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CAA-%E5%92%8C-CNAME"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">CAA 和 CNAME</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">局限性</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81-CAA-%E7%9A%84-DNS"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">支持 CAA 的 DNS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%95%86"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">服务商</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BD%AF%E4%BB%B6"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">软件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#CAA-%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">CAA 记录格式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA-CAA-%E8%AE%B0%E5%BD%95"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">创建 CAA 记录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">检测方法</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E-CAA"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">关于 CAA</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CAA-%E5%92%8C%E5%AD%90%E5%9F%9F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">CAA 和子域</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CAA-%E5%92%8C-CNAME"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">CAA 和 CNAME</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">局限性</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%94%AF%E6%8C%81-CAA-%E7%9A%84-DNS"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">支持 CAA 的 DNS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%95%86"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">服务商</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BD%AF%E4%BB%B6-2"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">软件</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#CAA-%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">CAA 记录格式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%88%9B%E5%BB%BA-CAA-%E8%AE%B0%E5%BD%95"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">创建 CAA 记录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">检测方法</span></a></li></ol>
         
         </div>
       </aside>
@@ -1069,7 +1079,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
