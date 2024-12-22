@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 禁用或者移除 Ubuntu 中的 cloud-init - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 禁用或者移除 Ubuntu 中的 cloud-init - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 禁用或者移除 Ubuntu 中的 cloud-init - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 禁用或者移除 Ubuntu 中的 cloud-init - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 禁用或者移除 Ubuntu 中的 cloud-init "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/disable-ubuntu-cloud-init/">
+  <link rel="canonical" href="https://sysin.cn/blog/disable-ubuntu-cloud-init/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,7 +487,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/disable-ubuntu-cloud-init/" title="禁用或者移除 Ubuntu 中的 cloud-init">禁用或者移除 Ubuntu 中的 cloud-init</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="https://assets.ubuntu.com/v1/15971bf5-cloud-init-primary.svg" alt="cloud-init"></p>
 <p><a target="_blank" rel="noopener" href="https://cloud-init.io/">cloud-init</a> 堪称自定义云实例的标准，是由 Canonical 公司（Ubuntu 的创建者）开发的开源软件。</p>
@@ -510,9 +512,11 @@
 <li><a target="_blank" rel="noopener" href="https://build.opensuse.org/package/show/Cloud:Tools/cloud-init">OpenSUSE, Get packages</a></li>
 </ul>
 <p>非云环境，可以选择关闭它，或者彻底删除，方法如下：</p>
-<h2 id="方法-1-通过创建文件禁用-cloud-init"><a href="#方法-1-通过创建文件禁用-cloud-init" class="headerlink" title="方法 1: 通过创建文件禁用 cloud-init"></a>方法 1: 通过创建文件禁用 cloud-init</h2><p>这是最简单最安全的方法 (sysin)，在 <code>/etc/cloud</code> 目录下创建 <code>cloud-init.disabled</code> 文件重启后生效。删除该文件就可以恢复。</p>
+<h2 id="方法-1-通过创建文件禁用-cloud-init">方法 1: 通过创建文件禁用 cloud-init</h2>
+<p>这是最简单最安全的方法 (sysin)，在 <code>/etc/cloud</code> 目录下创建 <code>cloud-init.disabled</code> 文件重启后生效。删除该文件就可以恢复。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/cloud/cloud-init.disabled</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">init 6</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<h2 id="方法-2-移除-cloud-init-软件包及文件夹"><a href="#方法-2-移除-cloud-init-软件包及文件夹" class="headerlink" title="方法 2: 移除 cloud-init 软件包及文件夹"></a>方法 2: 移除 cloud-init 软件包及文件夹</h2><p>该方法彻底移除 cloud-init。</p>
+<h2 id="方法-2-移除-cloud-init-软件包及文件夹">方法 2: 移除 cloud-init 软件包及文件夹</h2>
+<p>该方法彻底移除 cloud-init。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge cloud-init -y</span><br><span class="line"></span><br><span class="line">sudo rm -rf /etc/cloud &amp;&amp; sudo rm -rf /var/lib/cloud/</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
 
@@ -634,7 +638,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -939,7 +943,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

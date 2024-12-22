@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何查看 Mac 的以太网卡速度 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 如何查看 Mac 的以太网卡速度 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 如何查看 Mac 的以太网卡速度 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 如何查看 Mac 的以太网卡速度 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 如何查看 Mac 的以太网卡速度 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/get-macos-ethernet-speed/">
+  <link rel="canonical" href="https://sysin.cn/blog/get-macos-ethernet-speed/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -405,7 +407,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">605</span> In Total
+              Words <span class="post-count">606</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,10 +487,11 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/get-macos-ethernet-speed/" title="如何查看 Mac 的以太网卡速度">如何查看 Mac 的以太网卡速度</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>Mac 中如何查看以太网卡的连接速度呢？100M，1000M，或者是 10G，在系统界面上似乎没有一个明显直观可以查看的地方。</p>
-<h2 id="网络实用工具"><a href="#网络实用工具" class="headerlink" title="网络实用工具"></a>网络实用工具</h2><p>macOS 中内置了一个 Network Utility.app 即网络实用工具，位于如下路径：</p>
+<h2 id="网络实用工具">网络实用工具</h2>
+<p>macOS 中内置了一个 Network Utility.app 即网络实用工具，位于如下路径：</p>
 <p><code>/System/Library/CoreServices/Applications/Network Utility.app</code></p>
 <blockquote>
 <p>备注：在更加老旧的 OS X 系统中该工具位于：<code>/System/Applications/Utilities/Network Utility.app</code></p>
@@ -504,7 +507,8 @@
 <p>该工具在 macOS Big Sur 中已经被废弃</p>
 </blockquote>
 <p><img src="network-utility-deprecated.webp" alt="network-utility-deprecated"></p>
-<h2 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h2><p>打开终端输入如下命令，列出要查看的网卡：</p>
+<h2 id="终端命令">终端命令</h2>
+<p>打开终端输入如下命令，列出要查看的网卡：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ifconfig | more</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -i</span><br></pre></td></tr></table></figure>
@@ -517,12 +521,13 @@
 <blockquote>
 <p>命令行并不能像 “网络实用工具” 显示所有介质的速率，比如 Wi-Fi 和雷雳网桥无法显示介质速度。</p>
 </blockquote>
-<h2 id="查看实时网速"><a href="#查看实时网速" class="headerlink" title="查看实时网速"></a>查看实时网速</h2><p>想要查看当前的实时网速（网络利用率）或者某个应用程序和进程的带宽占用，请使用 “活动监视器”，该工具通过以下方式访问：</p>
+<h2 id="查看实时网速">查看实时网速</h2>
+<p>想要查看当前的实时网速（网络利用率）或者某个应用程序和进程的带宽占用，请使用 “活动监视器”，该工具通过以下方式访问：</p>
 <ul>
 <li>启动台 -&gt; 其他 -&gt; 活动监视器</li>
 <li>打开访达，点击菜单 “前往 -&gt; 实用工具”，在打开 “活动监视器”</li>
 </ul>
-<p>打开 “活动监视器” 后，点击 “ 网络” 标签页即可查看。</p>
+<p>打开 “活动监视器” 后，点击 &quot; 网络” 标签页即可查看。</p>
 
 
         <hr>
@@ -643,7 +648,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -948,7 +953,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Rocky Linux yum/dnf repo/mirrors 国内镜像列表及更换方法 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" Rocky Linux yum/dnf repo/mirrors 国内镜像列表及更换方法 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> Rocky Linux yum/dnf repo/mirrors 国内镜像列表及更换方法 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" Rocky Linux yum/dnf repo/mirrors 国内镜像列表及更换方法 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" Rocky Linux yum/dnf repo/mirrors 国内镜像列表及更换方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/rocky-linux-mirrors/">
+  <link rel="canonical" href="https://sysin.cn/blog/rocky-linux-mirrors/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -386,9 +388,9 @@
               
               <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
               
-              <a class="tag" href="/tags/#RHEL" title="RHEL">RHEL</a>
-              
               <a class="tag" href="/tags/#CentOS" title="CentOS">CentOS</a>
+              
+              <a class="tag" href="/tags/#RHEL" title="RHEL">RHEL</a>
               
               <a class="tag" href="/tags/#RockyLinux" title="RockyLinux">RockyLinux</a>
               
@@ -472,7 +474,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,16 +491,19 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/rocky-linux-mirrors/" title="Rocky Linux yum&#x2F;dnf repo&#x2F;mirrors 国内镜像列表及更换方法">Rocky Linux yum&#x2F;dnf repo&#x2F;mirrors 国内镜像列表及更换方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="/blog/rocky-linux-8/rocky-linux-logo.png" alt="Rocky-Linux-Logo"></p>
-<p>高校镜像推荐 mirror.sjtu.edu.cn 和 mirrors.zju.edu.cn。<br>商业公司镜像推荐 mirrors.aliyun.com。<br>其他多数镜像不全，要么没有 almalinux，要么没有 rocky。<br>当然可以根据个人喜好、地理位置、访问体验等因素来选择。</p>
+<p>高校镜像推荐 <a target="_blank" rel="noopener" href="http://mirror.sjtu.edu.cn">mirror.sjtu.edu.cn</a> 和 <a target="_blank" rel="noopener" href="http://mirrors.zju.edu.cn">mirrors.zju.edu.cn</a>。<br>
+商业公司镜像推荐 <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com">mirrors.aliyun.com</a>。<br>
+其他多数镜像不全，要么没有 almalinux，要么没有 rocky。<br>
+当然可以根据个人喜好、地理位置、访问体验等因素来选择。</p>
 <p>该项配置方法兼容 Rocky Linux 8 和 9。</p>
 <p>Rocky Linux 9 默认 repo 如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# dnf repolist</span><br><span class="line">repo id                                               repo name</span><br><span class="line">appstream                                             Rocky Linux 9 - AppStream</span><br><span class="line">baseos                                                Rocky Linux 9 - BaseOS</span><br><span class="line">extras                                                Rocky Linux 9 - Extras</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 epel 后增加</span></span><br><span class="line">epel                                                  Extra Packages for Enterprise Linux 9 - x86_64</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">文件列表如下</span></span><br><span class="line">[root@localhost ~]# ll /etc/yum.repos.d/</span><br><span class="line">epel.repo</span><br><span class="line">epel-testing.repo</span><br><span class="line">epel-cisco-openh264.repo</span><br><span class="line">rocky-addons.repo</span><br><span class="line">rocky-devel.repo</span><br><span class="line">rocky-extras.repo</span><br><span class="line">rocky.repo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意 (sysin)：Rocky 8 的文件名首字母大写 R</span></span><br></pre></td></tr></table></figure>
-<h2 id="官方镜像列表"><a href="#官方镜像列表" class="headerlink" title="官方镜像列表"></a>官方镜像列表</h2><p>官方镜像列表：<a target="_blank" rel="noopener" href="https://mirrors.rockylinux.org/mirrormanager/mirrors">https://mirrors.rockylinux.org/mirrormanager/mirrors</a>，CN 开头的站点。</p>
+<h2 id="官方镜像列表-2">官方镜像列表</h2>
+<p>官方镜像列表：<a target="_blank" rel="noopener" href="https://mirrors.rockylinux.org/mirrormanager/mirrors">https://mirrors.rockylinux.org/mirrormanager/mirrors</a>，CN 开头的站点。</p>
 <p>例如：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -516,8 +521,7 @@
 <td>CN</td>
 <td><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/">Aliyun Open Source Mirrors</a></td>
 <td>Aliyun Open Source Mirrors</td>
-<td>Rocky Linux: <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/rockylinux">https</a> \</td>
-<td><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/rockylinux">http</a></td>
+<td>Rocky Linux: <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/rockylinux">https</a> | <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/rockylinux">http</a></td>
 <td>10000</td>
 <td>No</td>
 <td>Syncs every two hours</td>
@@ -525,33 +529,33 @@
 <tr>
 <td>CN</td>
 <td><a target="_blank" rel="noopener" href="https://sjtug.org">SJTUG</a></td>
-<td>mirrors.sjtug.sjtu.edu.cn</td>
-<td>Rocky Linux: <a target="_blank" rel="noopener" href="https://mirrors.sjtug.sjtu.edu.cn/rocky">https</a> \</td>
-<td><a href="rsync://mirrors.sjtug.sjtu.edu.cn/rocky">rsync</a></td>
+<td><a target="_blank" rel="noopener" href="http://mirrors.sjtug.sjtu.edu.cn">mirrors.sjtug.sjtu.edu.cn</a></td>
+<td>Rocky Linux: <a target="_blank" rel="noopener" href="https://mirrors.sjtug.sjtu.edu.cn/rocky">https</a> | <a href="rsync://mirrors.sjtug.sjtu.edu.cn/rocky">rsync</a></td>
 <td>1000</td>
 <td>No</td>
 <td>Hosted by Shanghai Jiao Tong University Linux User Group.  Server Location: Shanghai, China. For downstream mirror maintainers,  please email <code>sjtug-mirror-maintainers@googlegroups.com</code> for request  before rsync from us.</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="基本系统"><a href="#基本系统" class="headerlink" title="基本系统"></a>基本系统</h2><p>Rocky Linux 国内镜像源更换方法如下。</p>
+<h2 id="基本系统-2">基本系统</h2>
+<p>Rocky Linux 国内镜像源更换方法如下。</p>
 <p>上海交通大学示例：</p>
 <p><code>mirror.sjtu.edu.cn</code> = <code>mirrors.sjtug.sjtu.edu.cn</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sed -e &#x27;s|^mirrorlist=|#mirrorlist=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirror.sjtu.edu.cn/rocky|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/[Rr]ocky*.repo</span><br><span class="line">    # 注意 8 系列 Rocky R 大些，9 系列 r 小写 (sysin)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复 (sysin)</span></span><br><span class="line">sed -e &#x27;s|^#mirrorlist=|mirrorlist=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^baseurl=https://mirror.sjtu.edu.cn/rocky|#baseurl=http://dl.rockylinux.org/$contentdir|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/[Rr]ocky*.repo</span><br></pre></td></tr></table></figure>
 <p>更换其他镜像，对应按照上面替换 Mirror Name 即可，注意路径 “/rocky”，但是阿里云镜像是 “/rockylinux”。</p>
 <p>阿里云示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sed -e &#x27;s|^mirrorlist=|#mirrorlist=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.aliyun.com/rockylinux|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/[Rr]ocky*.repo</span><br><span class="line">    # 注意 8 系列 Rocky R 大些，9 系列 r 小写 (sysin)</span><br><span class="line">    # 阿里云文档有误无法匹配：https://developer.aliyun.com/mirror/rockylinux</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复 (sysin)</span></span><br><span class="line">sed -e &#x27;s|^#mirrorlist=|mirrorlist=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^baseurl=https://mirrors.aliyun.com/rockylinux|#baseurl=http://dl.rockylinux.org/$contentdir|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/[Rr]ocky*.repo</span><br></pre></td></tr></table></figure>
-<h2 id="EPEL"><a href="#EPEL" class="headerlink" title="EPEL"></a>EPEL</h2><p>若安装了 epel，同时修改如下</p>
+<h2 id="EPEL-2">EPEL</h2>
+<p>若安装了 epel，同时修改如下</p>
 <p>上海交通大学 epel 示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意：上海交通大学地址多一个 fedora</span></span><br><span class="line">sed -e &#x27;s|^metalink=|#metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=https://download.example/pub|baseurl=https://mirror.sjtu.edu.cn/fedora|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel&#123;,-testing&#125;.repo</span><br><span class="line">    # 说明：之前为 /etc/yum.repos.d/epel*.repo，新版多了一个 epel-cisco-openh264.repo 无镜像，将其过滤</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复 (sysin)</span></span><br><span class="line">sed -e &#x27;s|^#metalink=|metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^baseurl=https://mirror.sjtu.edu.cn/fedora|#baseurl=https://download.example/pub|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel&#123;,-testing&#125;.repo</span><br><span class="line">    # 说明：之前为 /etc/yum.repos.d/epel*.repo，新版多了一个 epel-cisco-openh264.repo 无镜像，将其过滤</span><br></pre></td></tr></table></figure>
 <p>阿里云 epel 示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sed -e &#x27;s|^metalink=|#metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^#baseurl=https://download.example/pub|baseurl=https://mirrors.aliyun.com|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel&#123;,-testing&#125;.repo</span><br><span class="line">    # 说明：之前为 /etc/yum.repos.d/epel*.repo，新版多了一个 epel-cisco-openh264.repo 无镜像，将其过滤</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复 (sysin)</span></span><br><span class="line">sed -e &#x27;s|^#metalink=|metalink=|g&#x27; \</span><br><span class="line">    -e &#x27;s|^baseurl=https://mirrors.aliyun.com|#baseurl=https://download.example/pub|g&#x27; \</span><br><span class="line">    -i.bak \</span><br><span class="line">    /etc/yum.repos.d/epel&#123;,-testing&#125;.repo</span><br><span class="line">    # 说明：之前为 /etc/yum.repos.d/epel*.repo，新版多了一个 epel-cisco-openh264.repo 无镜像，将其过滤</span><br></pre></td></tr></table></figure>
 <p>其他替换地址如：</p>
 <ul>
-<li>mirrors.zju.edu.cn</li>
-<li>mirrors.nju.edu.cn（无 rocky）</li>
-<li>mirrors.ustc.edu.cn（无 almalinux）</li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.zju.edu.cn">mirrors.zju.edu.cn</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.nju.edu.cn">mirrors.nju.edu.cn</a>（无 rocky）</li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn">mirrors.ustc.edu.cn</a>（无 almalinux）</li>
 </ul>
 <p>补充：epel-cisco-openh264.repo 即 Cisco OpenH264 仓库似乎暂无国内镜像，速度慢禁用即可。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line">yum-config-manager --enable epel-cisco-openh264</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者编辑 /etc/yum.repos.d/epel-cisco-openh264.repo 修改 enabled=0</span></span><br></pre></td></tr></table></figure>
@@ -559,11 +563,20 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备注：yum=dnf</span></span><br><span class="line">yum clean all</span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line">yum makecache</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">yum autoremove <span class="comment">#此命令需要已经 makecache</span></span></span><br></pre></td></tr></table></figure>
 <p>相关产品：</p>
 <ul>
-<li><a href="/blog/rocky-linux-9/" title="Rocky Linux 9.5 正式版发布 - RHEL 100% 1:1 兼容免费发行版">Rocky Linux 9.5 正式版发布 - RHEL 100% 1:1 兼容免费发行版</a></li>
-<li><a href="/blog/rocky-linux-9-ovf/" title="Rocky Linux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板">Rocky Linux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a></li>
-<li><a href="/blog/rocky-linux-9-aarch64-ovf/" title="Rocky Linux 9 aarch64 OVF (sysin) - Apple silicon VMware 虚拟机模板">Rocky Linux 9 aarch64 OVF (sysin) - Apple silicon VMware 虚拟机模板</a></li>
-<li><a href="/blog/rocky-linux-8/" title="Rocky Linux 8.10 - CentOS 的权威替代">Rocky Linux 8.10 - CentOS 的权威替代</a></li>
-<li><a href="/blog/rocky-linux-8-ovf/" title="Rocky Linux 8.10 x86_64 OVF (sysin) - VMware 虚拟机模板">Rocky Linux 8.10 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+<li>
+<a href="/blog/rocky-linux-9/" title="Rocky Linux 9.5 正式版发布 - RHEL 100% 1:1 兼容免费发行版">Rocky Linux 9.5 正式版发布 - RHEL 100% 1:1 兼容免费发行版</a>
+</li>
+<li>
+<a href="/blog/rocky-linux-9-ovf/" title="Rocky Linux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板">Rocky Linux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/rocky-linux-9-aarch64-ovf/" title="Rocky Linux 9 aarch64 OVF (sysin) - Apple silicon VMware 虚拟机模板">Rocky Linux 9 aarch64 OVF (sysin) - Apple silicon VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/rocky-linux-8/" title="Rocky Linux 8.10 - CentOS 的权威替代">Rocky Linux 8.10 - CentOS 的权威替代</a>
+</li>
+<li>
+<a href="/blog/rocky-linux-8-ovf/" title="Rocky Linux 8.10 x86_64 OVF (sysin) - VMware 虚拟机模板">Rocky Linux 8.10 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
 </li>
 </ul>
 
@@ -686,7 +699,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -749,7 +762,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%98%E6%96%B9%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">官方镜像列表</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">基本系统</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#EPEL"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">EPEL</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%98%E6%96%B9%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">官方镜像列表</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B3%BB%E7%BB%9F-2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">基本系统</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#EPEL-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">EPEL</span></a></li></ol>
         
         </div>
       </aside>
@@ -771,9 +784,9 @@
             
             <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
             
-            <a class="tag" href="/tags/#RHEL" title="RHEL">RHEL</a>
-            
             <a class="tag" href="/tags/#CentOS" title="CentOS">CentOS</a>
+            
+            <a class="tag" href="/tags/#RHEL" title="RHEL">RHEL</a>
             
             <a class="tag" href="/tags/#RockyLinux" title="RockyLinux">RockyLinux</a>
             
@@ -995,7 +1008,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

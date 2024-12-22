@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> VMware ESXi 7.0 Update 2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" VMware ESXi 7.0 Update 2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> VMware ESXi 7.0 Update 2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" VMware ESXi 7.0 Update 2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" VMware ESXi 7.0 Update 2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/vmware-esxi-7-u2-sysin/">
+  <link rel="canonical" href="https://sysin.cn/blog/vmware-esxi-7-u2-sysin/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,16 +489,17 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/vmware-esxi-7-u2-sysin/" title="VMware ESXi 7.0 Update 2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动">VMware ESXi 7.0 Update 2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <blockquote>
 <p>2021.09.13 更新：OEM BIOS，支持 Windows Server 2022。</p>
 <p>2021.08.31 更新：集成 “vmkusb-nic-fling” 和 “nvme-community”，现在只有一个镜像。</p>
 <p>2021.06.16 更新：集成 community-networking-driver v1.2。</p>
 </blockquote>
-<h2 id="构建-Nano-Datacenter-的两大平台"><a href="#构建-Nano-Datacenter-的两大平台" class="headerlink" title="构建 Nano Datacenter 的两大平台"></a>构建 Nano Datacenter 的两大平台</h2><p>在测试环境或者家庭实验室（Home lab）中使用 VMware vSphere 作为虚拟化平台非常普遍，笔者更倾向使用 Nano Datacenter 这个词汇来指代这种环境。构建 Nano Datacenter 通常有两大平台即：Apple Mac mini 和 Intel NUC。</p>
+<h2 id="构建-Nano-Datacenter-的两大平台">构建 Nano Datacenter 的两大平台</h2>
+<p>在测试环境或者家庭实验室（Home lab）中使用 VMware vSphere 作为虚拟化平台非常普遍，笔者更倾向使用 Nano Datacenter 这个词汇来指代这种环境。构建 Nano Datacenter 通常有两大平台即：Apple Mac mini 和 Intel NUC。</p>
 <p><img src="/blog/vmware-esxi-7-sysin/nuc8-vs-mac-mini.webp" alt="NUC 8 对比 Mac mini 2018"></p>
-<p>  图：NUC 8 对比 Mac mini 2018（图片来源网络）</p>
+<p>图：NUC 8 对比 Mac mini 2018（图片来源网络）</p>
 <p>我们在这里了解一下当前 VMware ESXi 7.0 Update 2 对两种平台的支持情况。</p>
 <p>Apple Mac mini 可以在 VMware 官方 HCL 查询到详细信息 (sysin)：</p>
 <p><img src="/blog/vmware-esxi-7-sysin/apple-mac-vmware-hcl-u2.webp" alt="Apple Mac VMware HCL"></p>
@@ -506,17 +509,20 @@
 <li>Local NVMe storage is not supported by ESXi. Limited Thunderbolt 3 (TB3) support enabled. Hot-add or removal and passthrough with TB3 connected devices are not supported. ESXi can be installed/booted on USB flash drive or on TB3 connected storage devices (e.g., PCIe NVMe Adapter, PCIe M.2 SSD, USB etc.,)</li>
 </ul>
 <p><img src="/blog/vmware-esxi-7-sysin/nuc9-vs-mac-mini.webp" alt="NUC 9 对比 Mac mini 2018"></p>
-<p>  图：NUC 9 对比 Mac mini 2018（图片来源网络）</p>
+<p>图：NUC 9 对比 Mac mini 2018（图片来源网络）</p>
 <p>Intel NUC 并不在官方支持列表中，所以如果是要更新现有系统，请额外小心，<strong>这不是官方支持的平台，笔者提供的定制版镜像建议用于全新安装。</strong></p>
 <p>ESXi 7.0 U2 附带了一个新的 ne1000 驱动程序，根据 VMware 专家的描述，相比上一个版本对 NUC 兼容性没有任何更改。兼容性如下：</p>
 <ul>
-<li><p>兼容 10 代 NUC 及之前的所有产品，除了第 8 代 NUC [Bean Canyon] 中使用的 Intel I219-V（6）网络适配器仍然需要 community-networking-driver。</p>
+<li>
+<p>兼容 10 代 NUC 及之前的所有产品，除了第 8 代 NUC [Bean Canyon] 中使用的 Intel I219-V（6）网络适配器仍然需要 community-networking-driver。</p>
 </li>
-<li><p>对于 11 代 NUC，如果使用 2.5G 网卡，仍然需要使用 community-networking-driver。</p>
+<li>
+<p>对于 11 代 NUC，如果使用 2.5G 网卡，仍然需要使用 community-networking-driver。</p>
 </li>
 </ul>
 <p>USB Nic Fling 已经构建 7.0 U2 的兼容版本，现在可以使用 USB 外置网卡，本镜像已经集成。</p>
-<h2 id="Intel-NUC-兼容性"><a href="#Intel-NUC-兼容性" class="headerlink" title="Intel NUC 兼容性"></a>Intel NUC 兼容性</h2><p>该镜像集成网卡驱动主要是针对以下 NUC，如果您的 NUC 属于内置驱动支持的型号，直接使用标准的 ESXi 镜像即可（当然该版本也可以通用）。</p>
+<h2 id="Intel-NUC-兼容性">Intel NUC 兼容性</h2>
+<p>该镜像集成网卡驱动主要是针对以下 NUC，如果您的 NUC 属于内置驱动支持的型号，直接使用标准的 ESXi 镜像即可（当然该版本也可以通用）。</p>
 <p>ESXi 7.0 U2 集成 Community Network Driver 用于 8th Gen Bean Canyon / 11th Gen NUC，如下型号：</p>
 <ul>
 <li><strong>NUC8i7BEH/NUC8i7BEK</strong> (Intel Core i7-8559U - 4 Core, up to 4.5 GHz)</li>
@@ -524,14 +530,14 @@
 <li><strong>NUC8i3BEH/NUC8i3BEK</strong> (Intel Core i3-8109U - 2 Core, up to 3.6 GHz)</li>
 <li><strong>11th Gen NUC</strong> (NUC11PAQi7, NUC11PAHi7, NUC11PAKi7, NUC11PAQi5, NUC11PAHi5, NUC11PAKi5, NUC11PAHi3, NUC11PAKi3, NUC11TNHv70L, NUC11TNHv7, NUC11TNHv50L, NUC11TNHv5, NUC11TNKv7, NUC11TNKv5, NUC11TNHi70Q, NUC11TNHi70L, NUC11TNHi7, NUC11TNHi50W, NUC11TNHi50L, NUC11TNHi5, NUC11TNHi30P, NUC11TNHi30L, NUC11TNHi3, NUC11TNKi7, NUC11TNKi5, NUC11TNKi3)</li>
 </ul>
-<h2 id="集成-Community-Network-Driver"><a href="#集成-Community-Network-Driver" class="headerlink" title="集成 Community Network Driver"></a>集成 Community Network Driver</h2><p>ESXi 7.0 U2 集成 Community Network Driver 用于 8th Gen Bean Canyon / 11th Gen NUC，因为现在两个 iso 合而为一，不用再区分。</p>
+<h2 id="集成-Community-Network-Driver">集成 Community Network Driver</h2>
+<p>ESXi 7.0 U2 集成 Community Network Driver 用于 8th Gen Bean Canyon / 11th Gen NUC，因为现在两个 iso 合而为一，不用再区分。</p>
 <p>2021.05.19，Community Networking Driver for ESXi version 1.2 系统要求及支持的网卡如下 (sysin)：</p>
 <ul>
 <li>VMware ESXi 7.0 (x86) or newer is required</li>
 <li>Any PCIe network adapters with VID/PID listed below are supported</li>
 </ul>
 <p><strong>igc-community:</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -556,9 +562,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>e1000-community:</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -691,13 +695,12 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="USB-网卡兼容性"><a href="#USB-网卡兼容性" class="headerlink" title="USB 网卡兼容性"></a>USB 网卡兼容性</h2><p>6 月 14 日，适用于 ESXi 的 USB 网络原生驱动程序（USB Network Native Driver for ESXi Fling）现已更新至 v1.8，主要增加了对 ESXi 7.0 Update 2 的支持！</p>
+<h2 id="USB-网卡兼容性">USB 网卡兼容性</h2>
+<p>6 月 14 日，适用于 ESXi 的 USB 网络原生驱动程序（USB Network Native Driver for ESXi Fling）现已更新至 v1.8，主要增加了对 ESXi 7.0 Update 2 的支持！</p>
 <ul>
 <li>VMware ESXi 6.5, 6.7 &amp; 7.0 (x86)</li>
 <li>Any adapters using the following chipsets and with the following VID/PID are supported.</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -836,14 +839,13 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="集成-NVMe-驱动"><a href="#集成-NVMe-驱动" class="headerlink" title="集成 NVMe 驱动"></a>集成 NVMe 驱动</h2><p>2021.07.12，Community NVMe Driver for ESXi 更新，可适用于最新的 ESXi 7.0 Update 2，并支持以下存储设备：</p>
+<h2 id="集成-NVMe-驱动">集成 NVMe 驱动</h2>
+<p>2021.07.12，Community NVMe Driver for ESXi 更新，可适用于最新的 ESXi 7.0 Update 2，并支持以下存储设备：</p>
 <p><strong>Non-Apple NVMe:</strong></p>
 <ul>
 <li>VMware ESXi 7.0 (x86) or newer is required</li>
 <li>Any NVMe storage devices with VID/PID listed below are supported</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -870,8 +872,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="通用特性概览"><a href="#通用特性概览" class="headerlink" title="通用特性概览"></a>通用特性概览</h2><p>除了上述驱动兼容性的增加，本镜像主要增加了以下特性：</p>
+<h2 id="通用特性概览-2">通用特性概览</h2>
+<p>除了上述驱动兼容性的增加，本镜像主要增加了以下特性：</p>
 <ul>
 <li>macOS Unlocker：来自 GitHub 的 Unlocker 3，现已支持 macOS Monterey</li>
 <li>OEM BIOS：使用社区最流行的 OEM BIOS/EFI64，现已支持 Windows Server 2022</li>
@@ -879,7 +881,8 @@
 <li>ESX-OSData 卷大小修改为 4G，解决 ESXi 7.0 默认安装占用磁盘空间过大的问题（超过 142GB）</li>
 </ul>
 <p>关于具体说明可以参看：<a href="/blog/vmware-esxi-7-u2-oem/" title="VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>，这里不再赘述。</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>镜像基于官方原版，内置 60 天试用许可，驱动来自 VMware 及其合作伙伴公开的免费发行包，技术参数修改参考官方文档或者来自（开源）社区的分享。该镜像仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</p>
+<h2 id="下载地址-447">下载地址</h2>
+<p>镜像基于官方原版，内置 60 天试用许可，驱动来自 VMware 及其合作伙伴公开的免费发行包，技术参数修改参考官方文档或者来自（开源）社区的分享。该镜像仅供个人学习和研究使用，请遵循原产品使用协议，违者后果自负。</p>
 <p>VMware ESXi 7.0 U2 Unlocker &amp; OEM BIOS 集成 Intel 网卡、USB 网卡和 NVMe 驱动</p>
 <p>百度网盘链接：<code>[EoD]</code></p>
 <blockquote>
@@ -887,12 +890,14 @@
 </blockquote>
 <p>标准版和厂商定制版，请访问：</p>
 <ul>
-<li><a href="/blog/vmware-esxi-7-u2-oem/" title="VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
+<li>
+<a href="/blog/vmware-esxi-7-u2-oem/" title="VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 7.0 Update 2 macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
 </li>
 </ul>
 <p>官方原版，请访问：</p>
 <ul>
-<li><a href="/blog/vmware-vsphere-7-u2/" title="VMware vSphere 7 Update 2 下载">VMware vSphere 7 Update 2 下载</a>
+<li>
+<a href="/blog/vmware-vsphere-7-u2/" title="VMware vSphere 7 Update 2 下载">VMware vSphere 7 Update 2 下载</a>
 </li>
 </ul>
 <p>新版已发布：<a href="/blog/vmware-esxi-8-sysin/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a></p>
@@ -1017,7 +1022,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1080,7 +1085,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9E%84%E5%BB%BA-Nano-Datacenter-%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%B9%B3%E5%8F%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">构建 Nano Datacenter 的两大平台</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Intel-NUC-%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Intel NUC 兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%9B%86%E6%88%90-Community-Network-Driver"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">集成 Community Network Driver</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#USB-%E7%BD%91%E5%8D%A1%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">USB 网卡兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%9B%86%E6%88%90-NVMe-%E9%A9%B1%E5%8A%A8"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">集成 NVMe 驱动</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E7%94%A8%E7%89%B9%E6%80%A7%E6%A6%82%E8%A7%88"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">通用特性概览</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9E%84%E5%BB%BA-Nano-Datacenter-%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%B9%B3%E5%8F%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">构建 Nano Datacenter 的两大平台</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Intel-NUC-%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Intel NUC 兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%9B%86%E6%88%90-Community-Network-Driver"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">集成 Community Network Driver</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#USB-%E7%BD%91%E5%8D%A1%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">USB 网卡兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%9B%86%E6%88%90-NVMe-%E9%A9%B1%E5%8A%A8"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">集成 NVMe 驱动</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%9A%E7%94%A8%E7%89%B9%E6%80%A7%E6%A6%82%E8%A7%88-2"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">通用特性概览</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-447"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
@@ -1324,7 +1329,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

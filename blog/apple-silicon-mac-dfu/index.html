@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 使用 DFU 模式修复或恢复 Mac 固件 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 使用 DFU 模式修复或恢复 Mac 固件 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 使用 DFU 模式修复或恢复 Mac 固件 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 使用 DFU 模式修复或恢复 Mac 固件 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 使用 DFU 模式修复或恢复 Mac 固件 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/apple-silicon-mac-dfu/">
+  <link rel="canonical" href="https://sysin.cn/blog/apple-silicon-mac-dfu/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,7 +489,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/apple-silicon-mac-dfu/" title="使用 DFU 模式修复或恢复 Mac 固件">使用 DFU 模式修复或恢复 Mac 固件</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>Mac computers with Apple silicon，简称 Apple silicon Mac，中文翻译为 “搭载 Apple 芯片的 Mac 电脑”。</p>
 <p><img src="mac-card-100-customize-202310.webp" alt="一系列 Mac 机型，展示不同的尺寸和设计。"></p>
@@ -502,7 +504,8 @@
 <p>2021.05.25 更新：增加了新机型 iMac (24 英寸, M1, 2021 年) 相关内容。</p>
 <p>本文最初基于 2020 年搭载 Apple M1 芯片的 Mac 写作，新版硬件相关特性可能有所变更，若有不当之处请指正，谢谢。</p>
 </blockquote>
-<h2 id="一、了解-Apple-silicon-Mac-的新特性"><a href="#一、了解-Apple-silicon-Mac-的新特性" class="headerlink" title="一、了解 Apple silicon Mac 的新特性"></a>一、了解 Apple silicon Mac 的新特性</h2><p>与基于 Intel 处理器的 Mac 相比，搭载 Apple 芯片 Mac 在系统和固件方面有一定的变化。</p>
+<h2 id="一、了解-Apple-silicon-Mac-的新特性">一、了解 Apple silicon Mac 的新特性</h2>
+<p>与基于 Intel 处理器的 Mac 相比，搭载 Apple 芯片 Mac 在系统和固件方面有一定的变化。</p>
 <p>1、<strong>了解 Apple silicon Mac 机型</strong></p>
 <p>本任务适用以下搭载 Apple 芯片的 Mac 电脑：</p>
 <p>从 2020 年末推出的某些机型开始，Apple 开启了 Mac 电脑从 Intel 处理器到 Apple 芯片的过渡。2023 年 6 月搭载 Apple 芯片的新款 15 英寸 MacBook Air、Mac Studio 和 Mac Pro 现已正式发售。随着 Mac Pro 配备 M2 Ultra 芯片，Mac 产品系列过渡至 Apple 芯片的计划至此大功告成。</p>
@@ -525,16 +528,19 @@
 <li><strong>Apple 芯片</strong>：将 Mac 开机并继续按住电源按钮，直至看到启动选项窗口 (sysin)，其中包含一个标有 “选项”（Option）字样的齿轮图标。选择 “选项”，然后点按 “继续”。</li>
 <li><strong>Intel 处理器</strong>：确保您的 Mac 已连接到互联网。然后，将 Mac 开机并立即按住 Command (⌘) + R，直至看到 Apple 标志或其他图像。</li>
 </ul>
-<p><img src="apple-ailicon-macos-recovery.webp" alt="macOS Recovery"><br><em>Apple silicon Mac 启动管理器</em></p>
+<p><img src="apple-ailicon-macos-recovery.webp" alt="macOS Recovery"><br>
+<em>Apple silicon Mac 启动管理器</em></p>
 <p>3、<strong>Apple silicon System Recovery（新特性）</strong></p>
 <p>Apple silicon System Recovery 是除了 macOS Recovery 之外的一个新的隐藏恢复选项。如果由于某种原因 macOS Recovery 损坏，System recovery 将与 macOS Recovery 相同的方式加载 (sysin)。您可以使用它重新安装 macOS 和 macOS Recovery。</p>
 <p>如果 macOS 和 System Revovery 都被破坏：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211868">如果您的 Mac 在启动时出现一个圆圈围绕的感叹号</a></p>
 <p>4、<strong>Internet Recovery 已废弃</strong></p>
 <p>对比：</p>
 <ul>
-<li><p><strong>Apple 芯片</strong>：不存在</p>
+<li>
+<p><strong>Apple 芯片</strong>：不存在</p>
 </li>
-<li><p><strong>Intel 处理器</strong>：</p>
+<li>
+<p><strong>Intel 处理器</strong>：</p>
 <ul>
 <li>Option-Command-R：通过互联网从 macOS 恢复启动。使用此按键组合来重新安装 macOS 并升级到与您 Mac 兼容的最新版本 macOS。</li>
 <li>Option-Shift-Command-R：通过互联网从 macOS 恢复启动。使用此按键组合来重新安装随 Mac 预装的 macOS 版本或仍可用的最接近版本。</li>
@@ -544,12 +550,16 @@
 <p>5、<strong>Mac Sharing Mode（共享磁盘模式）替代了 Target Disk Mode（目标磁盘模式）</strong></p>
 <p>注意：建议使用雷雳 3 或雷雳 4 连接线，否则速度堪忧 (sysin)。</p>
 <ul>
-<li><p><strong>Apple 芯片</strong>：长按电源键进入 “选项” &gt; 进入恢复模式 &gt; 菜单 “实用工具” &gt; “共享磁盘”。<br> 链接：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchlb37e8ca7/11.0/mac/11.0">在搭载 Apple 芯片的 Mac 和另一台 Mac 之间传输文件</a></p>
+<li>
+<p><strong>Apple 芯片</strong>：长按电源键进入 “选项” &gt; 进入恢复模式 &gt; 菜单 “实用工具” &gt; “共享磁盘”。<br>
+链接：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchlb37e8ca7/11.0/mac/11.0">在搭载 Apple 芯片的 Mac 和另一台 Mac 之间传输文件</a></p>
 <ol>
 <li>用 USB、USB-C 或雷雳线缆将两台电脑连接起来。</li>
 <li>在搭载 Apple 芯片的 Mac 上，选取苹果菜单  &gt; “关机”。</li>
 <li>按住电源按钮直至 “正在载入启动选项” 出现。</li>
-<li>点按 “选项”，然后点按 “继续”。<br>如有要求，请输入管理员帐户的密码。<br>Mac 将以恢复模式打开。</li>
+<li>点按 “选项”，然后点按 “继续”。<br>
+如有要求，请输入管理员帐户的密码。<br>
+Mac 将以恢复模式打开。</li>
 <li>选取 “实用工具” &gt; “共享磁盘”。</li>
 <li>选择要共享的磁盘或宗卷，然后点按 “开始共享”。</li>
 <li>在另一台 Mac 上，打开 “访达” 窗口，然后点按边栏中的 “网络”（在 “位置” 下方）。</li>
@@ -558,16 +568,21 @@
 <li>文件传输完成后，推出另一台 Mac 上的磁盘。</li>
 </ol>
 </li>
-<li><p><strong>Intel 处理器</strong>：同时按住电源键和 T 键。<br> 链接：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchlp1443/11.0/mac/11.0">使用目标磁盘模式在两台 Mac 电脑之间传输文件</a></p>
+<li>
+<p><strong>Intel 处理器</strong>：同时按住电源键和 T 键。<br>
+链接：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/mchlp1443/11.0/mac/11.0">使用目标磁盘模式在两台 Mac 电脑之间传输文件</a></p>
 <ol>
 <li>用 FireWire 或雷雳线缆将两台电脑连接起来。</li>
-<li>在要以目标磁盘模式用作磁盘的 Mac 上，请执行以下一项操作：<ul>
+<li>在要以目标磁盘模式用作磁盘的 Mac 上，请执行以下一项操作：
+<ul>
 <li>如果电脑关闭，则在按住 T 键的同时启动它。</li>
-<li>如果电脑已开机，请选取苹果菜单  &gt; “系统偏好设置”，点按 “启动磁盘”，然后点按 “目标磁盘模式”。<br>当电脑启动后，就会在另一台电脑的桌面上出现一个磁盘图标。</li>
+<li>如果电脑已开机，请选取苹果菜单  &gt; “系统偏好设置”，点按 “启动磁盘”，然后点按 “目标磁盘模式”。<br>
+当电脑启动后，就会在另一台电脑的桌面上出现一个磁盘图标。</li>
 </ul>
 </li>
 <li>您可以将文件拖入或拖出磁盘来传输它们。</li>
-<li>将磁盘图标拖移到废纸篓，将其推出。<br>在拖移时，废纸篓图标会变为 “推出” 图标。</li>
+<li>将磁盘图标拖移到废纸篓，将其推出。<br>
+在拖移时，废纸篓图标会变为 “推出” 图标。</li>
 <li>在用作磁盘的 Mac 上，按下电源按钮将它关闭，然后断开电缆连接。</li>
 </ol>
 </li>
@@ -575,16 +590,20 @@
 <p>6、<strong>安全模式（启动方式不同）</strong></p>
 <p>操作方式如下 (sysin)：</p>
 <ul>
-<li><p>以安全模式启动配备 Intel 处理器的 Mac</p>
+<li>
+<p>以安全模式启动配备 Intel 处理器的 Mac</p>
 <ol>
-<li>在 Mac 上，选取苹果菜单  &gt; “关机”。<br>Mac 关机后，等待 10 秒钟。</li>
+<li>在 Mac 上，选取苹果菜单  &gt; “关机”。<br>
+Mac 关机后，等待 10 秒钟。</li>
 <li>重新启动 Mac，然后立即按住 Shift 键。</li>
 <li>看到登录窗口时松开 Shift 键。</li>
 </ol>
 </li>
-<li><p>以安全模式启动搭载 Apple 芯片的 Mac</p>
+<li>
+<p>以安全模式启动搭载 Apple 芯片的 Mac</p>
 <ol>
-<li>在 Mac 上，选取苹果菜单  &gt; “关机”。<br>Mac 关机后，等待 10 秒钟。</li>
+<li>在 Mac 上，选取苹果菜单  &gt; “关机”。<br>
+Mac 关机后，等待 10 秒钟。</li>
 <li>按住电源按钮直至启动磁盘和 “选项” 出现。</li>
 <li>按住 Shift 键，然后在安全模式中点按 “继续”。</li>
 </ol>
@@ -593,9 +612,11 @@
 <p>7、<strong>Apple silicon Mac “外部启动” 默认开启</strong></p>
 <p>参看：</p>
 <ul>
-<li><p><strong>Apple 芯片</strong>：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/change-security-settings-startup-disk-a-mac-mchl768f7291/mac">在搭载 Apple 芯片的 Mac 上更改安全性设置</a>。</p>
+<li>
+<p><strong>Apple 芯片</strong>：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/mac-help/change-security-settings-startup-disk-a-mac-mchl768f7291/mac">在搭载 Apple 芯片的 Mac 上更改安全性设置</a>。</p>
 </li>
-<li><p><strong>Intel 处理器</strong>：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">打开 “启动安全性实用工具”</a></p>
+<li>
+<p><strong>Intel 处理器</strong>：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198">打开 “启动安全性实用工具”</a></p>
 </li>
 </ul>
 <p>8、<strong>macOS IPSW 软件包</strong></p>
@@ -613,7 +634,8 @@
 <ol>
 <li><strong>macOS Recovery</strong></li>
 <li><strong>System Recovery</strong> - (如果 macOS Recovery 不可用，将自动启动)</li>
-<li><strong>macOS USB 启动安装</strong> - (“<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198#open">外部启动</a>” 默认开启，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201372">操作方式</a> 并无变化，除了引导安装器的按键不同)<ul>
+<li><strong>macOS USB 启动安装</strong> - (“<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208198#open">外部启动</a>” 默认开启，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201372">操作方式</a> 并无变化，除了引导安装器的按键不同)
+<ul>
 <li>Intel 处理器：将 Mac 开机或重新启动后，立即按住 <strong>Option (Alt) ⌥ 键</strong>。出现可引导宗卷的黑屏时，松开 Option 键。</li>
 <li>Apple 芯片：将 Mac 开机并继续按住 <strong>电源按钮</strong>，直到看到启动选项窗口，其中会显示可引导宗卷。</li>
 </ul>
@@ -622,55 +644,70 @@
 <li><strong>Finder (macOS 14+) 或 Apple Configurator 2 RESTORE（恢复）选项</strong> - 将重新安装 macOS Recovery, 将抹掉整个磁盘重新安装 macOS，当然用户数据也会抹掉</li>
 </ol>
 <p>本文主要描述使用 Finder (macOS 14+) 或 Apple Configurator 2 恢复系统。</p>
-<h2 id="二、准备和要求"><a href="#二、准备和要求" class="headerlink" title="二、准备和要求"></a>二、准备和要求</h2><p>我们需要一台额外的 Mac 才能完成相关任务，这里称之为 “主 Mac”。我们将要被修复或恢复的 Mac 称之为 “目标 Mac”。</p>
+<h2 id="二、准备和要求">二、准备和要求</h2>
+<p>我们需要一台额外的 Mac 才能完成相关任务，这里称之为 “主 Mac”。我们将要被修复或恢复的 Mac 称之为 “目标 Mac”。</p>
 <ol>
-<li><p>一台额外的 Mac，我们这里称之为 “主 Mac”，配备 Type-C 接口，Intel 处理器和 Apple 芯片的机型都可以，笔记本电脑和台式电脑都可以。</p>
+<li>
+<p>一台额外的 Mac，我们这里称之为 “主 Mac”，配备 Type-C 接口，Intel 处理器和 Apple 芯片的机型都可以，笔记本电脑和台式电脑都可以。</p>
 </li>
-<li><p>“主 Mac” 系统版本 macOS Monterey 12.4 及以上（建议当前最新版）。</p>
+<li>
+<p>“主 Mac” 系统版本 macOS Monterey 12.4 及以上（建议当前最新版）。</p>
 </li>
-<li><p>如果 “主 Mac” 系统为 macOS Monterey 或 macOS Ventura 需要下载 <a target="_blank" rel="noopener" href="https://apps.apple.com/app/apple-configurator-2/id1037126344?mt=12">Apple Configurator 2</a>。macOS Sonoma 及更新版本使用 “访达”。</p>
+<li>
+<p>如果 “主 Mac” 系统为 macOS Monterey 或 macOS Ventura 需要下载 <a target="_blank" rel="noopener" href="https://apps.apple.com/app/apple-configurator-2/id1037126344?mt=12">Apple Configurator 2</a>。macOS Sonoma 及更新版本使用 “访达”。</p>
 </li>
-<li><p>在 “主 Mac” 上下载 macOS IPSW 格式软件。</p>
+<li>
+<p>在 “主 Mac” 上下载 macOS IPSW 格式软件。</p>
 <ul>
-<li><a href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a></li>
-<li><a href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a></li>
-<li><a href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a></li>
-<li><a href="https://sysin.org/blog/macOS-Monterey/">macOS Monterey</a></li>
-<li><a href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur</a></li>
+<li><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a></li>
+<li><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a></li>
+<li><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a></li>
+<li><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Monterey/">macOS Monterey</a></li>
+<li><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur</a></li>
 </ul>
 <p>Apple Configurator 2 将自动下载最新版 IPSW 固件（类似 iOS），推荐手动下载到本地（可以指定版本，并且速度更快）。</p>
 </li>
-<li><p><strong>USB-C to USB-C Cable</strong>：同时支持数据传输和充电的 USB-C 至 USB-C 连接线，例如部分 Apple 产品随附的 Apple USB-C 充电线。包括雷雳 4、雷雳 / USB 4、雷雳 3 或 USB 3。</p>
+<li>
+<p><strong>USB-C to USB-C Cable</strong>：同时支持数据传输和充电的 USB-C 至 USB-C 连接线，例如部分 Apple 产品随附的 Apple USB-C 充电线。包括雷雳 4、雷雳 / USB 4、雷雳 3 或 USB 3。</p>
 <p>Apple 官方文档中表示 USB-C 连接线必须 “同时支持数据传输和充电”，“请勿使用雷雳 3 充电线”，常规雷雳 3 线缆当然同时支持电源和数据。</p>
 <p>早期有 “支持的 USB-A 转 USB-C 连接线”，也就是说支持 macOS Monterey 的带 USB-A 端口的主 Mac 也是支持的，不过此类机型已经或者即将停止软件更新支持，故本文不将其明确列入要求。</p>
 </li>
-<li><p>线缆的连接：“主 Mac” 可以任意 C 口，目标 Mac（要被修复或恢复的 Mac）必须是指定 C 口即 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">DFU 端口</a>”（点击查看官方说明）。</p>
+<li>
+<p>线缆的连接：“主 Mac” 可以任意 C 口，目标 Mac（要被修复或恢复的 Mac）必须是指定 C 口即 “<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">DFU 端口</a>”（点击查看官方说明）。</p>
 </li>
-<li><p>确保两台电脑都已接入电源，有效的互联网连接。</p>
+<li>
+<p>确保两台电脑都已接入电源，有效的互联网连接。</p>
 </li>
 </ol>
-<h2 id="三、准备目标-Mac-电脑以进行修复或恢复"><a href="#三、准备目标-Mac-电脑以进行修复或恢复" class="headerlink" title="三、准备目标 Mac 电脑以进行修复或恢复"></a>三、准备目标 Mac 电脑以进行修复或恢复</h2><h3 id="准备笔记本电脑以进行修复或恢复"><a href="#准备笔记本电脑以进行修复或恢复" class="headerlink" title="准备笔记本电脑以进行修复或恢复"></a>准备笔记本电脑以进行修复或恢复</h3><p>如果要修复或恢复的目标 Mac 是笔记本，请按照如下步骤操作。</p>
+<h2 id="三、准备目标-Mac-电脑以进行修复或恢复">三、准备目标 Mac 电脑以进行修复或恢复</h2>
+<h3 id="准备笔记本电脑以进行修复或恢复">准备笔记本电脑以进行修复或恢复</h3>
+<p>如果要修复或恢复的目标 Mac 是笔记本，请按照如下步骤操作。</p>
 <p>你将使用 USB-C 连接线来连接两台电脑，然后在目标电脑上进入 DFU（设备固件更新）模式。</p>
 <ol>
-<li><p>确保两台电脑都已接入电源。</p>
+<li>
+<p>确保两台电脑都已接入电源。</p>
 </li>
-<li><p>在目标 MacBook Pro 或 MacBook Air 上，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">识别 DFU 端口</a>，然后将 USB-C 连接线插入这个端口。</p>
+<li>
+<p>在目标 MacBook Pro 或 MacBook Air 上，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">识别 DFU 端口</a>，然后将 USB-C 连接线插入这个端口。</p>
 </li>
-<li><p>在主 Mac 上：</p>
+<li>
+<p>在主 Mac 上：</p>
 <ul>
 <li>将 USB-C 连接线的另一端插入任一 USB-C 端口。</li>
 <li>确保这台 Mac 已接入互联网。</li>
 <li>如果这台 Mac 运行的是 macOS Ventura 或 macOS Monterey，请打开 Apple Configurator。</li>
 </ul>
 </li>
-<li><p>在目标 Mac 上，进入 DFU 模式：</p>
+<li>
+<p>在目标 Mac 上，进入 DFU 模式：</p>
 <p>a. 按住电源按钮最多 10 秒钟，直到 Mac 关机。（如果 Mac 配有触控 ID 按钮，这个按钮也是电源按钮。）如果 Mac 反而开机了，请重复这个步骤。</p>
-<p>b. 按下并松开电源按钮，然后<em>立即</em>同时按住内建键盘上的以下四个按键：</p>
+<p>b. 按下并松开电源按钮，然后_立即_同时按住内建键盘上的以下四个按键：</p>
 <ul>
 <li>键盘左侧的 Control ⌃ 键</li>
 <li>键盘左侧的 Option ⌥ 键</li>
 <li>键盘右侧的 Shift ⇧ 键</li>
-<li>电源按钮<br><img src="https://cdsassets.apple.com/live/7WUAS350/images/mac-os/sonoma/macbook-pro-keyboard-dfu-mode-startup-keyboard-combination-diagram.png" alt="MacBook Pro 键盘，显示了要按的四个按键"></li>
+<li>电源按钮<br>
+<img src="https://cdsassets.apple.com/live/7WUAS350/images/mac-os/sonoma/macbook-pro-keyboard-dfu-mode-startup-keyboard-combination-diagram.png" alt="MacBook Pro 键盘，显示了要按的四个按键"></li>
 </ul>
 <p>c. 搭载 Apple 芯片的 Mac 笔记本电脑：</p>
 <ul>
@@ -679,29 +716,39 @@
 </ul>
 <p>d. 搭载 T2 芯片的 Mac 笔记本电脑：按住所有这四个按键约 3 秒钟。当另一台 Mac 在 “访达” 或 Apple Configurator 中显示 DFU 窗口时，请松开所有按键。如果那台 Mac 先显示一条提醒，询问你是不是允许配件进行连接，请松开所有按键并点按 “允许”。目标 Mac 现在会进入 DFU 模式，并且应该会显示空白屏幕。</p>
 </li>
-<li><p>请按照下面的步骤使用 “访达” 或 Apple Configurator 进行修复或恢复。</p>
+<li>
+<p>请按照下面的步骤使用 “访达” 或 Apple Configurator 进行修复或恢复。</p>
 </li>
 </ol>
-<h3 id="准备台式电脑以进行修复或恢复"><a href="#准备台式电脑以进行修复或恢复" class="headerlink" title="准备台式电脑以进行修复或恢复"></a>准备台式电脑以进行修复或恢复</h3><p>如果要修复或恢复的目标 Mac 是台式机（iMac、Mac mini、Mac Studio 或 Mac Pro），请按照如下步骤操作。</p>
+<h3 id="准备台式电脑以进行修复或恢复">准备台式电脑以进行修复或恢复</h3>
+<p>如果要修复或恢复的目标 Mac 是台式机（iMac、Mac mini、Mac Studio 或 Mac Pro），请按照如下步骤操作。</p>
 <p>你将使用 USB-C 连接线来连接两台电脑，然后在目标电脑上进入 DFU（设备固件更新）模式。</p>
 <ol>
-<li><p>在目标 Mac 上，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">识别 DFU 端口</a>，然后将 USB-C 连接线插入这个端口。</p>
+<li>
+<p>在目标 Mac 上，<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/120694">识别 DFU 端口</a>，然后将 USB-C 连接线插入这个端口。</p>
 </li>
-<li><p>在主 Mac 上：</p>
+<li>
+<p>在主 Mac 上：</p>
 <ul>
 <li>将 USB-C 连接线的另一端插入任一 USB-C 端口。</li>
 <li>确保这台 Mac 已接入电源和互联网 *。</li>
 <li>如果这台 Mac 运行的是 macOS Ventura 或 macOS Monterey，请打开 Apple Configurator。</li>
 </ul>
 </li>
-<li><p>在目标 Mac 上，进入 DFU 模式：</p>
-<p>a. 拔下 Mac 的电源线。<br>b. 按住电源按钮。<br>c. 继续按住电源按钮，同时将 Mac 接入电源，然后继续按住电源按钮最多 10 秒钟。当另一台 Mac 在 “访达” 或 Apple Configurator 中显示 DFU 窗口时，请松开电源按钮。如果那台 Mac 先显示一条提醒，询问你是不是允许配件进行连接，请松开电源按钮并点按 “允许”。目标 Mac 现在会进入 DFU 模式，并且应该会显示空白屏幕。</p>
+<li>
+<p>在目标 Mac 上，进入 DFU 模式：</p>
+<p>a. 拔下 Mac 的电源线。<br>
+b. 按住电源按钮。<br>
+c. 继续按住电源按钮，同时将 Mac 接入电源，然后继续按住电源按钮最多 10 秒钟。当另一台 Mac 在 “访达” 或 Apple Configurator 中显示 DFU 窗口时，请松开电源按钮。如果那台 Mac 先显示一条提醒，询问你是不是允许配件进行连接，请松开电源按钮并点按 “允许”。目标 Mac 现在会进入 DFU 模式，并且应该会显示空白屏幕。</p>
 </li>
-<li><p>请按照下面的步骤使用 “访达” 或 Apple Configurator 进行修复或恢复。</p>
+<li>
+<p>请按照下面的步骤使用 “访达” 或 Apple Configurator 进行修复或恢复。</p>
 </li>
 </ol>
-<h3 id="关于-DFU-模式的补充"><a href="#关于-DFU-模式的补充" class="headerlink" title="关于 DFU 模式的补充"></a>关于 DFU 模式的补充</h3><ol>
-<li><p>验证状态</p>
+<h3 id="关于-DFU-模式的补充">关于 DFU 模式的补充</h3>
+<ol>
+<li>
+<p>验证状态</p>
 <p>事实证明，有时候让 Apple silicon Mac 进入 DFU 模式并不那么容易。往往需要按照 Apple 的描述多尝试几次，如果无法进入 DFU 模式需要重新开始，以下几个要点请参考：</p>
 <p>a. 目标 Mac 必须关机才能开始。</p>
 <p>b. 同时按住 <strong>电源键</strong>、<strong>右 Shift 键</strong>、<strong>左 Control 键</strong> 和 <strong>左 Option</strong> 键 10 秒（看着打开 Apple Configurator 2 的画面计数，可以让电脑显示秒数）然后松开除电源键以外的所有键 (sysin)。继续按住电源按钮 8 秒，整个过程 18 秒。如果计数超过 20 秒并且没有看到 DFU 图标，需要重新尝试该过程。</p>
@@ -714,36 +761,47 @@
 <p>（3）目标 Mac 线缆连接正确，已经启动到了恢复模式选择窗口（仅供参考，这里不需要启动到该模式）</p>
 <p><img src="apple-configurator-2-recovery.webp" alt="Apple Configurator"></p>
 </li>
-<li><p>退出 DFU 模式的方法</p>
+<li>
+<p>退出 DFU 模式的方法</p>
 <p>这里描述的是退出 DFU 模式的方法，并非需要此操作步骤。操作成功后会自动退出 DFU 模式。</p>
 <ul>
 <li>在 DFU 图标上点击右键，菜单 “高级”，选择 “重新启动设备” 或者 “关闭设备”</li>
 </ul>
 <p><img src="apple-configurator-2-exit-dfu.webp" alt="Apple Configurator"></p>
 <ul>
-<li><p>上述操作如果无效，长按电源按钮（超过 4 秒）即可关闭设备并退出 DFU 模式。</p>
+<li>
+<p>上述操作如果无效，长按电源按钮（超过 4 秒）即可关闭设备并退出 DFU 模式。</p>
 </li>
-<li><p>恢复操作成功后会自动退出 DFU 模式。</p>
+<li>
+<p>恢复操作成功后会自动退出 DFU 模式。</p>
 </li>
 </ul>
 </li>
 </ol>
-<h2 id="四、如何进行修复或恢复"><a href="#四、如何进行修复或恢复" class="headerlink" title="四、如何进行修复或恢复"></a>四、如何进行修复或恢复</h2><p>在按照上文所述准备笔记本电脑或准备台式电脑后，请使用 “访达” 或 Apple Configurator 来修复或恢复目标 Mac，具体使用哪个工具取决于另一台 Mac 上使用的 macOS 版本。</p>
+<h2 id="四、如何进行修复或恢复">四、如何进行修复或恢复</h2>
+<p>在按照上文所述准备笔记本电脑或准备台式电脑后，请使用 “访达” 或 Apple Configurator 来修复或恢复目标 Mac，具体使用哪个工具取决于另一台 Mac 上使用的 macOS 版本。</p>
 <p><em>Mac 已准备好从 “访达” 进行修复或恢复（macOS Sonoma 或更高版本）：</em></p>
 <p><img src="https://cdsassets.apple.com/live/7WUAS350/images/mac-os/sonoma/locale/zh-cn/macos-sonoma-finder-mac-dfu-mode-revive-restore-firmware.png" alt="“访达” 窗口中显示已在边栏中选择 “Mac”"></p>
 <p><em>Mac 已准备好从 Apple Configurator 进行修复或恢复（macOS Monterey 12.4 或更高版本）：</em></p>
 <p><img src="https://cdsassets.apple.com/live/7WUAS350/images/macos/sonoma/locale/zh-cn/apple-configurator-2-17-device-list-all-devices-mac-in-dfu-mode-selected.png" alt="Apple Configurator 窗口中显示已为目标 Mac 选择 “DFU”"></p>
-<h3 id="修复-保留用户数据"><a href="#修复-保留用户数据" class="headerlink" title="修复 (保留用户数据)"></a>修复 (保留用户数据)</h3><p>先尝试修复。修复可能比恢复要快，而且不会抹掉 Mac。</p>
+<h3 id="修复-保留用户数据">修复 (保留用户数据)</h3>
+<p>先尝试修复。修复可能比恢复要快，而且不会抹掉 Mac。</p>
 <ol>
-<li>如果使用的是 “访达”（需要 macOS Sonoma 或更高版本）：<ol>
+<li>如果使用的是 “访达”（需要 macOS Sonoma 或更高版本）：
+<ol>
 <li>在 “访达” 窗口的边栏中，选择 “Mac”，如上图所示。</li>
 <li>点按 “修复 Mac” 按钮，然后点按 “继续” 进行确认。或者按住 Option 键然后点按 “修复 Mac” 按钮，并浏览到已下载的 IPSW 文件。</li>
 </ol>
 </li>
-<li>如果使用的是 Apple Configurator（需要 macOS Monterey 12.4 或更高版本）：<ol>
+<li>如果使用的是 Apple Configurator（需要 macOS Monterey 12.4 或更高版本）：
+<ol>
 <li>打开 Apple Configurator。</li>
 <li>在 Apple Configurator 窗口中，为目标 Mac 选择 “DFU”，如上图所示。</li>
-<li>从菜单栏中，选取 “操作”&gt;“高级”&gt;“修复设备”。或者将下载的 IPSW 文件拖拽到 DFU 图标上，在弹出的菜单中选择 “修复”。<br><img src="apple-configurator-2-rerive.webp" alt="Apple Configurator 修复设备"><br><em>图：Apple Configurator 修复设备</em><br><img src="apple-configurator-2-select.webp" alt="将 IPSW 文件拖拽到 DFU 图标上弹出的菜单"><br><em>图：将 IPSW 文件拖拽到 DFU 图标上弹出的菜单，这里选择 “修复”</em></li>
+<li>从菜单栏中，选取 “操作”&gt;“高级”&gt;“修复设备”。或者将下载的 IPSW 文件拖拽到 DFU 图标上，在弹出的菜单中选择 “修复”。<br>
+<img src="apple-configurator-2-rerive.webp" alt="Apple Configurator 修复设备"><br>
+<em>图：Apple Configurator 修复设备</em><br>
+<img src="apple-configurator-2-select.webp" alt="将 IPSW 文件拖拽到 DFU 图标上弹出的菜单"><br>
+<em>图：将 IPSW 文件拖拽到 DFU 图标上弹出的菜单，这里选择 “修复”</em></li>
 </ol>
 </li>
 <li>修复完成后，目标 Mac 会自动重新启动。如果它关机，请按下电源按钮将它开机。</li>
@@ -752,28 +810,37 @@
 <li>搭载 Apple 芯片的 Mac：修复后的 Mac 会载入启动选项，其中包括 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/102342">“选项” 齿轮图标</a>。选择你的启动磁盘（例如 Macintosh HD），然后点按它下方显示的 “继续” 按钮。</li>
 <li>修复的 Mac 会完成启动，随后这个过程便告完成。</li>
 </ol>
-<h3 id="恢复-全新安装系统"><a href="#恢复-全新安装系统" class="headerlink" title="恢复 (全新安装系统)"></a>恢复 (全新安装系统)</h3><p>这是全新安装系统并恢复出厂设置。将清空所有数据。</p>
+<h3 id="恢复-全新安装系统">恢复 (全新安装系统)</h3>
+<p>这是全新安装系统并恢复出厂设置。将清空所有数据。</p>
 <p>如果 Mac 无法修复，请按照以下步骤来抹掉它并将它恢复为出厂设置。</p>
 <ol>
-<li>如果使用的是 “访达”（需要 macOS Sonoma 或更高版本）：<ol>
+<li>如果使用的是 “访达”（需要 macOS Sonoma 或更高版本）：
+<ol>
 <li>在 “访达” 窗口的边栏中，选择 “Mac”，如上图所示。</li>
 <li>点按 “恢复 Mac” 按钮，然后点按 “恢复并更新” 进行确认。或者按住 Option 键然后点按 “修复 Mac” 按钮，并浏览到已下载的 IPSW 文件。</li>
 </ol>
 </li>
-<li>如果使用的是 Apple Configurator（需要 macOS Monterey 12.4 或更高版本）：<ol>
+<li>如果使用的是 Apple Configurator（需要 macOS Monterey 12.4 或更高版本）：
+<ol>
 <li>打开 Apple Configurator。</li>
 <li>在 Apple Configurator 窗口中，为目标 Mac 选择 “DFU”，如上图所示。</li>
-<li>从菜单栏中，选取 “操作”&gt;“恢复”，然后点按 “恢复” 进行确认。或者将下载的 IPSW 文件拖拽到 DFU 图标上，在弹出的菜单中选择 “恢复”。<br><img src="apple-configurator-2-restore.webp" alt="Apple Configurator 恢复"><br><em>图：Apple Configurator 恢复</em><br><img src="apple-configurator-2-select.webp" alt="将 IPSW 文件拖拽到 DFU 图标上弹出的菜单"><br><em>图：将 IPSW 文件拖拽到 DFU 图标上弹出的菜单，这里选择 “恢复”</em></li>
+<li>从菜单栏中，选取 “操作”&gt;“恢复”，然后点按 “恢复” 进行确认。或者将下载的 IPSW 文件拖拽到 DFU 图标上，在弹出的菜单中选择 “恢复”。<br>
+<img src="apple-configurator-2-restore.webp" alt="Apple Configurator 恢复"><br>
+<em>图：Apple Configurator 恢复</em><br>
+<img src="apple-configurator-2-select.webp" alt="将 IPSW 文件拖拽到 DFU 图标上弹出的菜单"><br>
+<em>图：将 IPSW 文件拖拽到 DFU 图标上弹出的菜单，这里选择 “恢复”</em></li>
 </ol>
 </li>
 <li>恢复完成后，目标 Mac 会自动重新启动。如果它关机，请按下电源按钮将它开机。</li>
 <li>如果系统提示你选择 Wi-Fi 网络或连接网线，请按提示操作。</li>
-<li>搭载 Apple 芯片的 Mac：<ol>
+<li>搭载 Apple 芯片的 Mac：
+<ol>
 <li>如果系统提示你登录，请使用之前在这台 Mac 上使用的那个 Apple 账户登录。</li>
 <li>当设置助理打开时，使用它来完成 Mac 的设置。</li>
 </ol>
 </li>
-<li>搭载 T2 芯片的 Mac：<ol>
+<li>搭载 T2 芯片的 Mac：
+<ol>
 <li>恢复的 Mac 会在通过互联网从 “macOS 恢复” 启动时显示一个旋转的地球。当系统提示你选取语言时，请按提示操作。</li>
 <li>如果系统提示你登录，请使用之前在这台 Mac 上使用的那个 Apple 账户登录。然后点按 “退出到恢复”。</li>
 <li>当你在 “恢复” 中看到实用工具列表时，请选取用于 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/102655#reinstall">安装或重新安装 macOS</a> 的选项。</li>
@@ -781,14 +848,14 @@
 </ol>
 </li>
 </ol>
-<h2 id="五、题外话-对比修复基于-Intel-的-Mac"><a href="#五、题外话-对比修复基于-Intel-的-Mac" class="headerlink" title="五、题外话: 对比修复基于 Intel 的 Mac"></a>五、题外话: 对比修复基于 Intel 的 Mac</h2><p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/apple-configurator-2/apdebea5be51/mac">使用 Apple Configurator 修复或恢复基于 Intel 的 Mac</a> 的差异：</p>
+<h2 id="五、题外话-对比修复基于-Intel-的-Mac">五、题外话: 对比修复基于 Intel 的 Mac</h2>
+<p><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/apple-configurator-2/apdebea5be51/mac">使用 Apple Configurator 修复或恢复基于 Intel 的 Mac</a> 的差异：</p>
 <ul>
 <li>目标 Mac 使用右侧的 USB-C（Apple 芯片 Mac 笔记本使用左侧端口，台式机使用右侧端口）。</li>
 <li>默认仅有 “修复” 选项，将固件（T2 芯片固件）更新到最新版本（但有一个例外如下）。</li>
 <li>仅限 Mac Pro（2019 年）：恢复固件、抹掉所有数据并重新安装最新版本的 recoveryOS 和 macOS。</li>
 </ul>
 <p>下表列出了修复或恢复 iOS 及衍生系统设备与 Mac 的差异 (sysin)。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -825,7 +892,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>文章结束，感谢观看。</p>
 <p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
 
@@ -948,7 +1014,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1255,7 +1321,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

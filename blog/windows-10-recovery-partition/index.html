@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何将 Windows 10、11 的恢复分区 (Recovery Partition) 移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 如何将 Windows 10、11 的恢复分区 (Recovery Partition) 移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 如何将 Windows 10、11 的恢复分区 (Recovery Partition) 移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 如何将 Windows 10、11 的恢复分区 (Recovery Partition) 移动到 C 盘之前，恢复 C 盘容量调整功能 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 如何将 Windows 10、11 的恢复分区 (Recovery Partition) 移动到 C 盘之前，恢复 C 盘容量调整功能 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/windows-10-recovery-partition/">
+  <link rel="canonical" href="https://sysin.cn/blog/windows-10-recovery-partition/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,25 +487,29 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/windows-10-recovery-partition/" title="如何将 Windows 10、11 的恢复分区 (Recovery Partition) 移动到 C 盘之前，恢复 C 盘容量调整功能">如何将 Windows 10、11 的恢复分区 (Recovery Partition) 移动到 C 盘之前，恢复 C 盘容量调整功能</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
-<p>笔者这几天在制作 <a href="https://sysin.org/blog/windows-server-2022-ovf/">Windows Server 2022 OVF</a> 的时候，发现 C 盘不能扩展容量了（虽然可以压缩，但是压缩的未分配空间无法合并到其他分区），在这虚拟化或者云环境中是非常糟糕的事情。本文提供了将 Windows 10（包含 Windows Server 2022）和 Windows 11 分区恢复到正常模式的方法，恢复正常调整 C 盘容量大小的功能。</p>
-<h2 id="Windows-Server-2022-磁盘分区新变化"><a href="#Windows-Server-2022-磁盘分区新变化" class="headerlink" title="Windows Server 2022 磁盘分区新变化"></a>Windows Server 2022 磁盘分区新变化</h2><p>在 Windows Server 2022 中，再次调整了系统分区的容量，甚至将恢复分区移动了 C 盘（操作系统分区）之后，安装后是这样的：System Reserve 100M（如果使用 EFI 引导，则该 100M 为 EFI System Partition），C 盘后增加了一个 523M 的 Recovery partition（恢复分区），导致无法调节 C 盘容量。</p>
+<p>笔者这几天在制作 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022-ovf/">Windows Server 2022 OVF</a> 的时候，发现 C 盘不能扩展容量了（虽然可以压缩，但是压缩的未分配空间无法合并到其他分区），在这虚拟化或者云环境中是非常糟糕的事情。本文提供了将 Windows 10（包含 Windows Server 2022）和 Windows 11 分区恢复到正常模式的方法，恢复正常调整 C 盘容量大小的功能。</p>
+<h2 id="Windows-Server-2022-磁盘分区新变化">Windows Server 2022 磁盘分区新变化</h2>
+<p>在 Windows Server 2022 中，再次调整了系统分区的容量，甚至将恢复分区移动了 C 盘（操作系统分区）之后，安装后是这样的：System Reserve 100M（如果使用 EFI 引导，则该 100M 为 EFI System Partition），C 盘后增加了一个 523M 的 Recovery partition（恢复分区），导致无法调节 C 盘容量。</p>
 <p><img src="windows-2022-recovery-partition.webp" alt="windows-2022-recovery-partition"></p>
 <p>在 Windows 11 中同样存在此问题，恢复分区的大小变成了 644M（22H2 为 597M）。</p>
 <blockquote>
 <p>不得不佩服 A3 的随性😄</p>
 </blockquote>
 <p><img src="windows-11-recovery-partition.webp" alt="windows-11-recovery-partition"></p>
-<h2 id="解读：关于-Windows-10-的恢复分区"><a href="#解读：关于-Windows-10-的恢复分区" class="headerlink" title="解读：关于 Windows 10 的恢复分区"></a>解读：关于 Windows 10 的恢复分区</h2><blockquote>
+<h2 id="解读：关于-Windows-10-的恢复分区">解读：关于 Windows 10 的恢复分区</h2>
+<blockquote>
 <p>说明：Windows Server 2016、2019 和 2022 皆为 Windows 10 Server，以下描述也适用。Windows 11 版本号仍然是 10.0 同样适用。</p>
 </blockquote>
 <p>在 Windows 10 中，Windows 磁盘上可以有 Windows 恢复分区或计算机制造商 OEM 工厂恢复分区。</p>
-<p>   Windows 恢复分区允许您启动到 Windows 恢复环境 (WinRE) 以在出现问题时恢复您的计算机。<br>   OEM 恢复分区允许您按特定键（通常为 HP 为 F9，为戴尔为 F12）将您的计算机恢复到出厂默认设置。此分区通常约为 12-18 GB，比 Windows 恢复分区大得多。</p>
+<p>Windows 恢复分区允许您启动到 Windows 恢复环境 (WinRE) 以在出现问题时恢复您的计算机。<br>
+OEM 恢复分区允许您按特定键（通常为 HP 为 F9，为戴尔为 F12）将您的计算机恢复到出厂默认设置。此分区通常约为 12-18 GB，比 Windows 恢复分区大得多。</p>
 <p>Windows 恢复环境 (Windows Recovery Environment，简称 WinRE) 是一种恢复环境，可以修复导致操作系统无法启动的常见问题 (sysin)。默认情况下，WinRE 预加载到 Windows 10 桌面版（家庭版、专业版、企业版和教育版）中。</p>
 <p>WinRE 包括以下工具：</p>
 <ul>
-<li><p><strong>自动修复和其他故障排除工具</strong>。有关详细信息，请参阅 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-re-troubleshooting-features">Windows RE 故障排除功能</a>。</p>
+<li>
+<p><strong>自动修复和其他故障排除工具</strong>。有关详细信息，请参阅 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-re-troubleshooting-features">Windows RE 故障排除功能</a>。</p>
 <ul>
 <li>系统还原</li>
 <li>启动修复</li>
@@ -514,7 +520,8 @@
 <li>返回到以前的 Windows 版本</li>
 </ul>
 </li>
-<li><p><strong>按钮复位</strong>。此工具使您的用户能够快速修复自己的 PC，同时保留他们的数据和重要的自定义设置，而无需提前备份数据。有关详细信息，请参阅<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/push-button-reset-overview">按钮重置概述</a>。</p>
+<li>
+<p><strong>按钮复位</strong>。此工具使您的用户能够快速修复自己的 PC，同时保留他们的数据和重要的自定义设置，而无需提前备份数据。有关详细信息，请参阅<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/push-button-reset-overview">按钮重置概述</a>。</p>
 <ul>
 <li>刷新 Windows 10</li>
 <li>重置 Windows 10</li>
@@ -527,22 +534,28 @@
 <p><img src="windows_10_2004_recovery_partition.webp" alt="Windows_10_2004_Recovery_Partition"></p>
 <p>所以我们需要在系统安装完毕立刻调整该 Recovery partition 的位置，将其划分到 C 盘（操作系统分区）之前，然后重建 Recovery partition。更加简单粗暴的方法是直接将其删除，也不用过于担心 (sysin)，可以借助 USB 或者 ISO（虚机）引导 Windows PE 来替代 WinRE 的恢复功能。</p>
 <p><strong>本文的目标是在 System Reserved 分区之后，C 盘（操作系统分区）之前，创建一个 550M 的恢复分区，并删除原有的恢复分区，恢复 C 盘可以自由调整大小的该有功能。</strong></p>
-<h2 id="准备：备份数据和所需软件"><a href="#准备：备份数据和所需软件" class="headerlink" title="准备：备份数据和所需软件"></a>准备：备份数据和所需软件</h2><ol>
-<li><p>请先进行数据备份</p>
+<h2 id="准备：备份数据和所需软件">准备：备份数据和所需软件</h2>
+<ol start="0">
+<li>
+<p>请先进行数据备份</p>
 <p>如果这是你正在使用的电脑，请务必备份数据，虽然正确理解以下操作并没有风险，但是任何时候备份都是必要的。</p>
 </li>
-<li><p>专业分区工具</p>
+<li>
+<p>专业分区工具</p>
 <p>本例使用 MiniTool Partition Wizard，类似的软件有 Acronis Disk Director，Paragon Partition Manager 等，可以根据使用习惯选择，操作都是类似的。</p>
 </li>
-<li><p>系统自带工具</p>
+<li>
+<p>系统自带工具</p>
 <p>在执行以下命令之前，您必须知道它们的作用。请参阅 MS 的文档链接：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskpart">diskpart</a>, <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-image-management-command-line-options-s14">dism</a> and <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/reagentc-command-line-options">reagentc</a></p>
 </li>
 </ol>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>后面的步骤，我们分别用 MiniTool Partition Wizard 和（或）diskpart 命令进行操作，描述在前面的为建议操作方式。</p>
+<h2 id="操作步骤-2">操作步骤</h2>
+<p>后面的步骤，我们分别用 MiniTool Partition Wizard 和（或）diskpart 命令进行操作，描述在前面的为建议操作方式。</p>
 <blockquote>
 <p>以下操作同样适用于 Windows 10、11，只是因为 A3 的随性，恢复分区的容量各不相同，请根据实际容量修改。</p>
 </blockquote>
-<h3 id="1-创建一个新的-550M-的恢复分区"><a href="#1-创建一个新的-550M-的恢复分区" class="headerlink" title="1. 创建一个新的 550M 的恢复分区"></a>1. 创建一个新的 550M 的恢复分区</h3><p>在 System Reserved 分区之后，C 盘（操作系统分区）之前，创建一个 550M 的恢复分区。创建一个分区系统自带工具都可以完成，但是要在这个指定位置创建，似乎只能用第三方工具完成。</p>
+<h3 id="1-创建一个新的-550M-的恢复分区">1. 创建一个新的 550M 的恢复分区</h3>
+<p>在 System Reserved 分区之后，C 盘（操作系统分区）之前，创建一个 550M 的恢复分区。创建一个分区系统自带工具都可以完成，但是要在这个指定位置创建，似乎只能用第三方工具完成。</p>
 <blockquote>
 <p>之所以选择创建 550M 这个数字，一方面是与原有分区有所区别，另外这个数字也没有那么随意😄</p>
 </blockquote>
@@ -550,7 +563,8 @@
 <p><img src="create-partition-01.webp" alt="MiniTool Partition Wizard"></p>
 <p>拖拽滚动条，然后填写数字 (sysin)，确保结果如下（Apply，重启后生效）：</p>
 <p><img src="create-partition-02.webp" alt="MiniTool Partition Wizard"></p>
-<h3 id="2-复制（克隆）分区"><a href="#2-复制（克隆）分区" class="headerlink" title="2. 复制（克隆）分区"></a>2. 复制（克隆）分区</h3><p>现在我们需要将原有的恢复分区复制（克隆）到新的恢复分区</p>
+<h3 id="2-复制（克隆）分区">2. 复制（克隆）分区</h3>
+<p>现在我们需要将原有的恢复分区复制（克隆）到新的恢复分区</p>
 <p>点击 “Copy Partition Wizard” 开始</p>
 <p>选择原有恢复分区</p>
 <p><img src="copy-partition-01.webp" alt="copy-partition"></p>
@@ -568,31 +582,38 @@
 <p>替代方法：使用 diskpart</p>
 <p>官方参考文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-system-and-recovery-partitions">Capture and apply Windows, system, and recovery partitions</a></p>
 <ol>
-<li><p>使用 <code>diskpart</code> 给当前 recovery partition 分配一个盘符，这里定义为 O（original）:</p>
+<li>
+<p>使用 <code>diskpart</code> 给当前 recovery partition 分配一个盘符，这里定义为 O（original）:</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DISKPART&gt; list disk</span><br><span class="line">DISKPART&gt; select disk &lt;the-number-of-disk&gt;  #默认一块磁盘这里为 <span class="number">0</span>，即：select disk <span class="number">0</span></span><br><span class="line">DISKPART&gt; list partition</span><br><span class="line">DISKPART&gt; select partition &lt;the-number-of-current-recovery-partition&gt; #这里一般是 <span class="number">3</span>，即：select partition <span class="number">3</span></span><br><span class="line">DISKPART&gt; assign letter=O</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>从当前 recovery partition 中捕获镜像:</p>
+<li>
+<p>从当前 recovery partition 中捕获镜像:</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dism /Capture-Image /ImageFile:C:\recovery-partition.wim /CaptureDir:O:\ /Name:&quot;Recovery&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将捕获的镜像应用到新的 recovery partition（上述定义 550M 新恢复分区的盘符为 N）:</p>
+<li>
+<p>将捕获的镜像应用到新的 recovery partition（上述定义 550M 新恢复分区的盘符为 N）:</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dism /Apply-Image /ImageFile:C:\recovery-partition.wim /Index:<span class="number">1</span> /ApplyDir:N:\</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="3-使用-REAgentC-命令配置-WinRE-镜像"><a href="#3-使用-REAgentC-命令配置-WinRE-镜像" class="headerlink" title="3. 使用 REAgentC 命令配置 WinRE 镜像"></a>3. 使用 REAgentC 命令配置 WinRE 镜像</h3><p>以下三条命令分别是：</p>
+<h3 id="3-使用-REAgentC-命令配置-WinRE-镜像">3. 使用 REAgentC 命令配置 WinRE 镜像</h3>
+<p>以下三条命令分别是：</p>
 <ul>
 <li>禁用 WinRE 镜像启动</li>
 <li>指定 WinRE 镜像的位置（这里盘符是 N）</li>
 <li>启用 WinRE 镜像启动</li>
 </ul>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reagentc /disable</span><br><span class="line">reagentc /setreimage /<span class="built_in">path</span> N:\Recovery\WindowsRE</span><br><span class="line">reagentc /enable</span><br></pre></td></tr></table></figure>
-<h3 id="4-隐藏新的恢复分区"><a href="#4-隐藏新的恢复分区" class="headerlink" title="4. 隐藏新的恢复分区"></a>4. 隐藏新的恢复分区</h3><p>使用 diskpart 命令，操作如下：</p>
+<h3 id="4-隐藏新的恢复分区">4. 隐藏新的恢复分区</h3>
+<p>使用 diskpart 命令，操作如下：</p>
    <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskpart</span><br></pre></td></tr></table></figure>
 <p>分别针对 UEFI 和 BIOS 固件不同的操作方式来隐藏原有 recovery partition:</p>
 <ul>
-<li><p>For UEFI:</p>
+<li>
+<p>For UEFI:</p>
  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DISKPART&gt; select volume N</span><br><span class="line">DISKPART&gt; <span class="built_in">set</span> id=&quot;de94bba4-<span class="number">06</span>d1-<span class="number">4</span>d40-a16a-bfd50179d6ac&quot;</span><br><span class="line">DISKPART&gt; gpt attributes=<span class="number">0</span>x8000000000000001</span><br><span class="line">DISKPART&gt; remove</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>For BIOS:</p>
+<li>
+<p>For BIOS:</p>
  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DISKPART&gt; select volume N</span><br><span class="line">DISKPART&gt; <span class="built_in">set</span> id=<span class="number">27</span></span><br><span class="line">DISKPART&gt; remove</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -601,10 +622,12 @@
 <p>⚠️ <strong>经测 Widows Server 2022 2022.06 至 09 更新版本中修改 “Change Letter” 为 “None” 会导致 WinRE 无法启动</strong>。</p>
 <p>且不做任何修改使用默认的 WinRE 启动会蓝屏（虚拟机环境），即使上述不删除 “Change Letter”，启动后功能也简化了，仅仅是调出 “高级启动选项”，等价于在计算机重启时长按 F8 键，恢复分区已经没有存在意义，通过命令 <code>reagentc /disable</code> 禁用 WinRE 后直接删除恢复分区即可。</p>
 <p>另外，2022 年 6 月开始恢复分区默认容量变为 578M。</p>
-<h3 id="5-删除原有恢复分区"><a href="#5-删除原有恢复分区" class="headerlink" title="5. 删除原有恢复分区"></a>5. 删除原有恢复分区</h3><p>使用 MiniTool Partition Wizard，右键点击原有的恢复分区，选择 “Delete” 即可。</p>
+<h3 id="5-删除原有恢复分区">5. 删除原有恢复分区</h3>
+<p>使用 MiniTool Partition Wizard，右键点击原有的恢复分区，选择 “Delete” 即可。</p>
 <p>或者使用 diskpart 命令，操作如下：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DISKPART&gt; select volume O</span><br><span class="line">DISKPART&gt; delete partition override</span><br></pre></td></tr></table></figure>
-<h3 id="6-重启到-WinRE-验证结果"><a href="#6-重启到-WinRE-验证结果" class="headerlink" title="6. 重启到 WinRE 验证结果"></a>6. 重启到 WinRE 验证结果</h3><p>设置 -&gt; 更新和安全 -&gt; 恢复，点击 “立即重新启动”，即可重启到 WinRE。</p>
+<h3 id="6-重启到-WinRE-验证结果">6. 重启到 WinRE 验证结果</h3>
+<p>设置 -&gt; 更新和安全 -&gt; 恢复，点击 “立即重新启动”，即可重启到 WinRE。</p>
 <blockquote>
 <p>注意：如果是远程桌面连接，上述恢复页面显示空白，不可用。</p>
 </blockquote>
@@ -614,24 +637,30 @@
 </blockquote>
 <p><img src="winre-efi-01.webp" alt="winre-efi"></p>
 <p><img src="winre-efi-02.webp" alt="winre-efi"></p>
-<h3 id="7-终于可以正常调整磁盘大小"><a href="#7-终于可以正常调整磁盘大小" class="headerlink" title="7. 终于可以正常调整磁盘大小"></a>7. 终于可以正常调整磁盘大小</h3><p>现在正常启动到系统，打开 “磁盘管理”，终于可以正常调整磁盘大小：”压缩卷” 和 “扩展卷”。</p>
+<h3 id="7-终于可以正常调整磁盘大小">7. 终于可以正常调整磁盘大小</h3>
+<p>现在正常启动到系统，打开 “磁盘管理”，终于可以正常调整磁盘大小：“压缩卷” 和 “扩展卷”。</p>
 <p><img src="disk-manager-change-size.webp" alt="disk-manager-change-size"></p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>巨硬 A3 太…不讲究，我们搞了这么多复杂的操作，才恢复了盖茨时代正常的磁盘分区的功能，实在无语。。。。。。</p>
+<h2 id="结语">结语</h2>
+<p>巨硬 A3 太…不讲究，我们搞了这么多复杂的操作，才恢复了盖茨时代正常的磁盘分区的功能，实在无语。。。。。。</p>
 <p>巨硬 A3 上任 8 年，一个控制面板没有修改好（设置和控制面板仍然混乱，麦德龙风格和经典风格分裂设计仍然没有解决），再难以企及盖茨时代巅峰，你还以为你是在用盖茨的 Windows 吗？今天的 Windows 全球市场份额已经从 95%+ 下降到 30% 左右，其他全部是 Unix-Like 系统的天下，说 A3 沦为小众不为过。。。。。。</p>
-<h2 id="更新：简单操作步骤（删除分区）"><a href="#更新：简单操作步骤（删除分区）" class="headerlink" title="更新：简单操作步骤（删除分区）"></a>更新：简单操作步骤（删除分区）</h2><p>经测在 2022 年 6 月 至 9 月更新版本中，不做任何修改使用默认的 WinRE 启动会蓝屏（虚拟机环境），即使通过上述修改可以启动，启动后功能也简化了，仅仅是调出 “高级启动选项”，等价于在计算机重启时长按 F8 键，恢复分区已经没有存在意义。</p>
+<h2 id="更新：简单操作步骤（删除分区）">更新：简单操作步骤（删除分区）</h2>
+<p>经测在 2022 年 6 月 至 9 月更新版本中，不做任何修改使用默认的 WinRE 启动会蓝屏（虚拟机环境），即使通过上述修改可以启动，启动后功能也简化了，仅仅是调出 “高级启动选项”，等价于在计算机重启时长按 F8 键，恢复分区已经没有存在意义。</p>
 <ol>
-<li><p>禁用 WinRE（可选，下一步删除恢复分区后将自动禁用）</p>
+<li>
+<p>禁用 WinRE（可选，下一步删除恢复分区后将自动禁用）</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reagentc /disable</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用 <code>diskpart</code> 删除 recovery partition:</p>
+<li>
+<p>使用 <code>diskpart</code> 删除 recovery partition:</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">diskpart</span><br><span class="line">DISKPART&gt; list disk</span><br><span class="line">DISKPART&gt; select disk &lt;the-number-of-disk&gt;  #默认一块磁盘这里为 <span class="number">0</span>，即：select disk <span class="number">0</span></span><br><span class="line">DISKPART&gt; list partition</span><br><span class="line">DISKPART&gt; select partition &lt;the-number-of-current-recovery-partition&gt; #这里一般是 <span class="number">3</span>，即：select partition <span class="number">3</span></span><br><span class="line">DISKPART&gt; delete partition override</span><br></pre></td></tr></table></figure>
-<p><img src="diskpart-delete-patition.webp" alt="diskpart-delete-patition"></p>
 </li>
 </ol>
+<p><img src="diskpart-delete-patition.webp" alt="diskpart-delete-patition"></p>
 <hr>
 <p>虚机模板下载：</p>
 <ul>
-<li><a href="/blog/windows-server-2022-ovf/" title="Windows Server 2022 OVF (2024 年 12 月更新) - VMware 虚拟机模板">Windows Server 2022 OVF (2024 年 12 月更新) - VMware 虚拟机模板</a>
+<li>
+<a href="/blog/windows-server-2022-ovf/" title="Windows Server 2022 OVF (2024 年 12 月更新) - VMware 虚拟机模板">Windows Server 2022 OVF (2024 年 12 月更新) - VMware 虚拟机模板</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/windows/" title="Windows 下载汇总">Windows 下载汇总</a></p>
@@ -755,7 +784,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -818,7 +847,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-Server-2022-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E6%96%B0%E5%8F%98%E5%8C%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Windows Server 2022 磁盘分区新变化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%A7%A3%E8%AF%BB%EF%BC%9A%E5%85%B3%E4%BA%8E-Windows-10-%E7%9A%84%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">解读：关于 Windows 10 的恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%EF%BC%9A%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%92%8C%E6%89%80%E9%9C%80%E8%BD%AF%E4%BB%B6"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">准备：备份数据和所需软件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">操作步骤</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84-550M-%E7%9A%84%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 创建一个新的 550M 的恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%A4%8D%E5%88%B6%EF%BC%88%E5%85%8B%E9%9A%86%EF%BC%89%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 复制（克隆）分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E4%BD%BF%E7%94%A8-REAgentC-%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE-WinRE-%E9%95%9C%E5%83%8F"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 使用 REAgentC 命令配置 WinRE 镜像</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E9%9A%90%E8%97%8F%E6%96%B0%E7%9A%84%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. 隐藏新的恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%88%A0%E9%99%A4%E5%8E%9F%E6%9C%89%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">5. 删除原有恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E9%87%8D%E5%90%AF%E5%88%B0-WinRE-%E9%AA%8C%E8%AF%81%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">6. 重启到 WinRE 验证结果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E7%BB%88%E4%BA%8E%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E8%B0%83%E6%95%B4%E7%A3%81%E7%9B%98%E5%A4%A7%E5%B0%8F"><span class="toc-nav-number">4.7.</span> <span class="toc-nav-text">7. 终于可以正常调整磁盘大小</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">结语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9B%B4%E6%96%B0%EF%BC%9A%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%EF%BC%88%E5%88%A0%E9%99%A4%E5%88%86%E5%8C%BA%EF%BC%89"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">更新：简单操作步骤（删除分区）</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-Server-2022-%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E6%96%B0%E5%8F%98%E5%8C%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Windows Server 2022 磁盘分区新变化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%A7%A3%E8%AF%BB%EF%BC%9A%E5%85%B3%E4%BA%8E-Windows-10-%E7%9A%84%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">解读：关于 Windows 10 的恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%EF%BC%9A%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%92%8C%E6%89%80%E9%9C%80%E8%BD%AF%E4%BB%B6"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">准备：备份数据和所需软件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">操作步骤</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84-550M-%E7%9A%84%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 创建一个新的 550M 的恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%A4%8D%E5%88%B6%EF%BC%88%E5%85%8B%E9%9A%86%EF%BC%89%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 复制（克隆）分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E4%BD%BF%E7%94%A8-REAgentC-%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE-WinRE-%E9%95%9C%E5%83%8F"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 使用 REAgentC 命令配置 WinRE 镜像</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E9%9A%90%E8%97%8F%E6%96%B0%E7%9A%84%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. 隐藏新的恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%88%A0%E9%99%A4%E5%8E%9F%E6%9C%89%E6%81%A2%E5%A4%8D%E5%88%86%E5%8C%BA"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">5. 删除原有恢复分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E9%87%8D%E5%90%AF%E5%88%B0-WinRE-%E9%AA%8C%E8%AF%81%E7%BB%93%E6%9E%9C"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">6. 重启到 WinRE 验证结果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E7%BB%88%E4%BA%8E%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E8%B0%83%E6%95%B4%E7%A3%81%E7%9B%98%E5%A4%A7%E5%B0%8F"><span class="toc-nav-number">4.7.</span> <span class="toc-nav-text">7. 终于可以正常调整磁盘大小</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">结语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%9B%B4%E6%96%B0%EF%BC%9A%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%EF%BC%88%E5%88%A0%E9%99%A4%E5%88%86%E5%8C%BA%EF%BC%89"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">更新：简单操作步骤（删除分区）</span></a></li></ol>
         
         </div>
       </aside>
@@ -1060,7 +1089,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

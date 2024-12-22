@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/disable-ubuntu-auto-update/">
+  <link rel="canonical" href="https://sysin.cn/blog/disable-ubuntu-auto-update/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,18 +489,23 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>Ubuntu 的软件自动更新有点强悍，一个 1 G 多的镜像，自动更新后，体积暴增到 10 G 以上，任何未经许可的软件更新（包括静默下载）都是不可接受的。以下方法可以彻底禁止 Ubuntu 的自动更新。</p>
 <p><strong>特别提示：Ubuntu 在安装的时候会联网检查更新，安装最新的更新，请务必断网安装！！！</strong></p>
-<h2 id="Ubuntu-Server"><a href="#Ubuntu-Server" class="headerlink" title="Ubuntu Server"></a>Ubuntu Server</h2><h3 id="一般步骤"><a href="#一般步骤" class="headerlink" title="一般步骤"></a>一般步骤</h3><ul>
-<li><p>修改配置文件</p>
+<h2 id="Ubuntu-Server">Ubuntu Server</h2>
+<h3 id="一般步骤-2">一般步骤</h3>
+<ul>
+<li>
+<p>修改配置文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭 Update-Package-Lists</span></span><br><span class="line">sudo sed -i.bak &#x27;s/1/0/&#x27; /etc/apt/apt.conf.d/10periodic</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭 unattended-upgrades</span></span><br><span class="line">sudo sed -i.bak &#x27;s/1/0/&#x27; /etc/apt/apt.conf.d/20auto-upgrades</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 也可以通过以下命令选择 No</span></span></span><br><span class="line">sudo dpkg-reconfigure unattended-upgrades</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 禁用 unattended-upgrades 服务</span></span></span><br><span class="line">sudo systemctl stop unattended-upgrades</span><br><span class="line">sudo systemctl disable unattended-upgrades</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 可选：移除 unattended-upgrades (sysin)</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo apt remove unattended-upgrades</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>清空 apt 缓存</p>
+<li>
+<p>清空 apt 缓存</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可选：清空缓存</span></span><br><span class="line">sudo apt autoremove #移除不在使用的软件包</span><br><span class="line">sudo apt clean &amp;&amp; sudo apt autoclean #清理下载文件的存档</span><br><span class="line">sudo rm -rf /var/cache/apt</span><br><span class="line">sudo rm -rf /var/lib/apt/lists</span><br><span class="line">sudo rm -rf /var/lib/apt/periodic</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>重置更新通知（更新提示数字）</p>
+<li>
+<p>重置更新通知（更新提示数字）</p>
 <p>如果执行 <code>sudo apt update</code> 命令后，登录会提示如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">257 updates can be installed immediately.</span><br><span class="line">133 of these updates are security updates.</span><br><span class="line">To see these additional updates run: apt list --upgradable</span><br></pre></td></tr></table></figure>
 <p>恢复原始状态：</p>
@@ -509,8 +516,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The list of available updates is more than a week old.</span><br><span class="line">To check for new updates run: sudo apt update</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="禁用内核更新"><a href="#禁用内核更新" class="headerlink" title="禁用内核更新"></a>禁用内核更新</h3><p>快速命令</p>
-<p>  以下一条命令即可禁用内核更新，后面是一些相关命令，仅供查阅。</p>
+<h3 id="禁用内核更新">禁用内核更新</h3>
+<p>快速命令</p>
+<p>以下一条命令即可禁用内核更新，后面是一些相关命令，仅供查阅。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">禁用内核更新</span></span><br><span class="line">sudo apt-mark hold linux-generic linux-image-generic linux-headers-generic</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">恢复内核更新</span></span><br><span class="line">sudo apt-mark unhold linux-generic linux-image-generic linux-headers-generic</span><br></pre></td></tr></table></figure>
 <p>可选：在 unattended-upgrades 配置文件中禁用内核更新</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/apt.conf.d/50unattended-upgrades</span><br><span class="line"></span><br><span class="line">找到 Package-Blacklist 字段，加入如下内容</span><br><span class="line"></span><br><span class="line">Unattended-Upgrade::Package-Blacklist &#123;</span><br><span class="line">&quot;linux-generic&quot;;</span><br><span class="line">&quot;linux-image-generic&quot;;</span><br><span class="line">&quot;linux-headers-generic&quot;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -520,26 +528,41 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge linux-image-x.x.x-x  # x.x.x-x 代表内核版本数字</span><br><span class="line">sudo apt purge linux-headers-x.x.x-x</span><br><span class="line">sudo apt autoremove  # 自动删除不在使用的软件包</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">卸载完内核后需要执行下列命令更新 grub</span></span><br><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
 <p>查看可用的内核更新命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">apt list --upgradable | grep linux-</span><br><span class="line"></span><br><span class="line">WARNING: apt does not have a stable CLI interface. Use with caution in scripts.</span><br><span class="line"></span><br><span class="line">linux-base/focal-updates 4.5ubuntu3.6 all [upgradable from: 4.5ubuntu3]</span><br><span class="line">linux-firmware/focal-updates 1.187.16 all [upgradable from: 1.187]</span><br><span class="line">linux-generic/focal-updates,focal-security 5.4.0.81.85 amd64 [upgradable from: 5.4.0.26.32]</span><br><span class="line">linux-headers-generic/focal-updates,focal-security 5.4.0.81.85 amd64 [upgradable from: 5.4.0.26.32]</span><br><span class="line">linux-image-generic/focal-updates,focal-security 5.4.0.81.85 amd64 [upgradable from: 5.4.0.26.32]</span><br></pre></td></tr></table></figure>
-<h2 id="Ubuntu-Desktop"><a href="#Ubuntu-Desktop" class="headerlink" title="Ubuntu Desktop"></a>Ubuntu Desktop</h2><p>Ubuntu Desktop 与 Server 版的上述配置是一致的。只是增加了额外的更新管理器的图形界面配置。</p>
+<h2 id="Ubuntu-Desktop">Ubuntu Desktop</h2>
+<p>Ubuntu Desktop 与 Server 版的上述配置是一致的。只是增加了额外的更新管理器的图形界面配置。</p>
 <ul>
-<li><p>图形界面配置</p>
+<li>
+<p>图形界面配置</p>
 <p><img src="ubuntu-software-updates.webp" alt="ubuntu-software-updates"></p>
 <p>图形界面配置某些选项的储存值为 2，所以修改配置文件多加一句指令为妥：</p>
 <p>（以下两个配置文件在 Server 版默认配置文件为 2 条，Desktop 版默认配置文件为 4 条）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭 Update-Package-Lists</span></span><br><span class="line">sudo sed -i &#x27;s/1/0/&#x27; /etc/apt/apt.conf.d/10periodic</span><br><span class="line">sudo sed -i &#x27;s/2/0/&#x27; /etc/apt/apt.conf.d/10periodic</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭 unattended-upgrades</span></span><br><span class="line">sudo sed -i &#x27;s/1/0/&#x27; /etc/apt/apt.conf.d/20auto-upgrades</span><br><span class="line">sudo sed -i &#x27;s/2/0/&#x27; /etc/apt/apt.conf.d/20auto-upgrades</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>可选：删除更新通知程序</p>
+<li>
+<p>可选：删除更新通知程序</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除更新通知程序</span></span><br><span class="line">sudo apt remove update-notifier</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>相关文章：</p>
+<h2 id="附录-11">附录</h2>
+<p>相关文章：</p>
 <ul>
-<li><a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a></li>
-<li><a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a></li>
-<li><a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a></li>
-<li><a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a></li>
-<li><a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a></li>
-<li><a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
+<li>
+<a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a>
+</li>
+<li>
+<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a>
+</li>
+<li>
+<a href="/blog/disable-ubuntu-auto-update/" title="如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存">如何禁止 Ubuntu 22.04 自动更新，删除更新提示和缓存</a>
+</li>
+<li>
+<a href="/blog/disable-firefox-auto-update/" title="如何禁用 Firefox 自动更新 (macOS, Linux, Windows)">如何禁用 Firefox 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-chrome-auto-update/" title="如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)">如何禁用 Google Chrome 自动更新 (macOS, Linux, Windows)</a>
+</li>
+<li>
+<a href="/blog/disable-edge-auto-update/" title="如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)">如何禁用 Microsoft Edge 自动更新 (Windows, Linux, macOS)</a>
 </li>
 </ul>
 
@@ -662,7 +685,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -725,7 +748,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Ubuntu-Server"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu Server</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一般步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">禁用内核更新</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Ubuntu-Desktop"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Ubuntu Desktop</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">附录</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Ubuntu-Server"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Ubuntu Server</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4-2"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一般步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%A6%81%E7%94%A8%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">禁用内核更新</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Ubuntu-Desktop"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Ubuntu Desktop</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%E5%BD%95-11"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">附录</span></a></li></ol>
         
         </div>
       </aside>
@@ -969,7 +992,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
