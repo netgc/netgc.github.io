@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> HTTP 安全响应头（Security Response header）配置手册 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" HTTP 安全响应头（Security Response header）配置手册 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> HTTP 安全响应头（Security Response header）配置手册 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" HTTP 安全响应头（Security Response header）配置手册 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" HTTP 安全响应头（Security Response header）配置手册 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/security-headers/">
+  <link rel="canonical" href="https://sysin.org/blog/security-headers/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,11 +487,9 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/security-headers/" title="HTTP 安全响应头（Security Response header）配置手册">HTTP 安全响应头（Security Response header）配置手册</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="一、常用安全-Header-释义">一、常用安全 Header 释义</h2>
-<h3 id="1-Strict-Transport-Security-HSTS">1. Strict-Transport-Security (HSTS)</h3>
-<p><code>HTTP Strict Transport Security</code>（通常简称为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/HSTS">HSTS</a>）是一个安全功能，它告诉浏览器只能通过 HTTPS 访问当前资源，而不是 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/HTTP">HTTP</a>。</p>
+<h2 id="一、常用安全-Header-释义"><a href="#一、常用安全-Header-释义" class="headerlink" title="一、常用安全 Header 释义"></a>一、常用安全 Header 释义</h2><h3 id="1-Strict-Transport-Security-HSTS"><a href="#1-Strict-Transport-Security-HSTS" class="headerlink" title="1. Strict-Transport-Security (HSTS)"></a>1. Strict-Transport-Security (HSTS)</h3><p><code>HTTP Strict Transport Security</code>（通常简称为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/HSTS">HSTS</a>）是一个安全功能，它告诉浏览器只能通过 HTTPS 访问当前资源，而不是 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/HTTP">HTTP</a>。</p>
 <p>作用：访问一个 HTTPS 网站，要求浏览器总是通过 HTTPS 访问它。</p>
 <p>语法：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">strict-transport-security: max-age=&lt;expire-time&gt;</span><br><span class="line">strict-transport-security: max-age=&lt;expire-time&gt;; includeSubDomains</span><br><span class="line">strict-transport-security: max-age=&lt;expire-time&gt;; includeSubDomains; preload</span><br></pre></td></tr></table></figure>
@@ -511,12 +507,10 @@
 <li>Firefox 的 HSTS 预加载列表：<a target="_blank" rel="noopener" href="https://hg.mozilla.org/mozilla-central/raw-file/tip/security/manager/ssl/nsSTSPreloadList.inc">nsSTSPreloadList.inc</a></li>
 </ul>
 <blockquote>
-<p>输入 chrome://net-internals/#hsts，进入 HSTS 管理界面，可以增加 / 删除 / 查询 HSTS 记录。<br>
-将网站加入预加载列表：<a target="_blank" rel="noopener" href="https://hstspreload.org/">https://hstspreload.org/</a></p>
+<p>输入 chrome://net-internals/#hsts，进入 HSTS 管理界面，可以增加 / 删除 / 查询 HSTS 记录。<br>将网站加入预加载列表：<a target="_blank" rel="noopener" href="https://hstspreload.org/">https://hstspreload.org/</a></p>
 </blockquote>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Security/HTTP_Strict_Transport_Security">HTTP Strict Transport Security (HSTS)</a></p>
-<h3 id="2-Public-Key-Pins（HPKP）">2. Public-Key-Pins（HPKP）</h3>
-<p>作用：防止中间人攻击。是 HTTPS 网站防止攻击者利用 CA 错误签发的证书进行中间人攻击的一种安全机制，用于预防 CA 遭入侵或者其他会造成 CA 签发未授权证书的情况。</p>
+<h3 id="2-Public-Key-Pins（HPKP）"><a href="#2-Public-Key-Pins（HPKP）" class="headerlink" title="2. Public-Key-Pins（HPKP）"></a>2. Public-Key-Pins（HPKP）</h3><p>作用：防止中间人攻击。是 HTTPS 网站防止攻击者利用 CA 错误签发的证书进行中间人攻击的一种安全机制，用于预防 CA 遭入侵或者其他会造成 CA 签发未授权证书的情况。</p>
 <p>服务器通过 Public-Key-Pins（或 Public-Key-Pins-Report-Onky 用于监测）header 向浏览器传递 HTTP 公钥固定信息。</p>
 <p>语法：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Public-Key-Pins: pin-sha256=&quot;base64==&quot;; max-age=expireTime [; includeSubdomains][; report-uri=&quot;reportURI&quot;]</span><br></pre></td></tr></table></figure>
@@ -528,8 +522,7 @@
 <li>report-uri：验证失败时上报的地址</li>
 </ul>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Public-Key-Pins">Public-Key-Pins</a></p>
-<h3 id="3-Content-Security-Policy（CSP）">3. Content-Security-Policy（CSP）</h3>
-<p><strong>X-Content-Security-Policy（旧版）/Content-Security-Policy</strong>：</p>
+<h3 id="3-Content-Security-Policy（CSP）"><a href="#3-Content-Security-Policy（CSP）" class="headerlink" title="3. Content-Security-Policy（CSP）"></a>3. Content-Security-Policy（CSP）</h3><p><strong>X-Content-Security-Policy（旧版）/Content-Security-Policy</strong>：</p>
 <p>CSP 是一个计算机的安全标志，主要用来防止 XSS、点击劫持、SQL 注入等攻击；CSP 通过定义运行加载脚本的位置和内容防止恶意代码的加载。</p>
 <p>作用：用于定义页面可以加载哪些资源，减少和上报 XSS 的攻击，防止数据包嗅探攻击。</p>
 <p>响应头：</p>
@@ -547,6 +540,7 @@
 <li>支持的 CSP 指令。</li>
 </ul>
 <p>元素也可以用于配置 CSP：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -558,22 +552,22 @@
 <tbody>
 <tr>
 <td>default-src</td>
-<td>‘self’ <a target="_blank" rel="noopener" href="http://cnd.a.com">cnd.a.com</a></td>
+<td>‘self’ cnd.a.com</td>
 <td>定义针对所有类型资源的默认加载策略，某类型资源如果没有单独定义策略，就使用默认的</td>
 </tr>
 <tr>
 <td>script-src</td>
-<td>‘self’ <a target="_blank" rel="noopener" href="http://js.a.com">js.a.com</a></td>
+<td>‘self’ js.a.com</td>
 <td>定义针对 JavaScript 的加载策略</td>
 </tr>
 <tr>
 <td>style-src</td>
-<td>‘self’ <a target="_blank" rel="noopener" href="http://css.a.com">css.a.com</a></td>
+<td>‘self’ css.a.com</td>
 <td>定义针对样式的加载策略</td>
 </tr>
 <tr>
 <td>img-src</td>
-<td>‘self’ <a target="_blank" rel="noopener" href="http://img.a.com">img.a.com</a></td>
+<td>‘self’ img.a.com</td>
 <td>定义针对图片的加载策略</td>
 </tr>
 <tr>
@@ -583,7 +577,7 @@
 </tr>
 <tr>
 <td>font-src</td>
-<td><a target="_blank" rel="noopener" href="http://font.a.com">font.a.com</a></td>
+<td>font.a.com</td>
 <td>针对 WebFont 的加载策略</td>
 </tr>
 <tr>
@@ -593,7 +587,7 @@
 </tr>
 <tr>
 <td>media-src</td>
-<td><a target="_blank" rel="noopener" href="http://media.a.com">media.a.com</a></td>
+<td>media.a.com</td>
 <td>针对 <code>&lt;audio&gt;</code>、<code>&lt;video&gt;</code> 等标签引入的 HTML 多媒体的加载策略</td>
 </tr>
 <tr>
@@ -613,7 +607,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>指令值可以由下面内容组成：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -644,19 +640,19 @@
 <td>允许 data: 协议 (如 base64 编码的图片)</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com">www.a.com</a></td>
-<td>img-src <a target="_blank" rel="noopener" href="http://img.a.com">img.a.com</a></td>
+<td>www.a.com</td>
+<td>img-src img.a.com</td>
 <td>允许加载指定域名的资源</td>
 </tr>
 <tr>
 <td>.a.com</td>
 <td>img-src .a.com</td>
-<td>允许加载 <a target="_blank" rel="noopener" href="http://a.com">a.com</a> 任何子域的资源</td>
+<td>允许加载 a.com 任何子域的资源</td>
 </tr>
 <tr>
 <td><a target="_blank" rel="noopener" href="https://img.com">https://img.com</a></td>
 <td>img-src <a target="_blank" rel="noopener" href="https://img.com">https://img.com</a></td>
-<td>允许加载 <a target="_blank" rel="noopener" href="http://img.com">img.com</a> 的 https 资源</td>
+<td>允许加载 img.com 的 https 资源</td>
 </tr>
 <tr>
 <td>https:</td>
@@ -675,6 +671,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>违例报告</p>
 <ul>
 <li>document-uri：发生违规的文档的 URI。</li>
@@ -686,8 +683,7 @@
 <p>示例：让浏览器自动升级请求，访问到 http 资源时自动替换成 https 请求</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: upgrade-insecure-requests</span><br></pre></td></tr></table></figure>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP">内容安全策略 CSP</a></p>
-<h3 id="4-Referrer-Policy">4. Referrer-Policy</h3>
-<p>用来监管哪些访问来源信息——会在 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referer"><code>Referer</code></a>  中发送——应该被包含在生成的请求当中。（注意 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referer"><code>Referer</code></a> 实际上是单词 “referrer” 的错误拼写。<code>Referrer-Policy</code> 这个首部并没有延续这个错误拼写。）</p>
+<h3 id="4-Referrer-Policy"><a href="#4-Referrer-Policy" class="headerlink" title="4. Referrer-Policy"></a>4. Referrer-Policy</h3><p>用来监管哪些访问来源信息——会在 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referer"><code>Referer</code></a>  中发送——应该被包含在生成的请求当中。（注意 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referer"><code>Referer</code></a> 实际上是单词 “referrer” 的错误拼写。<code>Referrer-Policy</code> 这个首部并没有延续这个错误拼写。）</p>
 <p>作用：增加隐私保护。</p>
 <p>语法</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Referrer-Policy: no-referrer</span><br><span class="line">Referrer-Policy: no-referrer-when-downgrade</span><br><span class="line">Referrer-Policy: origin</span><br><span class="line">Referrer-Policy: origin-when-cross-origin</span><br><span class="line">Referrer-Policy: same-origin</span><br><span class="line">Referrer-Policy: strict-origin</span><br><span class="line">Referrer-Policy: strict-origin-when-cross-origin</span><br><span class="line">Referrer-Policy: unsafe-url</span><br></pre></td></tr></table></figure>
@@ -703,32 +699,27 @@
 <li>unsafe-url：无论是同源请求还是非同源请求，都发送完整的 URL（移除参数信息之后）作为引用地址。（可能会泄漏敏感信息）。</li>
 </ul>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a></p>
-<h3 id="5-Expect-CT">5. Expect-CT</h3>
-<p><code>Expect-CT</code> 头允许站点选择性报告和 / 或执行证书透明度 (Certificate Transparency) 要求，来防止错误签发的网站证书的使用不被察觉。当站点启用 <code>Expect-CT</code> 头，就是在请求浏览器检查该网站的任何证书是否出现在公共证书透明度日志之中。</p>
+<h3 id="5-Expect-CT"><a href="#5-Expect-CT" class="headerlink" title="5. Expect-CT"></a>5. Expect-CT</h3><p><code>Expect-CT</code> 头允许站点选择性报告和 / 或执行证书透明度 (Certificate Transparency) 要求，来防止错误签发的网站证书的使用不被察觉。当站点启用 <code>Expect-CT</code> 头，就是在请求浏览器检查该网站的任何证书是否出现在公共证书透明度日志之中。</p>
 <p>另外一种解释：用于指示浏览器或者客户端验证签名证书的时间戳</p>
 <p>语法</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Expect-CT: report-uri=&quot;<span class="tag">&lt;<span class="name">uri</span>&gt;</span>&quot;;</span><br><span class="line">           enforce;</span><br><span class="line">           max-age=<span class="tag">&lt;<span class="name">age</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>指令</p>
 <ul>
-<li>
-<p>max-age</p>
-<p>该指令指定接收到 <code>Expect-CT</code> 头后的秒数，在此期间用户代理应将收到消息的主机视为已知的 Expect-CT 主机。如果缓存接收到的值大于它可以表示的值，或者如果其随后计算溢出，则缓存将认为该值为 2147483648（2 的 31 次幂）或其可以方便表示的最大正整数。</p>
+<li><p>max-age</p>
+<p>  该指令指定接收到 <code>Expect-CT</code> 头后的秒数，在此期间用户代理应将收到消息的主机视为已知的 Expect-CT 主机。如果缓存接收到的值大于它可以表示的值，或者如果其随后计算溢出，则缓存将认为该值为 2147483648（2 的 31 次幂）或其可以方便表示的最大正整数。</p>
 </li>
-<li>
-<p>report-uri=<code>&lt;uri&gt;</code> 可选</p>
-<p>该指令指定用户代理应向其报告 Expect-CT 失效的 URI。当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为 “强制执行和报告” 配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
+<li><p>report-uri=<code>&lt;uri&gt;</code> 可选</p>
+<p>  该指令指定用户代理应向其报告 Expect-CT 失效的 URI。当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为 “强制执行和报告” 配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
 </li>
-<li>
-<p>enforce 可选</p>
-<p>该指令示意用户代理应强制遵守证书透明度政策（而不是只报告合规性），并且用户代理应拒绝违反证书透明度政策的之后连接。当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为 “强制执行和报告” 配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
+<li><p>enforce 可选</p>
+<p>  该指令示意用户代理应强制遵守证书透明度政策（而不是只报告合规性），并且用户代理应拒绝违反证书透明度政策的之后连接。当 <code>enforce</code> 指令和 <code>report-uri</code> 指令共同存在时，这种配置被称为 “强制执行和报告” 配置，示意用户代理既应该强制遵守证书透明度政策，也应当报告违规行为。</p>
 </li>
 </ul>
 <p>示例</p>
-<p>以下示例指定 24 小时的证书透明度执行，并向 foo.example 报告违规行为.</p>
+<p>  以下示例指定 24 小时的证书透明度执行，并向 foo.example 报告违规行为.</p>
   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expect-CT: max-age=86400; enforce; report-uri=&quot;https://foo.example/report&quot;</span><br></pre></td></tr></table></figure>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expect-CT">Expect-CT</a></p>
-<h3 id="6-Access-Control-Allow-Origin">6. Access-Control-Allow-Origin</h3>
-<p><code>Access-Control-Allow-Origin</code> 响应头指定了该响应的资源是否被允许与给定的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/origin">origin</a> 共享。跨原始资源共享（CORS）允许网站在它们之间共享内容，为了使网站之间安全的跨域获取资源，可以通过设置 <code>Access-Control-Allow-Origin</code> 来允许指定网站来跨域获取本地资源。</p>
+<h3 id="6-Access-Control-Allow-Origin"><a href="#6-Access-Control-Allow-Origin" class="headerlink" title="6. Access-Control-Allow-Origin"></a>6. Access-Control-Allow-Origin</h3><p><code>Access-Control-Allow-Origin</code> 响应头指定了该响应的资源是否被允许与给定的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/origin">origin</a> 共享。跨原始资源共享（CORS）允许网站在它们之间共享内容，为了使网站之间安全的跨域获取资源，可以通过设置 <code>Access-Control-Allow-Origin</code> 来允许指定网站来跨域获取本地资源。</p>
 <blockquote>
 <p>当目标页面的 <code>response</code> 中包含 <code>Access-Control-Allow-Origin</code> 这个 header，并且 value 有对方的域名，浏览器才允许目标获取页面的数据。</p>
 </blockquote>
@@ -737,13 +728,12 @@
 <p>语法</p>
   <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: *</span><br><span class="line">Access-Control-Allow-Origin: &lt;origin&gt;</span><br></pre></td></tr></table></figure>
 <p>指令</p>
-<p><code>*</code></p>
-<p>对于不需具备凭证（credentials）的请求，服务器会以 “<code>*</code>” 作为通配符，从而允许所有域都具有访问资源的权限。</p>
-<p><code>&lt;origin&gt;</code></p>
-<p>指定一个可以访问资源的 URL。</p>
+<p>  <code>*</code></p>
+<p>  对于不需具备凭证（credentials）的请求，服务器会以 “<code>*</code>” 作为通配符，从而允许所有域都具有访问资源的权限。</p>
+<p>  <code>&lt;origin&gt;</code></p>
+<p>  指定一个可以访问资源的 URL。</p>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a></p>
-<h3 id="7-Cache-Control">7. Cache-Control</h3>
-<p><code>Cache-Control</code> 通用消息头字段，被用于在 http 请求和响应中，通过指定指令来实现缓存机制。缓存指令是单向的，这意味着在请求中设置的指令，不一定被包含在响应中。</p>
+<h3 id="7-Cache-Control"><a href="#7-Cache-Control" class="headerlink" title="7. Cache-Control"></a>7. Cache-Control</h3><p><code>Cache-Control</code> 通用消息头字段，被用于在 http 请求和响应中，通过指定指令来实现缓存机制。缓存指令是单向的，这意味着在请求中设置的指令，不一定被包含在响应中。</p>
 <p>缓存机制可以减少对网络带宽的占用，可以提高访问速度，提高用户的体验，<strong>特定请求被禁止缓存可以提高安全性</strong>。</p>
 <p><strong>语法</strong>：</p>
 <p>指令不区分大小写，并且具有可选参数，可以用令牌或者带引号的字符串语法。多个指令以逗号分隔。</p>
@@ -760,94 +750,74 @@
 <ul>
 <li>扩展 <code>Cache-Control</code> 指令</li>
 </ul>
-<p>拓展缓存指令不是核心 HTTP 缓存标准文档的一部分，使用前请注意检查 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7">兼容性</a>！</p>
+<p>拓展缓存指令不是核心 HTTP 缓存标准文档的一部分，使用前请注意检查 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control#浏览器兼容性">兼容性</a>！</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Cache-control: immutable</span><br><span class="line">Cache-control: stale-while-revalidate=&lt;seconds&gt;</span><br><span class="line">Cache-control: stale-if-error=&lt;seconds&gt;</span><br></pre></td></tr></table></figure>
 <p><strong>指令</strong>：</p>
 <ul>
-<li>
-<p>可缓存性</p>
+<li><p>可缓存性</p>
 <ul>
-<li>
-<p><code>public</code></p>
+<li><p><code>public</code></p>
 <p>表明响应可以被任何对象（包括：发送请求的客户端，代理服务器，等等）缓存，即使是通常不可缓存的内容。（例如：1. 该响应没有 <code>max-age</code> 指令或 <code>Expires</code> 消息头；2. 该响应对应的请求方法是 <a target="_blank" rel="noopener" href="https://wiki.developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST">POST</a>。）</p>
 </li>
-<li>
-<p><code>private</code></p>
+<li><p><code>private</code></p>
 <p>表明响应只能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。私有缓存可以缓存响应内容，比如：对应用户的本地浏览器。</p>
 </li>
-<li>
-<p><code>no-cache</code></p>
+<li><p><code>no-cache</code></p>
 <p>在发布缓存副本之前，强制要求缓存把请求提交给原始服务器进行验证 (协商缓存验证)。</p>
 </li>
-<li>
-<p><code>no-store</code></p>
+<li><p><code>no-store</code></p>
 <p>缓存不应存储有关客户端请求或服务器响应的任何内容，即不使用任何缓存。</p>
 </li>
 </ul>
 </li>
-<li>
-<p>到期</p>
+<li><p>到期</p>
 <ul>
-<li>
-<p><code>max-age=&lt;seconds&gt;</code></p>
+<li><p><code>max-age=&lt;seconds&gt;</code></p>
 <p>设置缓存存储的最大周期，超过这个时间缓存被认为过期 (单位秒)。与 <code>Expires</code> 相反，时间是相对于请求的时间。</p>
 </li>
-<li>
-<p><code>s-maxage=&lt;seconds&gt;</code></p>
+<li><p><code>s-maxage=&lt;seconds&gt;</code></p>
 <p>覆盖 <code>max-age</code> 或者 <code>Expires</code> 头，但是仅适用于共享缓存 (比如各个代理)，私有缓存会忽略它。</p>
 </li>
-<li>
-<p><code>max-stale[=&lt;seconds&gt;]</code></p>
+<li><p><code>max-stale[=&lt;seconds&gt;]</code></p>
 <p>表明客户端愿意接收一个已经过期的资源。可以设置一个可选的秒数，表示响应不能已经过时超过该给定的时间。</p>
 </li>
-<li>
-<p><code>min-fresh=&lt;seconds&gt;</code></p>
+<li><p><code>min-fresh=&lt;seconds&gt;</code></p>
 <p>表示客户端希望获取一个能在指定的秒数内保持其最新状态的响应。</p>
 </li>
-<li>
-<p><code>stale-while-revalidate=&lt;seconds&gt;</code></p>
+<li><p><code>stale-while-revalidate=&lt;seconds&gt;</code></p>
 <p>表明客户端愿意接受陈旧的响应，同时在后台异步检查新的响应。秒值指示客户愿意接受陈旧响应的时间长度。</p>
 </li>
-<li>
-<p><code>stale-if-error=&lt;seconds&gt;</code></p>
+<li><p><code>stale-if-error=&lt;seconds&gt;</code></p>
 <p>表示如果新的检查失败，则客户愿意接受陈旧的响应。秒数值表示客户在初始到期后愿意接受陈旧响应的时间。</p>
 </li>
 </ul>
 </li>
-<li>
-<p>重新验证和重新加载</p>
+<li><p>重新验证和重新加载</p>
 <ul>
-<li>
-<p><code>must-revalidate</code></p>
+<li><p><code>must-revalidate</code></p>
 <p>一旦资源过期（比如已经超过 <code>max-age</code>），在成功向原始服务器验证之前，缓存不能用该资源响应后续请求。</p>
 </li>
-<li>
-<p><code>proxy-revalidate</code></p>
+<li><p><code>proxy-revalidate</code></p>
 <p>与 must-revalidate 作用相同，但它仅适用于共享缓存（例如代理），并被私有缓存忽略。</p>
 </li>
-<li>
-<p><code>immutable</code></p>
+<li><p><code>immutable</code></p>
 <p>表示响应正文不会随时间而改变。资源（如果未过期）在服务器上不发生改变，因此客户端不应发送重新验证请求头（例如 <code>If-None-Match</code> 或 I<code>f-Modified-Since</code>）来检查更新，即使用户显式地刷新页面。在 Firefox 中，immutable 只能被用在 <code>https://</code> transactions. 有关更多信息，请参阅 <a target="_blank" rel="noopener" href="http://bitsup.blogspot.de/2016/05/cache-control-immutable.html">这里</a>。</p>
 </li>
 </ul>
 </li>
-<li>
-<p>其他</p>
+<li><p>其他</p>
 <ul>
-<li>
-<p><code>no-transform</code></p>
+<li><p><code>no-transform</code></p>
 <p>不得对资源进行转换或转变。<code>Content-Encoding</code>、<code>Content-Range</code>、<code>Content-Type</code> 等 HTTP 头不能由代理修改。例如，非透明代理或者如 <a target="_blank" rel="noopener" href="https://support.google.com/webmasters/answer/6211428?hl=en">Google’s Light Mode</a> 可能对图像格式进行转换，以便节省缓存空间或者减少缓慢链路上的流量。<code>no-transform</code> 指令不允许这样做。</p>
 </li>
-<li>
-<p><code>only-if-cached</code></p>
+<li><p><code>only-if-cached</code></p>
 <p>表明客户端只接受已缓存的响应，并且不要向原始服务器检查是否有更新的拷贝。</p>
 </li>
 </ul>
 </li>
 </ul>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control">Cache-Control</a></p>
-<h3 id="8-Set-Cookie">8. Set-Cookie</h3>
-<p>由服务器端向客户端发送 cookie</p>
+<h3 id="8-Set-Cookie"><a href="#8-Set-Cookie" class="headerlink" title="8. Set-Cookie"></a>8. Set-Cookie</h3><p>由服务器端向客户端发送 cookie</p>
 <p>语法：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Expires=&lt;date&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Max-Age=&lt;non-zero-digit&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Path=&lt;path-value&gt;</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Secure</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; HttpOnly</span><br><span class="line"></span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; SameSite=Strict</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; SameSite=Lax</span><br><span class="line"></span><br><span class="line">// Multiple directives are also possible, for example:</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;; Secure; HttpOnly</span><br></pre></td></tr></table></figure>
 <p>安全相关：</p>
@@ -856,20 +826,15 @@
 <li>Secure：强制 cookie 只能在 HTTPS 环境下传递</li>
 </ul>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie</a></p>
-<h3 id="9-X-Frame-Options">9. X-Frame-Options</h3>
-<p>是否允许一个页面可在 <code>&lt;frame&gt;</code>、<code>&lt;iframe&gt;</code>、<code>&lt;embed&gt;</code> 或者 <code>&lt;object&gt;</code> 中展现的标记。</p>
+<h3 id="9-X-Frame-Options"><a href="#9-X-Frame-Options" class="headerlink" title="9. X-Frame-Options"></a>9. X-Frame-Options</h3><p>是否允许一个页面可在 <code>&lt;frame&gt;</code>、<code>&lt;iframe&gt;</code>、<code>&lt;embed&gt;</code> 或者 <code>&lt;object&gt;</code> 中展现的标记。</p>
 <ul>
-<li>
-<p>frame 标签：框架标签，放置一个 HTML 文档（页面）</p>
+<li><p>frame 标签：框架标签，放置一个 HTML 文档（页面）</p>
 </li>
-<li>
-<p>iframe 标签：内联框架标签，在一个 HTML 页面中显示（插入）另一个 HTML 页面</p>
+<li><p>iframe 标签：内联框架标签，在一个 HTML 页面中显示（插入）另一个 HTML 页面</p>
 </li>
-<li>
-<p>embed 标签：音频元素标签，插入一个音频元素</p>
+<li><p>embed 标签：音频元素标签，插入一个音频元素</p>
 </li>
-<li>
-<p>object 标签：定义外部内容的容器标签</p>
+<li><p>object 标签：定义外部内容的容器标签</p>
 </li>
 </ul>
 <p>作用：减少 / 避免点击劫持 (clickjacking) 的攻击。</p>
@@ -882,11 +847,9 @@
 <li>ALLOW-FROM uri：表示该页面可以在指定来源的 frame 中展示。</li>
 </ul>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/X-Frame-Options"><code>X-Frame-Options</code></a></p>
-<h3 id="10-X-XSS-Protection">10. X-XSS-Protection</h3>
-<p>HTTP <strong><code>X-XSS-Protection</code></strong> 响应头是 Internet Explorer，Chrome 和 Safari 的一个特性，当检测到跨站脚本攻击 (<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/XSS">XSS</a>) 时，浏览器将停止加载页面。若网站设置了良好的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy"><code>Content-Security-Policy</code></a> 来禁用内联 JavaScript (<code>'unsafe-inline'</code>)，现代浏览器不太需要这些保护，但其仍然可以为尚不支持 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSP">CSP</a> 的旧版浏览器的用户提供保护。</p>
+<h3 id="10-X-XSS-Protection"><a href="#10-X-XSS-Protection" class="headerlink" title="10. X-XSS-Protection"></a>10. X-XSS-Protection</h3><p>HTTP <strong><code>X-XSS-Protection</code></strong> 响应头是 Internet Explorer，Chrome 和 Safari 的一个特性，当检测到跨站脚本攻击 (<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/XSS">XSS</a>) 时，浏览器将停止加载页面。若网站设置了良好的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy"><code>Content-Security-Policy</code></a> 来禁用内联 JavaScript (<code>&#39;unsafe-inline&#39;</code>)，现代浏览器不太需要这些保护，但其仍然可以为尚不支持 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSP">CSP</a> 的旧版浏览器的用户提供保护。</p>
 <p>作用：防范 XSS 攻击。</p>
-<p>PS：这个是旧属性，基本上可以被 CSP 取代，但是仍可以为还没有支持 CSP 的浏览器提供一层保护。<br>
-主流浏览器默认都开启了 XSS 保护。</p>
+<p> PS：这个是旧属性，基本上可以被 CSP 取代，但是仍可以为还没有支持 CSP 的浏览器提供一层保护。<br> 主流浏览器默认都开启了 XSS 保护。</p>
 <p>语法：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X-XSS-Protection: 0</span><br><span class="line">X-XSS-Protection: 1</span><br><span class="line">X-XSS-Protection: 1; mode=block</span><br><span class="line">X-XSS-Protection: 1; report=&lt;reporting-uri&gt;</span><br></pre></td></tr></table></figure>
 <p>释义：</p>
@@ -897,15 +860,13 @@
 <li>1; report=<code>&lt;reporting-URI&gt;</code> (Chromium only)：启用 XSS 过滤。如果检测到跨站脚本攻击，浏览器将清除页面并使用 CSP <code>report-uri</code> 指令的功能发送违规报告。</li>
 </ul>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a></p>
-<h3 id="11-X-Content-Type-Options">11. X-Content-Type-Options</h3>
-<p><code>X-Content-Type-Options</code> HTTP 消息头相当于一个提示标志，被服务器用来提示客户端一定要遵循在 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a> 首部中对 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME 类型</a> 的设定，而不能对其进行修改。这就禁用了客户端的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#MIME_sniffing">MIME 类型嗅探</a> 行为。</p>
+<h3 id="11-X-Content-Type-Options"><a href="#11-X-Content-Type-Options" class="headerlink" title="11. X-Content-Type-Options"></a>11. X-Content-Type-Options</h3><p><code>X-Content-Type-Options</code> HTTP 消息头相当于一个提示标志，被服务器用来提示客户端一定要遵循在 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a> 首部中对 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME 类型</a> 的设定，而不能对其进行修改。这就禁用了客户端的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#MIME_sniffing">MIME 类型嗅探</a> 行为。</p>
 <p>作用：禁用浏览器的 Content-Type 猜测行为。</p>
 <p>背景：浏览器通常会根据响应头 Content-Type 字段来分辨资源类型。有些资源的 Content-Type 是错的或者未定义。这时，浏览器会启用 MIME-sniffing 来猜测该资源的类型，解析内容并执行。利用这个特性，攻击者可以让原本应该解析为图片的请求被解析为 JavaScript。</p>
 <p>使用方法：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X-Content-Type-Options: nosniff</span><br></pre></td></tr></table></figure>
 <p>参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a></p>
-<h3 id="12-X-Permitted-Cross-Domain-Policies">12. X-Permitted-Cross-Domain-Policies</h3>
-<p>用于指定客户端能够访问的跨域策略文件的类型。</p>
+<h3 id="12-X-Permitted-Cross-Domain-Policies"><a href="#12-X-Permitted-Cross-Domain-Policies" class="headerlink" title="12. X-Permitted-Cross-Domain-Policies"></a>12. X-Permitted-Cross-Domain-Policies</h3><p>用于指定客户端能够访问的跨域策略文件的类型。</p>
 <p>跨域策略文件是一种 XML 文件，用于授予 Web 客户端应用权限以处理跨域数据，如 Adobe Flash、Adobe Reader 等。当客户端请求托管在非自己域上的内容时，远程域需要配置一个跨域策略文件以授权请求域的访问，从而使得客户端继续进行相应的交互。</p>
 <p><strong>语法</strong>：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X-Permitted-Cross-Domain-Policies: none</span><br><span class="line">X-Permitted-Cross-Domain-Policies: master-only</span><br><span class="line">X-Permitted-Cross-Domain-Policies: by-content-type</span><br><span class="line">X-Permitted-Cross-Domain-Policies: by-ftp-filename</span><br><span class="line">X-Permitted-Cross-Domain-Policies: all</span><br></pre></td></tr></table></figure>
@@ -917,8 +878,7 @@
 <li>by-ftp-filename：仅限 FTP 协议使用，只允许使用文件名为 crossdomain.xml 的策略文件</li>
 <li>all：目标域上的所有策略文件都可以使用</li>
 </ul>
-<h3 id="13-Permissions-Policy（Feature-Policy）">13. Permissions-Policy（Feature-Policy）</h3>
-<p>2020 年 7 月 16 日，W3C 组织发布规范，Feature Policy 正式更名为 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/permissions-policy/">Permissions Policy</a>。</p>
+<h3 id="13-Permissions-Policy（Feature-Policy）"><a href="#13-Permissions-Policy（Feature-Policy）" class="headerlink" title="13. Permissions-Policy（Feature-Policy）"></a>13. Permissions-Policy（Feature-Policy）</h3><p>2020 年 7 月 16 日，W3C 组织发布规范，Feature Policy 正式更名为 <a target="_blank" rel="noopener" href="https://www.w3.org/TR/permissions-policy/">Permissions Policy</a>。</p>
 <p>参看：<a href="/blog/feature-policy-renamed-to-permissions-policy/" title="Feature-Policy 退场，欢迎 Permissions-Policy ！">Feature-Policy 退场，欢迎 Permissions-Policy ！</a></p>
 <p>Feature Policy 是一个新的 http 响应头属性，允许一个站点开启或者禁止一些浏览器属性和 API，来更好的确保站点的安全性和隐私性。有点类似 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSP">内容安全策略</a>，但是它控制的是浏览器的特征而不是安全行为.</p>
 <p>跟其他 http 安全响应头的设置一样，只需要敲定页面具体的限制策略，然后在 http 响应头中返回相应的策略即可：</p>
@@ -930,18 +890,14 @@
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Accelerometer</span><br><span class="line">Ambient light sensor</span><br><span class="line">Autoplay</span><br><span class="line">Camera</span><br><span class="line">Encrypted media</span><br><span class="line">Fullscreen</span><br><span class="line">Geolocation</span><br><span class="line">Gyroscope</span><br><span class="line">Magnetometer</span><br><span class="line">Microphone</span><br><span class="line">Midi</span><br><span class="line">PaymentRequest</span><br><span class="line">Picture-in-picture</span><br><span class="line">USB</span><br><span class="line">VR / XR</span><br></pre></td></tr></table></figure>
 <p><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2018/06/feature-policy">For now, there are a couple of ways to see what features are controllable.</a></p>
 <ul>
-<li>
-<p>Check out our <a target="_blank" rel="noopener" href="https://feature-policy-demos.appspot.com/"><strong>Feature Policy</strong> Kitchen Sink</a> of demos. It has examples of each policy that’s been implemented in Blink.</p>
+<li><p>Check out our <a target="_blank" rel="noopener" href="https://feature-policy-demos.appspot.com/"><strong>Feature Policy</strong> Kitchen Sink</a> of demos. It has examples of each policy that’s been implemented in Blink.</p>
 </li>
-<li>
-<p>Check <a target="_blank" rel="noopener" href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/feature_policy/feature_policy.cc?l=138&amp;rcl=ab90b51c5b60de15054a32b0bd18e4839536a1c9">Chrome’s source</a> for the list of feature names.</p>
+<li><p>Check <a target="_blank" rel="noopener" href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/feature_policy/feature_policy.cc?l=138&amp;rcl=ab90b51c5b60de15054a32b0bd18e4839536a1c9">Chrome’s source</a> for the list of feature names.</p>
 </li>
-<li>
-<p>Query <code>document.featurePolicy.allowedFeatures()</code> on <code>about:blank</code> to find the list:</p>
+<li><p>Query <code>document.featurePolicy.allowedFeatures()</code> on <code>about:blank</code> to find the list:</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[&quot;geolocation&quot;,</span><br><span class="line"> &quot;midi&quot;,</span><br><span class="line"> &quot;camera&quot;,</span><br><span class="line"> &quot;usb&quot;,</span><br><span class="line"> &quot;magnetometer&quot;,</span><br><span class="line"> &quot;fullscreen&quot;,</span><br><span class="line"> &quot;animations&quot;,</span><br><span class="line"> &quot;payment&quot;,</span><br><span class="line"> &quot;picture-in-picture&quot;,</span><br><span class="line"> &quot;accelerometer&quot;,</span><br><span class="line"> &quot;vr&quot;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Check [<a target="_blank" rel="noopener" href="http://chromestatus.com">chromestatus.com</a>](<a target="_blank" rel="noopener" href="https://www.chromestatus.com/features#component%3A">https://www.chromestatus.com/features#component%3A</a> Blink&gt;FeaturePolicy) for the policies that have been implemented or are being considered in Blink.</p>
+<li><p>Check <a target="_blank" rel="noopener" href="https://www.chromestatus.com/features#component%3A&gt; Blink&gt;FeaturePolicy">chromestatus.com</a> for the policies that have been implemented or are being considered in Blink.</p>
 </li>
 </ul>
 <p><strong><code>&lt;allowlist</code>&gt; 取值，可以同时取多个值</strong></p>
@@ -952,7 +908,7 @@
 <li><code>none</code>：在页面和内嵌中全部禁止。</li>
 <li><code>&lt;origin(s)&gt;</code>：允许在特定的 origin 中使用，多个 origins 可以用空格隔开。</li>
 </ul>
-<p>‘*’ 和’none’ 单独使用，‘self’ 和’src’可以和一个或者多个 origins 并列使用</p>
+<p>‘*’ 和’none’ 单独使用，’self’ 和’src’可以和一个或者多个 origins 并列使用</p>
 <p><strong>示例</strong>：</p>
 <p>禁用摄像头和定位 API，则可以在返回的 response 中传递以下定义 feature policy 的 HTTP 的头部信息：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Feature-Policy: camera &#x27;none&#x27;; geolocation &#x27;none&#x27;</span><br></pre></td></tr></table></figure>
@@ -966,129 +922,105 @@
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;Feature-Policy&quot;: &quot;camera&#x27;none&#x27;; microphone&#x27;none&#x27;&quot;</span><br></pre></td></tr></table></figure>
 <p>也相应变更为：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;Permissions-Policy&quot;: &quot;camera=()，microphonee=()&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="二、配置方法">二、配置方法</h2>
-<p>以添加以下 Header 示例：</p>
+<h2 id="二、配置方法"><a href="#二、配置方法" class="headerlink" title="二、配置方法"></a>二、配置方法</h2><p>以添加以下 Header 示例：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x-frame-options: SAMEORIGIN</span><br></pre></td></tr></table></figure>
-<h3 id="1-应用交付控制器">1. 应用交付控制器</h3>
-<ul>
-<li>
-<p>F5 BIG-IP (iRules)</p>
+<h3 id="1-应用交付控制器"><a href="#1-应用交付控制器" class="headerlink" title="1. 应用交付控制器"></a>1. 应用交付控制器</h3><ul>
+<li><p>F5 BIG-IP (iRules)</p>
   <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_RESPONSE &#123;</span><br><span class="line">  HTTP::header insert X-Frame-Options <span class="string">&quot;SAMEORIGIN&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>移除、替换原有 Header</p>
+<p>  移除、替换原有 Header</p>
   <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">when HTTP_RESPONSE &#123;</span><br><span class="line">  HTTP::header replace Server <span class="string">&quot;SYSIN.ORG/2.0&quot;</span></span><br><span class="line">  HTTP::header remove X-AspNet-Version</span><br><span class="line">  HTTP::header remove X-Powered-By</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>Ctrix ADC (AppExpert)</p>
+<li><p>Ctrix ADC (AppExpert)</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add rewrite action insert_x-frame-options_act insert_http_header X-Frame-Options &quot;\&quot;SAMEORIGIN\&quot;&quot;</span><br></pre></td></tr></table></figure>
-<p>移除、替换原有 Header</p>
+<p>  移除、替换原有 Header</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add rewrite action server-header-remove-act delete_http_header X-Powered-By</span><br><span class="line">add rewrite action server-header-remove-act delete_http_header X-AspNet-Version</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="2-Web-服务器">2. Web 服务器</h3>
-<ul>
-<li>
-<p>配置 Apache，所有页面上发送 <code>X-Frame-Options</code> 响应头，需要在 <code>site</code> 中配置如下：</p>
+<h3 id="2-Web-服务器"><a href="#2-Web-服务器" class="headerlink" title="2. Web 服务器"></a>2. Web 服务器</h3><ul>
+<li><p>配置 Apache，所有页面上发送 <code>X-Frame-Options</code> 响应头，需要在 <code>site</code> 中配置如下：</p>
   <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Header always set X-Frame-Options &quot;SAMEORLGIN&quot;</span><br></pre></td></tr></table></figure>
-<p>移除、替换原有 Header</p>
+<p>  移除、替换原有 Header</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Header always unset &quot;X-Powered-By&quot;</span><br><span class="line">Header unset &quot;X-Powered-By”</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://httpd.apache.org/docs/current/mod/mod_headers.html">语法</a>：<code>Header [condition] add|append|echo|edit|edit*|merge|set|setifempty|unset|note header [[expr=]value [replacement] [early|env=[!]varname|expr=expression]]</code></p>
-<p>替换 Server</p>
-<p>需要 Apache <a target="_blank" rel="noopener" href="https://www.tecmint.com/change-apache-server-name-to-anything-in-server-headers/"><strong>mod_security</strong></a> module (For CentOS: <code>yum install mod_security</code>)</p>
+<p>  <a target="_blank" rel="noopener" href="https://httpd.apache.org/docs/current/mod/mod_headers.html">语法</a>：<code>Header [condition] add|append|echo|edit|edit*|merge|set|setifempty|unset|note header [[expr=]value [replacement] [early|env=[!]varname|expr=expression]]</code></p>
+<p>  替换 Server</p>
+<p>  需要 Apache <a target="_blank" rel="noopener" href="https://www.tecmint.com/change-apache-server-name-to-anything-in-server-headers/"><strong>mod_security</strong></a> module (For CentOS: <code>yum install mod_security</code>)</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ServerTokens Prod</span><br><span class="line">SecServerSignature “Your-Server-Name”</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>配置 Nginx，所有页面上发送 <code>X-Frame-Options</code> 响应头，在 <code>http</code>,<code>server</code> 或者 <code>location</code> 配置中添加：</p>
+<li><p>配置 Nginx，所有页面上发送 <code>X-Frame-Options</code> 响应头，在 <code>http</code>,<code>server</code> 或者 <code>location</code> 配置中添加：</p>
   <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_header X-Frame-Options &quot;SAMEORLGIN&quot; always;</span><br></pre></td></tr></table></figure>
-<p>也可以使用模块：<a target="_blank" rel="noopener" href="https://github.com/openresty/headers-more-nginx-module#more_set_headers">more_set_headers</a></p>
-<p>清除 Header：<a target="_blank" rel="noopener" href="https://github.com/openresty/headers-more-nginx-module#more_clear_headers">more_clear_headers</a></p>
+<p>  也可以使用模块：<a target="_blank" rel="noopener" href="https://github.com/openresty/headers-more-nginx-module#more_set_headers">more_set_headers</a></p>
+<p>  清除 Header：<a target="_blank" rel="noopener" href="https://github.com/openresty/headers-more-nginx-module#more_clear_headers">more_clear_headers</a></p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">more_clear_headers &#x27;X-Hidden-*&#x27;;  #支持通配符</span><br><span class="line">more_clear_headers &#x27;X-Powered-By&#x27;;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.tomred.net/devops/nginx-remove-server-header.html">Remove Server Header</a></p>
-<p>Install</p>
+<p>  <a target="_blank" rel="noopener" href="https://www.tomred.net/devops/nginx-remove-server-header.html">Remove Server Header</a></p>
+<p>  Install</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Debian/Ubuntu the first</span><br><span class="line">~/$&gt; sudo apt install nginx-extras</span><br><span class="line"></span><br><span class="line"># RHEL and Amazon Linux</span><br><span class="line">~/$&gt; yum install nginx-plus-module-headers-more</span><br></pre></td></tr></table></figure>
-<p>Remove Server Header</p>
+<p>  Remove Server Header</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    # Basic Settings</span><br><span class="line">    more_set_headers &#x27;Server:&#x27;;</span><br></pre></td></tr></table></figure>
-<p>Override Server Header</p>
+<p>  Override Server Header</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    # Basic Settings</span><br><span class="line">    more_set_headers &#x27;Server: None Of Your Business&#x27;;</span><br></pre></td></tr></table></figure>
-<p>Remove Server Version from Header</p>
+<p>  Remove Server Version from Header</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># /etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    # Basic Settings</span><br><span class="line">    server_tokens off;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>配置 IIS，在 Web.config 文件中添加：</p>
+<li><p>配置 IIS，在 Web.config 文件中添加：</p>
   <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;system.webServer&gt;</span><br><span class="line">  &lt;httpProtocol&gt;</span><br><span class="line">        &lt;customHeaders&gt;</span><br><span class="line">            &lt;add name=&quot;X-Frame-Options&quot; value=&quot;SAMEORLGIN&quot; /&gt;</span><br><span class="line">        &lt;/customHeaders&gt;</span><br><span class="line">    &lt;/httpProtocol&gt;</span><br><span class="line">&lt;/system.webServer&gt;</span><br></pre></td></tr></table></figure>
-<p>或者使用 “<strong>Internet Information Services (IIS) Manager</strong>” &gt; <strong>HTTP Response Headers</strong>，直接添加。</p>
-<p>删除和修改 Server Header</p>
-<p><a target="_blank" rel="noopener" href="https://download.cnet.com/UrlScan-for-IIS-64-bit/3000-10248_4-75451809.html">下载</a> 并安装 UrlScan，编辑配置文件 URLScan.ini（位于 %WINDIR%\System32\Inetsrv\URLscan）</p>
+<p>  或者使用 “<strong>Internet Information Services (IIS) Manager</strong>” &gt; <strong>HTTP Response Headers</strong>，直接添加。</p>
+<p>  删除和修改 Server Header</p>
+<p>  <a target="_blank" rel="noopener" href="https://download.cnet.com/UrlScan-for-IIS-64-bit/3000-10248_4-75451809.html">下载</a> 并安装 UrlScan，编辑配置文件 URLScan.ini（位于 %WINDIR%\System32\Inetsrv\URLscan）</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RemoveServerHeader=0  #默认，修改值为 1 则不发送 Server header</span><br><span class="line">AlternateServerName = 需要替换的名称</span><br></pre></td></tr></table></figure>
-<p>删除或者修改 <strong>X-Powered-By</strong></p>
-<p>“<strong>Internet Information Services (IIS) Manager</strong>” &gt; <strong>HTTP Response Headers</strong>，直接修改或者删除。</p>
-<p>删除 <strong>X-AspNet-Version</strong></p>
-<p>在站点的 web.config 文件下的 <code>&lt;system.web&gt;</code> 结点下添加</p>
+<p>  删除或者修改 <strong>X-Powered-By</strong></p>
+<p>  “<strong>Internet Information Services (IIS) Manager</strong>” &gt; <strong>HTTP Response Headers</strong>，直接修改或者删除。</p>
+<p>  删除 <strong>X-AspNet-Version</strong></p>
+<p>  在站点的 web.config 文件下的 <code>&lt;system.web&gt;</code> 结点下添加</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;httpRuntime enableVersionHeader=&quot;false&quot; /&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3-应用程序">3. 应用程序</h3>
-<p>这里提供部分示例：</p>
+<h3 id="3-应用程序"><a href="#3-应用程序" class="headerlink" title="3. 应用程序"></a>3. 应用程序</h3><p>这里提供部分示例：</p>
 <ul>
-<li>
-<p>JAVA</p>
-<p>Spring Security 支持在响应中添加各种安全头，默认响应安全头如下：</p>
+<li><p>JAVA</p>
+<p>  Spring Security 支持在响应中添加各种安全头，默认响应安全头如下：</p>
   <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: no-cache, no-store, max-age=0, must-revalidate</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Expires: 0</span><br><span class="line">X-Content-Type-Options: nosniff</span><br><span class="line">Strict-Transport-Security: max-age=31536000 ; includeSubDomains</span><br><span class="line">X-Frame-Options: DENY</span><br><span class="line">X-XSS-Protection: 1; mode=block</span><br></pre></td></tr></table></figure>
-<p>示例：Spring Security 用 “X-Frame-Options: SAMEORIGIN” 允许 iframes 在同一个域。</p>
+<p>  示例：Spring Security 用 “X-Frame-Options: SAMEORIGIN” 允许 iframes 在同一个域。</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebSecurityConfig</span> <span class="keyword">extends</span></span><br><span class="line"><span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">  http</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  .headers()</span><br><span class="line">    .frameOptions()</span><br><span class="line">      .sameOrigin();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebSecurityConfig</span> <span class="keyword">extends</span></span><br><span class="line"><span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">  http</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  .headers()</span><br><span class="line">    .frameOptions()</span><br><span class="line">      .sameOrigin();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更多参看：<a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-response-header">https://www.baeldung.com/spring-response-header</a></p>
+<p>  更多参看：<a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-response-header">https://www.baeldung.com/spring-response-header</a></p>
 </li>
-<li>
-<p>PHP</p>
+<li><p>PHP</p>
   <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;x-frame-options: SAMEORIGIN&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
   <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In this example a HTTP header X-PHP-Version is added to the HTTP request. The value of this header is the version string of the PHP interpreter that is running the instance of HTTP_Request.</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">&quot;HTTP/Request.php&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$req</span> =&amp; <span class="keyword">new</span> <span class="title class_">HTTP_Request</span>(<span class="string">&quot;http://sysin.org/&quot;</span>);</span><br><span class="line"><span class="variable">$req</span>-&gt;<span class="title function_ invoke__">addHeader</span>(<span class="string">&quot;X-PHP-Version&quot;</span>, <span class="title function_ invoke__">phpversion</span>());</span><br><span class="line"></span><br><span class="line"><span class="variable">$response</span> = <span class="variable">$req</span>-&gt;<span class="title function_ invoke__">sendRequest</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (PEAR::<span class="title function_ invoke__">isError</span>(<span class="variable">$response</span>)) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$response</span>-&gt;<span class="title function_ invoke__">getMessage</span>();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$req</span>-&gt;<span class="title function_ invoke__">getResponseBody</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>C#</p>
+<li><p>C#</p>
   <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> Microsoft.Web.Administration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">internal</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Sample</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">using</span> (ServerManager serverManager = <span class="keyword">new</span> ServerManager())</span><br><span class="line">      &#123;</span><br><span class="line">        Configuration config = serverManager.GetWebConfiguration(<span class="string">&quot;Default Web Site&quot;</span>);</span><br><span class="line">        ConfigurationSection httpProtocolSection = config.GetSection(<span class="string">&quot;system.webServer/httpProtocol&quot;</span>);</span><br><span class="line">        ConfigurationElementCollection customHeadersCollection = httpProtocolSection.GetCollection(<span class="string">&quot;customHeaders&quot;</span>);</span><br><span class="line"></span><br><span class="line">        ConfigurationElement addElement = customHeadersCollection.CreateElement(<span class="string">&quot;add&quot;</span>);</span><br><span class="line">        addElement[<span class="string">&quot;name&quot;</span>] = <span class="string">@&quot;x-frame-options&quot;</span>;</span><br><span class="line">        addElement[<span class="string">&quot;value&quot;</span>] = <span class="string">@&quot;SAMEORIGIN&quot;</span>;</span><br><span class="line">        customHeadersCollection.Add(addElement);</span><br><span class="line"></span><br><span class="line">        serverManager.CommitChanges();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p><a target="_blank" rel="noopener" href="http://VB.net">VB.net</a></p>
+<li><p>VB.net</p>
   <figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Imports</span> System</span><br><span class="line"><span class="keyword">Imports</span> System.<span class="keyword">Text</span></span><br><span class="line"><span class="keyword">Imports</span> Microsoft.Web.Administration</span><br><span class="line"></span><br><span class="line"><span class="keyword">Module</span> Sample</span><br><span class="line"></span><br><span class="line">  <span class="keyword">Sub</span> Main()</span><br><span class="line">      <span class="keyword">Dim</span> serverManager <span class="keyword">As</span> ServerManager = <span class="built_in">New</span> ServerManager</span><br><span class="line">      <span class="keyword">Dim</span> config <span class="keyword">As</span> Configuration = serverManager.GetWebConfiguration(<span class="string">&quot;Default Web Site&quot;</span>)</span><br><span class="line">      <span class="keyword">Dim</span> httpProtocolSection <span class="keyword">As</span> ConfigurationSection = config.GetSection(<span class="string">&quot;system.webServer/httpProtocol&quot;</span>)</span><br><span class="line">      <span class="keyword">Dim</span> customHeadersCollection <span class="keyword">As</span> ConfigurationElementCollection = httpProtocolSection.GetCollection(<span class="string">&quot;customHeaders&quot;</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">Dim</span> addElement <span class="keyword">As</span> ConfigurationElement = customHeadersCollection.CreateElement(<span class="string">&quot;add&quot;</span>)</span><br><span class="line">      addElement(<span class="string">&quot;name&quot;</span>) = <span class="string">&quot;x-frame-options&quot;</span></span><br><span class="line">      addElement(<span class="string">&quot;value&quot;</span>) = <span class="string">&quot;SAMEORIGIN&quot;</span></span><br><span class="line">      customHeadersCollection.Add(addElement)</span><br><span class="line"></span><br><span class="line">      serverManager.CommitChanges()</span><br><span class="line">  <span class="keyword">End</span> <span class="keyword">Sub</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Module</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>JavaScript</p>
+<li><p>JavaScript</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> adminManager = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Microsoft.ApplicationHost.WritableAdminManager&#x27;</span>);</span><br><span class="line">adminManager.<span class="property">CommitPath</span> = <span class="string">&quot;MACHINE/WEBROOT/APPHOST/Default Web Site&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> httpProtocolSection = adminManager.<span class="title class_">GetAdminSection</span>(<span class="string">&quot;system.webServer/httpProtocol&quot;</span>, <span class="string">&quot;MACHINE/WEBROOT/APPHOST/Default Web Site&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> customHeadersCollection = httpProtocolSection.<span class="property">ChildElements</span>.<span class="title class_">Item</span>(<span class="string">&quot;customHeaders&quot;</span>).<span class="property">Collection</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> addElement = customHeadersCollection.<span class="title class_">CreateNewElement</span>(<span class="string">&quot;add&quot;</span>);</span><br><span class="line">addElement.<span class="property">Properties</span>.<span class="title class_">Item</span>(<span class="string">&quot;name&quot;</span>).<span class="property">Value</span> = <span class="string">&quot;x-frame-options&quot;</span>;</span><br><span class="line">addElement.<span class="property">Properties</span>.<span class="title class_">Item</span>(<span class="string">&quot;value&quot;</span>).<span class="property">Value</span> = <span class="string">&quot;SAMEORIGIN&quot;</span>;</span><br><span class="line">customHeadersCollection.<span class="title class_">AddElement</span>(addElement);</span><br><span class="line"></span><br><span class="line">adminManager.<span class="title class_">CommitChanges</span>();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="三、安全响应头设置建议">三、安全响应头设置建议</h2>
-<p>可以查看一些领先的网站实例，参考配置。</p>
+<h2 id="三、安全响应头设置建议"><a href="#三、安全响应头设置建议" class="headerlink" title="三、安全响应头设置建议"></a>三、安全响应头设置建议</h2><p>可以查看一些领先的网站实例，参考配置。</p>
 <p>通常需要修改、移除和添加一些 Header 如下：</p>
-<h3 id="1-需要修改的-Header">1. 需要修改的 Header</h3>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server</span><br></pre></td></tr></table></figure>
-<h3 id="2-需要移除的-Header">2. 需要移除的 Header</h3>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X-Powered-By</span><br><span class="line">X-AspNet-Version</span><br></pre></td></tr></table></figure>
-<h3 id="3-建议添加的-Header">3. 建议添加的 Header</h3>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Strict-Transport-Security</span><br><span class="line">X-Content-Type-Options</span><br><span class="line">Content-Security-Policy</span><br><span class="line">X-Xss-Protection</span><br><span class="line">X-Frame-Options</span><br><span class="line">Referrer-Policy</span><br><span class="line">Feature-Policy</span><br></pre></td></tr></table></figure>
+<h3 id="1-需要修改的-Header"><a href="#1-需要修改的-Header" class="headerlink" title="1. 需要修改的 Header"></a>1. 需要修改的 Header</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server</span><br></pre></td></tr></table></figure>
+<h3 id="2-需要移除的-Header"><a href="#2-需要移除的-Header" class="headerlink" title="2. 需要移除的 Header"></a>2. 需要移除的 Header</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X-Powered-By</span><br><span class="line">X-AspNet-Version</span><br></pre></td></tr></table></figure>
+<h3 id="3-建议添加的-Header"><a href="#3-建议添加的-Header" class="headerlink" title="3. 建议添加的 Header"></a>3. 建议添加的 Header</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Strict-Transport-Security</span><br><span class="line">X-Content-Type-Options</span><br><span class="line">Content-Security-Policy</span><br><span class="line">X-Xss-Protection</span><br><span class="line">X-Frame-Options</span><br><span class="line">Referrer-Policy</span><br><span class="line">Feature-Policy</span><br></pre></td></tr></table></figure>
 <p>示例：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;Content-Security-Policy&quot;: &quot;upgrade-insecure-requests&quot;,</span><br><span class="line">&quot;Strict-Transport-Security&quot;: &quot;max-age=31536000; includeSubDomains; preload&quot;,</span><br><span class="line">&quot;X-Xss-Protection&quot;: &quot;1; mode=block&quot;,</span><br><span class="line">&quot;X-Frame-Options&quot;: &quot;SAMEORIGIN&quot;,</span><br><span class="line">&quot;X-Content-Type-Options&quot;: &quot;nosniff&quot;,</span><br><span class="line">&quot;Referrer-Policy&quot;: &quot;strict-origin-when-cross-origin&quot;,</span><br><span class="line">&quot;Feature-Policy&quot;: &quot;camera&#x27;none&#x27;; microphone&#x27;none&#x27;&quot;,</span><br></pre></td></tr></table></figure>
-<h3 id="4-通过-Security-Headers-网站检测">4. 通过 <a target="_blank" rel="noopener" href="https://securityheaders.com/">Security Headers</a> 网站检测</h3>
-<p>注意 FAQ 中的要点：</p>
+<h3 id="4-通过-Security-Headers-网站检测"><a href="#4-通过-Security-Headers-网站检测" class="headerlink" title="4. 通过 Security Headers 网站检测"></a>4. 通过 <a target="_blank" rel="noopener" href="https://securityheaders.com/">Security Headers</a> 网站检测</h3><p>注意 FAQ 中的要点：</p>
 <p><a target="_blank" rel="noopener" href="https://securityheaders.com/faq/">Frequently asked questions</a></p>
 <p><strong>How do I get an A+ grade?</strong></p>
 <p>To get an A+ grade your site needs to issue all of the HTTP response headers that we check for. This indicates a high level of commitment to  improving security for your visitors.</p>
 <p><strong>What headers do you check for?</strong></p>
 <p>Over a HTTP connection we check for Content-Security-Policy,  X-Content-Type-Options, X-Frame-Options and X-XSS-Protection. Over a  HTTPS connection we check for 2 additional headers which are  Strict-Transport-Security and Public-Key-Pins.</p>
-<h2 id="四、资源网站">四、资源网站</h2>
-<p>MDN <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers">HTTP Headers</a></p>
+<h2 id="四、资源网站"><a href="#四、资源网站" class="headerlink" title="四、资源网站"></a>四、资源网站</h2><p>MDN <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers">HTTP Headers</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.veracode.com/blog/">Veracode Blog</a>：Application Security Research, News, and Education</p>
-<h2 id="五、检测工具">五、检测工具</h2>
-<ul>
-<li>
-<p>在线检查网站：<a target="_blank" rel="noopener" href="https://securityheaders.com/">https://securityheaders.com/</a>（推荐，提供配置建议）</p>
+<h2 id="五、检测工具"><a href="#五、检测工具" class="headerlink" title="五、检测工具"></a>五、检测工具</h2><ul>
+<li><p>在线检查网站：<a target="_blank" rel="noopener" href="https://securityheaders.com/">https://securityheaders.com/</a>（推荐，提供配置建议）</p>
 </li>
-<li>
-<p>命令行工具：</p>
+<li><p>命令行工具：</p>
 <p>curl：<code>curl -I https://sysin.org</code></p>
 <p><img src="curl-sysin.webp" alt="curl sysin"></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/riramar/hsecscan">hsecscan</a>（Python）</p>
 </li>
-<li>
-<p>浏览器自带开发者工具，或者第三方 Header 扩展</p>
+<li><p>浏览器自带开发者工具，或者第三方 Header 扩展</p>
 </li>
 </ul>
 
@@ -1211,7 +1143,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1518,7 +1450,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

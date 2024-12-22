@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 在 CloudFlare 部署 HTTP Security Header - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 在 CloudFlare 部署 HTTP Security Header - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 在 CloudFlare 部署 HTTP Security Header - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 在 CloudFlare 部署 HTTP Security Header - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 在 CloudFlare 部署 HTTP Security Header "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/deploy-security-header-on-cloudflare/">
+  <link rel="canonical" href="https://sysin.org/blog/deploy-security-header-on-cloudflare/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,10 +485,9 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/deploy-security-header-on-cloudflare/" title="在 CloudFlare 部署 HTTP Security Header">在 CloudFlare 部署 HTTP Security Header</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="1-Cloudflare-Works-介绍">1. Cloudflare Works 介绍</h2>
-<p>以下引自官网，更多内容请参看<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/">官方文档</a>。</p>
+<h2 id="1-Cloudflare-Works-介绍"><a href="#1-Cloudflare-Works-介绍" class="headerlink" title="1. Cloudflare Works 介绍"></a>1. Cloudflare Works 介绍</h2><p>以下引自官网，更多内容请参看<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/">官方文档</a>。</p>
 <p>“</p>
 <p>Cloudflare Workers provides a serverless execution environment that allows you to create entirely new applications or augment existing ones without configuring or maintaining infrastructure.</p>
 <p>使用 Cloudflare Workers® 进行无服务器计算</p>
@@ -500,8 +497,7 @@
 <p>请在全球数以百计的 Cloudflare 数据中心中运行 JavaScript Service Workers。修改站点的 HTTP 请求和响应，发出并行请求或从边缘生成响应。</p>
 <p>”</p>
 <p><strong>注意：Workers 免费版请求数限制为 10万/每天。</strong></p>
-<h2 id="2-创建一个-Works">2. 创建一个 Works</h2>
-<p>登录 Cloudflare，选择你的“域名” &gt; Works，或者直接点击右侧面板“Works”，点击“创建 Worker”，覆盖粘贴以下 js 脚本，点击“保存并部署”。可以将创建的 Work 修改一个友好名称，如“set-header”。</p>
+<h2 id="2-创建一个-Works"><a href="#2-创建一个-Works" class="headerlink" title="2. 创建一个 Works"></a>2. 创建一个 Works</h2><p>登录 Cloudflare，选择你的“域名” &gt; Works，或者直接点击右侧面板“Works”，点击“创建 Worker”，覆盖粘贴以下 js 脚本，点击“保存并部署”。可以将创建的 Work 修改一个友好名称，如“set-header”。</p>
 <blockquote>
 <p>备注：首次启用该功能有个选择“子域”的向导，根据提示点击下一步即可。</p>
 </blockquote>
@@ -509,12 +505,10 @@
 <blockquote>
 <p>备注：具体 Header 内容请根据实际情况修改。</p>
 </blockquote>
-<h2 id="3-添加路由">3. 添加路由</h2>
-<p>即将上述 worker 关联到需要执行的 URL。</p>
+<h2 id="3-添加路由"><a href="#3-添加路由" class="headerlink" title="3. 添加路由"></a>3. 添加路由</h2><p>即将上述 worker 关联到需要执行的 URL。</p>
 <p>示例：关联到该域名下的所有 URL，需要创建两条路由，分别关联到上述创建的 Worker（set-header）。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*.sysin.org/*</span><br><span class="line">sysin.org/*</span><br></pre></td></tr></table></figure>
-<h2 id="4-验证">4. 验证</h2>
-<p>curl</p>
+<h2 id="4-验证"><a href="#4-验证" class="headerlink" title="4. 验证"></a>4. 验证</h2><p>curl</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I https://sysin.org</span><br></pre></td></tr></table></figure>
 <p>或者在线检测</p>
 <p><a target="_blank" rel="noopener" href="https://securityheaders.com/">https://securityheaders.com/</a></p>
@@ -638,7 +632,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -943,7 +937,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

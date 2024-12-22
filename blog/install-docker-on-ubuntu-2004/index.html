@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Ubuntu 20.04 LTS 安装 Docker - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Ubuntu 20.04 LTS 安装 Docker - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Ubuntu 20.04 LTS 安装 Docker - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Ubuntu 20.04 LTS 安装 Docker - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Ubuntu 20.04 LTS 安装 Docker "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/install-docker-on-ubuntu-2004/">
+  <link rel="canonical" href="https://sysin.org/blog/install-docker-on-ubuntu-2004/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -409,7 +407,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.2k</span> In Total
+              Words <span class="post-count">1.1k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,35 +487,32 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/install-docker-on-ubuntu-2004/" title="Ubuntu 20.04 LTS 安装 Docker">Ubuntu 20.04 LTS 安装 Docker</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <hr>
 <p>目录</p>
 <!-- TOC -->
 <ul>
-<li>[前言：三种安装方法](# 前言三种安装方法)</li>
-<li>[1. 卸载旧版本](#1 - 卸载旧版本)</li>
-<li>[2. 设置仓库](#2 - 设置仓库)</li>
-<li>[3. 安装 Docker Engine](#3 - 安装 - docker-engine)</li>
-<li>[4. 测试](#4 - 测试)</li>
-<li>[5. 配置非 root 用户运行 Docker](#5 - 配置非 - root - 用户运行 - docker)</li>
-<li>[6. 配置 Docker 镜像加速](#6 - 配置 - docker - 镜像加速)</li>
-<li>[7. 参考链接](#7 - 参考链接)</li>
+<li><a href="# 前言三种安装方法">前言：三种安装方法</a></li>
+<li><a href="#1 - 卸载旧版本">1. 卸载旧版本</a></li>
+<li><a href="#2 - 设置仓库">2. 设置仓库</a></li>
+<li><a href="#3 - 安装 - docker-engine">3. 安装 Docker Engine</a></li>
+<li><a href="#4 - 测试">4. 测试</a></li>
+<li><a href="#5 - 配置非 - root - 用户运行 - docker">5. 配置非 root 用户运行 Docker</a></li>
+<li><a href="#6 - 配置 - docker - 镜像加速">6. 配置 Docker 镜像加速</a></li>
+<li><a href="#7 - 参考链接">7. 参考链接</a></li>
 </ul>
 <!-- /TOC -->
 <hr>
-<h2 id="前言：三种安装方法">前言：三种安装方法</h2>
-<p>官方参考：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu</a></p>
+<h2 id="前言：三种安装方法"><a href="#前言：三种安装方法" class="headerlink" title="前言：三种安装方法"></a>前言：三种安装方法</h2><p>官方参考：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu</a></p>
 <p>(1) 使用 repository 安装（本文）</p>
 <p>(2) 使用脚本快速安装（安装的是最新版）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
 <p>(3) 下载软件包离线安装（适合没有网络访问的场景）</p>
-<h2 id="1-卸载旧版本">1. 卸载旧版本</h2>
-<p>Docker 的旧版本被称为 docker，<a target="_blank" rel="noopener" href="http://docker.io">docker.io</a> 或 docker-engine。如果已安装，请卸载它们：</p>
+<h2 id="1-卸载旧版本"><a href="#1-卸载旧版本" class="headerlink" title="1. 卸载旧版本"></a>1. 卸载旧版本</h2><p>Docker 的旧版本被称为 docker，docker.io 或 docker-engine。如果已安装，请卸载它们：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
 <p>当前称为 Docker Engine 软件包 docker-ce。</p>
-<h2 id="2-设置仓库">2. 设置仓库</h2>
-<p>在新主机上首次安装 Docker Engine 之前，需要设置 Docker 仓库。之后，您可以从仓库安装和更新 Docker。</p>
+<h2 id="2-设置仓库"><a href="#2-设置仓库" class="headerlink" title="2. 设置仓库"></a>2. 设置仓库</h2><p>在新主机上首次安装 Docker Engine 之前，需要设置 Docker 仓库。之后，您可以从仓库安装和更新 Docker。</p>
 <p>更新 apt 包索引。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 <p>安装 apt 依赖包，用于通过 HTTPS 来获取仓库:</p>
@@ -528,15 +523,14 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  sudo apt-key fingerprint 0EBFCD88</span><br><span class="line"></span><br><span class="line">pub   rsa4096 2017-02-22 [SCEA]</span><br><span class="line">      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88</span><br><span class="line">uid           [unknown] Docker Release (CE deb) &lt;docker@docker.com&gt;</span><br><span class="line">sub   rsa4096 2017-02-22 [S]</span><br></pre></td></tr></table></figure>
 <p>使用以下指令设置官方稳定版仓库</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository \</span><br><span class="line"> &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line"><span class="meta prompt_"> $</span><span class="language-bash">(lsb_release -cs) \</span></span><br><span class="line"><span class="language-bash"> stable<span class="string">&quot;</span></span></span><br></pre></td></tr></table></figure>
-<p>提示 (sysin)：删除命令 add-apt-repository --remove</p>
+<p>提示 (sysin)：删除命令 add-apt-repository —remove</p>
 <p>或者，使用阿里云镜像仓库</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \</span><br><span class="line"><span class="meta prompt_">   $</span><span class="language-bash">(lsb_release -cs) \</span></span><br><span class="line"><span class="language-bash">   stable<span class="string">&quot;</span></span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：目前 20.04 还没有官方仓库和国内镜像，暂时用 18.04 版本。</p>
 <p>当前日期：2020.05.03 (sysin)</p>
 </blockquote>
-<h2 id="3-安装-Docker-Engine">3. 安装 Docker Engine</h2>
-<p>更新 apt 包索引。</p>
+<h2 id="3-安装-Docker-Engine"><a href="#3-安装-Docker-Engine" class="headerlink" title="3. 安装 Docker Engine"></a>3. 安装 Docker Engine</h2><p>更新 apt 包索引。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
 <p>安装最新版本的 Docker Engine 和 containerd</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
@@ -547,26 +541,18 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> apt-cache madison docker-ce</span><br><span class="line">docker-ce | 5:19.03.9~3-0~ubuntu-focal | https://mirrors.aliyun.com/docker-ce/linux/ubuntu focal/stable amd64 Packages</span><br></pre></td></tr></table></figure>
 <p>b. 使用第二列的版本号安装指定版本, 例如：<code>5:19.03.8~3-0~ubuntu-bionic</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io</span><br></pre></td></tr></table></figure>
-<h2 id="4-测试">4. 测试</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+<h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
 <p>该命令将下载一个测试镜像并运行一个容器，容器运行后输出如下信息并退出。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image &#x27;hello-world:latest&#x27; locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">0e03bdcc26d7: Pull complete</span><br><span class="line">Digest: sha256:8e3114318a995a1ee497790535e7b88365222a21771ae7e53687ad76563e8e76</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line">   docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
-<h2 id="5-配置非-root-用户运行-Docker">5. 配置非 root 用户运行 Docker</h2>
-<p>以非 root 用户运行 Docker，需要将用户添加到 docker 组</p>
+<h2 id="5-配置非-root-用户运行-Docker"><a href="#5-配置非-root-用户运行-Docker" class="headerlink" title="5. 配置非 root 用户运行 Docker"></a>5. 配置非 root 用户运行 Docker</h2><p>以非 root 用户运行 Docker，需要将用户添加到 docker 组</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
 <p>重启 Docker</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
 <p>退出当前用户重新登录</p>
-<h2 id="6-配置-Docker-镜像加速">6. 配置 Docker 镜像加速</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo sh -c &quot;echo&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">&#x27;&gt; /etc/docker/daemon.json&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以考虑多个镜像</span></span><br><span class="line">sudo sh -c &quot;echo&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://hub-mirror.c.163.com&quot;,</span><br><span class="line">    &quot;https://reg-mirror.qiniu.com&quot;,</span><br><span class="line">    &quot;https://registry.docker-cn.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">&#x27;&gt; /etc/docker/daemon.json&quot;</span><br></pre></td></tr></table></figure>
-<p>阿里云容器，生成自己的加速地址<br>
-登录：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com/</a><br>
-点击 “创建我的容器镜像”，得到专属加速地址。</p>
+<h2 id="6-配置-Docker-镜像加速"><a href="#6-配置-Docker-镜像加速" class="headerlink" title="6. 配置 Docker 镜像加速"></a>6. 配置 Docker 镜像加速</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo sh -c &quot;echo&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">&#x27;&gt; /etc/docker/daemon.json&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以考虑多个镜像</span></span><br><span class="line">sudo sh -c &quot;echo&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://hub-mirror.c.163.com&quot;,</span><br><span class="line">    &quot;https://reg-mirror.qiniu.com&quot;,</span><br><span class="line">    &quot;https://registry.docker-cn.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line">&#x27;&gt; /etc/docker/daemon.json&quot;</span><br></pre></td></tr></table></figure>
+<p>阿里云容器，生成自己的加速地址<br>登录：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com/</a><br>点击 “创建我的容器镜像”，得到专属加速地址。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">reload 生效</span></span><br><span class="line">systemctl reload docker</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者重启 docker</span></span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
-<h2 id="7-参考链接">7. 参考链接</h2>
-<p>-<a target="_blank" rel="noopener" href="https://blog.csdn.net/kingsleyluoxin/article/details/105725042">Windows10 安装 WSL2 Ubuntu20.04 并设置 docker 环境</a><br>
--<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/ubuntu-docker-install.html">Ubuntu Docker 安装</a><br>
--<a target="_blank" rel="noopener" href="https://www.cnblogs.com/songxi/p/12788249.html">ubuntu 20.04 LTS 安装 docker</a></p>
+<h2 id="7-参考链接"><a href="#7-参考链接" class="headerlink" title="7. 参考链接"></a>7. 参考链接</h2><p>-<a target="_blank" rel="noopener" href="https://blog.csdn.net/kingsleyluoxin/article/details/105725042">Windows10 安装 WSL2 Ubuntu20.04 并设置 docker 环境</a><br>-<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/ubuntu-docker-install.html">Ubuntu Docker 安装</a><br>-<a target="_blank" rel="noopener" href="https://www.cnblogs.com/songxi/p/12788249.html">ubuntu 20.04 LTS 安装 docker</a></p>
 
 
         <hr>
@@ -687,7 +673,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -994,7 +980,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
