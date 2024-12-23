@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何安装 macOS Big Sur 11.0 Beta 虚机，解决 “BiErrorDomain Error 3.” 报错 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 如何安装 macOS Big Sur 11.0 Beta 虚机，解决 “BiErrorDomain Error 3.” 报错 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 如何安装 macOS Big Sur 11.0 Beta 虚机，解决 “BiErrorDomain Error 3.” 报错 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 如何安装 macOS Big Sur 11.0 Beta 虚机，解决 “BiErrorDomain Error 3.” 报错 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 如何安装 macOS Big Sur 11.0 Beta 虚机，解决 “BiErrorDomain Error 3.” 报错 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/install-macos-big-sur-11-beta-vm-bierrordomain-error-3/">
+  <link rel="canonical" href="https://sysin.org/blog/install-macos-big-sur-11-beta-vm-bierrordomain-error-3/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,27 +485,22 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/install-macos-big-sur-11-beta-vm-bierrordomain-error-3/" title="如何安装 macOS Big Sur 11.0 Beta 虚机，解决 “BiErrorDomain Error 3.” 报错">如何安装 macOS Big Sur 11.0 Beta 虚机，解决 “BiErrorDomain Error 3.” 报错</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="获取官方的-macOS-Beta-软件包">获取官方的 macOS Beta 软件包</h2>
-<ul>
-<li>
-<p>官网直接下载，双击直接安装：<a target="_blank" rel="noopener" href="http://swcdn.apple.com/content/downloads/15/52/001-18401-A_I5FFC1VB5J/rrfxkhkf3ykxzj3zjshu1srsh4n74a41n4/InstallAssistant.pkg">点击</a></p>
+<h2 id="获取官方的-macOS-Beta-软件包"><a href="#获取官方的-macOS-Beta-软件包" class="headerlink" title="获取官方的 macOS Beta 软件包"></a>获取官方的 macOS Beta 软件包</h2><ul>
+<li><p>官网直接下载，双击直接安装：<a target="_blank" rel="noopener" href="http://swcdn.apple.com/content/downloads/15/52/001-18401-A_I5FFC1VB5J/rrfxkhkf3ykxzj3zjshu1srsh4n74a41n4/InstallAssistant.pkg">点击</a></p>
 </li>
-<li>
-<p>下载 <a target="_blank" rel="noopener" href="https://betaprofiles.com/macos11">Beta profile</a>，通过软件更新下载</p>
+<li><p>下载 <a target="_blank" rel="noopener" href="https://betaprofiles.com/macos11">Beta profile</a>，通过软件更新下载</p>
 </li>
 </ul>
 <p>上述两种方式，都会将 Install macOS Beta.app 放置于 /Applications （应用程序）下面。</p>
-<h2 id="安装方式">安装方式</h2>
-<p>1.升级安装，下载后直接点击 “Install macOS Beta”</p>
+<h2 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h2><p>1.升级安装，下载后直接点击 “Install macOS Beta”</p>
 <p>2.在当前系统中全新安装，打开“磁盘工具”，新建一个大约 16G 的 “macOS 扩展（日志式）”分区（非 APFS 卷），命名为 sysin，执行命令写入：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /Applications/Install\ macOS\ Beta.app/Contents/Resources/createinstallmedia --volume /Volumes/sysin</span><br></pre></td></tr></table></figure>
 <p>创建完毕后，打开“系统偏好设置…” &gt; “启动磁盘”，选择上述分区，重新启动，安装前抹掉原有系统卷即可全新安装。</p>
 <p>3.创建启动 ISO，用于虚机全新安装：</p>
-<p>直接下载完整镜像，请访问：<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Big-Sur/">https://sysin.org/blog/macOS-Big-Sur/</a></p>
-<h2 id="macOS-Big-Sur-11-兼容设备">macOS Big Sur 11 兼容设备</h2>
-<ul>
+<p>直接下载完整镜像，请访问：<a href="https://sysin.org/blog/macOS-Big-Sur/">https://sysin.org/blog/macOS-Big-Sur/</a></p>
+<h2 id="macOS-Big-Sur-11-兼容设备"><a href="#macOS-Big-Sur-11-兼容设备" class="headerlink" title="macOS Big Sur 11 兼容设备"></a>macOS Big Sur 11 兼容设备</h2><ul>
 <li>MacBook 2015 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201608">Learn more</a></li>
 <li>MacBook Air 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201862">Learn more</a></li>
 <li>MacBook Pro Late 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201300">Learn more</a></li>
@@ -516,25 +509,21 @@
 <li>iMac Pro 2017 and later (all models)</li>
 <li>Mac Pro 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT202888">Learn more</a></li>
 </ul>
-<h2 id="解决-“BiErrorDomain-Error-3-”-报错">解决 “BiErrorDomain Error 3.” 报错</h2>
-<p>在 VMware 中安装 macOS Big Sur，都会提示 “BiErrorDomain Error 3.”，无法继续，需要编辑 vmx 文件添加以下配置：</p>
+<h2 id="解决-“BiErrorDomain-Error-3-”-报错"><a href="#解决-“BiErrorDomain-Error-3-”-报错" class="headerlink" title="解决 “BiErrorDomain Error 3.” 报错"></a>解决 “BiErrorDomain Error 3.” 报错</h2><p>在 VMware 中安装 macOS Big Sur，都会提示 “BiErrorDomain Error 3.”，无法继续，需要编辑 vmx 文件添加以下配置：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smbios.reflectHost = <span class="string">&quot;TRUE&quot;</span></span><br><span class="line">hw.model = <span class="string">&quot;MacBookPro16,1&quot;</span></span><br><span class="line">board-id = <span class="string">&quot;Mac-E1008331FDC96864&quot;</span></span><br></pre></td></tr></table></figure>
 <p>以上示例模拟的是 16-inch MacBook Pro，可以根据需要选择其他兼容的 Mac 设备。</p>
 <p>获取 Mac Model ID，执行如下命令</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl hw.model</span><br></pre></td></tr></table></figure>
 <p>获取 Mac Board ID，执行如下命令：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ioreg -l | grep board-id</span><br></pre></td></tr></table></figure>
-<h2 id="适用的-VMware-软件和版本">适用的 VMware 软件和版本</h2>
-<p>在以下软件和版本中测试通过</p>
+<h2 id="适用的-VMware-软件和版本"><a href="#适用的-VMware-软件和版本" class="headerlink" title="适用的 VMware 软件和版本"></a>适用的 VMware 软件和版本</h2><p>在以下软件和版本中测试通过</p>
 <p>VMware ESXi 7.0.0</p>
 <p>VMware Fusion 11.5.5</p>
 <p>VMware Workstation 15.5 Windows x64</p>
-<p><strong>提示</strong>：不要安装自带的 VM-Tools，可能存在兼容性问题，下载 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-tools-12/">VMware Tools 12.0</a> 安装。</p>
-<h2 id="使用-VirtualBox-安装">使用 VirtualBox 安装</h2>
-<p>使用 VirtualBox 安装 macOS Big Sur Beta，出现 “BiErrorDomain Error 3.” 报错，解决方法类似：</p>
+<p><strong>提示</strong>：不要安装自带的 VM-Tools，可能存在兼容性问题，下载 <a href="https://sysin.org/blog/vmware-tools-12/">VMware Tools 12.0</a> 安装。</p>
+<h2 id="使用-VirtualBox-安装"><a href="#使用-VirtualBox-安装" class="headerlink" title="使用 VirtualBox 安装"></a>使用 VirtualBox 安装</h2><p>使用 VirtualBox 安装 macOS Big Sur Beta，出现 “BiErrorDomain Error 3.” 报错，解决方法类似：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd “C:\Program Files\Oracle\VirtualBox\”</span><br><span class="line">VBoxManage.exe modifyvm “Your VM Name” -cpuidset <span class="number">00000001</span> <span class="number">000106e5</span> <span class="number">00100800</span> <span class="number">0098e3</span>fd bfebfbff</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiSystemProduct” “iMac19,<span class="number">1</span>”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiSystemVersion” “<span class="number">1.0</span>”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/efi/<span class="number">0</span>/Config/DmiBoardProduct” “Mac-AA95B1DDAB278B95”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/smc/<span class="number">0</span>/Config/DeviceKey” “ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc”</span><br><span class="line">VBoxManage setextradata “Your VM Name” “VBoxInternal/Devices/smc/<span class="number">0</span>/Config/GetKeyFromRealSMC” <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用-Parallels-Desktop-安装">使用 Parallels Desktop 安装</h2>
-<p>Set the following values set under <strong>Hardware &gt; Boot Order &gt; Advanced Settings &gt; Boot Flags.</strong></p>
+<h2 id="使用-Parallels-Desktop-安装"><a href="#使用-Parallels-Desktop-安装" class="headerlink" title="使用 Parallels Desktop 安装"></a>使用 Parallels Desktop 安装</h2><p>Set the following values set under <strong>Hardware &gt; Boot Order &gt; Advanced Settings &gt; Boot Flags.</strong></p>
 <ul>
 <li><code>devices.mac_hw_model=&quot;MacBookPro16,1&quot;</code></li>
 <li><code>devices.smbios.board_id=&quot;Mac-E1008331FDC96864&quot;</code></li>
@@ -659,7 +648,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -964,7 +953,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

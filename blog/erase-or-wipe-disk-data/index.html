@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 快速擦除硬盘数据的一种方法 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 快速擦除硬盘数据的一种方法 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 快速擦除硬盘数据的一种方法 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 快速擦除硬盘数据的一种方法 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 快速擦除硬盘数据的一种方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/erase-or-wipe-disk-data/">
+  <link rel="canonical" href="https://sysin.org/blog/erase-or-wipe-disk-data/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,36 +485,28 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/erase-or-wipe-disk-data/" title="快速擦除硬盘数据的一种方法">快速擦除硬盘数据的一种方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="disk-wipe.webp" alt="disk-wipe"></p>
-<h2 id="安全删除硬盘数据的一般方法">安全删除硬盘数据的一般方法</h2>
-<ul>
-<li>
-<p>物理摧毁硬盘（HDD、SSD）</p>
+<h2 id="安全删除硬盘数据的一般方法"><a href="#安全删除硬盘数据的一般方法" class="headerlink" title="安全删除硬盘数据的一般方法"></a>安全删除硬盘数据的一般方法</h2><ul>
+<li><p>物理摧毁硬盘（HDD、SSD）</p>
 <p>当然这是最安全的，但是我的硬盘还要用，没有这么绝密😄。</p>
 </li>
-<li>
-<p>使用数据擦除软件</p>
+<li><p>使用数据擦除软件</p>
 <p>这类软件通常是通过覆盖的方式，彻底覆写填充硬盘数据，根据安全等级可能需要填充多遍。</p>
 <p>主要缺点是速度太慢，安全不快速 (sysin)，对于现在主要使用 TLC、QLC 的闪存寿命是有一定损伤的。</p>
 </li>
 </ul>
 <p>笔者之前淘汰一块磁盘，试图彻底安全清除数据，琢磨了如下方法。数据量 1T 多，整个过程也就 1 分钟左右完成了，不过琢磨过程却是老半天😓。</p>
-<h2 id="实现思路">实现思路</h2>
-<p>将所有的文件和文件夹都修改为随机名称，将所有的文件都填充随机字符，然后再删除。</p>
-<h2 id="前提条件">前提条件</h2>
-<p>请打开终端执行如下命令：</p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>将所有的文件和文件夹都修改为随机名称，将所有的文件都填充随机字符，然后再删除。</p>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>请打开终端执行如下命令：</p>
 <ul>
-<li>
-<p>macOS：<code>brew install fd; brew install rename</code></p>
+<li><p>macOS：<code>brew install fd; brew install rename</code></p>
 </li>
-<li>
-<p>Ubuntu：<code>sudo apt install fdfind &amp;&amp; sudo ln -s /usr/bin/fdfind /usr/local/bin/fd; sudo apt instal rename</code></p>
+<li><p>Ubuntu：<code>sudo apt install fdfind &amp;&amp; sudo ln -s /usr/bin/fdfind /usr/local/bin/fd; sudo apt instal rename</code></p>
 </li>
 </ul>
-<h2 id="执行脚本">执行脚本</h2>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 /dev/random 或 /dev/urandom 随机文件重命名目录</span></span><br><span class="line">fd -td |</span><br><span class="line">    while read -r name; do</span><br><span class="line">        sysin=$(head -20 /dev/urandom | cksum | cut -c 1-10)</span><br><span class="line">        if [[ &quot;$name&quot; != &quot;$sysin&quot; ]]; then</span><br><span class="line">            mv &quot;$name&quot; &quot;$sysin&quot;</span><br><span class="line">            echo &quot;$name ====&gt; $sysin&quot;</span><br><span class="line">        fi</span><br><span class="line">    done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 用 OpenSSL 随机字符重命名文件</span></span></span><br><span class="line">fd -tf |</span><br><span class="line">    while read -r name; do</span><br><span class="line">        sysin=$(openssl rand -hex 8)</span><br><span class="line">        if [[ &quot;$name&quot; != &quot;$sysin&quot; ]]; then</span><br><span class="line">            mv &quot;$name&quot; &quot;$sysin&quot;</span><br><span class="line">            echo &quot;$name ====&gt; $sysin&quot;</span><br><span class="line">        fi</span><br><span class="line">    done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 删除文件名中的空格</span></span></span><br><span class="line">rename &#x27;s/ /_/g&#x27; *</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用随机字符填充替代所有文件内容</span></span><br><span class="line">fd -tf |</span><br><span class="line">    while read -r name; do</span><br><span class="line">        echo &quot;$RANDOM&quot; &gt;&quot;$name&quot;</span><br><span class="line">    done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除所有文件，然后将磁盘格式化数次为不同的文件系统</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">rm</span> -rf *</span></span><br></pre></td></tr></table></figure>
+<h2 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 /dev/random 或 /dev/urandom 随机文件重命名目录</span></span><br><span class="line">fd -td |</span><br><span class="line">    while read -r name; do</span><br><span class="line">        sysin=$(head -20 /dev/urandom | cksum | cut -c 1-10)</span><br><span class="line">        if [[ &quot;$name&quot; != &quot;$sysin&quot; ]]; then</span><br><span class="line">            mv &quot;$name&quot; &quot;$sysin&quot;</span><br><span class="line">            echo &quot;$name ====&gt; $sysin&quot;</span><br><span class="line">        fi</span><br><span class="line">    done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 用 OpenSSL 随机字符重命名文件</span></span></span><br><span class="line">fd -tf |</span><br><span class="line">    while read -r name; do</span><br><span class="line">        sysin=$(openssl rand -hex 8)</span><br><span class="line">        if [[ &quot;$name&quot; != &quot;$sysin&quot; ]]; then</span><br><span class="line">            mv &quot;$name&quot; &quot;$sysin&quot;</span><br><span class="line">            echo &quot;$name ====&gt; $sysin&quot;</span><br><span class="line">        fi</span><br><span class="line">    done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 删除文件名中的空格</span></span></span><br><span class="line">rename &#x27;s/ /_/g&#x27; *</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用随机字符填充替代所有文件内容</span></span><br><span class="line">fd -tf |</span><br><span class="line">    while read -r name; do</span><br><span class="line">        echo &quot;$RANDOM&quot; &gt;&quot;$name&quot;</span><br><span class="line">    done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除所有文件，然后将磁盘格式化数次为不同的文件系统</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">rm</span> -rf *</span></span><br></pre></td></tr></table></figure>
 <p>最后别忘了使用不同的文件系统格式化磁盘（心理上更加放心^_^）。</p>
 <p>该方法是否确实安全，数据不可恢复？欢迎读者提出意见和建议。</p>
 
@@ -639,7 +629,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -944,7 +934,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> PowerShell 中删除 Windows 服务的正确方法 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" PowerShell 中删除 Windows 服务的正确方法 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> PowerShell 中删除 Windows 服务的正确方法 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" PowerShell 中删除 Windows 服务的正确方法 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" PowerShell 中删除 Windows 服务的正确方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/delete-windows-service-in-powershell/">
+  <link rel="canonical" href="https://sysin.org/blog/delete-windows-service-in-powershell/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -409,7 +407,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">312</span> In Total
+              Words <span class="post-count">309</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,7 +487,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/delete-windows-service-in-powershell/" title="PowerShell 中删除 Windows 服务的正确方法">PowerShell 中删除 Windows 服务的正确方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>在 CMD 删除一个 Windows 服务，命令是这样的：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc delete &quot;Service Name&quot;</span><br></pre></td></tr></table></figure>
@@ -498,6 +496,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc.exe delete <span class="string">&quot;Service Name&quot;</span></span><br></pre></td></tr></table></figure>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6#cmdlet-updates">PowerShell v6 开始增加了一个新的 cmdlet</a> <code>Remove-Service</code>，可惜 Windows 10 包括 Server 2016、2019 内置的 PowerShell 5.1 并无法识别这个命令 (sysin)。有 <code>Start-Service</code>、<code>Stop-Service</code> 而没有 <code>Remove-Service</code> 显然是“巨硬”的失误。</p>
 <p>总结：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -528,9 +527,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>补充：安装服务</p>
 <p>PowerShell：<code>New-Service</code></p>
-<p>CMD：没有相关命令，使用 InstallUtil.exe 实用工具，此工具随 .NET Framework 安装在 <em>%WINDIR%\<a target="_blank" rel="noopener" href="http://Microsoft.NET">Microsoft.NET</a>\Framework[64]&lt;framework_version&gt;</em> 中。</p>
+<p>CMD：没有相关命令，使用 InstallUtil.exe 实用工具，此工具随 .NET Framework 安装在 <em>%WINDIR%\Microsoft.NET\Framework[64]\<framework_version></em> 中。</p>
 <p>参看：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-install-and-uninstall-services">如何安装和卸载 Windows 服务</a></p>
 
 
@@ -652,7 +652,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -959,7 +959,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

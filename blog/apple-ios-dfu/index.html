@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/apple-ios-dfu/">
+  <link rel="canonical" href="https://sysin.org/blog/apple-ios-dfu/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,29 +487,22 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/apple-ios-dfu/" title="使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件">使用 “恢复模式” 或 “DFU 模式” 来更新和恢复 iOS 固件</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>本文对于 iOS 设备通用，即可适用于 iPhone、iPad、iPod touch。下文中描述的 iPhone，当然也可以是您的 iPad。</p>
 <p>2024.09.18，iOS 18/iPadOS 18 发布了，同样适用。</p>
-<h2 id="简明步骤-2">简明步骤</h2>
-<ol>
-<li>
-<p>下载 ipsw 固件：访问 <code>https://ipsw.me/</code> 选择设备类型和机型，根据提示下载即可。</p>
+<h2 id="简明步骤"><a href="#简明步骤" class="headerlink" title="简明步骤"></a>简明步骤</h2><ol>
+<li><p>下载 ipsw 固件：访问 <code>https://ipsw.me/</code> 选择设备类型和机型，根据提示下载即可。</p>
 </li>
-<li>
-<p>重启 iPhone，并使用线缆（自带的充电线）与电脑相连。</p>
+<li><p>重启 iPhone，并使用线缆（自带的充电线）与电脑相连。</p>
 </li>
-<li>
-<p>打开 Finder（访达），浏览到边栏的 iPhone，按住 Option 键，点击 “更新”（或者 “检测更新”）按钮，浏览到下载的 ipsw 文件，根据提示完成更新。</p>
+<li><p>打开 Finder（访达），浏览到边栏的 iPhone，按住 Option 键，点击 “更新”（或者 “检测更新”）按钮，浏览到下载的 ipsw 文件，根据提示完成更新。</p>
 </li>
-<li>
-<p>如果使用 Windows 电脑，需要下载并安装 <a target="_blank" rel="noopener" href="https://sysin.org/blog/itunes-for-windows/">iTunes</a>，按住 Shift 键，点击 “更新”（或者 “检测更新”）按钮，浏览到下载的 ipsw 文件，根据提示完成更新。</p>
+<li><p>如果使用 Windows 电脑，需要下载并安装 <a href="https://sysin.org/blog/itunes-for-windows/">iTunes</a>，按住 Shift 键，点击 “更新”（或者 “检测更新”）按钮，浏览到下载的 ipsw 文件，根据提示完成更新。</p>
 </li>
 </ol>
 <p>就这么简单，如果需要了解一下详细步骤，看下面的描述吧。</p>
-<h2 id="一、了解-Recovery-Mode-和-DFU-Mode">一、了解 Recovery Mode 和 DFU Mode</h2>
-<h3 id="1-了解-iOS-和-iPadOS-设备启动过程">1. 了解 iOS 和 iPadOS 设备启动过程</h3>
-<p>启动过程每个步骤包含的组件都经 Apple 加密签名以启用完整性检查，因此只有在验证信任链后，启动才能继续。这些组件包括引导载入程序、内核、内核扩展项和蜂窝网络基带固件。这一安全启动链的设计旨在验证软件的最底层不被篡改。</p>
+<h2 id="一、了解-Recovery-Mode-和-DFU-Mode"><a href="#一、了解-Recovery-Mode-和-DFU-Mode" class="headerlink" title="一、了解 Recovery Mode 和 DFU Mode"></a>一、了解 Recovery Mode 和 DFU Mode</h2><h3 id="1-了解-iOS-和-iPadOS-设备启动过程"><a href="#1-了解-iOS-和-iPadOS-设备启动过程" class="headerlink" title="1. 了解 iOS 和 iPadOS 设备启动过程"></a>1. 了解 iOS 和 iPadOS 设备启动过程</h3><p>启动过程每个步骤包含的组件都经 Apple 加密签名以启用完整性检查，因此只有在验证信任链后，启动才能继续。这些组件包括引导载入程序、内核、内核扩展项和蜂窝网络基带固件。这一安全启动链的设计旨在验证软件的最底层不被篡改。</p>
 <p>iOS 或 iPadOS 设备开机后，其应用程序处理器会立即执行只读内存（称为 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/security/aside/sec5240db956/1/web/1">Boot ROM</a>）中的代码。这些不可更改的代码（称为<em>硬件信任根</em>）是在制造芯片时设定的隐式受信任代码。Boot ROM 代码包含 Apple 根证书颁发机构 (CA) 公钥，该公钥用于验证 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/security/aside/sec0e73c3016/1/web/1">iBoot</a> 引导载入程序是否经过 Apple 签名，以决定是否允许其载入。这是信任链中的第一步，信任链中的每个步骤都会检查下一步骤是否已经过 Apple 的签名 (sysin)。iBoot 完成任务后，会验证和运行 iOS 或 iPadOS 内核。对于搭载 A9 或更早 A 系列处理器的设备，Boot ROM 还会载入和验证<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/security/aside/sec43f8b4260/1/web/1">底层引导载入程序 (LLB)</a>，之后会依次载入和验证 iBoot。</p>
 <p>无法载入或验证以下阶段时，处理方式因硬件而异：</p>
 <ul>
@@ -519,57 +510,45 @@
 <li><em>LLB 或 iBoot：</em><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/security/aside/seca77d7373a/1/web/1">恢复模式</a></li>
 </ul>
 <p>出现任一情况时，设备都必须通过 USB 连接到 “访达”（macOS 10.15 或更高版本）或 iTunes（macOS 10.14 或更低版本），并恢复为出厂默认设置。</p>
-<h3 id="2-什么是-Recovery-Mode">2. 什么是 Recovery Mode</h3>
-<p>Recovery Mode，也称为恢复模式，是一种使 iPhone 进入 iBoot 引导加载程序模式的方法。当您的 iOS 设备进入恢复模式时，它将显示 “连接到 iTunes” 屏幕。在此模式下，您可以通过 iTunes/Finder 还原 iPhone，以修复卡在 Apple 徽标上的 iOS、iOS 下载损坏、Phone 没有响应等问题。之后，您的设备将更新为最新的 iOS 版本。</p>
+<h3 id="2-什么是-Recovery-Mode"><a href="#2-什么是-Recovery-Mode" class="headerlink" title="2. 什么是 Recovery Mode"></a>2. 什么是 Recovery Mode</h3><p>Recovery Mode，也称为恢复模式，是一种使 iPhone 进入 iBoot 引导加载程序模式的方法。当您的 iOS 设备进入恢复模式时，它将显示 “连接到 iTunes” 屏幕。在此模式下，您可以通过 iTunes/Finder 还原 iPhone，以修复卡在 Apple 徽标上的 iOS、iOS 下载损坏、Phone 没有响应等问题。之后，您的设备将更新为最新的 iOS 版本。</p>
 <p>下图左侧是是 iTunes 画面，macOS Catalina 10.15 之前的版本或者 Windows，需要使用 iTunes 连接。macOS Catalina 10.15 及之后版本，直接在 Finder 中连接 iOS 设备，即右侧画面。</p>
 <p><img src="ios-recovery-0.webp" alt="Recovery Mode"></p>
 <p>本文使用恢复模式来更新完整的 iOS 软件包，可以指定版本，而不是仅仅最新版本，当然前提是 Apple 并没有关闭该版本的验证。</p>
-<h3 id="3-什么是-DFU-Mode">3. 什么是 DFU Mode</h3>
-<p>DFU Mode 是指 Device Firmware Upgrade 设备固件升级模式，在该模式下，当您需要解决关键软件问题时，将绕过 iBoot 引导加载程序，而 iOS 设备将连接到 iTunes/Finder。在 iPhone DFU 模式下，您的设备将显示全黑的屏幕 (sysin)。该模式通常用于越狱后解决设备的问题。</p>
+<h3 id="3-什么是-DFU-Mode"><a href="#3-什么是-DFU-Mode" class="headerlink" title="3. 什么是 DFU Mode"></a>3. 什么是 DFU Mode</h3><p>DFU Mode 是指 Device Firmware Upgrade 设备固件升级模式，在该模式下，当您需要解决关键软件问题时，将绕过 iBoot 引导加载程序，而 iOS 设备将连接到 iTunes/Finder。在 iPhone DFU 模式下，您的设备将显示全黑的屏幕 (sysin)。该模式通常用于越狱后解决设备的问题。</p>
 <p><img src="ios-dfu-0.webp" alt="DFU 模式下屏幕没有任何显示"></p>
-<h3 id="4-DFU-Mode-和-Recovery-Mode-的区别">4. DFU Mode 和 Recovery Mode 的区别</h3>
-<p>恢复模式与 DFU 模式都可以用来恢复 iOS 软件，但是区别在于 DFU 模式直接跳过了 iBoot 引导程序，所以画面是全黑。</p>
+<h3 id="4-DFU-Mode-和-Recovery-Mode-的区别"><a href="#4-DFU-Mode-和-Recovery-Mode-的区别" class="headerlink" title="4. DFU Mode 和 Recovery Mode 的区别"></a>4. DFU Mode 和 Recovery Mode 的区别</h3><p>恢复模式与 DFU 模式都可以用来恢复 iOS 软件，但是区别在于 DFU 模式直接跳过了 iBoot 引导程序，所以画面是全黑。</p>
 <p>以下是 Apple 官方对 iBoot 的释义：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iBoot</span><br><span class="line"></span><br><span class="line">Code that loads XNU, as part of the secure boot chain. Depending on the system on chip (SoC) generation, iBoot may be loaded by the Low-Level Bootloader or directly by the Boot ROM.</span><br></pre></td></tr></table></figure>
 <p>Recovery Mode 中可以不抹掉数据更新软件，或者恢复出厂设置，但是 DFU Mode 只能恢复原始设置，所有数据都被抹掉。</p>
 <p>对于普通用户而言，不用考虑 Jealbreak，一般使用恢复模式，使用恢复模式也可以降级未关闭验证的 iOS 版本。以下描述的通过 iTunes/Finder 手动更新 iOS 软件，其实也是在恢复模式下进行的。</p>
 <p><strong>在 Apple Configurator 2 可以直观的看到 iPhone 的状态差别</strong>：</p>
-<p>正常模式</p>
-<p><img src="AC2-Normal.webp" alt="AC2-Normal"></p>
-<p>恢复模式</p>
-<p><img src="AC2-Recovery.webp" alt="AC2-Recovery"></p>
-<p>DFU 模式</p>
-<p><img src="AC2-DFU.webp" alt="AC2-DFU"></p>
-<h3 id="5-手动进入-Recovery-Mode">5. 手动进入 Recovery Mode</h3>
-<blockquote>
+<p>  正常模式</p>
+<p>  <img src="AC2-Normal.webp" alt="AC2-Normal"></p>
+<p>  恢复模式</p>
+<p>  <img src="AC2-Recovery.webp" alt="AC2-Recovery"></p>
+<p>  DFU 模式</p>
+<p>  <img src="AC2-DFU.webp" alt="AC2-DFU"></p>
+<h3 id="5-手动进入-Recovery-Mode"><a href="#5-手动进入-Recovery-Mode" class="headerlink" title="5. 手动进入 Recovery Mode"></a>5. 手动进入 Recovery Mode</h3><blockquote>
 <p>以下几个按钮或者按键用词略有差异，实际是指相同物理按键：</p>
 <ul>
-<li>
-<p>侧边按钮、顶部按钮、开机键、电源键</p>
+<li><p>侧边按钮、顶部按钮、开机键、电源键</p>
 </li>
-<li>
-<p>调高音量按钮、音量上键、音量+键</p>
+<li><p>调高音量按钮、音量上键、音量+键</p>
 </li>
-<li>
-<p>调低音量按钮、音量下键、音量-键</p>
+<li><p>调低音量按钮、音量下键、音量-键</p>
 </li>
-<li>
-<p>主屏幕按钮、HOME 键</p>
+<li><p>主屏幕按钮、HOME 键</p>
 </li>
 </ul>
 </blockquote>
 <ul>
-<li>
-<p>没有主屏幕按钮的 iPad 机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。按住顶部按钮，直到设备开始重新启动。继续按住顶部按钮，直到设备进入恢复模式。【备注：与 iPhone 8 或更新机型相同（只是电源键的描述，iPad 称为顶部按钮，iPhone 称为侧边按钮）】</p>
+<li><p>没有主屏幕按钮的 iPad 机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。按住顶部按钮，直到设备开始重新启动。继续按住顶部按钮，直到设备进入恢复模式。【备注：与 iPhone 8 或更新机型相同（只是电源键的描述，iPad 称为顶部按钮，iPhone 称为侧边按钮）】</p>
 </li>
-<li>
-<p>iPhone 8 或更新机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。最后，按住侧边按钮，直到看到恢复模式屏幕。</p>
+<li><p>iPhone 8 或更新机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。最后，按住侧边按钮，直到看到恢复模式屏幕。</p>
 </li>
-<li>
-<p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住顶部（或侧边）按钮和调低音量按钮。持续按住这两个按钮，直到您看到恢复模式屏幕。</p>
+<li><p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住顶部（或侧边）按钮和调低音量按钮。持续按住这两个按钮，直到您看到恢复模式屏幕。</p>
 </li>
-<li>
-<p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：同时按住主屏幕按钮和顶部（或侧边）按钮。持续按住这两个按钮，直到您看到恢复模式屏幕。</p>
+<li><p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：同时按住主屏幕按钮和顶部（或侧边）按钮。持续按住这两个按钮，直到您看到恢复模式屏幕。</p>
 </li>
 </ul>
 <p>以上操作无需滑动解锁，按电源键后会出现 “滑动来关机” 的界面，否则没有任何反应。</p>
@@ -581,26 +560,19 @@
 <p><img src="ios-recovery-2.webp" alt="ios-recovery-2"></p>
 <p>可以与下面 DFU 模式对比，功能略有差异，多了 “序列号” 的显示。</p>
 <p>“更新” 可用：更新固件但保留数据。</p>
-<h3 id="6-手动退出-Recovery-Mode">6. 手动退出 Recovery Mode</h3>
-<ul>
-<li>
-<p>没有主屏幕按钮的 iPad 机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。按住顶部按钮，直到设备开始重新启动。继续按住顶部按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功。</p>
+<h3 id="6-手动退出-Recovery-Mode"><a href="#6-手动退出-Recovery-Mode" class="headerlink" title="6. 手动退出 Recovery Mode"></a>6. 手动退出 Recovery Mode</h3><ul>
+<li><p>没有主屏幕按钮的 iPad 机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。按住顶部按钮，直到设备开始重新启动。继续按住顶部按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功。</p>
 </li>
-<li>
-<p>iPhone 8 或更新机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。最后，按住侧边按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功。</p>
+<li><p>iPhone 8 或更新机型：按下调高音量按钮再快速松开。按下调低音量按钮再快速松开。最后，按住侧边按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功。</p>
 </li>
-<li>
-<p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住顶部（或侧边）按钮和调低音量按钮。持续按住这两个按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功 (sysin)。</p>
+<li><p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住顶部（或侧边）按钮和调低音量按钮。持续按住这两个按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功 (sysin)。</p>
 </li>
-<li>
-<p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：同时按住主屏幕按钮和顶部（或侧边）按钮。持续按住这两个按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功。</p>
+<li><p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：同时按住主屏幕按钮和顶部（或侧边）按钮。持续按住这两个按钮，直到屏幕出现 Apple Logo  松开，等待直到进入锁屏状态，退出成功。</p>
 </li>
 </ul>
 <p><strong>注意：与进入 Recovery Mode 的按键相同，但是在出现 Apple Logo  后要松开。</strong></p>
-<h3 id="7-手动进入-DFU-Mode">7. 手动进入 DFU Mode</h3>
-<ul>
-<li>
-<p>没有主屏幕按钮的 iPad 机型：与 iPhone 8 或更新机型相同（只是电源键的描述，iPad 称为顶部按钮，iPhone 称为侧边按钮）</p>
+<h3 id="7-手动进入-DFU-Mode"><a href="#7-手动进入-DFU-Mode" class="headerlink" title="7. 手动进入 DFU Mode"></a>7. 手动进入 DFU Mode</h3><ul>
+<li><p>没有主屏幕按钮的 iPad 机型：与 iPhone 8 或更新机型相同（只是电源键的描述，iPad 称为顶部按钮，iPhone 称为侧边按钮）</p>
 <p>按下调高音量按钮再快速松开</p>
 <p>按下调低音量按钮再快速松开</p>
 <p>按住顶部按钮不松开，出现 “滑动来关机” 的界面，直到屏幕变黑</p>
@@ -608,8 +580,7 @@
 <p>同时快速按住顶部和调低音量按钮持续 5 秒钟</p>
 <p>5 秒后，松开侧顶部按钮，不放开调低音量按钮，直到 iTunes/Finder 提示 “恢复模式”</p>
 </li>
-<li>
-<p>iPhone 8 或更新机型：</p>
+<li><p>iPhone 8 或更新机型：</p>
 <p>按下调高音量按钮再快速松开</p>
 <p>按下调低音量按钮再快速松开</p>
 <p>按住侧边按钮不松开，出现 “滑动来关机” 的界面，直到屏幕变黑</p>
@@ -617,11 +588,9 @@
 <p>同时快速按住侧边和调低音量按钮持续 5 秒钟</p>
 <p>5 秒后，松开侧侧边按钮，不放开调低音量按钮，直到 iTunes/Finder 提示 “恢复模式”</p>
 </li>
-<li>
-<p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住调低音量按钮和电源键不放，这时会屏幕上会出现 Apple Logo ，继续保持按住两个按键不放，等  消失大概 2-3 秒后，松开电源键，但继续保持按住 HOME 键，iPhone 还是处于黑屏状态，直到 iTunes/Finder 提示 “恢复模式”。</p>
+<li><p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住调低音量按钮和电源键不放，这时会屏幕上会出现 Apple Logo ，继续保持按住两个按键不放，等  消失大概 2-3 秒后，松开电源键，但继续保持按住 HOME 键，iPhone 还是处于黑屏状态，直到 iTunes/Finder 提示 “恢复模式”。</p>
 </li>
-<li>
-<p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：请同时按住开电源键和 HOME 键，持续到第 10 秒的时候，请立即松开电源键，并继续保持按住 HOME 键。这个时候 iTunes/Finder 会自动启动，并提示进入恢复模式（iOS 设备会一直保持黑屏状态）。</p>
+<li><p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：请同时按住开电源键和 HOME 键，持续到第 10 秒的时候，请立即松开电源键，并继续保持按住 HOME 键。这个时候 iTunes/Finder 会自动启动，并提示进入恢复模式（iOS 设备会一直保持黑屏状态）。</p>
 </li>
 </ul>
 <p>注意：成功进入 DFU 模式，iOS 设备是黑屏状态，电脑上提示仍然是 “恢复模式” 字样，如果 iOS 设备的屏幕亮了，或者你看到屏幕上出现 Apple Logo ，或者是 iTunes 的 Logo，都表示没有进入 DFU 模式。</p>
@@ -630,64 +599,45 @@
 <p><img src="ios-dfu-1.webp" alt="ios-dfu-1"></p>
 <p>可以与上面 Recovery 模式对比，“更新” 不可用，仅能恢复原始设置，会抹掉所有数据，另外不显示序列号。</p>
 <p><img src="ios-dfu-2.webp" alt="ios-dfu-2"></p>
-<h3 id="8-手动退出-DFU-Mode">8. 手动退出 DFU Mode</h3>
-<ul>
-<li>
-<p>没有主屏幕按钮的 iPad 机型：与 iPhone 8 或更新机型相同（只是电源键的描述，iPad 称为顶部按钮，iPhone 称为侧边按钮）</p>
-<p>按下然后松开音量上键<br>
-按下然后松开音量下键<br>
-按下电源键并保持按下状态，直到 Apple Logo  出现在屏幕上松开电源键</p>
+<h3 id="8-手动退出-DFU-Mode"><a href="#8-手动退出-DFU-Mode" class="headerlink" title="8. 手动退出 DFU Mode"></a>8. 手动退出 DFU Mode</h3><ul>
+<li><p>没有主屏幕按钮的 iPad 机型：与 iPhone 8 或更新机型相同（只是电源键的描述，iPad 称为顶部按钮，iPhone 称为侧边按钮）</p>
+<p>按下然后松开音量上键<br>按下然后松开音量下键<br>按下电源键并保持按下状态，直到 Apple Logo  出现在屏幕上松开电源键</p>
 </li>
-<li>
-<p>iPhone 8 或更新机型：</p>
-<p>按下然后松开音量上键<br>
-按下然后松开音量下键<br>
-按下电源键并保持按下状态，直到 Apple Logo  出现在屏幕上松开电源键</p>
+<li><p>iPhone 8 或更新机型：</p>
+<p>按下然后松开音量上键<br>按下然后松开音量下键<br>按下电源键并保持按下状态，直到 Apple Logo  出现在屏幕上松开电源键</p>
 </li>
-<li>
-<p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住音量-键和电源键不松开，直到屏幕上出现 Apple Logo  后，松开音量减键和电源键即可 (sysin)。</p>
+<li><p>iPhone 7、iPhone 7 Plus 和 iPod touch（第 7 代）：同时按住音量-键和电源键不松开，直到屏幕上出现 Apple Logo  后，松开音量减键和电源键即可 (sysin)。</p>
 </li>
-<li>
-<p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：同时按住 HOME 键和音量+键不放开，直到屏幕上出现 Apple Logo  后，松开 HOME 键和音量+键。</p>
+<li><p>配备主屏幕按钮的 iPad、iPhone 6s 或更早机型和 iPod touch（第 6 代）或更早机型：同时按住 HOME 键和音量+键不放开，直到屏幕上出现 Apple Logo  后，松开 HOME 键和音量+键。</p>
 </li>
 </ul>
-<h3 id="9-常规更新-OTA">9. 常规更新 OTA</h3>
-<p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204204">更新 iPhone、iPad 或 iPod touch</a></p>
+<h3 id="9-常规更新-OTA"><a href="#9-常规更新-OTA" class="headerlink" title="9. 常规更新 OTA"></a>9. 常规更新 OTA</h3><p>参看：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT204204">更新 iPhone、iPad 或 iPod touch</a></p>
 <p>OAT 更新即在线更新，OTA 一般是指 Over-the-Air Technology。在线更新虽然方便，但是毕竟是一种打补丁方式的更新，特别是频繁的使用在线更新，有时候可能导致系统卡顿或者出现一些异常，所以建议下载完整固件手动更新，而且没有必要更新所有的小版本。</p>
-<h2 id="二、准备更新">二、准备更新</h2>
-<h3 id="1-下载-ipsw-格式完整-iOS-软件包">1. 下载 ipsw 格式完整 iOS 软件包</h3>
-<p><code>https://ipsw.me/</code></p>
+<h2 id="二、准备更新"><a href="#二、准备更新" class="headerlink" title="二、准备更新"></a>二、准备更新</h2><h3 id="1-下载-ipsw-格式完整-iOS-软件包"><a href="#1-下载-ipsw-格式完整-iOS-软件包" class="headerlink" title="1. 下载 ipsw 格式完整 iOS 软件包"></a>1. 下载 ipsw 格式完整 iOS 软件包</h3><p><code>https://ipsw.me/</code></p>
 <p>选择设备类型和型号，下载 Signed IPSWs。</p>
-<h3 id="2-准备-iPhone-2">2. 准备 iPhone</h3>
-<p>重启 iPhone：“设置” ⚙️ &gt; 通用 &gt; 关机，然后重新开机，确保 iPhone 运行状态良好，一次性更新成功。</p>
+<h3 id="2-准备-iPhone"><a href="#2-准备-iPhone" class="headerlink" title="2. 准备 iPhone"></a>2. 准备 iPhone</h3><p>重启 iPhone：“设置” ⚙️ &gt; 通用 &gt; 关机，然后重新开机，确保 iPhone 运行状态良好，一次性更新成功。</p>
 <p>确保有充足的剩余空间：“设置” ⚙️ &gt; 通用 &gt; iPhone 存储空间。</p>
 <blockquote>
 <p>不同的机型和软件版本对存储空间要求有所差异，可能需要至少 5GB 及以上剩余空间，建议确保有 10GB 及以上的可用容量。</p>
 </blockquote>
-<h3 id="3-准备-Mac-或者-PC">3. 准备 Mac 或者 PC</h3>
-<p>下载 iTunes：macOS Catalina 10.15（不包含）之前的版本，或者 Windows，请<a target="_blank" rel="noopener" href="https://www.apple.com/itunes/">下载最新版的 iTunes</a>。</p>
+<h3 id="3-准备-Mac-或者-PC"><a href="#3-准备-Mac-或者-PC" class="headerlink" title="3. 准备 Mac 或者 PC"></a>3. 准备 Mac 或者 PC</h3><p>下载 iTunes：macOS Catalina 10.15（不包含）之前的版本，或者 Windows，请<a target="_blank" rel="noopener" href="https://www.apple.com/itunes/">下载最新版的 iTunes</a>。</p>
 <p>使用 Finder（访达）：适用于 macOS Catalina 10.15（包含）或更新版本，若软件版本低会提示更新（自动下载软件更新）。</p>
 <blockquote>
 <p>使用 Apple Configurator 2 同样可以在恢复模式或者 DFU 模式下更新和恢复软件，本文不做详细描述。</p>
 <p>在 Apple Configurator 2 中，在设备窗口中选择设备并将 .ipsw 文件拖到设备上，然后选取更新或恢复设备。</p>
 </blockquote>
-<h3 id="4-使用线缆连接-iPhone-和电脑">4. 使用线缆连接 iPhone 和电脑</h3>
-<p>将 iPhone 或者 iPad 连接电脑，这不用赘述了吧。参看官方文档：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/iphone/iph42d9b3178/ios">使用线缆连接 iPhone 和电脑</a>。</p>
-<h2 id="三、更新过程">三、更新过程</h2>
-<p>以下示例 iOS 14.5 完整更新到 15.0，在 macOS Big Sur 中操作，旧版 macOS 或者 Windows 中使用 iTunes 更新过程类似。</p>
+<h3 id="4-使用线缆连接-iPhone-和电脑"><a href="#4-使用线缆连接-iPhone-和电脑" class="headerlink" title="4. 使用线缆连接 iPhone 和电脑"></a>4. 使用线缆连接 iPhone 和电脑</h3><p>将 iPhone 或者 iPad 连接电脑，这不用赘述了吧。参看官方文档：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/iphone/iph42d9b3178/ios">使用线缆连接 iPhone 和电脑</a>。</p>
+<h2 id="三、更新过程"><a href="#三、更新过程" class="headerlink" title="三、更新过程"></a>三、更新过程</h2><p>以下示例 iOS 14.5 完整更新到 15.0，在 macOS Big Sur 中操作，旧版 macOS 或者 Windows 中使用 iTunes 更新过程类似。</p>
 <p>同样适用于 iOS、iPadOS 17，电脑系统使用 macOS Monterey、macOS Ventura 或者 macOS Sonoma 都同样适用，操作步骤和界面几乎相同。</p>
 <p><strong>关键要点</strong>：</p>
 <p>使用本地下载的 ipsw 更新，在 macOS 中按住 Option 键在点击 “更新” 按钮，浏览到下载的 ipsw 文件。<strong>在 Windows 中使用 iTunes 更新对应按住 Shift 键。</strong></p>
-<h3 id="1-连接-iPhone">1. 连接 iPhone</h3>
-<p>如图，点击 “信任”，此时在 iPhone 上点击 “信任”，并根据提示输入密码。</p>
+<h3 id="1-连接-iPhone"><a href="#1-连接-iPhone" class="headerlink" title="1. 连接 iPhone"></a>1. 连接 iPhone</h3><p>如图，点击 “信任”，此时在 iPhone 上点击 “信任”，并根据提示输入密码。</p>
 <p><img src="ios-finder-01.webp" alt="ios-finder-01"></p>
-<h3 id="2-检查更新（非必要）">2. 检查更新（非必要）</h3>
-<p>此时 “更新” 按钮若未出现，点击 “检测更新”。</p>
+<h3 id="2-检查更新（非必要）"><a href="#2-检查更新（非必要）" class="headerlink" title="2. 检查更新（非必要）"></a>2. 检查更新（非必要）</h3><p>此时 “更新” 按钮若未出现，点击 “检测更新”。</p>
 <p><img src="ios-finder-02.webp" alt="ios-finder-02"></p>
 <p>检查到新的软件版本，点击 “取消”。</p>
 <p><img src="ios-finder-03.webp" alt="ios-finder-03"></p>
-<h3 id="3-更新-ipsw">3. 更新 ipsw</h3>
-<p>此时，“更新” 按钮出现了，<strong>按住 Option 键</strong>，同时点击 “更新”。</p>
+<h3 id="3-更新-ipsw"><a href="#3-更新-ipsw" class="headerlink" title="3. 更新 ipsw"></a>3. 更新 ipsw</h3><p>此时，“更新” 按钮出现了，<strong>按住 Option 键</strong>，同时点击 “更新”。</p>
 <p>也可以忽略上述步骤 2，无需检查更新，<strong>按住 Option 键</strong>，同时点击 “检测更新”。</p>
 <blockquote>
 <p>备注：在 Windows iTunes 中对应是按住 Shift 键。</p>
@@ -695,12 +645,10 @@
 <p><strong>警告：点击 “恢复 iPhone…” 将更新软件并抹掉数据，恢复出厂设置。</strong></p>
 <p><img src="ios-finder-04.webp" alt="ios-finder-04"></p>
 <p>此时，出现打开对话框，浏览到上述下载的 ipsw 文件。</p>
-<h3 id="4-更新支持软件（如果需要）">4. 更新支持软件（如果需要）</h3>
-<p>macOS Big Sur 11.5 可以完全支持 iOS 15，无需任何更新操作。</p>
+<h3 id="4-更新支持软件（如果需要）"><a href="#4-更新支持软件（如果需要）" class="headerlink" title="4. 更新支持软件（如果需要）"></a>4. 更新支持软件（如果需要）</h3><p>macOS Big Sur 11.5 可以完全支持 iOS 15，无需任何更新操作。</p>
 <p>如果 macOS 版本不是最新，可能会提示<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208831">更新软件</a>，这里并非更新系统，一般几分钟即可更新完毕。</p>
 <p><img src="ios-finder-05.webp" alt="ios-finder-05"></p>
-<h3 id="5-再次更新-ipsw">5. 再次更新 ipsw</h3>
-<p>重复上述步骤 3，按住 Option 键点击 “更新” 并浏览到 ipsw 文件。此时出现确认“更新”。</p>
+<h3 id="5-再次更新-ipsw"><a href="#5-再次更新-ipsw" class="headerlink" title="5. 再次更新 ipsw"></a>5. 再次更新 ipsw</h3><p>重复上述步骤 3，按住 Option 键点击 “更新” 并浏览到 ipsw 文件。此时出现确认“更新”。</p>
 <p><img src="ios-finder-06.webp" alt="ios-finder-06"></p>
 <p>更新正式开始，其间 iPhone 会自动进入恢复模式进行软件更新，并自动重启。</p>
 <p><img src="ios-finder-07.webp" alt="ios-finder-07"></p>
@@ -709,16 +657,13 @@
 <p>更新过程完毕后提示如下。</p>
 <p><img src="ios-finder-09.webp" alt="ios-finder-09"></p>
 <p>此时更新完毕 iPhone 自动重启。</p>
-<h3 id="6-更新成功">6. 更新成功</h3>
-<p>iPhone 启动后，自动重新连接，可以看到版本已经更新。</p>
+<h3 id="6-更新成功"><a href="#6-更新成功" class="headerlink" title="6. 更新成功"></a>6. 更新成功</h3><p>iPhone 启动后，自动重新连接，可以看到版本已经更新。</p>
 <p><img src="ios-finder-10.webp" alt="ios-finder-10"></p>
-<h2 id="附：屏蔽-iOS-自动更新">附：屏蔽 iOS 自动更新</h2>
-<p>以上已经更新到 iOS 15，现在可以继续屏蔽自动更新了，防止那些顽固的红点数字角标出现。</p>
+<h2 id="附：屏蔽-iOS-自动更新"><a href="#附：屏蔽-iOS-自动更新" class="headerlink" title="附：屏蔽 iOS 自动更新"></a>附：屏蔽 iOS 自动更新</h2><p>以上已经更新到 iOS 15，现在可以继续屏蔽自动更新了，防止那些顽固的红点数字角标出现。</p>
 <p>参看：<a href="/blog/disable-ios-update/" title="如何屏蔽 iOS 软件自动更新，去除更新通知和标记">如何屏蔽 iOS 软件自动更新，去除更新通知和标记</a></p>
 <p>使用 Windows？请查看：</p>
 <ul>
-<li>
-<a href="/blog/apple-ios-dfu-for-windows/" title="使用 “恢复模式” 来更新 iOS 固件 (Windows iTunes 版)">使用 “恢复模式” 来更新 iOS 固件 (Windows iTunes 版)</a>
+<li><a href="/blog/apple-ios-dfu-for-windows/" title="使用 “恢复模式” 来更新 iOS 固件 (Windows iTunes 版)">使用 “恢复模式” 来更新 iOS 固件 (Windows iTunes 版)</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a></p>
@@ -842,7 +787,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -905,7 +850,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%80%E6%98%8E%E6%AD%A5%E9%AA%A4-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">简明步骤</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E4%BA%86%E8%A7%A3-Recovery-Mode-%E5%92%8C-DFU-Mode"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">一、了解 Recovery Mode 和 DFU Mode</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%BA%86%E8%A7%A3-iOS-%E5%92%8C-iPadOS-%E8%AE%BE%E5%A4%87%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. 了解 iOS 和 iPadOS 设备启动过程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF-Recovery-Mode"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 什么是 Recovery Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF-DFU-Mode"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 什么是 DFU Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-DFU-Mode-%E5%92%8C-Recovery-Mode-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. DFU Mode 和 Recovery Mode 的区别</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E6%89%8B%E5%8A%A8%E8%BF%9B%E5%85%A5-Recovery-Mode"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 手动进入 Recovery Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%89%8B%E5%8A%A8%E9%80%80%E5%87%BA-Recovery-Mode"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 手动退出 Recovery Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E6%89%8B%E5%8A%A8%E8%BF%9B%E5%85%A5-DFU-Mode"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. 手动进入 DFU Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-%E6%89%8B%E5%8A%A8%E9%80%80%E5%87%BA-DFU-Mode"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">8. 手动退出 DFU Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-%E5%B8%B8%E8%A7%84%E6%9B%B4%E6%96%B0-OTA"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">9. 常规更新 OTA</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">二、准备更新</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%8B%E8%BD%BD-ipsw-%E6%A0%BC%E5%BC%8F%E5%AE%8C%E6%95%B4-iOS-%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. 下载 ipsw 格式完整 iOS 软件包</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%87%86%E5%A4%87-iPhone-2"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 准备 iPhone</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%87%86%E5%A4%87-Mac-%E6%88%96%E8%80%85-PC"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 准备 Mac 或者 PC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E4%BD%BF%E7%94%A8%E7%BA%BF%E7%BC%86%E8%BF%9E%E6%8E%A5-iPhone-%E5%92%8C%E7%94%B5%E8%84%91"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 使用线缆连接 iPhone 和电脑</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">三、更新过程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E8%BF%9E%E6%8E%A5-iPhone"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 连接 iPhone</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0%EF%BC%88%E9%9D%9E%E5%BF%85%E8%A6%81%EF%BC%89"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 检查更新（非必要）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E6%9B%B4%E6%96%B0-ipsw"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 更新 ipsw</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%9B%B4%E6%96%B0%E6%94%AF%E6%8C%81%E8%BD%AF%E4%BB%B6%EF%BC%88%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%EF%BC%89"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. 更新支持软件（如果需要）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%86%8D%E6%AC%A1%E6%9B%B4%E6%96%B0-ipsw"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">5. 再次更新 ipsw</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%9B%B4%E6%96%B0%E6%88%90%E5%8A%9F"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">6. 更新成功</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%EF%BC%9A%E5%B1%8F%E8%94%BD-iOS-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">附：屏蔽 iOS 自动更新</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AE%80%E6%98%8E%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">简明步骤</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E4%BA%86%E8%A7%A3-Recovery-Mode-%E5%92%8C-DFU-Mode"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">一、了解 Recovery Mode 和 DFU Mode</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%BA%86%E8%A7%A3-iOS-%E5%92%8C-iPadOS-%E8%AE%BE%E5%A4%87%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. 了解 iOS 和 iPadOS 设备启动过程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF-Recovery-Mode"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 什么是 Recovery Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF-DFU-Mode"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 什么是 DFU Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-DFU-Mode-%E5%92%8C-Recovery-Mode-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. DFU Mode 和 Recovery Mode 的区别</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E6%89%8B%E5%8A%A8%E8%BF%9B%E5%85%A5-Recovery-Mode"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">5. 手动进入 Recovery Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%89%8B%E5%8A%A8%E9%80%80%E5%87%BA-Recovery-Mode"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">6. 手动退出 Recovery Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E6%89%8B%E5%8A%A8%E8%BF%9B%E5%85%A5-DFU-Mode"><span class="toc-nav-number">2.7.</span> <span class="toc-nav-text">7. 手动进入 DFU Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-%E6%89%8B%E5%8A%A8%E9%80%80%E5%87%BA-DFU-Mode"><span class="toc-nav-number">2.8.</span> <span class="toc-nav-text">8. 手动退出 DFU Mode</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#9-%E5%B8%B8%E8%A7%84%E6%9B%B4%E6%96%B0-OTA"><span class="toc-nav-number">2.9.</span> <span class="toc-nav-text">9. 常规更新 OTA</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">二、准备更新</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%8B%E8%BD%BD-ipsw-%E6%A0%BC%E5%BC%8F%E5%AE%8C%E6%95%B4-iOS-%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1. 下载 ipsw 格式完整 iOS 软件包</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E5%87%86%E5%A4%87-iPhone"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">2. 准备 iPhone</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%87%86%E5%A4%87-Mac-%E6%88%96%E8%80%85-PC"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">3. 准备 Mac 或者 PC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E4%BD%BF%E7%94%A8%E7%BA%BF%E7%BC%86%E8%BF%9E%E6%8E%A5-iPhone-%E5%92%8C%E7%94%B5%E8%84%91"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">4. 使用线缆连接 iPhone 和电脑</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">三、更新过程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E8%BF%9E%E6%8E%A5-iPhone"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 连接 iPhone</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E6%A3%80%E6%9F%A5%E6%9B%B4%E6%96%B0%EF%BC%88%E9%9D%9E%E5%BF%85%E8%A6%81%EF%BC%89"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 检查更新（非必要）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E6%9B%B4%E6%96%B0-ipsw"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 更新 ipsw</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E6%9B%B4%E6%96%B0%E6%94%AF%E6%8C%81%E8%BD%AF%E4%BB%B6%EF%BC%88%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%EF%BC%89"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. 更新支持软件（如果需要）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%86%8D%E6%AC%A1%E6%9B%B4%E6%96%B0-ipsw"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">5. 再次更新 ipsw</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%9B%B4%E6%96%B0%E6%88%90%E5%8A%9F"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">6. 更新成功</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%84%EF%BC%9A%E5%B1%8F%E8%94%BD-iOS-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">附：屏蔽 iOS 自动更新</span></a></li></ol>
         
         </div>
       </aside>
@@ -1149,7 +1094,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

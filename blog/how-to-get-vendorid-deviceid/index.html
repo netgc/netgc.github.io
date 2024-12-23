@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何查看设备的 VendorID 和 DeviceID - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 如何查看设备的 VendorID 和 DeviceID - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 如何查看设备的 VendorID 和 DeviceID - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 如何查看设备的 VendorID 和 DeviceID - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 如何查看设备的 VendorID 和 DeviceID "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/how-to-get-vendorid-deviceid/">
+  <link rel="canonical" href="https://sysin.org/blog/how-to-get-vendorid-deviceid/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,13 +487,12 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/how-to-get-vendorid-deviceid/" title="如何查看设备的 VendorID 和 DeviceID">如何查看设备的 VendorID 和 DeviceID</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>DeviceID（设备 ID）是设备枚举器（其总线驱动程序）报告的字符串。设备只有一个设备 ID。</p>
 <p>VendorID 即 “厂家标识”，用于定义设备的供应商标识。</p>
 <p>下面介绍如何在 VMware ESXi、Windows、Linux 和 macOS 中如何获取设备的 VendorID 和 DeviceID。</p>
-<h2 id="VMware-ESXi-2">VMware ESXi</h2>
-<p>查看 PCI 设备列表：<code>lspci</code></p>
+<h2 id="VMware-ESXi"><a href="#VMware-ESXi" class="headerlink" title="VMware ESXi"></a>VMware ESXi</h2><p>查看 PCI 设备列表：<code>lspci</code></p>
 <p>查看详细信息：<code>esxcli hardware pci list</code></p>
 <p>查看网卡固件版本：<code>esxcli network nic get -n vmnic0</code> (vmnic# 默认第一块网卡为 0)</p>
 <p>查看 HBA 固件版本：<code>esxcli storage san fc list</code></p>
@@ -504,20 +501,17 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[root@sysin:~] lspci -v</span><br><span class="line">......</span><br><span class="line">0000:0b:00.0 Network controller Ethernet controller: VMware Inc. vmxnet3 Virtual Ethernet Controller</span><br><span class="line">         Class 0200: 15ad:07b0</span><br><span class="line">......</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Vendor ID 15ad : Device ID 07b0</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获得更加详细的信息，包括 SubVendor ID 和 SubDevice ID</span></span><br><span class="line">[root@sysin:~] esxcli hardware pci list</span><br><span class="line">......</span><br><span class="line">   Vendor Name: VMware Inc.</span><br><span class="line">   Device Name: vmxnet3 Virtual Ethernet Controller</span><br><span class="line">   Configured Owner: VMkernel</span><br><span class="line">   Current Owner: VMkernel</span><br><span class="line">   Vendor ID: 0x15ad</span><br><span class="line">   Device ID: 0x07b0</span><br><span class="line">   SubVendor ID: 0x15ad</span><br><span class="line">   SubDevice ID: 0x07b0</span><br><span class="line">......</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看固件版本，vmnic<span class="comment"># 默认第一块网卡为 0</span></span></span><br><span class="line">[root@sysin:~] esxcli network nic get -n vmnic0</span><br><span class="line">   Advertised Auto Negotiation: false</span><br><span class="line">   Advertised Link Modes: 10000None/Full</span><br><span class="line">   Auto Negotiation: false</span><br><span class="line">   Backing DPUId: N/A</span><br><span class="line">   Cable Type:</span><br><span class="line">   Current Message Level: 153</span><br><span class="line">   Driver Info:</span><br><span class="line">         Bus Info: 0000:0b:00:0</span><br><span class="line">         Driver: nvmxnet3</span><br><span class="line">         Firmware Version: 1</span><br><span class="line">         Version: 2.0.0.31</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 <p>USB 示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@sysin:~] lsusb -v</span><br><span class="line">......</span><br><span class="line">  idVendor           0x0e0f VMware, Inc.</span><br><span class="line">  idProduct          0x0002 Virtual USB Hub</span><br><span class="line">  bcdDevice            1.00</span><br><span class="line">  iManufacturer           1 VMware, Inc.</span><br><span class="line">  iProduct                2 VMware Virtual USB Hub</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<h2 id="Windows-8">Windows</h2>
-<p>设备管理器，双击一个设备查看 “属性”，点击 “详细信息” 标签页，属性下拉列表选择 “硬件 Id”，显示如下：</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>设备管理器，双击一个设备查看 “属性”，点击 “详细信息” 标签页，属性下拉列表选择 “硬件 Id”，显示如下：</p>
 <p><code>PCI\VEN_15AD&amp;DEV_07B0&amp;</code></p>
 <p><code>VEN_</code> 后面为 VendorID，<code>DEV_</code> 后为 DeviceID（就是 ProductID）</p>
 <p><img src="windows-vendorid-deviceid.webp" alt="windows-vendorid-deviceid"></p>
-<h2 id="Linux-4">Linux</h2>
-<p>查看 PCI 设备：<code>lspci</code>，例如查看以太网卡： <code>lspci -nn | grep Ethernet</code></p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>查看 PCI 设备：<code>lspci</code>，例如查看以太网卡： <code>lspci -nn | grep Ethernet</code></p>
 <p>查看 USB 设备：<code>lsusb</code></p>
 <p>PCI 示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ u22 <span class="keyword">in</span> ~ [12:01:59]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lspci -nn | grep Ethernet</span></span><br><span class="line">03:00.0 Ethernet controller [0200]: VMware VMXNET3 Ethernet Controller [15ad:07b0] (rev 01)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Vendor ID 15ad : Device ID 07b0</span></span><br></pre></td></tr></table></figure>
 <p>USB 示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sysin @ u22 <span class="keyword">in</span> ~ [12:02:09]</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">lsusb -v</span></span><br><span class="line">......</span><br><span class="line">idVendor           0x0e0f VMware, Inc.</span><br><span class="line">  idProduct          0x0003 Virtual Mouse</span><br><span class="line">  bcdDevice            1.03</span><br><span class="line">  iManufacturer           1 VMware</span><br><span class="line">  iProduct                2 VMware Virtual USB Mouse</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<h2 id="macOS-4">macOS</h2>
-<p>终端命令未知（欢迎补充），直接使用 <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/19d2MJPbDYKY-g9_HYezSag?pwd=0g0e">Hackintool</a> 即可。</p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><p>终端命令未知（欢迎补充），直接使用 <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/19d2MJPbDYKY-g9_HYezSag?pwd=0g0e">Hackintool</a> 即可。</p>
 <p><img src="hackintool-vendorid-deviceid.webp" alt="Hackintool"></p>
 
 
@@ -639,7 +633,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -702,7 +696,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware-ESXi-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">VMware ESXi</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-8"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-4"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-4"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">macOS</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware-ESXi"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">VMware ESXi</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Windows</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">macOS</span></a></li></ol>
         
         </div>
       </aside>
@@ -946,7 +940,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

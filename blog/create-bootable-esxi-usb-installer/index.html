@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows) - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows) - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows) - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows) - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows) "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/create-bootable-esxi-usb-installer/">
+  <link rel="canonical" href="https://sysin.org/blog/create-bootable-esxi-usb-installer/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,20 +487,17 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/create-bootable-esxi-usb-installer/" title="如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows)">如何创建可引导的 ESXi USB 安装介质 (macOS, Linux, Windows)</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>以下 USB 存储设备可以是 U 盘/SD 卡，当然 USB SSD 更佳。</p>
-<h2 id="macOS-3">macOS</h2>
-<p>macOS 使用终端自带命令即可完成操作。</p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><p>macOS 使用终端自带命令即可完成操作。</p>
 <ol>
-<li>
-<p>查看 USB 存储设备的 MountPoint 或者路径。</p>
+<li><p>查看 USB 存储设备的 MountPoint 或者路径。</p>
 <p><code>diskutil list</code></p>
 <p>显示结果（通常只有一块内置磁盘，外接第一块 USB 存储设备为 /dev/disk2）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/dev/disk0 (internal, physical) #内置物理磁盘</span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line">/dev/disk2 (external, physical) #本例中的外置磁盘，以下命令都要使用</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>格式化 USB 存储设备。</p>
+<li><p>格式化 USB 存储设备。</p>
 <p>命令格式：</p>
 <p><code>diskutil eraseDisk format name [APM[Format]|MBR[Format]|GPT[Format]] MountPoint|DiskIdentifier|DeviceNode</code></p>
 <p>本例：</p>
@@ -510,8 +505,7 @@
 <p>注意：name “ESXI” 需全部为大写字母，或包含数字。</p>
 <p>此步骤可以使用 “磁盘工具” 图形界面操作，不再赘述。</p>
 </li>
-<li>
-<p>设置 USB 存储设备分区为 active（活动分区）。</p>
+<li><p>设置 USB 存储设备分区为 active（活动分区）。</p>
 <p>卸载分区：</p>
 <p><code>diskutil unmountDisk /dev/disk2</code></p>
 <p>使用 fdisk：</p>
@@ -521,32 +515,26 @@
 <p>示例输出如下：</p>
 <p><img src="fdisk-active-macos.webp" alt="fdisk-active-macos"></p>
 </li>
-<li>
-<p>写入 ISO 文件到 USB 存储设备。</p>
+<li><p>写入 ISO 文件到 USB 存储设备。</p>
 <p>挂载 ESXi iso 文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdiutil mount ~/Desktop/ESXi-8.0U1-21495797-SYSIN.iso</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者在 Finder 中直接双击 iso 文件自动挂载</span></span><br></pre></td></tr></table></figure>
 <p>复制文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -R /Volumes/ESXI-8.0U1-21495797-SYSIN/* /Volumes/ESXI/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者直接在 Finder 中复制文件</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>修改 USB 存储设备中的 <strong>ISOLINUX.CFG</strong>。</p>
+<li><p>修改 USB 存储设备中的 <strong>ISOLINUX.CFG</strong>。</p>
 <p>此为可选步骤，可以忽略。</p>
 <p>将 <code>APPEND -c boot.cfg</code> 修改为 <code>APPEND -c boot.cfg -p 1</code>，另外部分 VMware 专家表示将 ISOLINUX.CFG 文件重命名为 SYSLINUX.CFG，实测 ESXi 7.0 和 ESXi 8.0 都无需上述设置。如果您的硬件无法启动，可以尝试上述配置 (sysin)。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /Volumes/ESXI/</span><br><span class="line">cat ISOLINUX.CFG | grep APPEND</span><br><span class="line">  APPEND -c boot.cfg</span><br><span class="line">sed -i &quot;&quot; &#x27;s/APPEND -c boot.cfg/APPEND -c boot.cfg -p 1/g&#x27; ISOLINUX.CFG</span><br><span class="line">cat ISOLINUX.CFG | grep APPEND</span><br><span class="line">  APPEND -c boot.cfg -p 1</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>推出 USB 存储设备。</p>
+<li><p>推出 USB 存储设备。</p>
 <p><code>hdiutil detach /dev/disk2</code></p>
 </li>
 </ol>
-<h2 id="Linux-2">Linux</h2>
-<p>Linux 与 macOS 的操作是类似的，只是具体命令或参数有所差异。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>Linux 与 macOS 的操作是类似的，只是具体命令或参数有所差异。</p>
 <ol>
-<li>
-<p>root 或者具有 sudo (root) 权限用户登录。</p>
+<li><p>root 或者具有 sudo (root) 权限用户登录。</p>
 </li>
-<li>
-<p>识别 USB 存储的设备路径，本例中为 /dev/sdb。</p>
+<li><p>识别 USB 存储的设备路径，本例中为 /dev/sdb。</p>
 <p>插入 USB 存储设备，通过如下命令查看：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dmesg | grep removable</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下：</span></span><br><span class="line">[    5.240965] sd 33:0:0:0: [sdb] Attached SCSI removable disk</span><br></pre></td></tr></table></figure>
 <p>或者通过 fdisk 命令查看：</p>
@@ -554,73 +542,53 @@
 <p>示例输出如下：</p>
 <p><img src="fdisk-l-linux.webp" alt="fdisk-l-linux"></p>
 </li>
-<li>
-<p>格式化 USB 存储设备并设置为活动分区（active）。</p>
+<li><p>格式化 USB 存储设备并设置为活动分区（active）。</p>
 <p>使用 fdisk 创建一个分区。 这将调出交互式工具。</p>
 <p><code>sudo fdisk /dev/sdb</code></p>
-<p>按 d 删除现有分区<br>
-按 n 表示新分区，然后按 p 表示主分区<br>
-按 ENTER 3 次，以使用默认设置<br>
-按 t 切换文件系统类型<br>
-按 c 将文件系统类型设置为 FAT32<br>
-按 a 激活分区<br>
-按 w 将更改写入磁盘</p>
+<p>按 d 删除现有分区<br>按 n 表示新分区，然后按 p 表示主分区<br>按 ENTER 3 次，以使用默认设置<br>按 t 切换文件系统类型<br>按 c 将文件系统类型设置为 FAT32<br>按 a 激活分区<br>按 w 将更改写入磁盘</p>
 <p>现在格式化 USB 存储设备。</p>
 <p><code>/sbin/mkfs.vfat -F 32 -n ESXI /dev/sdb1</code></p>
 </li>
-<li>
-<p>复制文件。</p>
+<li><p>复制文件。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 mountpoint 并挂载 USB 存储设备</span></span><br><span class="line">mkdir /usb</span><br><span class="line">mount /dev/sdb1 /usb</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建 mountpoint 并挂载 ESXi iso 文件</span></span><br><span class="line">mkdir /esxi</span><br><span class="line">mount -o loop /home/sysin/ESXi-8.0U1-21495797-SYSIN.iso /esxi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制 iso 镜像中的文件到 USB 存储设备</span></span><br><span class="line">cp -r /esxi/* /usb/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">经测此步骤可以忽略 (sysin)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑 USB 存储设备中的 isolinux.cfg 文件，将 APPEND -c boot.cfg 修改为 APPEND -c boot.cfg -p 1</span></span><br><span class="line">sed -i &#x27;s/APPEND -c boot.cfg/APPEND -c boot.cfg -p 1/g&#x27; /usb/isolinux.cfg</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载 mountpoint</span></span><br><span class="line">umount /usb</span><br><span class="line">umount /esxi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除 mountpoint 文件夹</span></span><br><span class="line">rm -r /usb</span><br><span class="line">rm -r /esxi</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>弹出 USB 驱动器。</p>
+<li><p>弹出 USB 驱动器。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo eject /dev/sdb</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="Windows-6">Windows</h2>
-<p>Windows 使用内置工具操作如下，实际上与 macOS、Linux 同理：</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>Windows 使用内置工具操作如下，实际上与 macOS、Linux 同理：</p>
 <ol>
-<li>
-<p>格式化 USB 存储设备为 FAT32 格式</p>
+<li><p>格式化 USB 存储设备为 FAT32 格式</p>
 <p>在磁盘管理或者资源管理器中都可以格式化，如图：</p>
 <p><img src="esxi-usb-win-format.webp" alt="esxi-usb-win-format"></p>
 </li>
-<li>
-<p>将 USB 存储设备分区设置活动分区（Active）：</p>
+<li><p>将 USB 存储设备分区设置活动分区（Active）：</p>
 <p>打开 “磁盘管理” 可以看到上述格式化操作已将 USB 存储设备分区设置为 Active，如果未显示 Active，点击该分区右键 “将分区标记为活动分区” 即可 (sysin)。</p>
 <p><img src="esxi-usb-win-active.webp" alt="esxi-usb-win-active"></p>
 </li>
-<li>
-<p>复制文件</p>
+<li><p>复制文件</p>
 <p>双击挂载 ESXi iso 文件，将其根目录下的所有文件和文件夹复制到 USB 存储设备的根目录下即可。</p>
 </li>
 </ol>
 <p>Windows 使用第三方工具，如 Rufus、unetbootin，操作步骤如下。</p>
 <ol>
-<li>
-<p>选择 USB 存储设备和 iso 文件，点击 “START”</p>
+<li><p>选择 USB 存储设备和 iso 文件，点击 “START”</p>
 <p><img src="rufus-01.webp" alt="rufus-01"></p>
 </li>
-<li>
-<p>按 No 即可</p>
+<li><p>按 No 即可</p>
 <p><img src="rufus-02.webp" alt="rufus-02"></p>
 </li>
-<li>
-<p>按 OK 确认</p>
+<li><p>按 OK 确认</p>
 <p><img src="rufus-03.webp" alt="rufus-03"></p>
 </li>
-<li>
-<p>写入成功</p>
+<li><p>写入成功</p>
 <p><img src="rufus-04.webp" alt="rufus-04"></p>
 </li>
 </ol>
 <p><strong>本站定制镜像</strong>：</p>
 <ul>
-<li>
-<a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a>
-</li>
-<li>
-<a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+<li><a href="/blog/vmware-esxi-8-u3-oem/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 标准版和厂商定制版</a></li>
+<li><a href="/blog/vmware-esxi-8-u3-sysin/" title="VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0U3c macOS Unlocker &amp; OEM BIOS 2.7 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
 </li>
 </ul>
 
@@ -743,7 +711,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -806,7 +774,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-6"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Windows</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">macOS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Windows</span></a></li></ol>
         
         </div>
       </aside>
@@ -1050,7 +1018,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

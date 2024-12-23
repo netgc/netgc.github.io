@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 小技巧：从 “终端” 或者 shell 中获取计算机序列号 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 小技巧：从 “终端” 或者 shell 中获取计算机序列号 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 小技巧：从 “终端” 或者 shell 中获取计算机序列号 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 小技巧：从 “终端” 或者 shell 中获取计算机序列号 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 小技巧：从 “终端” 或者 shell 中获取计算机序列号 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/get-serial-number-via-cli/">
+  <link rel="canonical" href="https://sysin.org/blog/get-serial-number-via-cli/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -409,7 +407,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">292</span> In Total
+              Words <span class="post-count">291</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,27 +487,20 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/get-serial-number-via-cli/" title="小技巧：从 “终端” 或者 shell 中获取计算机序列号">小技巧：从 “终端” 或者 shell 中获取计算机序列号</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>计算机的序列号通常印刷琢刻在设备的外壳上，操作系统如有图形界面一般都可以直接查看。一些远程计算机，或者无图形界面的系统，可能需要通过 shell 获取序列号。本文主要介绍在命令行中查看电脑序列号的方法。</p>
-<h2 id="Mac-4">Mac</h2>
-<p>打开 “终端”，执行如下命令：</p>
+<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><p>打开 “终端”，执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system_profiler SPHardwareDataType | grep Serial</span><br></pre></td></tr></table></figure>
-<h2 id="Linux-3">Linux</h2>
-<p>登录 Shell，执行：</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>登录 Shell，执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmidecode -t 1</span><br></pre></td></tr></table></figure>
-<h2 id="VMware-ESXi">VMware ESXi</h2>
-<p>登录 shell，执行：</p>
+<h2 id="VMware-ESXi"><a href="#VMware-ESXi" class="headerlink" title="VMware ESXi"></a>VMware ESXi</h2><p>登录 shell，执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcfg-info | grep &quot;Serial N&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="Windows-7">Windows</h2>
-<h3 id="cmd">cmd</h3>
-<p>打开 “命令提示符”，执行：</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><h3 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h3><p>打开 “命令提示符”，执行：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic bios get serialnumber</span><br></pre></td></tr></table></figure>
-<h3 id="PowerShell">PowerShell</h3>
-<p>打开 Windows PowerShel (sysin)，执行：</p>
+<h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><p>打开 Windows PowerShel (sysin)，执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ComputerName</span> = <span class="variable">$env:COMPUTERNAME</span></span><br><span class="line"><span class="variable">$serial</span> = (<span class="built_in">Get-WmiObject</span> <span class="literal">-ComputerName</span> <span class="variable">$ComputerName</span> <span class="literal">-Class</span> Win32_BIOS).SerialNumber</span><br><span class="line"><span class="string">&quot;Your computer serial is <span class="variable">$serial</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="远程获取">远程获取</h3>
-<p>Unix-Like 系统都通过 SSH 直接获取序列号。</p>
+<h3 id="远程获取"><a href="#远程获取" class="headerlink" title="远程获取"></a>远程获取</h3><p>Unix-Like 系统都通过 SSH 直接获取序列号。</p>
 <p>Windows 如何通过命令行远程获取序列号呢？</p>
 <p>这里需要用到 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec">PsExec</a>。</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> use \\<span class="number">10</span>.<span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span> #这里 <span class="number">10</span>.<span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span> 是计算机 IP</span><br><span class="line">psexec \\<span class="number">10</span>.<span class="number">2</span>.<span class="number">1</span>.<span class="number">1</span> <span class="built_in">cmd</span></span><br><span class="line"># 然后在远程 <span class="built_in">cmd</span> 执行:</span><br><span class="line">wmic bios get serialnumber</span><br></pre></td></tr></table></figure>
@@ -633,7 +624,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -696,7 +687,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Mac-4"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Mac</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-3"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware-ESXi"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">VMware ESXi</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Windows</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cmd"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">cmd</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PowerShell"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">PowerShell</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%8E%B7%E5%8F%96"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">远程获取</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Mac"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Mac</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Linux</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VMware-ESXi"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">VMware ESXi</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Windows</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cmd"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">cmd</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PowerShell"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">PowerShell</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%8E%B7%E5%8F%96"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">远程获取</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -940,7 +931,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

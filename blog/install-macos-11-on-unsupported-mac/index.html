@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 在不受支持的 Mac 上安装 macOS Big Sur (big-sur-micropatcher) - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 在不受支持的 Mac 上安装 macOS Big Sur (big-sur-micropatcher) - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 在不受支持的 Mac 上安装 macOS Big Sur (big-sur-micropatcher) - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 在不受支持的 Mac 上安装 macOS Big Sur (big-sur-micropatcher) - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 在不受支持的 Mac 上安装 macOS Big Sur (big-sur-micropatcher) "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/install-macos-11-on-unsupported-mac/">
+  <link rel="canonical" href="https://sysin.org/blog/install-macos-11-on-unsupported-mac/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,29 +485,24 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/install-macos-on-unsupported-mac/" title="在不受支持的 Mac 上安装 macOS (索引页面)">在不受支持的 Mac 上安装 macOS (索引页面)</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><strong>macfz：请停止抄袭！</strong></p>
 <p>已更新：<a href="/blog/install-macos-12-on-unsupported-mac/" title="在不受支持的 Mac 上安装 macOS Monterey (OpenCore Legacy Patcher v0.4.11)">在不受支持的 Mac 上安装 macOS Monterey (OpenCore Legacy Patcher v0.4.11)</a>，提供了一种更加自动化的安装方式，推荐！</p>
 <p>注意：<a target="_blank" rel="noopener" href="https://github.com/BenSova/Patched-Sur">Patched Sur</a>（已经 404）和 <a target="_blank" rel="noopener" href="https://github.com/moosethegoose2213/automator-for-barrykn-micropatcher">MicropatcherAutomator</a> 是 <a target="_blank" rel="noopener" href="https://github.com/barrykn/big-sur-micropatcher">big-sur-micropatcher</a> 的迭代产品，程序自动化程度更高。而更新的 [OpenCore Legacy Patcher] 更具优势。</p>
 <blockquote>
-<p>2021.07.22 更新：现在有了 <a target="_blank" rel="noopener" href="https://sysin.org/blog/install-macos-12-on-unsupported-mac/">Moterey</a> 版本，感觉这篇文章写的有点复杂，重新做了精简。<br>
-2020.11.18 更新：修正了两种安装方式的操作逻辑，相互没有依赖关系。<br>
-2020.12.10 更新：增加了补丁工具的百度网盘存档，方便下载。<br>
-2020.12.10 更新：增加一个章节 “系统升级”。</p>
+<p>2021.07.22 更新：现在有了 <a href="https://sysin.org/blog/install-macos-12-on-unsupported-mac/">Moterey</a> 版本，感觉这篇文章写的有点复杂，重新做了精简。<br>2020.11.18 更新：修正了两种安装方式的操作逻辑，相互没有依赖关系。<br>2020.12.10 更新：增加了补丁工具的百度网盘存档，方便下载。<br>2020.12.10 更新：增加一个章节 “系统升级”。</p>
 </blockquote>
 <p><strong>友情提示：安装系统前请备份数据！</strong></p>
 <p>笔者测试一台 <a target="_blank" rel="noopener" href="https://support.apple.com/kb/SP659?viewlocale=zh_CN&amp;locale=zh_CN">Mac mini 2012 later</a>，已经不在 Big Sur 官方支持列表，使用下面的方法，已经可以完美运行 Big Sur。</p>
 <p><img src="Big-Sur-on-Mac-mini-2012.webp" alt="Big-Sur-on-Mac-mini-2012"></p>
 <p>理论上，以下方法适用于 macOS Big Sur 11.x 任意版本，限于条件，笔者未能一一测试，新版本和各种机型也不可能去验证，欢迎读者分享自己的机型和版本适配情况。</p>
-<h2 id="1-macOS-Big-Sur-正式版发布">1. macOS Big Sur 正式版发布</h2>
-<p>macOS Big Sur</p>
+<h2 id="1-macOS-Big-Sur-正式版发布"><a href="#1-macOS-Big-Sur-正式版发布" class="headerlink" title="1. macOS Big Sur 正式版发布"></a>1. macOS Big Sur 正式版发布</h2><p>macOS Big Sur</p>
 <p><strong>一派新风貌，</strong></p>
 <p><strong>一切任施展。</strong></p>
 <p>macOS Big Sur 将强大实力和优美外观的结合提升到一个崭新的高度。精心雕琢的全新设计，让你能淋漓尽致地感受 Mac 的魅力；Safari 浏览器迎来重大更新，待你饱览；地图 app 和信息 app 满载新功能，任你探索；更透明的隐私权限，保护也更周到。</p>
 <p>macOS Big Sur 11 release date: 2020.11.12</p>
-<h2 id="2-官方支持的-Mac-机型">2. 官方支持的 Mac 机型</h2>
-<ul>
+<h2 id="2-官方支持的-Mac-机型"><a href="#2-官方支持的-Mac-机型" class="headerlink" title="2. 官方支持的 Mac 机型"></a>2. 官方支持的 Mac 机型</h2><ul>
 <li>MacBook 2015 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201608">Learn more</a></li>
 <li>MacBook Air 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201862">Learn more</a></li>
 <li>MacBook Pro Late 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT201300">Learn more</a></li>
@@ -518,48 +511,39 @@
 <li>iMac Pro 2017 and later (all models)</li>
 <li>Mac Pro 2013 and later <a target="_blank" rel="noopener" href="https://support.apple.com/kb/HT202888">Learn more</a></li>
 </ul>
-<h2 id="3-不受支持的机型及问题">3. 不受支持的机型及问题</h2>
-<p>根据 <a target="_blank" rel="noopener" href="https://forums.macrumors.com/threads/macos-11-big-sur-on-unsupported-macs-thread.2242172/">macrumors</a> 的总结，不受支持的 Mac 具体又分几种情况：</p>
-<h3 id="1-官方支持-macOS-Catalina-但不受-macOS-Big-Sur-支持的-Mac-机型">(1) 官方支持 macOS Catalina 但不受 macOS Big Sur 支持的 Mac 机型</h3>
-<p>– 这些 Mac 都能正常运行 Big Sur，但是 Wi-Fi 无法正常工作。（这类机型最容易通过补丁完美运行 Big Sur，目前仅仅是 Wi-Fi 的问题。）</p>
+<h2 id="3-不受支持的机型及问题"><a href="#3-不受支持的机型及问题" class="headerlink" title="3. 不受支持的机型及问题"></a>3. 不受支持的机型及问题</h2><p>根据 <a target="_blank" rel="noopener" href="https://forums.macrumors.com/threads/macos-11-big-sur-on-unsupported-macs-thread.2242172/">macrumors</a> 的总结，不受支持的 Mac 具体又分几种情况：</p>
+<h3 id="1-官方支持-macOS-Catalina-但不受-macOS-Big-Sur-支持的-Mac-机型"><a href="#1-官方支持-macOS-Catalina-但不受-macOS-Big-Sur-支持的-Mac-机型" class="headerlink" title="(1) 官方支持 macOS Catalina 但不受 macOS Big Sur 支持的 Mac 机型"></a>(1) 官方支持 macOS Catalina 但不受 macOS Big Sur 支持的 Mac 机型</h3><p>— 这些 Mac 都能正常运行 Big Sur，但是 Wi-Fi 无法正常工作。（这类机型最容易通过补丁完美运行 Big Sur，目前仅仅是 Wi-Fi 的问题。）</p>
 <p>可以按照下面的操作步骤，本文主要针对这类机型。</p>
 <ul>
-<li>2012 and Early 2013 MacBook Pro
-<ul>
+<li>2012 and Early 2013 MacBook Pro<ul>
 <li>MacBookPro9,x</li>
 <li>MacBookPro10,x</li>
 </ul>
 </li>
-<li>2012 MacBook Air
-<ul>
+<li>2012 MacBook Air<ul>
 <li>MacBookAir5,x</li>
 </ul>
 </li>
-<li>2012 and 2013 iMac
-<ul>
+<li>2012 and 2013 iMac<ul>
 <li>iMac13,x</li>
 <li>iMac14,x</li>
 </ul>
 </li>
-<li>2012 Mac mini
-<ul>
+<li>2012 Mac mini<ul>
 <li>Macmini6,x</li>
 </ul>
 </li>
-<li>2010-2012 Mac Pro*
-<ul>
+<li>2010-2012 Mac Pro*<ul>
 <li>MacPro4,1</li>
 <li>MacPro5,1</li>
 </ul>
 </li>
 </ul>
-<p>*<em>Not officially supported in macOS Catalina, but are fully capable of running both Catalina and Big Sur with a Metal-compatible GPU and upgraded Wifi/BT card.</em></p>
-<h3 id="2-Mac-能够被补丁后正常运行-macOS-Catalina，并且有可能被补丁来运行-macOS-Big-Sur">(2) Mac 能够被补丁后正常运行 macOS Catalina，并且有可能被补丁来运行 macOS Big Sur</h3>
-<p>– 这些 Mac 目前可以启动 Big Sur，但目前没有 Wifi 或图形加速支持。</p>
+<p><em>*Not officially supported in macOS Catalina, but are fully capable of running both Catalina and Big Sur with a Metal-compatible GPU and upgraded Wifi/BT card.</em></p>
+<h3 id="2-Mac-能够被补丁后正常运行-macOS-Catalina，并且有可能被补丁来运行-macOS-Big-Sur"><a href="#2-Mac-能够被补丁后正常运行-macOS-Catalina，并且有可能被补丁来运行-macOS-Big-Sur" class="headerlink" title="(2) Mac 能够被补丁后正常运行 macOS Catalina，并且有可能被补丁来运行 macOS Big Sur"></a>(2) Mac 能够被补丁后正常运行 macOS Catalina，并且有可能被补丁来运行 macOS Big Sur</h3><p>— 这些 Mac 目前可以启动 Big Sur，但目前没有 Wifi 或图形加速支持。</p>
 <p>这类机型需要执行额外的步骤解决安装问题。</p>
 <ul>
-<li>Early-2008 or newer Mac Pro, iMac, or MacBook Pro:
-<ul>
+<li>Early-2008 or newer Mac Pro, iMac, or MacBook Pro:<ul>
 <li>MacPro3,1*</li>
 <li>MacPro4,1*</li>
 <li>MacPro5,1*</li>
@@ -575,16 +559,14 @@
 <li>MacBookPro8,x</li>
 </ul>
 </li>
-<li>Late-2008 or newer MacBook Air or Aluminum Unibody MacBook:
-<ul>
+<li>Late-2008 or newer MacBook Air or Aluminum Unibody MacBook:<ul>
 <li>MacBookAir2,1</li>
 <li>MacBookAir3,x</li>
 <li>MacBookAir4,x</li>
 <li>MacBook5,1</li>
 </ul>
 </li>
-<li>Early-2009 or newer Mac Mini or white MacBook:
-<ul>
+<li>Early-2009 or newer Mac Mini or white MacBook:<ul>
 <li>Macmini3,1</li>
 <li>Macmini4,1</li>
 <li>Macmini5,x (systems with AMD Radeon HD 6xxx series GPUs were almost unusable when running Catalina and will be under Big Sur as well.)</li>
@@ -593,19 +575,16 @@
 <li>MacBook7,1</li>
 </ul>
 </li>
-<li>Early-2008 or newer Xserve:
-<ul>
+<li>Early-2008 or newer Xserve:<ul>
 <li>Xserve2,1*</li>
 <li>Xserve3,1*</li>
 </ul>
 </li>
 </ul>
-<p>*<em>Not officially supported in macOS Catalina, but are fully capable of running both Catalina and Big Sur with a Metal-compatible GPU and upgraded Wifi/BT card.</em></p>
-<h3 id="3-完全不受支持的-Mac">(3) 完全不受支持的 Mac</h3>
-<p>这类机型不用考虑安装 Big Sur。</p>
+<p><em>*Not officially supported in macOS Catalina, but are fully capable of running both Catalina and Big Sur with a Metal-compatible GPU and upgraded Wifi/BT card.</em></p>
+<h3 id="3-完全不受支持的-Mac"><a href="#3-完全不受支持的-Mac" class="headerlink" title="(3) 完全不受支持的 Mac"></a>(3) 完全不受支持的 Mac</h3><p>这类机型不用考虑安装 Big Sur。</p>
 <ul>
-<li>2006-2007 Mac Pros, iMacs, MacBook Pros, and Mac Minis:
-<ul>
+<li>2006-2007 Mac Pros, iMacs, MacBook Pros, and Mac Minis:<ul>
 <li>MacPro1,1</li>
 <li>MacPro2,1</li>
 <li>iMac4,1</li>
@@ -620,8 +599,7 @@
 </ul>
 </li>
 <li>— The 2007 iMac 7,1 is compatible with Catalina and potentially Big Sur if the CPU is upgraded to a Penryn-based Core 2 Duo, such as a T9300.</li>
-<li>2006-2008 MacBooks:
-<ul>
+<li>2006-2008 MacBooks:<ul>
 <li>MacBook1,1</li>
 <li>MacBook2,1</li>
 <li>MacBook3,1</li>
@@ -632,21 +610,15 @@
 <li>All PowerPC-based Macs</li>
 <li>All 68k-based Macs</li>
 </ul>
-<h2 id="4-安装准备">4. 安装准备</h2>
-<h3 id="1-下载-macOS-Big-Sur">(1) 下载 macOS Big Sur</h3>
-<p>直接下载完整镜像，请访问：<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Big-Sur/">https://sysin.org/blog/macOS-Big-Sur/</a></p>
+<h2 id="4-安装准备"><a href="#4-安装准备" class="headerlink" title="4. 安装准备"></a>4. 安装准备</h2><h3 id="1-下载-macOS-Big-Sur"><a href="#1-下载-macOS-Big-Sur" class="headerlink" title="(1) 下载 macOS Big Sur"></a>(1) 下载 macOS Big Sur</h3><p>直接下载完整镜像，请访问：<a href="https://sysin.org/blog/macOS-Big-Sur/">https://sysin.org/blog/macOS-Big-Sur/</a></p>
 <p>下载完毕后，双击打开镜像，将 “Install macOS Big Sur” 拖拽到应用程序（Applications）下。</p>
-<h3 id="2-下载补丁工具">(2) 下载补丁工具</h3>
-<p>下载最新版 <a target="_blank" rel="noopener" href="https://github.com/barrykn/big-sur-micropatcher/releases">big-sur-micropatcher</a></p>
+<h3 id="2-下载补丁工具"><a href="#2-下载补丁工具" class="headerlink" title="(2) 下载补丁工具"></a>(2) 下载补丁工具</h3><p>下载最新版 <a target="_blank" rel="noopener" href="https://github.com/barrykn/big-sur-micropatcher/releases">big-sur-micropatcher</a></p>
 <p>或者百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NWeFwD58R_-JpHR9GbIdiw">https://pan.baidu.com/s/1NWeFwD58R_-JpHR9GbIdiw</a>  提取码：v1wu</p>
-<h3 id="3-准备一个-16G-及以上的-USB-存储设备">(3) 准备一个 16G 及以上的 USB 存储设备</h3>
-<p>可以是 U 盘，也可以是 SD 卡，当然最好是 SSD 的移动硬盘，容量 16G 及以上。</p>
-<h2 id="5-操作步骤">5. 操作步骤</h2>
-<blockquote>
+<h3 id="3-准备一个-16G-及以上的-USB-存储设备"><a href="#3-准备一个-16G-及以上的-USB-存储设备" class="headerlink" title="(3) 准备一个 16G 及以上的 USB 存储设备"></a>(3) 准备一个 16G 及以上的 USB 存储设备</h3><p>可以是 U 盘，也可以是 SD 卡，当然最好是 SSD 的移动硬盘，容量 16G 及以上。</p>
+<h2 id="5-操作步骤"><a href="#5-操作步骤" class="headerlink" title="5. 操作步骤"></a>5. 操作步骤</h2><blockquote>
 <p>macOS 11 相比之前的 10.x 是一个大版本更新，建议使用这种方式抹掉全盘全新安装。</p>
 </blockquote>
-<h3 id="1-创建启动介质">(1) 创建启动介质</h3>
-<p>准备一个 16G 或者以上的 U 盘（或者其他 USB 存储设备，以下简称 U 盘），打开 “实用工具 &gt; 磁盘工具”，选择 U 盘，点击 “抹掉”，格式如下：</p>
+<h3 id="1-创建启动介质"><a href="#1-创建启动介质" class="headerlink" title="(1) 创建启动介质"></a>(1) 创建启动介质</h3><p>准备一个 16G 或者以上的 U 盘（或者其他 USB 存储设备，以下简称 U 盘），打开 “实用工具 &gt; 磁盘工具”，选择 U 盘，点击 “抹掉”，格式如下：</p>
 <ul>
 <li>Mac OS X 扩展（日志式）；</li>
 <li>GUID 分区图；</li>
@@ -658,67 +630,53 @@
 <blockquote>
 <p>注意：创建完毕后，分区名称将自动修改为：<code>Install\ macOS\ Big\ Sur</code></p>
 </blockquote>
-<h3 id="2-在-“终端”-中切换到-big-sur-micropatcher-目录下">(2) 在 “终端” 中切换到 big-sur-micropatcher 目录下</h3>
-<p>将 <a target="_blank" rel="noopener" href="https://github.com/barrykn/big-sur-micropatcher">big-sur-micropatcher</a> 解压缩放置到 home 目录下，即 <code>/Users/&lt;你的用户名&gt;/</code> 目录下</p>
+<h3 id="2-在-“终端”-中切换到-big-sur-micropatcher-目录下"><a href="#2-在-“终端”-中切换到-big-sur-micropatcher-目录下" class="headerlink" title="(2) 在 “终端” 中切换到 big-sur-micropatcher 目录下"></a>(2) 在 “终端” 中切换到 big-sur-micropatcher 目录下</h3><p>将 <a target="_blank" rel="noopener" href="https://github.com/barrykn/big-sur-micropatcher">big-sur-micropatcher</a> 解压缩放置到 home 目录下，即 <code>/Users/&lt;你的用户名&gt;/</code> 目录下</p>
 <p>当然也可以是任意目录，在 “终端” 中切换到 big-sur-micropatcher 目录即可：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里版本号 0.5.0，根据下载的实际版本修改</span></span><br><span class="line">cd big-sur-micropatcher-0.5.0</span><br></pre></td></tr></table></figure>
 <p>使用 ls 命令查看文件，确保如下文件正确的出现在当前目录下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ls</span></span></span><br><span class="line">README.md          micropatcher.sh    payloads           unpatch.sh</span><br><span class="line">install-setvars.sh misc-scripts       setvars</span><br></pre></td></tr></table></figure>
-<h3 id="3-运行-micropatcher-sh">(3) 运行 <a target="_blank" rel="noopener" href="http://micropatcher.sh">micropatcher.sh</a></h3>
-<p>打开 “终端” 执行命令：</p>
+<h3 id="3-运行-micropatcher-sh"><a href="#3-运行-micropatcher-sh" class="headerlink" title="(3) 运行 micropatcher.sh"></a>(3) 运行 micropatcher.sh</h3><p>打开 “终端” 执行命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash micropatcher.sh /Volumes/Install\ macOS\ Big\ Sur</span><br></pre></td></tr></table></figure>
-<h3 id="4-运行-install-setvars-sh">(4) 运行 <a target="_blank" rel="noopener" href="http://install-setvars.sh">install-setvars.sh</a></h3>
-<p>继续在 “终端” 执行：</p>
+<h3 id="4-运行-install-setvars-sh"><a href="#4-运行-install-setvars-sh" class="headerlink" title="(4) 运行 install-setvars.sh"></a>(4) 运行 install-setvars.sh</h3><p>继续在 “终端” 执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash install-setvars.sh /Volumes/Install\ macOS\ Big\ Sur</span><br></pre></td></tr></table></figure>
-<h3 id="5-自动执行补丁">(5) 自动执行补丁</h3>
-<p>重启系统，按住 Option 键不放直到出现启动分区选择画面，此时会额外出现两个图标 “Install macOS Big Sur” 和 “EFI Boot”，选择 “EFI Boot”，此时将从 “EFI Boot” 分区启动 (sysin)，等待数秒将自动关机（可能瞬间关机），该过程将执行如下操作：disabling SIP, disabling authenticated root, and enabling TRIM on non-Apple SSDs。</p>
+<h3 id="5-自动执行补丁"><a href="#5-自动执行补丁" class="headerlink" title="(5) 自动执行补丁"></a>(5) 自动执行补丁</h3><p>重启系统，按住 Option 键不放直到出现启动分区选择画面，此时会额外出现两个图标 “Install macOS Big Sur” 和 “EFI Boot”，选择 “EFI Boot”，此时将从 “EFI Boot” 分区启动 (sysin)，等待数秒将自动关机（可能瞬间关机），该过程将执行如下操作：disabling SIP, disabling authenticated root, and enabling TRIM on non-Apple SSDs。</p>
 <p><img src="install-big-sur-screen.webp" alt="install-big-sur-screen"></p>
 <blockquote>
 <p>提示：如果不确定该选择哪个 “EFI Boot” 图标，比如安装过 Windows 双系统可能有额外的 “EFI Boot” 图标，可以将 U 盘拔掉重新插上，观察图标变化来确定。本例中使用的 SSD 移动硬盘，图标是不一样的。</p>
 </blockquote>
-<h3 id="6-开始安装-macOS-Big-Sur">(6) 开始安装 macOS Big Sur</h3>
-<p>重新开机，按住 Option 键不放直到出现启动分区选择画面 (sysin)，选择 Install macOS Big Sur，启动后，选择 “磁盘工具”，抹掉系统分区（默认名称为 “Macintosh HD”，格式选择 APFS），开始正常安装过程，具体不再赘述。</p>
+<h3 id="6-开始安装-macOS-Big-Sur"><a href="#6-开始安装-macOS-Big-Sur" class="headerlink" title="(6) 开始安装 macOS Big Sur"></a>(6) 开始安装 macOS Big Sur</h3><p>重新开机，按住 Option 键不放直到出现启动分区选择画面 (sysin)，选择 Install macOS Big Sur，启动后，选择 “磁盘工具”，抹掉系统分区（默认名称为 “Macintosh HD”，格式选择 APFS），开始正常安装过程，具体不再赘述。</p>
 <blockquote>
 <p>直接选择原有系统分区可以升级安装（不推荐，可以用于以后新版 Big Sur 的升级）。</p>
 </blockquote>
-<h3 id="7-解决网卡驱动问题">(7) 解决网卡驱动问题</h3>
-<p>在某些机型，无线网卡已经工作正常（Late 2013 iMac, 或者你的 2012/2013 机型使用 802.11ac 网卡替换了 802.11n 网卡）。</p>
+<h3 id="7-解决网卡驱动问题"><a href="#7-解决网卡驱动问题" class="headerlink" title="(7) 解决网卡驱动问题"></a>(7) 解决网卡驱动问题</h3><p>在某些机型，无线网卡已经工作正常（Late 2013 iMac, 或者你的 2012/2013 机型使用 802.11ac 网卡替换了 802.11n 网卡）。</p>
 <p>如果无线网卡无法工作，再次使用 U 盘启动到 “Install macOS Big Sur” 分区，启动后，选择 “Utilities (实用工具) -&gt; Terminal（终端）”，执行如下命令（三种格式都可以支持，任选一个，“Macintosh HD” 是默认名称，根据实际名称修改）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/Volumes/Image\ Volume/patch-kexts.sh /Volumes/Macintosh\ HD</span><br><span class="line">&#x27;/Volumes/Image Volume/patch-kexts.sh&#x27; &#x27;/Volumes/Macintosh HD&#x27;</span><br><span class="line">&quot;/Volumes/Image Volume/patch-kexts.sh&quot; &quot;/Volumes/Macintosh HD&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="8-重启">(8) 重启</h3>
-<p>重启到 macOS Big Sur，此时 Wi-Fi 修复成功，macOS Big Sur 已经可以完全正常运行。</p>
+<h3 id="8-重启"><a href="#8-重启" class="headerlink" title="(8) 重启"></a>(8) 重启</h3><p>重启到 macOS Big Sur，此时 Wi-Fi 修复成功，macOS Big Sur 已经可以完全正常运行。</p>
 <blockquote>
 <p>注意：如果 Wi-Fi 没有工作，关闭然后重新打开即可。</p>
 </blockquote>
-<h2 id="6-关于报错：BIErrorDomain-Error-2">6. 关于报错：BIErrorDomain Error 2</h2>
-<p>该错误通常是因为目标磁盘空间不足，通常需要 35GB 左右的剩余空间。如果 Install app 没有放在 “应用程序” 目录下，也会出现相同错误提示。</p>
-<p><img src="Big-Sur-BIError2.webp" alt="Big-Sur-BIError2"></p>
-<h2 id="7-额外步骤">7. 额外步骤</h2>
-<p>对于 2012、2013 年机型，即官方支持 macOS Catalina 但不受 macOS Big Sur 支持的 Mac 机型，Mac 已经完全正常工作，但是一些老旧机型，需要一些额外的步骤，可以参看以下说明：</p>
+<h2 id="6-关于报错：BIErrorDomain-Error-2"><a href="#6-关于报错：BIErrorDomain-Error-2" class="headerlink" title="6. 关于报错：BIErrorDomain Error 2"></a>6. 关于报错：BIErrorDomain Error 2</h2><p>该错误通常是因为目标磁盘空间不足，通常需要 35GB 左右的剩余空间。如果 Install app 没有放在 “应用程序” 目录下，也会出现相同错误提示。</p>
+<p>  <img src="Big-Sur-BIError2.webp" alt="Big-Sur-BIError2"></p>
+<h2 id="7-额外步骤"><a href="#7-额外步骤" class="headerlink" title="7. 额外步骤"></a>7. 额外步骤</h2><p>对于 2012、2013 年机型，即官方支持 macOS Catalina 但不受 macOS Big Sur 支持的 Mac 机型，Mac 已经完全正常工作，但是一些老旧机型，需要一些额外的步骤，可以参看以下说明：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/barrykn/big-sur-micropatcher">big-sur-micropatcher</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.juliensatti.com/install-macos-big-sur-mac-obsolete/">install-macos-big-sur-mac-obsolete</a></p>
-<h2 id="8-系统升级">8. 系统升级</h2>
-<p>如果新版 Big Sur 发布如何升级？</p>
+<h2 id="8-系统升级"><a href="#8-系统升级" class="headerlink" title="8. 系统升级"></a>8. 系统升级</h2><p>如果新版 Big Sur 发布如何升级？</p>
 <p>其实就是使用新版的 macOS 软件包以相同方式补丁后重新安装一遍，在操作步骤（6）安装的时候不要抹掉原有分区，选择原有分区安装即可升级，数据会保留并不会被覆盖。如果需要修复 Wi-Fi，以同样的方式操作。</p>
 <p>当然也可以抹掉原有分区进行全新安装。</p>
 <p>需要（等待）更新以下软件：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur 软件包</a></li>
+<li><a href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur 软件包</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/barrykn/big-sur-micropatcher">big-sur-micropatcher</a></li>
 </ul>
 <p>即使是官方支持的 Mac 机型也不建议随意在线更新。更何况 OLP 还存在版本适配问题，特别是 macOS 版本未到达 x.5 之时。</p>
 <p>参看：<a href="/blog/disable-macos-update/" title="如何禁止 macOS 自动更新，去除更新标记和通知">如何禁止 macOS 自动更新，去除更新标记和通知</a></p>
-<h2 id="9-项目更新">9. 项目更新</h2>
-<p>本项目最后更新于 2020 年 11 月 13 日，应该不会再有更新了。</p>
+<h2 id="9-项目更新"><a href="#9-项目更新" class="headerlink" title="9. 项目更新"></a>9. 项目更新</h2><p>本项目最后更新于 2020 年 11 月 13 日，应该不会再有更新了。</p>
 <p>如果操作异常，请查看新版文章：<a href="/blog/install-macos-12-on-unsupported-mac/" title="在不受支持的 Mac 上安装 macOS Monterey (OpenCore Legacy Patcher v0.4.11)">在不受支持的 Mac 上安装 macOS Monterey (OpenCore Legacy Patcher v0.4.11)</a></p>
 <hr>
 <p>更多：</p>
 <ul>
-<li>
-<a href="/blog/install-macos-on-unsupported-mac/" title="在不受支持的 Mac 上安装 macOS (索引页面)">在不受支持的 Mac 上安装 macOS (索引页面)</a>
-</li>
-<li>
-<a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a>
+<li><a href="/blog/install-macos-on-unsupported-mac/" title="在不受支持的 Mac 上安装 macOS (索引页面)">在不受支持的 Mac 上安装 macOS (索引页面)</a></li>
+<li><a href="/blog/macOS/" title="macOS 下载汇总 (系统、应用和教程)">macOS 下载汇总 (系统、应用和教程)</a>
 </li>
 </ul>
 
@@ -841,7 +799,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1146,7 +1104,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

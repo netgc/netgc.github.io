@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 在 ESXi 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 在 ESXi 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 在 ESXi 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 在 ESXi 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 在 ESXi 上运行 Cisco Nexus 9000v (NX-OS 10) "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/run-nxos-on-esxi/">
+  <link rel="canonical" href="https://sysin.org/blog/run-nxos-on-esxi/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,18 +487,17 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/run-nxos-on-esxi/" title="在 ESXi 上运行 Cisco Nexus 9000v (NX-OS 10)">在 ESXi 上运行 Cisco Nexus 9000v (NX-OS 10)</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="Nexus-9000v-概述">Nexus 9000v 概述</h2>
-<p>Cisco Nexus 9000v 是虚拟化的 Nexus 9000 NX-OS 交换机，用于在虚拟化中构建和测试网络原型环境，是学习 Cisco NX-OS 和 SDN 的便捷途径。</p>
-<h3 id="平台系列和资源要求">平台系列和资源要求</h3>
-<p>从 Cisco NX-OS 版本 9.3.3 (sysin) 开始，Nexus 9000v 已转变为具有两个版本的平台系列：Nexus 9300v 和 Nexus 9500v。</p>
+<h2 id="Nexus-9000v-概述"><a href="#Nexus-9000v-概述" class="headerlink" title="Nexus 9000v 概述"></a>Nexus 9000v 概述</h2><p>Cisco Nexus 9000v 是虚拟化的 Nexus 9000 NX-OS 交换机，用于在虚拟化中构建和测试网络原型环境，是学习 Cisco NX-OS 和 SDN 的便捷途径。</p>
+<h3 id="平台系列和资源要求"><a href="#平台系列和资源要求" class="headerlink" title="平台系列和资源要求"></a>平台系列和资源要求</h3><p>从 Cisco NX-OS 版本 9.3.3 (sysin) 开始，Nexus 9000v 已转变为具有两个版本的平台系列：Nexus 9300v 和 Nexus 9500v。</p>
 <ul>
 <li>Nexus 9300v 代表一个虚拟的非模块化交换机，包括一个带有 64 个虚拟接口的线卡。</li>
 <li>Nexus 9500v 代表虚拟模块化交换机，最多可支持 16 个线卡和 400 个虚拟接口。</li>
 </ul>
 <p>Nexus 9300v 规格</p>
 <p>Form-Factor</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -531,7 +528,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Resource Requirements</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -566,8 +565,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Nexus 9500v 规格</p>
 <p>Form-Factor</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -598,7 +599,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Resource Requirements</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -629,8 +632,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="支持的-Hypervisor">支持的 Hypervisor</h3>
-<p>Nexus 9000v 10.4.x 系列官方系统要求：</p>
+</div>
+<h3 id="支持的-Hypervisor"><a href="#支持的-Hypervisor" class="headerlink" title="支持的 Hypervisor"></a>支持的 Hypervisor</h3><p>Nexus 9000v 10.4.x 系列官方系统要求：</p>
 <ul>
 <li>KVM/QEMU 4.2.0</li>
 <li>ESXi 8.0</li>
@@ -640,33 +643,26 @@
 <p>本文描述在 VMware 产品中部署。可支持如下版本。</p>
 <p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
 <ul>
-<li>Server：VMware <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
-<li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
-<li>Linux：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
-<li>Windows：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
 <p>对于 VMware Fusion 或者 VMware Workstation，另有文章描述：</p>
 <ul>
-<li>
-<a href="/blog/run-nxos-on-macos/" title="在 macOS 上运行 Cisco Nexus 9000v (NX-OS 10)">在 macOS 上运行 Cisco Nexus 9000v (NX-OS 10)</a>
-</li>
-<li>
-<a href="/blog/run-nxos-on-linux/" title="在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10)">在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10)</a>
+<li><a href="/blog/run-nxos-on-macos/" title="在 macOS 上运行 Cisco Nexus 9000v (NX-OS 10)">在 macOS 上运行 Cisco Nexus 9000v (NX-OS 10)</a></li>
+<li><a href="/blog/run-nxos-on-linux/" title="在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10)">在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10)</a>
 </li>
 </ul>
-<h2 id="使用-VMware-vSphere-部署">使用 VMware vSphere 部署</h2>
-<h3 id="导入-OVA">导入 OVA</h3>
-<p>支持 vSphere Client 和 ESXi Host Client，本文相关截图使用 vSphere Client。</p>
+<h2 id="使用-VMware-vSphere-部署"><a href="#使用-VMware-vSphere-部署" class="headerlink" title="使用 VMware vSphere 部署"></a>使用 VMware vSphere 部署</h2><h3 id="导入-OVA"><a href="#导入-OVA" class="headerlink" title="导入 OVA"></a>导入 OVA</h3><p>支持 vSphere Client 和 ESXi Host Client，本文相关截图使用 vSphere Client。</p>
 <p>过程略。</p>
-<h3 id="编辑-vNIC">编辑 vNIC</h3>
-<ul>
+<h3 id="编辑-vNIC"><a href="#编辑-vNIC" class="headerlink" title="编辑 vNIC"></a>编辑 vNIC</h3><ul>
 <li>第一个网卡用作管理口 m0（mgmt0），使用 VM Network（非必须）</li>
 <li>其他网口（数据接口），分别放到不同的网络</li>
 <li>数据接口所在虚拟交换机需要开启混杂模式（Promiscuous mode）</li>
 </ul>
-<h3 id="添加或者编辑虚拟串口">添加或者编辑虚拟串口</h3>
-<p>VMware ESXi 中直接编辑现有网络串口即可。</p>
-<p>1、开启防火墙规则：ESXi 配置 – 系统 – 防火墙，启用防火墙规则：VM serial port connected over network 23, 1024-65535 (TCP)</p>
+<h3 id="添加或者编辑虚拟串口"><a href="#添加或者编辑虚拟串口" class="headerlink" title="添加或者编辑虚拟串口"></a>添加或者编辑虚拟串口</h3><p>VMware ESXi 中直接编辑现有网络串口即可。</p>
+<p>1、开启防火墙规则：ESXi 配置 — 系统 — 防火墙，启用防火墙规则：VM serial port connected over network 23, 1024-65535 (TCP)</p>
 <p><img src="1-configuration-system-firewall.png" alt="Firewall"></p>
 <p><img src="2-configuration-system-firewall-edit.png" alt="Firewall"></p>
 <p>2、编辑串口如下：</p>
@@ -676,14 +672,11 @@
 <li>vSPC (Use Virtual Serial Port Concentrator) 是使用 vMotion 时的可选项 (需要启用防火墙规则 VM serial port connected to vSPC)，如果没有 HA 可以忽略。</li>
 </ul>
 <p><img src="3-settings-serial-port-new.png" alt="Serial Port"></p>
-<h3 id="虚机默认-EFI-引导">虚机默认 EFI 引导</h3>
-<p>Boot Options 默认为 EFI。</p>
+<h3 id="虚机默认-EFI-引导"><a href="#虚机默认-EFI-引导" class="headerlink" title="虚机默认 EFI 引导"></a>虚机默认 EFI 引导</h3><p>Boot Options 默认为 EFI。</p>
 <p>编辑 vmx 文件（或者 vm 高级选项），添加：efi.serialconsole.enabled = “TRUE”</p>
-<h2 id="启动虚拟机">启动虚拟机</h2>
-<p>启动状态如下：</p>
+<h2 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h2><p>启动状态如下：</p>
 <p><img src="4-console-view-start-new.png" alt="Console"></p>
-<h2 id="连接虚拟串口">连接虚拟串口</h2>
-<p>连接 ESXi 服务器 IP，端口使用前述配置的端口。</p>
+<h2 id="连接虚拟串口"><a href="#连接虚拟串口" class="headerlink" title="连接虚拟串口"></a>连接虚拟串口</h2><p>连接 ESXi 服务器 IP，端口使用前述配置的端口。</p>
 <p>在 macOS、Linux（或其他类 UNIX 系统）下，使用 nc，例如：<code>nc 10.10.1.101 10023</code>，推荐！</p>
 <p>等待虚拟机控制台界面显示：Boot Time: xxxx，连接虚拟串口，此时接管 Console 画面如下（尚未完成也可以，稍后自动出现）:</p>
 <p><img src="5-nc-view-abort-poap.png" alt="start up"></p>
@@ -694,8 +687,7 @@
 <p>下面开始初始化配置了。</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Abort Power On Auto Provisioning [yes - continue with normal setup, skip - bypass password and basic configuration, no - continue with Power On Auto Provisioning] (yes/skip/no)[no]:yes &lt;---- 这里 yes</span><br><span class="line"></span><br><span class="line">Disabling POAP.......Disabling POAP</span><br><span class="line"></span><br><span class="line">         ---- System Admin Account Setup ----</span><br><span class="line"></span><br><span class="line">Do you want to enforce secure password standard (yes/no) [y]:y  &lt;---- 这里回车，然后根据提示设置 admin 账号的密码</span><br><span class="line"></span><br><span class="line">    Enter the password for &quot;admin&quot;:</span><br><span class="line">  Confirm the password for &quot;admin&quot;:</span><br><span class="line"></span><br><span class="line">         ---- Basic System Configuration Dialog VDC: 1 ----</span><br><span class="line"></span><br><span class="line">This setup utility will guide you through the basic configuration of</span><br><span class="line">the system. Setup configures only enough connectivity for management</span><br><span class="line">of the system.</span><br><span class="line"></span><br><span class="line">Please register Cisco Nexus9000 Family devices promptly with your</span><br><span class="line">supplier. Failure to register may affect response times for initial</span><br><span class="line">service calls (sysin). Nexus9000 devices must be registered to receive</span><br><span class="line">entitled support services.</span><br><span class="line"></span><br><span class="line">Press Enter at anytime to skip a dialog. Use ctrl-c at anytime</span><br><span class="line">to skip the remaining dialogs.</span><br><span class="line"></span><br><span class="line"> Would you like to enter the basic configuration dialog (yes/no): no  &lt;---- 这里 no</span><br></pre></td></tr></table></figure>
 <p>进入登录提示，输入上述用户名 admin 和密码。</p>
-<h2 id="必要配置">必要配置</h2>
-<p>配置管理 IP</p>
+<h2 id="必要配置"><a href="#必要配置" class="headerlink" title="必要配置"></a>必要配置</h2><p>配置管理 IP</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">switch# </span><span class="language-bash">conf t</span></span><br><span class="line">Enter configuration commands, one per line. End with CNTL/Z.</span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">int m0</span></span><br><span class="line"><span class="meta prompt_">switch(config-if)# </span><span class="language-bash">ip addr 10.10.188.101/24</span></span><br><span class="line"><span class="meta prompt_">switch(config-if)# </span><span class="language-bash">no shut</span></span><br><span class="line"><span class="meta prompt_">switch(config-if)# </span><span class="language-bash"><span class="built_in">exit</span></span></span><br></pre></td></tr></table></figure>
 <p>在 vrf management 配置缺省路由：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">switch(config)#</span><span class="language-bash">vrf context management</span></span><br><span class="line"><span class="meta prompt_">switch(config-vrf)# </span><span class="language-bash">ip route 0.0.0.0/0 10.10.188.1</span></span><br></pre></td></tr></table></figure>
@@ -712,20 +704,18 @@
 <p>创建一个新用户（可选）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">username sysadmin password &lt;password&gt; role network-admin</span></span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">username sysadmin shelltype bash</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="下一步">下一步</h2>
-<p>以后可以直接使用 SSH 访问，串口可用于 SSH 无法访问之时进行问题排查。</p>
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>以后可以直接使用 SSH 访问，串口可用于 SSH 无法访问之时进行问题排查。</p>
 <p>请访问官方文档，开启你的 Nexus 之旅：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html">Cisco Nexus 9000 Series Switches Configuration Guides</a></p>
 <p>小贴士：开启 shell 访问，可以看到 NX-OS 10 是基于 Linux kernel 4.19（10.2.x 开始为 5.10）。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">switch# </span><span class="language-bash">show feature | grep bash</span></span><br><span class="line">bash-shell             1          disabled</span><br><span class="line"><span class="meta prompt_">switch# </span><span class="language-bash">conf t</span></span><br><span class="line">Enter configuration commands, one per line. End with CNTL/Z.</span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">feature bash-shell</span></span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">end</span></span><br><span class="line"><span class="meta prompt_">switch# </span><span class="language-bash">run bash sudo su -</span></span><br><span class="line"><span class="meta prompt_">root@switch#</span><span class="language-bash"><span class="built_in">whoami</span></span></span><br><span class="line">root</span><br><span class="line"><span class="meta prompt_">root@switch#</span><span class="language-bash"><span class="built_in">uname</span> -a</span></span><br><span class="line">Linux switch 4.19.179 #1 SMP Thu May 13 16:52:16 PDT 2021 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"><span class="meta prompt_">root@switch#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 10.4.2 版本为 5.10</span></span></span><br><span class="line">Linux switch 5.10.188 #1 SMP Wed Dec 13 17:01:10 PST 2023 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
-<h2 id="相关软件下载">相关软件下载</h2>
-<ul>
-<li>Server：VMware <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
-<li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
-<li>Linux：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
-<li>Windows：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+<h2 id="相关软件下载"><a href="#相关软件下载" class="headerlink" title="相关软件下载"></a>相关软件下载</h2><ul>
+<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
-<p>Cisco Nexus 9000v：<a target="_blank" rel="noopener" href="https://sysin.org/blog/cisco-nexus-9000v/">Cisco Nexus 9000v Switch, NX-OS Release 10.x</a></p>
+<p>Cisco Nexus 9000v：<a href="https://sysin.org/blog/cisco-nexus-9000v/">Cisco Nexus 9000v Switch, NX-OS Release 10.x</a></p>
 
 
         <hr>
@@ -846,7 +836,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1153,7 +1143,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
