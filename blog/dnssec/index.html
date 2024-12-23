@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> DNSSEC 实战 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" DNSSEC 实战 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> DNSSEC 实战 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" DNSSEC 实战 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" DNSSEC 实战 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/dnssec/">
+  <link rel="canonical" href="https://sysin.cn/blog/dnssec/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -405,7 +407,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">2.3k</span> In Total
+              Words <span class="post-count">2.4k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,33 +487,43 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/dnssec/" title="DNSSEC 实战">DNSSEC 实战</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="1-DNS-欺骗和缓存污染"><a href="#1-DNS-欺骗和缓存污染" class="headerlink" title="1. DNS 欺骗和缓存污染"></a>1. DNS 欺骗和缓存污染</h2><p>客户端（PC 等）发起域名请求的时候（例如访问：www.baidu.com），如果在本地缓存没有的情况下，会往递归服务器发送域名查询请求（我们也称之为 localdns），递归服务器再一层层递归从 . 到 com. 再到 baidu.com.（即到 . 的权威服务器 —&gt; com. 的权威服务器 —&gt; baidu.com. 的权威服务器)，最终取到 www.baidu.com. 对应的解析 A 记录返回给客户端。在整个查询过程中，攻击者可以假冒任何一个应答方：递归服务器 —&gt; . 的权威服务器 —&gt; com. 的权威服务器 —&gt; baidu.com. 的权威服务器，给请求方发送一个伪造的响应（UDP 包极其容易伪造），其中响应的解析记录给了一个错误的 IP 地址或者其他类型的解析记录（比如 NXDomain、ServFail 或者 cname 到错误的域名地址去等）。客户端或者是解析服务器在没有经过数据来源正确性校验的情况下接受了伪造的应答，直接将导致客户端无法正常访问网站或者其他资源或者客户端请求重定向到了伪造的网站上去 (sysin)。另外由于 DNS 当中存在着缓存，这种错误的记录将随着攻击者设定的 TTL 进行存活缓存，如果是递归服务器受到 DNS 欺骗那将会导致自身以及大面积的客户端缓存了错误的解析记录（可以通过清除缓存解决）。</p>
-<h2 id="2-DNSSEC-简介"><a href="#2-DNSSEC-简介" class="headerlink" title="2. DNSSEC 简介"></a>2. DNSSEC 简介</h2><p>DNSSEC 全称 Domain Name System Security Extensions，即 DNS 安全扩展，是由 IETF 提供的一系列 DNS 安全认证的机制（可参考 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2535">RFC2535</a>）。它提供一种可以验证应答信息真实性和完整性的机制，利用密码技术，使得域名解析服务器可以验证它所收到的应答（包括域名不存在的应答）是否来自于真实的服务器，或者是否在传输过程中被篡改过。</p>
+<h2 id="1-DNS-欺骗和缓存污染">1. DNS 欺骗和缓存污染</h2>
+<p>客户端（PC 等）发起域名请求的时候（例如访问：<a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a>），如果在本地缓存没有的情况下，会往递归服务器发送域名查询请求（我们也称之为 localdns），递归服务器再一层层递归从 . 到 com. 再到 <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a>.（即到 . 的权威服务器 --&gt; com. 的权威服务器 --&gt; <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a>. 的权威服务器)，最终取到 <a target="_blank" rel="noopener" href="http://www.baidu.com">www.baidu.com</a>. 对应的解析 A 记录返回给客户端。在整个查询过程中，攻击者可以假冒任何一个应答方：递归服务器 --&gt; . 的权威服务器 --&gt; com. 的权威服务器 --&gt; <a target="_blank" rel="noopener" href="http://baidu.com">baidu.com</a>. 的权威服务器，给请求方发送一个伪造的响应（UDP 包极其容易伪造），其中响应的解析记录给了一个错误的 IP 地址或者其他类型的解析记录（比如 NXDomain、ServFail 或者 cname 到错误的域名地址去等）。客户端或者是解析服务器在没有经过数据来源正确性校验的情况下接受了伪造的应答，直接将导致客户端无法正常访问网站或者其他资源或者客户端请求重定向到了伪造的网站上去 (sysin)。另外由于 DNS 当中存在着缓存，这种错误的记录将随着攻击者设定的 TTL 进行存活缓存，如果是递归服务器受到 DNS 欺骗那将会导致自身以及大面积的客户端缓存了错误的解析记录（可以通过清除缓存解决）。</p>
+<h2 id="2-DNSSEC-简介">2. DNSSEC 简介</h2>
+<p>DNSSEC 全称 Domain Name System Security Extensions，即 DNS 安全扩展，是由 IETF 提供的一系列 DNS 安全认证的机制（可参考 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2535">RFC2535</a>）。它提供一种可以验证应答信息真实性和完整性的机制，利用密码技术，使得域名解析服务器可以验证它所收到的应答（包括域名不存在的应答）是否来自于真实的服务器，或者是否在传输过程中被篡改过。</p>
 <p>DNSSEC 采用基于公共密钥加密的数字签名，从而增强 DNS 验证强度。DNSSEC 并非对 DNS 查询和响应本身进行加密签名，而是由数据所有者对 DNS 数据自身进行签名。</p>
-<p>每一个 DNS 区均包含一个公私秘钥对。DNS 区所有者使用该区域的私钥对区域内的 DNS 数据进行签名，为这些数据生成数字签名。顾名思义，”私钥” 是指 DNS 区所有者会对这些密钥材料保密。但是，该区域的公钥则在区域内公开发布，供全体用户检索。凡在区域内查找数据的递归解析器，还必需检索区域公钥，从而使用公钥验证 DNS 数据的真实性。解析器确认检索到的 DNS 数据的数字签名是否有效。如果有效，证明 DNS 数据合法，则将 DNS 数据返回给用户 (sysin)。如果签名未通过验证，解析器会假设发生攻击，丢弃数据并向用户返回错误。</p>
+<p>每一个 DNS 区均包含一个公私秘钥对。DNS 区所有者使用该区域的私钥对区域内的 DNS 数据进行签名，为这些数据生成数字签名。顾名思义，“私钥” 是指 DNS 区所有者会对这些密钥材料保密。但是，该区域的公钥则在区域内公开发布，供全体用户检索。凡在区域内查找数据的递归解析器，还必需检索区域公钥，从而使用公钥验证 DNS 数据的真实性。解析器确认检索到的 DNS 数据的数字签名是否有效。如果有效，证明 DNS 数据合法，则将 DNS 数据返回给用户 (sysin)。如果签名未通过验证，解析器会假设发生攻击，丢弃数据并向用户返回错误。</p>
 <p>DNSSEC 在 DNS 协议中新增了两项重要功能：</p>
 <ul>
 <li>数据来源验证 - 解析器可以通过加密的方式验证收到的数据是否确实来自其认定的数据传送区域。</li>
 <li>数据完整性保护 - 解析器可以确信，自区域所有者使用区域私钥初次进行数据签名以来，数据在传输过程中并未遭到修改。</li>
 </ul>
-<h2 id="3-DNSSEC-原理"><a href="#3-DNSSEC-原理" class="headerlink" title="3. DNSSEC 原理"></a>3. DNSSEC 原理</h2><p>DNSSEC 通过公钥密码技术对 DNS 中的信息创建密码签名，为 DNS 信息同时提供认证和信息完整性检查，它的实施步骤如下：</p>
+<h2 id="3-DNSSEC-原理">3. DNSSEC 原理</h2>
+<p>DNSSEC 通过公钥密码技术对 DNS 中的信息创建密码签名，为 DNS 信息同时提供认证和信息完整性检查，它的实施步骤如下：</p>
 <p>DNS 服务器收到 DNS 查询请求后，用散列函数将要回复 DNS 报文的内容进行散列运算，得到 “内容摘要”，使用私匙加密后再附加到 DNS 报文中；</p>
 <p>DNS 查询请求者接收到报文后，利用公匙解密收到的 “内容摘要”，再利用散列函数计算一次 DNS 查询请求报文中的 “内容摘要”，两者对比；</p>
 <p>若相同，就可以确认接收到的 DNS 信息是正确的 DNS 响应；若验证失败，则表明这一报文可能是假冒的，或者在传输过程、缓存过程中被篡改了。</p>
-<h2 id="4-DNSSEC-资源记录"><a href="#4-DNSSEC-资源记录" class="headerlink" title="4. DNSSEC 资源记录"></a>4. DNSSEC 资源记录</h2><p>为了实现资源记录的签名和验证，DNSSEC 增加了四种类型的资源记录：</p>
+<h2 id="4-DNSSEC-资源记录">4. DNSSEC 资源记录</h2>
+<p>为了实现资源记录的签名和验证，DNSSEC 增加了四种类型的资源记录：</p>
 <ul>
-<li><p>RRSIG (Resource Record Signature) 记录：存储资源记录集合 (RRSets) 的数字签名</p>
+<li>
+<p>RRSIG (Resource Record Signature) 记录：存储资源记录集合 (RRSets) 的数字签名</p>
 </li>
-<li><p>DNSKEY (DNS Public Key) 记录：存储公开密钥</p>
+<li>
+<p>DNSKEY (DNS Public Key) 记录：存储公开密钥</p>
 </li>
-<li><p>DS (Delegation Signer) 记录：存储 DNSKEY 的散列值，用于验证 DNSKEY 的真实性，从而建立一个信任链</p>
+<li>
+<p>DS (Delegation Signer) 记录：存储 DNSKEY 的散列值，用于验证 DNSKEY 的真实性，从而建立一个信任链</p>
 </li>
-<li><p>NSEC (Next Secure) 记录：用于应答那些不存在的资源记录</p>
+<li>
+<p>NSEC (Next Secure) 记录：用于应答那些不存在的资源记录</p>
 </li>
 </ul>
-<h2 id="5-主流-DNS-支持情况"><a href="#5-主流-DNS-支持情况" class="headerlink" title="5. 主流 DNS 支持情况"></a>5. 主流 DNS 支持情况</h2><h3 id="公共-DNS"><a href="#公共-DNS" class="headerlink" title="公共 DNS"></a>公共 DNS</h3><p>检查方法：<code>dig +noadditional DS icann.org. @DNS 的 IP | grep DS</code> 如果有 DS 记录返回则说明该服务器支持 DNSSEC</p>
+<h2 id="5-主流-DNS-支持情况">5. 主流 DNS 支持情况</h2>
+<h3 id="公共-DNS">公共 DNS</h3>
+<p>检查方法：<code>dig +noadditional DS icann.org. @DNS 的 IP | grep DS</code> 如果有 DS 记录返回则说明该服务器支持 DNSSEC</p>
 <p>Google DNS：8.8.8.8，8.8.4.4</p>
 <p>Google DNS IPv6：2001:4860:4860::8888，2001:4860:4860::8844</p>
 <p>Cloudflare DNS：1.1.1.1，1.0.0.1</p>
@@ -524,7 +536,8 @@
 <p>上海电信：202.96.209.5，202.96.209.133</p>
 <p>北京联通：202.106.196.115，202.106.46.151，202.106.0.20</p>
 <p>以上公共 DNS 都支持 DNSSEC，本地运营商的 DNS 可以使用上述方法查询是否支持。</p>
-<h3 id="域名和域名注册商是否支持-DNSSEC"><a href="#域名和域名注册商是否支持-DNSSEC" class="headerlink" title="域名和域名注册商是否支持 DNSSEC"></a>域名和域名注册商是否支持 DNSSEC</h3><p>超过 90% 的顶级域名 TLD（top-level domains）支持 <strong>DNSSEC</strong>，具体列表可以查询：<a target="_blank" rel="noopener" href="http://stats.research.icann.org/dns/tld_report/">ICANN TLD <strong>DNSSEC</strong> Report</a>。</p>
+<h3 id="域名和域名注册商是否支持-DNSSEC">域名和域名注册商是否支持 DNSSEC</h3>
+<p>超过 90% 的顶级域名 TLD（top-level domains）支持 <strong>DNSSEC</strong>，具体列表可以查询：<a target="_blank" rel="noopener" href="http://stats.research.icann.org/dns/tld_report/">ICANN TLD <strong>DNSSEC</strong> Report</a>。</p>
 <p>对于添加资源记录，ICANN 要求域名注册服务商必须支持，参看：<a target="_blank" rel="noopener" href="https://www.icann.org/resources/pages/approved-with-specs-2013-09-17-zh#operation">注册服务商运营补充规范</a>。</p>
 <p><strong>对于启用 DNSSEC 解析功能，支持的服务商似乎并不多或者需要付费支持，这可能是当前 DNSSEC 部署比较少的原因。</strong></p>
 <p>以下是一些知名的域名注册商和服务商对 DNSSEC 的支持情况：</p>
@@ -535,26 +548,34 @@
 <p>微软 Azure DNS：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/azure/dns/dns-faq">Does Azure DNS support DNSSEC?</a> No. Azure DNS doesn’t currently support the Domain Name System Security Extensions (DNSSEC).</p>
 <p>Google Domain：Google Cloud DNS 中启用 DNSSEC 功能需要付费，参看 <a target="_blank" rel="noopener" href="https://cloud.google.com/community/tutorials/dnssec-cloud-dns-domains"><strong>ctivating DNSSEC for Cloud DNS domains - Google Cloud</strong></a>。</p>
 <p>Cloudflare：免费一键开启 DNSSEC 功能，当然 Cloudflare 不是域名注册商，需要在域名注册商处添加 DS 记录（<a target="_blank" rel="noopener" href="https://support.cloudflare.com/hc/en-us/articles/360006660072">参看这里</a>）。</p>
-<h2 id="6-配置-DNSSEC-示例"><a href="#6-配置-DNSSEC-示例" class="headerlink" title="6. 配置 DNSSEC 示例"></a>6. 配置 DNSSEC 示例</h2><p>本例中，sysin.org 使用 Cloudflare DNS，域名注册在阿里云。</p>
-<h3 id="在-Cloudflare-启用-DNSSEC"><a href="#在-Cloudflare-启用-DNSSEC" class="headerlink" title="在 Cloudflare 启用 DNSSEC"></a>在 Cloudflare 启用 DNSSEC</h3><p>登录 Cloudflare，选择你的域名，点击 “DNS” 图标，下拉可以看到 “DNSSEC”，点击 “Enable DNSSEC”，可以看到提示需要到域名注册商添加 DS 记录：</p>
+<h2 id="6-配置-DNSSEC-示例">6. 配置 DNSSEC 示例</h2>
+<p>本例中，<a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a> 使用 Cloudflare DNS，域名注册在阿里云。</p>
+<h3 id="在-Cloudflare-启用-DNSSEC">在 Cloudflare 启用 DNSSEC</h3>
+<p>登录 Cloudflare，选择你的域名，点击 “DNS” 图标，下拉可以看到 “DNSSEC”，点击 “Enable DNSSEC”，可以看到提示需要到域名注册商添加 DS 记录：</p>
 <p><img src="cloudflare-ds-changed.webp" alt="cloudflare-ds-changed"></p>
 <p>Digest 已经做处理😁。</p>
-<h3 id="在阿里云域名管理添加资源记录"><a href="#在阿里云域名管理添加资源记录" class="headerlink" title="在阿里云域名管理添加资源记录"></a>在阿里云域名管理添加资源记录</h3><p>登录阿里云控制台，选择 “域名”，则进入 “域名列表”，可以看到域名 “sysin.org”，点击操作最后面的 “管理”，则进入 “基本信息 / sysin.org” 页面，点击左侧的 “DNSSEC 设置”，点击 “添加 DS 记录”</p>
+<h3 id="在阿里云域名管理添加资源记录">在阿里云域名管理添加资源记录</h3>
+<p>登录阿里云控制台，选择 “域名”，则进入 “域名列表”，可以看到域名 “<a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>”，点击操作最后面的 “管理”，则进入 “基本信息 / <a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>” 页面，点击左侧的 “DNSSEC 设置”，点击 “添加 DS 记录”</p>
 <p><img src="aliyun-ds.webp" alt="aliyun-ds"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* 关键标签：即 Key Tag，复制上述 Key Tag 内容粘贴进来</span><br><span class="line"></span><br><span class="line">* 加密算法：即 Algorithm，下拉选择 13</span><br><span class="line"></span><br><span class="line">* 摘要类型：即 Digest Type，选择 2-SHA-256</span><br><span class="line"></span><br><span class="line">* 摘要：即 Digest，复制上述 Digest 内容粘贴进来</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>现在阿里云的 DNSSEC 为付费功能。</p>
 <p>现在腾讯云的 DNSPOD 中的 DNSSEC 为付费功能。</p>
 </blockquote>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>使用 <a target="_blank" rel="noopener" href="https://dnsviz.net/">测试工具</a> 输入域名进行测试</p>
+<h3 id="验证-2">验证</h3>
+<p>使用 <a target="_blank" rel="noopener" href="https://dnsviz.net/">测试工具</a> 输入域名进行测试</p>
 <p>测试页面中如每一级都显示出了 <strong>DS</strong>，且无红色报错框，说明已开启 DS，并已生效。</p>
-<p>在 Cloudflare 上述页面也会显示：Success! sysin.org is protected with DNSSEC.</p>
-<h2 id="7-查询和验证-DNSSEC"><a href="#7-查询和验证-DNSSEC" class="headerlink" title="7. 查询和验证 DNSSEC"></a>7. 查询和验证 DNSSEC</h2><h3 id="dig-命令"><a href="#dig-命令" class="headerlink" title="dig 命令"></a>dig 命令</h3><p><strong>检查一个有 DNSSEC 签名的域名的 RRSIG (Resource Record Signature)。</strong></p>
-<p><strong>查看有 DNSSEC 签名的域名 (sysin.org) 需要通过一个支持 DNSSEC 的 DNS 服务器 (8.8.8.8)。</strong></p>
+<p>在 Cloudflare 上述页面也会显示：Success! <a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a> is protected with DNSSEC.</p>
+<h2 id="7-查询和验证-DNSSEC">7. 查询和验证 DNSSEC</h2>
+<h3 id="dig-命令">dig 命令</h3>
+<p><strong>检查一个有 DNSSEC 签名的域名的 RRSIG (Resource Record Signature)。</strong></p>
+<p><strong>查看有 DNSSEC 签名的域名 (<a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>) 需要通过一个支持 DNSSEC 的 DNS 服务器 (8.8.8.8)。</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">% </span><span class="language-bash">dig sysin.org +dnssec @8.8.8.8</span></span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; sysin.org +dnssec @8.8.8.8</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 63155</span><br><span class="line">;; flags: qr rd ra ad; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags: do; udp: 512</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;sysin.org.    IN    A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">sysin.org.    299    IN    A    104.27.163.41</span><br><span class="line">sysin.org.    299    IN    A    172.67.214.128</span><br><span class="line">sysin.org.    299    IN    A    104.27.162.41</span><br><span class="line">sysin.org.    299    IN    RRSIG    A 13 2 300 20200829022403 20200827002403 34505 sysin.org. 93sJ5e/HTDsFWOYbgw+kw4snha1Bvq1SPSjxWbto8DYvRdaLgZtVVH/N k81Gw086yUTJTpXLLOLDfCel0r//gA==</span><br><span class="line"></span><br><span class="line">;; Query time: 133 msec</span><br><span class="line">;; SERVER: 8.8.8.8#53(8.8.8.8)</span><br><span class="line">;; WHEN: Fri Aug 28 09:24:03 CST 2020</span><br><span class="line">;; MSG SIZE  rcvd: 191</span><br></pre></td></tr></table></figure>
-<h3 id="在线检测网站"><a href="#在线检测网站" class="headerlink" title="在线检测网站"></a>在线检测网站</h3><p><a target="_blank" rel="noopener" href="https://dnsviz.net/">https://dnsviz.net/</a></p>
+<h3 id="在线检测网站">在线检测网站</h3>
+<p><a target="_blank" rel="noopener" href="https://dnsviz.net/">https://dnsviz.net/</a></p>
 <p><a target="_blank" rel="noopener" href="https://dnssec-analyzer.verisignlabs.com/">https://dnssec-analyzer.verisignlabs.com/</a></p>
-<h3 id="浏览器扩展"><a href="#浏览器扩展" class="headerlink" title="浏览器扩展"></a>浏览器扩展</h3><p>Firefox：<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/">https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/</a></p>
+<h3 id="浏览器扩展">浏览器扩展</h3>
+<p>Firefox：<a target="_blank" rel="noopener" href="https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/">https://addons.mozilla.org/zh-CN/firefox/addon/dnssec/</a></p>
 <p><img src="sysin-dnssec.webp" alt="sysin-dnssec"></p>
 <p>Chrome：<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/search/dnssec">https://chrome.google.com/webstore/search/dnssec</a></p>
 
@@ -677,7 +698,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -740,7 +761,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-DNS-%E6%AC%BA%E9%AA%97%E5%92%8C%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. DNS 欺骗和缓存污染</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-DNSSEC-%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. DNSSEC 简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-DNSSEC-%E5%8E%9F%E7%90%86"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. DNSSEC 原理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-DNSSEC-%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. DNSSEC 资源记录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E4%B8%BB%E6%B5%81-DNS-%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 主流 DNS 支持情况</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%AC%E5%85%B1-DNS"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">公共 DNS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9F%9F%E5%90%8D%E5%92%8C%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%95%86%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81-DNSSEC"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">域名和域名注册商是否支持 DNSSEC</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E9%85%8D%E7%BD%AE-DNSSEC-%E7%A4%BA%E4%BE%8B"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 配置 DNSSEC 示例</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8-Cloudflare-%E5%90%AF%E7%94%A8-DNSSEC"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">在 Cloudflare 启用 DNSSEC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86%E6%B7%BB%E5%8A%A0%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">在阿里云域名管理添加资源记录</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">验证</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E6%9F%A5%E8%AF%A2%E5%92%8C%E9%AA%8C%E8%AF%81-DNSSEC"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 查询和验证 DNSSEC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#dig-%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">dig 命令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E7%BA%BF%E6%A3%80%E6%B5%8B%E7%BD%91%E7%AB%99"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">在线检测网站</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95"><span class="toc-nav-number">7.3.</span> <span class="toc-nav-text">浏览器扩展</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-DNS-%E6%AC%BA%E9%AA%97%E5%92%8C%E7%BC%93%E5%AD%98%E6%B1%A1%E6%9F%93"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. DNS 欺骗和缓存污染</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-DNSSEC-%E7%AE%80%E4%BB%8B"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. DNSSEC 简介</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-DNSSEC-%E5%8E%9F%E7%90%86"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. DNSSEC 原理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-DNSSEC-%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">4. DNSSEC 资源记录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E4%B8%BB%E6%B5%81-DNS-%E6%94%AF%E6%8C%81%E6%83%85%E5%86%B5"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">5. 主流 DNS 支持情况</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%AC%E5%85%B1-DNS"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">公共 DNS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9F%9F%E5%90%8D%E5%92%8C%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%95%86%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81-DNSSEC"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">域名和域名注册商是否支持 DNSSEC</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E9%85%8D%E7%BD%AE-DNSSEC-%E7%A4%BA%E4%BE%8B"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">6. 配置 DNSSEC 示例</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8-Cloudflare-%E5%90%AF%E7%94%A8-DNSSEC"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">在 Cloudflare 启用 DNSSEC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86%E6%B7%BB%E5%8A%A0%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">在阿里云域名管理添加资源记录</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E9%AA%8C%E8%AF%81-2"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">验证</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-%E6%9F%A5%E8%AF%A2%E5%92%8C%E9%AA%8C%E8%AF%81-DNSSEC"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">7. 查询和验证 DNSSEC</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#dig-%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">dig 命令</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%A8%E7%BA%BF%E6%A3%80%E6%B5%8B%E7%BD%91%E7%AB%99"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">在线检测网站</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95"><span class="toc-nav-number">7.3.</span> <span class="toc-nav-text">浏览器扩展</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -982,7 +1003,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

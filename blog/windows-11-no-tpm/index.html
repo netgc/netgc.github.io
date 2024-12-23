@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Windows 11 绕过 TPM 方法总结，通用免 TPM 镜像下载 (2024 年 10 月更新) - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" Windows 11 绕过 TPM 方法总结，通用免 TPM 镜像下载 (2024 年 10 月更新) - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> Windows 11 绕过 TPM 方法总结，通用免 TPM 镜像下载 (2024 年 10 月更新) - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" Windows 11 绕过 TPM 方法总结，通用免 TPM 镜像下载 (2024 年 10 月更新) - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" Windows 11 绕过 TPM 方法总结，通用免 TPM 镜像下载 (2024 年 10 月更新) "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/windows-11-no-tpm/">
+  <link rel="canonical" href="https://sysin.cn/blog/windows-11-no-tpm/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,7 +487,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/windows-11-no-tpm/" title="Windows 11 绕过 TPM 方法总结，通用免 TPM 镜像下载 (2024 年 10 月更新)">Windows 11 绕过 TPM 方法总结，通用免 TPM 镜像下载 (2024 年 10 月更新)</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>本文要解决的问题：</p>
 <ul>
@@ -493,10 +495,11 @@
 <li>如何在没有 TPM 或者没有 TPM 2.0 的 PC 安装 Windows 11，Windows 11 绕过 TPM 检测直装版下载。</li>
 <li>如何在 Mac 上安装 Windows 11（完全没有必要，这里只是提供一种技术可行性），Windows 11 for Mac Boot Camp 直装版 ISO 下载。</li>
 </ul>
-<p><img src="windows-11-3-style.webp" alt="Windows 11 三合一"><br><em>你好，我是三哥最新杰作，盖茨风格、麦德龙风格和库克风格三合一。</em></p>
+<p><img src="windows-11-3-style.webp" alt="Windows 11 三合一"><br>
+<em>你好，我是三哥最新杰作，盖茨风格、麦德龙风格和库克风格三合一。</em></p>
 <p><img src="windows11-in-windows10-by-sysin.webp" alt="windows11-in-windows10-by-sysin"></p>
-<h2 id="1-Windows-11-系统要求"><a href="#1-Windows-11-系统要求" class="headerlink" title="1. Windows 11 系统要求"></a>1. Windows 11 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/windows/windows-11-specifications">系统要求</a></h2><p>系统要求系统要求这些是在电脑上安装 Windows 11 的最低系统要求。如果您的设备不满足这些要求，您可能无法在设备上安装 Windows 11，建议您考虑购买 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/windows/computers">一台新电脑</a>。如果您不确定您的电脑是否满足这些要求，可以咨询您的原始设备制造商 (OEM)；如果您的设备已经在运行 Windows 10，您可以使用 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/windows/windows-11#pchealthcheck">电脑健康状况检查应用</a> 来评估兼容性。请注意，此应用不会检查显卡或显示器，因为大多数的兼容设备都能满足以下列出的要求 (sysin)。您的设备必须 <a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808">已安装 Windows 10</a> 的 2004 或更高版本，才能升级。可在‘设置 &gt; 更新和安全’中的 Windows 更新功能中获取免费更新。</p>
-<div class="table-container">
+<h2 id="1-Windows-11-系统要求">1. Windows 11 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/windows/windows-11-specifications">系统要求</a></h2>
+<p>系统要求系统要求这些是在电脑上安装 Windows 11 的最低系统要求。如果您的设备不满足这些要求，您可能无法在设备上安装 Windows 11，建议您考虑购买 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/windows/computers">一台新电脑</a>。如果您不确定您的电脑是否满足这些要求，可以咨询您的原始设备制造商 (OEM)；如果您的设备已经在运行 Windows 10，您可以使用 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/windows/windows-11#pchealthcheck">电脑健康状况检查应用</a> 来评估兼容性。请注意，此应用不会检查显卡或显示器，因为大多数的兼容设备都能满足以下列出的要求 (sysin)。您的设备必须 <a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808">已安装 Windows 10</a> 的 2004 或更高版本，才能升级。可在‘设置 &gt; 更新和安全’中的 Windows 更新功能中获取免费更新。</p>
 <table>
 <thead>
 <tr>
@@ -535,14 +538,15 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>某些 <a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/windows/windows-11-specifications#table2">功能需要特定硬件支持</a>。运行某些应用程序所需满足的系统要求可能高于 Windows 11 的最低设备规格要求。检查设备与您想要安装应用程序的兼容情况。所需的设备存储空间将根据实际的应用程序和更新而有所不同。更高端、更强大的电脑性能也较高。以后或更新时可能会有其它的要求。</p>
 <blockquote>
 <p>以上为 Windows 11 的官方系统要求。</p>
 </blockquote>
 <p>关键是这个 TPM 芯片，通常在虚拟机、MacBook，没有 TPM 或者没有 TPM 2.0 的旧 PC 无法正常安装 Windows 11（报错如下图）。</p>
 <p><img src="windows-11-tpm-check.webp" alt="windows-11-tpm-check"></p>
-<h2 id="2-网上常见的方法"><a href="#2-网上常见的方法" class="headerlink" title="2. 网上常见的方法"></a>2. 网上常见的方法</h2><h3 id="（1）修改注册表（不支持-Boot-Camp）"><a href="#（1）修改注册表（不支持-Boot-Camp）" class="headerlink" title="（1）修改注册表（不支持 Boot Camp）"></a>（1）修改注册表（不支持 Boot Camp）</h3><p>在 Windows 11 安装界面按 Shift + F10 打开命令行界面，执行如下命令：</p>
+<h2 id="2-网上常见的方法">2. 网上常见的方法</h2>
+<h3 id="（1）修改注册表（不支持-Boot-Camp）">（1）修改注册表（不支持 Boot Camp）</h3>
+<p>在 Windows 11 安装界面按 Shift + F10 打开命令行界面，执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassTPMCheck /t REG_DWORD /d 1</span><br><span class="line">REG ADD HKLM\SYSTEM\Setup\LabConfig /v BypassSecureBootCheck /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
 <p>或者使用图形界面的注册表编辑器添加：</p>
 <p>输入 regedit 进入注册表编辑器，然后定位到如下位置 HKEY_LOCAL_MACHINE\SYSTEM\Setup，创建一个名为 “LabConfig” 的项，接着在 “LabConfig” 下创建两个 DWORD 值：</p>
@@ -553,17 +557,20 @@
 <p>优点：不用修改 ISO 文件，原版即可。</p>
 <p>缺点：操作稍微有点繁琐，也不容易记住。并且不支持 Mac 上 Boot Camp 安装方式。</p>
 </blockquote>
-<h3 id="（2）替换文件：appraiserres-dll（无效）"><a href="#（2）替换文件：appraiserres-dll（无效）" class="headerlink" title="（2）替换文件：appraiserres.dll（无效）"></a>（2）替换文件：appraiserres.dll（无效）</h3><p>将 Windows 10 ISO 中的 appraiserres.dll（在 sources 文件夹下），替换 Windows 11 ISO 中的同名文件或者在 Windows 11 ISO 中直接删除该 dll 文件。</p>
+<h3 id="（2）替换文件：appraiserres-dll（无效）">（2）替换文件：appraiserres.dll（无效）</h3>
+<p>将 Windows 10 ISO 中的 appraiserres.dll（在 sources 文件夹下），替换 Windows 11 ISO 中的同名文件或者在 Windows 11 ISO 中直接删除该 dll 文件。</p>
 <p>上述方法经过测试当前版本（2021 年 11 月）无效，可能需要特定的版本匹配。</p>
 <p>有读者分享：新建一个空白文件命名为 appraiserres.dll 替换 Windows 11 ISO 中的同名文件。经测同样无效（2022 年 2 月更新）。</p>
-<h3 id="（3）添加-vTPM-（繁琐，仅限虚拟化）"><a href="#（3）添加-vTPM-（繁琐，仅限虚拟化）" class="headerlink" title="（3）添加 vTPM （繁琐，仅限虚拟化）"></a>（3）添加 vTPM （繁琐，仅限虚拟化）</h3><p>请自行查看，不再赘述。</p>
+<h3 id="（3）添加-vTPM-（繁琐，仅限虚拟化）">（3）添加 vTPM （繁琐，仅限虚拟化）</h3>
+<p>请自行查看，不再赘述。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.virten.net/2021/10/windows-11-on-vmware-esxi-this-pc-cant-run-windows-11/">Windows 11 on VMware ESXi - This PC can’t run Windows 11</a></li>
 <li><a target="_blank" rel="noopener" href="https://blogs.vmware.com/workstation/2021/10/workstation-16-2-now-available.html">Workstation 16.2</a></li>
 <li><a target="_blank" rel="noopener" href="https://blogs.vmware.com/teamfusion/2021/10/fusion-12-2-now-available.html">Fusion 12.2</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.parallels.com/cn/blogs/windows-11-tpm/">Parallels Desktop 17 中的 Windows 11 虚拟机</a></li>
 </ul>
-<h3 id="（4）将-WIM-镜像属性修改为-Server"><a href="#（4）将-WIM-镜像属性修改为-Server" class="headerlink" title="（4）将 WIM 镜像属性修改为 Server"></a>（4）将 WIM 镜像属性修改为 Server</h3><p>第三方脚本和小工具有不少是采用这种方式，类似如下操作：</p>
+<h3 id="（4）将-WIM-镜像属性修改为-Server">（4）将 WIM 镜像属性修改为 Server</h3>
+<p>第三方脚本和小工具有不少是采用这种方式，类似如下操作：</p>
 <p>通过 <a target="_blank" rel="noopener" href="https://wimlib.net/">wimlib</a>（the open source Windows Imaging (WIM) library）将 Windows 11 ISO 中 sources 文件夹下的 install.wim 的 image-property 修改为 Server，将无需 TPM 检测。</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wimlib-imagex.exe info install.wim --header</span><br><span class="line"># 显示 Image Count                 = <span class="number">5</span></span><br><span class="line">wimlib-imagex.exe info install.wim [<span class="number">1</span>-<span class="number">5</span>] --image-property WINDOWS/INSTALLATIONTYPE=Server</span><br></pre></td></tr></table></figure>
 <p>示例脚本：<a target="_blank" rel="noopener" href="https://github.com/AveYo/MediaCreationTool.bat">MediaCreationTool.bat</a></p>
@@ -575,17 +582,20 @@
 <p>该镜像仍然不支持在 Mac 上 Boot Camp 安装方式。</p>
 </blockquote>
 <p>某些第三方脚本也使用了该方法，经过测试虚机安装报错，未知。Boot Camp 应该也不支持，就不在验证了。</p>
-<h3 id="（5）Rufus-创建-USB-启动盘"><a href="#（5）Rufus-创建-USB-启动盘" class="headerlink" title="（5）Rufus 创建 USB 启动盘"></a>（5）Rufus 创建 USB 启动盘</h3><p><a target="_blank" rel="noopener" href="https://rufus.ie/">Rufus</a> v3.19+ 创建 USB 启动盘，增加了一个新功能可以绕过 TPM 检测，还是挺方便的。</p>
+<h3 id="（5）Rufus-创建-USB-启动盘">（5）Rufus 创建 USB 启动盘</h3>
+<p><a target="_blank" rel="noopener" href="https://rufus.ie/">Rufus</a> v3.19+ 创建 USB 启动盘，增加了一个新功能可以绕过 TPM 检测，还是挺方便的。</p>
 <p><img src="https://rufus.ie/pics/screenshot4_en.png" alt="Rufus screenshot 4"></p>
-<h3 id="（6）install-wim-替换"><a href="#（6）install-wim-替换" class="headerlink" title="（6）install.wim 替换"></a>（6）install.wim 替换</h3><p>使用 Windows 10 的安装介质，将其中的 install.wim 删除，替换为 Windows 11 安装介质中的 install.wim 并改名为 install.esd（改名仅仅是便于区分，原文件名替换也可以）。</p>
+<h3 id="（6）install-wim-替换">（6）install.wim 替换</h3>
+<p>使用 Windows 10 的安装介质，将其中的 install.wim 删除，替换为 Windows 11 安装介质中的 install.wim 并改名为 install.esd（改名仅仅是便于区分，原文件名替换也可以）。</p>
 <p>该方法创建可分发的 ISO 文件，可能是相对最佳方案，一个 iso 文件就可以解决文首的三种问题，视为通用方法，下面具体说明一下操作步骤。</p>
-<h2 id="3-通用方法：install-wim-替换"><a href="#3-通用方法：install-wim-替换" class="headerlink" title="3. 通用方法：install.wim 替换"></a>3. 通用方法：install.wim 替换</h2><p>使用以下方法创建的 Windows 11 iso 文件可以直接在以下情况安装：</p>
+<h2 id="3-通用方法：install-wim-替换">3. 通用方法：install.wim 替换</h2>
+<p>使用以下方法创建的 Windows 11 iso 文件可以直接在以下情况安装：</p>
 <ul>
 <li>虚拟机安装：包括不限于 VMware、KVM 和 Hyper-V 等 (sysin)</li>
 <li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201468">在 Mac 上 Boot Camp 安装 Windows 11，如同安装 Windows 10 一样</a>，注意仅限 Intel 处理器的机型（不适用于 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT211814">搭载 Apple 芯片的 Mac 电脑</a>）</li>
 <li>在老旧的 PC 上直接安装 Windows 11，只要原来可以安装 Windows 10，没有 TPM 芯片，或者只有 TPM 1.2 的版本。</li>
 </ul>
-<p>分别下载 <a href="https://sysin.org/blog/windows-10/">Windows 10</a> 和 <a href="https://sysin.org/blog/windows-11/">Windows 11</a> 的原版 ISO 镜像。</p>
+<p>分别下载 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a> 和 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-11/">Windows 11</a> 的原版 ISO 镜像。</p>
 <p>打开 Windows 11 的 ISO 文件，提取 sources 文件夹下的 install.wim，并将 install.wim 改名为 instsall.esd 备用。<strong>实际上，无需改名，直接使用 install.wim 替换即可，仅仅是网传要改名，好处在于改名后同原镜像容易区分。</strong></p>
 <p>使用 ISO 编辑软件（如 UltraISO、WinISO、PowerISO）编辑 Windows 10 的 ISO 文件，删除 sources 文件夹下的 install.wim，然后将 Windows 11 的 install.esd 添加到该文件夹，保存（另存为）ISO 文件即可。</p>
 <blockquote>
@@ -594,9 +604,9 @@
 </blockquote>
 <p>直接在 Windows 中双击 setup 会提示如下，没错，Windows 10 安装程序安装 Windows 11 镜像。实际上用 ISO 或者 USB 引导安装只是启动 Logo 不同，如文首图片，Windows 11 的窗口是正方形的。</p>
 <p><img src="windows10-setup-windows11.webp" alt="windows10-setup-windows11"></p>
-<h2 id="4-CPU-限制"><a href="#4-CPU-限制" class="headerlink" title="4. CPU 限制"></a>4. CPU 限制</h2><p>在 Windows 11 系统要求中，通常内存、存储、显示和网络链接都容易满足要求。文中的方法和镜像主要是绕过 <strong>TPM</strong> 和 <strong>UEFI 安全启动</strong>的限制，但是 CPU 仍然需要满足硬性要求，详见下表中的链接。</p>
+<h2 id="4-CPU-限制">4. CPU 限制</h2>
+<p>在 Windows 11 系统要求中，通常内存、存储、显示和网络链接都容易满足要求。文中的方法和镜像主要是绕过 <strong>TPM</strong> 和 <strong>UEFI 安全启动</strong>的限制，但是 CPU 仍然需要满足硬性要求，详见下表中的链接。</p>
 <p><strong>Windows 11 支持的处理器</strong>：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -615,27 +625,37 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>如果进行升级安装 Windows 11，不满足系统要求，打开命令提示符，执行如下命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG ADD HKLM\SYSTEM\Setup\MoSetup /v AllowUpgradesWithUnsupportedTPMOrCPU /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
 <p>然后重启系统，再次进行升级安装，即可烧过 TPM 和 CPU 限制。</p>
-<h2 id="5-下载地址"><a href="#5-下载地址" class="headerlink" title="5. 下载地址"></a>5. 下载地址</h2><p>下载没有 TPM 限制的 Windows 11（历史版本已清理）：</p>
+<h2 id="5-下载地址">5. 下载地址</h2>
+<p>下载没有 TPM 限制的 Windows 11（历史版本已清理）：</p>
 <p>Windows 11 22H2</p>
 <ul>
-<li>Windows 11, version <strong>22H2</strong> RTM (Released Sep 2022) x64 简体中文 - 商业版（NoTPMCheck）<br>教育版、企业版、专业版、专业教育版、专业工作站版<br>SHA256SUM：见文件<br>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1SN9vu-EK9Xs9ZbBUdo-R6w?pwd=zcyc">https://pan.baidu.com/s/1SN9vu-EK9Xs9ZbBUdo-R6w?pwd=zcyc</a></li>
+<li>Windows 11, version <strong>22H2</strong> RTM (Released Sep 2022) x64 简体中文 - 商业版（NoTPMCheck）<br>
+教育版、企业版、专业版、专业教育版、专业工作站版<br>
+SHA256SUM：见文件<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1SN9vu-EK9Xs9ZbBUdo-R6w?pwd=zcyc">https://pan.baidu.com/s/1SN9vu-EK9Xs9ZbBUdo-R6w?pwd=zcyc</a></li>
 </ul>
 <p>Windows 11 23H2</p>
 <ul>
-<li>Windows 11, version <strong>23H2</strong> RTM (Released Oct 2023) x64 简体中文 - 商业版（NoTPMCheck）<br>教育版、企业版、专业版、专业教育版、专业工作站版<br>SHA256SUM：见文件<br>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1-jyb8ahd7fnV461hZnYZMQ?pwd=a9h2">https://pan.baidu.com/s/1-jyb8ahd7fnV461hZnYZMQ?pwd=a9h2</a></li>
+<li>Windows 11, version <strong>23H2</strong> RTM (Released Oct 2023) x64 简体中文 - 商业版（NoTPMCheck）<br>
+教育版、企业版、专业版、专业教育版、专业工作站版<br>
+SHA256SUM：见文件<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1-jyb8ahd7fnV461hZnYZMQ?pwd=a9h2">https://pan.baidu.com/s/1-jyb8ahd7fnV461hZnYZMQ?pwd=a9h2</a></li>
 </ul>
 <p>Windows 11 24H2 &amp; LTSC 2024</p>
 <ul>
-<li>Windows 11, version <strong>24H2</strong> RTM (Updated Oct 2024) x64 简体中文 - 商业版（NoTPMCheck）<br>教育版、企业版、专业版、专业教育版、专业工作站版<br>SHA256SUM：见文件<br>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15OtDXJVmja7B3zVz-KrAjw?pwd=5hq8">https://pan.baidu.com/s/15OtDXJVmja7B3zVz-KrAjw?pwd=5hq8</a></li>
+<li>Windows 11, version <strong>24H2</strong> RTM (Updated Oct 2024) x64 简体中文 - 商业版（NoTPMCheck）<br>
+教育版、企业版、专业版、专业教育版、专业工作站版<br>
+SHA256SUM：见文件<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/15OtDXJVmja7B3zVz-KrAjw?pwd=5hq8">https://pan.baidu.com/s/15OtDXJVmja7B3zVz-KrAjw?pwd=5hq8</a></li>
 </ul>
 <hr>
 <p>虚机模板下载：</p>
 <ul>
-<li><a href="/blog/windows-server-2025-ovf/" title="Windows Server 2025 OVF (2024 年 12 月更新) - VMware 虚拟机模板">Windows Server 2025 OVF (2024 年 12 月更新) - VMware 虚拟机模板</a>
+<li>
+<a href="/blog/windows-server-2025-ovf/" title="Windows Server 2025 OVF (2024 年 12 月更新) - VMware 虚拟机模板">Windows Server 2025 OVF (2024 年 12 月更新) - VMware 虚拟机模板</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/windows/" title="Windows 下载汇总">Windows 下载汇总</a></p>
@@ -759,7 +779,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1064,7 +1084,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何刷新 DNS 缓存 (macOS, Linux, Windows) - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 如何刷新 DNS 缓存 (macOS, Linux, Windows) - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 如何刷新 DNS 缓存 (macOS, Linux, Windows) - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 如何刷新 DNS 缓存 (macOS, Linux, Windows) - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 如何刷新 DNS 缓存 (macOS, Linux, Windows) "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/how-to-flush-dns-cache/">
+  <link rel="canonical" href="https://sysin.cn/blog/how-to-flush-dns-cache/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +474,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,11 +491,12 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/how-to-flush-dns-cache/" title="如何刷新 DNS 缓存 (macOS, Linux, Windows)">如何刷新 DNS 缓存 (macOS, Linux, Windows)</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>刷新或者清除 DNS 缓存，通常是因为有过时的 DNS 记录，需要立刻从服务端重新获取更新，常见于安全要求或者测试调试等场景。</p>
 <p><img src="how-to-flush-dns-cache.webp" alt="how-to-flush-dns-cache"></p>
-<h2 id="1-Apple-macOS"><a href="#1-Apple-macOS" class="headerlink" title="1. Apple macOS"></a>1. Apple macOS</h2><p> macOS Catalina and later</p>
+<h2 id="1-Apple-macOS">1. Apple macOS</h2>
+<p> macOS Catalina and later</p>
 <p>打开终端，输入如下命令来重置 DNS 缓存，适用于 macOS 10.15 至 14.x:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder; sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure>
 <p> OS X Yosemite and later</p>
@@ -508,7 +511,8 @@
 <p>打开终端，输入如下命令来重置 DNS 缓存，适用于 OS X 10.6 至 10.6.8:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure>
 <p>参考：<a target="_blank" rel="noopener" href="https://support.apple.com/en-us/HT202516">Reset the DNS cache in OS X</a></p>
-<h2 id="2-FreeBSD"><a href="#2-FreeBSD" class="headerlink" title="2. FreeBSD"></a>2. FreeBSD</h2><p>FreeBSB 自带 nscd（Name Service Cache Daemon），默认没有启用。</p>
+<h2 id="2-FreeBSD">2. FreeBSD</h2>
+<p>FreeBSB 自带 nscd（Name Service Cache Daemon），默认没有启用。</p>
 <blockquote>
 <p>以下为 FreeBSD 12 和 13 示例。</p>
 </blockquote>
@@ -516,8 +520,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nscd enable &amp;&amp; sudo service nscd start</span><br></pre></td></tr></table></figure>
 <p>清除缓存即重启 nscd 服务：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nscd restart</span><br></pre></td></tr></table></figure>
-<h2 id="3-Linux"><a href="#3-Linux" class="headerlink" title="3. Linux"></a>3. Linux</h2><h3 id="3-1-Linux-刷新-DNS-缓存通用参考"><a href="#3-1-Linux-刷新-DNS-缓存通用参考" class="headerlink" title="3.1 Linux 刷新 DNS 缓存通用参考"></a>3.1 Linux 刷新 DNS 缓存通用参考</h3><p>Linux 可以运行 dnsmasq、nscd、unbound 或者 systemd-resolved 作为名称服务缓存守护进程 (sysin)。</p>
-<h4 id="dnsmasq"><a href="#dnsmasq" class="headerlink" title="dnsmasq"></a>dnsmasq</h4><p>如果你的 DNS 服务器是用 dnsmasq 实现的，用下面这个命令:</p>
+<h2 id="3-Linux">3. Linux</h2>
+<h3 id="3-1-Linux-刷新-DNS-缓存通用参考">3.1 Linux 刷新 DNS 缓存通用参考</h3>
+<p>Linux 可以运行 dnsmasq、nscd、unbound 或者 systemd-resolved 作为名称服务缓存守护进程 (sysin)。</p>
+<h4 id="dnsmasq">dnsmasq</h4>
+<p>如果你的 DNS 服务器是用 dnsmasq 实现的，用下面这个命令:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service dnsmasq restart</span><br></pre></td></tr></table></figure>
 <p>如果 dnsmasq 服务不存在，先安装 dnsmasq，命令如下：</p>
 <ul>
@@ -526,7 +533,8 @@
 <li>或者其他发行版对应的软件包管理命令</li>
 </ul>
 <p>注：DNSmasq 是一个轻巧的，容易使用的 DNS 服务工具，它可以应用在内部网和 Internet 连接的时候的 IP 地址 NAT 转换，也可以用做小型网络的 DNS 服务。</p>
-<h4 id="nscd"><a href="#nscd" class="headerlink" title="nscd"></a>nscd</h4><p>如果是清除 nscd 上的 Cache，可重新启动 nscd 服务来达成清除 DNS Cache 的效果：</p>
+<h4 id="nscd">nscd</h4>
+<p>如果是清除 nscd 上的 Cache，可重新启动 nscd 服务来达成清除 DNS Cache 的效果：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service nscd restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或是</span></span><br><span class="line">service nscd reload</span><br></pre></td></tr></table></figure>
 <p>如果 nscd 服务不存在，先安装 nscd，命令如下：</p>
 <ul>
@@ -534,7 +542,8 @@
 <li>Debian 及其兼容发行版：<code>sudo apt install nscd</code></li>
 <li>或者其他发行版对应的软件包管理命令</li>
 </ul>
-<h4 id="unboud"><a href="#unboud" class="headerlink" title="unboud"></a>unboud</h4><p>unbound 使用 unbound-control 命令来管理 DNS 缓存：</p>
+<h4 id="unboud">unboud</h4>
+<p>unbound 使用 unbound-control 命令来管理 DNS 缓存：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">刷新所有缓存</span></span><br><span class="line">unbound-control flush all</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更多命令查看帮助</span></span><br><span class="line">unbound-control -h</span><br></pre></td></tr></table></figure>
 <p>如果 unbound-control 无法执行，先安装 unbound，命令如下：</p>
 <ul>
@@ -542,7 +551,8 @@
 <li>Debian 及其兼容发行版：<code>sudo apt install unbound</code></li>
 <li>或者其他发行版对应的软件包管理命令</li>
 </ul>
-<h4 id="systemd-resolved"><a href="#systemd-resolved" class="headerlink" title="systemd-resolved"></a>systemd-resolved</h4><p>使用 resolvectl 命令刷新 DNS 缓存：</p>
+<h4 id="systemd-resolved">systemd-resolved</h4>
+<p>使用 resolvectl 命令刷新 DNS 缓存：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Step 1. 查看 DNS 缓存状况</span></span><br><span class="line">sudo resolvectl statistics</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Step 2. 清除 DNS 缓存，systemd-resolved daemon 默认在所有的 Ubuntu 系统上运行</span></span><br><span class="line">sudo resolvectl flush-caches</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Step 3. 正在查看验证结果 (sysin)</span></span><br><span class="line">sudo resolvectl statistics</span><br></pre></td></tr></table></figure>
 <p>如果 resolvectl 无法执行，先安装 systemd-resolved，命令如下：</p>
 <ul>
@@ -550,7 +560,8 @@
 <li>Debian 及其兼容发行版：<code>sudo apt install systemd-resolved</code></li>
 <li>或者其他发行版对应的软件包管理命令</li>
 </ul>
-<h4 id="BIND-服务端，与上述客户端-DNS-缓存不同"><a href="#BIND-服务端，与上述客户端-DNS-缓存不同" class="headerlink" title="BIND (服务端，与上述客户端 DNS 缓存不同)"></a>BIND (服务端，与上述客户端 DNS 缓存不同)</h4><p>如果是清除 BIND 服务器上的 CACHE，用这个命令:</p>
+<h4 id="BIND-服务端，与上述客户端-DNS-缓存不同">BIND (服务端，与上述客户端 DNS 缓存不同)</h4>
+<p>如果是清除 BIND 服务器上的 CACHE，用这个命令:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rndc flush</span><br></pre></td></tr></table></figure>
 <p>如果 rndc 无法执行，先安装 bind，命令如下：</p>
 <ul>
@@ -559,7 +570,8 @@
 <li>或者其他发行版对应的软件包管理命令</li>
 </ul>
 <p>以下对几个主流发行版单独说明。</p>
-<h3 id="3-2-RHEL"><a href="#3-2-RHEL" class="headerlink" title="3.2. RHEL"></a>3.2. RHEL</h3><p>包括其兼容发行版：CentOS 及 AlmaLinux、Rocky Linux、Oracle Linux</p>
+<h3 id="3-2-RHEL">3.2. RHEL</h3>
+<p>包括其兼容发行版：CentOS 及 AlmaLinux、Rocky Linux、Oracle Linux</p>
 <p>RHEL 及其兼容发行版，默认不启用 DNS 查询缓存。</p>
 <p>参看：<a target="_blank" rel="noopener" href="https://access.redhat.com/solutions/2189381">Best practice for DNS caching in RHEL</a></p>
 <p>常见解决方案：</p>
@@ -579,7 +591,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install nscd</span><br><span class="line">systemctl enable --now nscd</span><br></pre></td></tr></table></figure>
 <p>清除缓存即重启 nscd 服务：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nscd</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-Ubuntu"><a href="#3-3-Ubuntu" class="headerlink" title="3.3. Ubuntu"></a>3.3. Ubuntu</h3><p>Ubuntu 默认运行 systemd-resolved 服务用于名称服务缓存，使用 resolvectl 命令调用 systemd-resolved.service 解析主机名、IP 地址、域名、DNS 资源记录和服务。</p>
+<h3 id="3-3-Ubuntu">3.3. Ubuntu</h3>
+<p>Ubuntu 默认运行 systemd-resolved 服务用于名称服务缓存，使用 resolvectl 命令调用 systemd-resolved.service 解析主机名、IP 地址、域名、DNS 资源记录和服务。</p>
 <p><img src="flush-dns-cache-on-ubuntu.webp" alt="Flush DNS Cache on Ubuntu"></p>
 <p>systemd-resolved.service 默认启用：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl is-enabled systemd-resolved.service</span><br><span class="line">enabled</span><br></pre></td></tr></table></figure>
@@ -590,7 +603,8 @@
 </blockquote>
 <p>注意：在旧版本中 resolvectl 命令曾经为 systemd-resolve，现已废弃。命令参数略有差异。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ubuntu 20.04.5 同时支持 resolvectl 和 systemd-resolve</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Step 1. 查看 DNS 缓存状况</span></span><br><span class="line">sudo systemd-resolve --statistics</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Step 2. 清除 DNS 缓存，systemd-resolve daemon 默认在所有的 Ubuntu 系统上运行</span></span><br><span class="line">sudo systemd-resolve --flush-caches</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Step 3. 正在查看验证结果 (sysin)</span></span><br><span class="line">sudo systemd-resolve --statistics</span><br></pre></td></tr></table></figure>
-<h3 id="3-4-Debian"><a href="#3-4-Debian" class="headerlink" title="3.4. Debian"></a>3.4. Debian</h3><p>Debian 默认没有启用 DNS 缓存机制（基本系统）。可以配置使用 systemd-resolved.service 来启用。</p>
+<h3 id="3-4-Debian">3.4. Debian</h3>
+<p>Debian 默认没有启用 DNS 缓存机制（基本系统）。可以配置使用 systemd-resolved.service 来启用。</p>
 <blockquote>
 <p>以下为 Debian 12 示例。</p>
 </blockquote>
@@ -603,7 +617,8 @@
 <blockquote>
 <p>备注：Debian 也可以配置使用 nscd 或者 dnsmasq。</p>
 </blockquote>
-<h2 id="4-Microsoft-Windows"><a href="#4-Microsoft-Windows" class="headerlink" title="4. Microsoft Windows"></a>4. Microsoft Windows</h2><p>清除 dns 缓存内容：</p>
+<h2 id="4-Microsoft-Windows">4. Microsoft Windows</h2>
+<p>清除 dns 缓存内容：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span>/flushdns</span><br></pre></td></tr></table></figure>
 <p>查看 dns 缓存内容：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span>/displaydns</span><br></pre></td></tr></table></figure>
@@ -611,7 +626,8 @@
 <hr>
 <p>上述操作通常也和浏览器刷新 DNS 缓存配合使用。</p>
 <ul>
-<li><a href="/blog/clear-browser-dns-cache/" title="如何清除浏览器的 DNS 缓存 (Chrome, Firefox, Safari)">如何清除浏览器的 DNS 缓存 (Chrome, Firefox, Safari)</a>
+<li>
+<a href="/blog/clear-browser-dns-cache/" title="如何清除浏览器的 DNS 缓存 (Chrome, Firefox, Safari)">如何清除浏览器的 DNS 缓存 (Chrome, Firefox, Safari)</a>
 </li>
 </ul>
 
@@ -734,7 +750,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1043,7 +1059,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

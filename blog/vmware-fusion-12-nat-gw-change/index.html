@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> VMware Fusion 12.2 NAT 网关 IP 变更导致 VM 无法访问外部网络 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" VMware Fusion 12.2 NAT 网关 IP 变更导致 VM 无法访问外部网络 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> VMware Fusion 12.2 NAT 网关 IP 变更导致 VM 无法访问外部网络 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" VMware Fusion 12.2 NAT 网关 IP 变更导致 VM 无法访问外部网络 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" VMware Fusion 12.2 NAT 网关 IP 变更导致 VM 无法访问外部网络 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/vmware-fusion-12-nat-gw-change/">
+  <link rel="canonical" href="https://sysin.cn/blog/vmware-fusion-12-nat-gw-change/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,29 +487,34 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/vmware-fusion-12-nat-gw-change/" title="VMware Fusion 12.2 NAT 网关 IP 变更导致 VM 无法访问外部网络">VMware Fusion 12.2 NAT 网关 IP 变更导致 VM 无法访问外部网络</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="http://blogs.vmware.com/teamfusion/files/2020/08/fusion-12-hero-1024x700.png" alt="fusion 12 big hero pic"></p>
 <p>近日，笔者将 VMware Fusion 更新到 12.2 版本，发现配置 NAT 网络类型的 VM 都无法访问外部网络了。多次检查配置才发现原来是 12.2 版本将 NAT 网关 IP 地址由 12.0 开始的 .1 修改成了 .2，导致 VM 配置的默认网关都无法执行 NAT 功能，当然 .1 IP 仍然存在，这也颇具迷惑性 (sysin)。目前似乎没有配置参数来定义默认的 NAT Gateway IP，变通解决方法：</p>
 <ul>
 <li>通过修改 VM 的 网关 和 DNS IP（.1 修改为 .2）。【有点繁琐，放弃】</li>
-<li>降级为 <a href="https://sysin.org/blog/vmware-fusion-12-oem/">Fusion 12.1</a>。【所幸 12.2 并没有明显的改进功能不可或缺】</li>
+<li>降级为 <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-12-oem/">Fusion 12.1</a>。【所幸 12.2 并没有明显的改进功能不可或缺】</li>
 </ul>
 <p>如果你是旧版本（12.0 之前）升级的不存在上述问题。</p>
-<h2 id="1-了解-VMware-Fusion-中的网络类型-1022264"><a href="#1-了解-VMware-Fusion-中的网络类型-1022264" class="headerlink" title="1. 了解 VMware Fusion 中的网络类型 (1022264)"></a>1. <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/1022264?lang=zh_CN">了解 VMware Fusion 中的网络类型 (1022264)</a></h2><blockquote>
+<h2 id="1-了解-VMware-Fusion-中的网络类型-1022264">1. <a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/1022264?lang=zh_CN">了解 VMware Fusion 中的网络类型 (1022264)</a></h2>
+<blockquote>
 <p>2021.10.21，官方 KB 链接已经更新，原链接已经不可访问。</p>
 </blockquote>
 <p>可用于虚拟机的网络类型有三种。每种网络类型都由其自身用途、行为和功能。</p>
 <p>注意：使用错误的网络类型或配置设置可能会导致出现不良行为。</p>
-<h3 id="桥接模式网络连接"><a href="#桥接模式网络连接" class="headerlink" title="桥接模式网络连接"></a>桥接模式网络连接</h3><p>如果您的 Mac 位于以太网、无线网或 FireWire 网络中，则使用桥接网络连接通常是使您的虚拟机可以访问该网络的最简单方法。使用桥接网络连接，虚拟机将显示为与 Mac 相同的物理以太网网络中的其他计算机。</p>
+<h3 id="桥接模式网络连接-2">桥接模式网络连接</h3>
+<p>如果您的 Mac 位于以太网、无线网或 FireWire 网络中，则使用桥接网络连接通常是使您的虚拟机可以访问该网络的最简单方法。使用桥接网络连接，虚拟机将显示为与 Mac 相同的物理以太网网络中的其他计算机。</p>
 <p>使用桥接网络连接的虚拟机可能会使用在该虚拟机桥接到的网络上提供的任何服务，其中包括文件服务器、打印机和网关。同样，配置有桥接网络连接的任意物理主机或其他虚拟机可以使用虚拟机上的资源 (sysin)，就好像该虚拟机是同一个网络中的物理计算机。</p>
 <p>桥接网络适配器称为 vmnet0。在 Fusion 3.x 及更高版本中，该适配器使用 vmnet-bridge 和 vmnet-netifup 服务。</p>
-<h3 id="仅主机型网络-vmnet1"><a href="#仅主机型网络-vmnet1" class="headerlink" title="仅主机型网络 - vmnet1"></a>仅主机型网络 - vmnet1</h3><p>当使用此类型的网络连接时，虚拟机将连接到虚拟专用网络中的 Mac，这在 Mac 以外通常不可见。在同一个 Mac 中配置有仅主机网络的多个虚拟机将位于同一个网络中，并且互相可见。</p>
+<h3 id="仅主机型网络-vmnet1-2">仅主机型网络 - vmnet1</h3>
+<p>当使用此类型的网络连接时，虚拟机将连接到虚拟专用网络中的 Mac，这在 Mac 以外通常不可见。在同一个 Mac 中配置有仅主机网络的多个虚拟机将位于同一个网络中，并且互相可见。</p>
 <p>仅主机网络适配器称为 vmnet1。在 Fusion 3.x 及更高版本中，该适配器使用 vmnet-dhcpd 服务。</p>
-<h3 id="网络地址转换-NAT-网络-vmnet8"><a href="#网络地址转换-NAT-网络-vmnet8" class="headerlink" title="网络地址转换 (NAT) 网络 - vmnet8"></a>网络地址转换 (NAT) 网络 - vmnet8</h3><p>如果要使用 Mac 拨号网络连接的方法将虚拟机连接到 Internet 或其他 TCP/IP 网络，或者无法向虚拟机提供 Mac 的网络中的 IP 地址，则此类型通常是使您的虚拟机可以访问网络的最简单方法。此类型还允许虚拟机访问 Mac 已连接到的 VPN。</p>
+<h3 id="网络地址转换-NAT-网络-vmnet8-2">网络地址转换 (NAT) 网络 - vmnet8</h3>
+<p>如果要使用 Mac 拨号网络连接的方法将虚拟机连接到 Internet 或其他 TCP/IP 网络，或者无法向虚拟机提供 Mac 的网络中的 IP 地址，则此类型通常是使您的虚拟机可以访问网络的最简单方法。此类型还允许虚拟机访问 Mac 已连接到的 VPN。</p>
 <p>虚拟机在外部网络中没有自己的 IP 地址。相反，会在 Mac 中设置单独的专用网络。虚拟机从 VMware 虚拟 DHCP 服务器中获取该网络上的地址。除非虚拟机启动连接，否则无法直接通过除 Mac 以外的任意计算机或网站连接该虚拟机。</p>
 <p>NAT 网络适配器称为 vmnet8。在 Fusion 3.x 及更高版本中，该适配器使用 vmnet-natd、vmnet-dhcpd 和 vmnet-netifup 服务。</p>
-<h2 id="2-关于网络配置文件"><a href="#2-关于网络配置文件" class="headerlink" title="2. 关于网络配置文件"></a>2. 关于网络配置文件</h2><p>VMware Fusion 有三个网络配置文件：networking、dhcpd.conf 和 nat.conf。</p>
+<h2 id="2-关于网络配置文件">2. 关于网络配置文件</h2>
+<p>VMware Fusion 有三个网络配置文件：networking、dhcpd.conf 和 nat.conf。</p>
 <p>全局：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Preferences/VMware\ Fusion/networking</span><br></pre></td></tr></table></figure>
 <p>vmnet1：</p>
@@ -528,10 +535,13 @@
 <p>如需自定义 IP 地址段，参看文章：<a href="/blog/change-vmware-fusion-networking/" title="如何修改 VMware Fusion 中的虚机网络 IP 地址段">如何修改 VMware Fusion 中的虚机网络 IP 地址段</a></p>
 </blockquote>
 <p>并不能将将 x.x.x.2 修改为 x.x.x.1，修改也无效，因为该配置文件通过全局配置文件自动生成。</p>
-<h2 id="3-下载-VMware-Fusion"><a href="#3-下载-VMware-Fusion" class="headerlink" title="3. 下载 VMware Fusion"></a>3. 下载 VMware Fusion</h2><ul>
-<li><a href="/blog/vmware-fusion-12/" title="VMware Fusion 12.2.5 for Intel-based Macs">VMware Fusion 12.2.5 for Intel-based Macs</a>
+<h2 id="3-下载-VMware-Fusion">3. 下载 VMware Fusion</h2>
+<ul>
+<li>
+<a href="/blog/vmware-fusion-12/" title="VMware Fusion 12.2.5 for Intel-based Macs">VMware Fusion 12.2.5 for Intel-based Macs</a>
 </li>
-<li><a href="/blog/vmware-fusion-12-oem/" title="VMware Fusion 12.2.5 OEM BIOS Version">VMware Fusion 12.2.5 OEM BIOS Version</a>
+<li>
+<a href="/blog/vmware-fusion-12-oem/" title="VMware Fusion 12.2.5 OEM BIOS Version">VMware Fusion 12.2.5 OEM BIOS Version</a>
 </li>
 </ul>
 <p>更多：<a href="/blog/vmware/" title="VMware 产品下载汇总">VMware 产品下载汇总</a></p>
@@ -655,7 +665,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -718,7 +728,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%BA%86%E8%A7%A3-VMware-Fusion-%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B-1022264"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 了解 VMware Fusion 中的网络类型 (1022264)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">桥接模式网络连接</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%85%E4%B8%BB%E6%9C%BA%E5%9E%8B%E7%BD%91%E7%BB%9C-vmnet1"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">仅主机型网络 - vmnet1</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2-NAT-%E7%BD%91%E7%BB%9C-vmnet8"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">网络地址转换 (NAT) 网络 - vmnet8</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 关于网络配置文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E4%B8%8B%E8%BD%BD-VMware-Fusion"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 下载 VMware Fusion</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E4%BA%86%E8%A7%A3-VMware-Fusion-%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B-1022264"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">1. 了解 VMware Fusion 中的网络类型 (1022264)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5-2"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">桥接模式网络连接</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BB%85%E4%B8%BB%E6%9C%BA%E5%9E%8B%E7%BD%91%E7%BB%9C-vmnet1-2"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">仅主机型网络 - vmnet1</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2-NAT-%E7%BD%91%E7%BB%9C-vmnet8-2"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">网络地址转换 (NAT) 网络 - vmnet8</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%85%B3%E4%BA%8E%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">2. 关于网络配置文件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E4%B8%8B%E8%BD%BD-VMware-Fusion"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">3. 下载 VMware Fusion</span></a></li></ol>
         
         </div>
       </aside>
@@ -960,7 +970,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

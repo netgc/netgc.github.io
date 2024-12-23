@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> CentOS 添加（永久）静态路由的方法总结 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" CentOS 添加（永久）静态路由的方法总结 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> CentOS 添加（永久）静态路由的方法总结 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" CentOS 添加（永久）静态路由的方法总结 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" CentOS 添加（永久）静态路由的方法总结 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/centos-static-route/">
+  <link rel="canonical" href="https://sysin.cn/blog/centos-static-route/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -468,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,21 +487,25 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/centos-static-route/" title="CentOS 添加（永久）静态路由的方法总结">CentOS 添加（永久）静态路由的方法总结</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>在日常使用中，服务器有两个 IP 地址，两块网卡的配置，访问不同网段，这种情况很常见。但我们需要创建额外的路由条目，以确定通过正确的网关转发数据包，使 interface 能够正常通信。</p>
 <p>以下在 CentOS 7、8 测试通过</p>
-<h2 id="一、使用-route-命令加入临时路由，重启后将失效"><a href="#一、使用-route-命令加入临时路由，重启后将失效" class="headerlink" title="一、使用 route 命令加入临时路由，重启后将失效"></a>一、使用 route 命令加入临时路由，重启后将失效</h2><p>route 命令参数：</p>
+<h2 id="一、使用-route-命令加入临时路由，重启后将失效">一、使用 route 命令加入临时路由，重启后将失效</h2>
+<p>route 命令参数：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">add     增加路由</span><br><span class="line">del     删除路由</span><br><span class="line">-net    设置到某个网段的路由</span><br><span class="line">-host   设置到某台主机的路由</span><br><span class="line">gw      出口网关 IP 地址</span><br><span class="line">dev     出口网关 物理设备名</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">加入到主机的路由 (sysin)</span></span><br><span class="line">route add -host 192.168.1.123 dev eth0</span><br><span class="line">route add -host 192.168.1.123 gw 192.168.1.1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">加入到网络的路由</span></span><br><span class="line">route add -net 192.168.1.123 netmask 255.255.255.0 eth0</span><br><span class="line">route add -net 192.168.1.123 netmask 255.255.255.0 gw 192.168.1.1</span><br><span class="line">route add -net 192.168.1.123 netmask 255.255.255.0 gw 192.168.1.1 eth1</span><br><span class="line">route add -net 192.168.1.0/24 eth1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">加入默认网关</span></span><br><span class="line">route add default gw 192.168.1.1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除路由</span></span><br><span class="line">route del -host 192.168.1.11 dev eth0</span><br><span class="line">route del -net 192.168.1.123 netmask 255.255.255.0</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看路由信息</span></span><br><span class="line">ip route</span><br><span class="line">route -n</span><br></pre></td></tr></table></figure>
-<h2 id="二、在-Linux-中添加永久路由的方法"><a href="#二、在-Linux-中添加永久路由的方法" class="headerlink" title="二、在 Linux 中添加永久路由的方法"></a>二、在 Linux 中添加永久路由的方法</h2><h3 id="1-默认网关"><a href="#1-默认网关" class="headerlink" title="1. 默认网关"></a>1. 默认网关</h3><p>（1）写入 ifcfg 文件（推荐）</p>
+<h2 id="二、在-Linux-中添加永久路由的方法">二、在 Linux 中添加永久路由的方法</h2>
+<h3 id="1-默认网关">1. 默认网关</h3>
+<p>（1）写入 ifcfg 文件（推荐）</p>
 <p><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
 <p>在配置 ip 地址的时候直接将 GATEWAY 的配置写入 ifcfg 文件。形式：GATEWAY=gw-ip</p>
 <p>适合加入默认路由</p>
 <p>（2）在 <code>/etc/sysconfig/network</code> 里加入到文件末尾，格式例如以下：</p>
 <p>GATEWAY=gw-ip 或者 GATEWAY=gw-dev</p>
-<h3 id="2-写入-etc-rc-loacl（不推荐）"><a href="#2-写入-etc-rc-loacl（不推荐）" class="headerlink" title="2. 写入 /etc/rc.loacl（不推荐）"></a>2. 写入 <code>/etc/rc.loacl</code>（不推荐）</h3><p>（注意：CentOS 7 必须执行 <code>chmod +x /etc/rc.d/rc.local</code> 来确保确保这个脚本在引导时执行。）</p>
+<h3 id="2-写入-etc-rc-loacl（不推荐）">2. 写入 <code>/etc/rc.loacl</code>（不推荐）</h3>
+<p>（注意：CentOS 7 必须执行 <code>chmod +x /etc/rc.d/rc.local</code> 来确保确保这个脚本在引导时执行。）</p>
 <p>能够将上面提到的命令写入 <code>/etc/rc.local</code> 文件里，这样在系统启动的时候会自己主动增加相关的路由设置。</p>
 <p>只是这样的方法有一个缺点 (sysin)：假设某个系统服务，比方说是 NFS 服务，这个服务是在启动 network 服务之后，在运行 rc.local 之前，假设你设置的有自己主动挂载的 nfs。那么，这里链路的不通畅。会造成挂载的失败。另外一个就是假设你重新启动了网络 server，那么路由就失效了，这个时候你不得不又一次载入这个文件，可是假设你是远程操作的呢？所以，这种方法不推荐。</p>
 <p>方法：</p>
@@ -507,7 +513,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">route add -net 192.168.3.0/24 dev eth0</span><br><span class="line">route add -net 192.168.2.0/24 gw 192.168.3.254</span><br><span class="line">route add -net 172.16.0.0 netmask 255.255.0.0 gw 192.168.1.100 dev eth0</span><br></pre></td></tr></table></figure>
 <p>修改过的文件 <code>/etc/rc.d/rc.local</code> 文件示例</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># This script will be executed *after* all the other init scripts.</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">You can put your own initialization stuff <span class="keyword">in</span> here <span class="keyword">if</span> you don<span class="string">&#x27;t</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">want to do the full Sys V style init stuff.</span></span></span><br><span class="line">touch /var/lock/subsys/local</span><br><span class="line">route add -net 192.168.3.0/24 dev eth0</span><br><span class="line">route add -net 192.168.2.0/24 gw 192.168.3.254</span><br><span class="line">route add -net 172.16.0.0 netmask 255.255.0.0 gw 192.168.1.100 dev eth0</span><br></pre></td></tr></table></figure>
-<h3 id="3-写入-etc-sysconfig-static-routes-文件"><a href="#3-写入-etc-sysconfig-static-routes-文件" class="headerlink" title="3. 写入 /etc/sysconfig/static-routes 文件"></a>3. 写入 <code>/etc/sysconfig/static-routes</code> 文件</h3><p>默认在 <code>/etc/sysconifg</code> 文件夹中是没有这个文件的，须要我们手工创建。对这个文件的调用在以下：</p>
+<h3 id="3-写入-etc-sysconfig-static-routes-文件">3. 写入 <code>/etc/sysconfig/static-routes</code> 文件</h3>
+<p>默认在 <code>/etc/sysconifg</code> 文件夹中是没有这个文件的，须要我们手工创建。对这个文件的调用在以下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/init.d/network</span><br><span class="line"></span><br><span class="line">    # Add non interface-specific static-routes.</span><br><span class="line">    if [-f /etc/sysconfig/static-routes]; then</span><br><span class="line">        if [-x /sbin/route]; then</span><br><span class="line">            grep &quot;^any&quot; /etc/sysconfig/static-routes | while read ignore args ; do</span><br><span class="line">                /sbin/route add -$args</span><br><span class="line">            done</span><br><span class="line">        else</span><br><span class="line">            net_log $&quot;Legacy static-route support not available: /sbin/route not found&quot;</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br></pre></td></tr></table></figure>
 <p>添加操作如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/static-routes</span><br><span class="line">any net 192.168.1.0/24 gw 192.168.1.1</span><br><span class="line">any net 192.168.2.0 netmask 255.255.255.0 gw 192.168.2.1</span><br><span class="line">any host 10.19.190.11/32 gw 10.19.177.10</span><br><span class="line">any host 10.19.190.12 gw 10.19.177.10</span><br></pre></td></tr></table></figure>
@@ -516,7 +523,8 @@
 <p>该方式在 CentOS 8 默认安装时无效。</p>
 <p>在 CentOS 8 中默认使用 nmcli 管理网络，可以通过 <code>yum install network-scripts</code> 来安装传统的 network.service，恢复用这种方式配置静态路由。</p>
 </blockquote>
-<h3 id="4-创建-etc-sysconfig-network-scripts-route-eth0（推荐）"><a href="#4-创建-etc-sysconfig-network-scripts-route-eth0（推荐）" class="headerlink" title="4. 创建 /etc/sysconfig/network-scripts/route-eth0（推荐）"></a>4. 创建 <code>/etc/sysconfig/network-scripts/route-eth0</code>（推荐）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 `/etc/sysconfig/network-scripts/` 目录下创建名为 route-eth0 的文件</span></span><br><span class="line">vi /etc/sysconfig/network-scripts/route-eth0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在此文件添加如下格式的内容</span></span><br><span class="line">192.168.1.0/24 via 192.168.0.1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启网络验证有效</span></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+<h3 id="4-创建-etc-sysconfig-network-scripts-route-eth0（推荐）">4. 创建 <code>/etc/sysconfig/network-scripts/route-eth0</code>（推荐）</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 `/etc/sysconfig/network-scripts/` 目录下创建名为 route-eth0 的文件</span></span><br><span class="line">vi /etc/sysconfig/network-scripts/route-eth0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在此文件添加如下格式的内容</span></span><br><span class="line">192.168.1.0/24 via 192.168.0.1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启网络验证有效</span></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
 
 
         <hr>
@@ -637,7 +645,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -942,7 +950,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> AlmaLinux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" AlmaLinux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> AlmaLinux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" AlmaLinux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" AlmaLinux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/almalinux-9-ovf/">
+  <link rel="canonical" href="https://sysin.cn/blog/almalinux-9-ovf/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +474,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,7 +491,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/almalinux-9-ovf/" title="AlmaLinux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板">AlmaLinux 9.5 x86_64 OVF (sysin) - VMware 虚拟机模板</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="/blog/almalinux-8/almalinux-logo-black.png" alt="almalinux-logo"></p>
 <p>AlmaLinux release 9.5 (Teal Serval) Kernel 5.14.0-503.11.1.el9_5.x86_64</p>
@@ -498,13 +500,15 @@
 <p>由社区提供的免费 Linux 操作系统</p>
 <p>一个开源、社区拥有和管理、永远免费的企业 Linux 发行版，专注于长期稳定性，提供强大的生产级平台。AlmaLinux OS 与 RHEL 二进制兼容。</p>
 <p>注：既 Redhat “闭源事件” 之后，AlmaLinux OS 基金会董事会决定放弃与 RHEL 1:1 的目标。AlmaLinux 操作系统的目标是与 RHEL 二进制兼容。</p>
-<h2 id="部署截图及说明"><a href="#部署截图及说明" class="headerlink" title="部署截图及说明"></a>部署截图及说明</h2><p><img src="almalinux-9-ovf-01.webp" alt="almalinux-9-ovf"></p>
+<h2 id="部署截图及说明-3">部署截图及说明</h2>
+<p><img src="almalinux-9-ovf-01.webp" alt="almalinux-9-ovf"></p>
 <p><img src="almalinux-9-ovf-02.webp" alt="almalinux-9-ovf"></p>
 <p><img src="almalinux-9-ovf-03.webp" alt="almalinux-9-ovf"></p>
 <p><img src="almalinux-9-ovf-04.webp" alt="almalinux-9-ovf"></p>
 <p>自定义 OVF 属性填写说明：</p>
 <ul>
-<li><ol>
+<li>
+<ol>
 <li>root User Configuration</li>
 </ol>
 <ul>
@@ -512,7 +516,8 @@
 <li>1.2. Enable root SSH login with password 可选启用 root 账号 SSH 密码登录，RHEL 9 系列默认禁用</li>
 </ul>
 </li>
-<li><ol>
+<li>
+<ol start="2">
 <li>New Admin User Configuration 新建一个管理员账号，必填项</li>
 </ol>
 <ul>
@@ -520,7 +525,8 @@
 <li>2.2. New User Password</li>
 </ul>
 </li>
-<li><ol>
+<li>
+<ol start="3">
 <li>Networking Properties 选填</li>
 </ol>
 <ul>
@@ -530,22 +536,33 @@
 <li>3.4.1 DNS 1</li>
 <li>3.4.2 DNS 2</li>
 <li>3.5. Hostname 主机名可以单独填写（无论是否使用固定 IP），建议填写，系统默认为 localhost</li>
-<li>3.6. Domain Name 选填，格式如 sysin.org，系统默认为 localdomain</li>
+<li>3.6. Domain Name 选填，格式如 <a target="_blank" rel="noopener" href="http://sysin.org">sysin.org</a>，系统默认为 localdomain</li>
 </ul>
 </li>
 </ul>
 <p>RHEL/CentOS 系列发行版部署完毕后不重启系统，可以通过控制台按回车查看主机名的变化，来确认部署成功。</p>
-<h2 id="OVF-特性"><a href="#OVF-特性" class="headerlink" title="OVF 特性"></a>OVF 特性</h2><h3 id="1-OVF-版本"><a href="#1-OVF-版本" class="headerlink" title="1. OVF 版本"></a>1. OVF 版本</h3><p>默认 VM 硬件版本 18（GuestOS ID 最低要求，可升级至最新版）；<br>兼容 ESXi 7.0 U1 (7.0.1)、Fusion 12.x、Workstation 16.x 及更新版本；<br>启用 CPU、内存热插拔。</p>
+<h2 id="OVF-特性-3">OVF 特性</h2>
+<h3 id="1-OVF-版本-3">1. OVF 版本</h3>
+<p>默认 VM 硬件版本 18（GuestOS ID 最低要求，可升级至最新版）；<br>
+兼容 ESXi 7.0 U1 (7.0.1)、Fusion 12.x、Workstation 16.x 及更新版本；<br>
+启用 CPU、内存热插拔。</p>
 <blockquote>
 <p>提示：GuestOS 识别为 RHEL 9，这是为了兼容仍处于主流支持的旧版虚拟化软件。</p>
 <p>否则只能兼容 ESXi 8、Fusion 13、Workstation 17 及更新版本。</p>
 </blockquote>
-<h3 id="2-系统账号"><a href="#2-系统账号" class="headerlink" title="2. 系统账号"></a>2. 系统账号</h3><p>root 密码部署时设定，可选启用 SSH 密码登录 (sysin)。<br>可以选择创建新的管理员账号并设定密码。</p>
-<h3 id="3-分区"><a href="#3-分区" class="headerlink" title="3. 分区"></a>3. 分区</h3><p>标准分区：</p>
-<p>NAME     FILESYSTEM  SIZE  TYPE  MOUNTPOINT<br>sda      Linux    - 80G  disk<br>├─sda1   xfs    -    2G  part  /boot<br>└─sda2   xfs    -   78G  part  /</p>
+<h3 id="2-系统账号-3">2. 系统账号</h3>
+<p>root 密码部署时设定，可选启用 SSH 密码登录 (sysin)。<br>
+可以选择创建新的管理员账号并设定密码。</p>
+<h3 id="3-分区-3">3. 分区</h3>
+<p>标准分区：</p>
+<p>NAME     FILESYSTEM  SIZE  TYPE  MOUNTPOINT<br>
+sda      Linux    - 80G  disk<br>
+├─sda1   xfs    -    2G  part  /boot<br>
+└─sda2   xfs    -   78G  part  /</p>
 <p>SWAP：/swap.img    - 4G [SWAP]</p>
-<p>分区扩容请参看：<a href="https://sysin.org/blog/linux-partition-expansion/">Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）</a></p>
-<h3 id="4-系统配置"><a href="#4-系统配置" class="headerlink" title="4. 系统配置"></a>4. 系统配置</h3><ul>
+<p>分区扩容请参看：<a target="_blank" rel="noopener" href="https://sysin.org/blog/linux-partition-expansion/">Linux 分区扩容（根分区扩容，SWAP 分区扩容，挂载新分区为目录）</a></p>
+<h3 id="4-系统配置-3">4. 系统配置</h3>
+<ul>
 <li>格式化网卡命名为 eth0</li>
 <li>禁用 SELinux</li>
 <li>禁用 Firewalld</li>
@@ -553,21 +570,25 @@
 <li>更换国内镜像：aliyun（如需更换请查看：<a href="/blog/almalinux-mirrors/" title="AlmaLinux yum&#x2F;dnf repo&#x2F;mirrors 国内镜像列表及更换方法">AlmaLinux yum&#x2F;dnf repo&#x2F;mirrors 国内镜像列表及更换方法</a>）</li>
 <li>排除 kernel 和 release 更新 (2024 年 5 月更新已取消此配置)</li>
 <li>开发者工具（groupinstall “Development Tools”）</li>
-<li>安装一些必备工具 (sysin)<br>vim, wget, net-tools, bind-utils, htop, lrzsz, lnav, nc, lsof, tree, ncdu, dstat, fd, rg, screen, tmux, duf, procs, exa, expect</li>
+<li>安装一些必备工具 (sysin)<br>
+vim, wget, net-tools, bind-utils, htop, lrzsz, lnav, nc, lsof, tree, ncdu, dstat, fd, rg, screen, tmux, duf, procs, exa, expect</li>
 <li>NTP：chrony 默认</li>
 <li>SNMP：仅安装默认配置</li>
 <li>VMware Tools：open-vm-tools 12.4.0</li>
-<li>Zsh 作为默认 Shell<br>参看：<a href="/blog/linux-zsh-all/" title="Linux 全局安装配置 zsh + oh-my-zsh">Linux 全局安装配置 zsh + oh-my-zsh</a></li>
+<li>Zsh 作为默认 Shell<br>
+参看：<a href="/blog/linux-zsh-all/" title="Linux 全局安装配置 zsh + oh-my-zsh">Linux 全局安装配置 zsh + oh-my-zsh</a></li>
 </ul>
 <p>参考：<a href="/blog/almalinux-8-install/" title="AlmaLinux 8 安装笔记">AlmaLinux 8 安装笔记</a></p>
-<h2 id="适用的-VMware-软件下载"><a href="#适用的-VMware-软件下载" class="headerlink" title="适用的 VMware 软件下载"></a>适用的 VMware 软件下载</h2><p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
+<h2 id="适用的-VMware-软件下载-3">适用的 VMware 软件下载</h2>
+<p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
 <ul>
-<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
-<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
-<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
-<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+<li>Server：VMware <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
-<h2 id="OVF-版本兼容性和部署方式"><a href="#OVF-版本兼容性和部署方式" class="headerlink" title="OVF 版本兼容性和部署方式"></a>OVF 版本兼容性和部署方式</h2><p>默认 VM 硬件版本 18（GuestOS ID 最低要求，可升级至最新版）；兼容 ESXi 7.0 U1 (7.0.1)、Fusion 12.x、Workstation 16.x 及更新版本。</p>
+<h2 id="OVF-版本兼容性和部署方式-3">OVF 版本兼容性和部署方式</h2>
+<p>默认 VM 硬件版本 18（GuestOS ID 最低要求，可升级至最新版）；兼容 ESXi 7.0 U1 (7.0.1)、Fusion 12.x、Workstation 16.x 及更新版本。</p>
 <p>支持通过以下客户端部署：</p>
 <ul>
 <li>VMware Fusion for Mac：12、13 及更新版本（推荐版本 13）</li>
@@ -580,16 +601,18 @@
 </blockquote>
 <p>客户端系统和软件要求：</p>
 <ul>
-<li><p>支持的客户端操作系统</p>
+<li>
+<p>支持的客户端操作系统</p>
 <ul>
-<li>macOS（推荐 <a href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a>、<a href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a>、<a href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a>）</li>
-<li>Windows 32-bit (x86) and 64-bit (x64)（推荐 <a href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）<blockquote>
+<li>macOS（推荐 <a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sequoia/">macOS Sequoia</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Sonoma/">macOS Sonoma</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a>）</li>
+<li>Windows 32-bit (x86) and 64-bit (x64)（推荐 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-11/">Windows 11</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2022/">Windows Server 2022</a>、<a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2025/">Windows Server 2025</a>）</li>
+</ul>
+<blockquote>
 <p>主流 Linux 桌面发行版理论上支持，未经官方验证。</p>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p>支持以下浏览器版本【<a href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
+<li>
+<p>支持以下浏览器版本【<a target="_blank" rel="noopener" href="https://sysin.org/blog/chrome-firefox-download/">下载</a>】</p>
 <ul>
 <li>Google Chrome 89 or later</li>
 <li>Mozilla Firefox 80 or later</li>
@@ -597,8 +620,10 @@
 </ul>
 </li>
 </ul>
-<h2 id="下个版本何时更新"><a href="#下个版本何时更新" class="headerlink" title="下个版本何时更新"></a>下个版本何时更新</h2><p>预计 AlmaLinux 9.10 或者 10.0 发布时，将同步更新。</p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>AlmaLinux 9.0 x86_64 OVF (sysin) - 2022.07.20 <code>[EoD]</code></p>
+<h2 id="下个版本何时更新-3">下个版本何时更新</h2>
+<p>预计 AlmaLinux 9.10 或者 10.0 发布时，将同步更新。</p>
+<h2 id="下载地址-40">下载地址</h2>
+<p>AlmaLinux 9.0 x86_64 OVF (sysin) - 2022.07.20 <code>[EoD]</code></p>
 <blockquote>
 <p>2023.03.03 更新：现已支持 ESXi Host Client 部署。</p>
 <p>2022.06.25 更新：优化 zsh 配置。</p>
@@ -609,7 +634,10 @@
 </blockquote>
 <p><strong>AlmaLinux 9.5 x86_64 OVF</strong> (sysin) - 2024.11.26</p>
 <ul>
-<li>标准分区：<br>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1GAK6WYKV0Pt7tXvIYiXOFA?pwd=">https://pan.baidu.com/s/1GAK6WYKV0Pt7tXvIYiXOFA?pwd=</a>&lt;专享已公布&gt;<br>SHA256SUM: 自动校验<br>文件大小：约 1.85GB</li>
+<li>标准分区：<br>
+百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1GAK6WYKV0Pt7tXvIYiXOFA?pwd=">https://pan.baidu.com/s/1GAK6WYKV0Pt7tXvIYiXOFA?pwd=</a>&lt;专享已公布&gt;<br>
+SHA256SUM: 自动校验<br>
+文件大小：约 1.85GB</li>
 </ul>
 <p><strong>✅ 公布获取此专享资源的正确方式：</strong></p>
 <p>为保证本站持续发展，该资源通过<code>捐赠</code>获取，捐赠是一种可以附加条件的行为，按照下面<code>指定方式</code>捐赠即可获得该项下载。</p>
@@ -750,7 +778,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -813,7 +841,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E8%B4%A6%E5%8F%B7"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统账号</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%88%86%E5%8C%BA"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E4%B8%AA%E7%89%88%E6%9C%AC%E4%BD%95%E6%97%B6%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下个版本何时更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E6%88%AA%E5%9B%BE%E5%8F%8A%E8%AF%B4%E6%98%8E-3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">部署截图及说明</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%B9%E6%80%A7-3"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OVF 特性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-OVF-%E7%89%88%E6%9C%AC-3"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1. OVF 版本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%B3%BB%E7%BB%9F%E8%B4%A6%E5%8F%B7-3"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">2. 系统账号</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E5%88%86%E5%8C%BA-3"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">3. 分区</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE-3"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">4. 系统配置</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%80%82%E7%94%A8%E7%9A%84-VMware-%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD-3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">适用的 VMware 软件下载</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OVF-%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F-3"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">OVF 版本兼容性和部署方式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E4%B8%AA%E7%89%88%E6%9C%AC%E4%BD%95%E6%97%B6%E6%9B%B4%E6%96%B0-3"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下个版本何时更新</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-40"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">下载地址</span></a></li></ol>
         
         </div>
       </aside>
@@ -1059,7 +1087,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
