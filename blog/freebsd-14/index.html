@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/freebsd-14/">
+  <link rel="canonical" href="https://sysin.org/blog/freebsd-14/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -472,7 +470,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -489,7 +487,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/freebsd-14/" title="FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版">FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="https://www.freebsd.org/images/beastie.png" alt="FreeBSD"></p>
 <p>FreeBSD 14.2-RELEASE 公告</p>
@@ -503,7 +501,9 @@
 <li>OpenSSL 已升级至版本 3.0.15。</li>
 </ul>
 <p>有关新功能、支持的硬件和已知问题的完整列表（篇幅过长），请访问官网查看。</p>
-<h2 id="FreeBSD-14-新功能"><a href="#FreeBSD-14-新功能" class="headerlink" title="FreeBSD 14 新功能"></a>FreeBSD 14 新功能</h2><h3 id="一般更新"><a href="#一般更新" class="headerlink" title="一般更新"></a>一般更新</h3><p>FreeBSD 14 将 root 用户的 <strong>默认 shell 提升为 sh</strong>，拥有一系列专为交互式使用而定制的新功能。此次升级带来了清新高效的 shell 体验，增强了用户与系统的交互。</p>
+<h2 id="FreeBSD-14-新功能">FreeBSD 14 新功能</h2>
+<h3 id="一般更新">一般更新</h3>
+<p>FreeBSD 14 将 root 用户的 <strong>默认 shell 提升为 sh</strong>，拥有一系列专为交互式使用而定制的新功能。此次升级带来了清新高效的 shell 体验，增强了用户与系统的交互。</p>
 <p>FreeBSD 14 进行了重大转变，采用 <a target="_blank" rel="noopener" href="https://www.dragonflybsd.org/handbook/mta/">Dragonfly Mail Agent</a> 作为 <strong>默认邮件传输</strong> 代理 (MTA)，取代了 sendmail。此更改通过 mailer.conf 简化了 MTA 配置，为用户提供了更现代、更高效的电子邮件处理体验。</p>
 <p>以及对文件名通配的支持而得到了提升 <strong>引入 .include 指令</strong> Jail 通过在 jam.conf 文件中 。此增强功能简化了监狱配置，为用户提供了对虚拟环境的更大灵活性和控制力。</p>
 <p>一次性密码工具 <strong>OPIE</strong> 已从 <a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=0aa2700123e2">删除</a> 基本系统中 (sysin)，鼓励用户在希望继续使用时安装安全 / opie 端口。FreeBSD 14 通过在 etcupdate 期间从 PAM 策略中删除或注释 pam_opie 和 pam_opieaccess 来确保平稳过渡。</p>
@@ -512,9 +512,12 @@
 <p>FreeBSD 14 还 <a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=67c26eb2a57c">带来了显着改进</a> 为 AMD 和 Intel GPU 的 bhyve 中的 GPU 直通 。虽然这仍然是一项正在进行的工作，但增强的配置为更高效、更强大的虚拟化设置铺平了道路。</p>
 <p><a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=bbb2d2ce4220">有影响力的更改</a> 之一是 pw 和 bsdinstall 现在 <strong>在 /home 而不是 /usr/home 中创建主目录</strong> 。不会创建 /usr/home 中 /home 的符号链接。因此，如果从 FreeBSD 13 升级到 FreeBSD 14，请确保正确迁移它。</p>
 <p>此外，一些以用户为中心的增强功能包括 <a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=31edf56b1571">。</a> 在日期实用程序中添加用于时区转换的 -z 选项、在 diff 中使用 -color 选项支持彩色输出，以及删除已弃用的 fmtree 实用程序</p>
-<p><img src="https://www.debugpoint.com/wp-content/uploads/2023/11/FreeBSD-14.jpg" alt="FreeBSD 14"><br>FreeBSD 14</p>
-<p><img src="https://www.debugpoint.com/wp-content/uploads/2023/11/FreeBSD-14-with-Xfce-desktop.jpg" alt="FreeBSD 14 与 Xfce 桌面"><br>FreeBSD 14 与 Xfce 桌面</p>
-<h3 id="存储和文件系统"><a href="#存储和文件系统" class="headerlink" title="存储和文件系统"></a>存储和文件系统</h3><p>FreeBSD 14 引入了 <a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=d575e81fbcfa">gconcat</a> 实用程序的改进，<strong>允许将设备添加到串联设备中</strong> 即使在创建后也。这为存储配置提供了更大的灵活性，从而增强了整体用户体验 (sysin)。此外，gunion 的引入有助于跟踪只读磁盘上的更改，这对于文件系统修复或软件升级等尝试性更改非常有价值。</p>
+<p><img src="https://www.debugpoint.com/wp-content/uploads/2023/11/FreeBSD-14.jpg" alt="FreeBSD 14"><br>
+FreeBSD 14</p>
+<p><img src="https://www.debugpoint.com/wp-content/uploads/2023/11/FreeBSD-14-with-Xfce-desktop.jpg" alt="FreeBSD 14 与 Xfce 桌面"><br>
+FreeBSD 14 与 Xfce 桌面</p>
+<h3 id="存储和文件系统">存储和文件系统</h3>
+<p>FreeBSD 14 引入了 <a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=d575e81fbcfa">gconcat</a> 实用程序的改进，<strong>允许将设备添加到串联设备中</strong> 即使在创建后也。这为存储配置提供了更大的灵活性，从而增强了整体用户体验 (sysin)。此外，gunion 的引入有助于跟踪只读磁盘上的更改，这对于文件系统修复或软件升级等尝试性更改非常有价值。</p>
 <p>为了增强可见性和调试，与 vnode 相关的统计信息现在 <a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=d3e647891243">分组</a> 在 vfs.vnode 下，提供更全面的视图。此更改来自解决和解决通用文件系统代码中与 vnode 回收相关的问题。</p>
 <p>用户现在可以 <strong>执行后台文件系统检查，从而提高系统维护效率。</strong> 使用运行日志软更新的 UFS 文件系统上的快照来</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/openzfs/zfs/releases/tag/zfs-2.2.0">通过升级到 OpenZFS 版本 2.2</a>，<strong>ZFS</strong> 子系统得到了显着的提升。新功能包括块克隆、BLAKE3 校验和以及性能改进（例如完全自适应 ARC 和 I/O 预取增强）。</p>
@@ -522,24 +525,35 @@
 <p>FreeBSD 14 现在支持在 VNET 监狱中运行 <strong>NFS</strong> 服务器，从而扩展了网络配置的范围。用户可以通过隔离其文件系统上的 Jail、设置 allow.nfsd 参数并确保正确配置 enforce_statfs 来从此功能中受益。</p>
 <p>NFSv4 挂载得到显着 <a target="_blank" rel="noopener" href="https://cgit.freebsd.org/src/commit/?id=a145cf3f73c7">改进</a>，客户端默认为服务器支持的最高次要版本。用户可以使用次要版本安装选项覆盖此行为。此外，FreeBSD NFS 客户端现在支持 1 MB I/O 大小，与 Linux 客户端保持一致。</p>
 <p>引入了新的 syskrb5 挂载选项 (sysin)，允许 Kerberized NFSv4.1/4.2 挂载，而无需在挂载时提供 Kerberos 凭据。这简化了身份验证过程并增强了安全性。</p>
-<h3 id="网络、启动和硬件更新"><a href="#网络、启动和硬件更新" class="headerlink" title="网络、启动和硬件更新"></a>网络、启动和硬件更新</h3><p>lua 风格的加载器现在解释 loader_conf_files 中的 .lua 文件，并在沙箱中执行它们。这带来了更大的可配置性并扩展了加载器环境变量的实用性。</p>
+<h3 id="网络、启动和硬件更新">网络、启动和硬件更新</h3>
+<p>lua 风格的加载器现在解释 loader_conf_files 中的 .lua 文件，并在沙箱中执行它们。这带来了更大的可配置性并扩展了加载器环境变量的实用性。</p>
 <p>EC2 实例现在使用 UEFI（如果可用）启动，从而大幅缩短启动过程持续时间。此增强功能对于寻求 EC2 实例更快启动时间的用户来说是一个福音。</p>
 <p>IPv6 over IPv4 的 6to4 接口 if_stf 现在支持按照 RFC5969 的 IPv6 快速部署（第 6 版），扩展了 FreeBSD 14 上的 IPv6 功能。</p>
 <p>if_bridge 上的第 3 层过滤受到关注，并调整了默认设置以确保更安全的操作 (sysin)。此更改增强了某些虚拟配置的安全性和稳定性。</p>
 <p>FreeBSD 14 告别了对 MIPS 架构的支持，以适应不断变化的硬件和架构偏好。</p>
 <p>在此版本中，FreeBSD 不再提供 armv6 工件，而是专注于更现代的架构和优化资源。</p>
 <p><em>FreeBSD 14 作为一个主要版本带来了巨大的改进，使其成为您正在运行的 BSD 机器的完美升级，以提高整体系统性能。一如既往，我鼓励您探索全面的 <a target="_blank" rel="noopener" href="https://www.freebsd.org/releases/14.0R/relnotes/">发行说明</a>，以深入了解更改和优化。</em></p>
-<h2 id="FreeBSD-是什么"><a href="#FreeBSD-是什么" class="headerlink" title="FreeBSD 是什么?"></a>FreeBSD 是什么?</h2><p>FreeBSD 是一个注重功能、速度和稳定性的操作系统，支持 <a target="_blank" rel="noopener" href="https://www.freebsd.org/zh-cn/platforms/">许多平台</a>。它源于 BSD ── 美国加州大学伯克利分校开发的 UNIX® 版本。它由 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/articles/contributors/#staff-committers/">一个很大的志愿者社区</a> 开发和维护。</p>
-<h2 id="为什么选择-FreeBSD"><a href="#为什么选择-FreeBSD" class="headerlink" title="为什么选择 FreeBSD?"></a>为什么选择 FreeBSD?</h2><h3 id="先进特性"><a href="#先进特性" class="headerlink" title="先进特性"></a>先进特性</h3><p>FreeBSD 提供了网络、性能、安全以及兼容性等多方面的 <a target="_blank" rel="noopener" href="https://www.freebsd.org/zh-cn/features/">特性</a>，这些特性即使是在当今最优秀的商业操作系统中亦有所欠缺。</p>
-<h3 id="强大的互联网解决方案"><a href="#强大的互联网解决方案" class="headerlink" title="强大的互联网解决方案"></a>强大的互联网解决方案</h3><p>FreeBSD 是理想的 Internet 或 Intranet 服务器。即使是在超重负载下，它仍然能够有效地使用内存 (sysin)，为同时运行的数以千计的用户进程提供良好的响应时间。</p>
-<h3 id="嵌入式平台支持"><a href="#嵌入式平台支持" class="headerlink" title="嵌入式平台支持"></a>嵌入式平台支持</h3><p>FreeBSD 为嵌入式平台和设备带来了先进的网络操作系统特性，无论是高端的基于 Intel 的设备，还是 ARM、PowerPC 或 MIPS 硬件平台。从邮件和网络设备到路由器、校时服务器和无线接入点 (sysin)，世界各地的供应商依赖 FreeBSD 的整合编译和交叉编译环境以及其它先进特性，以此作为他们嵌入式产品的基础。而伯克利开放源代码许可证让他们得以自主决定要贡献哪些改动。</p>
-<h3 id="能够运行大量可供选择的应用"><a href="#能够运行大量可供选择的应用" class="headerlink" title="能够运行大量可供选择的应用"></a>能够运行大量可供选择的应用</h3><p>经由 ports 中超过 33,000 个库和 <a target="_blank" rel="noopener" href="https://www.freebsd.org/zh-cn/applications/">应用程序</a>，FreeBSD 支持桌面系统、服务器和嵌入式平台的各种应用。</p>
-<h3 id="易于安装"><a href="#易于安装" class="headerlink" title="易于安装"></a>易于安装</h3><p>FreeBSD 能通过多种介质进行安装，包括普通光盘、 DVD 光盘，或直接通过 FTP 或 NFS 服务器安装。您只需按照 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/zh_cn/books/handbook/#install">安装指导</a> 操作。</p>
-<h3 id="FreeBSD-是-free-的"><a href="#FreeBSD-是-free-的" class="headerlink" title="FreeBSD 是 free 的"></a>FreeBSD 是 <em>free</em> 的</h3><p><img src="https://www.freebsd.org/gifs/dae_up3.gif" alt="The BSD Daemon"></p>
+<h2 id="FreeBSD-是什么-2">FreeBSD 是什么?</h2>
+<p>FreeBSD 是一个注重功能、速度和稳定性的操作系统，支持 <a target="_blank" rel="noopener" href="https://www.freebsd.org/zh-cn/platforms/">许多平台</a>。它源于 BSD ── 美国加州大学伯克利分校开发的 UNIX® 版本。它由 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/articles/contributors/#staff-committers/">一个很大的志愿者社区</a> 开发和维护。</p>
+<h2 id="为什么选择-FreeBSD-2">为什么选择 FreeBSD?</h2>
+<h3 id="先进特性-2">先进特性</h3>
+<p>FreeBSD 提供了网络、性能、安全以及兼容性等多方面的 <a target="_blank" rel="noopener" href="https://www.freebsd.org/zh-cn/features/">特性</a>，这些特性即使是在当今最优秀的商业操作系统中亦有所欠缺。</p>
+<h3 id="强大的互联网解决方案-2">强大的互联网解决方案</h3>
+<p>FreeBSD 是理想的 Internet 或 Intranet 服务器。即使是在超重负载下，它仍然能够有效地使用内存 (sysin)，为同时运行的数以千计的用户进程提供良好的响应时间。</p>
+<h3 id="嵌入式平台支持-2">嵌入式平台支持</h3>
+<p>FreeBSD 为嵌入式平台和设备带来了先进的网络操作系统特性，无论是高端的基于 Intel 的设备，还是 ARM、PowerPC 或 MIPS 硬件平台。从邮件和网络设备到路由器、校时服务器和无线接入点 (sysin)，世界各地的供应商依赖 FreeBSD 的整合编译和交叉编译环境以及其它先进特性，以此作为他们嵌入式产品的基础。而伯克利开放源代码许可证让他们得以自主决定要贡献哪些改动。</p>
+<h3 id="能够运行大量可供选择的应用-2">能够运行大量可供选择的应用</h3>
+<p>经由 ports 中超过 33,000 个库和 <a target="_blank" rel="noopener" href="https://www.freebsd.org/zh-cn/applications/">应用程序</a>，FreeBSD 支持桌面系统、服务器和嵌入式平台的各种应用。</p>
+<h3 id="易于安装-2">易于安装</h3>
+<p>FreeBSD 能通过多种介质进行安装，包括普通光盘、 DVD 光盘，或直接通过 FTP 或 NFS 服务器安装。您只需按照 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/zh_cn/books/handbook/#install">安装指导</a> 操作。</p>
+<h3 id="FreeBSD-是-free-的-2">FreeBSD 是 <em>free</em> 的</h3>
+<p><img src="https://www.freebsd.org/gifs/dae_up3.gif" alt="The BSD Daemon"></p>
 <p>您或许认为如此优秀的操作系统需要花费大笔金钱来购买，而 FreeBSD 是<a target="_blank" rel="noopener" href="https://www.freebsd.org/copyright/">免费</a> 提供的，并且包含了源代码。如果您愿意购买或下载一份来体验 FreeBSD，可以从 <a target="_blank" rel="noopener" href="https://docs.freebsd.org/zh_cn/books/handbook/#mirrors/">这里</a> 了解更多信息。</p>
-<h2 id="升级到-FreeBSD-14"><a href="#升级到-FreeBSD-14" class="headerlink" title="升级到 FreeBSD 14"></a>升级到 FreeBSD 14</h2><p>如果您运行的是 FreeBSD 13 系列，您可以仔细运行以下一组命令来升级到该版本。确保备份您的文件、数据库和 <strong>配置文件</strong>。</p>
+<h2 id="升级到-FreeBSD-14">升级到 FreeBSD 14</h2>
+<p>如果您运行的是 FreeBSD 13 系列，您可以仔细运行以下一组命令来升级到该版本。确保备份您的文件、数据库和 <strong>配置文件</strong>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">freebsd-update fetch install</span><br><span class="line">pkg update &amp;&amp; pkg upgrade</span><br><span class="line">freebsd-update -r 14.0-RELEASE upgrade</span><br><span class="line">freebsd-update install</span><br><span class="line">reboot</span><br><span class="line">freebsd-update install</span><br><span class="line">pkg-static install -f pkg</span><br><span class="line">pkg update</span><br><span class="line">pkg upgrade</span><br><span class="line">/usr/sbin/freebsd-update install</span><br></pre></td></tr></table></figure>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><strong>FreeBSD</strong> 14.0 x86_64 &amp; aarch64 (November 20, 2023)</p>
+<h2 id="下载">下载</h2>
+<p><strong>FreeBSD</strong> 14.0 x86_64 &amp; aarch64 (November 20, 2023)</p>
 <ul>
 <li>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1LQ5lSegXonBX9gRIpBHvyw?pwd=4k17">https://pan.baidu.com/s/1LQ5lSegXonBX9gRIpBHvyw?pwd=4k17</a></li>
 </ul>
@@ -554,16 +568,26 @@
 <p><a target="_blank" rel="noopener" href="https://www.freebsd.org/releases/14.1R/announce/">更多 &gt;</a></p>
 <p>虚机模板下载：</p>
 <ul>
-<li><a href="/blog/freebsd-13-ovf/" title="FreeBSD 13 x86_64 OVF (sysin) - VMware 虚拟机模板">FreeBSD 13 x86_64 OVF (sysin) - VMware 虚拟机模板</a></li>
-<li><a href="/blog/freebsd-14-ovf/" title="FreeBSD 14 x86_64 OVF (sysin) - VMware 虚拟机模板">FreeBSD 14 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+<li>
+<a href="/blog/freebsd-13-ovf/" title="FreeBSD 13 x86_64 OVF (sysin) - VMware 虚拟机模板">FreeBSD 13 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
+</li>
+<li>
+<a href="/blog/freebsd-14-ovf/" title="FreeBSD 14 x86_64 OVF (sysin) - VMware 虚拟机模板">FreeBSD 14 x86_64 OVF (sysin) - VMware 虚拟机模板</a>
 </li>
 </ul>
 <p>相关产品：</p>
 <ul>
-<li><a href="/blog/freebsd-13/" title="FreeBSD 13.4 正式版发布">FreeBSD 13.4 正式版发布</a></li>
-<li><a href="/blog/freebsd-14/" title="FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版">FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版</a></li>
-<li><a href="/blog/netbsd/" title="NetBSD 10.0 - 类 UNIX 操作系统">NetBSD 10.0 - 类 UNIX 操作系统</a></li>
-<li><a href="/blog/openbsd/" title="OpenBSD 7.5 正式版发布">OpenBSD 7.5 正式版发布</a>
+<li>
+<a href="/blog/freebsd-13/" title="FreeBSD 13.4 正式版发布">FreeBSD 13.4 正式版发布</a>
+</li>
+<li>
+<a href="/blog/freebsd-14/" title="FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版">FreeBSD 14.2 正式版发布 - 强大的 BSD UNIX 发行版</a>
+</li>
+<li>
+<a href="/blog/netbsd/" title="NetBSD 10.0 - 类 UNIX 操作系统">NetBSD 10.0 - 类 UNIX 操作系统</a>
+</li>
+<li>
+<a href="/blog/openbsd/" title="OpenBSD 7.5 正式版发布">OpenBSD 7.5 正式版发布</a>
 </li>
 </ul>
 
@@ -686,7 +710,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -749,7 +773,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FreeBSD-14-%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">FreeBSD 14 新功能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E8%88%AC%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一般更新</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%98%E5%82%A8%E5%92%8C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">存储和文件系统</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BD%91%E7%BB%9C%E3%80%81%E5%90%AF%E5%8A%A8%E5%92%8C%E7%A1%AC%E4%BB%B6%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">网络、启动和硬件更新</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FreeBSD-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FreeBSD 是什么?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9-FreeBSD"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">为什么选择 FreeBSD?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%88%E8%BF%9B%E7%89%B9%E6%80%A7"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">先进特性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%BC%BA%E5%A4%A7%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">强大的互联网解决方案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">嵌入式平台支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%83%BD%E5%A4%9F%E8%BF%90%E8%A1%8C%E5%A4%A7%E9%87%8F%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">能够运行大量可供选择的应用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%98%93%E4%BA%8E%E5%AE%89%E8%A3%85"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">易于安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#FreeBSD-%E6%98%AF-free-%E7%9A%84"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">FreeBSD 是 free 的</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8D%87%E7%BA%A7%E5%88%B0-FreeBSD-14"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">升级到 FreeBSD 14</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FreeBSD-14-%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">FreeBSD 14 新功能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E8%88%AC%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一般更新</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AD%98%E5%82%A8%E5%92%8C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">存储和文件系统</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BD%91%E7%BB%9C%E3%80%81%E5%90%AF%E5%8A%A8%E5%92%8C%E7%A1%AC%E4%BB%B6%E6%9B%B4%E6%96%B0"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">网络、启动和硬件更新</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#FreeBSD-%E6%98%AF%E4%BB%80%E4%B9%88-2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">FreeBSD 是什么?</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9-FreeBSD-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">为什么选择 FreeBSD?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%88%E8%BF%9B%E7%89%B9%E6%80%A7-2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">先进特性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%BC%BA%E5%A4%A7%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-2"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">强大的互联网解决方案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81-2"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">嵌入式平台支持</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%83%BD%E5%A4%9F%E8%BF%90%E8%A1%8C%E5%A4%A7%E9%87%8F%E5%8F%AF%E4%BE%9B%E9%80%89%E6%8B%A9%E7%9A%84%E5%BA%94%E7%94%A8-2"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">能够运行大量可供选择的应用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%98%93%E4%BA%8E%E5%AE%89%E8%A3%85-2"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">易于安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#FreeBSD-%E6%98%AF-free-%E7%9A%84-2"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">FreeBSD 是 free 的</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8D%87%E7%BA%A7%E5%88%B0-FreeBSD-14"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">升级到 FreeBSD 14</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下载</span></a></li></ol>
         
         </div>
       </aside>
@@ -993,7 +1017,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

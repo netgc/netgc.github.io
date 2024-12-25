@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 支持 ESXi 8.0 的 AMD 小主机：畅网微控 CW-5658 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 支持 ESXi 8.0 的 AMD 小主机：畅网微控 CW-5658 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 支持 ESXi 8.0 的 AMD 小主机：畅网微控 CW-5658 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 支持 ESXi 8.0 的 AMD 小主机：畅网微控 CW-5658 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 支持 ESXi 8.0 的 AMD 小主机：畅网微控 CW-5658 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/mini-pc-with-esxi-8-support/">
+  <link rel="canonical" href="https://sysin.org/blog/mini-pc-with-esxi-8-support/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,18 +485,19 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/mini-pc-with-esxi-8-support/" title="支持 ESXi 8.0 的 AMD 小主机：畅网微控 CW-5658">支持 ESXi 8.0 的 AMD 小主机：畅网微控 CW-5658</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在测试环境或者家庭实验室（Home lab）中使用 VMware vSphere 作为虚拟化平台非常普遍，笔者更倾向使用 Nano Datacenter 这个词汇来指代这种环境。构建 Nano Datacenter 通常有两大平台即：Apple Mac mini 和 Intel NUC。笔者注意到很多用户是在国产小主机上运行 ESXi 8.0，这类小主机（Mini PC）又俗称软路由，品类繁多，笔者仅以支持 ESXi 虚拟化的角度来看一下如何选择。</p>
+<h2 id="概述-4">概述</h2>
+<p>在测试环境或者家庭实验室（Home lab）中使用 VMware vSphere 作为虚拟化平台非常普遍，笔者更倾向使用 Nano Datacenter 这个词汇来指代这种环境。构建 Nano Datacenter 通常有两大平台即：Apple Mac mini 和 Intel NUC。笔者注意到很多用户是在国产小主机上运行 ESXi 8.0，这类小主机（Mini PC）又俗称软路由，品类繁多，笔者仅以支持 ESXi 虚拟化的角度来看一下如何选择。</p>
 <p>Realtek 并不支持 VMware，VMware 现在也不支持 Realtek。Realtek 除了为 Windows、Linux 和 macOS 发布驱动 (sysin)，也为一些罕见小众 Unix 更新驱动，甚至还在为 DOS 和 Novell 开发驱动。但是据称 Realtek 表示没有兴趣为 VMware 创建驱动。</p>
 <p>所以我们在选择虚拟化小主机时，一个很重要的原则是不考虑配备 Realtek 网卡的机型。配备 Intel 网卡往往是首选，因为 Intel 与 VMware 兼容的型号最多，高达数百款在官方 HCL 中。</p>
 <p>可以看到市面上有很多国产的小主机，这类主机往往考虑到功耗会配备赛扬处理器，但是赛扬几乎是低性能的代名词。如果配备酷睿处理器，价格和功耗都会提高不少。</p>
 <p>基于 AMD “Zen 3” Core Architecture 的 AMD Ryzen™ 5 和 7 系列得益于台积电的领先工艺制成，获得了功耗和性能，以及性价比相对的优势。很难找到与 ESXi 版本兼容的 AMD 处理器的超小主机，因为它们往往配备 Relteak 网卡。今天这款来自“畅网微控”的迷你主机套件 CW-5658 有所不同 (sysin)，它基于 AMD Zen 3 架构（台积电 7nm），内置 4 个 Intel 2.5G 网卡与 ESXi 8 兼容。</p>
 <p><img src="cw-5658-main.webp" alt="sysin"></p>
 <p>笔者不是该供应商的利益关联方，因为 VMware 的工程师从马云家购买了该产品，并做了推荐，通常他们很少关注到国内这类产品，对于 VMware 虚拟化小主机，这应该是一个不错的选择。</p>
-<h2 id="规格参数"><a href="#规格参数" class="headerlink" title="规格参数"></a>规格参数</h2><p><img src="cw-5658-front.webp" alt="sysin"></p>
+<h2 id="规格参数">规格参数</h2>
+<p><img src="cw-5658-front.webp" alt="sysin"></p>
 <p>配置参数</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -613,16 +612,18 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>接口</p>
 <p><img src="cw-5658-io.webp" alt="sysin"></p>
 <p>补充说明：</p>
 <ul>
-<li><p>SSD 插槽为 M.2 2280，PCIe 3.0，不过 PCIe 4.0 是向下兼容的。</p>
+<li>
+<p>SSD 插槽为 M.2 2280，PCIe 3.0，不过 PCIe 4.0 是向下兼容的。</p>
 </li>
-<li><p>硬盘 SATA * 2 看起来是需要拆除风扇替换为 2.5“ SATA。</p>
+<li>
+<p>硬盘 SATA * 2 看起来是需要拆除风扇替换为 2.5“ SATA。</p>
 </li>
-<li><p>支持 Type-C 供电，意味着可以直选更加小巧的充电器，不过仅有一个 Type-C 口，少了点。</p>
+<li>
+<p>支持 Type-C 供电，意味着可以直选更加小巧的充电器，不过仅有一个 Type-C 口，少了点。</p>
 </li>
 </ul>
 <p>不足之处：</p>
@@ -631,17 +632,23 @@
 <li>跟其他产品类似电源外置 (sysin)，通常是一个巨大的 DC 充电器，不像 Mac mini 那么优雅，但是这款支持 Type-C 供电可以跟换一个优雅点的充电器，不过只有一个接口，看如何取舍了。</li>
 <li>其他：不支持 PCIe 4.0，内存如果能支持到 128G 更佳（受限于 CPU）。</li>
 </ul>
-<h2 id="限制：不支持-macOS-虚拟化"><a href="#限制：不支持-macOS-虚拟化" class="headerlink" title="限制：不支持 macOS 虚拟化"></a>限制：不支持 macOS 虚拟化</h2><p>特别提醒，macOS 默认不支持 AMD CPU，同样也无法在 AMD 虚拟化环境中启动 macOS。虽然社区存在 AMD macOS 案例，并不适合普通用户。</p>
-<h2 id="ESXi-8-兼容性"><a href="#ESXi-8-兼容性" class="headerlink" title="ESXi 8 兼容性"></a>ESXi 8 兼容性</h2><p>默认兼容所有 ESXi 8 版本：</p>
+<h2 id="限制：不支持-macOS-虚拟化">限制：不支持 macOS 虚拟化</h2>
+<p>特别提醒，macOS 默认不支持 AMD CPU，同样也无法在 AMD 虚拟化环境中启动 macOS。虽然社区存在 AMD macOS 案例，并不适合普通用户。</p>
+<h2 id="ESXi-8-兼容性">ESXi 8 兼容性</h2>
+<p>默认兼容所有 ESXi 8 版本：</p>
 <ul>
-<li><a href="/blog/vmware-esxi-8/" title="VMware ESXi 8.0d - 领先的裸机 Hypervisor">VMware ESXi 8.0d - 领先的裸机 Hypervisor</a>
+<li>
+<a href="/blog/vmware-esxi-8/" title="VMware ESXi 8.0d - 领先的裸机 Hypervisor">VMware ESXi 8.0d - 领先的裸机 Hypervisor</a>
 </li>
-<li><a href="/blog/vmware-esxi-8-oem/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
+<li>
+<a href="/blog/vmware-esxi-8-oem/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 标准版和厂商定制版</a>
 </li>
-<li><a href="/blog/vmware-esxi-8-sysin/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
+<li>
+<a href="/blog/vmware-esxi-8-sysin/" title="VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)">VMware ESXi 8.0c macOS Unlocker &amp; OEM BIOS 集成网卡驱动和 NVMe 驱动 (集成驱动版)</a>
 </li>
 </ul>
-<h2 id="产品链接"><a href="#产品链接" class="headerlink" title="产品链接"></a>产品链接</h2><p>🐱 <a target="_blank" rel="noopener" href="https://p.pinduoduo.com/6KhnIjW3">黄峥家畅网微控官方旗舰店</a></p>
+<h2 id="产品链接">产品链接</h2>
+<p>🐱 <a target="_blank" rel="noopener" href="https://p.pinduoduo.com/6KhnIjW3">黄峥家畅网微控官方旗舰店</a></p>
 <p>🐶 <a target="_blank" rel="noopener" href="https://p.pinduoduo.com/6KhnIjW3">黄峥家畅网微控官方旗舰店</a></p>
 
 
@@ -763,7 +770,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -826,7 +833,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">规格参数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%90%E5%88%B6%EF%BC%9A%E4%B8%8D%E6%94%AF%E6%8C%81-macOS-%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">限制：不支持 macOS 虚拟化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ESXi-8-%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">ESXi 8 兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A7%E5%93%81%E9%93%BE%E6%8E%A5"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">产品链接</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0-4"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B0"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">规格参数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%99%90%E5%88%B6%EF%BC%9A%E4%B8%8D%E6%94%AF%E6%8C%81-macOS-%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">限制：不支持 macOS 虚拟化</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ESXi-8-%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">ESXi 8 兼容性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A7%E5%93%81%E9%93%BE%E6%8E%A5"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">产品链接</span></a></li></ol>
         
         </div>
       </aside>
@@ -1068,7 +1075,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

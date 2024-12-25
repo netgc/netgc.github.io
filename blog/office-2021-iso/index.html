@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 如何创建 Office LTSC 2021 VL (批量许可) 版本的安装 ISO - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 如何创建 Office LTSC 2021 VL (批量许可) 版本的安装 ISO - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 如何创建 Office LTSC 2021 VL (批量许可) 版本的安装 ISO - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 如何创建 Office LTSC 2021 VL (批量许可) 版本的安装 ISO - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 如何创建 Office LTSC 2021 VL (批量许可) 版本的安装 ISO "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/office-2021-iso/">
+  <link rel="canonical" href="https://sysin.org/blog/office-2021-iso/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,9 +485,10 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/office-2021-iso/" title="如何创建 Office LTSC 2021 VL (批量许可) 版本的安装 ISO">如何创建 Office LTSC 2021 VL (批量许可) 版本的安装 ISO</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<h2 id="Office-LTSC-2021-发布"><a href="#Office-LTSC-2021-发布" class="headerlink" title="Office LTSC 2021 发布"></a>Office LTSC 2021 发布</h2><p>2021 年 9 月 16 日，微软正式发布了支持 Office 2021 的部署工具（<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=49117">Office Deployment Tool</a>），这意味着 Office 2021 已经正式发布，当然系统要求仅支持 Windows 10 和 Windows 11，Office 2021 具体带来了哪些新功能，可以查阅 Office 官网 <a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/office-2021-%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD-43848c29-665d-4b1b-bc12-acd2bfb3910a#Platform=Windows_%E6%A1%8C%E9%9D%A2%E7%89%88">Office 2021 中的新增功能</a> 一文。Office 2021 与 Office 2019 开始改变了以往的安装方式一样，仅支持 C2R（Click-To-Run）安装方式，不再提供 ISO 安装文件。Click-To-Run 可以确保每次下载安装的程序都是最新发行版，但缺点是用户会面临更长的安装（下载）时间，安装的具体版本也有一定的不确定性 (sysin)。本文描述创建自定义 Office 2021 离线安装包的方法，并提供成品 iso 和相关工具下载。</p>
+<h2 id="Office-LTSC-2021-发布">Office LTSC 2021 发布</h2>
+<p>2021 年 9 月 16 日，微软正式发布了支持 Office 2021 的部署工具（<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=49117">Office Deployment Tool</a>），这意味着 Office 2021 已经正式发布，当然系统要求仅支持 Windows 10 和 Windows 11，Office 2021 具体带来了哪些新功能，可以查阅 Office 官网 <a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/office-2021-%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD-43848c29-665d-4b1b-bc12-acd2bfb3910a#Platform=Windows_%E6%A1%8C%E9%9D%A2%E7%89%88">Office 2021 中的新增功能</a> 一文。Office 2021 与 Office 2019 开始改变了以往的安装方式一样，仅支持 C2R（Click-To-Run）安装方式，不再提供 ISO 安装文件。Click-To-Run 可以确保每次下载安装的程序都是最新发行版，但缺点是用户会面临更长的安装（下载）时间，安装的具体版本也有一定的不确定性 (sysin)。本文描述创建自定义 Office 2021 离线安装包的方法，并提供成品 iso 和相关工具下载。</p>
 <p>了解 <a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/office-2021-%E4%B8%AD%E7%9A%84%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD-43848c29-665d-4b1b-bc12-acd2bfb3910a#Platform=Windows_%E6%A1%8C%E9%9D%A2%E7%89%88">Office 2021 中的新增功能</a>。</p>
 <blockquote>
 <p>Office 2021 for Mac VL 仍然是单个 PKG 安装文件，仍然是与 Office 365 共享安装程序，通过许可证来区分，目前 Office 2019 也是共享该相同的安装程序。</p>
@@ -497,11 +496,18 @@
 <p><a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?linkid=2009112">Office 365 Business Pro Download</a></p>
 <p>本站下载：<a href="/blog/office-2021-for-mac/" title="Microsoft Office LTSC 2021 for Mac (Microsoft 365) 16.92 Universal">Microsoft Office LTSC 2021 for Mac (Microsoft 365) 16.92 Universal</a></p>
 </blockquote>
-<h2 id="1-软件准备"><a href="#1-软件准备" class="headerlink" title="1. 软件准备"></a>1. 软件准备</h2><p>1.1 <a target="_blank" rel="noopener" href="https://www.microsoft.com/download/details.aspx?id=49117">Office 部署工具</a><br>    从 Microsoft 下载中心免费下载 <a target="_blank" rel="noopener" href="https://www.microsoft.com/download/details.aspx?id=49117">Office 部署工具</a>。<br>    下载后解压得到 setup.exe 文件，备用，其他文件忽略。</p>
-<p>1.2 <a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/download.html">Office Tool Plus</a><br>    <a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/download.html">下载 Office Tool Plus</a>，选择 “包含框架 (推荐)” 版本，当前已经是 8.x 版本了。</p>
-<p>1.3 <a target="_blank" rel="noopener" href="http://forum.ru-board.com/">Office 2013-2021 C2R Install</a><br>    来自俄罗斯的 Office 下载安装和激活工具。</p>
-<p>1.4 HEU KMS Activator（微信公众号: HEU168）<br>    软件功能如其名。</p>
-<h2 id="2-创建-configuration-xml"><a href="#2-创建-configuration-xml" class="headerlink" title="2. 创建 configuration.xml"></a>2. 创建 configuration.xml</h2><p>有三种方式来创建配置文件：</p>
+<h2 id="1-软件准备">1. 软件准备</h2>
+<p>1.1 <a target="_blank" rel="noopener" href="https://www.microsoft.com/download/details.aspx?id=49117">Office 部署工具</a><br>
+从 Microsoft 下载中心免费下载 <a target="_blank" rel="noopener" href="https://www.microsoft.com/download/details.aspx?id=49117">Office 部署工具</a>。<br>
+下载后解压得到 setup.exe 文件，备用，其他文件忽略。</p>
+<p>1.2 <a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/download.html">Office Tool Plus</a><br>
+<a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/download.html">下载 Office Tool Plus</a>，选择 “包含框架 (推荐)” 版本，当前已经是 8.x 版本了。</p>
+<p>1.3 <a target="_blank" rel="noopener" href="http://forum.ru-board.com/">Office 2013-2021 C2R Install</a><br>
+来自俄罗斯的 Office 下载安装和激活工具。</p>
+<p>1.4 HEU KMS Activator（微信公众号: HEU168）<br>
+软件功能如其名。</p>
+<h2 id="2-创建-configuration-xml-2">2. 创建 configuration.xml</h2>
+<p>有三种方式来创建配置文件：</p>
 <ul>
 <li>文本编辑器手动编辑，前提是熟悉各项配置参数或者参考现有配置。</li>
 <li>使用 <a target="_blank" rel="noopener" href="https://config.office.com/">Office 自定义工具 (OCT)</a></li>
@@ -519,7 +525,9 @@
 <p>或者使用 <a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> (OTP) 来创建配置文件，在下一步下载离线包的时候导出配置文件即可。</p>
 <p><img src="otp-01.webp" alt="otp-01"></p>
 <p><img src="otp-02.webp" alt="otp-02"></p>
-<h2 id="3-下载-Office-离线安装包"><a href="#3-下载-Office-离线安装包" class="headerlink" title="3. 下载 Office 离线安装包"></a>3. 下载 Office 离线安装包</h2><h3 id="3-1-使用-Office-Deployment-Tool-下载-Office-离线安装包"><a href="#3-1-使用-Office-Deployment-Tool-下载-Office-离线安装包" class="headerlink" title="3.1 使用 Office Deployment Tool 下载 Office 离线安装包"></a>3.1 使用 Office Deployment Tool 下载 Office 离线安装包</h3><p>Office Deployment Tool 帮助如下：</p>
+<h2 id="3-下载-Office-离线安装包">3. 下载 Office 离线安装包</h2>
+<h3 id="3-1-使用-Office-Deployment-Tool-下载-Office-离线安装包">3.1 使用 Office Deployment Tool 下载 Office 离线安装包</h3>
+<p>Office Deployment Tool 帮助如下：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">setup.exe /h</span><br><span class="line"></span><br><span class="line">Office Deployment Tool</span><br><span class="line"></span><br><span class="line">Setup [<span class="built_in">mode</span>] [<span class="built_in">path</span>]</span><br><span class="line"></span><br><span class="line">Setup /download [<span class="built_in">path</span> to configuration file]</span><br><span class="line">Setup /configure [<span class="built_in">path</span> to configuration file]</span><br><span class="line">Setup /packager [<span class="built_in">path</span> to configuration file] [output <span class="built_in">path</span>]</span><br><span class="line">Setup /customize [<span class="built_in">path</span> to configuration file]</span><br><span class="line">Setup /<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"> /download Downloads files to create an Office installation source</span><br><span class="line"> /configure Adds, removes, or configures an Office installation</span><br><span class="line"> /packager Produces an Office App-V package from an Office installation source</span><br><span class="line"> /customize Applies settings <span class="keyword">for</span> Office applications</span><br><span class="line"> /<span class="built_in">help</span> Displays this message</span><br></pre></td></tr></table></figure>
 <p>下载离线安装包命令如下：</p>
 <p>setup /download configuration.xml</p>
@@ -527,7 +535,8 @@
 <p>configuration.xml 为步骤 2 创建的配置文件。</p>
 </blockquote>
 <p>Office Deployment Tool 下载的时候是没有进度指示，相对较慢，可以考虑用 OTP 替代下载。</p>
-<h3 id="3-2-使用-Office-Tool-Plus-OTP-下载-Office-离线安装包"><a href="#3-2-使用-Office-Tool-Plus-OTP-下载-Office-离线安装包" class="headerlink" title="3.2 使用 Office Tool Plus (OTP) 下载 Office 离线安装包"></a>3.2 使用 <a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> (OTP) 下载 Office 离线安装包</h3><p>使用 OTP v8（双击 RunMe.bat），点击 “部署”</p>
+<h3 id="3-2-使用-Office-Tool-Plus-OTP-下载-Office-离线安装包">3.2 使用 <a target="_blank" rel="noopener" href="https://otp.landian.vip/zh-cn/">Office Tool Plus</a> (OTP) 下载 Office 离线安装包</h3>
+<p>使用 OTP v8（双击 RunMe.bat），点击 “部署”</p>
 <p>左侧选项：</p>
 <ul>
 <li>产品：这里分别添加了 Office、Project 和 Visio</li>
@@ -549,21 +558,28 @@
 <blockquote>
 <p>也可以使用 Office 2013-2021 C2R Install 下载离线安装包。</p>
 </blockquote>
-<h2 id="4-创建安装程序"><a href="#4-创建安装程序" class="headerlink" title="4. 创建安装程序"></a>4. 创建安装程序</h2><h3 id="4-1-使用-Office-Deployment-Tool-安装"><a href="#4-1-使用-Office-Deployment-Tool-安装" class="headerlink" title="4.1 使用 Office Deployment Tool 安装"></a>4.1 使用 Office Deployment Tool 安装</h3><p>将 setup.exe 和 configuration.xml 复制到离线安装包 Office 文件夹下。</p>
+<h2 id="4-创建安装程序">4. 创建安装程序</h2>
+<h3 id="4-1-使用-Office-Deployment-Tool-安装">4.1 使用 Office Deployment Tool 安装</h3>
+<p>将 setup.exe 和 configuration.xml 复制到离线安装包 Office 文件夹下。</p>
 <p>创建一个批处理文件 setup.bat，内容为：<code>setup /configure configuration.xml</code></p>
 <p>之后双击 setup.bat 就可以按照配置离线安装。</p>
 <p>该种方式相对有点官方风格。</p>
-<h3 id="4-2-使用-Office-2013-2021-C2R-Install"><a href="#4-2-使用-Office-2013-2021-C2R-Install" class="headerlink" title="4.2 使用 Office 2013-2021 C2R Install"></a>4.2 使用 Office 2013-2021 C2R Install</h3><p>解压后将 OInstall.exe 复制到要创建 ISO 的根目录下 (例如：D:\Office2021)</p>
+<h3 id="4-2-使用-Office-2013-2021-C2R-Install">4.2 使用 Office 2013-2021 C2R Install</h3>
+<p>解压后将 OInstall.exe 复制到要创建 ISO 的根目录下 (例如：D:\Office2021)</p>
 <p>双击运行 OInstall.exe，将自动生成 files 文件夹，自动下载必要的文件 (sysin)，将步骤 1 和 2 的 setup.exe 和 configuration.xml 文件复制到 files 文件夹下即可。</p>
 <p>该种方式可以自定义安装组件，不限于配置文件的定义。</p>
-<h2 id="5-创建-ISO-镜像"><a href="#5-创建-ISO-镜像" class="headerlink" title="5. 创建 ISO 镜像"></a>5. 创建 ISO 镜像</h2><p>使用 UltraISO、PowerISO 等第三方软件，具体操作略。</p>
+<h2 id="5-创建-ISO-镜像">5. 创建 ISO 镜像</h2>
+<p>使用 UltraISO、PowerISO 等第三方软件，具体操作略。</p>
 <p>可以选择只打包 Office 文件夹，使用官方的安装工具，也可以打包整个上述定义的根目录，包含上述工具。</p>
-<h2 id="6-安装"><a href="#6-安装" class="headerlink" title="6. 安装"></a>6. 安装</h2><p>挂在 iso 文件，双击 OInstall.exe 进行安装。或者双击 setup.bat 使用官方工具进行安装。</p>
+<h2 id="6-安装-2">6. 安装</h2>
+<p>挂在 iso 文件，双击 OInstall.exe 进行安装。或者双击 setup.bat 使用官方工具进行安装。</p>
 <blockquote>
 <p>Windows Defender 可能有提示，和谐软件缘故。</p>
 </blockquote>
-<h2 id="7-configuration-xml-示例"><a href="#7-configuration-xml-示例" class="headerlink" title="7. configuration.xml 示例"></a>7. configuration.xml 示例</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Add</span> <span class="attr">OfficeClientEdition</span>=<span class="string">&quot;64&quot;</span> <span class="attr">Channel</span>=<span class="string">&quot;PerpetualVL2021&quot;</span> <span class="attr">AllowCdnFallback</span>=<span class="string">&quot;true&quot;</span> <span class="attr">OfficeMgmtCOM</span>=<span class="string">&quot;False&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span> <span class="attr">ID</span>=<span class="string">&quot;ProPlus2021Volume&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Language</span> <span class="attr">ID</span>=<span class="string">&quot;zh-cn&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Lync&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;OneDrive&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Teams&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span> <span class="attr">ID</span>=<span class="string">&quot;ProjectPro2021Volume&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Language</span> <span class="attr">ID</span>=<span class="string">&quot;zh-cn&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span> <span class="attr">ID</span>=<span class="string">&quot;VisioPro2021Volume&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Language</span> <span class="attr">ID</span>=<span class="string">&quot;zh-cn&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;OneDrive&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Add</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Display</span> <span class="attr">Level</span>=<span class="string">&quot;Full&quot;</span> <span class="attr">AcceptEULA</span>=<span class="string">&quot;TRUE&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Updates</span> <span class="attr">Enabled</span>=<span class="string">&quot;False&quot;</span> <span class="attr">Channel</span>=<span class="string">&quot;PerpetualVL2021&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="8-下载"><a href="#8-下载" class="headerlink" title="8. 下载"></a>8. 下载</h2><p>提供上述工具和 Office LTSC 2021 VL 版本下载：</p>
+<h2 id="7-configuration-xml-示例-2">7. configuration.xml 示例</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Add</span> <span class="attr">OfficeClientEdition</span>=<span class="string">&quot;64&quot;</span> <span class="attr">Channel</span>=<span class="string">&quot;PerpetualVL2021&quot;</span> <span class="attr">AllowCdnFallback</span>=<span class="string">&quot;true&quot;</span> <span class="attr">OfficeMgmtCOM</span>=<span class="string">&quot;False&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span> <span class="attr">ID</span>=<span class="string">&quot;ProPlus2021Volume&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Language</span> <span class="attr">ID</span>=<span class="string">&quot;zh-cn&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Lync&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;OneDrive&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Teams&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span> <span class="attr">ID</span>=<span class="string">&quot;ProjectPro2021Volume&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Language</span> <span class="attr">ID</span>=<span class="string">&quot;zh-cn&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span> <span class="attr">ID</span>=<span class="string">&quot;VisioPro2021Volume&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Language</span> <span class="attr">ID</span>=<span class="string">&quot;zh-cn&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;OneDrive&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Add</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Display</span> <span class="attr">Level</span>=<span class="string">&quot;Full&quot;</span> <span class="attr">AcceptEULA</span>=<span class="string">&quot;TRUE&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Updates</span> <span class="attr">Enabled</span>=<span class="string">&quot;False&quot;</span> <span class="attr">Channel</span>=<span class="string">&quot;PerpetualVL2021&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="8-下载-2">8. 下载</h2>
+<p>提供上述工具和 Office LTSC 2021 VL 版本下载：</p>
 <p>百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1KWCpUA9Ifyno0MVcuozddQ?pwd=3s0s">https://pan.baidu.com/s/1KWCpUA9Ifyno0MVcuozddQ?pwd=3s0s</a></p>
 <p>更多：<a href="/blog/windows/" title="Windows 下载汇总">Windows 下载汇总</a></p>
 
@@ -686,7 +702,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -749,7 +765,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Office-LTSC-2021-%E5%8F%91%E5%B8%83"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Office LTSC 2021 发布</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1. 软件准备</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%88%9B%E5%BB%BA-configuration-xml"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2. 创建 configuration.xml</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E4%B8%8B%E8%BD%BD-Office-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3. 下载 Office 离线安装包</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E4%BD%BF%E7%94%A8-Office-Deployment-Tool-%E4%B8%8B%E8%BD%BD-Office-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">3.1 使用 Office Deployment Tool 下载 Office 离线安装包</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E4%BD%BF%E7%94%A8-Office-Tool-Plus-OTP-%E4%B8%8B%E8%BD%BD-Office-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">3.2 使用 Office Tool Plus (OTP) 下载 Office 离线安装包</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%88%9B%E5%BB%BA%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">4. 创建安装程序</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-1-%E4%BD%BF%E7%94%A8-Office-Deployment-Tool-%E5%AE%89%E8%A3%85"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">4.1 使用 Office Deployment Tool 安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-2-%E4%BD%BF%E7%94%A8-Office-2013-2021-C2R-Install"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">4.2 使用 Office 2013-2021 C2R Install</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E5%88%9B%E5%BB%BA-ISO-%E9%95%9C%E5%83%8F"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">5. 创建 ISO 镜像</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E5%AE%89%E8%A3%85"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">6. 安装</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-configuration-xml-%E7%A4%BA%E4%BE%8B"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">7. configuration.xml 示例</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E4%B8%8B%E8%BD%BD"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">8. 下载</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Office-LTSC-2021-%E5%8F%91%E5%B8%83"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Office LTSC 2021 发布</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1. 软件准备</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E5%88%9B%E5%BB%BA-configuration-xml-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2. 创建 configuration.xml</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-%E4%B8%8B%E8%BD%BD-Office-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">3. 下载 Office 离线安装包</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-1-%E4%BD%BF%E7%94%A8-Office-Deployment-Tool-%E4%B8%8B%E8%BD%BD-Office-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">3.1 使用 Office Deployment Tool 下载 Office 离线安装包</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-2-%E4%BD%BF%E7%94%A8-Office-Tool-Plus-OTP-%E4%B8%8B%E8%BD%BD-Office-%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">3.2 使用 Office Tool Plus (OTP) 下载 Office 离线安装包</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-%E5%88%9B%E5%BB%BA%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">4. 创建安装程序</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-1-%E4%BD%BF%E7%94%A8-Office-Deployment-Tool-%E5%AE%89%E8%A3%85"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">4.1 使用 Office Deployment Tool 安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-2-%E4%BD%BF%E7%94%A8-Office-2013-2021-C2R-Install"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">4.2 使用 Office 2013-2021 C2R Install</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-%E5%88%9B%E5%BB%BA-ISO-%E9%95%9C%E5%83%8F"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">5. 创建 ISO 镜像</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#6-%E5%AE%89%E8%A3%85-2"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">6. 安装</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#7-configuration-xml-%E7%A4%BA%E4%BE%8B-2"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">7. configuration.xml 示例</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#8-%E4%B8%8B%E8%BD%BD-2"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">8. 下载</span></a></li></ol>
         
         </div>
       </aside>
@@ -991,7 +1007,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
