@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 西部数据 SN550 “23 固件门” 检测方法 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 西部数据 SN550 “23 固件门” 检测方法 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 西部数据 SN550 “23 固件门” 检测方法 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 西部数据 SN550 “23 固件门” 检测方法 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 西部数据 SN550 “23 固件门” 检测方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/ssd-firmware-check/">
+  <link rel="canonical" href="https://sysin.cn/blog/ssd-firmware-check/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -236,6 +238,8 @@
 
           
           
+          
+          
           <li>
             <a href="/about/">
               
@@ -244,8 +248,6 @@
               
             </a>
           </li>
-          
-          
           
           
           
@@ -470,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,7 +489,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/ssd-firmware-check/" title="西部数据 SN550 “23 固件门” 检测方法">西部数据 SN550 “23 固件门” 检测方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <h2 id="事件简介：西数-SN550-缓外速度减半">事件简介：<a target="_blank" rel="noopener" href="https://news.mydrivers.com/1/779/779435.htm">西数 SN550 缓外速度减半</a></h2>
 <p>作为市场上最受欢迎的 NVMe SSD 之一，西数 SN550 受到了很多 DIY 玩家的欢迎。</p>
@@ -499,7 +501,7 @@
 <p>近期购买 SN550 的用户要注意了，7 月份及以后生产日期的基本是 23 固件版本，23 固件版本相比降价了，21 固件版本价格略有上涨，两者差价超过 50。个别商家根据生产日期售卖 21 版本，因为商家不能拆封验证，所以购买后还是需要自己验证一下。以下是笔者总结的通用检测方法。</p>
 <h2 id="通用检测方法">通用检测方法</h2>
 <p>因为驱动的原因或者系统的限制，在 Windows 或者 Windows 虚机下可以更好的识别到 NVME 的 <strong>S.M.A.R.T.</strong> 状态数据，虚拟化 Windows 是跨平台的，我们姑且称为通用检测方法。</p>
-<p>关于 smartmontools 的介绍，可以参看本站 <a href="https://sysin.org/blog/smartmontools/">另外一篇文章</a>。</p>
+<p>关于 smartmontools 的介绍，可以参看本站 <a target="_blank" rel="noopener" href="https://sysin.org/blog/smartmontools/">另外一篇文章</a>。</p>
 <h3 id="Windows-11">Windows</h3>
 <p>打开 Windows Powershell，复制如下命令执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br><span class="line">choco install smartmontools</span><br><span class="line"><span class="built_in">Set-Location</span> <span class="string">&quot;C:\Program Files\smartmontools\bin&quot;</span></span><br><span class="line"> .\smartctl.exe <span class="literal">--all</span> /dev/sdb</span><br></pre></td></tr></table></figure>
@@ -522,8 +524,8 @@
 <p>目前，没有适用于 macOS 的 NVMe SMART over USB 驱动程序。macOS 不支持此功能，并且没有第三方驱动程序（内核扩展）。此外，目前还没有来自 NVM Express Workgroup 的 NVMe SMART over USB 官方规范。目前只有供应商特定的解决方法可用，如 JMicron 和 AMedia，但没有通用标准。内部基于 NVMe SSD 的外部 USB SSD 的一些示例：Samsung Portable T7 Touch SSD、Crucial X8 Portable SSD。</p>
 <p>在 macOS 上目前只能读取 USB SATA SSD 的 SMART 数据，WD SN550 当然是 NVMe SSD，目前只能通过 Windows 虚机的方式来检测。</p>
 <p><strong>要求</strong>：</p>
-<p><a href="https://sysin.org/blog/vmware-fusion-12-oem/">VMware Fusion 12</a></p>
-<p><a href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
+<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-12-oem/">VMware Fusion 12</a></p>
+<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
 <p><strong>注意点</strong>：</p>
 <p>使用虚拟 USB 控制器:</p>
 <p><img src="fusion-usb-connect.webp" alt="fusion-usb-connect"></p>
@@ -541,8 +543,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install smartmontools &amp;&amp; sudo smartctl --all /dev/nvme0n1   #/dev/* 具体名称请运行 sudo fdisk -l 查看</span><br></pre></td></tr></table></figure>
 <p>如果是外接 USB NVME SSD，同样可能需要虚机来解决。</p>
 <p><strong>要求</strong>：</p>
-<p><a href="https://sysin.org/blog/vmware-workstation-16-unlocker/">WMware Workstation 16 for Linux</a></p>
-<p><a href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
+<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-16-unlocker/">WMware Workstation 16 for Linux</a></p>
+<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-10/">Windows 10</a> 系列虚机，或者直接使用本站 <a target="_blank" rel="noopener" href="https://sysin.org/blog/windows-server-2019-ovf/">Windows Server 2019 OVF</a></p>
 <p>操作方法具体参看上述 macOS 部分，类似的：</p>
 <p>登录 Windows 虚机，打开 Windows Powershell，复制如下命令执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br><span class="line">choco install smartmontools</span><br><span class="line"><span class="built_in">Set-Location</span> <span class="string">&quot;C:\Program Files\smartmontools\bin&quot;</span></span><br><span class="line"> .\smartctl.exe <span class="literal">--all</span> /dev/sdb</span><br></pre></td></tr></table></figure>
@@ -667,7 +669,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -974,7 +976,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
