@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Kubernetes v1.25 编译 kubeadm 修改证书有效期到 100 年 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" Kubernetes v1.25 编译 kubeadm 修改证书有效期到 100 年 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> Kubernetes v1.25 编译 kubeadm 修改证书有效期到 100 年 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" Kubernetes v1.25 编译 kubeadm 修改证书有效期到 100 年 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" Kubernetes v1.25 编译 kubeadm 修改证书有效期到 100 年 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/kubernetes-kubeadm-cert-100y/">
+  <link rel="canonical" href="https://sysin.org/blog/kubernetes-kubeadm-cert-100y/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -238,6 +236,8 @@
 
           
           
+          
+          
           <li>
             <a href="/about/">
               
@@ -246,8 +246,6 @@
               
             </a>
           </li>
-          
-          
           
           
           
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,7 +485,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/kubernetes-kubeadm-cert-100y/" title="Kubernetes v1.25 编译 kubeadm 修改证书有效期到 100 年">Kubernetes v1.25 编译 kubeadm 修改证书有效期到 100 年</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="kubernetes-flower.png" alt="kubernetes-flower"></p>
 <p>随着 <a target="_blank" rel="noopener" href="https://kubernetes.io/blog/2022/08/23/kubernetes-v1-25-release/">Kubernetes 1.25</a> 的发布（August 23, 2022），没写完的文章又要测试一下新版本才能完成。</p>
@@ -552,7 +550,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">docker run --<span class="built_in">rm</span> -v &lt;你修改后的代码目录&gt;:/go/src/k8s.io/kubernetes -it gcrcontainer/kube-cross bash</span></span><br><span class="line">docker run --rm -v /root/kubernetes:/go/src/k8s.io/kubernetes -it k8s.gcr.io/kube-cross:v1.19-1 bash</span><br><span class="line"></span><br><span class="line">cd /go/src/k8s.io/kubernetes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译 kubeadm, 这里主要编译 kubeadm 即可</span></span><br><span class="line">make all WHAT=cmd/kubeadm GOFLAGS=-v</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译 kubelet</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make all WHAT=cmd/kubelet GOFLAGS=-v</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译 kubectl</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">make all WHAT=cmd/kubectl GOFLAGS=-v</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">退出容器</span></span><br><span class="line">exit</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编译完产物在 _output/bin/kubeadm 目录下，</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">其中 bin 是使用了软连接 (sysin)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">真实路径是_output/local/bin/linux/amd64/kubeadm</span></span><br><span class="line">mv /usr/bin/kubeadm /usr/bin/kubeadm_backup</span><br><span class="line">cp _output/local/bin/linux/amd64/kubeadm /usr/bin/kubeadm</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">chmod</span> +x /usr/bin/kubeadm</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">验证版本</span></span><br><span class="line">kubeadm version</span><br></pre></td></tr></table></figure>
 <h3 id="3-2-本机编译">3.2 本机编译</h3>
 <p>环境需求参看 <a target="_blank" rel="noopener" href="https://github.com/kubernetes/community/blob/master/contributors/devel/development.md">官方文档</a>。</p>
-<p>本例在 <a target="_blank" rel="noopener" href="https://sysin.org/blog/almalinux-9/">AlmaLinux 9 x86_64</a> 中编译完成。</p>
+<p>本例在 <a href="https://sysin.org/blog/almalinux-9/">AlmaLinux 9 x86_64</a> 中编译完成。</p>
 <h4 id="3-2-1-软件包准备">3.2.1 软件包准备</h4>
 <p>CentOS：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall &quot;Development Tools&quot; -y #gcc, make etc.</span><br><span class="line">yum install rsync jq -y</span><br></pre></td></tr></table></figure>
@@ -730,7 +728,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1035,7 +1033,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> FreeBSD 全局安装配置 zsh + oh-my-zsh - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" FreeBSD 全局安装配置 zsh + oh-my-zsh - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> FreeBSD 全局安装配置 zsh + oh-my-zsh - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" FreeBSD 全局安装配置 zsh + oh-my-zsh - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" FreeBSD 全局安装配置 zsh + oh-my-zsh "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/freebsd-zsh-all/">
+  <link rel="canonical" href="https://sysin.org/blog/freebsd-zsh-all/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -238,6 +236,8 @@
 
           
           
+          
+          
           <li>
             <a href="/about/">
               
@@ -246,8 +246,6 @@
               
             </a>
           </li>
-          
-          
           
           
           
@@ -474,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -491,10 +489,10 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/freebsd-zsh-all/" title="FreeBSD 全局安装配置 zsh + oh-my-zsh">FreeBSD 全局安装配置 zsh + oh-my-zsh</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="https://ohmyz.sh/img/OMZLogo_BnW.png" alt="OMZLogo"></p>
-<p>FreeBSD 使用 <a target="_blank" rel="noopener" href="https://www.FreeBSD.org/cgi/man.cgi?query=tcsh&amp;sektion=1&amp;manpath=freebsd-release-ports">tcsh(1)</a> 作为自己的默认 Shell。zsh 作为终极 Shell，在 FreeBSD 下也是适用的。使用 <a target="_blank" rel="noopener" href="https://sysin.org/blog/linux-zsh/">oh-my-zsh</a> 配置 zsh 默认仅对当前用户有效，新建或者切换用户后，仍然恢复到了默认的 shell，重新配置新用户略嫌繁琐。本文描述全局配置的方法，新用户将默认使用 zsh 并加载统一的配置文件。</p>
+<p>FreeBSD 使用 <a target="_blank" rel="noopener" href="https://www.FreeBSD.org/cgi/man.cgi?query=tcsh&amp;sektion=1&amp;manpath=freebsd-release-ports">tcsh(1)</a> 作为自己的默认 Shell。zsh 作为终极 Shell，在 FreeBSD 下也是适用的。使用 <a href="https://sysin.org/blog/linux-zsh/">oh-my-zsh</a> 配置 zsh 默认仅对当前用户有效，新建或者切换用户后，仍然恢复到了默认的 shell，重新配置新用户略嫌繁琐。本文描述全局配置的方法，新用户将默认使用 zsh 并加载统一的配置文件。</p>
 <blockquote>
 <p>本文内容基于 FreeBSD 13，其他版本理论上也适用。</p>
 </blockquote>
@@ -795,7 +793,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1104,7 +1102,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 

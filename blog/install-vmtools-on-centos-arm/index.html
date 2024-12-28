@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 在 CentOS / AlmaLinux / Rocky Linux ARM 上安装 VMware Tools - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" 在 CentOS / AlmaLinux / Rocky Linux ARM 上安装 VMware Tools - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> 在 CentOS / AlmaLinux / Rocky Linux ARM 上安装 VMware Tools - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" 在 CentOS / AlmaLinux / Rocky Linux ARM 上安装 VMware Tools - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" 在 CentOS / AlmaLinux / Rocky Linux ARM 上安装 VMware Tools "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/install-vmtools-on-centos-arm/">
+  <link rel="canonical" href="https://sysin.org/blog/install-vmtools-on-centos-arm/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -238,6 +236,8 @@
 
           
           
+          
+          
           <li>
             <a href="/about/">
               
@@ -246,8 +246,6 @@
               
             </a>
           </li>
-          
-          
           
           
           
@@ -476,7 +474,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -493,9 +491,9 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/install-vmtools-on-centos-arm/" title="在 CentOS &#x2F; AlmaLinux &#x2F; Rocky Linux ARM 上安装 VMware Tools">在 CentOS &#x2F; AlmaLinux &#x2F; Rocky Linux ARM 上安装 VMware Tools</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
-<p>ESXi-Arm 已经可以支持运行 <a target="_blank" rel="noopener" href="https://sysin.org/blog/centos-8/">CentOS 8</a> Arm/AArch64 及关联发行版 <a target="_blank" rel="noopener" href="https://sysin.org/blog/almalinux-8/">AlmaLinux 8</a> ARM 和 <a target="_blank" rel="noopener" href="https://sysin.org/blog/rocky-linux-8/">Rockly Linux 8</a> ARM。不过 VMware Tools 与 x86_64 版本不一样，无法直接运行 <code>dnf install open-vm-tools</code> 进行安装，安装步骤如下：</p>
+<p>ESXi-Arm 已经可以支持运行 <a href="https://sysin.org/blog/centos-8/">CentOS 8</a> Arm/AArch64 及关联发行版 <a href="https://sysin.org/blog/almalinux-8/">AlmaLinux 8</a> ARM 和 <a href="https://sysin.org/blog/rocky-linux-8/">Rockly Linux 8</a> ARM。不过 VMware Tools 与 x86_64 版本不一样，无法直接运行 <code>dnf install open-vm-tools</code> 进行安装，安装步骤如下：</p>
 <p>1.首先需要启用 powertools repo 安装必要组件 (sysin)，然后从 github 获取 <a target="_blank" rel="noopener" href="https://github.com/vmware/open-vm-tools.git">open-vm-tools</a> 编译安装：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dnf config-manager --set-enabled powertools</span><br><span class="line">dnf -y update</span><br><span class="line">dnf install -y git make rpm-build autoconf automake libtool gcc-c++ doxygen fuse-devel gdk-pixbuf2-xlib-devel glib2-devel gtkmm30-devel gtk3-devel libdnet-devel libicu-devel libmspack-devel libtirpc-devel libtool-ltdl-devel libX11-devel libXext-devel libXi-devel libXinerama-devel libXrandr-devel libXrender-devel libXtst-devel openssl-devel pam-devel rpcgen xmlsec1-devel xmlsec1-openssl-devel valgrind-devel libdrm-devel systemd-devel</span><br><span class="line">git clone --depth=1 https://github.com/vmware/open-vm-tools.git</span><br><span class="line">cd open-vm-tools/open-vm-tools/</span><br><span class="line">autoreconf -i</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <p>2.创建一个 systemd unit 文件来管理 VMware Tools 服务：</p>
@@ -622,7 +620,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -933,7 +931,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
