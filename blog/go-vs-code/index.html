@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows） "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/go-vs-code/">
+  <link rel="canonical" href="https://sysin.cn/blog/go-vs-code/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -464,11 +466,11 @@
         <!-- pageview_count start -->
         
         <div style="color:gray" align="left">
-        更新日期：1613545024000，阅读量: <span class="waline-pageview-count" />
+        更新日期：Wed Feb 17 2021 14:57:04 GMT+0800，阅读量: <span class="waline-pageview-count" />
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -485,18 +487,18 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/go-vs-code/" title="Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows）">Go 1.16 发布，VS Code 配置 Go 语言开发环境（macOS、Linux、Windows）</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="hello-go.webp" alt="Hello, Go!"></p>
-<h2 id="Go-1-16-发布"><a href="#Go-1-16-发布" class="headerlink" title="Go 1.16 发布"></a>Go 1.16 发布</h2><p><a target="_blank" rel="noopener" href="https://golang.google.cn/doc/devel/release.html#go1.16">go1.16 (released 2021/02/16)</a>，支持 Apple silicon Mac。</p>
+<h2 id="Go-1-16-发布">Go 1.16 发布</h2>
+<p><a target="_blank" rel="noopener" href="https://golang.google.cn/doc/devel/release.html#go1.16">go1.16 (released 2021/02/16)</a>，支持 Apple silicon Mac。</p>
 <p>Go 1.16 正式发布，添加了 macOS ARM64（Apple silicon）的支持，该版本主要包括工具链、运行时和库的实现优化。并且，该版本保留了 <a target="_blank" rel="noopener" href="https://golang.google.cn/doc/go1compat.html">Go 1 兼容性的承诺</a>，几乎所有 Go 程序都能像以前一样继续编译和运行。详见：<a target="_blank" rel="noopener" href="https://golang.google.cn/doc/go1.16">Go 1.16 Release Notes</a>。</p>
 <p>Darwin and iOS</p>
-<p>  Go 1.16 adds support of 64-bit ARM architecture on macOS (also known as  Apple silicon) with <code>GOOS=darwin</code>, <code>GOARCH=arm64</code>.  Like the <code>darwin/amd64</code> port, the <code>darwin/arm64</code>  port supports cgo, internal and external linking, <code>c-archive</code>,  <code>c-shared</code>, and <code>pie</code> build modes, and the race  detector.</p>
-<p>  The iOS port, which was previously <code>darwin/arm64</code>, has  been renamed to <code>ios/arm64</code>. <code>GOOS=ios</code>  implies the  <code>darwin</code> build tag, just as <code>GOOS=android</code>  implies the <code>linux</code> build tag. This change should be  transparent to anyone using gomobile to build iOS apps.</p>
-<p>  Go 1.16 adds an <code>ios/amd64</code> port, which targets the iOS  simulator running on AMD64-based macOS. Previously this was  unofficially supported through <code>darwin/amd64</code> with  the <code>ios</code> build tag set. See also  <a target="_blank" rel="noopener" href="https://golang.google.cn/misc/ios/README"><code>misc/ios/README</code></a> for  details about how to build programs for iOS and iOS simulator.</p>
-<p>  Go 1.16 is the last release that will run on macOS 10.12 Sierra.  Go 1.17 will require macOS 10.13 High Sierra or later.</p>
+<p>Go 1.16 adds support of 64-bit ARM architecture on macOS (also known as  Apple silicon) with <code>GOOS=darwin</code>, <code>GOARCH=arm64</code>.  Like the <code>darwin/amd64</code> port, the <code>darwin/arm64</code>  port supports cgo, internal and external linking, <code>c-archive</code>,  <code>c-shared</code>, and <code>pie</code> build modes, and the race  detector.</p>
+<p>The iOS port, which was previously <code>darwin/arm64</code>, has  been renamed to <code>ios/arm64</code>. <code>GOOS=ios</code>  implies the  <code>darwin</code> build tag, just as <code>GOOS=android</code>  implies the <code>linux</code> build tag. This change should be  transparent to anyone using gomobile to build iOS apps.</p>
+<p>Go 1.16 adds an <code>ios/amd64</code> port, which targets the iOS  simulator running on AMD64-based macOS. Previously this was  unofficially supported through <code>darwin/amd64</code> with  the <code>ios</code> build tag set. See also  <a target="_blank" rel="noopener" href="https://golang.google.cn/misc/ios/README"><code>misc/ios/README</code></a> for  details about how to build programs for iOS and iOS simulator.</p>
+<p>Go 1.16 is the last release that will run on macOS 10.12 Sierra.  Go 1.17 will require macOS 10.13 High Sierra or later.</p>
 <p>核心平台版本下载：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -551,17 +553,23 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>其它版本，请访问官网：<a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">https://golang.google.cn/dl/</a></p>
-<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><blockquote>
+<h2 id="下载地址-193">下载地址</h2>
+<blockquote>
 <p>文本基于 Visual Studio Code 1.50，Go 1.16。</p>
 </blockquote>
 <p>VS Code 1.50：</p>
 <ul>
-<li>macOS intel x64，百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1PE5BwJzY-k5rc396D9vmcA?pwd=18o2">https://pan.baidu.com/s/1PE5BwJzY-k5rc396D9vmcA?pwd=18o2</a></li>
-<li>Windows x64 System Setup，百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1CDm9Vtd4cMaxNzsDLK2iNg?pwd=no0h">https://pan.baidu.com/s/1CDm9Vtd4cMaxNzsDLK2iNg?pwd=no0h</a></li>
-<li><p>Windows x64 User Setup，百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1PL4rFUgBn8xw1Ek5E0rmtA?pwd=qew1">https://pan.baidu.com/s/1PL4rFUgBn8xw1Ek5E0rmtA?pwd=qew1</a></p>
-<p>如何屏蔽 VS Code 自动更新：添加 hosts <code>127.0.0.1 update.code.visualstudio.com</code> 或者“首选项—设置”中搜索 update，修改模式为 none<br>强烈建议屏蔽自动更新，否则你的环境将每月被自动更新一到数次！</p>
+<li>
+<p>macOS intel x64，百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1PE5BwJzY-k5rc396D9vmcA?pwd=18o2">https://pan.baidu.com/s/1PE5BwJzY-k5rc396D9vmcA?pwd=18o2</a></p>
+</li>
+<li>
+<p>Windows x64 System Setup，百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1CDm9Vtd4cMaxNzsDLK2iNg?pwd=no0h">https://pan.baidu.com/s/1CDm9Vtd4cMaxNzsDLK2iNg?pwd=no0h</a></p>
+</li>
+<li>
+<p>Windows x64 User Setup，百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1PL4rFUgBn8xw1Ek5E0rmtA?pwd=qew1">https://pan.baidu.com/s/1PL4rFUgBn8xw1Ek5E0rmtA?pwd=qew1</a></p>
+<p>如何屏蔽 VS Code 自动更新：添加 hosts <code>127.0.0.1 update.code.visualstudio.com</code> 或者“首选项–设置”中搜索 update，修改模式为 none<br>
+强烈建议屏蔽自动更新，否则你的环境将每月被自动更新一到数次！</p>
 </li>
 </ul>
 <p>Go 1.16：百度网盘链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1nVIk7V4C3aaYGKk8NFiJTA?pwd=h3pi">https://pan.baidu.com/s/1nVIk7V4C3aaYGKk8NFiJTA?pwd=h3pi</a></p>
@@ -572,29 +580,42 @@
 <li>go1.16.windows-amd64.zip   - Windows x86-64 zip</li>
 <li>go1.16.windows-amd64.msi   - Windows x86-64 msi</li>
 </ul>
-<h2 id="macOS-go-开发环境"><a href="#macOS-go-开发环境" class="headerlink" title="macOS go 开发环境"></a>macOS go 开发环境</h2><h3 id="0-系统准备"><a href="#0-系统准备" class="headerlink" title="0. 系统准备"></a>0. 系统准备</h3><ul>
-<li><p><a href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur 11</a></p>
+<h2 id="macOS-go-开发环境">macOS go 开发环境</h2>
+<h3 id="0-系统准备">0. 系统准备</h3>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Big-Sur/">macOS Big Sur 11</a></p>
 </li>
-<li><p>安装 Xcode Command Line Tools：<code>xcode-select --install</code> (若报错需要离线安装，<a href="https://sysin.org/blog/apple-xcode-12/">下载</a>)</p>
+<li>
+<p>安装 Xcode Command Line Tools：<code>xcode-select --install</code> (若报错需要离线安装，<a target="_blank" rel="noopener" href="https://sysin.org/blog/apple-xcode-12/">下载</a>)</p>
 </li>
-<li><p>安装 brew：<code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
+<li>
+<p>安装 brew：<code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
 </li>
-<li><p>安装 oh-my-zsh（推荐，非必须）：<code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code>，<a href="https://sysin.org/blog/macos-zsh/">参看说明</a></p>
+<li>
+<p>安装 oh-my-zsh（推荐，非必须）：<code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/macos-zsh/">参看说明</a></p>
 </li>
 </ul>
 <blockquote>
-<p>GitHub 的这个域名需要文明访问<br>通过 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 查询，美国地址有效，添加到 hosts 文件（<code>sudo vi /etc/hosts</code>）<br>199.232.96.133 raw.githubusercontent.com</p>
+<p>GitHub 的这个域名需要文明访问<br>
+通过 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 查询，美国地址有效，添加到 hosts 文件（<code>sudo vi /etc/hosts</code>）<br>
+199.232.96.133 <a target="_blank" rel="noopener" href="http://raw.githubusercontent.com">raw.githubusercontent.com</a></p>
 </blockquote>
-<h3 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">https://golang.google.cn/dl/</a>，也有 pkg 格式软件包。</p>
+<h3 id="1-下载安装">1. 下载安装</h3>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">https://golang.google.cn/dl/</a>，也有 pkg 格式软件包。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://golang.google.cn/dl/go1.16.darwin-amd64.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 或者 (sysin)</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">wget https://dl.google.com/go/go1.16.darwin-amd64.tar.gz</span></span><br><span class="line">sudo tar zxvf go1.16.darwin-amd64.tar.gz  -C /usr/local</span><br></pre></td></tr></table></figure>
-<h3 id="2-添加环境变量"><a href="#2-添加环境变量" class="headerlink" title="2. 添加环境变量"></a>2. 添加环境变量</h3><p><strong>Go 环境变量解释</strong><br>GOROOT 就是 go 的安装路径<br>GOPATH 是 go tools 用到的环境变量，不要把 GOPATH 设置成 go 的安装路径，通常可以在用户目录下创建一个 gopath 目录用作 GOPATH</p>
+<h3 id="2-添加环境变量">2. 添加环境变量</h3>
+<p><strong>Go 环境变量解释</strong><br>
+GOROOT 就是 go 的安装路径<br>
+GOPATH 是 go tools 用到的环境变量，不要把 GOPATH 设置成 go 的安装路径，通常可以在用户目录下创建一个 gopath 目录用作 GOPATH</p>
 <p>以下是添加用户环境变量（推荐）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 创建目录</span></span></span><br><span class="line">mkdir ~/gopath</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">zsh (sysin)</span></span><br><span class="line">echo &#x27;</span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=~/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br><span class="line">&#x27; &gt;&gt; ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">bash (sysin)</span></span><br><span class="line">将以上 ~/.zshrc 替换为 ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">go</span> version</span><br><span class="line"><span class="keyword">go</span> version go1<span class="number">.16</span> darwin/amd64</span><br></pre></td></tr></table></figure>
 <p>如有必要也可以添加全局变量（一般不需要）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑/etc/profile文件`sudo vi /etc/profile`添加如下：</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">go setting</span></span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/usr/local/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-<h3 id="3-go-命令自动补全"><a href="#3-go-命令自动补全" class="headerlink" title="3. go 命令自动补全"></a>3. go 命令自动补全</h3><ul>
+<h3 id="3-go-命令自动补全">3. go 命令自动补全</h3>
+<ul>
 <li>安装</li>
 </ul>
 <p>在终端输入</p>
@@ -604,30 +625,35 @@
 <li>卸载</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gocomplete -uninstall</span><br></pre></td></tr></table></figure>
-<h3 id="4-安装-VS-Code-和-Go-扩展"><a href="#4-安装-VS-Code-和-Go-扩展" class="headerlink" title="4. 安装 VS Code 和 Go 扩展"></a>4. 安装 VS Code 和 Go 扩展</h3><p>如果你还没有安装 VS Code, 直接下载安装 <a target="_blank" rel="noopener" href="https://code.visualstudio.com">Visual Studio Code</a>。浏览到“扩展面板” Extensions pane (Ctrl+Shift+X)。搜索 “Go” 并安装即可 (the publisher ID is <code>golang.Go</code>)。</p>
+<h3 id="4-安装-VS-Code-和-Go-扩展">4. 安装 VS Code 和 Go 扩展</h3>
+<p>如果你还没有安装 VS Code, 直接下载安装 <a target="_blank" rel="noopener" href="https://code.visualstudio.com">Visual Studio Code</a>。浏览到“扩展面板” Extensions pane (Ctrl+Shift+X)。搜索 “Go” 并安装即可 (the publisher ID is <code>golang.Go</code>)。</p>
 <blockquote>
 <p>Go 其他 IDE</p>
 <p>LiteIDE：一款开源、跨平台的轻量级 Go 语言集成开发环境（IDE），基于 Qt 开发。</p>
 <p>Goxxxx：付费软件，Jxxxxx 公司推出的 Go 语言集成开发环境。因为使用了该公司和产品名称被误认为侵权，只好隐藏😓</p>
 </blockquote>
-<h3 id="5-安装-go-tools"><a href="#5-安装-go-tools" class="headerlink" title="5. 安装 go tools"></a>5. 安装 go tools</h3><p>按 F1 键，输入 <code>&gt;go:install</code>，下面会自动搜索相关命令，我们选择 <code>Go:Install/Update Tools</code> 这个命令（使用 VS Code 打开 go 文件也会提示安装“xxx”工具）。</p>
+<h3 id="5-安装-go-tools">5. 安装 go tools</h3>
+<p>按 F1 键，输入 <code>&gt;go:install</code>，下面会自动搜索相关命令，我们选择 <code>Go:Install/Update Tools</code> 这个命令（使用 VS Code 打开 go 文件也会提示安装“xxx”工具）。</p>
 <p>安装报错无法访问 <a target="_blank" rel="noopener" href="https://proxy.golang.org/">https://proxy.golang.org/</a>，被墙。</p>
 <p>换一个国内能访问的代理地址：<a target="_blank" rel="noopener" href="https://goproxy.cn">https://goproxy.cn</a></p>
 <p>执行命令：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//goproxy.cn,direct</span></span><br></pre></td></tr></table></figure>
 <p>重新安装，正确通过！</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Tools environment: GOPATH=/~/gopath</span><br><span class="line">Installing 17 tools at ~/gopath/bin in module mode.</span><br><span class="line">  gocode</span><br><span class="line">  gopkgs</span><br><span class="line">  go-outline</span><br><span class="line">  go-symbols</span><br><span class="line">  guru</span><br><span class="line">  gorename</span><br><span class="line">  gotests</span><br><span class="line">  gomodifytags</span><br><span class="line">  impl</span><br><span class="line">  fillstruct</span><br><span class="line">  goplay</span><br><span class="line">  godoctor</span><br><span class="line">  dlv</span><br><span class="line">  gocode-gomod</span><br><span class="line">  godef</span><br><span class="line">  goreturns</span><br><span class="line">  golint</span><br></pre></td></tr></table></figure>
-<h3 id="6-智能提示"><a href="#6-智能提示" class="headerlink" title="6. 智能提示"></a>6. 智能提示</h3><p>使用 VS Code 打开一个文件夹，在文件夹中新建一个 .go 文件，例如：Helloworld.go，打开 Helloworld.go，输入 p，可以看到提示 package main 等内容已经出现。</p>
+<h3 id="6-智能提示">6. 智能提示</h3>
+<p>使用 VS Code 打开一个文件夹，在文件夹中新建一个 .go 文件，例如：Helloworld.go，打开 Helloworld.go，输入 p，可以看到提示 package main 等内容已经出现。</p>
 <p>示例：Helloworld.go</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="built_in">println</span>(<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>示例：Version.go</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;fmt&quot;</span></span><br><span class="line">  <span class="string">&quot;runtime&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  fmt.Printf(<span class="string">&quot;%s&quot;</span>, runtime.Version())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7-格式化代码"><a href="#7-格式化代码" class="headerlink" title="7. 格式化代码"></a>7. 格式化代码</h3><p>在 VS Code 编辑区域右键点击出现菜单，选择“格式化文档”即可。</p>
+<h3 id="7-格式化代码">7. 格式化代码</h3>
+<p>在 VS Code 编辑区域右键点击出现菜单，选择“格式化文档”即可。</p>
 <p>Go 开发团队不想要 Go 语言像许多其它语言那样总是在为代码风格而引发无休止的争论，浪费大量宝贵的开发时间，因此他们制作了一个工具：<code>go fmt</code>（<code>gofmt</code>）。这个工具可以将你的源代码格式化成符合官方统一标准的风格 (sysin)，属于语法风格层面上的小型重构。遵循统一的代码风格是 Go 开发中无可撼动的铁律，因此你必须在编译或提交版本管理系统之前使用 <code>gofmt</code> 来格式化你的代码。</p>
 <p>在命令行输入 <code>gofmt -w program.go</code> 会格式化该源文件的代码然后将格式化后的代码覆盖原始内容（如果不加参数 <code>-w</code> 则只会打印格式化后的结果而不重写文件）；<code>gofmt -w *.go</code> 会格式化并重写所有 Go 源文件；<code>gofmt map1</code> 会格式化并重写 map1 目录及其子目录下的所有 Go 源文件。</p>
 <p>Go 对于代码的缩进层级方面使用 tab 还是空格并没有强制规定，但是使用 gofmt 格式化代码后将使用 Tab 替代空格（VS Code 默认设置一个 Tab 等于 4 个空格）。</p>
 <p>通过设置显示 Tab 和 空格来查看或者验证格式化效果。在 VS Code 打开“设置”，在搜索框中输入 renderControlCharacters，选中勾选框，即可显示 Tab；在搜索框中输入 renderWhitespace，选择 all，即可显示空格。</p>
-<h3 id="8-编译和运行第一个程序"><a href="#8-编译和运行第一个程序" class="headerlink" title="8. 编译和运行第一个程序"></a>8. 编译和运行第一个程序</h3><p>安装 VS Code 扩展 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner</a>，在编辑区域右键点击出现菜单，选择“Run Code”，可以看到程序执行结果：</p>
+<h3 id="8-编译和运行第一个程序">8. 编译和运行第一个程序</h3>
+<p>安装 VS Code 扩展 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner</a>，在编辑区域右键点击出现菜单，选择“Run Code”，可以看到程序执行结果：</p>
 <p>Helloworld.go 输出：Hello world</p>
 <p>Version.go 输出：go1.16</p>
 <p>打开终端，编译：</p>
@@ -635,34 +661,47 @@
 <p>执行程序：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Helloworld</span><br></pre></td></tr></table></figure>
 <p>可以看到执行结果：Hello world</p>
-<h2 id="Linux-go-编译环境"><a href="#Linux-go-编译环境" class="headerlink" title="Linux go 编译环境"></a>Linux go 编译环境</h2><p>这里仅配置 Linux Shell 下的编译环境。</p>
+<h2 id="Linux-go-编译环境">Linux go 编译环境</h2>
+<p>这里仅配置 Linux Shell 下的编译环境。</p>
 <p>桌面环境可以参照上述 macOS 部分。</p>
-<h3 id="1-软件包准备"><a href="#1-软件包准备" class="headerlink" title="1. 软件包准备"></a>1. 软件包准备</h3><p>CentOS (8)：</p>
+<h3 id="1-软件包准备">1. 软件包准备</h3>
+<p>CentOS (8)：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc make -y</span><br><span class="line">yum install rsync jq -y</span><br><span class="line">yum install git -y</span><br></pre></td></tr></table></figure>
 <p>Ubuntu (20.04)：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential #(Following command will install essential commands like gcc, make etc.)</span><br><span class="line">sudo apt install rsync jq -y</span><br><span class="line">sudo apt install git -y</span><br></pre></td></tr></table></figure>
-<h3 id="2-下载安装"><a href="#2-下载安装" class="headerlink" title="2. 下载安装"></a>2. 下载安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.16.linux-amd64.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 或者 (sysin)</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">wget https://golang.google.cn/dl/go1.16.linux-amd64.tar.gz</span></span><br><span class="line">tar zxvf go1.16.linux-amd64.tar.gz  -C /usr/local</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑/etc/profile文件添加如下：</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">go setting</span></span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/usr/local/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-<h3 id="3-验证"><a href="#3-验证" class="headerlink" title="3. 验证"></a>3. 验证</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> version</span><br><span class="line"><span class="keyword">go</span> version go1<span class="number">.16</span> linux/amd64</span><br></pre></td></tr></table></figure>
-<h3 id="4-go-命令自动补全"><a href="#4-go-命令自动补全" class="headerlink" title="4. go 命令自动补全"></a>4. go 命令自动补全</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/posener/complete/gocomplete</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令会下载到 <span class="variable">$GOPATH</span>/bin 目录下</span></span><br><span class="line">gocomplete -install</span><br></pre></td></tr></table></figure>
-<h2 id="Windows-go-开发环境"><a href="#Windows-go-开发环境" class="headerlink" title="Windows go 开发环境"></a>Windows go 开发环境</h2><h3 id="0-系统准备-1"><a href="#0-系统准备-1" class="headerlink" title="0. 系统准备"></a>0. 系统准备</h3><ul>
-<li><p>Windows 10 或者 Windows Server 2019</p>
+<h3 id="2-下载安装">2. 下载安装</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/go/go1.16.linux-amd64.tar.gz</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 或者 (sysin)</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">wget https://golang.google.cn/dl/go1.16.linux-amd64.tar.gz</span></span><br><span class="line">tar zxvf go1.16.linux-amd64.tar.gz  -C /usr/local</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑/etc/profile文件添加如下：</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">go setting</span></span><br><span class="line">export GOROOT=/usr/local/go</span><br><span class="line">export GOPATH=/usr/local/gopath</span><br><span class="line">export PATH=$PATH:$GOROOT/bin</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h3 id="3-验证">3. 验证</h3>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> version</span><br><span class="line"><span class="keyword">go</span> version go1<span class="number">.16</span> linux/amd64</span><br></pre></td></tr></table></figure>
+<h3 id="4-go-命令自动补全">4. go 命令自动补全</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/posener/complete/gocomplete</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令会下载到 <span class="variable">$GOPATH</span>/bin 目录下</span></span><br><span class="line">gocomplete -install</span><br></pre></td></tr></table></figure>
+<h2 id="Windows-go-开发环境">Windows go 开发环境</h2>
+<h3 id="0-系统准备-2">0. 系统准备</h3>
+<ul>
+<li>
+<p>Windows 10 或者 Windows Server 2019</p>
 </li>
-<li><p>安装 git，下载：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>，直接双击安装</p>
+<li>
+<p>安装 git，下载：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>，直接双击安装</p>
 </li>
 </ul>
-<h3 id="1-下载安装-1"><a href="#1-下载安装-1" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h3><p>下载 zip 压缩包版本：<a target="_blank" rel="noopener" href="https://golang.google.cn/dl/go1.16.windows-amd64.zip">https://golang.google.cn/dl/go1.16.windows-amd64.zip</a></p>
+<h3 id="1-下载安装-2">1. 下载安装</h3>
+<p>下载 zip 压缩包版本：<a target="_blank" rel="noopener" href="https://golang.google.cn/dl/go1.16.windows-amd64.zip">https://golang.google.cn/dl/go1.16.windows-amd64.zip</a></p>
 <p>直接解压，例如：C:\go</p>
 <p>（另有 msi 软件包可直接安装：<a target="_blank" rel="noopener" href="https://golang.google.cn/dl/go1.16.windows-amd64.msi">https://golang.google.cn/dl/go1.16.windows-amd64.msi</a>）</p>
-<h3 id="2-环境变量"><a href="#2-环境变量" class="headerlink" title="2. 环境变量"></a>2. 环境变量</h3><p><strong>图形界面创建环境变量</strong>：</p>
-<p>图形界面（Windows 10）：此电脑 —&gt; 属性 —&gt; 高级系统设置 —&gt; 高级 —&gt; 环境变量…</p>
+<h3 id="2-环境变量">2. 环境变量</h3>
+<p><strong>图形界面创建环境变量</strong>：</p>
+<p>图形界面（Windows 10）：此电脑 --&gt; 属性 --&gt; 高级系统设置 --&gt; 高级 --&gt; 环境变量…</p>
 <ul>
-<li><p>用户变量：</p>
+<li>
+<p>用户变量：</p>
 <ul>
 <li>新建：GOPATH = %UserProfile%\gopath (例如：当前用户是 C:\Users\Administrators)</li>
 <li>PATH 变量增加一条 %GOPATH%\bin</li>
 </ul>
 </li>
-<li><p>系统变量：</p>
+<li>
+<p>系统变量：</p>
 <ul>
 <li>新建：GOROOT = C:\go</li>
 <li>PATH 增加了一条 %GOROOT%\bin</li>
@@ -677,25 +716,31 @@
 <p><strong>PowerShell 添加环境变量</strong>：</p>
 <p>环境变量所在注册表位置如下：</p>
 <ul>
-<li><p>用户变量所在位置：<code>HKEY_CURRENT_USER\Environment</code></p>
+<li>
+<p>用户变量所在位置：<code>HKEY_CURRENT_USER\Environment</code></p>
 </li>
-<li><p>系统变量所在位置：<code>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Environment</code></p>
+<li>
+<p>系统变量所在位置：<code>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Session Manager\Environment</code></p>
 </li>
 </ul>
 <p>创建两条：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">&quot;GOPATH&quot;</span>, <span class="string">&quot;<span class="variable">$env:USERPROFILE</span>\gopath&quot;</span>, <span class="string">&quot;User&quot;</span>)</span><br><span class="line"><span class="comment">#调用命令结果：$(命令)</span></span><br><span class="line"><span class="comment">#获取原有用户 PATH 变量：$([environment]::GetEnvironmentvariable(&quot;Path&quot;, &quot;User&quot;))</span></span><br><span class="line"><span class="comment">#注意 PATH 中条目以分号结尾</span></span><br><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">&quot;PATH&quot;</span>, <span class="string">&quot;<span class="variable">$</span>([environment]::GetEnvironmentvariable(&quot;</span>Path<span class="string">&quot;, &quot;</span>User<span class="string">&quot;));%GOPATH%\bin&quot;</span>, <span class="string">&quot;User&quot;</span>)</span><br><span class="line"></span><br><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">&quot;GOROOT&quot;</span>, <span class="string">&quot;C:\go&quot;</span>, <span class="string">&quot;Machine&quot;</span>)</span><br><span class="line"><span class="comment">#调用命令结果：$(命令)</span></span><br><span class="line"><span class="comment">#获取原有系统 PATH 变量：$([environment]::GetEnvironmentvariable(&quot;Path&quot;, &quot;Machine&quot;))</span></span><br><span class="line">[<span class="type">environment</span>]::SetEnvironmentvariable(<span class="string">&quot;PATH&quot;</span>, <span class="string">&quot;<span class="variable">$</span>([environment]::GetEnvironmentvariable(&quot;</span>Path<span class="string">&quot;, &quot;</span>Machine<span class="string">&quot;));%GOROOT%\bin&quot;</span>, <span class="string">&quot;Machine&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">go</span> version</span><br><span class="line"><span class="keyword">go</span> version go1<span class="number">.16</span> windows/amd64</span><br></pre></td></tr></table></figure>
-<h3 id="3-go-命令自动补全-1"><a href="#3-go-命令自动补全-1" class="headerlink" title="3. go 命令自动补全"></a>3. go 命令自动补全</h3><p>gocomplete 仅适用于 shell，Windows 下无效。</p>
-<h3 id="4-安装-VS-Code-和-Go-扩展-1"><a href="#4-安装-VS-Code-和-Go-扩展-1" class="headerlink" title="4. 安装 VS Code 和 Go 扩展"></a>4. 安装 VS Code 和 Go 扩展</h3><p>如果你还没有安装 VS Code, 直接下载安装 <a target="_blank" rel="noopener" href="https://code.visualstudio.com">Visual Studio Code</a>。浏览到“扩展面板” Extensions pane (Ctrl+Shift+X)。搜索 “Go” 并安装即可 (the publisher ID is <code>golang.Go</code>)。</p>
-<h3 id="5-安装-go-tools-1"><a href="#5-安装-go-tools-1" class="headerlink" title="5. 安装 go tools"></a>5. 安装 go tools</h3><p>按 F1 键，输入 <code>&gt;go:install</code>，下面会自动搜索相关命令，我们选择 <code>Go:Install/Update Tools</code> 这个命令（使用 VS Code 打开 go 文件也会提示安装“xxx”工具）。</p>
+<h3 id="3-go-命令自动补全-2">3. go 命令自动补全</h3>
+<p>gocomplete 仅适用于 shell，Windows 下无效。</p>
+<h3 id="4-安装-VS-Code-和-Go-扩展-2">4. 安装 VS Code 和 Go 扩展</h3>
+<p>如果你还没有安装 VS Code, 直接下载安装 <a target="_blank" rel="noopener" href="https://code.visualstudio.com">Visual Studio Code</a>。浏览到“扩展面板” Extensions pane (Ctrl+Shift+X)。搜索 “Go” 并安装即可 (the publisher ID is <code>golang.Go</code>)。</p>
+<h3 id="5-安装-go-tools-2">5. 安装 go tools</h3>
+<p>按 F1 键，输入 <code>&gt;go:install</code>，下面会自动搜索相关命令，我们选择 <code>Go:Install/Update Tools</code> 这个命令（使用 VS Code 打开 go 文件也会提示安装“xxx”工具）。</p>
 <p>安装报错无法访问 <a target="_blank" rel="noopener" href="https://proxy.golang.org/">https://proxy.golang.org/</a>，被墙。</p>
 <p>换一个国内能访问的代理地址：<a target="_blank" rel="noopener" href="https://goproxy.cn">https://goproxy.cn</a></p>
 <p>执行命令：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//goproxy.cn,direct</span></span><br></pre></td></tr></table></figure>
 <p>重新安装，正确通过！</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Tools environment: GOPATH=C:\Users\Administrator\gopath</span><br><span class="line">Installing 9 tools at C:\Users\Administrator\gopath\bin in module mode.</span><br><span class="line">  gopkgs</span><br><span class="line">  go-outline</span><br><span class="line">  gotests</span><br><span class="line">  gomodifytags</span><br><span class="line">  impl</span><br><span class="line">  goplay</span><br><span class="line">  dlv</span><br><span class="line">  golint</span><br><span class="line">  gopls</span><br></pre></td></tr></table></figure>
-<h3 id="6-测试智能提示"><a href="#6-测试智能提示" class="headerlink" title="6. 测试智能提示"></a>6. 测试智能提示</h3><p>使用 VS Code 打开一个文件夹，在文件夹中新建一个 .go 文件，例如：Helloworld.go，打开 Helloworld.go，输入 p，可以看到提示 package main 等内容已经出现。</p>
+<h3 id="6-测试智能提示">6. 测试智能提示</h3>
+<p>使用 VS Code 打开一个文件夹，在文件夹中新建一个 .go 文件，例如：Helloworld.go，打开 Helloworld.go，输入 p，可以看到提示 package main 等内容已经出现。</p>
 <p>Helloworld.go</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="built_in">println</span>(<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;world&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Version.go</p>
@@ -820,7 +865,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -883,7 +928,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Go-1-16-%E5%8F%91%E5%B8%83"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Go 1.16 发布</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载地址</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">macOS go 开发环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#0-%E7%B3%BB%E7%BB%9F%E5%87%86%E5%A4%87"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">0. 系统准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">1. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">2. 添加环境变量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-go-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3. go 命令自动补全</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E5%AE%89%E8%A3%85-VS-Code-%E5%92%8C-Go-%E6%89%A9%E5%B1%95"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">4. 安装 VS Code 和 Go 扩展</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%AE%89%E8%A3%85-go-tools"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">5. 安装 go tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">6. 智能提示</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">7. 格式化代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">8. 编译和运行第一个程序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-go-%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Linux go 编译环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%87%86%E5%A4%87"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 软件包准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-go-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. go 命令自动补全</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Windows go 开发环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#0-%E7%B3%BB%E7%BB%9F%E5%87%86%E5%A4%87-1"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">0. 系统准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85-1"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">1. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">2. 环境变量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-go-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-1"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">3. go 命令自动补全</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E5%AE%89%E8%A3%85-VS-Code-%E5%92%8C-Go-%E6%89%A9%E5%B1%95-1"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">4. 安装 VS Code 和 Go 扩展</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%AE%89%E8%A3%85-go-tools-1"><span class="toc-nav-number">5.6.</span> <span class="toc-nav-text">5. 安装 go tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%B5%8B%E8%AF%95%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA"><span class="toc-nav-number">5.7.</span> <span class="toc-nav-text">6. 测试智能提示</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Go-1-16-%E5%8F%91%E5%B8%83"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Go 1.16 发布</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80-193"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">下载地址</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#macOS-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">macOS go 开发环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#0-%E7%B3%BB%E7%BB%9F%E5%87%86%E5%A4%87"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">0. 系统准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">1. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">2. 添加环境变量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-go-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">3. go 命令自动补全</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E5%AE%89%E8%A3%85-VS-Code-%E5%92%8C-Go-%E6%89%A9%E5%B1%95"><span class="toc-nav-number">3.5.</span> <span class="toc-nav-text">4. 安装 VS Code 和 Go 扩展</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%AE%89%E8%A3%85-go-tools"><span class="toc-nav-number">3.6.</span> <span class="toc-nav-text">5. 安装 go tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA"><span class="toc-nav-number">3.7.</span> <span class="toc-nav-text">6. 智能提示</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#7-%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81"><span class="toc-nav-number">3.8.</span> <span class="toc-nav-text">7. 格式化代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#8-%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-nav-number">3.9.</span> <span class="toc-nav-text">8. 编译和运行第一个程序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Linux-go-%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Linux go 编译环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%87%86%E5%A4%87"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1. 软件包准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-%E9%AA%8C%E8%AF%81"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3. 验证</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-go-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">4. go 命令自动补全</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Windows-go-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Windows go 开发环境</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#0-%E7%B3%BB%E7%BB%9F%E5%87%86%E5%A4%87-2"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">0. 系统准备</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85-2"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">1. 下载安装</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">2. 环境变量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-go-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-2"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">3. go 命令自动补全</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-%E5%AE%89%E8%A3%85-VS-Code-%E5%92%8C-Go-%E6%89%A9%E5%B1%95-2"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">4. 安装 VS Code 和 Go 扩展</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-%E5%AE%89%E8%A3%85-go-tools-2"><span class="toc-nav-number">5.6.</span> <span class="toc-nav-text">5. 安装 go tools</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-%E6%B5%8B%E8%AF%95%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA"><span class="toc-nav-number">5.7.</span> <span class="toc-nav-text">6. 测试智能提示</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -1125,7 +1170,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
@@ -1458,5 +1503,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
