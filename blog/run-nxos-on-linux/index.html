@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> 在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" 在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> 在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" 在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10) - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" 在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10) "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/run-nxos-on-linux/">
+  <link rel="canonical" href="https://sysin.cn/blog/run-nxos-on-linux/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +472,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,27 +489,27 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/run-nxos-on-linux/" title="在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10)">在 Linux 上运行 Cisco Nexus 9000v (NX-OS 10)</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>本文使用的软件及下载地址：</p>
 <ul>
 <li>
-<p>OS：Ubuntu 20.04 Desktop [<a href="https://sysin.org/blog/ubuntu-2004/">点击下载</a>]</p>
+<p>OS：Ubuntu 20.04 Desktop [<a target="_blank" rel="noopener" href="https://sysin.org/blog/ubuntu-2004/">点击下载</a>]</p>
 </li>
 <li>
-<p>Hypervisor：VMware Workstation for Linux 16 [<a href="https://sysin.org/blog/vmware-workstation-16-unlocker-linux/">点击下载</a>]</p>
+<p>Hypervisor：VMware Workstation for Linux 16 [<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-16-unlocker-linux/">点击下载</a>]</p>
 </li>
 <li>
-<p>OVF：Cisco NX-OS 10 [<a href="https://sysin.org/blog/cisco-nx-os-10/">点击下载</a>]</p>
+<p>OVF：Cisco NX-OS 10 [<a target="_blank" rel="noopener" href="https://sysin.org/blog/cisco-nx-os-10/">点击下载</a>]</p>
 </li>
 </ul>
-<h2 id="下载和部署-OVF-2">下载和部署 OVF</h2>
+<h2 id="下载和部署-OVF">下载和部署 OVF</h2>
 <p>本站下载链接如上所述，或者去 Cisco <a target="_blank" rel="noopener" href="https://software.cisco.com/download/home">软件下载</a> 页面，搜索 “Nexus 9000v”，登录 Cisco 账号进行下载。</p>
 <p>VMware Workstation “Open a Virtual Machine”，导入 ova 文件，默认导入到用户主目录下的 vmware 文件夹下。</p>
 <p>按照默认配置即可，导入后如下。</p>
 <p><img src="vm-ws-linux-serial-01.webp" alt="sysin"></p>
-<h2 id="配置串口-2">配置串口</h2>
-<h3 id="添加串口-2">添加串口</h3>
+<h2 id="配置串口">配置串口</h2>
+<h3 id="添加串口">添加串口</h3>
 <p>编辑虚机设置，出现 “设置” 页面如下，点击 “Add…”</p>
 <p><img src="vm-ws-linux-serial-02.webp" alt="sysin"></p>
 <p>选择 “串行端口”，点击 “Finish”</p>
@@ -516,9 +518,9 @@
 <p>Use socket (named pipe)，名称没有固定要求，本例使用 <code>/tmp/serial0</code>，连接串口需要使用该名称。</p>
 <p>From：Server To：An Application（必须）</p>
 <p><img src="vm-ws-linux-serial-04.webp" alt="sysin"></p>
-<h3 id="编辑-vmx-2">编辑 vmx</h3>
+<h3 id="编辑-vmx">编辑 vmx</h3>
 <p>打开虚拟机目录，默认为用户主目录下的 vmware 文件夹下即 <code>~/vmware</code>，找到 nexus9500v64.10.1.2，用文本编辑器打开 nexus9300v.10.1.2.vmx，将 <code>serial0.fileType = &quot;file&quot;</code> 修改为 <code>serial0.fileType = &quot;pipe&quot;</code>。</p>
-<h2 id="连接串口-2">连接串口</h2>
+<h2 id="连接串口">连接串口</h2>
 <p>（1）安装 socat：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">for</span> Debian、Ubuntu</span></span><br><span class="line">sudo apt install socat</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">for</span> Redhat、CentOS</span></span><br><span class="line">yum install socat</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -547,9 +549,9 @@ stdio = stdin，客户端只进行标准输入</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User Access Verification</span><br><span class="line"> login: admin</span><br><span class="line">admin</span><br><span class="line">Password:</span><br></pre></td></tr></table></figure>
 <p>登录后</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Cisco NX-OS Software</span><br><span class="line">Copyright (c) 2002-2021, Cisco Systems, Inc. All rights reserved.</span><br><span class="line">Nexus 9000v software (&quot;Nexus 9000v Software&quot;) and related documentation,</span><br><span class="line">files or other reference materials (&quot;Documentation&quot;) are</span><br><span class="line">the proprietary property and confidential information of Cisco</span><br><span class="line">Systems, Inc. (&quot;Cisco&quot;) and are protected, without limitation,</span><br><span class="line">pursuant to United States and International copyright and trademark</span><br><span class="line">laws in the applicable jurisdiction which provide civil and criminal</span><br><span class="line">penalties for copying or distribution without Cisco&#x27;s authorization.</span><br><span class="line"></span><br><span class="line">Any use or disclosure, in whole or in part, of the Nexus 9000v Software</span><br><span class="line">or Documentation to any third party for any purposes is expressly</span><br><span class="line">prohibited except as otherwise authorized by Cisco in writing.</span><br><span class="line">The copyrights to certain works contained herein are owned by other</span><br><span class="line">third parties and are used and distributed under license. Some parts</span><br><span class="line">of this software may be covered under the GNU Public License or the</span><br><span class="line">GNU Lesser General Public License. A copy of each such license is</span><br><span class="line">available at</span><br><span class="line">http://www.gnu.org/licenses/gpl.html and</span><br><span class="line">http://www.gnu.org/licenses/lgpl.html</span><br><span class="line">***************************************************************************</span><br><span class="line">*  Nexus 9000v is strictly limited to use for evaluation, demonstration   *</span><br><span class="line">*  and NX-OS education. Any use or disclosure, in whole or in part of     *</span><br><span class="line">*  the Nexus 9000v Software or Documentation to any third party for any   *</span><br><span class="line">*  purposes is expressly prohibited except as otherwise authorized by     *</span><br><span class="line">*  Cisco in writing.                                                      *</span><br><span class="line">***************************************************************************</span><br><span class="line">switch#</span><br></pre></td></tr></table></figure>
-<h2 id="必要配置-3">必要配置</h2>
+<h2 id="必要配置-2">必要配置</h2>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 配置管理 IP</span></span></span><br><span class="line"><span class="meta prompt_">switch# </span><span class="language-bash">conf t</span></span><br><span class="line">Enter configuration commands, one per line. End with CNTL/Z.</span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">interface mgmt0</span></span><br><span class="line"><span class="meta prompt_">switch(config-if)# </span><span class="language-bash">ip address 10.0.2.15/24</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;--- NOTE: can use <span class="string">&quot;ip address dhcp&quot;</span> here instead</span></span><br><span class="line"><span class="meta prompt_">switch(config-if)# </span><span class="language-bash">no shut</span></span><br><span class="line"><span class="meta prompt_">switch(config-if)# </span><span class="language-bash"><span class="built_in">exit</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此时可以通过 ssh 访问管理口，默认 ssh 服务开启。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置管理口路由</span></span><br><span class="line"><span class="meta prompt_">switch(config)#</span><span class="language-bash">vrf context management</span></span><br><span class="line"><span class="meta prompt_">switch(config-vrf)# </span><span class="language-bash">ip route 0.0.0.0/0 10.0.2.1</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 配置引导镜像 (sysin)</span></span></span><br><span class="line"><span class="meta prompt_">switch# </span><span class="language-bash">conf t</span></span><br><span class="line">Enter configuration commands, one per line. End with CNTL/Z.</span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">boot nxos bootflash:nxos.10.1.2.bin</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者直接 boot nxos nxos.10.1.2.bin</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">&lt;--- Note: use correct imagename from <span class="string">&quot;dir&quot;</span> <span class="built_in">command</span> output</span></span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">copy r s</span></span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash"><span class="comment">#######################################] 100%</span></span></span><br><span class="line">Copy complete.</span><br><span class="line"><span class="meta prompt_">switch(config)#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 运行 show boot 命令确认</span></span></span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">show boot</span></span><br><span class="line">show boot</span><br><span class="line">Current Boot Variables:</span><br><span class="line">sup-1</span><br><span class="line">NXOS variable = bootflash:/nxos.10.1.2.bin</span><br><span class="line">Boot POAP Disabled</span><br><span class="line"></span><br><span class="line">Boot Variables on next reload:</span><br><span class="line">sup-1</span><br><span class="line">NXOS variable not set</span><br><span class="line">Boot POAP Disabled</span><br><span class="line"><span class="meta prompt_">switch#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"></span><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 添加一个用户（可选）</span></span></span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">username sysin password vagrant role network-admin</span></span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">username sysin shell bash</span></span><br><span class="line"><span class="meta prompt_">switch(config)# </span><span class="language-bash">copy r s</span></span><br></pre></td></tr></table></figure>
-<h2 id="下一步-3">下一步</h2>
+<h2 id="下一步-2">下一步</h2>
 <p>以后可以直接使用 SSH 访问，串口可用于 SSH 无法访问时候问题排查。</p>
 <p>请访问官方文档，开启你的 Nexus 之旅：</p>
 <p><a target="_blank" rel="noopener" href="https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html">Cisco Nexus 9000 Series Switches Configuration Guides</a></p>
@@ -673,7 +675,7 @@ stdio = stdin，客户端只进行标准输入</p>
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -736,7 +738,7 @@ stdio = stdin，客户端只进行标准输入</p>
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%83%A8%E7%BD%B2-OVF-2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">下载和部署 OVF</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%B2%E5%8F%A3-2"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">配置串口</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%B2%E5%8F%A3-2"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">添加串口</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BC%96%E8%BE%91-vmx-2"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">编辑 vmx</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BF%9E%E6%8E%A5%E4%B8%B2%E5%8F%A3-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">连接串口</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BF%85%E8%A6%81%E9%85%8D%E7%BD%AE-3"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">必要配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5-3"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下一步</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%92%8C%E9%83%A8%E7%BD%B2-OVF"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">下载和部署 OVF</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%B2%E5%8F%A3"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">配置串口</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%B8%B2%E5%8F%A3"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">添加串口</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BC%96%E8%BE%91-vmx"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">编辑 vmx</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%BF%9E%E6%8E%A5%E4%B8%B2%E5%8F%A3"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">连接串口</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BF%85%E8%A6%81%E9%85%8D%E7%BD%AE-2"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">必要配置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5-2"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">下一步</span></a></li></ol>
         
         </div>
       </aside>
@@ -980,7 +982,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
