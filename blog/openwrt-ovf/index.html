@@ -40,21 +40,19 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
-  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  
-  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
+  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> OpenWrt OVF：在 ESXi 8.0、Fusion 13 和 Workstation 17 上运行 OpenWrt 的简单方法 - sysin | 软件与技术分享 | SYStem INside </title>
-  <meta name="description" content=" OpenWrt OVF：在 ESXi 8.0、Fusion 13 和 Workstation 17 上运行 OpenWrt 的简单方法 - sysin | 软件与技术分享 | SYStem INside "/>
+  <title> OpenWrt OVF：在 ESXi 8.0、Fusion 13 和 Workstation 17 上运行 OpenWrt 的简单方法 - sysin | SYStem INside | 软件与技术分享 </title>
+  <meta name="description" content=" OpenWrt OVF：在 ESXi 8.0、Fusion 13 和 Workstation 17 上运行 OpenWrt 的简单方法 - sysin | SYStem INside | 软件与技术分享 "/>
   <meta name="keyword" content=" OpenWrt OVF：在 ESXi 8.0、Fusion 13 和 Workstation 17 上运行 OpenWrt 的简单方法 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.cn/blog/openwrt-ovf/">
+  <link rel="canonical" href="https://sysin.org/blog/openwrt-ovf/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -470,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.cn',
+            serverURL: 'https://discuss.sysin.org',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -487,7 +485,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/openwrt-ovf/" title="OpenWrt OVF：在 ESXi 8.0、Fusion 13 和 Workstation 17 上运行 OpenWrt 的简单方法">OpenWrt OVF：在 ESXi 8.0、Fusion 13 和 Workstation 17 上运行 OpenWrt 的简单方法</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p>这篇文章描述了如何将 OpenWrt 作为一个虚拟机运行在 VMware 虚拟化平台上，支持裸机硬件、macOS、Linux 和 Windows x86 平台虚拟化。</p>
 <p>最近有读者朋友反馈说 OpenWrt 不支持在 ESXi 8.0 上部署，今天下载测试了一下，完全没有问题，搜索了一下，网文似乎用了一些复杂方法，感觉没有必要，还是直接使用 OVF 点下一步来的省事。</p>
@@ -497,11 +495,11 @@
 <p>然后解压，再通过 <code>qemu-img</code> 转换为 vmdk 格式。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令示例：</span></span><br><span class="line">gunzip openwrt-sysin-generic-combined-ext4.img.gz</span><br><span class="line">qemu-img convert -f raw -O vmdk openwrt-sysin-generic-combined-ext4.img openwrt-sysin-generic-combined-ext4.vmdk</span><br></pre></td></tr></table></figure>
 <p>下面我们看看在 macOS 和 Linux 中具体操作：</p>
-<p><strong><a target="_blank" rel="noopener" href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a></strong>：</p>
+<p><strong><a href="https://sysin.org/blog/macOS-Ventura/">macOS Ventura</a></strong>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install qemu</span><br><span class="line">qemu-img convert -f raw -O vmdk ~/Downloads/openwrt-22.03.3-x86-64-generic-ext4-combined.img openwrt-22.03.3-x86-64-generic-ext4-combined.vmdk</span><br></pre></td></tr></table></figure>
-<p><strong>Ubuntu 22.04（<a target="_blank" rel="noopener" href="https://sysin.org/blog/ubuntu-2204-ovf/">OVF</a>）/ Debian 11（<a target="_blank" rel="noopener" href="https://sysin.org/blog/debian-11-ovf/">OVF</a>）</strong>：</p>
+<p><strong>Ubuntu 22.04（<a href="https://sysin.org/blog/ubuntu-2204-ovf/">OVF</a>）/ Debian 11（<a href="https://sysin.org/blog/debian-11-ovf/">OVF</a>）</strong>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install qemu-utils</span><br><span class="line">wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/openwrt-22.03.3-x86-64-generic-ext4-combined.img.gz</span><br><span class="line">gunzip openwrt-22.03.3-x86-64-generic-ext4-combined.img.gz</span><br><span class="line">qemu-img convert -f raw -O vmdk openwrt-22.03.3-x86-64-generic-ext4-combined.img openwrt-22.03.3-x86-64-generic-ext4-combined.vmdk</span><br></pre></td></tr></table></figure>
-<p><strong>RHEL9 / AlmaLinux 9（<a target="_blank" rel="noopener" href="https://sysin.org/blog/almalinux-9-ovf/">OVF</a>）/ Rocky Linux 9（<a target="_blank" rel="noopener" href="https://sysin.org/blog/rocky-linux-9-ovf/">OVF</a>)</strong>：</p>
+<p><strong>RHEL9 / AlmaLinux 9（<a href="https://sysin.org/blog/almalinux-9-ovf/">OVF</a>）/ Rocky Linux 9（<a href="https://sysin.org/blog/rocky-linux-9-ovf/">OVF</a>)</strong>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dnf makecache</span><br><span class="line">dnf install qemu-img</span><br><span class="line">wget https://downloads.openwrt.org/releases/22.03.3/targets/x86/64/openwrt-22.03.3-x86-64-generic-ext4-combined.img.gz</span><br><span class="line">gunzip openwrt-22.03.3-x86-64-generic-ext4-combined.img.gz</span><br><span class="line">qemu-img convert -f raw -O vmdk openwrt-22.03.3-x86-64-generic-ext4-combined.img openwrt-22.03.3-x86-64-generic-ext4-combined.vmdk</span><br></pre></td></tr></table></figure>
 <p>Windows？不要使用 Windows，虽然用来整 MS Office 和玩游戏很好，Linux 的事情还是要选择 Linux/Unix 来办。</p>
 <h3 id="2-创建虚拟机">2. 创建虚拟机</h3>
@@ -519,10 +517,10 @@
 </blockquote>
 <p>建议在以下版本的 VMware 软件中运行（Linux OVF 无需本站定制版可以正常运行，macOS 虚拟化如果不是 Mac 必须使用定制版才能运行，Windows OVF 需要定制版才能启用完整功能）：</p>
 <ul>
-<li>Server：VMware <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
-<li>macOS：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
-<li>Linux：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
-<li>Windows：<a target="_blank" rel="noopener" href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
+<li>Server：VMware <a href="https://sysin.org/blog/vmware-esxi-8-u3-oem/">ESXi 8.0</a> or <a href="https://sysin.org/blog/vmware-esxi-8-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vsphere-8-u3/">vCenter Server 8.0</a>，<a href="https://sysin.org/blog/vmware-esxi-7-u3-oem/">ESXi 7.0</a> or <a href="https://sysin.org/blog/vmware-esxi-7-u3-sysin/">with driver</a> &amp; <a href="https://sysin.org/blog/vmware-vcenter-7-u3/">vCenter Server 7.0</a></li>
+<li>macOS：<a href="https://sysin.org/blog/vmware-fusion-13-oem/">VMware Fusion 13</a></li>
+<li>Linux：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-linux/">VMware Workstation 17 for Linux</a></li>
+<li>Windows：<a href="https://sysin.org/blog/vmware-workstation-17-unlocker-windows/">VMware Workstation 17 for Windows</a></li>
 </ul>
 <h2 id="下载地址-311">下载地址</h2>
 <p>版本：全部为 x64 版本，适用于现代计算机，镜像没有任何更改仅转换格式。</p>
@@ -670,7 +668,7 @@ EXT4 文件系统（读写），BIOS 固件引导</li>
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.cn',
+        serverURL: 'https://discuss.sysin.org',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -975,7 +973,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
