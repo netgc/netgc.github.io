@@ -40,19 +40,21 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   
+  <meta name="google-site-verification" content="cQdiYmfnUizHR5_mlq5DfwwqcUc7QOET5xiRSYR135k"/>
   
   
-  <meta name="bytedance-verification-code" content="ogpqLENT9c9pWmb2XWie"/>
+  
+  <meta name="bytedance-verification-code" content="gxLK9s/GZWOg4uM84+f4"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title> Debian 11 “bullseye” 安装笔记 - sysin | SYStem INside | 软件与技术分享 </title>
-  <meta name="description" content=" Debian 11 “bullseye” 安装笔记 - sysin | SYStem INside | 软件与技术分享 "/>
+  <title> Debian 11 “bullseye” 安装笔记 - sysin | 软件与技术分享 | SYStem INside </title>
+  <meta name="description" content=" Debian 11 “bullseye” 安装笔记 - sysin | 软件与技术分享 | SYStem INside "/>
   <meta name="keyword" content=" Debian 11 “bullseye” 安装笔记 "/>
   <link rel="shortcut icon" href="/img/favicon.png"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://sysin.org/blog/debian-11-install/">
+  <link rel="canonical" href="https://sysin.cn/blog/debian-11-install/">
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <!-- <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script> -->
@@ -466,7 +468,7 @@
         <script type="module">
           import { pageviewCount } from '/js/pageview.mjs';
           pageviewCount({
-            serverURL: 'https://discuss.sysin.org',
+            serverURL: 'https://discuss.sysin.cn',
             path: window.location.pathname,
             // 可选的，用于自定选择器，默认为 `'.waline-pageview-count'`
             // selector: 'waline-pageview-count',
@@ -483,7 +485,7 @@
         <!-- toppromotion end -->
 
         <p>请访问原文链接：<a href="/blog/debian-11-install/" title="Debian 11 “bullseye” 安装笔记">Debian 11 “bullseye” 安装笔记</a> 查看最新版。原创作品，转载请保留出处。</p>
-<p>作者主页：<a href="https://sysin.org">sysin.org</a></p>
+<p>作者主页：<a target="_blank" rel="noopener" href="https://sysin.org">sysin.org</a></p>
 <hr>
 <p><img src="https://www.debian.org/Pics//mini-dc21-regensburg.jpg" alt="sysin"></p>
 <p>ISO 下载：<a href="/blog/debian-11/" title="Debian 11.10 - The Universal Operating System">Debian 11.10 - The Universal Operating System</a></p>
@@ -982,7 +984,7 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果非 root 用户，请先切换到 root</span></span><br><span class="line">sudo -i</span><br><span class="line">cat &gt; /usr/local/bin/lll &lt;&lt;EOF</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">ls -lahF --color=auto --time-style=long-iso | awk &#x27;&#123;k=0;s=0;for(i=0;i&lt;=8;i++)&#123;k+=((substr(\$1,i+2,1)~/[rwxst]/)*2^(8-i))&#125;j=4;for(i=4;i&lt;=10;i+=3)&#123;s+=((substr(\$1,i,1)~/[stST]/)*j);j/=2&#125;if(k)&#123;printf(&quot;%0o%0o &quot;,s,k)&#125;print&#125;&#x27;</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果非 root 用户，无需切换 root 执行如下命令：</span></span><br><span class="line">sudo sh -c &quot;cat &gt; /usr/local/bin/lll&quot; &lt;&lt;EOF</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">ls -lahF --color=auto --time-style=long-iso | awk &#x27;&#123;k=0;s=0;for(i=0;i&lt;=8;i++)&#123;k+=((substr(\$1,i+2,1)~/[rwxst]/)*2^(8-i))&#125;j=4;for(i=4;i&lt;=10;i+=3)&#123;s+=((substr(\$1,i,1)~/[stST]/)*j);j/=2&#125;if(k)&#123;printf(&quot;%0o%0o &quot;,s,k)&#125;print&#125;&#x27;</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">赋予执行权限：</span></span><br><span class="line">chmod +x /usr/local/bin/lll</span><br></pre></td></tr></table></figure>
 <h3 id="Zsh">Zsh</h3>
-<p>以下针对当前用户有效，建议使用全局配置，参看 <a href="https://sysin.org/blog/linux-zsh-all/">其他文章</a>。</p>
+<p>以下针对当前用户有效，建议使用全局配置，参看 <a target="_blank" rel="noopener" href="https://sysin.org/blog/linux-zsh-all/">其他文章</a>。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Zsh</span></span><br><span class="line">sudo apt install zsh</span><br><span class="line"></span><br><span class="line">sudo chsh -s /bin/zsh</span><br><span class="line">sudo apt install git</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">通过 https://www.ipaddress.com 查询，美国地址有效</span></span><br><span class="line">sudo sh -c &quot;echo&#x27;199.232.96.133 raw.githubusercontent.com&#x27;&gt;&gt; /etc/hosts&quot;</span><br><span class="line"></span><br><span class="line">sudo sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br><span class="line"></span><br><span class="line">sed -i &#x27;/^ZSH_THEME=.*/c ZSH_THEME=&quot;ys&quot;&#x27; ~/.zshrc</span><br><span class="line"></span><br><span class="line">echo &#x27;alias ll=&quot;ls -lahF --color=auto --time-style=long-iso&quot;&#x27; &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line">git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line">sed -i &#x27;/^plugins=.*/c plugins=(git zsh-syntax-highlighting)&#x27; ~/.zshrc</span><br><span class="line"></span><br><span class="line">source  ~/.zshrc</span><br></pre></td></tr></table></figure>
 <h2 id="19-清理并制作镜像模板">19. 清理并制作镜像模板</h2>
 <p>清理 apt 缓存</p>
@@ -1122,7 +1124,7 @@
   <script type="text/javascript">
       Waline.init({
         el: '#waline',
-        serverURL: 'https://discuss.sysin.org',
+        serverURL: 'https://discuss.sysin.cn',
         login: 'force',
         wordLimit: [3, 300],
         pageSize: 10,
@@ -1425,7 +1427,7 @@ https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
 <!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
 
 <!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.org/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("https://sysin.cn/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
 start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
 
 
